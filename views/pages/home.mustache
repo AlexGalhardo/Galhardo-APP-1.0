@@ -1,0 +1,311 @@
+{{>partials/header}}
+
+	<div class="container col-lg-12 mt-3 mx-auto">
+		
+        <form id="formCreditCard" action="/shop/payLog" method="POST">
+
+          	<div class="row">
+
+                <!-- START COL-LG-3 -->
+                <div class="col-lg-3 mb-3">
+                    
+                    <ul class="list-group text-center">
+                        
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <input name="quantityOranges" class="form-control w-25" type="number" min="1" step="1" value="1" id="quantityOranges">
+                            Oranges  
+                            <b>$<span id="priceOranges">0.49</span></b>
+                        </li>
+                          
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <input name="quantityGrapes" class="form-control w-25" type="number" min="1" step="1" value="1" id="quantityGrapes">
+                            Grapes  
+                            <b>$<span id="priceGrapes">0.99</span></b>
+                        </li>
+                          
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <input name="quantityApples" class="form-control w-25" type="number" min="1" step="1" value="1" id="quantityApples">
+                            Apples  
+                            <b>$<span id="priceApples">1.99</span></b>
+                        </li>
+                          
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <input name="quantityStrawberries" class="form-control w-25" type="number" min="1" step="1" value="1" id="quantityStrawberries">
+                            Strawberries  
+                            <b>$<span id="priceStrawberries">2.99</span></b>
+                        </li>
+                    
+                    </ul>
+
+                </div>
+                <!-- END COL-LG-3 -->  
+
+
+
+                <!-- START COL-LG-4 -->
+                <div class="col-lg-4">
+
+                    <!-- NAME -->
+                    <div class="">
+                        <input name="customer_name" id="name" value="Test Jack" type="text" class="form-control mb-2" placeholder="Your Name">
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <input
+                        value="test@gmail.com"
+                        type="email"
+                        name="customer_email"
+                        id="customer_email"
+                        class="form-control mb-2"
+                        placeholder="Your email"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    </div>
+
+                    <!-- TELEPHONE -->
+                    <div class="form-group">
+                        <input name="customer_phone" id="customer_phone" type="tel" class="form-control mb-2" placeholder="Your telephone" 
+                        value="1899999-8888">
+                    </div>
+
+                    <!-- CPF -->
+                    <div>
+                        <input id="cpf" type="text" name="document" id="document" class="mb-2 form-control"
+                        placeholder="Digit your document id"
+                        value="44556677799">
+                    </div>
+
+                    <br>
+
+                    <!-- BORN_AT -->
+                    <div class="form-group">
+                      <input id="birthdate" type="text" name="born_at" id="born_at" class="form-control mb-2"
+                        placeholder="Digit your birth date like day/month/year"
+                        value="23091997">
+                    </div>
+
+                    <!-- CONFIRM PASSWORD -->
+                    <div class="">
+                        <input name="name" type="password" class="form-control" placeholder="Confirm your account password"
+                        value="123456">
+                    </div>
+
+
+                    <br>
+
+
+                    <div class="form-group row">
+
+                        <!-- ZIP CODE -->
+                        <label for="inputPassword" class="col-sm-4 col-form-label">ZIP Code:</label>
+                        <div class="col-sm-8">
+                          <input type="number" class="form-control" id="zipcode" name="zipcode" placeholder="Enter Your Zip Code"
+                          value="" required>
+                          <br>
+                        </div>
+                        
+                        <br><br>
+
+                        <div class="result"></div>
+
+
+                        <!-- STREET -->
+                        <div class="col-sm-12 mb-2">
+                          <input type="text" class="form-control" id="customer_street" name="customer_street" placeholder="Street" value="" required onkeydown="return false;">
+                        </div>
+
+                        <!-- NEIGHBORHOOD -->
+                        <div class="col-sm-12 mb-2">
+                          <input type="text" class="form-control" id="customer_neighborhood" name="neighborhood" placeholder="Neighborhood" value="" required onkeydown="return false;">
+                        </div>
+
+                        <!-- CITY -->
+                        <div class="col-sm-12 mb-2">
+                          <input type="text" class="form-control" id="customer_city" name="customer_city" placeholder="City" value="" required onkeydown="return false;">
+                        </div>
+
+                        <!-- STATE -->
+                        <div class="col-sm-12 mb-2">
+                          <input type="text" class="form-control" id="customer_state" name="customer_state" placeholder="State" value="" required onkeydown="return false;">
+                        </div>
+
+                        <label for="shipping_fee" class="col-sm-5 col-form-label">Shipping Fee R$</label>
+                        <div class="col-sm-7">
+                            <!-- SHIPMENT_PRICE -->
+                            <input type="text" class="form-control" value="" placeholder="Shipment Price" name="shipping_fee" id="shipping_fee" required onkeydown="return false;">
+                        </div>
+
+                        <br><br>
+                        
+                        <label for="shipping_deadline" class="col-sm-5 col-form-label">Shipping Deadline (days)</label>
+                        <div class="col-sm-7">
+                            <!-- SHIPMENT__TIME -->
+                            <input type="text" class="form-control" value="" placeholder="Delivery Time" name="shipping_deadline" id="shipping_deadline" required onkeydown="return false;">
+                        </div>
+
+                    </div>
+                    <!-- END FORM-GROUP-ROW -->
+
+                    <br>
+
+                </div>
+                <!-- END COL-LG-4 -->
+
+
+                <div class="col-lg-4">
+
+
+                    <div id="credit-card" class="tab-pane fade show active pt-3">
+
+                        <div id="div_credit_card"></div>
+
+                        <div class="form-group mb-2">
+                            <br>
+                            <input type="text" name="holder_name" placeholder="Credit Card Holder Name" required class="form-control" value="Test Jack">
+                        </div>
+
+                        <div class="form-group mb-2">
+                            <div class="input-group">
+                                <input type="text" name="card_number" placeholder="Credit Card Number" class="form-control" value="4242424242424242" required>
+                                <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="bi bi-credit-card h-100"></i> </span> </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <span class="hidden-xs">
+                                        <h6 class="text-muted small">Expiration Date</h6>
+                                    </span>
+                                    <div class="input-group">
+                                        <input type="number" placeholder="Month" name="card_exp_month" class="form-control" value="08" required>
+                                        <input type="number" placeholder="Year" name="card_exp_year" class="form-control" required value="2022"> </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group mb-4">
+                                    <label data-toggle="tooltip" title="Digite os 3 dígitos de segurança atrás do Credit Card.">
+                                    <h6 class="text-muted small">CVV
+                                        <i class="fa fa-question-circle d-inline"></i>
+                                    </h6>
+                                    <input type="text" name="card_cvc" required class="form-control" placeholder="Code CVV" value="314"> </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <input type="number" value="6.46" id="value_totalShopCart" name="value_totalShopCart" readonly hidden>
+                            <button type="submit" class="btn btn-outline-success btn-block shadow w-100">
+                                Pay $<span id="totalCartShop">6.46</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <!-- END COL-LG-5 -->
+
+            </div>
+            <!-- END ROW -->
+		
+        </form>
+	
+    </div>
+
+
+    <script>
+        const priceOranges = 0.49;
+        const priceGrapes = 0.99;
+        const priceApples = 1.99;
+        const priceStrawberries = 2.99;
+        let totalCart = 0;
+        
+        document.querySelector('#quantityOranges').addEventListener('change', function() {
+            document.querySelector("#priceOranges").innerHTML = (this.value * priceOranges).toFixed(2);
+            getTotal()
+        });
+
+        document.querySelector('#quantityGrapes').addEventListener('change', function() {
+            document.querySelector("#priceGrapes").innerHTML = (this.value * priceGrapes).toFixed(2);
+            getTotal()
+        });
+
+        document.querySelector('#quantityApples').addEventListener('change', function() {
+            document.querySelector("#priceApples").innerHTML = (this.value * priceApples).toFixed(2);
+            getTotal()
+        });
+
+        document.querySelector('#quantityStrawberries').addEventListener('change', function() {
+            document.querySelector("#priceStrawberries").innerHTML = (this.value * priceStrawberries).toFixed(2);
+            getTotal()
+        });
+
+        function getTotal(){
+            document.querySelector("#totalCartShop").innerHTML = 
+                (
+                    parseFloat(document.querySelector("#priceOranges").innerHTML) + 
+                    parseFloat(document.querySelector("#priceGrapes").innerHTML) + 
+                    parseFloat(document.querySelector("#priceApples").innerHTML) + 
+                    parseFloat(document.querySelector("#priceStrawberries").innerHTML))
+                .toFixed(2)
+
+            document.querySelector("#value_totalShopCart").value = document.querySelector("#totalCartShop").innerHTML
+
+            console.log(document.querySelector("#totalCartShop").innerHTML)
+            console.log(document.querySelector("#value_totalShopCart").value)
+        }
+    </script>
+
+	<script src="scripts/jquery.min.js"></script>
+    <script src="scripts/jquery.card.js"></script>
+    <script>
+        $('#formCreditCard').card({
+            container: '#div_credit_card',
+            formSelectors: {
+                numberInput: 'input[name="card_number"]',
+                nameInput: 'input[name="holder_name"]',
+                expiryInput: 'input[name="card_exp_month"], input[name="card_exp_year"]',
+                cvcInput: 'input[name="card_cvc"]'
+            }
+        });
+    </script>
+
+    <!-- DOCUMENT ID -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#cpf").mask('000.000.000-00');
+        });
+    </script>
+
+    <!-- SHIPMENT PRICE -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        $("#zipcode").change(function() {
+            var zipcode = $("#zipcode").val();
+
+            axios.get("https://galhardo-correios.herokuapp.com/cep/" + zipcode)
+            .then(function(response) {
+                var street = response.data.logradouro;
+                var neighborhood = response.data.bairro;
+                var city = response.data.localidade;
+                var state = response.data.uf;
+                $('#customer_street').val(street);
+                $('#customer_neighborhood').val(neighborhood);
+                $('#customer_city').val(city);
+                $('#customer_state').val(state);
+            });
+
+            axios.get("https://galhardo-correios.herokuapp.com/correios/" + zipcode )
+            .then(function(response) {
+                console.log(response);
+                var shipping_fee = response.data[0].Valor;
+                var shipping_deadline = response.data[0].PrazoEntrega;
+                $('#shipping_fee').val(shipping_fee);
+                $('#shipping_deadline').val(shipping_deadline);
+            });
+        });
+    </script>
+
+{{>partials/footer}}
