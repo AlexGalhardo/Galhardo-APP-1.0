@@ -1,0 +1,213 @@
+{{>partials/header}}
+
+        <main class="container col-lg-12 mt-3">
+
+        <!-- ROW -->
+        <div class="row">
+
+            <!-- AVATAR -->
+            <div class="col-lg-4">
+                <form action="/profile/avatar"
+                    method="POST" 
+                    enctype="multipart/form-data">
+                
+                    <img src="/uploads/avatars/profile.png" class="w-100 image-fluid rounded-circle" alt="avatar">
+
+                    <br>
+                    
+                    <input class="form-control" type="file" id="avatar" name="avatar">
+                    <hr>
+                    
+                    <button class="btn btn-outline-primary" type="submit">
+                        Upload Avatar
+                    </button>
+                </form>
+            </div>
+            <!-- END COL-LG-2 AVATAR -->
+
+
+            <!-- COL-LG-5 -->
+                <div class="col-lg-7">
+
+
+                <form action="/profile" class="form" method="POST">
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">Username</label>
+                        <div class="col-lg-8">
+                            <input placeholder="Digit your username" class="mb-2 form-control" name="username" type="text" value="" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">Email</label>
+                        <div class="col-lg-8">
+                            <input class="mb-2 form-control" type="email" name="email" placeholder="Digit your email" value="" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">Document</label>
+                        <div class="col-lg-8">
+                            <input class="mb-2 form-control" type="text" minlength="11" maxlength="11" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" id="document" name="document" placeholder="Digit your document" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">Phone</label>
+                        <div class="col-lg-8">
+                            <input class="mb-2 form-control" id="telephone" type="text" name="telephone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" placeholder="Digit your cellphone" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">BirthDay</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="date" id="txtDataNascimento" placeholder=" " />
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">Older Password</label>
+                        <div class="col-lg-8">
+                            <input class="mb-2 form-control" minlength="6" name="olderPassword" type="password" placeholder="Confirm your older password">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">New Password</label>
+                        <div class="col-lg-8">
+                            <input class="mb-2 form-control" minlength="6" name="newPassword" type="password" placeholder="Digit your new password">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label mb-2 form-control-label">Confirm New Password</label>
+                        <div class="col-lg-8">
+                            <input class="mb-2 form-control" minlength="6" name="confirmNewPassword" type="password" placeholder="Confirm your new password">
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">ZipCode</label>
+                        <div class="col-lg-8">
+                            <input type="number" class="mb-2 form-control" id="zipcode" name="zipcode" placeholder="Enter Your Zip Code" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">Street</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="mb-2 form-control" id="customer_street" name="street" placeholder="Street" value="" onkeydown="return false;" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">Street Number</label>
+                        <div class="col-lg-8">
+                            <input class="mb-2 form-control" type="number" min='1' max='9999' name="street_number" placeholder="Digit your street number" value="" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">Neighborhood</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="mb-2 form-control" id="customer_neighborhood" name="neighborhood" placeholder="Neighborhood" value="" onkeydown="return false;" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">City</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="mb-2 form-control" id="customer_city" name="city" placeholder="City" value="" onkeydown="return false;" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">State</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="mb-2 form-control" id="customer_state" name="state" placeholder="State" value="" onkeydown="return false;" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-3">
+                        <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
+                        <div class="col-lg-8">
+                            <input type="submit" class="shadow w-100 btn btn btn-outline-success" value="Update Profile">
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <hr>
+
+            <form action="/deleteProfile" class="form mb-5" method="POST">
+
+                <select name="_method" hidden>
+                    <option value="DELETE" selected>DELETE</option>
+                </select>
+
+                <button type="submit"
+                        class="btn btn btn-outline-danger float-right"
+                        onclick="confirm('Are you sure you want to delete your account?!');"
+                        >
+                        Delete Account
+                </button>
+            </form>
+
+
+        </div>
+        <!-- END ROW -->
+        
+    </main>
+
+
+
+        <script src="/js/scripts.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            $("#zipcode").change(function() {
+                var zipcode = $("#zipcode").val();
+
+                axios.get("https://api.pagar.me/1/zipcodes/" + zipcode)
+                .then(function(response) {
+                    var street = response.data.street;
+                    var neighborhood = response.data.neighborhood;
+                    var city = response.data.city;
+                    var state = response.data.state;
+                    $('#customer_street').val(street);
+                    $('#customer_neighborhood').val(neighborhood);
+                    $('#customer_city').val(city);
+                    $('#customer_state').val(state);
+                });
+            });
+        </script>
+        <script src="https://unpkg.com/imask"></script>
+        <script>
+            IMask(
+                document.getElementById('born_at'),
+                {
+                    mask:'0000/00/00'
+                }
+            );
+
+            IMask(
+                document.getElementById('document'),
+                {
+                    mask:'00000000000'
+                }
+            );
+
+            IMask(
+                document.getElementById('telephone'),
+                {
+                    mask:'00000000000'
+                }
+            );
+        </script>
+    </div>
+
+{{>partials/footer}}

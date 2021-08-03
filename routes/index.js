@@ -1,4 +1,4 @@
-// GET CONTROLLERS
+// STRIPE CONTROLLERS
 const CustomersController = require('../controllers/CustomersController');
 const CardsController = require('../controllers/CardsController');
 const ChargesController = require('../controllers/ChargesController');
@@ -7,8 +7,12 @@ const SubscriptionsController = require('../controllers/SubscriptionsController'
 const ProductsController = require('../controllers/ProductsController');
 const PricesController = require('../controllers/PricesController');
 
+// CONTROLLERS
 const AppController = require('../controllers/AppController');
 const APIController = require('../controllers/APIController');
+const AuthController = require('../controllers/AuthController');
+const ProfileController = require('../controllers/ProfileController');
+
 
 const express = require('express');
 const router = express();
@@ -16,17 +20,43 @@ const router = express();
 
 // APP CONTROLLER
 router.get('/', AppController.getViewHome);
-router.post('/shop/payLog', AppController.postShopPayLog);
+
+router.get('/contact', AppController.getViewContact);
+router.post('/contact', AppController.postContact);
+
+router.get('/privacy', AppController.getViewPrivacy);
 
 router.get('/plan/checkout', AppController.getViewPlanCheckout);
 router.post('/plan/payLog', AppController.postPlanPayLog);
+router.post('/shop/payLog', AppController.postShopPayLog);
 
+
+
+// AUTH CONTROLLER
+router.get('/login', AuthController.getViewLogin);
+router.post('/login', AuthController.postLogin);
+
+router.get('/register', AuthController.getViewRegister);
+router.post('/register', AuthController.postRegister);
+
+router.get('/forgetPassword', AuthController.getViewForgetPassword);
+router.post('/forgetPassword', AuthController.postForgetPassword);
+
+router.get('/resetPassword/:email/:token', AuthController.getViewResetPassword);
+router.post('/resetPassword', AuthController.postResetPassword);
+
+
+
+// PROFILE CONTROLLER
+router.get('/profile', ProfileController.getViewProfile);
+router.get('/logout', ProfileController.getLogout);
 
 
 // API CONTROLLER
 // http://localhost:3000/api/v1/correios/shippingFeeAndDeadline/:zipcode
 router.get('/api/v1/correios/shippingFeeAndDeadline/:zipcode', APIController.getCorreiosShippingFeeAndDeadline);
 
+router.get('/api/v1/', APIController.getWelcome);
 
 
 // CUSTOMERS CONTROLLER

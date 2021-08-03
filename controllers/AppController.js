@@ -1,15 +1,53 @@
 const bodyParser = require('body-parser');
 const DateTime = require('../helpers/DateTime');
+const NodeMailer = require('../helpers/NodeMailer');
 
 const stripe = require('stripe')('sk_test_IVPNgFWhBStx7kngLOXZHzW0');
 
 const AppController = {
+	
 	getViewHome: (req, res) => {
 		res.render('pages/home');
 	},
-	getViewPlanCheckout: (req, res) => {
-		res.render('pages/plan_checkout');
+
+	getViewContact: (req, res) => {
+		res.render('pages/contact');
 	},
+
+	postContact: async (req, res) => {
+		const username = req.body.contact_username;
+		const email = req.body.contact_email;
+		const subject = req.body.contact_subject;
+		const message = req.body.contact_message;
+
+		console.log(username, email, subject, message)
+
+		if(NodeMailer.postContact(username, email, subject, message)){
+			res.render('pages/contact', {
+				flash: {
+					type: 'success',
+					message: 'Message Send!'
+				}
+			});
+			return
+		}
+
+		res.render('pages/contact', {
+			flash: {
+				type: 'warning',
+				message: 'Error'
+			}
+		});
+	},
+
+	getViewPrivacy: (req, res) => {
+		res.render('pages/privacy');
+	},
+
+	getViewPlanCheckout: (req, res) => {
+		res.render('pages/templates/plan_checkout');
+	},
+
 	postShopPayLog: async (req, res) => {
 		
 		// get post input
@@ -79,7 +117,7 @@ const AppController = {
 
 		shopCardCharge.created = DateTime.getDateTime(shopCardCharge.created);
 
-		res.render('pages/shopPayLog', {
+		res.render('pages/templates/shopPayLog', {
 			flash: {
 				type: 'success',
 				message: 'Shop Cart Card Charge Created with Success!'
@@ -136,7 +174,7 @@ const AppController = {
 		subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
 		subscription.current_period_start = DateTime.getDateTime(subscription.current_period_start);
 
-		res.render('pages/planPayLog', {
+		res.render('pages/templates/planPayLog', {
 			flash: {
 				type: 'success',
 				message: 'Subscription Created with Success!'

@@ -14,7 +14,13 @@ Código do serviço:
 */
 
 const APIController = {
-	
+	getWelcome: (req, res) => {
+		const response = {
+			welcome: "Welcome to API!"
+		};
+
+		res.json(response);
+	},
 	getCorreiosShippingFeeAndDeadline: async (req, res) => {
 		const zipcode_destiny = req.params.zipcode;
 

@@ -1,0 +1,44 @@
+{{>partials/header}}
+
+    <main class="container col-lg-5 mt-3">
+
+        <div class="row justify-content-center">
+            
+            <form action="/contact" method="POST">
+
+                {{#flash}}
+                    <div class="text-center alert alert-{{type}}" role="alert">
+                        <b>{{message}}</b>
+                    </div>
+                {{/flash}}
+
+                <div class="form-floating mb-3">
+                    <input type="text" id="contact_username" name="contact_username" class="form-control" autofocus required>
+                    <label for="contact_username">Digit your name</label>
+                </div>
+                
+                <div class="form-floating mb-3">
+                    <input type="email" id="contact_email" name="contact_email" class="form-control" required>
+                    <label for="contact_email">Digit your email</label>
+                </div>
+
+                <select class="form-select mb-3" name="contact_subject" required>
+                    <option value="feedback">Feedback</option>
+                    <option value="bugs">Bugs/Error</option>
+                    <option value="others">Others</option>
+                </select>
+
+                <div class="mb-3">
+                    <label for="contact_message" class="form-label">Digit your message</label>
+                    <textarea class="form-control" id="contact_message" name="contact_message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-lg btn-outline-success">Send Mensage</button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+{{>partials/footer}}
