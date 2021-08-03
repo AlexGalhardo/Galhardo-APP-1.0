@@ -1,5 +1,5 @@
 <br>
-<h2 align="center">💵 Galhardo Stripe NodeJS APP 💳</h2>
+<h2 align="center">⭐ Galhardo APP 💵</h2>
 
 ## Live Demo
 - You can access: https://galhardo-stripe-nodejs-app.herokuapp.com/
@@ -11,11 +11,11 @@
 - I created this program in my spare time to help in my commercial projects and also to learn and practice:
      - NodeJS basics
      - Express basics
-     - Payment API REST
+     - Payment APIs RESTs
      - MVC
      - How to document a software
      - Tests
-     - Simple CRUDs
+     - CRUDs
      - And so on.
 - The program is under development. I will be refactoring it over the years during my professional career as I develop my programming skills.
 
@@ -26,18 +26,23 @@
 - [Bootstrap5](https://getbootstrap.com/)
 - [Stripe Payment API](https://stripe.com/docs/)
 - [Bootstap5 Icons](https://icons.getbootstrap.com/)
-- API Correios
-- Google Translate
+- [https://translate.google.com/](https://translate.google.com/)
+- [https://www.freeprivacypolicy.com/](https://www.freeprivacypolicy.com/)
+- [https://sendgrid.com/](https://sendgrid.com/)
 - Bash
+- API Brazil Correios
 
 ## In Development
-- Login & Register using Sessions
 - API REST Endpoints using JWT
-- Password forget/reset using NodeMailer
 - CRUDs using Models
    - with JSON-Server
    - with MySQL
    - with MongoDB
+- Social Login using Oauth2
+   - with GitHub
+   - with Facebook
+   - with Google
+- Docker
 
 
 ## Project Structure

@@ -78,19 +78,16 @@ const AuthController = {
 	    }
 
 	    try {
-  			let [rows, fields] = await MySQL.execute(
-  				"SELECT * FROM `users` WHERE `email` = ?", 
-  				[email]
-  			);
 
-	        if (rows.length >= 1) {
-	            return res.render('pages/auth/register', {
+	    	let emailValid = await Users.emailIsAlreadyRegistred(email);
+	    	if(emailValid){
+	    		return res.render('pages/auth/register', {
 	            	flash: {
 	            		type: "warning",
 	            		message: 'This email is already registred!'
 	            	}
 	            });
-	        }
+	    	}
 
 	        if(password !== confirm_password){
             	return res.render('pages/auth/register', {
@@ -101,23 +98,16 @@ const AuthController = {
 	            });
         	}
 
-	        const passwordHash = await Bcrypt.cryptPassword(password);
-
-	        [rows] = await MySQL.execute(
-	            "INSERT INTO `users`(`name`,`email`,`password`) VALUES(?,?,?)",
-	            [username, email, passwordHash]
-	        );
-
-	        if (rows.affectedRows !== 1) {
-	            return res.render('pages/auth/register', {
+        	if(!Users.registerUser(username, email, password)){
+        		return res.render('pages/auth/register', {
 	            	flash: {
 	            		type: "warning",
 	            		message: 'Registration failed!'
 	            	}
 	            });
-	        }
+        	}
 	        
-	        res.render("pages/auth/register", {
+	        return res.render("pages/auth/register", {
 	            flash: {
             		type: "success",
             		message: 'Account Created!'

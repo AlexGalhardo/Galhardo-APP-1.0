@@ -10,6 +10,33 @@ const Users = {
 	    return null;
 	},
 
+	emailIsAlreadyRegistred: async (email) => {
+		let [row] = await MySQL.execute(
+			"SELECT * FROM `users` WHERE `email` = ?", 
+			[email]
+		);
+
+        if (row.length) {
+            return true;
+        }
+		
+		return false;
+	},
+
+	registerUser: async (username, email, password) => {
+		const passwordHash = await Bcrypt.cryptPassword(password);
+
+        [rows] = await MySQL.execute(
+            "INSERT INTO `users`(`name`,`email`,`password`) VALUES(?,?,?)",
+            [username, email, passwordHash]
+        );
+
+        if (rows.affectedRows !== 1) {
+            return false;
+        }
+        return true;
+	},
+
 	postLogin: async function(email, password){
 		const [row] = await MySQL.execute('SELECT * FROM `users` WHERE `email`=?', [email]);
 		if (row.length != 1) {
@@ -36,8 +63,6 @@ const Users = {
 	},
 
 	passwordResetTokenIsValid: async (email, resetPasswordToken) => {
-		// http://localhost:3000/resetPassword/aleexgvieira@gmail.com/tI02ndjswz3PCf8M
-		// SELECT * FROM `users` WHERE `email`= ? AND `resetPasswordToken` = ?
 		const [row] = await MySQL.execute('SELECT * FROM `users` WHERE `email`= ? AND `resetPasswordToken` = ?', 
 			[email, resetPasswordToken]);
 		
