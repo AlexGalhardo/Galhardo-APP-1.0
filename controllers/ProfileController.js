@@ -5,12 +5,7 @@ const ProfileController = {
 		res.render('pages/profile/profile');
 	},
 	getLogout: (req, res) => {
-		res.render('pages/auth/login', {
-			flash: {
-				type: 'success',
-				message: 'Come back always!'
-			},
-		});
+		res.redirect('/login');
 	}
 }
 
