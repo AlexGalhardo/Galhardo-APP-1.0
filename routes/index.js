@@ -42,6 +42,7 @@ router.post('/register', AuthController.postRegister);
 router.get('/forgetPassword', AuthController.getViewForgetPassword);
 router.post('/forgetPassword', AuthController.postForgetPassword);
 
+
 router.get('/resetPassword/:email/:token', AuthController.getViewResetPassword);
 router.post('/resetPassword', AuthController.postResetPassword);
 

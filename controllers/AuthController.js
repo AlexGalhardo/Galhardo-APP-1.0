@@ -5,6 +5,7 @@ const MySQL = require("../mysql");
 
 const DateTime = require('../helpers/DateTime');
 const Bcrypt = require('../helpers/Bcrypt');
+const NodeMailer = require('../helpers/NodeMailer');
 
 const Users = require('../models/Users');
 
@@ -66,13 +67,6 @@ const AuthController = {
 	    const { username, email, password, confirm_password } = req.body;
 
 	    console.log(username, email, password, confirm_password);
-
-	    /*const MySQL = await mysql2.createConnection({
-		    host: process.env.MYSQL_HOST,
-		    user: process.env.MYSQL_USERNAME,
-		    password: process.env.MYSQL_PASSWORD,
-		    database: process.env.MYSQL_DATABASE
-		});*/
 
 	    if (!errors.isEmpty()) {
 	        return res.render('pages/auth/register', {
@@ -136,38 +130,69 @@ const AuthController = {
 	},
 	
 	getViewForgetPassword: (req, res) => {
+		if(req.session.userID){
+        	return res.redirect('/profile');
+    	}
 		res.render('pages/auth/forgetPassword');
 	},
 	
 	postForgetPassword: async (req, res) => {
 		const email = req.body.email;
 
+		NodeMailer.postForgetPassword(email);
+
 		res.render('pages/auth/forgetPassword', {
 			flash: {
 				type: "success",
-				message: "If this email exists, we send a link to this email to recover password!"
+				message: "If this email exists, we'll send a link to this email to recover password!"
 			}
 		});
 	},
+	
 	getViewResetPassword: (req, res) => {
+		if(req.session.userID){
+        	return res.redirect('/profile');
+    	}
+
 		const email = req.params.email;
 		const token = req.params.token;
 
+		console.log(email, token);
+
 		if(!email || !token){
-			res.render('pages/auth/forgetPassword', {
-				flash: {
-					type: "warning",
-					message: "Inválid URL!"
-				}
-			});
+			return res.redirect('/forgetPassword');
 		}
-		res.render('pages/auth/resetPassword');
+
+		if(!Users.passwordResetTokenIsValid(email, token)){
+			return res.redirect('/forgetPassword');
+		}
+
+		res.render('pages/auth/resetPassword', {
+			email
+		});
 	},
+
 	postResetPassword: async (req, res) => {
+		const email = req.body.email;
 		const newPassword = req.body.new_password;
 		const confirmNewPassword = req.body.confirm_new_password;
 
-		res.render('pages/auth/login', {
+		console.log(email, newPassword, confirmNewPassword);
+
+		if(newPassword !== confirmNewPassword){
+			return res.render('pages/auth/resetPassword', {
+				flash: {
+					type: "warning",
+					message: "New password and confirm new password are not equal!"
+				}
+			});
+		}
+
+		if(!Users.resetPassword(email, newPassword)){
+			return console.log('banco de dados não atualizou o password!');
+		}
+
+		return res.render('pages/auth/login', {
 			flash: {
 				type: "success",
 				message: "You updated your password!"

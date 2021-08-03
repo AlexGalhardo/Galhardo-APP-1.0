@@ -29,6 +29,7 @@
     "node-fetch": "^2.6.1",
     "nodemailer": "^6.6.3",
     "nodemon": "^2.0.12",
+    "rand-token": "^1.0.1",
     "stripe": "^8.167.0"
   },
   "optionalDependencies": {
