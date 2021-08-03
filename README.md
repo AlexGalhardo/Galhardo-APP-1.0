@@ -1,6 +1,12 @@
 <br>
 <h2 align="center">⭐ Galhardo APP 💵</h2>
 
+- fazer blog
+- usar compresion
+- criar dominio galhardoapp.com (colocar no heroku)
+- upload avatar
+- api rest jwt
+
 ## Live Demo
 - You can access: https://galhardo-stripe-nodejs-app.herokuapp.com/
 - **IMPORTANT: All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY**
