@@ -2,12 +2,20 @@ const bodyParser = require('body-parser');
 const DateTime = require('../helpers/DateTime');
 const NodeMailer = require('../helpers/NodeMailer');
 
+const Users = require('../models/Users');
+
 const stripe = require('stripe')('sk_test_IVPNgFWhBStx7kngLOXZHzW0');
 
 const AppController = {
 	
-	getViewHome: (req, res) => {
-		res.render('pages/home');
+	getViewHome: async (req, res) => {
+		let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
+		}
+	    res.render('pages/home', {
+	        user
+	    });
 	},
 
 	getViewContact: (req, res) => {

@@ -5,6 +5,12 @@
         <!-- ROW -->
         <div class="row">
 
+            {{#flash}}
+                <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+                    <b>{{message}}</b>
+                </div>
+            {{/flash}}
+
             <!-- AVATAR -->
             <div class="col-lg-3">
                 <form action="/profile/avatar"

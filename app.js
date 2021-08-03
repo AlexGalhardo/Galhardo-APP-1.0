@@ -2,11 +2,20 @@ const express = require('express');
 const mustache = require('mustache-express');
 const path = require('path');
 const dotenv = require('dotenv').config();
-const bodyParser = require('body-parser')
-
-const stripe = require('stripe')(process.env.STRIPE_SK_TEST);
+const bodyParser = require('body-parser');
+const session = require('express-session');
 
 const app = express();
+
+app.use(session({
+    name: 'session',
+    secret: 'my_secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 3600 * 1000, // 1hr
+    }
+}));
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.set('view engine', 'mustache');
