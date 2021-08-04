@@ -1,17 +1,6 @@
 <br>
 <h2 align="center">⭐ Galhardo APP 💵</h2>
 
-- fazer blog
-- usar compresion
-- criar dominio galhardoapp.com (colocar no heroku)
-- upload avatar
-- api rest jwt
-
-
-- req.body.data
-- req.params.data
-- req.query.data
-
 ## Live Demo
 - You can access: https://galhardo-stripe-nodejs-app.herokuapp.com/
 - **IMPORTANT: All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY**
@@ -42,18 +31,22 @@
 - [https://sendgrid.com/](https://sendgrid.com/)
 - Bash
 - API Brazil Correios
+- https://picsum.photos/images
 
-## In Development
-- API REST Endpoints using JWT
-- CRUDs using Models
-   - with JSON-Server
-   - with MySQL
-   - with MongoDB
-- Social Login using Oauth2
-   - with GitHub
-   - with Facebook
-   - with Google
-- Docker
+
+## System Features (Things I want to put in practice/learn)
+- CRUDs in JSON, MySQL and MongoDB
+- Login & Register using Sessions and Social Login
+- API RESTs using JWT, Oauth2, Bearer Token
+- Slug
+- ACL (access-control-list)
+- Blog (using admin to create/update blog posts)
+- SMTP (for contact form, forget/reset password, subscriptions, etc)
+- Get user IP Address, Geolocalization, Browser, Operation System
+- Privacy Cookies (Learn LGPD & GDPR)
+- Simple Ecommerce and Subscription Checkout
+- System Logs using Telegram (contacts, errors, subscriptions, etc)
+- Docker (for MongoDB and MySQL)
 
 
 ## Project Structure
@@ -134,14 +127,21 @@
 15 directories, 54 files
 ```
 
-## How To Use Locally
-- $ git clone https://github.com/alexgalhardo/galhardo-stripe-nodejs-app
-- $ cd galhardo-stripe-nodejs-app/
+## How To Use Locally with JSON DataBase
+- $ git clone https://github.com/alexgalhardo/galhardo-app
+- $ cd galhardo-app/
 - Edit .env-example to .env and edit it with you credentials
 - $ npm install
-- $ json-server --watch database.json
+- $ npm run json-database 
+   - http://localhost:4000
 - $ npm start
-- Go to http://localhost:3000
+   - http://localhost:3000
+
+## How To Use Locally with MySQL and Docker
+- In Development
+
+## How To Use Locally with MongoDB and Docker
+- In Development
 
 ## My Heroku APIs
 - You can use: https://galhardo-correios.herokuapp.com/cep/:zipcode 

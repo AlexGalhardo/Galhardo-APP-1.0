@@ -1,14 +1,86 @@
 {
-    "users": [
-        {
-            "id": "a4ff72d4-fd41-4ecf-87c1-1a87a140ea84",
-            "name": "alex",
-            "email": "alex@gmail.com",
-            "password": "$2b$12$6CmkiNDJkbFIOBb6JRqC9e.PIvffqHUI3yZn39eNCPV7Xa68.jmZy",
-            "resetPasswordToken": null,
-            "created_at": "04/08/2021 17:17:18",
-            "updated_at": "04/08/2021 17:17:18"
-        }
-    ],
-    "blog": []
+  "users": [
+    {
+      "id": "a4ff72d4-fd41-4ecf-87c1-1a87a140ea84",
+      "name": "alex",
+      "email": "alex@gmail.com",
+      "password": "$2b$12$6CmkiNDJkbFIOBb6JRqC9e.PIvffqHUI3yZn39eNCPV7Xa68.jmZy",
+      "admin": 0,
+      "resetPasswordToken": null,
+      "created_at": "04/08/2021 17:17:18",
+      "updated_at": "04/08/2021 17:17:18"
+    },
+    {
+      "id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "$2b$12$QdBFZwXSSkoKSv77Iqjga.bxSeWZkRHzmH.LAqajyB7ha.itqIxyK",
+      "admin": 1,
+      "resetPasswordToken": null,
+      "created_at": "04/08/2021 17:42:42",
+      "updated_at": "04/08/2021 17:42:42"
+    }
+  ],
+  "blog": [
+    {
+      "title": "Blog Title 1",
+      "resume": "Resume blog title 1",
+      "slug": "blog-title-1",
+      "category": "software",
+      "body": "Blog Body 1",
+      "created_at": "04/08/2021 18:35:09",
+      "updated_at": "04/08/2021 18:55:16",
+      "id": 1
+    },
+    {
+      "title": "Blog Title 2",
+      "resume": "Resume blog title 2",
+      "slug": "blog-title-2",
+      "category": "software",
+      "body": "Blog Body 2",
+      "created_at": "04/08/2021 18:35:09",
+      "updated_at": "04/08/2021 18:55:16",
+      "id": 2
+    },
+    {
+      "title": "Blog Title 3",
+      "resume": "Resume blog title 3",
+      "slug": "blog-title-3",
+      "category": "software",
+      "body": "Blog Body 3",
+      "created_at": "04/08/2021 18:35:09",
+      "updated_at": "04/08/2021 18:55:16",
+      "id": 3
+    },
+    {
+      "title": "Blog Title 4",
+      "resume": "Resume blog title 4",
+      "slug": "blog-title-4",
+      "category": "software",
+      "body": "Blog Body 4",
+      "created_at": "04/08/2021 18:35:09",
+      "updated_at": "04/08/2021 18:55:16",
+      "id": 4
+    },
+    {
+      "title": "Blog Title 5",
+      "resume": "Resume blog title 5",
+      "slug": "blog-title-5",
+      "category": "software",
+      "body": "Blog Body 5",
+      "created_at": "04/08/2021 18:35:09",
+      "updated_at": "04/08/2021 18:55:16",
+      "id": 5
+    },
+    {
+      "title": "Blog Title 6",
+      "resume": "Resume blog title 6",
+      "slug": "blog-title-6",
+      "category": "software",
+      "body": "Blog Body 6",
+      "created_at": "04/08/2021 18:35:09",
+      "updated_at": "04/08/2021 18:55:16",
+      "id": 6
+    }
+  ]
 }

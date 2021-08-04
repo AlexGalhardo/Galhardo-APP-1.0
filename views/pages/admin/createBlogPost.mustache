@@ -1,0 +1,49 @@
+{{>partials/header}}
+	
+	<main class="container col-lg-6 mt-3 text-center">
+
+        <div class="row">
+
+        	<form action="/admin/create/blogPost" method="POST">
+
+	        	<div class="mb-3 row">
+
+	        		{{#flash}}
+			            <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+			                <b>{{message}}</b>
+			            </div>
+			        {{/flash}}
+				    
+				    <label for="blog_title" class="col-sm-2 col-form-label">Title</label>
+				    <div class="col-sm-10 mb-3">
+				      	<input type="text" class="form-control" name="blog_title" id="blog_title" required autofocus>
+				    </div>
+
+				    <label for="blog_resume" class="col-sm-2 col-form-label">Resume</label>
+					    <div class="col-sm-10 mb-3">
+					      	<input type="text" value="{{resume}}" class="form-control" name="blog_resume" required autofocus>
+					    </div>
+
+				    <label for="blog_category" class="col-sm-2 col-form-label">Category</label>
+				    <div class="col-sm-10 mb-3">
+					    <select class="form-select" name="blog_category" aria-label="Floating label select example" id="blog_category" required>
+					    	<option value="software">Software</option>
+					    	<option value="bussiness">Bussiness</option>
+					  	</select>
+					</div>
+
+					<label for="blog_body" class="col-sm-2 col-form-label">Body</label>
+					<div class="col-sm-10 mb-3">
+	  					<textarea class="form-control" name="blog_body" id="blog_body" rows="8" required></textarea>
+					</div>
+				</div>
+
+				<button type="submit" class="mb-3 w-25 btn btn-outline-success shadow">Create Blog Post</button>
+
+			</form>
+
+        </div>
+
+    </main>
+
+{{>partials/footer}}

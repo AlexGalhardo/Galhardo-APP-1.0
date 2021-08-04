@@ -12,6 +12,7 @@ const AppController = require('../controllers/AppController');
 const APIController = require('../controllers/APIController');
 const AuthController = require('../controllers/AuthController');
 const ProfileController = require('../controllers/ProfileController');
+const AdminController = require('../controllers/AdminController');
 
 const express = require('express');
 const router = express();
@@ -51,9 +52,21 @@ router.post('/resetPassword', AuthController.postResetPassword);
 // router.get('/facebook/callback', AuthController.loginFacebook);
 // router.get('/google/callback', AuthController.loginGoogle);
 
+
+
 // PROFILE CONTROLLER
 router.get('/profile', ProfileController.getViewProfile);
 router.get('/logout', ProfileController.getLogout);
+
+
+
+// ADMIN Controller
+router.get('/admin/create/blogPost', AdminController.getViewCreateBlogPost);
+router.post('/admin/create/blogPost', AdminController.postCreateBlogPost);
+
+router.get('/admin/update/blogPost/:slug', AdminController.getViewUpdateBlogPost);
+router.post('/admin/update/blogPost/:slug', AdminController.postUpdateBlogPost);
+
 
 
 // API CONTROLLER

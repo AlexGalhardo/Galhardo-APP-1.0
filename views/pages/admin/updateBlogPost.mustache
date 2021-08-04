@@ -1,0 +1,70 @@
+{{>partials/header}}
+	
+	<main class="container col-lg-6 mt-3 text-center">
+
+        <div class="row" class="text-end">
+
+        	{{#blogPost}}
+
+        	<form action="/admin/update/blogPost/{{slug}}" method="POST">
+
+	        	<div class="mb-3 row">
+
+	        		{{#flash}}
+			            <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+			                <b>{{message}}</b>
+			            </div>
+			        {{/flash}}
+
+
+			        	<label for="blog_slug" class="col-sm-2 col-form-label">ID</label>
+					    <div class="col-sm-10 mb-3">
+					      	<input type="text" class="form-control" name="blog_id" readonly value="{{id}}" required>
+					    </div>
+
+		        		<label for="blog_slug" class="col-sm-2 col-form-label">Slug</label>
+					    <div class="col-sm-10 mb-3">
+					      	<input type="text" class="form-control" name="blog_slug" readonly value="{{slug}}" required>
+					    </div>
+
+					    <label for="blog_slug" class="col-sm-2 col-form-label">Updated at</label>
+					    <div class="col-sm-10 mb-3">
+					      	<input type="text" class="form-control" id="blog_slug" readonly value="{{updated_at}}">
+					    </div>
+					    
+					    <label for="blog_title" class="col-sm-2 col-form-label">Title</label>
+					    <div class="col-sm-10 mb-3">
+					      	<input type="text" value="{{title}}" class="form-control" name="blog_title" required autofocus>
+					    </div>
+
+					    <label for="blog_resume" class="col-sm-2 col-form-label">Resume</label>
+					    <div class="col-sm-10 mb-3">
+					      	<input type="text" value="{{resume}}" class="form-control" name="blog_resume" required autofocus>
+					    </div>
+
+					    <label for="blog_category" class="col-sm-2 col-form-label">Category</label>
+					    <div class="col-sm-10 mb-3">
+						    <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="blog_category" required>
+						    	<option selected value="software">Software</option>
+						    	<option value="bussiness">Bussiness</option>
+						  	</select>
+						</div>
+
+						<label for="blog_body" class="col-sm-2 col-form-label">Body</label>
+						<div class="col-sm-10 mb-3">
+		  					<textarea class="form-control" name="blog_body" rows="8" required>{{body}}</textarea>
+						</div>
+					{{/blogPost}}
+				</div>
+
+				<button type="submit" class="mb-3 w-25 btn btn-outline-primary shadow">
+	        		Update Blog Post
+	        	</button>
+
+			</form>
+
+        </div>
+
+    </main>
+
+{{>partials/footer}}
