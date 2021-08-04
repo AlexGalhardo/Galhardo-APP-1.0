@@ -7,6 +7,11 @@
 - upload avatar
 - api rest jwt
 
+
+- req.body.data
+- req.params.data
+- req.query.data
+
 ## Live Demo
 - You can access: https://galhardo-stripe-nodejs-app.herokuapp.com/
 - **IMPORTANT: All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY**

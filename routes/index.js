@@ -13,7 +13,6 @@ const APIController = require('../controllers/APIController');
 const AuthController = require('../controllers/AuthController');
 const ProfileController = require('../controllers/ProfileController');
 
-
 const express = require('express');
 const router = express();
 
@@ -46,7 +45,9 @@ router.post('/forgetPassword', AuthController.postForgetPassword);
 router.get('/resetPassword/:email/:token', AuthController.getViewResetPassword);
 router.post('/resetPassword', AuthController.postResetPassword);
 
-
+// router.get('/github/callback', AuthController.loginGitHub);
+// router.get('/facebook/callback', AuthController.loginFacebook);
+// router.get('/google/callback', AuthController.loginGoogle);
 
 // PROFILE CONTROLLER
 router.get('/profile', ProfileController.getViewProfile);

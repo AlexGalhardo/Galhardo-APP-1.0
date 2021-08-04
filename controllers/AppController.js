@@ -13,6 +13,7 @@ const AppController = {
 		if(req.session.userID){
 			user = await Users.getUserByID(req.session.userID)
 		}
+	    
 	    res.render('pages/home', {
 	        user
 	    });
