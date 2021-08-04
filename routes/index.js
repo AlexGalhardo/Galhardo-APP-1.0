@@ -25,6 +25,8 @@ router.post('/contact', AppController.postContact);
 
 router.get('/privacy', AppController.getViewPrivacy);
 
+router.get('/blog', AppController.getViewBlog);
+
 router.get('/plan/checkout', AppController.getViewPlanCheckout);
 router.post('/plan/payLog', AppController.postPlanPayLog);
 router.post('/shop/payLog', AppController.postShopPayLog);

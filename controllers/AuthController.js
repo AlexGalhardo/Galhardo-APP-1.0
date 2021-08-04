@@ -4,16 +4,15 @@ const queryString = require('query-string');
 const axios = require('axios');
 const fetch = require('node-fetch');
 
-const MySQL = require("../mysql");
+// const MySQL = require("../mysql");
 
 const DateTime = require('../helpers/DateTime');
 const Bcrypt = require('../helpers/Bcrypt');
 const NodeMailer = require('../helpers/NodeMailer');
 
-const Users = require('../models/Users');
+const Users = require('../models/JSON/Users');
 
 const URL = require('../helpers/URL');
-
 
 const AuthController = {
 	
@@ -87,8 +86,8 @@ const AuthController = {
 
 	    try {
 
-	    	let emailValid = await Users.emailIsAlreadyRegistred(email);
-	    	if(emailValid){
+	    	let emailExists = await Users.emailIsAlreadyRegistred(email);
+	    	if(emailExists){
 	    		return res.render('pages/auth/register', {
 	            	flash: {
 	            		type: "warning",

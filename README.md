@@ -139,6 +139,7 @@
 - $ cd galhardo-stripe-nodejs-app/
 - Edit .env-example to .env and edit it with you credentials
 - $ npm install
+- $ json-server --watch database.json
 - $ npm start
 - Go to http://localhost:3000
 

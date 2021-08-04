@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "id": "a4ff72d4-fd41-4ecf-87c1-1a87a140ea84",
+            "name": "alex",
+            "email": "alex@gmail.com",
+            "password": "$2b$12$6CmkiNDJkbFIOBb6JRqC9e.PIvffqHUI3yZn39eNCPV7Xa68.jmZy",
+            "resetPasswordToken": null,
+            "created_at": "04/08/2021 17:17:18",
+            "updated_at": "04/08/2021 17:17:18"
+        }
+    ],
+    "blog": []
+}

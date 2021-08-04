@@ -33,7 +33,8 @@
     "nodemon": "^2.0.12",
     "query-string": "^7.0.1",
     "rand-token": "^1.0.1",
-    "stripe": "^8.167.0"
+    "stripe": "^8.167.0",
+    "uuid": "^8.3.2"
   },
   "optionalDependencies": {
     "fsevents": "2.1.2"

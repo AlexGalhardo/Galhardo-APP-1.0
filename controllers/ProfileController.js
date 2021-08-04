@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 
-const Users = require('../models/Users');
+const Users = require('../models/JSON/Users');
 
 const ProfileController = {
 	

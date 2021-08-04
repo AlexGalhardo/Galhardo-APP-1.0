@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 const randomToken = require('rand-token');
 
-const Users = require('../models/Users');
+const Users = require('../models/JSON/Users');
 
 const NodeMailer = {
     postContact: async (username, email, subject, message) => {
