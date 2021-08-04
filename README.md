@@ -37,8 +37,9 @@
 ## System Features (Things I want to put in practice/learn)
 - CRUDs in JSON, MySQL and MongoDB
 - Login & Register using Sessions and Social Login
-- API RESTs using JWT, Oauth2, Bearer Token
+- APIs RESTs using JWT, Oauth2, Bearer Token
 - Slug
+- UUID
 - ACL (access-control-list)
 - Blog (using admin to create/update blog posts)
 - SMTP (for contact form, forget/reset password, subscriptions, etc)

@@ -1,4 +1,4 @@
-const MySQL = require("../mysql");
+const MySQL = require("../../mysql");
 const Bcrypt = require('../helpers/Bcrypt');
 
 const Users = {
