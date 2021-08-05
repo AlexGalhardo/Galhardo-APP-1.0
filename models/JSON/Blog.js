@@ -5,8 +5,16 @@ var slugify = require('slugify')
 
 const Blog = {
 
-	getBlogPosts: async (req, res) => {
-		return 1;
+	getBlogPosts: async (page, limit) => {
+		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog/?_page=${page}&_limit=${limit}`, {
+  			"method": "GET"
+		});
+
+		const json = await response.json();
+
+		if(json.length > 0) return json;
+
+		return null;
 	},
 
 	getBlogPostBySlug: async (slug) => {

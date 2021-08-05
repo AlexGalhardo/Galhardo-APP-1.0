@@ -1,3 +1,20 @@
 {{>partials/header}}
-	<h1>Blog Post</h1>
+	
+	<main class="container col-lg-5 mt-3">
+
+        <div class="row text-center">
+
+        	{{#blogPost}}
+        		
+        		<h3>{{title}}</h3>
+        		<small class="mb-5">Last Update: {{updated_at}}</small>
+
+        		{{body}}
+
+        	{{/blogPost}}
+
+        </div>
+
+    </main>
+
 {{>partials/footer}}

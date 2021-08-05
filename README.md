@@ -138,6 +138,9 @@
 - $ npm start
    - http://localhost:3000
 
+- You can see GalhardoAPP JSON DataBase live here
+   - https://galhardoapp-json-database.herokuapp.com/
+
 ## How To Use Locally with MySQL and Docker
 - In Development
 

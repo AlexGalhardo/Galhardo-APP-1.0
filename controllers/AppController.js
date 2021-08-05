@@ -3,6 +3,7 @@ const DateTime = require('../helpers/DateTime');
 const NodeMailer = require('../helpers/NodeMailer');
 
 const Users = require('../models/JSON/Users');
+const Blog = require('../models/JSON/Blog');
 
 const stripe = require('stripe')('sk_test_IVPNgFWhBStx7kngLOXZHzW0');
 
@@ -19,8 +20,33 @@ const AppController = {
 	    });
 	},
 
-	getViewBlog: (req, res) => {
-		res.render('pages/blog');
+	getViewBlog: async (req, res) => {
+		const limit = 4;
+		
+		let page = req.query.page;
+		console.log(page)
+		if(!page){
+			page = 1;
+		}
+
+		const blog = await Blog.getBlogPosts(page, limit);
+		console.log(blog)
+
+		res.render('pages/blog', {
+			blog,
+			page
+		});
+	},
+
+	getViewBlogPost: async (req, res) => {
+		const slug = req.params.slug;
+
+		const blogPost = await Blog.getBlogPostBySlug(slug);
+		console.log(blogPost);
+
+		res.render('pages/blogPost', {
+			blogPost
+		});
 	},
 
 	getViewContact: (req, res) => {

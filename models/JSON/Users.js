@@ -60,6 +60,7 @@ const Users = {
 		    	name: username,
 		    	email: email,
 		    	password: passwordHash,
+		    	admin: 0,
 		    	resetPasswordToken: null,
 		    	created_at: DateTime.getNow(),
 		    	updated_at: DateTime.getNow()
