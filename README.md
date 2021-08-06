@@ -9,10 +9,6 @@
    - **NO REAL Money Transactions will be made**
    - **All CRUDs in Heroku Live Demo are made in JSON DataBase, for obvious reasons.**
 
-- Blog search title
-- LGPD
-- profile
-
 ## Introduction
 - I created this program in my spare time to help in my commercial projects and also to learn and practice:
      - NodeJS basics
@@ -94,14 +90,6 @@
 ```
 .
 ├── app.js
-├── mongodb.js
-├── mysql.js
-├── package.json
-├── Procfile
-├── README.md
-├── database.json
-├── database_structure.json
-├── docker-compose.yml
 ├── controllers
 │   ├── AdminController.js
 │   ├── APIController.js
@@ -115,6 +103,9 @@
 │   ├── ProductsController.js
 │   ├── ProfileController.js
 │   └── SubscriptionsController.js
+├── database.json
+├── database_structure.json
+├── docker-compose.yml
 ├── helpers
 │   ├── Bcrypt.js
 │   ├── DateTime.js
@@ -123,34 +114,43 @@
 ├── models
 │   ├── JSON
 │   │   ├── Blog.js
+│   │   ├── Books.js
+│   │   ├── Games.js
+│   │   ├── Stripe.js
 │   │   └── Users.js
 │   ├── MONGODB
 │   │   └── Users.js
 │   └── MySQL
 │       └── Users.js
+├── mongodb.js
+├── mysql.js
+├── package.json
+├── Procfile
 ├── public
 │   ├── css
 │   │   └── privacy.css
+│   ├── images
+│   │   └── amazon-button.png
 │   ├── scripts
+│   │   ├── books.js
+│   │   ├── games.js
 │   │   ├── jquery.card.js
 │   │   ├── jquery.min.js
 │   │   ├── navbar_apis.js
 │   │   ├── privacy.js
+│   │   ├── render_credit_card.js
+│   │   ├── shop.js
 │   │   └── stripe.js
 │   └── uploads
 │       └── avatars
 │           ├── avatar.png
 │           └── profile.jpeg
+├── README.md
 ├── routes
 │   └── index.js
 └── views
     ├── pages
     │   ├── 404.mustache
-    │   ├── privacy.mustache
-    │   ├── blog.mustache
-    │   ├── blogPost.mustache
-    │   ├── contact.mustache
-    │   ├── home.mustache    
     │   ├── admin
     │   │   ├── createBlogPost.mustache
     │   │   └── updateBlogPost.mustache
@@ -159,6 +159,9 @@
     │   │   ├── login.mustache
     │   │   ├── register.mustache
     │   │   └── resetPassword.mustache
+    │   ├── blog.mustache
+    │   ├── blogPost.mustache
+    │   ├── books.mustache
     │   ├── cards
     │   │   ├── create.mustache
     │   │   ├── delete.mustache
@@ -169,12 +172,14 @@
     │   │   ├── create.mustache
     │   │   ├── listAll.mustache
     │   │   └── retrieve.mustache
+    │   ├── contact.mustache
     │   ├── customers
     │   │   ├── create.mustache
     │   │   ├── delete.mustache
     │   │   ├── listAll.mustache
     │   │   ├── retrieve.mustache
     │   │   └── update.mustache
+    │   ├── home.mustache
     │   ├── plans
     │   │   ├── create.mustache
     │   │   ├── delete.mustache
@@ -184,6 +189,7 @@
     │   │   ├── create.mustache
     │   │   ├── listAll.mustache
     │   │   └── retrieve.mustache
+    │   ├── privacy.mustache
     │   ├── products
     │   │   ├── create.mustache
     │   │   ├── delete.mustache
@@ -200,12 +206,13 @@
     │   └── templates
     │       ├── plan_checkout.mustache
     │       ├── planPayLog.mustache
+    │       ├── shop_checkout.mustache
     │       └── shopPayLog.mustache
     └── partials
         ├── footer.mustache
         └── header.mustache
 
-26 directories, 85 files
+27 directories, 95 files
 ```
 
 ## DataBase JSON Structure
@@ -255,16 +262,44 @@
           "updated_at": "04/08/2021 18:55:16"
         }
     ],
-    "stripe": {
-        "customers": [],
-        "cards": [],
-        "charges": [],
-        "products": [],
-        "prices": [],
-        "plans": [],
-        "subscriptions": []
-    }
-}
+    "games": [
+        {
+          "id": 1,
+          "title": "God Of War",
+          "year_release": 2018,
+          "resume": "It is a new beginning for Kratos. Living as a man, outside the shadow of the gods, he seeks solitude in the unfamiliar lands of Norse mythology. With new purpose and his son at his side, Kratos must fight for survival as powerful forces threaten to disrupt the new life he has created...",
+          "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg",
+          "igdb_link": "https://www.igdb.com/games/god-of-war--1",
+          "igdb_rating": 9.5,
+          "platforms": "PS4, PS5",
+          "developer": "Santa Mônica Studios",
+          "genres": "Action, Third Person, Adventure, Hack and slash/Beat 'em up",
+          "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+          "created_at": "04/08/2021 18:35:09",
+          "updated_at": "04/08/2021 18:55:16"
+        },
+    ],
+    "books": [
+        {
+          "id": 1,
+          "title": "Sapiens - Uma Breve História da Humanidade",
+          "year_release": 2014,
+          "author": "Yuval Noah Harari ",
+          "resume": "O que possibilitou ao Homo sapiens subjugar as demais espécies? O que nos torna capazes das mais belas obras de arte, dos avanços científicos mais impensáveis e das mais horripilantes guerras? Nossa capacidade imaginativa. Somos a única espécie que acredita em coisas que não existem na natureza, como Estados, dinheiro e direitos humanos. Partindo dessa ideia, Yuval Noah Harari, doutor em história pela Universidade de Oxford, aborda em Sapiens a história da humanidade sob uma perspectiva inovadora. Explica que o capitalismo é a mais bem-sucedida religião, que o imperialismo é o sistema político mais lucrativo, que nós, humanos modernos, embora sejamos muito mais poderosos que nossos ancestrais, provavelmente não somos mais felizes. Um relato eletrizante sobre a aventura de nossa extraordinária espécie, de primatas insignificantes a senhores do mundo.",
+          "image": "https://images-na.ssl-images-amazon.com/images/I/51fuvXO6wvL._SX346_BO1,204,203,200_.jpg",
+          "pages": "464",
+          "genres": "Historic",
+          "amazon_link": "https://www.amazon.com.br/Sapiens-Uma-Breve-Hist%C3%B3ria-Humanidade/dp/8525432180",
+          "created_at": "04/08/2021 18:35:09",
+          "updated_at": "04/08/2021 18:55:16"
+        },
+    ],
+    "customers": [],
+    "cards": [],
+    "prices": [],
+    "products": [],
+    "subscriptions": []
+}   
 ```
 
 

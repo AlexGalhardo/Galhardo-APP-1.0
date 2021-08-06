@@ -1,8 +1,8 @@
 {
-  "name": "galhardoapp-stripenodejs",
+  "name": "galhardo-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "engines": {
     "node": "14.17.3"
   },
@@ -12,7 +12,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "alexgalhardo"
+    "alexgalhardo",
+    "galhardoapp",
+    "crud",
+    "mysql2",
+    "mongodb"
   ],
   "author": "",
   "license": "ISC",
