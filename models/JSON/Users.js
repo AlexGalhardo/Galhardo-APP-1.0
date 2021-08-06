@@ -105,6 +105,59 @@ const Users = {
 		if(json) return true;
 
 		return false;
+	},
+
+	updateProfile: async (user) => {
+
+		const response = await fetch(`${process.env.DATABASE_JSON_URL}/users/${user.id}`, {
+		    method: 'PATCH',
+		    body:    JSON.stringify({
+		    	name: user.username,
+		    	email: user.email,
+		    	document: user.document,
+		    	phone: user.phone,
+		    	birth_date: user.birth_date,
+		    	address: {
+		    		zipcode: user.zipcode,
+		    		street: user.street,
+		    		street_number: user.street_number,
+		    		neighborhood: user.neighborhood,
+		    		city: user.city,
+		    		state: user.state,
+		    		country: user.country
+		    	},
+		    	updated_at: DateTime.getNow() 
+		    }),
+		    headers: { 'Content-Type': 'application/json' },
+		})
+
+		const json = await response.json();
+
+		console.log(json)
+
+		if(json) return true;
+
+		return false;
+	},
+
+	updateAvatarName: async (avatarName, user_id) => {
+
+		const response = await fetch(`${process.env.DATABASE_JSON_URL}/users/${user_id}`, {
+		    method: 'PATCH',
+		    body:    JSON.stringify({
+		    	avatar: `${user_id}_${avatarName}`,
+		    	updated_at: DateTime.getNow() 
+		    }),
+		    headers: { 'Content-Type': 'application/json' },
+		})
+
+		const json = await response.json();
+
+		console.log(json)
+
+		if(json) return true;
+
+		return false;
 	}
 };
 

@@ -1,24 +1,31 @@
 {
   "users": [
     {
-      "id": "a4ff72d4-fd41-4ecf-87c1-1a87a140ea84",
-      "name": "alex",
-      "email": "alex@gmail.com",
-      "password": "$2b$12$6CmkiNDJkbFIOBb6JRqC9e.PIvffqHUI3yZn39eNCPV7Xa68.jmZy",
-      "admin": 0,
-      "resetPasswordToken": null,
-      "created_at": "04/08/2021 17:17:18",
-      "updated_at": "04/08/2021 17:17:18"
-    },
-    {
       "id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
       "name": "admin",
       "email": "admin@gmail.com",
       "password": "$2b$12$QdBFZwXSSkoKSv77Iqjga.bxSeWZkRHzmH.LAqajyB7ha.itqIxyK",
       "admin": 1,
-      "resetPasswordToken": null,
-      "created_at": "04/08/2021 17:42:42",
-      "updated_at": "04/08/2021 17:42:42"
+      "avatar": "b6e074ee-565b-4bb0-9a28-6b1231781216_alex.jpeg",
+      "document": "445.566.777-99",
+      "phone": "18999998888",
+      "birth_date": "1997-09-23",
+      "address": {
+        "zipcode": "13560290",
+        "street": "Rua Dona Alexandrina",
+        "street_number": "123",
+        "neighborhood": "Vila Monteiro (Gleba I)",
+        "city": "São Carlos",
+        "state": "SP",
+        "country": "BRAZIL"
+      },
+      "google_id": null,
+      "github_id": null,
+      "facebook_id": null,
+      "reset_password_token": null,
+      "stripe_customer_id": null,
+      "created_at": "04/08/2021 17:17:18",
+      "updated_at": "06/08/2021 16:17:31"
     }
   ],
   "blog": [
@@ -82,5 +89,6 @@
       "updated_at": "04/08/2021 18:55:16",
       "id": 6
     }
-  ]
+  ],
+  "customers": []
 }

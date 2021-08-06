@@ -1,20 +1,36 @@
 {
     "users": [
         {
-            "id": "user_uuid",
-            "name": "user_name",
-            "email": "user_email",
-            "password": "user_bcrypt_hash_password",
-            "admin": 0, // 1 for true
-            "reset_password_token": null, // random token created in forgetPassword
-            "stripe_customer_id": null, // when this user is registred in stripe
+            "id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
+            "name": "admin",
+            "email": "admin@gmail.com",
+            "password": "$2b$12$QdBFZwXSSkoKSv77Iqjga.bxSeWZkRHzmH.LAqajyB7ha.itqIxyK",
+            "admin": 1,
+            "avatar": "b6e074ee-565b-4bb0-9a28-6b1231781216_avatar.jpeg",
+            "document": "445.566.777-99",
+            "phone": "18999998888",
+            "birth_date": "1997-09-23",
+            "address": {
+              "zipcode": "13560290",
+              "street": "Rua Dona Alexandrina",
+              "street_number": "123",
+              "neighborhood": "Vila Monteiro (Gleba I)",
+              "city": "Sao Carlos",
+              "state": "SP",
+              "country": "BRAZIL"
+            },
+            "google_id": null,
+            "github_id": null,
+            "facebook_id": null,
+            "reset_password_token": null,
+            "stripe_customer_id": null,
             "created_at": "04/08/2021 17:17:18",
-            "updated_at": "04/08/2021 17:17:18" // last update in /profile
-        }
+            "updated_at": "06/08/2021 16:17:31"
+          }
     ],
     "blog": [
         {
-          "id": 1, // created automatically from JSON-SERVER
+          "id": 1,
           "title": "blog_title",
           "resume": "blog_resume",
           "slug": "blog_slug",
@@ -25,13 +41,11 @@
           "updated_at": "04/08/2021 18:55:16"
         }
     ],
-    "stripe": {
-        "customers": [],
-        "cards": [],
-        "charges": [],
-        "products": [],
-        "prices": [],
-        "plans": [],
-        "subscriptions": []
-    }
+    "customers": [],
+    "cards": [],
+    "charges": [],
+    "products": [],
+    "prices": [],
+    "plans": [],
+    "subscriptions": []
 }

@@ -21,6 +21,9 @@ const router = express();
 // APP CONTROLLER
 router.get('/', AppController.getViewHome);
 
+router.get('/shop', AppController.getViewShop);
+router.post('/shop', AppController.postShopPayLog);
+
 router.get('/contact', AppController.getViewContact);
 router.post('/contact', AppController.postContact);
 
@@ -33,7 +36,7 @@ router.get('/blog/:slug', AppController.getViewBlogPost);
 
 router.get('/plan/checkout', AppController.getViewPlanCheckout);
 router.post('/plan/payLog', AppController.postPlanPayLog);
-router.post('/shop/payLog', AppController.postShopPayLog);
+
 
 
 
@@ -59,6 +62,10 @@ router.post('/resetPassword', AuthController.postResetPassword);
 
 // PROFILE CONTROLLER
 router.get('/profile', ProfileController.getViewProfile);
+router.post('/profile', ProfileController.updateProfile);
+
+router.post('/profile/avatar', ProfileController.updateProfileAvatar);
+
 router.get('/logout', ProfileController.getLogout);
 
 

@@ -9,6 +9,10 @@
    - **NO REAL Money Transactions will be made**
    - **All CRUDs in Heroku Live Demo are made in JSON DataBase, for obvious reasons.**
 
+- Blog search title
+- LGPD
+- profile
+
 ## Introduction
 - I created this program in my spare time to help in my commercial projects and also to learn and practice:
      - NodeJS basics
@@ -210,13 +214,29 @@
 {
     "users": [
         {
-            "id": "user_uuid",
-            "name": "user_name",
-            "email": "user_email",
-            "password": "user_bcrypt_hash_password",
-            "admin": 0, 
-            "reset_password_token": null, 
-            "stripe_customer_id": null, 
+            "id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
+            "name": "admin",
+            "email": "admin@gmail.com",
+            "password": "$2b$12$QdBFZwXSSkoKSv77Iqjga.bxSeWZkRHzmH.LAqajyB7ha.itqIxyK",
+            "admin": 1,
+            "avatar": "profile.jpeg",
+            "document": "445.566.777-99",
+            "phone": "18999998888",
+            "birth_date": "1997-09-23",
+            "address": {
+              "zipcode": "13560290",
+              "street": "Rua Dona Alexandrina",
+              "street_number": "123",
+              "neighborhood": "Vila Monteiro (Gleba I)",
+              "city": "São Carlos",
+              "state": "SP",
+              "country": "BRAZIL"
+            },
+            "google_id": null,
+            "github_id": null,
+            "facebook_id": null,
+            "reset_password_token": null,
+            "stripe_customer_id": null,
             "created_at": "04/08/2021 17:17:18",
             "updated_at": "04/08/2021 17:17:18"
         }

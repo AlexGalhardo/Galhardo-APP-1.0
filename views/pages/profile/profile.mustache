@@ -11,63 +11,115 @@
                 </div>
             {{/flash}}
 
+            {{#user}}
+
             <!-- AVATAR -->
-            <div class="col-lg-3">
+            <div class="col-sm-4">
                 <form action="/profile/avatar"
                     method="POST" 
                     enctype="multipart/form-data">
                 
-                    <img src="/uploads/avatars/avatar.png" class="w-100 image-fluid rounded-circle" alt="avatar">
+                    <img src="/uploads/avatars/{{avatar}}" class="text-center w-50 h-50 image-fluid rounded-circle" alt="avatar">
 
                     <br>
                     
-                    <input class="form-control" type="file" id="avatar" name="avatar">
-                    <hr>
+                    <input class="form-control mb-2" type="file" id="avatar" name="avatar">
                     
-                    <button class="btn btn-outline-primary" type="submit">
+                    <button class="btn btn-outline-primary shadow" type="submit">
                         Upload Avatar
                     </button>
                 </form>
+
+                <hr>
+
+                <div class="form-group row mt-3">
+                    <label class="col-lg-4 col-form-label">created_at</label>
+                    <div class="col-lg-8">
+                        <input placeholder="Digit your username" class="mb-2 form-control" name="created_at" type="text" value="{{created_at}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">updated_at</label>
+                    <div class="col-lg-8">
+                        <input placeholder="Digit your username" class="mb-2 form-control" name="updated_at" type="text" value="{{updated_at}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">admin?</label>
+                    <div class="col-lg-8">
+                        <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{admin}}" readonly>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">PLAN</label>
+                    <div class="col-lg-8">
+                        <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="FREE" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">Subs End</label>
+                    <div class="col-lg-8">
+                        <input placeholder="Digit your username" class="mb-2 form-control" name="subs_end" type="text" value="30/08/2021 13:45:52" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
+                    <div class="col-lg-8">
+                        <input type="submit" class="shadow w-100 btn btn btn-outline-danger" value="Cancel Subscription">
+                    </div>
+                </div>
+
             </div>
-            <!-- END COL-LG-2 AVATAR -->
+            <!-- END COL AVATAR -->
 
 
-            <!-- COL-LG-5 -->
-            <div class="col-lg-7 ms-5">
 
+            <div class="col-sm-1"></div>
+
+
+
+            <!-- COL-LG-6 -->
+            <div class="col-lg-6">
 
                 <form action="/profile" class="form" method="POST">
 
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label">Username</label>
                         <div class="col-lg-8">
-                            <input placeholder="Digit your username" class="mb-2 form-control" name="username" type="text" value="" required autofocus>
+                            <input placeholder="Digit your username" class="mb-2 form-control" name="username" type="text" value="{{name}}" required autofocus>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label">Email</label>
                         <div class="col-lg-8">
-                            <input class="mb-2 form-control" type="email" name="email" placeholder="Digit your email" value="" required>
+                            <input class="mb-2 form-control" type="email" name="email" placeholder="Digit your email" value="{{email}}" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label">Document</label>
                         <div class="col-lg-8">
-                            <input class="mb-2 form-control" type="text" minlength="11" maxlength="11" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" id="document" name="document" placeholder="Digit your document" value="" required>
+                            <input class="mb-2 form-control" type="text" minlength="11" maxlength="11" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" id="document" name="document" placeholder="Digit your document" value="{{document}}" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label">Phone</label>
                         <div class="col-lg-8">
-                            <input class="mb-2 form-control" id="telephone" type="text" name="telephone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" placeholder="Digit your cellphone" value="" required>
+                            <input class="mb-2 form-control" id="phone" type="text" name="phone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" placeholder="Digit your cellphone" value="{{phone}}" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">BirthDay</label>
+                        <label class="col-lg-4 col-form-label">Birth Date</label>
                         <div class="col-lg-8">
-                            <input class="form-control" type="date" id="txtDataNascimento" placeholder=" " />
+                            <input class="form-control" type="date" name="birth_date" id="birth_date"  value="{{birth_date}}"/>
                         </div>
                     </div>
 
@@ -98,44 +150,53 @@
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label">ZipCode</label>
                         <div class="col-lg-8">
-                            <input type="number" class="mb-2 form-control" id="zipcode" name="zipcode" placeholder="Enter Your Zip Code" value="" required>
+                            <input type="number" class="mb-2 form-control" id="zipcode" name="zipcode" placeholder="Enter Your Zip Code" value="{{address.zipcode}}" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label">Street</label>
                         <div class="col-lg-8">
-                            <input type="text" class="mb-2 form-control" id="customer_street" name="street" placeholder="Street" value="" onkeydown="return false;" required>
+                            <input type="text" class="mb-2 form-control" id="street" name="street" placeholder="Street" value="{{address.street}}" onkeydown="return false;" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label">Street Number</label>
                         <div class="col-lg-8">
-                            <input class="mb-2 form-control" type="number" min='1' max='9999' name="street_number" placeholder="Digit your street number" value="" required>
+                            <input class="mb-2 form-control" type="number" min='1' max='9999' name="street_number" placeholder="Digit your street number" value="{{address.street_number}}" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label">Neighborhood</label>
                         <div class="col-lg-8">
-                            <input type="text" class="mb-2 form-control" id="customer_neighborhood" name="neighborhood" placeholder="Neighborhood" value="" onkeydown="return false;" required>
+                            <input type="text" class="mb-2 form-control" id="neighborhood" name="neighborhood" placeholder="Neighborhood" value="{{address.neighborhood}}" onkeydown="return false;" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label">City</label>
                         <div class="col-lg-8">
-                            <input type="text" class="mb-2 form-control" id="customer_city" name="city" placeholder="City" value="" onkeydown="return false;" required>
+                            <input type="text" class="mb-2 form-control" id="city" name="city" placeholder="City" value="{{address.city}}" onkeydown="return false;" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-lg-4 col-form-label">State</label>
                         <div class="col-lg-8">
-                            <input type="text" class="mb-2 form-control" id="customer_state" name="state" placeholder="State" value="" onkeydown="return false;" required>
+                            <input type="text" class="mb-2 form-control" id="state" name="state" placeholder="State" value="{{address.state}}" onkeydown="return false;" required>
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label">Country</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="mb-2 form-control" id="country" name="country" value="BRAZIL" onkeydown="return false;" required>
+                        </div>
+                    </div>
+
+                {{/user}}
 
                     <div class="form-group row mb-3">
                         <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
@@ -150,19 +211,17 @@
 
             <hr>
 
-            <form action="/deleteProfile" class="form mb-5" method="POST">
 
-                <select name="_method" hidden>
-                    <option value="DELETE" selected>DELETE</option>
-                </select>
-
-                <button type="submit"
-                        class="btn btn btn-outline-danger float-right"
-                        onclick="confirm('Are you sure you want to delete your account?!');"
-                        >
-                        Delete Account
-                </button>
-            </form>
+            {{^user.admin}}
+                <form action="/deleteProfile" class="form mb-5" method="POST">
+                    <button type="submit"
+                            class="btn btn btn-outline-danger float-right"
+                            onclick="confirm('Are you sure you want to delete your account?!');"
+                            >
+                            Delete Account
+                    </button>
+                </form>
+            {{/user.admin}}
 
 
         </div>
@@ -172,47 +231,24 @@
 
 
 
-        <script src="/js/scripts.js"></script>
+        <script src="scripts/jquery.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script>
-            $("#zipcode").change(function() {
-                var zipcode = $("#zipcode").val();
+        $("#zipcode").change(function() {
+            var zipcode = $("#zipcode").val();
 
-                axios.get("https://api.pagar.me/1/zipcodes/" + zipcode)
-                .then(function(response) {
-                    var street = response.data.street;
-                    var neighborhood = response.data.neighborhood;
-                    var city = response.data.city;
-                    var state = response.data.state;
-                    $('#customer_street').val(street);
-                    $('#customer_neighborhood').val(neighborhood);
-                    $('#customer_city').val(city);
-                    $('#customer_state').val(state);
-                });
+            axios.get("https://galhardo-correios.herokuapp.com/cep/" + zipcode)
+            .then(function(response) {
+                var street = response.data.logradouro;
+                var neighborhood = response.data.bairro;
+                var city = response.data.localidade;
+                var state = response.data.uf;
+                $('#street').val(street);
+                $('#neighborhood').val(neighborhood);
+                $('#city').val(city);
+                $('#state').val(state);
             });
-        </script>
-        <script src="https://unpkg.com/imask"></script>
-        <script>
-            IMask(
-                document.getElementById('born_at'),
-                {
-                    mask:'0000/00/00'
-                }
-            );
-
-            IMask(
-                document.getElementById('document'),
-                {
-                    mask:'00000000000'
-                }
-            );
-
-            IMask(
-                document.getElementById('telephone'),
-                {
-                    mask:'00000000000'
-                }
-            );
+        });
         </script>
     </div>
 

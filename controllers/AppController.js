@@ -22,6 +22,17 @@ const AppController = {
 	    });
 	},
 
+	getViewShop: async (req, res) => {
+		let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
+		}
+	    
+	    res.render('pages/templates/shop_checkout', {
+	        user
+	    });
+	},
+
 	getViewBlog: async (req, res) => {
 		const totalBlogPosts = await Blog.getTotalBlogPosts();
 		const blogPostsPerPage = 4;
@@ -121,27 +132,39 @@ const AppController = {
 	},
 
 	postShopPayLog: async (req, res) => {
+
+		if(!req.session.userID){
+        	return res.render('pages/home', {
+        		flash: {
+        			type: "danger",
+        			message: "You must be logued to make a shop transaction!"
+        		}
+        	})
+    	}
 		
-		// get post input
-		const quantityOranges = req.body.quantityOranges;
-		const quantityGrapes = req.body.quantityGrapes;
-		const quantityApples = req.body.quantityApples;
-		const quantityStrawberries = req.body.quantityStrawberries;
-		
-		const customer_email = req.body.customer_email;
-		
-		const customer_city = req.body.customer_city;
-		const customer_postal_code = req.body.zipcode;
-		const customer_state = req.body.customer_state;
-		const customer_street = req.body.customer_street;
-		const customer_name = req.body.customer_name;
-		const customer_phone = req.body.customer_phone;
+		// get post request name inputs
+		const { quantityOranges,
+				quantityGrapes, 
+				quantityApples,
+				quantityStrawberries,
+				customer_email,
+				customer_city,
+				zipcode,
+				customer_state,
+				customer_street,
+				customer_name,
+				customer_phone,
+				value_totalShopCart,
+				card_number,
+				card_exp_month,
+				card_exp_year,
+				card_cvc } = req.body;
 
 		const shipping = {
 			address: {
 				city: customer_city,
 				country: "BRAZIL",
-				postal_code: customer_postal_code,
+				postal_code: zipcode,
 				state: customer_state,
 				line1: customer_street
 			},
@@ -160,12 +183,6 @@ const AppController = {
 			totalApples: parseFloat(quantityApples * 1.99).toFixed(2),
 			totalStrawberries: parseFloat(quantityStrawberries * 2.99).toFixed(2)
 		};
-
-		const value_totalShopCart = req.body.value_totalShopCart;
-		const card_number = req.body.card_number;
-		const card_exp_month = req.body.card_exp_month;
-		const card_exp_year = req.body.card_exp_year;
-		const card_cvc = req.body.card_cvc;;
 
 		// generate card token
 		const cardToken = await stripe.tokens.create({
@@ -189,7 +206,7 @@ const AppController = {
 
 		shopCardCharge.created = DateTime.getDateTime(shopCardCharge.created);
 
-		res.render('pages/templates/shopPayLog', {
+		return res.render('pages/templates/shopPayLog', {
 			flash: {
 				type: 'success',
 				message: 'Shop Cart Card Charge Created with Success!'
@@ -201,6 +218,7 @@ const AppController = {
 			shipping
 		});
 	},
+	
 	postPlanPayLog: async (req, res) => {
 		const customer_email = req.body.customer_email;
 

@@ -5,6 +5,9 @@ const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
+// PWD ROOT
+global.APP_ROOT_PATH = path.resolve(__dirname);
+
 const app = express();
 
 app.use(session({

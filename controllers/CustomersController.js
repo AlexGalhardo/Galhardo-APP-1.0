@@ -1,5 +1,7 @@
 const bodyParser = require('body-parser')
 
+const StripeModel = require('../models/JSON/Stripe');
+
 const stripe = require('stripe')('sk_test_IVPNgFWhBStx7kngLOXZHzW0');
 
 const CustomersController = {
@@ -41,12 +43,17 @@ const CustomersController = {
 			email: email
 		});
 
-		// console.log(customer)
+		console.log(customer);
+		const customerCreated = await StripeModel.createCustomer(name, email, customer.id);
+		console.log(customerCreated)
+		if(!customerCreated){
+			return console.log('customer not saved in json database!')
+		}
 
 		res.render('pages/customers/create', {
 			flash: {
 				type: 'success',
-				message: 'Customer Created With Success!'
+				message: 'Stripe Customer Created With Success!'
 			},
 			customer
 		});
