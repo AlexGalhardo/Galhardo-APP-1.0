@@ -2,7 +2,7 @@
 <h2 align="center">⭐ Galhardo APP 💵</h2>
 
 ## Live Demo
-- You can access: https://galhardo-stripe-nodejs-app.herokuapp.com/
+- You can access: https://galhardo-app.herokuapp.com/
 - **IMPORTANT: All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY**
 - **NO REAL Money Transactions will be made**
 - You can use default TEST inputs already in forms to try 
@@ -38,53 +38,120 @@
 - CRUDs in JSON, MySQL and MongoDB
 - Login & Register using Sessions and Social Login
 - APIs RESTs using JWT, Oauth2, Bearer Token
-- Slug
-- UUID
+- Forms Validations (masks, validation inputs, requests, etc)
 - ACL (access-control-list)
-- Blog (using admin to create/update blog posts)
 - SMTP (for contact form, forget/reset password, subscriptions, etc)
 - Get user IP Address, Geolocalization, Browser, Operation System
 - Privacy Cookies (Learn LGPD & GDPR)
+- DOM Manipulation with vanilla JavaScript
 - Simple Ecommerce and Subscription Checkout
 - System Logs using Telegram (contacts, errors, subscriptions, etc)
 - Docker (for MongoDB and MySQL)
+- Slug
+- UUID
+- Flash Messages
+- Blog 
+   - Using Admin to create/update/delete blog posts
+   - Pagination
+   - Search Blog Title
 
+
+## How To Use Locally with JSON DataBase
+- $ git clone https://github.com/alexgalhardo/galhardo-app
+- $ cd galhardo-app/
+- Edit .env-example to .env and edit it with you credentials
+- $ npm install
+- $ npm run json-database 
+   - http://localhost:4000
+- $ npm start
+   - http://localhost:3000
+
+- You can see GalhardoAPP JSON DataBase live here
+   - https://galhardoapp-json-database.herokuapp.com/
+
+## How To Use Locally with MySQL and Docker
+- In Development
+
+## How To Use Locally with MongoDB and Docker
+- In Development
+
+## My Heroku APIs
+- You can use: https://galhardo-correios.herokuapp.com/cep/:zipcode 
+   - To get BRASIL CEP/ZipCode Information
+   - Example: https://galhardo-correios.herokuapp.com/cep/13560290
+- You can use: https://galhardo-correios.herokuapp.com/correios/:zipcode
+   - To get BRASIL CORREIOS SHIPPING DEADLINE AND FEE
+   - Example: https://galhardo-correios.herokuapp.com/correios/13560290
 
 ## Project Structure
 ```
 .
 ├── app.js
+├── mongodb.js
+├── mysql.js
 ├── package.json
 ├── Procfile
 ├── README.md
-├── .gitignore
-├── .env
+├── database.json
+├── database_structure.json
+├── docker-compose.yml
 ├── controllers
+│   ├── AdminController.js
 │   ├── APIController.js
 │   ├── AppController.js
+│   ├── AuthController.js
 │   ├── CardsController.js
 │   ├── ChargesController.js
 │   ├── CustomersController.js
 │   ├── PlansController.js
 │   ├── PricesController.js
 │   ├── ProductsController.js
+│   ├── ProfileController.js
 │   └── SubscriptionsController.js
 ├── helpers
-│   └── DateTime.js
+│   ├── Bcrypt.js
+│   ├── DateTime.js
+│   ├── NodeMailer.js
+│   └── URL.js
+├── models
+│   ├── JSON
+│   │   ├── Blog.js
+│   │   └── Users.js
+│   ├── MONGODB
+│   │   └── Users.js
+│   └── MySQL
+│       └── Users.js
 ├── public
-│   └── scripts
-│       ├── jquery.card.js
-│       ├── jquery.min.js
-│       └── stripe.js
+│   ├── css
+│   │   └── privacy.css
+│   ├── scripts
+│   │   ├── jquery.card.js
+│   │   ├── jquery.min.js
+│   │   ├── navbar_apis.js
+│   │   ├── privacy.js
+│   │   └── stripe.js
+│   └── uploads
+│       └── avatars
+│           ├── avatar.png
+│           └── profile.jpeg
 ├── routes
 │   └── index.js
 └── views
     ├── pages
     │   ├── 404.mustache
-    │             ├── home.mustache
-    │   ├── plan_checkout.mustache
-    │   ├── planPayLog.mustache
-    │   ├── shopPayLog.mustache
+    │   ├── privacy.mustache
+    │   ├── blog.mustache
+    │   ├── blogPost.mustache
+    │   ├── contact.mustache
+    │   ├── home.mustache    
+    │   ├── admin
+    │   │   ├── createBlogPost.mustache
+    │   │   └── updateBlogPost.mustache
+    │   ├── auth
+    │   │   ├── forgetPassword.mustache
+    │   │   ├── login.mustache
+    │   │   ├── register.mustache
+    │   │   └── resetPassword.mustache
     │   ├── cards
     │   │   ├── create.mustache
     │   │   ├── delete.mustache
@@ -116,48 +183,78 @@
     │   │   ├── listAll.mustache
     │   │   ├── retrieve.mustache
     │   │   └── update.mustache
-    │   └── subscriptions
-    │       ├── cancel.mustache
-    │       ├── create.mustache
-    │       ├── listAll.mustache
-    │       └── retrieve.mustache
+    │   ├── profile
+    │   │   └── profile.mustache
+    │   ├── subscriptions
+    │   │   ├── cancel.mustache
+    │   │   ├── create.mustache
+    │   │   ├── listAll.mustache
+    │   │   └── retrieve.mustache
+    │   └── templates
+    │       ├── plan_checkout.mustache
+    │       ├── planPayLog.mustache
+    │       └── shopPayLog.mustache
     └── partials
         ├── footer.mustache
         └── header.mustache
 
-15 directories, 54 files
+26 directories, 85 files
 ```
 
-## How To Use Locally with JSON DataBase
-- $ git clone https://github.com/alexgalhardo/galhardo-app
-- $ cd galhardo-app/
-- Edit .env-example to .env and edit it with you credentials
-- $ npm install
-- $ npm run json-database 
-   - http://localhost:4000
-- $ npm start
-   - http://localhost:3000
-
-- You can see GalhardoAPP JSON DataBase live here
-   - https://galhardoapp-json-database.herokuapp.com/
-
-## How To Use Locally with MySQL and Docker
-- In Development
-
-## How To Use Locally with MongoDB and Docker
-- In Development
-
-## My Heroku APIs
-- You can use: https://galhardo-correios.herokuapp.com/cep/:zipcode 
-   - To get BRASIL CEP/ZipCode Information
-   - Example: https://galhardo-correios.herokuapp.com/cep/13560290
-- You can use: https://galhardo-correios.herokuapp.com/correios/:zipcode
-   - To get BRASIL CORREIOS SHIPPING DEADLINE AND FEE
-   - Example: https://galhardo-correios.herokuapp.com/correios/13560290
+## DataBase JSON Structure
+- **IMPORT: Never Use JSON SERVER for Production DataBase (Of course, you already know that)**
+- I'm using JSON-SERVER as DataBase for LEARNING JSON purposes only.
+```json
+{
+    "users": [
+        {
+            "id": "user_uuid",
+            "name": "user_name",
+            "email": "user_email",
+            "password": "user_bcrypt_hash_password",
+            "admin": 0, // 1 for true
+            "reset_password_token": null, // random token created in forgetPassword
+            "stripe_customer_id": null, // when this user is registred in stripe
+            "created_at": "04/08/2021 17:17:18",
+            "updated_at": "04/08/2021 17:17:18" // last update in /profile
+        }
+    ],
+    "blog": [
+        {
+          "id": 1, // created automatically from JSON-SERVER
+          "title": "blog_title",
+          "resume": "blog_resume",
+          "slug": "blog_slug",
+          "category": "blog_category",
+          "body": "blog_body",
+          "image": "blog_resume_image",
+          "created_at": "04/08/2021 18:35:09",
+          "updated_at": "04/08/2021 18:55:16"
+        }
+    ],
+    "stripe": {
+        "customers": [],
+        "cards": [],
+        "charges": [],
+        "products": [],
+        "prices": [],
+        "plans": [],
+        "subscriptions": []
+    }
+}
+```
 
 
 ## Some Images
-![gsna_1](https://user-images.githubusercontent.com/19540357/127928985-691880df-4369-4103-bfba-b562f9676750.png)
+
+![ga_home](https://user-images.githubusercontent.com/19540357/128446085-80fd73af-2b6e-4716-8709-74a24162d96d.png)
+![ga_login](https://user-images.githubusercontent.com/19540357/128446082-32d21dda-9794-428d-a8f2-f6f6475aced7.png)
+![ga_register](https://user-images.githubusercontent.com/19540357/128446078-671db5e9-064c-4458-941f-a6cf15e39d49.png)
+![ga_forgetPassword](https://user-images.githubusercontent.com/19540357/128446079-b6fc9f98-ea0f-4906-8d85-c581b554dee3.png)
+![ga_resetPassword](https://user-images.githubusercontent.com/19540357/128446080-afa13a81-34be-4a74-9b8d-3cbc8688e0eb.png)
+![ga_blog](https://user-images.githubusercontent.com/19540357/128446081-f6f8895c-e36b-4dbd-b42a-ad28f8dbf096.png)
+![ga_profile](https://user-images.githubusercontent.com/19540357/128446083-984edcfa-cc82-46f0-9d85-985f651312f8.png)
+![ga_apis](https://user-images.githubusercontent.com/19540357/128446084-8275f37f-9f69-4123-ad80-505e42941627.png)
 ![gsna_2](https://user-images.githubusercontent.com/19540357/127929019-d386473d-6061-4a5c-a832-1abb896e4146.png)
 ![gsna_3](https://user-images.githubusercontent.com/19540357/127928980-01f5f63f-77df-497b-9644-a69719599043.png)
 ![gsna_4](https://user-images.githubusercontent.com/19540357/127928983-5b929ca9-5f80-4d9a-ad83-a129aa26b5d7.png)

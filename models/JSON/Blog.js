@@ -17,6 +17,18 @@ const Blog = {
 		return null;
 	},
 
+	getTotalBlogPosts: async () => {
+		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog`, {
+  			"method": "GET"
+		});
+
+		const json = await response.json();
+
+		if(json.length > 0) return json.length;
+
+		return null;
+	},
+
 	getBlogPostBySlug: async (slug) => {
 		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog?slug=${slug}`, {
   			"method": "GET"

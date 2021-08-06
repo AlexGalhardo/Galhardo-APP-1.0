@@ -1,5 +1,4 @@
 const nodemailer = require("nodemailer");
-const randomToken = require('rand-token');
 
 const Users = require('../models/JSON/Users');
 
@@ -31,7 +30,7 @@ const NodeMailer = {
         return response
     },
 
-    postForgetPassword: async (email) => {
+    postForgetPassword: async (email, recoverPasswordToken) => {
         const smtpTransport = nodemailer.createTransport({
             host: 'smtp.mailgun.org',
             port: 587,
@@ -42,15 +41,7 @@ const NodeMailer = {
             }
         })
 
-        let recoverPasswordToken = randomToken.generate(16);
-        console.log('recoverPasswordToken é: ' + recoverPasswordToken); 
         let recoverPasswordLinkURL = `${process.env.APP_URL}/resetPassword/${email}/${recoverPasswordToken}`;
-
-        const resetPasswordTokenCreated = await Users.createResetPasswordToken(recoverPasswordToken, email);
-
-        if(!resetPasswordTokenCreated){
-            return console.log('token não foi salvo no banco de dados');
-        }
 
         const mail = {
             from: "aleexgvieira@gmail.com",

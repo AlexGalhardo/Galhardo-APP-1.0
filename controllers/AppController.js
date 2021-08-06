@@ -7,6 +7,8 @@ const Blog = require('../models/JSON/Blog');
 
 const stripe = require('stripe')('sk_test_IVPNgFWhBStx7kngLOXZHzW0');
 
+var pagination = require('pagination')
+
 const AppController = {
 	
 	getViewHome: async (req, res) => {
@@ -21,20 +23,51 @@ const AppController = {
 	},
 
 	getViewBlog: async (req, res) => {
-		const limit = 4;
+		const totalBlogPosts = await Blog.getTotalBlogPosts();
+		const blogPostsPerPage = 4;
 		
-		let page = req.query.page;
-		console.log(page)
+		let page = req.params.page;
+
 		if(!page){
 			page = 1;
 		}
 
-		const blog = await Blog.getBlogPosts(page, limit);
-		console.log(blog)
+		var boostrapPaginator = new pagination.TemplatePaginator({
+		    prelink:'/blog/', current: page, rowsPerPage: blogPostsPerPage,
+		    totalResult: totalBlogPosts, slashSeparator: true,
+		    template: function(result) {
+		        var i, len, prelink;
+		        var html = '<div><ul class="pagination">';
+		        if(result.pageCount < 2) {
+		            html += '</ul></div>';
+		            return html;
+		        }
+		        prelink = this.preparePreLink(result.prelink);
+		        if(result.previous) {
+		            html += '<li class="page-item"><a class="page-link" href="' + prelink + result.previous + '">' + this.options.translator('PREVIOUS') + '</a></li>';
+		        }
+		        if(result.range.length) {
+		            for( i = 0, len = result.range.length; i < len; i++) {
+		                if(result.range[i] === result.current) {
+		                    html += '<li class="active page-item"><a class="page-link" href="' + prelink + result.range[i] + '">' + result.range[i] + '</a></li>';
+		                } else {
+		                    html += '<li class="page-item"><a class="page-link" href="' + prelink + result.range[i] + '">' + result.range[i] + '</a></li>';
+		                }
+		            }
+		        }
+		        if(result.next) {
+		            html += '<li class="page-item"><a class="page-link" href="' + prelink + result.next + '" class="paginator-next">' + this.options.translator('NEXT') + '</a></li>';
+		        }
+		        html += '</ul></div>';
+		        return html;
+		    }
+		}).render();
+
+		const blog = await Blog.getBlogPosts(page, blogPostsPerPage);
 
 		res.render('pages/blog', {
 			blog,
-			page
+			boostrapPaginator
 		});
 	},
 

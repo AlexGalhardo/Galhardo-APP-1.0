@@ -33,6 +33,7 @@
     "node-fetch": "^2.6.1",
     "nodemailer": "^6.6.3",
     "nodemon": "^2.0.12",
+    "pagination": "^0.4.6",
     "query-string": "^7.0.1",
     "rand-token": "^1.0.1",
     "slugify": "^1.6.0",

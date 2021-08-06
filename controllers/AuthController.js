@@ -3,8 +3,7 @@ const { validationResult } = require("express-validator");
 const queryString = require('query-string');
 const axios = require('axios');
 const fetch = require('node-fetch');
-
-// const MySQL = require("../mysql");
+const randomToken = require('rand-token');
 
 const DateTime = require('../helpers/DateTime');
 const Bcrypt = require('../helpers/Bcrypt');
@@ -135,13 +134,21 @@ const AuthController = {
 	
 	postForgetPassword: async (req, res) => {
 		const email = req.body.email;
+		const recoverPasswordToken = randomToken.generate(16);
 
-		NodeMailer.postForgetPassword(email);
+        const resetPasswordTokenCreated = await Users.createResetPasswordToken(recoverPasswordToken, email);
+        console.log(resetPasswordTokenCreated)
+
+        if(!resetPasswordTokenCreated){
+            return console.log('reset_password_token not saved in JSON DATABASE!');
+        }
+
+        NodeMailer.postForgetPassword(email, recoverPasswordToken);
 
 		res.render('pages/auth/forgetPassword', {
 			flash: {
 				type: "success",
-				message: "If this email exists, we'll send a link to this email to recover password!"
+				message: `If this email exists, we'll send a link to this email to recover password!`
 			}
 		});
 	},

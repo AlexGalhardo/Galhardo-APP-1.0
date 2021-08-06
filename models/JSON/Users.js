@@ -73,6 +73,38 @@ const Users = {
 		console.log(userRegistred);
 		
 		return true;
+	},
+
+	createResetPasswordToken: async (recoverPasswordToken, email) => {
+		const response = await fetch(`${process.env.DATABASE_JSON_URL}/users/a4ff72d4-fd41-4ecf-87c1-1a87a140ea84`, {
+		    method: 'PATCH',
+		    body:    JSON.stringify({
+		    	reset_password_token: recoverPasswordToken
+		    }),
+		    headers: { 'Content-Type': 'application/json' },
+		})
+
+		const json = await response.json();
+
+		console.log(json)
+
+		if(json) return true;
+
+		return false;
+	},
+
+	passwordResetTokenIsValid: async (email, resetPasswordToken) => {
+		const response = await fetch(
+			`${process.env.DATABASE_JSON_URL}/users?email=${email}&reset_password_token=${resetPasswordToken}`, {
+  				"method": "GET"
+			});
+
+		const json = await response.json();
+		console.log(json);
+
+		if(json) return true;
+
+		return false;
 	}
 };
 
