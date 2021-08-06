@@ -3,9 +3,11 @@
 
 ## Live Demo
 - You can access: https://galhardo-app.herokuapp.com/
-- **IMPORTANT: All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY**
-- **NO REAL Money Transactions will be made**
 - You can use default TEST inputs already in forms to try 
+- **IMPORTANT:**
+   - **All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY**
+   - **NO REAL Money Transactions will be made**
+   - **All CRUDs in Heroku Live Demo are made in JSON DataBase, for obvious reasons.**
 
 ## Introduction
 - I created this program in my spare time to help in my commercial projects and also to learn and practice:
