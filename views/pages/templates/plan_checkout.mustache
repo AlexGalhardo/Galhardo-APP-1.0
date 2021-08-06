@@ -4,6 +4,14 @@
 
 		<div class="row">
 
+            {{#flash}}
+                <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+                    <b class="fw-bold">{{message}}</b>
+                </div>
+            {{/flash}}
+
+            {{#user}}
+
             <form id="formCreditCard" action="/plan/payLog" method="POST">
 
                 <div class="row">
@@ -102,24 +110,18 @@
 
             </form>
 
+            {{/user}}
+
 
         </div>
 
 	</div>
 
-	<script src="../scripts/jquery.min.js"></script>
-    <script src="../scripts/jquery.card.js"></script>
-    <script>
-        $('#formCreditCard').card({
-            container: '#div_credit_card',
-            formSelectors: {
-                numberInput: 'input[name="card_number"]',
-                nameInput: 'input[name="holder_name"]',
-                expiryInput: 'input[name="card_exp_month"], input[name="card_exp_year"]',
-                cvcInput: 'input[name="card_cvc"]'
-            }
-        });
-    </script>
+    {{#user}}
+    	<script src="/scripts/jquery.min.js"></script>
+        <script src="/scripts/jquery.card.js"></script>
+        <script src="/scripts/render_credit_card.js"></script>
+    {{/user}}
 
 
 {{>partials/footer}}

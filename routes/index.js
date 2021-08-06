@@ -35,8 +35,8 @@ router.get('/blog/page/:page', AppController.getViewBlog);
 router.get('/blog/:slug', AppController.getViewBlogPost);
 
 
-router.get('/plan/checkout', AppController.getViewPlanCheckout);
-router.post('/plan/payLog', AppController.postPlanPayLog);
+router.get('/plan/premium/checkout', AppController.getViewPlanCheckout);
+router.post('/plan/premium/checkout', AppController.postPlanPayLog);
 
 
 

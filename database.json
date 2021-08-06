@@ -101,7 +101,7 @@
       "igdb_rating": 9.5,
       "platforms": "PS4, PS5",
       "developer": "Santa Mônica Studios",
-      "genres": "Action, Adventure, Hack and slash/Beat 'em up",
+      "genres": "Action, Third Person, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
@@ -116,7 +116,7 @@
       "igdb_rating": 9.0,
       "platforms": "PS4, PS5",
       "developer": "Sucker Punch Productions",
-      "genres": "Action, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
+      "genres": "Action, Third Person, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
@@ -131,7 +131,7 @@
       "igdb_rating": 8.8,
       "platforms": "PS4, PS5",
       "developer": "Insomniac Games",
-      "genres": "Action, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
+      "genres": "Action, Third Person, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
@@ -161,7 +161,7 @@
       "igdb_rating": 9.2,
       "platforms": "PS4, PS5",
       "developer": "Naughty Dog",
-      "genres": "SinglePlayer, Action, Drama, Stealth, Adventure",
+      "genres": "SinglePlayer, Third Person, Action, Drama, Stealth, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
@@ -176,7 +176,7 @@
       "igdb_rating": 9.1,
       "platforms": "PS4, PS5",
       "developer": "FromSoftware",
-      "genres": "SinglePlayer, RPG, Action, Adventure",
+      "genres": "SinglePlayer, Third Person, RPG, Action, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
@@ -191,7 +191,7 @@
       "igdb_rating": 9.4,
       "platforms": "PS4, PS5",
       "developer": "Atlus",
-      "genres": "SinglePlayer, RPG, Turn-Based, Adventure",
+      "genres": "SinglePlayer, Third Person, RPG, Turn-Based, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"

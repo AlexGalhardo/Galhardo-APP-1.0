@@ -112,42 +112,69 @@ const AppController = {
 		});
 	},
 
-	getViewContact: (req, res) => {
-		res.render('pages/contact');
-	},
-
-	postContact: async (req, res) => {
-		const username = req.body.contact_username;
-		const email = req.body.contact_email;
-		const subject = req.body.contact_subject;
-		const message = req.body.contact_message;
-
-		console.log(username, email, subject, message)
-
-		if(NodeMailer.postContact(username, email, subject, message)){
-			res.render('pages/contact', {
-				flash: {
-					type: 'success',
-					message: 'Message Send!'
-				}
-			});
-			return
+	getViewContact: async (req, res) => {
+		let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
 		}
 
 		res.render('pages/contact', {
-			flash: {
-				type: 'warning',
-				message: 'Error'
-			}
+			user
 		});
 	},
 
-	getViewPrivacy: (req, res) => {
-		res.render('pages/privacy');
+	postContact: async (req, res) => {
+		const { contact_username,
+				contact_email,
+				contact_subject,
+				contact_message } = req.body;
+
+		if(NodeMailer.postContact(contact_username, 
+									contact_email, 
+									contact_subject, 
+									contact_message))
+		{
+			return res.render('pages/contact', {
+				flash: {
+					type: 'success',
+					message: 'Message Send!'
+				},
+				user
+			});
+		}
+
+		return res.redirect('/contact')
 	},
 
-	getViewPlanCheckout: (req, res) => {
-		res.render('pages/templates/plan_checkout');
+	getViewPrivacy: async (req, res) => {
+		let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
+		}
+
+		res.render('pages/privacy', {
+			user
+		});
+	},
+
+	getViewPlanCheckout: async (req, res) => {
+		if(!req.session.userID){
+        	return res.render('pages/templates/plan_checkout', {
+        		flash: {
+        			type: "danger",
+        			message: "You Must Be Logued To Make A Subscription Transaction!"
+        		}
+        	})
+    	}
+
+    	let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
+		}
+
+		res.render('pages/templates/plan_checkout', {
+			user
+		});
 	},
 
 	postShopPayLog: async (req, res) => {
@@ -239,6 +266,16 @@ const AppController = {
 	},
 	
 	postPlanPayLog: async (req, res) => {
+
+		if(!req.session.userID){
+        	return res.render('pages/templates/plan_checkout', {
+        		flash: {
+        			type: "danger",
+        			message: "You Must Be Logued To Make A Subscription Transaction!"
+        		}
+        	})
+    	}
+
 		const customer_email = req.body.customer_email;
 
 		// CREATE CUSTOMER AND CREDIT CARD ONLY IF NOT REGISTRED IN STRIPE YET
