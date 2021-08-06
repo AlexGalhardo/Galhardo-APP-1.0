@@ -20,6 +20,7 @@ const router = express();
 
 // APP CONTROLLER
 router.get('/', AppController.getViewHome);
+router.get('/books', AppController.getViewBooks);
 
 router.get('/shop', AppController.getViewShop);
 router.post('/shop', AppController.postShopPayLog);

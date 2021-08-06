@@ -41,6 +41,7 @@
 
 
 ## System Features (Things I want to put in practice/learn)
+- Mobile First (100% responsive)
 - CRUDs in JSON, MySQL and MongoDB
 - Login & Register using Sessions and Social Login
 - APIs RESTs using JWT, Oauth2, Bearer Token

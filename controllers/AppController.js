@@ -4,6 +4,8 @@ const NodeMailer = require('../helpers/NodeMailer');
 
 const Users = require('../models/JSON/Users');
 const Blog = require('../models/JSON/Blog');
+const Games = require('../models/JSON/Games');
+const Books = require('../models/JSON/Books');
 
 const stripe = require('stripe')('sk_test_IVPNgFWhBStx7kngLOXZHzW0');
 
@@ -16,8 +18,25 @@ const AppController = {
 		if(req.session.userID){
 			user = await Users.getUserByID(req.session.userID)
 		}
-	    
+
+		const game = await Games.getRandomGame()
+
 	    res.render('pages/home', {
+	    	game,
+	        user
+	    });
+	},
+
+	getViewBooks: async (req, res) => {
+		let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
+		}
+
+		const book = await Books.getRandomBook()
+
+	    res.render('pages/books', {
+	    	book,
 	        user
 	    });
 	},
