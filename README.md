@@ -1,5 +1,5 @@
 <br>
-<h2 align="center">⭐ Galhardo APP 💵</h2>
+<h1 align="center">⭐ Galhardo APP 💵</h1>
 
 ## Live Demo
 - You can access: https://galhardo-app.herokuapp.com/
@@ -47,12 +47,12 @@
 - Simple Ecommerce and Subscription Checkout
 - System Logs using Telegram (contacts, errors, subscriptions, etc)
 - Docker (for MongoDB and MySQL)
-- Slug
 - UUID
 - Flash Messages
 - Blog 
    - Using Admin to create/update/delete blog posts
    - Pagination
+   - Slug
    - Search Blog Title
 
 
@@ -212,16 +212,16 @@
             "name": "user_name",
             "email": "user_email",
             "password": "user_bcrypt_hash_password",
-            "admin": 0, // 1 for true
-            "reset_password_token": null, // random token created in forgetPassword
-            "stripe_customer_id": null, // when this user is registred in stripe
+            "admin": 0, 
+            "reset_password_token": null, 
+            "stripe_customer_id": null, 
             "created_at": "04/08/2021 17:17:18",
-            "updated_at": "04/08/2021 17:17:18" // last update in /profile
+            "updated_at": "04/08/2021 17:17:18"
         }
     ],
     "blog": [
         {
-          "id": 1, // created automatically from JSON-SERVER
+          "id": 1,
           "title": "blog_title",
           "resume": "blog_resume",
           "slug": "blog_slug",
