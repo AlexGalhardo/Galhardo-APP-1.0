@@ -5,10 +5,24 @@ const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
+
 // PWD ROOT
 global.APP_ROOT_PATH = path.resolve(__dirname);
 
+// with LocalHost HTTPS
+// const app = require("https-localhost")()
+
+
+// with LocalHost HTTP
 const app = express();
+
+app.use((req, res, next) => {
+  if (req.header('x-forwarded-proto') !== 'https') {
+    res.redirect(`https://${req.header('host')}${req.url}`)
+  } else {
+    next();
+  }
+});
 
 app.use(session({
     name: 'session',
@@ -37,5 +51,5 @@ app.use((req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-	console.log(`Localhost rodando na porta ${process.env.PORT}....`)
+    console.log(`Server running on port ${process.env.PORT}`)
 });

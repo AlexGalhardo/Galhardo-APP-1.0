@@ -69,7 +69,11 @@
    - Learn how to configure Load Balancing in NGINX
    - Using MySQL or MongoDB
    - Learn how to configure HTTPS/SSL in a VPS
+      - https://dnsimple.com/
       - https://certbot.eff.org/
+      - https://howdns.works/
+      - https://howhttps.works
+      - https://howdnssec.works/
 
 
 ## How To Use Locally with JSON DataBase
