@@ -9,7 +9,6 @@ const compression = require('compression')
 // PWD ROOT
 global.APP_ROOT_PATH = path.resolve(__dirname);
 
-
 /*
  * with LocalHost HTTPS
  * Need to change .env APP_URL to https
