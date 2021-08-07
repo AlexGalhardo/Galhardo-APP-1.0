@@ -214,6 +214,8 @@ const AppController = {
 
 	postShopPayLog: async (req, res) => {
 
+		let user = null;
+
 		if(!req.session.userID){
         	return res.render('pages/home', {
         		flash: {
@@ -221,6 +223,8 @@ const AppController = {
         			message: "You must be logued to make a shop transaction!"
         		}
         	})
+    	} else {
+    		user = await Users.getUserByID(req.session.userID)
     	}
 		
 		// get post request name inputs
@@ -296,7 +300,8 @@ const AppController = {
 			shopCartItems,
 			value_totalShopCart,
 			customer_email,
-			shipping
+			shipping,
+			user
 		});
 	},
 	
@@ -355,13 +360,19 @@ const AppController = {
 		subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
 		subscription.current_period_start = DateTime.getDateTime(subscription.current_period_start);
 
+		let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
+		}
+
 		res.render('pages/templates/planPayLog', {
 			flash: {
 				type: 'success',
 				message: 'Subscription Created with Success!'
 			},
 			subscription,
-			customer_email
+			customer_email,
+			user
 		});
 	}
 };
