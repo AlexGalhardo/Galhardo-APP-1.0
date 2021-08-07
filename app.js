@@ -37,7 +37,7 @@ if(process.env.NODE_ENV === 'production') {
 
 app.use(session({
     name: 'session',
-    secret: process.env.SESSION_SECRET,
+    secret: `${process.env.SESSION_SECRET}`,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -61,6 +61,6 @@ app.use((req, res) => {
 	res.render('pages/404');
 });
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log(`Server running on port ${process.env.PORT}`)
 });
