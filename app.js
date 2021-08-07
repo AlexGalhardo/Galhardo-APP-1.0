@@ -4,29 +4,41 @@ const path = require('path');
 const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const session = require('express-session');
-
+const compression = require('compression')
 
 // PWD ROOT
 global.APP_ROOT_PATH = path.resolve(__dirname);
 
-// with LocalHost HTTPS
+
+/*
+ * with LocalHost HTTPS
+ * Need to change .env APP_URL to https
+ */
 // const app = require("https-localhost")()
 
 
 // with LocalHost HTTP
 const app = express();
 
-app.use((req, res, next) => {
-  if (req.header('x-forwarded-proto') !== 'https') {
-    res.redirect(`https://${req.header('host')}${req.url}`)
-  } else {
-    next();
-  }
-});
+// compress all responses
+app.use(compression())
+
+/*
+ * THIS CODE FORCE REQUESTS FROM HTTP TO HTTPS IN PRODUCTION
+ */
+if(process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    if (req.header('x-forwarded-proto') !== 'https') {
+      res.redirect(`https://${req.header('host')}${req.url}`)
+    } else {
+      next();
+    }
+  });
+}
 
 app.use(session({
     name: 'session',
-    secret: 'my_secret',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {

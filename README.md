@@ -2,7 +2,7 @@
 <h1 align="center">⭐ Galhardo APP 💵</h1>
 
 ## Live Demo
-- You can access: https://galhardo-app.herokuapp.com/
+- You can access: https://www.galhardoapp.com/
 - You can use default TEST inputs already in forms to try 
 - **IMPORTANT:**
    - **All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY**
@@ -33,9 +33,9 @@
 - [https://translate.google.com/](https://translate.google.com/)
 - [https://www.freeprivacypolicy.com/](https://www.freeprivacypolicy.com/)
 - [https://sendgrid.com/](https://sendgrid.com/)
+- https://picsum.photos/images
 - Bash
 - API Brazil Correios
-- https://picsum.photos/images
 
 
 ## System Features => Things I want to put in practice and learn
@@ -53,6 +53,11 @@
 - UUID
 - Flash Messages
 - File Uploads
+- CDN (CloudFlare)
+- Google Tools
+   - Analytics
+   - Search Console
+   - SEO
 - Forms Validations 
    - Masks, validation inputs, requests, etc
 - SMTP 
@@ -69,12 +74,6 @@
    - Learn how to configure Load Balancing in NGINX
    - Using MySQL or MongoDB
    - Learn how to configure HTTPS/SSL in a VPS
-      - https://dnsimple.com/
-      - https://certbot.eff.org/
-      - https://howdns.works/
-      - https://howhttps.works
-      - https://howdnssec.works/
-
 
 ## How To Use Locally with JSON DataBase
 - $ git clone https://github.com/alexgalhardo/galhardo-app
@@ -87,7 +86,7 @@
    - http://localhost:3000
 
 - You can see GalhardoAPP JSON DataBase live here
-   - https://galhardoapp-json-database.herokuapp.com/
+   - https://json-database.galhardoapp.com/
 
 ## How To Use Locally with MySQL and Docker
 - In Development
@@ -96,12 +95,12 @@
 - In Development
 
 ## My Heroku APIs
-- You can use: https://galhardo-correios.herokuapp.com/cep/:zipcode 
+- You can use: https://correios.galhardoapp.com/cep/13560290
    - To get BRASIL CEP/ZipCode Information
-   - Example: https://galhardo-correios.herokuapp.com/cep/13560290
-- You can use: https://galhardo-correios.herokuapp.com/correios/:zipcode
+   - Example: https://correios.galhardoapp.com/cep/13560290
+- You can use: https://correios.galhardoapp.com/shipping/13560290
    - To get BRASIL CORREIOS SHIPPING DEADLINE AND FEE
-   - Example: https://galhardo-correios.herokuapp.com/correios/13560290
+   - Example: https://correios.galhardoapp.com/shipping/13560290
 
 ## Project Structure
 ```
