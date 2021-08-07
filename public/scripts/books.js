@@ -1,7 +1,7 @@
 async function recommendOtherBook(){
 
     const random_book_id = await Math.floor(Math.random() * 3) + 1;
-    const response = await fetch(`http://localhost:4000/books/${random_book_id}`);
+    const response = await fetch(`https://galhardoapp-json-database.herokuapp.com/books/${random_book_id}`);
     const book = await response.json();
 
     Object.entries(book).forEach(([key, value]) => {

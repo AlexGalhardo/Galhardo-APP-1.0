@@ -1,7 +1,7 @@
 async function recommendOtherGame(){
 
     const random_game_id = await Math.floor(Math.random() * 10) + 1;
-    const response = await fetch(`http://localhost:4000/games/${random_game_id}`);
+    const response = await fetch(`https://galhardoapp-json-database.herokuapp.com/games/${random_game_id}`);
     const game = await response.json();
 
     Object.entries(game).forEach(([key, value]) => {

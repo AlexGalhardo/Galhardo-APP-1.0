@@ -56,7 +56,7 @@
 - Forms Validations 
    - Masks, validation inputs, requests, etc
 - SMTP 
-   - for contact form, forget/reset password, subscriptions, etc)
+   - for contact form, forget/reset password, subscriptions, etc
    - Using HTML Templates
 - Blog 
    - Using Admin to create/update/delete blog posts
@@ -235,7 +235,7 @@
 28 directories, 100 files
 ```
 
-## DataBase JSON Structure
+## JSON DataBase Structure
 - **IMPORT: Never Use JSON SERVER for Production DataBase (Of course, you already know that)**
 - I'm using JSON-SERVER as DataBase for LEARNING JSON purposes only.
 ```json
