@@ -1,9 +1,30 @@
 const nodemailer = require("nodemailer");
+const handlebars = require("handlebars");
+const fs = require("fs");
+const path = require("path");
 
 const Users = require('../models/JSON/Users');
 
 const NodeMailer = {
     postContact: async (username, email, subject, message) => {
+
+        // const filePath = path.join(__dirname, '../views/emails/contact.html');
+        // const filePath = path.join(__dirname, '../views/emails/subscription_transaction.html');
+        const filePath = path.join(__dirname, '../views/emails/forget_password.html');
+        const source = fs.readFileSync(filePath, 'utf-8').toString();
+        const template = handlebars.compile(source);
+        const replacements = {
+            // username: username,
+            email: email,
+            // subject: subject,
+            // message: message,
+            // transaction_id: 'k123aosk123kasp',
+            // subs_start: '23/09/2021 13:45:52',
+            // subs_end: '23/10/2021 13:45:52'
+            resetPasswordToken: "123456789"
+        };
+        const htmlToSend = template(replacements);
+
         const smtpTransport = nodemailer.createTransport({
             host: process.env.SENDGRID_SERVER,
             port: process.env.SENDGRID_PORT,
@@ -18,8 +39,8 @@ const NodeMailer = {
             from: email,
             to: "aleexgvieira@gmail.com",
             subject: `Contact: Subject ${subject} from ${username}`,
-            text: message,
-            //html: "<b>Opcionalmente, pode enviar como HTML</b>"
+            text: subject,
+            html: htmlToSend
         }
 
         let response = await smtpTransport.sendMail(mail);

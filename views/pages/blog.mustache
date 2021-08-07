@@ -2,9 +2,20 @@
 
 	<main class="container col-lg-12 mt-3">
 
-        <div class="row justify-content-center">
+        <div class="row">
 
-        	{{{boostrapPaginator}}}
+        	<div class="d-flex justify-content-between mb-3">
+        		{{{boostrapPaginator}}}
+
+        		<form action="/blog/search" method="GET" class="d-flex">
+			        <input class="form-control me-2" type="search" placeholder="Search blog title" name="blogTitle" value="{{searchBlogTitle}}" required>
+			        <button class="btn btn-outline-success" type="submit">Search</button>
+			    </form>
+
+			    {{#totalBlogPostsFoundFromSearch}}
+ 					<h6 class="alert alert-success fw-bold text-success">Total Blog Posts Search Found:  {{totalBlogPostsFoundFromSearch}}</h6>
+ 				{{/totalBlogPostsFoundFromSearch}}
+        	</div>
 			    
 			{{#blog}}
 			    <div class="col-md-6">

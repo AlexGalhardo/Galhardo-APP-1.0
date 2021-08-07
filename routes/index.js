@@ -31,6 +31,7 @@ router.post('/contact', AppController.postContact);
 router.get('/privacy', AppController.getViewPrivacy);
 
 router.get('/blog', AppController.getViewBlog);
+router.get('/blog/search', AppController.getSearchBlogTitle);
 router.get('/blog/page/:page', AppController.getViewBlog);
 router.get('/blog/:slug', AppController.getViewBlogPost);
 

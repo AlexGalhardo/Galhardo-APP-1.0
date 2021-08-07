@@ -5,8 +5,20 @@ var slugify = require('slugify')
 
 const Blog = {
 
-	getBlogPosts: async (page, limit) => {
+	getBlogPostsByPageLimit: async (page, limit) => {
 		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog/?_page=${page}&_limit=${limit}`, {
+  			"method": "GET"
+		});
+
+		const json = await response.json();
+
+		if(json.length > 0) return json;
+
+		return null;
+	},
+
+	getAllBlogPosts: async () => {
+		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog`, {
   			"method": "GET"
 		});
 

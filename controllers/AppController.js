@@ -52,18 +52,16 @@ const AppController = {
 	    });
 	},
 
-	getViewBlog: async (req, res) => {
-		const totalBlogPosts = await Blog.getTotalBlogPosts();
-		const blogPostsPerPage = 4;
-		
-		let page = req.params.page;
+	getRenderBootstrapPaginator: function(current, blogPostsPerPage, totalBlogPosts, searchBlogTitle) {
 
-		if(!page){
-			page = 1;
-		}
+		let prelinkUrl = '/blog/';
 
-		var boostrapPaginator = new pagination.TemplatePaginator({
-		    prelink:'/blog/', current: page, rowsPerPage: blogPostsPerPage,
+		if(false){
+			prelinkUrl = `/blog/search?blogTitle=${searchBlogTitle}`;
+		} 
+
+		return new pagination.TemplatePaginator({
+		    prelink: prelinkUrl, current: current, rowsPerPage: blogPostsPerPage,
 		    totalResult: totalBlogPosts, slashSeparator: true,
 		    template: function(result) {
 		        var i, len, prelink;
@@ -92,13 +90,45 @@ const AppController = {
 		        return html;
 		    }
 		}).render();
+	},
 
-		const blog = await Blog.getBlogPosts(page, blogPostsPerPage);
+	getViewBlog: async (req, res) => {
+		const totalBlogPosts = await Blog.getTotalBlogPosts();
+		const blogPostsPerPage = 4;
+		
+		let page = req.params.page;
+
+		if(!page){
+			page = 1;
+		}
+
+		const blog = await Blog.getBlogPostsByPageLimit(page, blogPostsPerPage);
 
 		res.render('pages/blog', {
 			blog,
-			boostrapPaginator
+			boostrapPaginator: AppController.getRenderBootstrapPaginator(page, blogPostsPerPage, totalBlogPosts)
 		});
+	},
+
+	getSearchBlogTitle: async (req, res) => {
+		const blogPosts = await Blog.getAllBlogPosts();
+		const searchBlogTitle = req.query.blogTitle;
+
+		if(!searchBlogTitle){
+			return res.redirect('/blog')
+		}
+		
+		console.log(blogPosts, searchBlogTitle);
+
+		const blogTitlesSearched = await blogPosts.filter(blogPost => blogPost.title.toLowerCase().indexOf(searchBlogTitle.toLowerCase()) > -1);
+
+		const totalBlogPostsFoundFromSearch = blogTitlesSearched.length;
+
+		res.render('pages/blog', {
+			blog: blogTitlesSearched,
+			searchBlogTitle,
+			totalBlogPostsFoundFromSearch
+		})
 	},
 
 	getViewBlogPost: async (req, res) => {
@@ -124,6 +154,11 @@ const AppController = {
 	},
 
 	postContact: async (req, res) => {
+		let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
+		}
+		
 		const { contact_username,
 				contact_email,
 				contact_subject,
