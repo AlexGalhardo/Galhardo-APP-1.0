@@ -4,6 +4,7 @@
             "id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
             "name": "admin",
             "email": "admin@gmail.com",
+            "confirmed_email": true,
             "password": "$2b$12$QdBFZwXSSkoKSv77Iqjga.bxSeWZkRHzmH.LAqajyB7ha.itqIxyK",
             "admin": 1,
             "avatar": "b6e074ee-565b-4bb0-9a28-6b1231781216_avatar.jpeg",
@@ -40,6 +41,38 @@
           "created_at": "04/08/2021 18:35:09",
           "updated_at": "04/08/2021 18:55:16"
         }
+    ],
+    "games": [
+        {
+          "id": 1,
+          "title": "God Of War",
+          "year_release": 2018,
+          "resume": "game resume",
+          "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg",
+          "igdb_link": "https://www.igdb.com/games/god-of-war--1",
+          "igdb_rating": 9.5,
+          "platforms": "PS4, PS5",
+          "developer": "Santa M�nica Studios",
+          "genres": "Action, Third Person, Adventure, Hack and slash/Beat 'em up",
+          "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+          "created_at": "04/08/2021 18:35:09",
+          "updated_at": "04/08/2021 18:55:16"
+        },
+    ],
+    "books": [
+        {
+          "id": 1,
+          "title": "Sapiens - Uma Breve História da Humanidade",
+          "year_release": 2014,
+          "author": "Yuval Noah Harari ",
+          "resume": "book resume",
+          "image": "https://images-na.ssl-images-amazon.com/images/I/51fuvXO6wvL._SX346_BO1,204,203,200_.jpg",
+          "pages": "464",
+          "genres": "Historic",
+          "amazon_link": "https://www.amazon.com.br/Sapiens-Uma-Breve-Hist%C3%B3ria-Humanidade/dp/8525432180",
+          "created_at": "04/08/2021 18:35:09",
+          "updated_at": "04/08/2021 18:55:16"
+        },
     ],
     "customers": [],
     "cards": [],

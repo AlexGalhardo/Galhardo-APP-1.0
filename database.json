@@ -4,6 +4,7 @@
       "id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
       "name": "admin",
       "email": "admin@gmail.com",
+      "confirmed_email": true,
       "password": "$2b$12$QdBFZwXSSkoKSv77Iqjga.bxSeWZkRHzmH.LAqajyB7ha.itqIxyK",
       "admin": 1,
       "avatar": "b6e074ee-565b-4bb0-9a28-6b1231781216_alex.jpeg",
