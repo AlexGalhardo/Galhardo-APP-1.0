@@ -30,7 +30,8 @@
 
                 <div class="mb-3">
                     <label for="contact_message" class="form-label">Digit your message</label>
-                    <textarea class="form-control" id="contact_message" name="contact_message" rows="5" required></textarea>
+                    <small id="count" class="text-muted"></small>
+                    <textarea id="contact_message" maxlength="1024" class="form-control" name="contact_message" rows="5" required></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-outline-success shadow">Send Mensage</button>
@@ -40,5 +41,15 @@
         </div>
 
     </main>
+
+    <script>
+        var message = document.getElementById('contact_message');
+        var length = message.getAttribute("maxlength");
+        var count = document.getElementById('count');
+        count.innerHTML = length + ' words left';
+        message.onkeyup = function () {
+          document.getElementById('count').innerHTML = (length - this.value.length) + ' words left';
+        };
+    </script>
 
 {{>partials/footer}}

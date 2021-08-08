@@ -45,12 +45,39 @@ const Blog = {
 		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog?slug=${slug}`, {
   			"method": "GET"
 		});
+		const json = await response.json();
+
+		if(json.length > 0) return json[0];
+
+		return null;
+	},
+
+	getBlogPostsCommentsByBlogPostID: async(blogPostID) => {
+		console.log('recebeu id: ' + blogPostID)
+		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog_comments?blog_post_id=${blogPostID}?_sort=created_at&_order=ASC`, {
+  			"method": "GET"
+		});
 
 		const json = await response.json();
 
 		if(json.length > 0) return json;
 
 		return null;
+	},
+
+	createBlogComment: async (body) => {
+		console.log('recebeu body: ', body)
+		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog_comments`, {
+		    method: 'POST',
+		    body:    JSON.stringify(body),
+		    headers: { 'Content-Type': 'application/json' },
+		})
+
+		const json = await response.json();
+
+		if(json) return true;
+
+		return false;
 	},
 
 	createBlogPost: async (blog_title, blog_category, blog_body) => {

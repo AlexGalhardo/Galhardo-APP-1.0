@@ -13,11 +13,17 @@
 
         		{{{body}}}
 
+                {{#flash}}
+                    <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+                        <b>{{message}}</b>
+                    </div>
+                {{/flash}}
+
                 {{#user}}
-                    <form class="mt-5" action="/" method="POST">
+                    <form class="mt-5" action="/blog/{{slug}}" method="POST">
                         <div class="mb-5">
                             <small id="count" class="text-muted"></small>
-                            <textarea id="blog_comment" name="tweet_comment" maxlength="256" class="form-control" rows="3"></textarea>
+                            <textarea id="blog_comment" name="blog_comment" maxlength="256" class="form-control" rows="3"></textarea>
                             <br>
                             <button class="btn shadow-sm btn-outline-primary" type="submit">
                                 Post Comment
@@ -29,59 +35,28 @@
                 <h5 class="text-muted">Comments</h5>
                 <hr>
                 
+                {{#blogPostComments}}
 
-                <div class="card mb-3 p-1">
-                    <div class="row g-0">
-                        <div class="col-md-2 text-center">
-                            <img src="/uploads/avatars/avatar.png" class="img-fluid rounded-circle mt-2 ms-2" alt="...">
-                        </div>
-                        <div class="col-md-10">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-title">Alex Galhardo</h5>
-                                    <p class="card-text"><small class="text-muted">04/08/2021 18:55:16</small></p>
-                                </div>
-                                <p class="card-text">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <div class="card mb-3 p-1">
+                        <div class="row g-0">
+                            <div class="col-md-2 text-center">
+                                <img src="/uploads/avatars/{{user_avatar}}" class="img-fluid rounded-circle mt-2 ms-2" alt="...">
                             </div>
-                            <a href="" class="w-50 btn btn-sm btn-outline-danger">Delete Comment</a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="card mb-3 p-1">
-                    <div class="row g-0">
-                        <div class="col-md-2 text-center">
-                            <img src="/uploads/avatars/avatar.png" class="img-fluid rounded-circle mt-2 ms-2" alt="...">
-                        </div>
-                        <div class="col-md-10">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-title">Homer Simpson</h5>
-                                    <p class="card-text"><small class="text-muted">04/08/2021 18:55:16</small></p>
+                            <div class="col-md-10">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">{{user_name}}</h5>
+                                        <p class="card-text"><small class="text-muted">{{created_at}}</small></p>
+                                    </div>
+                                    <p class="card-text">{{comment}}</p>
                                 </div>
-                                <p class="card-text">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                <a href="#" class="w-50 btn btn-sm btn-outline-danger">Delete Comment</a>
                             </div>
+
                         </div>
                     </div>
-                </div>
 
-                <div class="card mb-3 p-1">
-                    <div class="row g-0">
-                        <div class="col-md-2 text-center">
-                            <img src="/uploads/avatars/avatar.png" class="img-fluid rounded-circle mt-2 ms-2" alt="...">
-                        </div>
-                        <div class="col-md-10">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-title">Johny SilverHand</h5>
-                                    <p class="card-text"><small class="text-muted">04/08/2021 18:55:16</small></p>
-                                </div>
-                                <p class="card-text">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{/blogPostComments}}
 
         	{{/blogPost}}
 
@@ -98,5 +73,8 @@
           document.getElementById('count').innerHTML = (length - this.value.length) + ' words left';
         };
     </script>
+
+
+    <script src="../scripts/default.js"></script>
 
 {{>partials/footer}}

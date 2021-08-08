@@ -40,6 +40,7 @@
 - System Logs using Telegram (contacts, errors, subscriptions, etc)
 - Docker (for MongoDB and MySQL)
 - UUID
+- AJAX 
 - Flash Messages
 - File Uploads
 - CDN (CloudFlare)
@@ -57,6 +58,7 @@
    - Pagination
    - Slug
    - Search Blog Title
+   - Comments
 - Deploy on AWS
    - Using my own domain 
    - Learn how to configure reverse-proxy with NGINX

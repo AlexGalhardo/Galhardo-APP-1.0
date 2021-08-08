@@ -116,6 +116,45 @@ const AppController = {
 		});
 	},
 
+	postBlogComment: async (req, res) => {
+		let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
+		}
+
+		const slug = req.params.slug;
+		const { blog_comment } = req.body;
+
+		const blogPost = await Blog.getBlogPostBySlug(slug);
+		console.log(blogPost);
+
+		const blogCommentCreated = await Blog.createBlogComment({
+	        "blog_post_id": blogPost.id,
+	        "user_id": user.id,
+	        "user_name": user.name,
+	        "user_avatar": user.avatar,
+	        "comment": blog_comment,
+	        "created_at": DateTime.getNow()
+		});
+
+		console.log(blogCommentCreated)
+
+		if(!blogCommentCreated){
+			return console.log('blog comment não foi criado no json database!')
+		}
+
+		const blogPostComments = await Blog.getBlogPostsCommentsByBlogPostID(blogPost.id);
+
+		return res.render('pages/blog/blogPost', {
+			flash: {
+				type: "success",
+				message: "Comment Created!"
+			},
+			blogPost,
+			blogPostComments
+		})
+	},
+
 	getViewStripe: (req, res) => {
 		return res.render('partials/stripe');
 	},
@@ -150,12 +189,15 @@ const AppController = {
 
 		const slug = req.params.slug;
 
-		const blogPost = await Blog.getBlogPostBySlug(slug);
-		console.log(blogPost);
+		const blogPost = await Blog.getBlogPostBySlug(slug)
+		const blogPostComments = await Blog.getBlogPostsCommentsByBlogPostID(blogPost.id);
+		
+		console.log(blogPost.id, blogPostComments);
 
 		res.render('pages/blog/blogPost', {
+			user,
 			blogPost,
-			user
+			blogPostComments
 		});
 	},
 

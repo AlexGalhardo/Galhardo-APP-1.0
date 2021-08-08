@@ -39,23 +39,14 @@
       "image": "https://picsum.photos/id/1/230/230",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "id": 1,
-      "blog_comments": [
-        {
-          "id": 1,
-          "blog_post_id": 1,
-          "user_id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
-          "comment": "Comment Here",
-          "created_at": "04/08/2021 18:35:09"
-        }
-      ],
+      "id": 1
     },
     {
       "title": "Blog Title 2",
       "resume": "Resume blog title 2",
       "slug": "blog-title-2",
       "category": "software",
-      "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p> <img class='w-100 image-fluid' src='https://rollingstone.uol.com.br/media/_versions/os-simpsons-teoria-final_widelg.jpg'> <p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p>  <p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p>",
+      "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>",
       "image": "https://picsum.photos/id/2/200/200",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
@@ -106,6 +97,35 @@
       "id": 6
     }
   ],
+  "blog_comments": [
+    {
+      "id": 1,
+      "blog_post_id": 1,
+      "user_id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
+      "user_name": "Alex Galhardo",
+      "user_avatar": "avatar.png",
+      "comment": "Comment 1 here",
+      "created_at": "04/08/2021 18:35:09"
+    },
+    {
+      "id": 2,
+      "blog_post_id": 1,
+      "user_id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
+      "user_name": "Alex Galhardo",
+      "user_avatar": "avatar.png",
+      "comment": "Comment 2 here",
+      "created_at": "04/08/2021 18:35:09"
+    },
+    {
+      "blog_post_id": 1,
+      "user_id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
+      "user_name": "admin",
+      "user_avatar": "profile.jpeg",
+      "comment": "comentário teste 10",
+      "created_at": "08/08/2021 20:11:47",
+      "id": 3
+    }
+  ],
   "games": [
     {
       "id": 1,
@@ -129,7 +149,7 @@
       "resume": "The year is 1274. Samurai warriors are the legendary defenders of Japan — until the fearsome Mongol Empire invades the island of Tsushima, wreaking havoc and conquering the local population. As one of the last surviving samurai, you rise from the ashes to fight back. But, honorable tactics won’t lead you to victory. You must move beyond your samurai traditions to forge a new way of fighting — the way of the Ghost — as you wage an unconventional war for the freedom of Japan.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2crj.jpg",
       "igdb_link": "https://www.igdb.com/games/ghost-of-tsushima",
-      "igdb_rating": 9.0,
+      "igdb_rating": 9,
       "platforms": "PS4, PS5",
       "developer": "Sucker Punch Productions",
       "genres": "Action, Third Person, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
