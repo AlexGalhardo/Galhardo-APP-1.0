@@ -2,7 +2,7 @@ const bodyParser = require('body-parser')
 
 const StripeModel = require('../models/JSON/Stripe');
 
-const stripe = require('stripe')('sk_test_IVPNgFWhBStx7kngLOXZHzW0');
+const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const CustomersController = {
 	getViewCreate: (req, res) => {

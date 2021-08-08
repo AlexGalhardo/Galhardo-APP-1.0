@@ -7,7 +7,7 @@ const Blog = require('../models/JSON/Blog');
 const Games = require('../models/JSON/Games');
 const Books = require('../models/JSON/Books');
 
-const stripe = require('stripe')('sk_test_IVPNgFWhBStx7kngLOXZHzW0');
+const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 var pagination = require('pagination')
 

@@ -1,7 +1,7 @@
 const bodyParser = require('body-parser')
 const DateTime = require('../helpers/DateTime');
 
-const stripe = require('stripe')(process.env.STRIPE_SK_TEST);
+const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const SubscriptionsController = {
 	getViewCreate: (req, res) => {
