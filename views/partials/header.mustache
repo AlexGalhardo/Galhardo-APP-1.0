@@ -24,9 +24,9 @@
 
 <body class="bg-light" onload=displayAPIs();>
 
-	<div class="container col-lg-12">
+	<div class="bg-dark">
 		
-		<nav class="navbar navbar-expand-lg navbar-light fixed">
+		<nav class="container col-lg-12 navbar navbar-expand-lg fixed navbar-dark bg-dark">
 		  	
 		  	<div class="container-fluid">
 			    
@@ -43,6 +43,26 @@
 			      	
 			      	<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+        				<li class="nav-item">
+          					<a class="nav-link" aria-current="page" href="/blog">Blog</a>
+        				</li>
+
+        				<li class="nav-item">
+          					<a class="nav-link" aria-current="page" href="/contact">Contact</a>
+        				</li>
+
+        				<li class="nav-item">
+          					<a class="nav-link" aria-current="page" href="/shop">Shop</a>
+        				</li>
+
+        				<li class="nav-item">
+          					<a class="nav-link" aria-current="page" href="/plans">Plans</a>
+        				</li>
+
+        				<li class="nav-item">
+          					<a class="nav-link" aria-current="page" href="/privacy">Privacy</a>
+        				</li>
+
 			      		<li class="nav-item dropdown">
 				          	
 				          	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,31 +70,6 @@
 				          	</a>
 				          	
 				          	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="http://localhost:4000/users">
-				            			<i class="bi bi-person"></i> 
-				            			JSON-DB Users
-				            		</a>
-				            	</li>
-				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="http://localhost:4000/users">
-				            			<i class="bi bi-pencil-fill"></i> 
-				            			JSON-DB Blog
-				            		</a>
-				            	</li>
-				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="https://galhardoapp-json-database.herokuapp.com/games">
-				            			<i class="bi bi-controller"></i> 
-				            			JSON-DB Games
-				            		</a>
-				            	</li>
-				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="https://galhardoapp-json-database.herokuapp.com/books">
-				            			<i class="bi bi-book"></i> 
-				            			JSON-DB Books
-				            		</a>
-				            	</li>
-				            	<li><hr class="dropdown-divider"></li>
 				            	<li class="dropdown-item" id="dolar"></li>
 	                            <li class="dropdown-item" id="euro"></li>
 	                            <li class="dropdown-item" id="bitcoin"></li>
@@ -94,8 +89,94 @@
 	                            </li>
 					         </ul>
 				        </li>
+
+				        <li class="nav-item dropdown">
+				          	
+				          	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				            	JSON DataBase
+				          	</a>
+				          	
+				          	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				            	<li>
+				            		<a target="_blank" class="dropdown-item fw-bold" href="http://localhost:4000/users">
+				            			<i class="bi bi-person"></i> 
+				            			JSON-DB Users
+				            		</a>
+				            	</li>
+				            	<li>
+				            		<a target="_blank" class="dropdown-item fw-bold" href="http://localhost:4000/users">
+				            			<i class="bi bi-chat-quote"></i> 
+				            			JSON-DB Blog
+				            		</a>
+				            	</li>
+				            	<li>
+				            		<a target="_blank" class="dropdown-item fw-bold" href="https://galhardoapp-json-database.herokuapp.com/games">
+				            			<i class="bi bi-controller"></i> 
+				            			JSON-DB Games
+				            		</a>
+				            	</li>
+				            	<li>
+				            		<a target="_blank" class="dropdown-item fw-bold" href="https://galhardoapp-json-database.herokuapp.com/books">
+				            			<i class="bi bi-book"></i> 
+				            			JSON-DB Books
+				            		</a>
+				            	</li>
+				            </ul>
+				        </li>
+
+				        <li class="nav-item dropdown">
+				          	
+				          	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				            	Stripe
+				          	</a>
+				          	
+				          	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				            	<li>
+				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/customers/create">
+				            			<i class="bi bi-person"></i> 
+				            			Customers
+				            		</a>
+				            	</li>
+				            	<li>
+				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/cards/create">
+				            			<i class="bi bi-credit-card"></i> 
+				            			Cards
+				            		</a>
+				            	</li>
+				            	<li>
+				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/charges/create">
+				            			<i class="bi bi-cash"></i>
+				            			Charges
+				            		</a>
+				            	</li>
+				            	<li>
+				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/products/create">
+				            			<i class="bi bi-cart"></i>
+				            			Products
+				            		</a>
+				            	</li>
+				            	<li>
+				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/prices/create">
+				            			<i class="bi bi-cash-coin"></i>
+				            			Prices
+				            		</a>
+				            	</li>
+				            	<li>
+				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/plans/create">
+				            			<i class="bi bi-award"></i>
+				            			Plans
+				            		</a>
+				            	</li>
+				            	<li>
+				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/subscriptions/create">
+				            			<i class="bi bi-check-circle"></i>
+				            			Subscriptions
+				            		</a>
+				            	</li>
+				            </ul>
+				        </li>
 			      	
-			      		<li class="nav-item dropdown">
+			      		<!--<li class="nav-item dropdown">
 			          		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			            		Customers
 			          		</a>
@@ -174,43 +255,12 @@
 				            <li><a class="dropdown-item fw-bold text-danger" href="/subscriptions/cancel">Cancel</a></li>
 				            <li><a class="dropdown-item fw-bold text-warning" href="/subscriptions/listAll">List All</a></li>
 				          </ul>
-				        </li>
-				        
-				        <li class="nav-item dropdown">
-				          	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				            	Templates
-				          	</a>
-				          	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            	<li>
-				            		<a class="dropdown-item fw-bold" href="/shop"><i class="bi bi-cart"></i> Shop</a>
-				            	</li>
-				            	<li>
-				            		<a class="dropdown-item fw-bold" href="/plan/premium/checkout"><i class="bi bi-star">
-				            		</i>Plan Premium</a>
-				            	</li>
-				            	<li>
-				            		<a class="dropdown-item fw-bold" href="/contact">
-				            			<i class="bi bi-envelope"></i> 
-				            			Contact
-				            		</a>
-				            	</li>
-				            	<li>
-				            		<a class="dropdown-item fw-bold" href="/privacy">
-				            			<i class="bi bi-file-earmark-lock2"></i>
-				            			Privacy
-				            		</a>
-				            	</li>
-				            	<li>
-				            		<a class="dropdown-item fw-bold" href="/blog">
-				            			<i class="bi bi-pencil"></i>
-				            			Blog
-				            		</a>
-				            	</li>
-				          	</ul>
-				        </li>
-				        
+				        </li>-->
 
-					        {{#user}}
+				        </ul>
+
+						    {{#user}}
+						    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						        <li class="nav-item dropdown">
 						        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						        		<i class="bi bi-person-circle"></i>
@@ -237,37 +287,20 @@
 						            	</li>
 						          	</ul>
 						        </li>
+						    </ul>
 						    {{/user}}
+						
 						    
-						    {{^user}}
-							    <li class="nav-item dropdown">
-						        	
-						        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						            	Auth
-						          	</a>
-						          	
-						          	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						            	<li>
-						            		<a class="dropdown-item fw-bold" href="/login">
-						            			<i class="bi bi-cart"></i> 
-						            			Login
-						            		</a>
-						            	</li>
-						            	
-						            	<li>
-						            		<a class="dropdown-item fw-bold" href="/register">
-						            			<i class="bi bi-star"></i>  
-						            			Register
-						            		</a>
-						            	</li>
+					    {{^user}}
+					    <div class="pull-right">
 
-						          	</ul>
-						        </li>
-					        {{/user}}
+					    	<a href="/login" class="btn shadow btn-success" type="submit">Login</a>
+
+					    	<a href="/register" class="ms-2 btn shadow btn-primary" type="submit">Register</a>
+					    </div>
+						    
+				        {{/user}}
 					    
-			    	
-			    	</ul>
-
 			    </div>
 		 	
 		 	</div>

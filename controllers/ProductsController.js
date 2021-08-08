@@ -5,7 +5,7 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const ProductsController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/products/create');
+		res.render('pages/stripe/products/create');
 	},
 	postCreateProduct: async (req, res) => {
 		const product_name = req.body.product_name;
@@ -16,7 +16,7 @@ const ProductsController = {
 
 		product.created = DateTime.getDateTime(product.created);
 
-		res.render('pages/products/create', {
+		res.render('pages/stripe/products/create', {
 			flash: {
 				type: 'success',
 				message: 'Product Created With Success!'
@@ -25,7 +25,7 @@ const ProductsController = {
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/products/retrieve');
+		res.render('pages/stripe/products/retrieve');
 	},
 	postRetrieveProduct: async (req, res) => {
 		const product_id = req.body.product_id;
@@ -37,7 +37,7 @@ const ProductsController = {
 		product.created = DateTime.getDateTime(product.created);
 		product.updated = DateTime.getDateTime(product.updated);
 
-		res.render('pages/products/retrieve', {
+		res.render('pages/stripe/products/retrieve', {
 			flash: {
 				type: 'success',
 				message: 'Product Exists!'
@@ -46,7 +46,7 @@ const ProductsController = {
 		});
 	},
 	getViewUpdate: (req, res) => {
-		res.render('pages/products/update');
+		res.render('pages/stripe/products/update');
 	},
 	postUpdateProduct: async (req, res) => {
 		const product_id = req.body.product_id;
@@ -54,7 +54,7 @@ const ProductsController = {
 		const name = req.body.name;
 
 		if(product_id == "prod_JxIQjuKdjaZdHk"){
-			res.render('pages/products/update', {
+			res.render('pages/stripe/products/update', {
 				flash: {
 					type: 'warning',
 					message: "You can't update this product!"
@@ -72,7 +72,7 @@ const ProductsController = {
 		product.created = DateTime.getDateTime(product.created);
 		product.updated = DateTime.getDateTime(product.updated);
 
-		res.render('pages/products/update', {
+		res.render('pages/stripe/products/update', {
 			flash: {
 				type: 'success',
 				message: 'Product Updated!'
@@ -81,13 +81,13 @@ const ProductsController = {
 		});
 	},
 	getViewDelete: (req, res) => {
-		res.render('pages/products/delete');
+		res.render('pages/stripe/products/delete');
 	},
 	postDeleteProduct: async (req, res) => {
 		let product_id = req.body.product_id;
 
 		if(product_id == "prod_JxIQjuKdjaZdHk"){
-			res.render('pages/products/delete', {
+			res.render('pages/stripe/products/delete', {
 				flash: {
 					type: 'warning',
 					message: "You can't delete this product!"
@@ -100,7 +100,7 @@ const ProductsController = {
   			product_id
 		);
 
-		res.render('pages/products/delete', {
+		res.render('pages/stripe/products/delete', {
 			flash: {
 				type: 'success',
 				message: 'Product DELETED!'
@@ -121,7 +121,7 @@ const ProductsController = {
 			product.created = `${date} ${time}`;
 		})
 
-		res.render('pages/products/listAll', {
+		res.render('pages/stripe/products/listAll', {
 			lastProductsCreated,
 			products: products.data,
 		});

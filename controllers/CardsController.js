@@ -4,7 +4,7 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const CardsController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/cards/create');
+		res.render('pages/stripe/cards/create');
 	},
 	postCreateCreditCard: async (req, res) => {
 		const customer_id = req.body.customer_id;
@@ -33,7 +33,7 @@ const CardsController = {
 		    {source: creditCardToken.id},
 		);
 
-		res.render('pages/cards/create', {
+		res.render('pages/stripe/cards/create', {
 			flash: {
 				type: 'success',
 				message: `Credit Card Created!`
@@ -44,7 +44,7 @@ const CardsController = {
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/cards/retrieve');
+		res.render('pages/stripe/cards/retrieve');
 	},
 	postRetrieveCard: async (req, res) => {
 		const customer_id = req.body.customer_id;
@@ -55,7 +55,7 @@ const CardsController = {
 		  card_id
 		);
 
-		res.render('pages/cards/retrieve', {
+		res.render('pages/stripe/cards/retrieve', {
 			flash: {
 				type: 'success',
 				message: `Credit Card Exist!`
@@ -64,7 +64,7 @@ const CardsController = {
 		});
 	},
 	getViewUpdate: (req, res) => {
-		res.render('pages/cards/update');
+		res.render('pages/stripe/cards/update');
 	},
 	postUpdateCard: async (req, res) => {
 		const customer_id = req.body.customer_id;
@@ -72,7 +72,7 @@ const CardsController = {
 		const card_holder_name = req.body.card_holder_name;
 
 		if(card_id == "card_1JK82WBD6lhzYmkOTexAPcYA"){
-			res.render('pages/cards/update', {
+			res.render('pages/stripe/cards/update', {
 				flash: {
 					type: 'warning',
 					message: "You can't update this card from user test!"
@@ -87,7 +87,7 @@ const CardsController = {
 		    {name: card_holder_name }
 		);
 
-		res.render('pages/cards/update', {
+		res.render('pages/stripe/cards/update', {
 			flash: {
 				type: 'success',
 				message: `Credit Card UPDATED!`
@@ -96,14 +96,14 @@ const CardsController = {
 		});
 	},
 	getViewDelete: (req, res) => {
-		res.render('pages/cards/delete');
+		res.render('pages/stripe/cards/delete');
 	},
 	postDeleteCard: async (req, res) => {
 		const customer_id = req.body.customer_id;
 		const card_id = req.body.card_id;
 
 		if(card_id == "card_1JK82WBD6lhzYmkOTexAPcYA"){
-			res.render('pages/cards/delete', {
+			res.render('pages/stripe/cards/delete', {
 				flash: {
 					type: 'warning',
 					message: "You can't delete this card from user test!"
@@ -117,7 +117,7 @@ const CardsController = {
   			card_id
 		);
 
-		res.render('pages/cards/delete', {
+		res.render('pages/stripe/cards/delete', {
 			flash: {
 				type: 'success',
 				message: `Credit Card DELETED!`
@@ -126,7 +126,7 @@ const CardsController = {
 		});
 	},
 	getViewListAll: (req, res) => {
-		res.render('pages/cards/listAll');
+		res.render('pages/stripe/cards/listAll');
 	},
 	postListAll: async (req, res) => {
 		let customer_id = req.body.customer_id;
@@ -144,7 +144,7 @@ const CardsController = {
 			flash_type = "success";
 		}	
 
-		res.render('pages/cards/listAll', {
+		res.render('pages/stripe/cards/listAll', {
 			flash: {
 				type: flash_type,
 				message: flash_message

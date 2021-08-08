@@ -1,6 +1,6 @@
 {{>partials/header}}
 
-        <main class="container col-lg-12 mt-3">
+        <main class="container col-lg-8 mt-3">
 
         <!-- ROW -->
         <div class="row">
@@ -14,18 +14,18 @@
             {{#user}}
 
             <!-- AVATAR -->
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <form action="/profile/avatar"
                     method="POST" 
                     enctype="multipart/form-data">
                 
-                    <img src="/uploads/avatars/{{avatar}}" class="text-center w-50 h-50 image-fluid rounded-circle" alt="avatar">
+                    <img src="/uploads/avatars/{{avatar}}" class="text-center w-75 h-50 image-fluid rounded-circle" alt="avatar">
 
                     <br>
                     
                     <input class="form-control mb-2" type="file" id="avatar" name="avatar">
                     
-                    <button class="btn btn-outline-primary shadow" type="submit">
+                    <button class="btn btn-sm btn-outline-primary shadow" type="submit">
                         Upload Avatar
                     </button>
                 </form>
@@ -79,7 +79,7 @@
                 <div class="form-group row mb-3">
                     <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
                     <div class="col-lg-8">
-                        <input type="submit" class="shadow w-100 btn btn btn-outline-danger" value="Cancel Subscription">
+                        <input type="submit" class="shadow w-100 btn btn-sm btn btn-outline-danger" value="Cancel Subscription">
                     </div>
                 </div>
 
@@ -88,12 +88,8 @@
 
 
 
-            <div class="col-sm-1"></div>
-
-
-
             <!-- COL-LG-6 -->
-            <div class="col-lg-6">
+            <div class="col-lg-7">
 
                 <form action="/profile" class="form" method="POST">
 

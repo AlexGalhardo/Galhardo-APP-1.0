@@ -6,16 +6,16 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const CustomersController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/customers/create');
+		res.render('pages/stripe/customers/create');
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/customers/retrieve');
+		res.render('pages/stripe/customers/retrieve');
 	},
 	getViewUpdate: (req, res) => {
-		res.render('pages/customers/update');
+		res.render('pages/stripe/customers/update');
 	},
 	getViewDelete: (req, res) => {
-		res.render('pages/customers/delete');
+		res.render('pages/stripe/customers/delete');
 	},
 	getViewListAll: async (req, res) => {
 		let customers = await stripe.customers.list({
@@ -30,7 +30,7 @@ const CustomersController = {
 			customer.created = `${date} ${time}`;
 		})
 
-		res.render('pages/customers/listAll', {
+		res.render('pages/stripe/customers/listAll', {
 			lastUsersCreated,
 			customers: customers.data,
 		});
@@ -50,7 +50,7 @@ const CustomersController = {
 			return console.log('customer not saved in json database!')
 		}
 
-		res.render('pages/customers/create', {
+		res.render('pages/stripe/customers/create', {
 			flash: {
 				type: 'success',
 				message: 'Stripe Customer Created With Success!'
@@ -65,7 +65,7 @@ const CustomersController = {
 			customer_id
 		);
 
-		res.render('pages/customers/retrieve', {
+		res.render('pages/stripe/customers/retrieve', {
 			flash: {
 				type: 'success',
 				message: 'Customer ID Valid!'
@@ -86,7 +86,7 @@ const CustomersController = {
   			}
 		);
 
-		res.render('pages/customers/update', {
+		res.render('pages/stripe/customers/update', {
 			flash: {
 				type: 'success',
 				message: 'Customer UPDATED!'
@@ -98,7 +98,7 @@ const CustomersController = {
 		let customer_id = req.body.customer_id;
 
 		if(customer_id == "cus_Jy49RB199LvElV"){
-			res.render('pages/customers/delete', {
+			res.render('pages/stripe/customers/delete', {
 				flash: {
 					type: 'warning',
 					message: "You can't delete the user test!"
@@ -111,7 +111,7 @@ const CustomersController = {
   			customer_id
 		);
 
-		res.render('pages/customers/delete', {
+		res.render('pages/stripe/customers/delete', {
 			flash: {
 				type: 'success',
 				message: 'Customer DELETED!'

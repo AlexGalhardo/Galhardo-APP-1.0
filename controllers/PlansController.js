@@ -5,7 +5,7 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const PlansController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/plans/create');
+		res.render('pages/stripe/plans/create');
 	},
 	postCreatePlan: async (req, res) => {
 		const amount = req.body.plan_amount;
@@ -27,7 +27,7 @@ const PlansController = {
 		plan.created = DateTime.getDateTime(plan.created);
 		plan.amount = (plan.amount/100).toFixed(2)
 
-		res.render('pages/plans/create', {
+		res.render('pages/stripe/plans/create', {
 			flash: {
 				type: 'success',
 				message: 'Plan Created With Success!'
@@ -37,7 +37,7 @@ const PlansController = {
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/plans/retrieve');
+		res.render('pages/stripe/plans/retrieve');
 	},
 	postRetrievePlan: async (req, res) => {
 		let plan_id = req.body.plan_id;
@@ -48,7 +48,7 @@ const PlansController = {
 
 		plan.created = DateTime.getDateTime(plan.created);
 
-		res.render('pages/plans/retrieve', {
+		res.render('pages/stripe/plans/retrieve', {
 			flash: {
 				type: 'success',
 				message: 'Plan ID Valid!'
@@ -57,7 +57,7 @@ const PlansController = {
 		});
 	},
 	getViewUpdate: (req, res) => {
-		res.render('pages/plans/update');
+		res.render('pages/stripe/plans/update');
 	},
 	postUpdatePlan: async (req, res) => {
 		const customer = await stripe.customers.update(
@@ -68,7 +68,7 @@ const PlansController = {
   			}
 		);
 
-		res.render('pages/plans/update', {
+		res.render('pages/stripe/plans/update', {
 			flash: {
 				type: 'success',
 				message: 'Customer UPDATED!'
@@ -77,7 +77,7 @@ const PlansController = {
 		});
 	},
 	getViewDelete: (req, res) => {
-		res.render('pages/plans/delete');
+		res.render('pages/stripe/plans/delete');
 	},
 	postDeletePlan: async (req, res) => {
 		const plan_id = req.body.plan_id.trim()
@@ -85,7 +85,7 @@ const PlansController = {
   			plan_id
 		);
 
-		res.render('pages/plans/delete', {
+		res.render('pages/stripe/plans/delete', {
 			flash: {
 				type: 'success',
 				message: 'Plan DELETED!'
@@ -102,7 +102,7 @@ const PlansController = {
 			plan.created = DateTime.getDateTime(plan.created);
 		})
 
-		res.render('pages/plans/listAll', {
+		res.render('pages/stripe/plans/listAll', {
 			lastPlansCreated,
 			plans: plans.data,
 		});

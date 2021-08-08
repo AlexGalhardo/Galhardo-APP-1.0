@@ -36,9 +36,12 @@ router.get('/blog/page/:page', AppController.getViewBlog);
 router.get('/blog/:slug', AppController.getViewBlogPost);
 
 
-router.get('/plan/premium/checkout', AppController.getViewPlanCheckout);
+router.get('/plans', AppController.getViewPlans);
+router.get('/plans/premium/checkout', AppController.getViewPlanCheckout);
 router.post('/plan/premium/checkout', AppController.postPlanPayLog);
 
+
+router.get('/stripe', AppController.getViewStripe);
 
 
 
@@ -89,104 +92,104 @@ router.get('/api/v1/', APIController.getWelcome);
 
 
 // CUSTOMERS CONTROLLER
-router.get('/customers/create', CustomersController.getViewCreate);
-router.post('/customers/create', CustomersController.postCreateCustomer);
+router.get('/stripe/customers/create', CustomersController.getViewCreate);
+router.post('/stripe/customers/create', CustomersController.postCreateCustomer);
 
-router.get('/customers/retrieve', CustomersController.getViewRetrieve);
-router.post('/customers/retrieve', CustomersController.postRetrieveCustomer);
+router.get('/stripe/customers/retrieve', CustomersController.getViewRetrieve);
+router.post('/stripe/customers/retrieve', CustomersController.postRetrieveCustomer);
 
-router.get('/customers/update', CustomersController.getViewUpdate);
-router.post('/customers/update', CustomersController.postUpdateCustomer);
+router.get('/stripe/customers/update', CustomersController.getViewUpdate);
+router.post('/stripe/customers/update', CustomersController.postUpdateCustomer);
 
-router.get('/customers/delete', CustomersController.getViewDelete);
-router.post('/customers/delete', CustomersController.postDeleteCustomer);
+router.get('/stripe/customers/delete', CustomersController.getViewDelete);
+router.post('/stripe/customers/delete', CustomersController.postDeleteCustomer);
 
-router.get('/customers/listAll', CustomersController.getViewListAll);
+router.get('/stripe/customers/listAll', CustomersController.getViewListAll);
 
 
 
 // CARDS CONTROLLER
-router.get('/cards/create', CardsController.getViewCreate);
-router.post('/cards/create', CardsController.postCreateCreditCard);
+router.get('/stripe/cards/create', CardsController.getViewCreate);
+router.post('/stripe/cards/create', CardsController.postCreateCreditCard);
 
-router.get('/cards/retrieve', CardsController.getViewRetrieve);
-router.post('/cards/retrieve', CardsController.postRetrieveCard);
+router.get('/stripe/cards/retrieve', CardsController.getViewRetrieve);
+router.post('/stripe/cards/retrieve', CardsController.postRetrieveCard);
 
-router.get('/cards/update', CardsController.getViewUpdate);
-router.post('/cards/update', CardsController.postUpdateCard);
+router.get('/stripe/cards/update', CardsController.getViewUpdate);
+router.post('/stripe/cards/update', CardsController.postUpdateCard);
 
-router.get('/cards/delete', CardsController.getViewDelete);
-router.post('/cards/delete', CardsController.postDeleteCard);
+router.get('/stripe/cards/delete', CardsController.getViewDelete);
+router.post('/stripe/cards/delete', CardsController.postDeleteCard);
 
-router.get('/cards/listAll', CardsController.getViewListAll);
-router.post('/cards/listAll', CardsController.postListAll);
+router.get('/stripe/cards/listAll', CardsController.getViewListAll);
+router.post('/stripe/cards/listAll', CardsController.postListAll);
 
 
 
 // CHARGES CONTROLLER
-router.get('/charges/create', ChargesController.getViewCreate);
-router.post('/charges/create', ChargesController.postCreateCharge);
+router.get('/stripe/charges/create', ChargesController.getViewCreate);
+router.post('/stripe/charges/create', ChargesController.postCreateCharge);
 
-router.get('/charges/retrieve', ChargesController.getViewRetrieve);
-router.post('/charges/retrieve', ChargesController.postRetrieveCharge);
+router.get('/stripe/charges/retrieve', ChargesController.getViewRetrieve);
+router.post('/stripe/charges/retrieve', ChargesController.postRetrieveCharge);
 
-router.get('/charges/listAll', ChargesController.getViewListAll);
+router.get('/stripe/charges/listAll', ChargesController.getViewListAll);
 
 
 
 // PRODUCTS CONTROLLER
-router.get('/products/create', ProductsController.getViewCreate);
-router.post('/products/create', ProductsController.postCreateProduct);
+router.get('/stripe/products/create', ProductsController.getViewCreate);
+router.post('/stripe/products/create', ProductsController.postCreateProduct);
 
-router.get('/products/retrieve', ProductsController.getViewRetrieve);
-router.post('/products/retrieve', ProductsController.postRetrieveProduct);
+router.get('/stripe/products/retrieve', ProductsController.getViewRetrieve);
+router.post('/stripe/products/retrieve', ProductsController.postRetrieveProduct);
 
-router.get('/products/update', ProductsController.getViewUpdate);
-router.post('/products/update', ProductsController.postUpdateProduct);
+router.get('/stripe/products/update', ProductsController.getViewUpdate);
+router.post('/stripe/products/update', ProductsController.postUpdateProduct);
 
-router.get('/products/delete', ProductsController.getViewDelete);
-router.post('/products/delete', ProductsController.postDeleteProduct);
+router.get('/stripe/products/delete', ProductsController.getViewDelete);
+router.post('/stripe/products/delete', ProductsController.postDeleteProduct);
 
-router.get('/products/listAll', ProductsController.getViewListAll);
+router.get('/stripe/products/listAll', ProductsController.getViewListAll);
 
 
 
 // PRICES CONTROLLER
-router.get('/prices/create', PricesController.getViewCreate);
-router.post('/prices/create', PricesController.postCreatePrice);
+router.get('/stripe/prices/create', PricesController.getViewCreate);
+router.post('/stripe/prices/create', PricesController.postCreatePrice);
 
-router.get('/prices/retrieve', PricesController.getViewRetrieve);
-router.post('/prices/retrieve', PricesController.postRetrievePrice);
+router.get('/stripe/prices/retrieve', PricesController.getViewRetrieve);
+router.post('/stripe/prices/retrieve', PricesController.postRetrievePrice);
 
-router.get('/prices/listAll', PricesController.getViewListAll);
+router.get('/stripe/prices/listAll', PricesController.getViewListAll);
 
 
 
 // PLANS CONTROLLER
-router.get('/plans/create', PlansController.getViewCreate);
-router.post('/plans/create', PlansController.postCreatePlan);
+router.get('/stripe/plans/create', PlansController.getViewCreate);
+router.post('/stripe/plans/create', PlansController.postCreatePlan);
 
-router.get('/plans/retrieve', PlansController.getViewRetrieve);
-router.post('/plans/retrieve', PlansController.postRetrievePlan);
+router.get('/stripe/plans/retrieve', PlansController.getViewRetrieve);
+router.post('/stripe/plans/retrieve', PlansController.postRetrievePlan);
 
-router.get('/plans/delete', PlansController.getViewDelete);
-router.post('/plans/delete', PlansController.postDeletePlan);
+router.get('/stripe/plans/delete', PlansController.getViewDelete);
+router.post('/stripe/plans/delete', PlansController.postDeletePlan);
 
-router.get('/plans/listAll', PlansController.getViewListAll);
+router.get('/stripe/plans/listAll', PlansController.getViewListAll);
 
 
 
 // SUBSCRIPTIONS CONTROLLER
-router.get('/subscriptions/create', SubscriptionsController.getViewCreate);
-router.post('/subscriptions/create', SubscriptionsController.postCreateSubscription);
+router.get('/stripe/subscriptions/create', SubscriptionsController.getViewCreate);
+router.post('/stripe/subscriptions/create', SubscriptionsController.postCreateSubscription);
 
-router.get('/subscriptions/retrieve', SubscriptionsController.getViewRetrieve);
-router.post('/subscriptions/retrieve', SubscriptionsController.postRetrieveSubscription);
+router.get('/stripe/subscriptions/retrieve', SubscriptionsController.getViewRetrieve);
+router.post('/stripe/subscriptions/retrieve', SubscriptionsController.postRetrieveSubscription);
 
-router.get('/subscriptions/cancel', SubscriptionsController.getViewCancel);
-router.post('/subscriptions/cancel', SubscriptionsController.postCancelSubscription);
+router.get('/stripe/subscriptions/cancel', SubscriptionsController.getViewCancel);
+router.post('/stripe/subscriptions/cancel', SubscriptionsController.postCancelSubscription);
 
-router.get('/subscriptions/listAll', SubscriptionsController.getViewListAll);
+router.get('/stripe/subscriptions/listAll', SubscriptionsController.getViewListAll);
 
 
 module.exports = router;

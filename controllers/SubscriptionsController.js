@@ -5,7 +5,7 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const SubscriptionsController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/subscriptions/create');
+		res.render('pages/stripe/subscriptions/create');
 	},
 	postCreateSubscription: async (req, res) => {
 		const customer_id = req.body.customer_id
@@ -24,7 +24,7 @@ const SubscriptionsController = {
 		subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
 		subscription.current_period_start = DateTime.getDateTime(subscription.current_period_start);
 
-		res.render('pages/subscriptions/create', {
+		res.render('pages/stripe/subscriptions/create', {
 			flash: {
 				type: 'success',
 				message: 'SUBSCRIPTION Created With Success!'
@@ -33,7 +33,7 @@ const SubscriptionsController = {
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/subscriptions/retrieve');
+		res.render('pages/stripe/subscriptions/retrieve');
 	},
 	postRetrieveSubscription: async (req, res) => {
 		let subs_id = req.body.subs_id;
@@ -46,7 +46,7 @@ const SubscriptionsController = {
 		subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
 		subscription.current_period_start = DateTime.getDateTime(subscription.current_period_start);
 
-		res.render('pages/subscriptions/retrieve', {
+		res.render('pages/stripe/subscriptions/retrieve', {
 			flash: {
 				type: 'success',
 				message: 'Subscription Exists!'
@@ -55,7 +55,7 @@ const SubscriptionsController = {
 		});
 	},
 	getViewUpdate: (req, res) => {
-		res.render('pages/subscriptions/update');
+		res.render('pages/stripe/subscriptions/update');
 	},
 	postUpdateSubscription: async (req, res) => {
 		const customer = await stripe.customers.update(
@@ -66,7 +66,7 @@ const SubscriptionsController = {
   			}
 		);
 
-		res.render('pages/subscriptions/update', {
+		res.render('pages/stripe/subscriptions/update', {
 			flash: {
 				type: 'success',
 				message: 'Customer UPDATED!'
@@ -75,13 +75,13 @@ const SubscriptionsController = {
 		});
 	},
 	getViewCancel: (req, res) => {
-		res.render('pages/subscriptions/cancel');
+		res.render('pages/stripe/subscriptions/cancel');
 	},
 	postCancelSubscription: async (req, res) => {
 		const subs_id = req.body.subs_id;
 
 		if(subs_id == "sub_Jy4iOLKMWVoWzr"){
-			res.render('pages/subscriptions/cancel', {
+			res.render('pages/stripe/subscriptions/cancel', {
 				flash: {
 					type: 'warning',
 					message: "You can't cancel this subscription!"
@@ -99,7 +99,7 @@ const SubscriptionsController = {
 		canceledSubscription.current_period_end = DateTime.getDateTime(canceledSubscription.current_period_end);
 		canceledSubscription.current_period_start = DateTime.getDateTime(canceledSubscription.current_period_start);
 
-		res.render('pages/subscriptions/cancel', {
+		res.render('pages/stripe/subscriptions/cancel', {
 			flash: {
 				type: 'success',
 				message: 'SUBSCRIPTION CANCELED!'
@@ -120,7 +120,7 @@ const SubscriptionsController = {
 			subs.current_period_end = DateTime.getDateTime(subs.current_period_end)
 		})
 
-		res.render('pages/subscriptions/listAll', {
+		res.render('pages/stripe/subscriptions/listAll', {
 			lastSubsCreated,
 			subscriptions: subscriptions.data,
 		});

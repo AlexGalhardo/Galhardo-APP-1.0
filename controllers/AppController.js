@@ -47,7 +47,7 @@ const AppController = {
 			user = await Users.getUserByID(req.session.userID)
 		}
 	    
-	    res.render('pages/templates/shop_checkout', {
+	    res.render('pages/shop/shop_checkout', {
 	        user
 	    });
 	},
@@ -93,6 +93,11 @@ const AppController = {
 	},
 
 	getViewBlog: async (req, res) => {
+		let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
+		}
+
 		const totalBlogPosts = await Blog.getTotalBlogPosts();
 		const blogPostsPerPage = 4;
 		
@@ -104,10 +109,15 @@ const AppController = {
 
 		const blog = await Blog.getBlogPostsByPageLimit(page, blogPostsPerPage);
 
-		res.render('pages/blog', {
+		res.render('pages/blog/blog', {
 			blog,
+			user,
 			boostrapPaginator: AppController.getRenderBootstrapPaginator(page, blogPostsPerPage, totalBlogPosts)
 		});
+	},
+
+	getViewStripe: (req, res) => {
+		return res.render('partials/stripe');
 	},
 
 	getSearchBlogTitle: async (req, res) => {
@@ -124,7 +134,7 @@ const AppController = {
 
 		const totalBlogPostsFoundFromSearch = blogTitlesSearched.length;
 
-		res.render('pages/blog', {
+		res.render('pages/blog/blog', {
 			blog: blogTitlesSearched,
 			searchBlogTitle,
 			totalBlogPostsFoundFromSearch
@@ -132,13 +142,20 @@ const AppController = {
 	},
 
 	getViewBlogPost: async (req, res) => {
+
+		let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
+		}
+
 		const slug = req.params.slug;
 
 		const blogPost = await Blog.getBlogPostBySlug(slug);
 		console.log(blogPost);
 
-		res.render('pages/blogPost', {
-			blogPost
+		res.render('pages/blog/blogPost', {
+			blogPost,
+			user
 		});
 	},
 
@@ -192,9 +209,20 @@ const AppController = {
 		});
 	},
 
+	getViewPlans: async (req, res) => {
+		let user = null;
+		if(req.session.userID){
+			user = await Users.getUserByID(req.session.userID)
+		}
+
+		res.render('pages/plans/plans', {
+			user
+		});
+	},
+
 	getViewPlanCheckout: async (req, res) => {
 		if(!req.session.userID){
-        	return res.render('pages/templates/plan_checkout', {
+        	return res.render('pages/plans/plan_checkout', {
         		flash: {
         			type: "danger",
         			message: "You Must Be Logued To Make A Subscription Transaction!"
@@ -207,7 +235,7 @@ const AppController = {
 			user = await Users.getUserByID(req.session.userID)
 		}
 
-		res.render('pages/templates/plan_checkout', {
+		res.render('pages/plans/plan_checkout', {
 			user
 		});
 	},
@@ -308,7 +336,7 @@ const AppController = {
 	postPlanPayLog: async (req, res) => {
 
 		if(!req.session.userID){
-        	return res.render('pages/templates/plan_checkout', {
+        	return res.render('pages/plans/plan_checkout', {
         		flash: {
         			type: "danger",
         			message: "You Must Be Logued To Make A Subscription Transaction!"
@@ -365,7 +393,7 @@ const AppController = {
 			user = await Users.getUserByID(req.session.userID)
 		}
 
-		res.render('pages/templates/planPayLog', {
+		res.render('pages/plans/planPayLog', {
 			flash: {
 				type: 'success',
 				message: 'Subscription Created with Success!'

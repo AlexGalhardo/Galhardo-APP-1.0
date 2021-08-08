@@ -5,7 +5,7 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const ChargesController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/charges/create');
+		res.render('pages/stripe/charges/create');
 	},
 	postCreateCharge: async (req, res) => {
 		const amount = req.body.charge_amount;
@@ -27,7 +27,7 @@ const ChargesController = {
 		charge.created = DateTime.getDateTime(charge.created); 
 		charge.amount = (charge.amount / 100).toFixed(2)
 
-		res.render('pages/charges/create', {
+		res.render('pages/stripe/charges/create', {
 			flash: {
 				type: 'success',
 				message: `Charge Card Success!`
@@ -36,7 +36,7 @@ const ChargesController = {
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/charges/retrieve');
+		res.render('pages/stripe/charges/retrieve');
 	},
 	postRetrieveCharge: async (req, res) => {
 		const charge_id = req.body.charge_id;
@@ -47,7 +47,7 @@ const ChargesController = {
 
 		charge.created = DateTime.getDateTime(charge.created); 
 
-		res.render('pages/charges/retrieve', {
+		res.render('pages/stripe/charges/retrieve', {
 			flash: {
 				type: 'success',
 				message: `Charge Exists!`
@@ -65,7 +65,7 @@ const ChargesController = {
 			charge.created = DateTime.getDateTime(charge.created);
 		})
 
-		res.render('pages/charges/listAll', {
+		res.render('pages/stripe/charges/listAll', {
 			charges: charges.data,
 			totalCharges
 		});

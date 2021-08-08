@@ -5,7 +5,7 @@ const stripe = require('stripe')(process.env.STRIPE_SK_TEST);
 
 const PricesController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/prices/create');
+		res.render('pages/stripe/prices/create');
 	},
 	postCreatePrice: async (req, res) => {
 		const price_amount = req.body.price_amount;
@@ -24,7 +24,7 @@ const PricesController = {
 
 		price.created = DateTime.getDateTime(price.created);
 
-		res.render('pages/prices/create', {
+		res.render('pages/stripe/prices/create', {
 			flash: {
 				type: 'success',
 				message: 'Price Created With Success!'
@@ -33,7 +33,7 @@ const PricesController = {
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/prices/retrieve');
+		res.render('pages/stripe/prices/retrieve');
 	},
 	postRetrievePrice: async (req, res) => {
 		const price_id = req.body.price_id;
@@ -44,7 +44,7 @@ const PricesController = {
 
 		price.created = DateTime.getDateTime(price.created);
 
-		res.render('pages/prices/retrieve', {
+		res.render('pages/stripe/prices/retrieve', {
 			flash: {
 				type: 'success',
 				message: 'Price Exists!'
@@ -63,7 +63,7 @@ const PricesController = {
 			price.created = DateTime.getDateTime(price.created);
 		})
 
-		res.render('pages/prices/listAll', {
+		res.render('pages/stripe/prices/listAll', {
 			lastPricesCreated,
 			prices: prices.data,
 		});
