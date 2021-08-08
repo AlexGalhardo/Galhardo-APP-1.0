@@ -286,14 +286,7 @@ const AppController = {
 
 		let user = null;
 
-		if(!req.session.userID){
-        	return res.render('pages/home', {
-        		flash: {
-        			type: "danger",
-        			message: "You must be logued to make a shop transaction!"
-        		}
-        	})
-    	} else {
+		if(req.session.userID){
     		user = await Users.getUserByID(req.session.userID)
     	}
 		
@@ -361,7 +354,7 @@ const AppController = {
 
 		shopCardCharge.created = DateTime.getDateTime(shopCardCharge.created);
 
-		return res.render('pages/templates/shopPayLog', {
+		return res.render('pages/shop/shopPayLog', {
 			flash: {
 				type: 'success',
 				message: 'Shop Cart Card Charge Created with Success!'

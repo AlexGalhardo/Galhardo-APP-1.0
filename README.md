@@ -19,24 +19,33 @@
 
 
 ## Some Images
+![ga_home](https://user-images.githubusercontent.com/19540357/128649484-4ea2b8c1-73ae-40e9-b4af-ef05dc7e11fb.png)
+![ga_books](https://user-images.githubusercontent.com/19540357/128649548-3cc385c7-a776-4d42-ae6b-6a01223e41c8.png)
 
+### SHOP
+![ga_shop](https://user-images.githubusercontent.com/19540357/128649497-41ec6054-27f6-446e-87a5-0b3279793382.png)
+![ga_shop_log](https://user-images.githubusercontent.com/19540357/128649498-52b632e9-39f0-4389-87e4-3a9376657832.png)
 
-#### Blog
+### Subscription
+![ga_plans](https://user-images.githubusercontent.com/19540357/128649491-ab2a9c36-e3bf-45cf-9768-6bd781e502e7.png)
+![ga_plan_checkout](https://user-images.githubusercontent.com/19540357/128649492-a9011598-f460-40f7-8289-513430228c9b.png)
+![ga_plan_log](https://user-images.githubusercontent.com/19540357/128649493-fb32d152-8f84-4a5b-84eb-74047b54b138.png)
 
-
-#### Profile
-
-
-#### AuthController
+### AuthController
 ![ga_login](https://user-images.githubusercontent.com/19540357/128446082-32d21dda-9794-428d-a8f2-f6f6475aced7.png)
 ![ga_register](https://user-images.githubusercontent.com/19540357/128446078-671db5e9-064c-4458-941f-a6cf15e39d49.png)
 ![ga_forgetPassword](https://user-images.githubusercontent.com/19540357/128446079-b6fc9f98-ea0f-4906-8d85-c581b554dee3.png)
 ![ga_resetPassword](https://user-images.githubusercontent.com/19540357/128446080-afa13a81-34be-4a74-9b8d-3cbc8688e0eb.png)
 
-#### SHOP
+
+### Blog
+![ga_blog](https://user-images.githubusercontent.com/19540357/128649488-d9536d35-28e1-41bb-91d9-700b7f92f7db.png)
+![ga_blog_post](https://user-images.githubusercontent.com/19540357/128649489-701d39db-0acf-4c58-8cba-24ec5b2b69a6.png)
+
+### Profile
+![ga_profile](https://user-images.githubusercontent.com/19540357/128649496-ff6721c2-f9f4-4884-9a30-dd564a713920.png)
 
 
-#### Subscription
 
 
 
