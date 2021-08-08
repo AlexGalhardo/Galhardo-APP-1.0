@@ -55,7 +55,7 @@ $("#zipcode").change(function() {
         $('#customer_state').val(state);
     });
 
-    axios.get("https://galhardo-correios.herokuapp.com/correios/" + zipcode )
+    axios.get("https://galhardo-correios.herokuapp.com/shipping/" + zipcode )
     .then(function(response) {
         console.log(response);
         var shipping_fee = response.data[0].Valor;
