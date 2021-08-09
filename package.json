@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "nodemon -e mustache app.js",
+    "pm2": "pm2 start app.js -i max --name galhardoapp",
     "json-database": "json-server --watch database.json --port 4000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -41,6 +42,7 @@
     "nodemailer": "^6.6.3",
     "nodemon": "^2.0.12",
     "pagination": "^0.4.6",
+    "pm2": "^5.1.0",
     "query-string": "^7.0.1",
     "rand-token": "^1.0.1",
     "slugify": "^1.6.0",

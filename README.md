@@ -17,6 +17,8 @@
 - https://galhardoapp-json-database.herokuapp.com/
    - To view JSON DataBase
 
+## Project Introduction
+- https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INTRODUCTION.md
 
 ## Some Images
 ![ga_home](https://user-images.githubusercontent.com/19540357/128649484-4ea2b8c1-73ae-40e9-b4af-ef05dc7e11fb.png)
