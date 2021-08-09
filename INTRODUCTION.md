@@ -236,33 +236,42 @@
 {
     "users": [
         {
-            "id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
-            "name": "admin",
-            "email": "admin@gmail.com",
-            "confirmed_email": true,
-            "password": "$2b$12$QdBFZwXSSkoKSv77Iqjga.bxSeWZkRHzmH.LAqajyB7ha.itqIxyK",
-            "admin": 1,
-            "avatar": "b6e074ee-565b-4bb0-9a28-6b1231781216_avatar.jpeg",
-            "document": "445.566.777-99",
-            "phone": "18999998888",
-            "birth_date": "1997-09-23",
-            "address": {
-              "zipcode": "13560290",
-              "street": "Rua Dona Alexandrina",
-              "street_number": "123",
-              "neighborhood": "Vila Monteiro (Gleba I)",
-              "city": "Sao Carlos",
-              "state": "SP",
-              "country": "BRAZIL"
-            },
-            "google_id": null,
-            "github_id": null,
-            "facebook_id": null,
-            "reset_password_token": null,
-            "stripe_customer_id": null,
-            "created_at": "04/08/2021 17:17:18",
-            "updated_at": "06/08/2021 16:17:31"
-        }
+          "id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
+          "name": "admin",
+          "email": "admin@gmail.com",
+          "confirmed_email": true,
+          "confirm_email_token": null,
+          "password": "$2b$12$QdBFZwXSSkoKSv77Iqjga.bxSeWZkRHzmH.LAqajyB7ha.itqIxyK",
+          "reset_password_token": null,
+          "admin": true,
+          "avatar": "profile.jpeg",
+          "document": "445.566.777-99",
+          "phone": "18999998888",
+          "birth_date": "1997-09-23",
+          "google_id": null,
+          "github_id": null,
+          "facebook_id": null,
+          "address": {
+            "zipcode": "13560290",
+            "street": "Rua Dona Alexandrina",
+            "street_number": "123",
+            "neighborhood": "Vila Monteiro (Gleba I)",
+            "city": "Sao Carlos",
+            "state": "SP",
+            "country": "BRAZIL"
+          },
+          "stripe": {
+            "customer_id": null,
+            "card_id": null,
+            "currently_subscription_id": null,
+            "currently_subscription_name": "FREE",
+            "subscription_start": null, 
+            "subscription_end": null,
+            "subscription_automatically_renew": false 
+          },
+          "created_at": "04/08/2021 17:17:18",
+          "updated_at": "06/08/2021 16:17:31"
+        },
     ],
     "blog": [
         {
@@ -275,6 +284,17 @@
           "image": "blog_resume_image",
           "created_at": "04/08/2021 18:35:09",
           "updated_at": "04/08/2021 18:55:16"
+        }
+    ],
+    "blog_comments": [
+        {
+          "id": 1,
+          "blog_post_id": 1,
+          "user_id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
+          "user_name": "Alex Galhardo",
+          "user_avatar": "avatar.png",
+          "comment": "Comment 1 here",
+          "created_at": "04/08/2021 18:35:09"
         }
     ],
     "games": [

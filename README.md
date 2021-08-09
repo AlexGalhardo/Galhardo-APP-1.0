@@ -20,6 +20,11 @@
 ## [Project Introduction](https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INTRODUCTION.md)
 
 ## RoadMap
+- [ ] Telegram Logs
+- [x] Contact SMTP 
+- [ ] Confirm Email / Forget Password using SMTP
+- [ ] Subscriptions Transactions using SMTP (Email HTML Template)
+- [ ] Shop Transactions using SMTP (Email HTML Template)
 - JSON DataBase 
    - [x] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
