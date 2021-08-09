@@ -3,10 +3,12 @@
 	<div class="container col-lg-8 text-center mt-3">
 
         <div class="mb-3">
+            {{#user.admin}}
             <a href="/stripe/customers/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
-            <a href="/stripe/customers/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/customers/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
             <a href="/stripe/customers/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            {{/user.admin}}
+            <a href="/stripe/customers/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/customers/listAll" class="btn shadow-sm ms-1 me-1 btn-info">List All</a>
         </div>
 

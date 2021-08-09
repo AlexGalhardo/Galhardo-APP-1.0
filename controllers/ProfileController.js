@@ -20,6 +20,7 @@ const ProfileController = {
 	
 	getLogout: (req, res, next) => {
 		req.session.destroy((err) => {
+			SESSION_USER = null
 	        next(err);
 	    });
 	    res.redirect('/login');

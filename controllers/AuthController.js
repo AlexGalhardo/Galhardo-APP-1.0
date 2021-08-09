@@ -53,6 +53,7 @@ const AuthController = {
 	        }
 
 	        req.session.userID = userID;
+	        global.SESSION_USER = await Users.getUserByID(req.session.userID)
 	        console.log("req.session.userID setado é: " + req.session.userID);
 	        return res.redirect('/');
 	    }

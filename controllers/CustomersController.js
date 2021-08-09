@@ -4,25 +4,45 @@ const StripeModel = require('../models/JSON/Stripe');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
+
 const CustomersController = {
+
 	getViewCreate: (req, res) => {
-		res.render('pages/stripe/customers/create');
+		if(SESSION_USER && SESSION_USER.admin){
+			return res.render('pages/stripe/customers/create', {
+				user: SESSION_USER
+			});
+		}
+		return res.redirect('/stripe/customers/listAll')
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/stripe/customers/retrieve');
+		res.render('pages/stripe/customers/retrieve', {
+			user: SESSION_USER
+		});
 	},
 	getViewUpdate: (req, res) => {
-		res.render('pages/stripe/customers/update');
+		if(SESSION_USER && SESSION_USER.admin){
+			return res.render('pages/stripe/customers/update', {
+				user: SESSION_USER
+			});
+		}
+		return res.redirect('/stripe/customers/listAll')
 	},
 	getViewDelete: (req, res) => {
-		res.render('pages/stripe/customers/delete');
+		if(SESSION_USER && SESSION_USER.admin){
+			return res.render('pages/stripe/customers/delete', {
+				user: SESSION_USER
+			});
+		}
+		return res.redirect('/stripe/customers/listAll')
 	},
 	getViewListAll: async (req, res) => {
+
 		let customers = await stripe.customers.list({
 			limit: 20
 		});
 
-		let lastUsersCreated = customers.data.length;
+		let totalLastUsersCreated = customers.data.length;
 
 		customers.data.forEach(function(customer){
 			let date = new Date(customer.created*1000).toLocaleDateString("pt-BR")
@@ -31,8 +51,9 @@ const CustomersController = {
 		})
 
 		res.render('pages/stripe/customers/listAll', {
-			lastUsersCreated,
+			totalLastUsersCreated,
 			customers: customers.data,
+			user: SESSION_USER
 		});
 	},
 	postCreateCustomer: async (req, res) => {
@@ -43,9 +64,8 @@ const CustomersController = {
 			email: email
 		});
 
-		console.log(customer);
 		const customerCreated = await StripeModel.createCustomer(name, email, customer.id);
-		console.log(customerCreated)
+		
 		if(!customerCreated){
 			return console.log('customer not saved in json database!')
 		}
