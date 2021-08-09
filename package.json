@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "nodemon -e mustache app.js",
-    "pm2": "pm2 start app.js -i max --name galhardoapp",
+    "pm2": "pm2 start app.js -i max --name galhardoapp --watch",
     "json-database": "json-server --watch database.json --port 4000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -51,5 +51,8 @@
   },
   "optionalDependencies": {
     "fsevents": "2.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
   }
 }

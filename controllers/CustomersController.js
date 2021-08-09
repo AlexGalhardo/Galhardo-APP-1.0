@@ -4,25 +4,38 @@ const StripeModel = require('../models/JSON/Stripe');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
+
 const CustomersController = {
+
 	getViewCreate: (req, res) => {
-		res.render('pages/stripe/customers/create');
+		return res.render('pages/stripe/customers/create', {
+			user: SESSION_USER
+		});	
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/stripe/customers/retrieve');
+		res.render('pages/stripe/customers/retrieve', {
+			user: SESSION_USER
+		});
 	},
 	getViewUpdate: (req, res) => {
-		res.render('pages/stripe/customers/update');
+		return res.render('pages/stripe/customers/update', {
+			user: SESSION_USER
+		});	
 	},
+	
 	getViewDelete: (req, res) => {
-		res.render('pages/stripe/customers/delete');
+		return res.render('pages/stripe/customers/delete', {
+			user: SESSION_USER
+		});	
 	},
+
 	getViewListAll: async (req, res) => {
+
 		let customers = await stripe.customers.list({
 			limit: 20
 		});
 
-		let lastUsersCreated = customers.data.length;
+		let totalLastUsersCreated = customers.data.length;
 
 		customers.data.forEach(function(customer){
 			let date = new Date(customer.created*1000).toLocaleDateString("pt-BR")
@@ -31,10 +44,12 @@ const CustomersController = {
 		})
 
 		res.render('pages/stripe/customers/listAll', {
-			lastUsersCreated,
+			totalLastUsersCreated,
 			customers: customers.data,
+			user: SESSION_USER
 		});
 	},
+	
 	postCreateCustomer: async (req, res) => {
 		let name = req.body.customer_name
 		let email = req.body.customer_email		
@@ -43,9 +58,8 @@ const CustomersController = {
 			email: email
 		});
 
-		console.log(customer);
 		const customerCreated = await StripeModel.createCustomer(name, email, customer.id);
-		console.log(customerCreated)
+		
 		if(!customerCreated){
 			return console.log('customer not saved in json database!')
 		}

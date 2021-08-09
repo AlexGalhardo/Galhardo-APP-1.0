@@ -4,6 +4,10 @@
 ## Live Demo
 - You can access: https://galhardo-app.herokuapp.com/
 - You can use default TEST inputs already in forms to try 
+- Test User
+   - email: test@gmail.com
+   - password: test123
+- In this live demo, you can't do ADMIN actions. Install locally to try ADMIN.
 - **IMPORTANT:**
    - **All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY**
    - **NO REAL Money Transactions will be made**
@@ -17,8 +21,50 @@
 - https://galhardoapp-json-database.herokuapp.com/
    - To view JSON DataBase
 
-## Project Introduction
-- https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INTRODUCTION.md
+## [Project Introduction / Install Locally](https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INTRODUCTION.md)
+
+## RoadMap
+- [ ] Telegram Logs
+- [x] Contact SMTP 
+- [ ] Confirm Email / Forget Password using SMTP
+- [ ] Subscriptions Transactions using SMTP (Email HTML Template)
+- [ ] Shop Transactions using SMTP (Email HTML Template)
+- JSON DataBase 
+   - [x] Register and Login Account using Session
+   - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
+   - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
+   - [x] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
+   - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
+   - [x] CRUD Profile
+   - [ ] (CREATE, READ, DELETE) Blog Comments
+- MySQL DataBase
+   - [ ] Register and Login Account using Session
+   - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
+   - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
+   - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
+   - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
+   - [ ] CRUD Profile
+   - [ ] (CREATE, READ, DELETE) Blog Comments
+- MongoDB DataBase
+   - [ ] Register and Login Account using Session
+   - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
+   - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
+   - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
+   - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
+   - [ ] CRUD Profile
+   - [ ] (CREATE, READ, DELETE) Blog Comments
+- ADMIN API REST using JWT
+   - [ ] For Blog Posts (Create, Update, Delete)
+   - [ ] For Stripe (Create, Update, Delete, Cancel)
+   - [ ] For Games and Books (Create, Update, Delete)
+- Deploy on AWS LightSail
+   - [ ] Using MySQL or MongoDB
+   - [ ] Using NGINX as Reverse Proxy
+   - [ ] Using NGINX as Load Balancing
+   - [ ] Using my own domain
+   - [ ] Configure SSL/HTTPS in VPS
+- TypeScript Version
+   - [ ] After previous goals are complete, create a branch "typescript" and refactor the code using typescript
 
 ## Some Images
 ![ga_home](https://user-images.githubusercontent.com/19540357/128649484-4ea2b8c1-73ae-40e9-b4af-ef05dc7e11fb.png)
@@ -46,8 +92,6 @@
 
 ### Profile
 ![ga_profile](https://user-images.githubusercontent.com/19540357/128649496-ff6721c2-f9f4-4884-9a30-dd564a713920.png)
-
-
 
 
 

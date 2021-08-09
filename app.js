@@ -8,6 +8,7 @@ const compression = require('compression')
 
 // PWD ROOT
 global.APP_ROOT_PATH = path.resolve(__dirname);
+global.SESSION_USER = null;
 
 /*
  * with LocalHost HTTPS

@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Galhardo APP</title>
+	<link rel="shortcut icon" href="images/favicon.png" />
 
 	<!--<link rel="stylesheet" href="css/scroll_bar.css">-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -105,13 +106,13 @@
 				          	
 				          	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="http://localhost:4000/users">
+				            		<a target="_blank" class="dropdown-item fw-bold" href="https://galhardoapp-json-database.herokuapp.com/users">
 				            			<i class="bi bi-person"></i> 
 				            			JSON-DB Users
 				            		</a>
 				            	</li>
 				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="http://localhost:4000/users">
+				            		<a target="_blank" class="dropdown-item fw-bold" href="https://galhardoapp-json-database.herokuapp.com/blog">
 				            			<i class="bi bi-chat-quote"></i> 
 				            			JSON-DB Blog
 				            		</a>
@@ -139,130 +140,49 @@
 				          	
 				          	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/customers/create">
+				            		<a class="dropdown-item fw-bold" href="/stripe/customers/listAll">
 				            			<i class="bi bi-person"></i> 
 				            			Customers
 				            		</a>
 				            	</li>
 				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/cards/create">
+				            		<a class="dropdown-item fw-bold" href="/stripe/cards/listAll">
 				            			<i class="bi bi-credit-card"></i> 
 				            			Cards
 				            		</a>
 				            	</li>
 				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/charges/create">
+				            		<a class="dropdown-item fw-bold" href="/stripe/charges/listAll">
 				            			<i class="bi bi-cash"></i>
 				            			Charges
 				            		</a>
 				            	</li>
 				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/products/create">
+				            		<a class="dropdown-item fw-bold" href="/stripe/products/listAll">
 				            			<i class="bi bi-cart"></i>
 				            			Products
 				            		</a>
 				            	</li>
 				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/prices/create">
+				            		<a class="dropdown-item fw-bold" href="/stripe/prices/listAll">
 				            			<i class="bi bi-cash-coin"></i>
 				            			Prices
 				            		</a>
 				            	</li>
 				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/plans/create">
+				            		<a class="dropdown-item fw-bold" href="/stripe/plans/listAll">
 				            			<i class="bi bi-award"></i>
 				            			Plans
 				            		</a>
 				            	</li>
 				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="/stripe/subscriptions/create">
+				            		<a class="dropdown-item fw-bold" href="/stripe/subscriptions/listAll">
 				            			<i class="bi bi-check-circle"></i>
 				            			Subscriptions
 				            		</a>
 				            	</li>
 				            </ul>
 				        </li>
-			      	
-			      		<!--<li class="nav-item dropdown">
-			          		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-			            		Customers
-			          		</a>
-			          
-				          	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            	<li><a class="dropdown-item fw-bold text-success" href="/customers/create">Create</a></li>
-				            	<li><a class="dropdown-item fw-bold text-primary" href="/customers/retrieve">Retrieve</a></li>
-				            	<li><a class="dropdown-item fw-bold text-info" href="/customers/update">Update</a></li>
-				            	<li><a class="dropdown-item fw-bold text-danger" href="/customers/delete">Delete</a></li>
-				            	<li><a class="dropdown-item fw-bold text-warning" href="/customers/listAll">List All</a></li>
-				          	</ul>
-			        	</li>
-				        <li class="nav-item dropdown">
-				        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				            	Cards
-				          	</a>
-				          	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            	<li><a class="dropdown-item fw-bold text-success" href="/cards/create">Create</a></li>
-				            	<li><a class="dropdown-item fw-bold text-primary" href="/cards/retrieve">Retrieve</a></li>
-				            	<li><a class="dropdown-item fw-bold text-info" href="/cards/update">Update</a></li>
-				            	<li><a class="dropdown-item fw-bold text-danger" href="/cards/delete">Delete</a></li>
-				            	<li><a class="dropdown-item fw-bold text-warning" href="/cards/listAll">List All</a></li>
-				          	</ul>
-				        </li>
-				        <li class="nav-item dropdown">
-				          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				            Charges
-				          </a>
-				          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            <li><a class="dropdown-item fw-bold text-success" href="/charges/create">Create</a></li>
-				            <li><a class="dropdown-item fw-bold text-primary" href="/charges/retrieve">Retrieve</a></li>
-				            <li><a class="dropdown-item fw-bold text-warning" href="/charges/listAll">List All</a></li>
-				          </ul>
-				        </li>
-				        <li class="nav-item dropdown">
-				          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				            Products
-				          </a>
-				          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            <li><a class="dropdown-item fw-bold text-success" href="/products/create">Create</a></li>
-				            <li><a class="dropdown-item fw-bold text-primary" href="/products/retrieve">Retrieve</a></li>
-				            <li><a class="dropdown-item fw-bold text-info" href="/products/update">Update</a></li>
-				            <li><a class="dropdown-item fw-bold text-danger" href="/products/delete">Delete</a></li>
-				            <li><a class="dropdown-item fw-bold text-warning" href="/products/listAll">List All</a></li>
-				          </ul>
-				        </li>
-				        <li class="nav-item dropdown">
-				          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				            Prices
-				          </a>
-				          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            <li><a class="dropdown-item fw-bold text-success" href="/prices/create">Create</a></li>
-				            <li><a class="dropdown-item fw-bold text-primary" href="/prices/retrieve">Retrieve</a></li>
-				            <li><a class="dropdown-item fw-bold text-warning" href="/prices/listAll">List All</a></li>
-				          </ul>
-				        </li>
-				        <li class="nav-item dropdown">
-				          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				            Plans
-				          </a>
-				          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            <li><a class="dropdown-item fw-bold text-success" href="/plans/create">Create</a></li>
-				            <li><a class="dropdown-item fw-bold text-primary" href="/plans/retrieve">Retrieve</a></li>
-				            <li><a class="dropdown-item fw-bold text-danger" href="/plans/delete">Delete</a></li>
-				            <li><a class="dropdown-item fw-bold text-warning" href="/plans/listAll">List All</a></li>
-				          </ul>
-				        </li>
-				        
-				        <li class="nav-item dropdown">
-				          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				            Subscriptions
-				          </a>
-				          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            <li><a class="dropdown-item fw-bold text-success" href="/subscriptions/create">Create</a></li>
-				            <li><a class="dropdown-item fw-bold text-primary" href="/subscriptions/retrieve">Retrieve</a></li>
-				            <li><a class="dropdown-item fw-bold text-danger" href="/subscriptions/cancel">Cancel</a></li>
-				            <li><a class="dropdown-item fw-bold text-warning" href="/subscriptions/listAll">List All</a></li>
-				          </ul>
-				        </li>-->
 
 				        </ul>
 
