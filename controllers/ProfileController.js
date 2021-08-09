@@ -7,11 +7,7 @@ const Users = require('../models/JSON/Users');
 const ProfileController = {
 	
 	getViewProfile: async (req, res) => {
-		if(!req.session.userID){
-        	return res.redirect('/login');
-    	}
-    	
-    	let user = await Users.getUserByID(req.session.userID)
+		let user = await Users.getUserByID(req.session.userID)
 
     	return res.render('pages/profile/profile', {
     		user
@@ -20,7 +16,7 @@ const ProfileController = {
 	
 	getLogout: (req, res, next) => {
 		req.session.destroy((err) => {
-			SESSION_USER = null
+			SESSION_USER = null;
 	        next(err);
 	    });
 	    res.redirect('/login');

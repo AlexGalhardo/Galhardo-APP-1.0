@@ -16,9 +16,6 @@ const URL = require('../helpers/URL');
 const AuthController = {
 	
 	getViewLogin: (req, res) => {
-		if(req.session.userID){
-        	return res.redirect('/profile');
-    	}
 		res.render('pages/auth/login', {
 			FacebookLoginURL: URL.getFacebookURL,
 			GitHubLoginURL: URL.getGitHubURL,
@@ -63,9 +60,6 @@ const AuthController = {
 	},
 	
 	getViewRegister: (req, res) => {
-		if(req.session.userID){
-        	return res.redirect('/profile');
-    	}
 		res.render('pages/auth/register');
 	},
 
@@ -127,9 +121,6 @@ const AuthController = {
 	},
 	
 	getViewForgetPassword: (req, res) => {
-		if(req.session.userID){
-        	return res.redirect('/profile');
-    	}
 		res.render('pages/auth/forgetPassword');
 	},
 	
@@ -155,10 +146,6 @@ const AuthController = {
 	},
 	
 	getViewResetPassword: (req, res) => {
-		if(req.session.userID){
-        	return res.redirect('/profile');
-    	}
-
 		const email = req.params.email;
 		const token = req.params.token;
 

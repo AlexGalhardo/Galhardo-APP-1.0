@@ -8,12 +8,9 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 const CustomersController = {
 
 	getViewCreate: (req, res) => {
-		if(SESSION_USER && SESSION_USER.admin){
-			return res.render('pages/stripe/customers/create', {
-				user: SESSION_USER
-			});
-		}
-		return res.redirect('/stripe/customers/listAll')
+		return res.render('pages/stripe/customers/create', {
+			user: SESSION_USER
+		});	
 	},
 	getViewRetrieve: (req, res) => {
 		res.render('pages/stripe/customers/retrieve', {
@@ -21,21 +18,17 @@ const CustomersController = {
 		});
 	},
 	getViewUpdate: (req, res) => {
-		if(SESSION_USER && SESSION_USER.admin){
-			return res.render('pages/stripe/customers/update', {
-				user: SESSION_USER
-			});
-		}
-		return res.redirect('/stripe/customers/listAll')
+		return res.render('pages/stripe/customers/update', {
+			user: SESSION_USER
+		});	
 	},
+	
 	getViewDelete: (req, res) => {
-		if(SESSION_USER && SESSION_USER.admin){
-			return res.render('pages/stripe/customers/delete', {
-				user: SESSION_USER
-			});
-		}
-		return res.redirect('/stripe/customers/listAll')
+		return res.render('pages/stripe/customers/delete', {
+			user: SESSION_USER
+		});	
 	},
+
 	getViewListAll: async (req, res) => {
 
 		let customers = await stripe.customers.list({
@@ -56,6 +49,7 @@ const CustomersController = {
 			user: SESSION_USER
 		});
 	},
+	
 	postCreateCustomer: async (req, res) => {
 		let name = req.body.customer_name
 		let email = req.body.customer_email		
