@@ -47,13 +47,13 @@
     "rand-token": "^1.0.1",
     "slugify": "^1.6.0",
     "stripe": "^8.167.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "nodemon": "^2.0.12"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
-    "nodemon": "^2.0.12",
     "jest": "^27.0.6",
     "https-localhost": "^4.6.5"
   },
