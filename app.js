@@ -4,7 +4,10 @@ const path = require('path');
 const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const compression = require('compression')
+const compression = require('compression');
+const morgan = require('morgan');
+const winston = require('./config/winston');
+
 
 // PWD ROOT
 global.APP_ROOT_PATH = path.resolve(__dirname);
@@ -19,6 +22,7 @@ global.SESSION_USER = null;
 
 // with LocalHost HTTP
 const app = express();
+app.use(morgan("combined", { stream: winston.stream.write }));
 
 // compress all responses
 app.use(compression())
@@ -61,7 +65,14 @@ app.use(mainRoutes);
 // ERROR 404
 app.use((req, res) => {
 	res.render('pages/404');
+  throw new Error('ERROR HTTP CODE 404');
 });
+
+// LOGS WINSTON
+app.use(function(err, req, res, next) {
+  winston.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
+  next(err)
+})  
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server running on port ${process.env.PORT}`)
