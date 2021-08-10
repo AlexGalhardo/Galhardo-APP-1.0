@@ -1,6 +1,6 @@
 {{>partials/header}}
 
-        <main class="container col-lg-8 mt-3">
+        <main class="container col-lg-10 mt-3">
 
         <!-- ROW -->
         <div class="row">
@@ -17,7 +17,8 @@
             <div class="col-sm-5">
                 <form action="/profile/avatar"
                     method="POST" 
-                    enctype="multipart/form-data">
+                    enctype="multipart/form-data"
+                    class="col-lg-8">
                 
                     <img src="/uploads/avatars/{{avatar}}" class="text-center w-75 h-50 image-fluid rounded-circle" alt="avatar">
 
@@ -33,27 +34,57 @@
                 <hr>
 
                 <div class="form-group row mt-3">
-                    <label class="col-lg-4 col-form-label">created_at</label>
+                    <label class="col-lg-4 col-form-label">CREATED_AT</label>
                     <div class="col-lg-8">
                         <input placeholder="Digit your username" class="mb-2 form-control" name="created_at" type="text" value="{{created_at}}" readonly>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-lg-4 col-form-label">updated_at</label>
+                    <label class="col-lg-4 col-form-label">UPDATED_AT</label>
                     <div class="col-lg-8">
                         <input placeholder="Digit your username" class="mb-2 form-control" name="updated_at" type="text" value="{{updated_at}}" readonly>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-lg-4 col-form-label">admin?</label>
+                    <label class="col-lg-4 col-form-label">ADMIN</label>
                     <div class="col-lg-8">
                         <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{admin}}" readonly>
                     </div>
                 </div>
 
                 <hr>
+
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">CUSTOMER_ID</label>
+                    <div class="col-lg-8">
+                        <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.customer_id}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">CARD_TOKEN_ID</label>
+                    <div class="col-lg-8">
+                        <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.card_token_id}}" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">CARD_ID</label>
+                    <div class="col-lg-8">
+                        <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.card_id}}" readonly>
+                    </div>
+                </div>
+
+                {{#stripe.card_id}}
+                    <div class="form-group row mb-3">
+                        <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
+                        <div class="col-lg-8">
+                            <input type="submit" class="shadow w-100 btn btn-sm btn btn-outline-danger" value="Delete Credit Card">
+                        </div>
+                    </div>
+                {{/stripe.card_id}}
 
                 <div class="form-group row">
                     <label class="col-lg-4 col-form-label">PLAN</label>
@@ -76,12 +107,14 @@
                     </div>
                 </div>
 
-                <div class="form-group row mb-3">
-                    <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
-                    <div class="col-lg-8">
-                        <input type="submit" class="shadow w-100 btn btn-sm btn btn-outline-danger" value="Cancel Subscription">
+                {{#stripe.subscription_automatically_renew}}
+                    <div class="form-group row mb-3">
+                        <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
+                        <div class="col-lg-8">
+                            <input type="submit" class="shadow w-100 btn btn-sm btn btn-outline-danger" value="Cancel Subscription">
+                        </div>
                     </div>
-                </div>
+                {{/stripe.subscription_automatically_renew}}
 
             </div>
             <!-- END COL AVATAR -->

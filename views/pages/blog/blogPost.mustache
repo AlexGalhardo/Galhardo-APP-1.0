@@ -35,7 +35,7 @@
                 <h5 class="text-muted">Comments</h5>
                 <hr>
                 
-                {{#blogPostComments}}
+                {{#blogPost.comments}}
 
                     <div class="card mb-3 p-1">
                         <div class="row g-0">
@@ -46,17 +46,17 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <h5 class="card-title">{{user_name}}</h5>
-                                        <p class="card-text"><small class="text-muted">{{created_at}}</small></p>
+                                        <a href="#" class="w-25 btn btn-sm btn-outline-danger">Delete Comment</a>
                                     </div>
+                                    <p class="card-text"><small class="text-muted">{{created_at}}</small></p>
                                     <p class="card-text">{{comment}}</p>
                                 </div>
-                                <a href="#" class="w-50 btn btn-sm btn-outline-danger">Delete Comment</a>
                             </div>
 
                         </div>
                     </div>
 
-                {{/blogPostComments}}
+                {{/blogPost.comments}}
 
         	{{/blogPost}}
 
@@ -75,6 +75,6 @@
     </script>
 
 
-    <script src="../scripts/default.js"></script>
+    <script src="../scripts/scroll_bar.js"></script>
 
 {{>partials/footer}}
