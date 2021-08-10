@@ -1,8 +1,10 @@
 const fetch = require('node-fetch');
 const uuid = require('uuid');
+const randomToken = require('rand-token');
 
 const Bcrypt = require('../../helpers/Bcrypt');
 const DateTime = require('../../helpers/DateTime');
+
 
 const Users = {
 
@@ -27,12 +29,54 @@ const Users = {
 
 		const json = await response.json();
 		
-		if(json.length > 0 && json[0].email === email) return true;
-
-		return false;
+		return (json.length > 0 && json[0].email === email) ? true : false
 	},
 
-	postLogin: async (email, password) => {
+	verifyConfirmEmailToken: async (email, token) => {
+		
+		const response = await fetch(
+			`${process.env.DATABASE_JSON_URL}/users?email=${email}`, {
+  				"method": "GET"
+			});
+
+		const json = await response.json();
+
+		if(json.length > 0 && json[0].confirm_email_token === token){
+			
+			const responsePatch = await fetch(
+				`${process.env.DATABASE_JSON_URL}/users/${json[0].id}`, {
+	  				method: 'PATCH',
+				    body:    JSON.stringify({
+				        "confirmed_email": true,
+				        "confirm_email_token": null,
+				    }),
+				    headers: { 'Content-Type': 'application/json' },
+				});
+
+			const jsonPatch = await responsePatch.json();
+			console.log('json patch confirmed_email', jsonPatch)
+
+			if(jsonPatch) return true;
+			return false;
+		}
+	},
+
+	verifyIfEmailIsConfirmed: async (email) => {
+		const response = await fetch(
+			`${process.env.DATABASE_JSON_URL}/users?email=${email}`, {
+  				"method": "GET"
+			});
+
+		const json = await response.json();
+		
+		return json[0].confirmed_email ? true : false
+	},
+
+	/**
+	 * If true, Return User ID
+	 * else, return null
+	 */
+	verifyLogin: async (email, password) => {
 		const response = await fetch(
 			`${process.env.DATABASE_JSON_URL}/users?email=${email}`, {
   				"method": "GET"
@@ -41,31 +85,55 @@ const Users = {
 		const json = await response.json();
 		
 		if(json.length > 0 && json[0].email === email){
-			const passwordValid = await Bcrypt.comparePassword(password, json[0].password);
-			if(passwordValid){
-				return json[0].id;
-			}
+			const passwordValid = await Bcrypt.comparePassword(password, json[0].password)
+			
+			return passwordValid ? json[0].id : null
 		}		
-		
-		return null;
 	},
 
-	registerUser: async (username, email, password) => {
-		const passwordHash = await Bcrypt.cryptPassword(password);
+	/**
+	 * string username, email, password
+	 * Return true or false
+	 */
+	registerUser: async (username, email, password, confirm_password, confirm_email_token) => {
 
-		const response = await fetch(`${process.env.DATABASE_JSON_URL}/users`, {
+		let emailExists = await Users.emailIsAlreadyRegistred(email);
+    	if(emailExists){
+    		return objectResponse = {
+    			error: true,
+    			message: "Email already registred!"
+    		}
+    	}
+
+    	if(password !== confirm_password){
+        	return objectResponse = {
+    			error: true,
+    			message: "Password and confirm password not equal!"
+    		}
+    	}
+
+		const passwordHash = await Bcrypt.cryptPassword(password)
+		
+
+		const userResgitred = await fetch(`${process.env.DATABASE_JSON_URL}/users`, {
 		    method: 'POST',
+		    headers: { 'Content-Type': 'application/json' },
 		    body:    JSON.stringify({
 		    	id: uuid.v4(),
 		    	name: username,
 		    	email: email,
 		    	confirmed_email: false,
+		    	confirm_email_token: confirm_email_token,
 		    	password: passwordHash,
+		    	reset_password_token: null,
 		    	admin: false,
 		    	avatar: "avatar.png",
 		    	document: null,
 		    	phone: null,
 		    	birth_date: null,
+		    	google_id: null,
+      			github_id: null,
+      			facebook_id: null,
 		    	address: {
 		    		zipcode: null,
 			        street: null,
@@ -75,10 +143,6 @@ const Users = {
 			        state: null,
 			        country: "BRAZIL"
 		    	},
-		    	google_id: null,
-      			github_id: null,
-      			facebook_id: null,
-      			resetPasswordToken: null,
       			stripe: {
 			        customer_id: null,
 			        card_id: null,
@@ -86,36 +150,38 @@ const Users = {
 			        currently_subscription_name: null,
 			        subscription_start: null, 
 			        subscription_end: null,
+			        subscription_automatically_renew: false
 			    },
 		    	created_at: DateTime.getNow(),
 		    	updated_at: DateTime.getNow()
+		    })
+		});
+
+		return userResgitred
+			? 
+			objectResponse = {
+				error: false,
+	    		message: "User Registred!"
+			} 
+			: 
+			objectResponse = {
+				error: true,
+	    		message: "User not registred in JSON Database"
+			}
+	},
+
+	createResetPasswordToken: async (email, reset_password_token) => {
+		const response = await fetch(`${process.env.DATABASE_JSON_URL}/users?email=${email}`, {
+		    method: 'PATCH',
+		    body:    JSON.stringify({
+		    	reset_password_token
 		    }),
 		    headers: { 'Content-Type': 'application/json' },
 		});
 
-		const userRegistred = await response.json();
-		
-		console.log(userRegistred);
-		
-		return true;
-	},
-
-	createResetPasswordToken: async (recoverPasswordToken, email) => {
-		const response = await fetch(`${process.env.DATABASE_JSON_URL}/users/a4ff72d4-fd41-4ecf-87c1-1a87a140ea84`, {
-		    method: 'PATCH',
-		    body:    JSON.stringify({
-		    	reset_password_token: recoverPasswordToken
-		    }),
-		    headers: { 'Content-Type': 'application/json' },
-		})
-
 		const json = await response.json();
 
-		console.log(json)
-
-		if(json) return true;
-
-		return false;
+		return json ? true : false
 	},
 
 	passwordResetTokenIsValid: async (email, resetPasswordToken) => {

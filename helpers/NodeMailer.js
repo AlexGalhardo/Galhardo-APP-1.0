@@ -2,12 +2,12 @@ const nodemailer = require("nodemailer");
 const handlebars = require("handlebars");
 const fs = require("fs");
 const path = require("path");
+const randomToken = require('rand-token');
 
 const Users = require('../models/JSON/Users');
 
 const NodeMailer = {
     postContact: async (username, email, subject, message) => {
-
         // const filePath = path.join(__dirname, '../views/emails/contact.html');
         // const filePath = path.join(__dirname, '../views/emails/subscription_transaction.html');
         const filePath = path.join(__dirname, '../views/emails/forget_password.html');
@@ -28,7 +28,7 @@ const NodeMailer = {
         const smtpTransport = nodemailer.createTransport({
             host: process.env.SENDGRID_SERVER,
             port: process.env.SENDGRID_PORT,
-            secure: false, // using SSL/TLS ?
+            secure: false, 
             auth: {
                 user: process.env.SENDGRID_USERNAME,
                 pass: process.env.SENDGRID_PASSWORD
@@ -51,34 +51,62 @@ const NodeMailer = {
         return response
     },
 
-    postForgetPassword: async (email, recoverPasswordToken) => {
+    sendConfirmEmailToken: async (email, confirm_email_token) => {
         const smtpTransport = nodemailer.createTransport({
-            host: 'smtp.mailgun.org',
+            host: process.env.SENDGRID_SERVER,
             port: 587,
-            secure: false, // using SSL/TLS ?
+            secure: false,
             auth: {
-                user: 'postmaster@sandboxd142f4af53414a188c68cd6e8b8c1118.mailgun.org',
-                pass: '3078599cce82ee52f2d0b65bd145d78c-6b60e603-5a1a1392'
+                user: process.env.SENDGRID_USERNAME,
+                pass: process.env.SENDGRID_PASSWORD
             }
         })
 
-        let recoverPasswordLinkURL = `${process.env.APP_URL}/resetPassword/${email}/${recoverPasswordToken}`;
+        let confirmEmailLinkURL = `${process.env.APP_URL}/confirmEmail/${email}/${confirm_email_token}`;
+        console.log(confirmEmailLinkURL)
 
         const mail = {
             from: "aleexgvieira@gmail.com",
             to: email,
-            subject: `GALHARDO APP: Recover Your Password Link`,
-            text: `Your password recovery link is: ${recoverPasswordLinkURL}`,
+            subject: `GALHARDO APP: Confirm Your Email Link!`,
+            text: `Your confirm email link is: ${confirmEmailLinkURL}`,
             //html: "<b>Opcionalmente, pode enviar como HTML</b>"
         }
 
         let response = await smtpTransport.sendMail(mail);
         smtpTransport.close();
 
-        console.log(response);
+        console.log(response)
 
-        return response
+        return true
+    },
+
+    postForgetPassword: async (email, reset_password_token) => {
+        const smtpTransport = nodemailer.createTransport({
+            host: process.env.SENDGRID_SERVER,
+            port: 587,
+            secure: false,
+            auth: {
+                user: process.env.SENDGRID_USERNAME,
+                pass: process.env.SENDGRID_PASSWORD
+            }
+        })
+
+        const resetPasswordLinkURL = `${process.env.APP_URL}/resetPassword/${email}/${reset_password_token}`;
+
+        const mail = {
+            from: "aleexgvieira@gmail.com",
+            to: email,
+            subject: `GALHARDO APP: Recover Your Password Link`,
+            text: `Your password recovery link is: ${resetPasswordLinkURL}`,
+            //html: "<b>Opcionalmente, pode enviar como HTML</b>"
+        }
+
+        const response = await smtpTransport.sendMail(mail);
+        smtpTransport.close();
+
+        return response ? true : false
     }
 };
 
-module.exports = NodeMailer;
+module.exports = NodeMailer

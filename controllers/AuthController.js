@@ -9,6 +9,7 @@ const DateTime = require('../helpers/DateTime');
 const Bcrypt = require('../helpers/Bcrypt');
 const NodeMailer = require('../helpers/NodeMailer');
 
+
 const Users = require('../models/JSON/Users');
 
 const URL = require('../helpers/URL');
@@ -38,7 +39,17 @@ const AuthController = {
 
 	    try {
 
-	    	let userID = await Users.postLogin(email, password);
+	    	const confirmedEmail = await Users.verifyIfEmailIsConfirmed(email)
+	    	if(!confirmedEmail){
+	    		return res.render('pages/auth/login', {
+	        		flash: {
+	        			type: "warning",
+	        			message: "You need to confirm your email!"
+	        		}
+	            });
+	    	}
+
+	    	const userID = await Users.verifyLogin(email, password)
 	        
 	        if(!userID){
 	        	return res.render('pages/auth/login', {
@@ -51,11 +62,15 @@ const AuthController = {
 
 	        req.session.userID = userID;
 	        global.SESSION_USER = await Users.getUserByID(req.session.userID)
-	        console.log("req.session.userID setado é: " + req.session.userID);
 	        return res.redirect('/');
 	    }
-	    catch (e) {
-	        next(e);
+	    catch (error) {
+	        return res.render('pages/auth/login', {
+        		flash: {
+        			type: "warning",
+        			message: `Error: ${error}`
+        		}
+            });
 	    }
 	},
 	
@@ -63,9 +78,27 @@ const AuthController = {
 		res.render('pages/auth/register');
 	},
 
+	verifyIfConfirmEmailURLIsValid: async (req, res) => {
+		const { email, token } = req.params;
+
+		const confirmEmailValid = await Users.verifyConfirmEmailToken(email, token)
+
+		if(confirmEmailValid){
+			return res.render('pages/auth/login', {
+				flash: {
+					type: 'Success',
+					message: 'Email Confirmed!'
+				}
+			})
+		}
+
+		return res.redirect('/login')
+	},
+
 	postRegister: async (req, res, next) => {
 		const errors = validationResult(req);
 	    const { username, email, password, confirm_password } = req.body;
+	    const confirm_email_token = randomToken.generate(16)
 
 	    console.log(username, email, password, confirm_password);
 
@@ -80,43 +113,33 @@ const AuthController = {
 
 	    try {
 
-	    	let emailExists = await Users.emailIsAlreadyRegistred(email);
-	    	if(emailExists){
-	    		return res.render('pages/auth/register', {
-	            	flash: {
+	    	const responseRegisterUser = await Users.registerUser(username, email, password, confirm_password, confirm_email_token)
+
+	    	if(responseRegisterUser.error){
+	    		return res.render("pages/auth/register", {
+		            flash: {
 	            		type: "warning",
-	            		message: 'This email is already registred!'
+	            		message: responseRegisterUser.message
 	            	}
-	            });
+	        	});
 	    	}
 
-	        if(password !== confirm_password){
-            	return res.render('pages/auth/register', {
-	            	flash: {
-	            		type: "warning",
-	            		message: 'Password and confirm password not equal!'
-	            	}
-	            });
-        	}
-
-        	if(!Users.registerUser(username, email, password)){
-        		return res.render('pages/auth/register', {
-	            	flash: {
-	            		type: "warning",
-	            		message: 'Registration failed!'
-	            	}
-	            });
-        	}
+	    	NodeMailer.sendConfirmEmailToken(email, confirm_email_token)
 	        
 	        return res.render("pages/auth/register", {
 	            flash: {
             		type: "success",
-            		message: 'Account Created!'
+            		message: 'Account Created! Confirm your email by clicking the link send to your email inbox!'
             	}
 	        });
 
-	    } catch (e) {
-	        next(e);
+	    } catch (error) {
+	        return res.render("pages/auth/register", {
+	            flash: {
+            		type: "danger",
+            		message: `Error: ${error}`
+            	}
+	        });
 	    }
 	},
 	
@@ -125,19 +148,18 @@ const AuthController = {
 	},
 	
 	postForgetPassword: async (req, res) => {
-		const email = req.body.email;
-		const recoverPasswordToken = randomToken.generate(16);
+		const { email } = req.body;
+		const reset_password_token = randomToken.generate(16);
 
-        const resetPasswordTokenCreated = await Users.createResetPasswordToken(recoverPasswordToken, email);
-        console.log(resetPasswordTokenCreated)
+        const resetPasswordTokenCreated = await Users.createResetPasswordToken(email, reset_password_token);
+
+        NodeMailer.postForgetPassword(email, reset_password_token);
 
         if(!resetPasswordTokenCreated){
             return console.log('reset_password_token not saved in JSON DATABASE!');
         }
 
-        NodeMailer.postForgetPassword(email, recoverPasswordToken);
-
-		res.render('pages/auth/forgetPassword', {
+		return res.render('pages/auth/forgetPassword', {
 			flash: {
 				type: "success",
 				message: `If this email exists, we'll send a link to this email to recover password!`
