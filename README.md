@@ -21,11 +21,8 @@
 - https://galhardoapp-json-database.herokuapp.com/
    - To view JSON DataBase
 
-<<<<<<< HEAD
 ## [Project Introduction / Install Locally](https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INTRODUCTION.md)
-=======
-## [Project Introduction](https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INTRODUCTION.md)
->>>>>>> 9ac572a7c15df796db6f7168134fb68b637cb484
+
 
 ## RoadMap
 - [ ] Telegram Logs
@@ -36,10 +33,7 @@
 - JSON DataBase 
    - [x] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
-<<<<<<< HEAD
-=======
    - [ ] Confirm email/Forget Password using SMTP
->>>>>>> 9ac572a7c15df796db6f7168134fb68b637cb484
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
    - [x] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
@@ -48,10 +42,7 @@
 - MySQL DataBase
    - [ ] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
-<<<<<<< HEAD
-=======
    - [ ] Confirm email/Forget Password using SMTP
->>>>>>> 9ac572a7c15df796db6f7168134fb68b637cb484
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
    - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
@@ -60,10 +51,7 @@
 - MongoDB DataBase
    - [ ] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
-<<<<<<< HEAD
-=======
    - [ ] Confirm email/Forget Password using SMTP
->>>>>>> 9ac572a7c15df796db6f7168134fb68b637cb484
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
    - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
