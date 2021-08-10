@@ -26,14 +26,17 @@
 
 ## RoadMap
 - [ ] Telegram Logs
+- [ ] Winston And Morgan File/Console Logs
+- [ ] In Code Compression Responses
+- [ ] In Code Cache Most used data
 - [x] Contact SMTP 
+- [ ] Confirm Email/Forget Password using SMTP
 - [ ] Confirm Email / Forget Password using SMTP
 - [ ] Subscriptions Transactions using SMTP (Email HTML Template)
 - [ ] Shop Transactions using SMTP (Email HTML Template)
 - JSON DataBase 
    - [x] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
-   - [ ] Confirm email/Forget Password using SMTP
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
    - [x] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
@@ -42,7 +45,6 @@
 - MySQL DataBase
    - [ ] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
-   - [ ] Confirm email/Forget Password using SMTP
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
    - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
@@ -51,7 +53,6 @@
 - MongoDB DataBase
    - [ ] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
-   - [ ] Confirm email/Forget Password using SMTP
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
    - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
@@ -65,6 +66,7 @@
    - [ ] Using MySQL or MongoDB
    - [ ] Using NGINX as Reverse Proxy
    - [ ] Using NGINX as Load Balancing
+   - [ ] Using NGINX Cache and Compression
    - [ ] Using my own domain
    - [ ] Configure SSL/HTTPS in VPS
 - TypeScript Version
@@ -88,7 +90,6 @@
 ![ga_register](https://user-images.githubusercontent.com/19540357/128446078-671db5e9-064c-4458-941f-a6cf15e39d49.png)
 ![ga_forgetPassword](https://user-images.githubusercontent.com/19540357/128446079-b6fc9f98-ea0f-4906-8d85-c581b554dee3.png)
 ![ga_resetPassword](https://user-images.githubusercontent.com/19540357/128446080-afa13a81-34be-4a74-9b8d-3cbc8688e0eb.png)
-
 
 ### Blog
 ![ga_blog](https://user-images.githubusercontent.com/19540357/128649488-d9536d35-28e1-41bb-91d9-700b7f92f7db.png)

@@ -5,9 +5,9 @@ const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const compression = require('compression');
-const morgan = require('morgan');
-const winston = require('./config/winston');
-
+const cors = require('cors');
+const morgan = require('./config/morgan');
+const Logger = require('./config/winston');
 
 // PWD ROOT
 global.APP_ROOT_PATH = path.resolve(__dirname);
@@ -19,13 +19,55 @@ global.SESSION_USER = null;
  */
 // const app = require("https-localhost")()
 
-
 // with LocalHost HTTP
 const app = express();
-app.use(morgan("combined", { stream: winston.stream.write }));
+
+
+// Morgan + Winston Logging Setup
+// Log all HTTP Requests in console.log()
+// app.use(morgan("combined", { stream: Logger.stream.write }));
+app.use(morgan)
+
 
 // compress all responses
 app.use(compression())
+
+// CORS
+app.use(cors())
+
+// SESSION
+app.use(session({
+    name: 'session',
+    secret: `${process.env.SESSION_SECRET}`,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 3600 * 1000, // 1hr
+    }
+}));
+
+
+// BODY PARSER
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// TEMPLATE ENGINE
+app.set('view engine', 'mustache');
+app.set('views', path.join(__dirname, 'views'));
+app.engine('mustache', mustache());
+
+// PUBLIC STATIC FILES
+app.use(express.static(path.join(__dirname, './public')));
+
+// ROUTES
+const mainRoutes = require('./routes/routes.js');
+app.use(mainRoutes);
+
+// ERROR 404
+app.use((req, res) => {
+	return res.render('pages/404');
+});
+  
+
 
 /*
  * THIS CODE FORCE REQUESTS FROM HTTP TO HTTPS IN PRODUCTION
@@ -41,39 +83,8 @@ if(process.env.NODE_ENV === 'production') {
 }
 */
 
-app.use(session({
-    name: 'session',
-    secret: `${process.env.SESSION_SECRET}`,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 3600 * 1000, // 1hr
-    }
-}));
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.set('view engine', 'mustache');
-app.set('views', path.join(__dirname, 'views'));
-app.engine('mustache', mustache());
-
-app.use(express.static(path.join(__dirname, './public')));
-
-// ROUTES
-const mainRoutes = require('./routes/index.js');
-app.use(mainRoutes);
-
-// ERROR 404
-app.use((req, res) => {
-	res.render('pages/404');
-  throw new Error('ERROR HTTP CODE 404');
-});
-
-// LOGS WINSTON
-app.use(function(err, req, res, next) {
-  winston.error(`${req.method} - ${err.message}  - ${req.originalUrl} - ${req.ip}`);
-  next(err)
-})  
-
+// START HTTP SERVER WITH PORT
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server running on port ${process.env.PORT}`)
 });

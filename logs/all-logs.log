@@ -1,0 +1,9 @@
+2021-08-10 18:58:31 [31merror[39m: [31mThis is an error log[39m
+2021-08-10 18:58:31 [33mwarn[39m: [33mThis is a warn log[39m
+2021-08-10 18:58:31 [32minfo[39m: [32mThis is a info log[39m
+2021-08-10 18:58:31 [35mhttp[39m: [35mThis is a http log[39m
+2021-08-10 18:58:31 [37mdebug[39m: [37mThis is a debug log[39m
+2021-08-10 18:58:32 [35mhttp[39m: [35mGET /logger 304 CONTENT-LENGTH=- 62.348 ms[39m
+[35m[39m
+2021-08-10 18:58:32 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 102.743 ms[39m
+[35m[39m

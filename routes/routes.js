@@ -14,8 +14,11 @@ const AuthController = require('../controllers/AuthController');
 const ProfileController = require('../controllers/ProfileController');
 const AdminController = require('../controllers/AdminController');
 
+const Logger = require('../config/winston');
+
 const express = require('express');
 const router = express();
+
 
 // MIDDLEWARES
 const isAdmin = (req, res, next) => {
@@ -38,6 +41,18 @@ const userIsAlreadyLoggedIn = (req, res, next) => {
     }
 	next()
 }
+
+
+// Test Logger
+router.get('/logger', (req, res) => {
+  Logger.error("This is an error log");
+  Logger.warn("This is a warn log");
+  Logger.info("This is a info log");
+  Logger.http("This is a http log");
+  Logger.debug("This is a debug log");
+
+  res.send("Logger tested");
+});
 
 
 // APP CONTROLLER
