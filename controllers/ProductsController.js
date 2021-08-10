@@ -5,7 +5,9 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const ProductsController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/stripe/products/create');
+		res.render('pages/stripe/products/create', {
+			user: SESSION_USER
+		});
 	},
 	postCreateProduct: async (req, res) => {
 		const product_name = req.body.product_name;
@@ -21,11 +23,14 @@ const ProductsController = {
 				type: 'success',
 				message: 'Product Created With Success!'
 			},
-			product
+			product,
+			user: SESSION_USER
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/stripe/products/retrieve');
+		res.render('pages/stripe/products/retrieve', {
+			user: SESSION_USER
+		});
 	},
 	postRetrieveProduct: async (req, res) => {
 		const product_id = req.body.product_id;
@@ -42,11 +47,14 @@ const ProductsController = {
 				type: 'success',
 				message: 'Product Exists!'
 			},
-			product
+			product,
+			user: SESSION_USER
 		});
 	},
 	getViewUpdate: (req, res) => {
-		res.render('pages/stripe/products/update');
+		res.render('pages/stripe/products/update', {
+			user: SESSION_USER
+		});
 	},
 	postUpdateProduct: async (req, res) => {
 		const product_id = req.body.product_id;
@@ -59,6 +67,7 @@ const ProductsController = {
 					type: 'warning',
 					message: "You can't update this product!"
 				},
+				user: SESSION_USER
 			});
 			return
 		}
@@ -77,7 +86,8 @@ const ProductsController = {
 				type: 'success',
 				message: 'Product Updated!'
 			},
-			product
+			product,
+			user: SESSION_USER
 		});
 	},
 	getViewDelete: (req, res) => {
@@ -92,6 +102,7 @@ const ProductsController = {
 					type: 'warning',
 					message: "You can't delete this product!"
 				},
+				user: SESSION_USER
 			});
 			return
 		}
@@ -105,7 +116,8 @@ const ProductsController = {
 				type: 'success',
 				message: 'Product DELETED!'
 			},
-			product: productDeleted
+			product: productDeleted,
+			user: SESSION_USER
 		});
 	},
 	getViewListAll: async (req, res) => {
@@ -124,6 +136,7 @@ const ProductsController = {
 		res.render('pages/stripe/products/listAll', {
 			lastProductsCreated,
 			products: products.data,
+			user: SESSION_USER
 		});
 	},
 }

@@ -4,9 +4,9 @@
 
         <div class="mb-3">
             <a href="/stripe/customers/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
-            <a href="/stripe/customers/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/customers/update" class="btn shadow-sm ms-1 me-1 btn-warning">Update</a>
             <a href="/stripe/customers/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            <a href="/stripe/customers/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/customers/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
         </div>
 
@@ -20,7 +20,7 @@
 
             <div class="col-lg-5">
   		
-    		<form action="/customers/update" method="POST" class="mb-3">
+    		<form action="/stripe/customers/update" method="POST" class="mb-3">
 
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" name="customer_id" id="customer_id" placeholder="Customer Name" required autofocus>

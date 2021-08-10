@@ -4,8 +4,8 @@
 
         <div class="mb-3">
             <a href="/stripe/subscriptions/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
-            <a href="/stripe/subscriptions/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/subscriptions/cancel" class="btn shadow-sm ms-1 me-1 btn-danger">Cancel</a>
+            <a href="/stripe/subscriptions/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/subscriptions/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
         </div>
 
@@ -19,7 +19,7 @@
 
             <div class="col-lg-5">
   		
-        		<form action="/subscriptions/cancel" method="POST" class="mb-3">
+        		<form action="/stripe/subscriptions/cancel" method="POST" class="mb-3">
         			<div class="form-floating mb-3">
         			  	<input type="text" class="form-control" name="subs_id" id="subs_id" placeholder="Customer Name" required autofocus>
         			  	<label for="subs_id">SUBSCRIPTION_ID</label>

@@ -5,7 +5,9 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const SubscriptionsController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/stripe/subscriptions/create');
+		res.render('pages/stripe/subscriptions/create', {
+			user: SESSION_USER
+		});
 	},
 	postCreateSubscription: async (req, res) => {
 		const customer_id = req.body.customer_id
@@ -29,11 +31,14 @@ const SubscriptionsController = {
 				type: 'success',
 				message: 'SUBSCRIPTION Created With Success!'
 			},
-			subscription
+			subscription,
+			user: SESSION_USER
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/stripe/subscriptions/retrieve');
+		res.render('pages/stripe/subscriptions/retrieve', {
+			user: SESSION_USER
+		});
 	},
 	postRetrieveSubscription: async (req, res) => {
 		let subs_id = req.body.subs_id;
@@ -51,11 +56,14 @@ const SubscriptionsController = {
 				type: 'success',
 				message: 'Subscription Exists!'
 			},
-			subscription
+			subscription,
+			user: SESSION_USER
 		});
 	},
 	getViewUpdate: (req, res) => {
-		res.render('pages/stripe/subscriptions/update');
+		res.render('pages/stripe/subscriptions/update', {
+			user: SESSION_USER
+		});
 	},
 	postUpdateSubscription: async (req, res) => {
 		const customer = await stripe.customers.update(
@@ -71,11 +79,14 @@ const SubscriptionsController = {
 				type: 'success',
 				message: 'Customer UPDATED!'
 			},
-			customer
+			customer,
+			user: SESSION_USER
 		});
 	},
 	getViewCancel: (req, res) => {
-		res.render('pages/stripe/subscriptions/cancel');
+		res.render('pages/stripe/subscriptions/cancel', {
+			user: SESSION_USER
+		});
 	},
 	postCancelSubscription: async (req, res) => {
 		const subs_id = req.body.subs_id;
@@ -85,7 +96,8 @@ const SubscriptionsController = {
 				flash: {
 					type: 'warning',
 					message: "You can't cancel this subscription!"
-				}
+				},
+				user: SESSION_USER
 			});
 			return
 		}
@@ -104,7 +116,8 @@ const SubscriptionsController = {
 				type: 'success',
 				message: 'SUBSCRIPTION CANCELED!'
 			},
-			subscription: canceledSubscription
+			subscription: canceledSubscription,
+			user: SESSION_USER
 		});
 	},
 	getViewListAll: async (req, res) => {
@@ -123,6 +136,7 @@ const SubscriptionsController = {
 		res.render('pages/stripe/subscriptions/listAll', {
 			lastSubsCreated,
 			subscriptions: subscriptions.data,
+			user: SESSION_USER
 		});
 	}
 };

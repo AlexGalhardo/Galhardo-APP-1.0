@@ -3,10 +3,12 @@
 	<div class="container col-lg-8 text-center mt-3">
 
         <div class="mb-3">
-            <a href="/stripe/cards/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            {{#user.admin}}
+                <a href="/stripe/cards/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+                <a href="/stripe/cards/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
+                <a href="/stripe/cards/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            {{/user.admin}}
             <a href="/stripe/cards/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
-            <a href="/stripe/cards/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
-            <a href="/stripe/cards/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
             <a href="/stripe/cards/listAll" class="btn shadow-sm ms-1 me-1 btn-info">List All</a>
         </div>
 
@@ -21,9 +23,9 @@
             </a>
 
             <div class="col-lg-5">
-        		<form action="/cards/listAll" method="POST" class="mb-3">
+        		<form action="/stripe/cards/listAll" method="POST" class="mb-3">
         			<div class="form-floating mb-3">
-        			  	<input type="text" class="form-control" name="customer_id" id="customer_id" placeholder="Customer Name" required autofocus value="cus_Jy49RB199LvElV">
+        			  	<input type="text" class="form-control" name="customer_id" id="customer_id" placeholder="Customer Name" required autofocus value="cus_K15RnWHRhUA0HF">
         			  	<label for="customer_id">CUSTOMER_ID</label>
         			</div>
 

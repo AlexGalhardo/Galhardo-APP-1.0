@@ -4,9 +4,9 @@
 
         <div class="mb-3">
             <a href="/stripe/cards/create" class="btn shadow-sm ms-1 me-1 btn-success">Create</a>
-            <a href="/stripe/cards/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/cards/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
             <a href="/stripe/cards/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            <a href="/stripe/cards/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/cards/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
         </div>
 
@@ -26,7 +26,7 @@
       
             <div class="col-lg-6">
   		
-    		    <form id="formCreditCard" action="/cards/create" method="POST">
+    		    <form id="formCreditCard" action="/stripe/cards/create" method="POST">
 
                     <div id="div_credit_card"></div>
 
@@ -66,7 +66,7 @@
 
                     <div class="form-group mb-2">
                         <br>
-                        <input type="text" name="customer_id" placeholder="enter customer_id" required class="form-control" value="cus_JwuIk74ZSSQXwX">
+                        <input type="text" name="customer_id" placeholder="enter customer_id" required class="form-control" value="">
                     </div>
 
                     <button class="btn btn-outline-success shadow" type="submit">

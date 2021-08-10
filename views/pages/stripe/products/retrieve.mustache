@@ -3,10 +3,12 @@
   <div class="container col-lg-8 text-center mt-3">
 
         <div class="mb-3">
-            <a href="/stripe/products/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            {{#user.admin}}
+                <a href="/stripe/products/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+                <a href="/stripe/products/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
+                <a href="/stripe/products/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            {{/user.admin}}
             <a href="/stripe/products/retrieve" class="btn shadow-sm ms-1 me-1 btn-primary">Retrieve</a>
-            <a href="/stripe/products/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
-            <a href="/stripe/products/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
             <a href="/stripe/products/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">ListAll</a>
         </div>
 
@@ -20,7 +22,7 @@
 
             <div class="col-lg-5">
   		
-        		<form action="/products/retrieve" method="POST" class="mb-3">
+        		<form action="/stripe/products/retrieve" method="POST" class="mb-3">
         			<div class="form-floating mb-3">
         			  	<input type="text" class="form-control" name="product_id" id="product_id" placeholder="Customer Name" required autofocus>
         			  	<label for="product_id">PRODUCT_ID</label>

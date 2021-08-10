@@ -5,7 +5,9 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const PlansController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/stripe/plans/create');
+		res.render('pages/stripe/plans/create', {
+			user: SESSION_USER
+		});
 	},
 	postCreatePlan: async (req, res) => {
 		const amount = req.body.plan_amount;
@@ -33,11 +35,14 @@ const PlansController = {
 				message: 'Plan Created With Success!'
 			},
 			plan,
-			plan_name: product.name
+			plan_name: product.name,
+			user: SESSION_USER
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/stripe/plans/retrieve');
+		res.render('pages/stripe/plans/retrieve', {
+			user: SESSION_USER
+		});
 	},
 	postRetrievePlan: async (req, res) => {
 		let plan_id = req.body.plan_id;
@@ -53,11 +58,14 @@ const PlansController = {
 				type: 'success',
 				message: 'Plan ID Valid!'
 			},
-			plan
+			plan,
+			user: SESSION_USER
 		});
 	},
 	getViewUpdate: (req, res) => {
-		res.render('pages/stripe/plans/update');
+		res.render('pages/stripe/plans/update', {
+			user: SESSION_USER
+		});
 	},
 	postUpdatePlan: async (req, res) => {
 		const customer = await stripe.customers.update(
@@ -73,11 +81,14 @@ const PlansController = {
 				type: 'success',
 				message: 'Customer UPDATED!'
 			},
-			customer
+			customer,
+			user: SESSION_USER
 		});
 	},
 	getViewDelete: (req, res) => {
-		res.render('pages/stripe/plans/delete');
+		res.render('pages/stripe/plans/delete', {
+			user: SESSION_USER
+		});
 	},
 	postDeletePlan: async (req, res) => {
 		const plan_id = req.body.plan_id.trim()
@@ -90,7 +101,8 @@ const PlansController = {
 				type: 'success',
 				message: 'Plan DELETED!'
 			},
-			plan: planDeleted
+			plan: planDeleted,
+			user: SESSION_USER
 		});
 	},
 	getViewListAll: async (req, res) => {
@@ -105,6 +117,7 @@ const PlansController = {
 		res.render('pages/stripe/plans/listAll', {
 			lastPlansCreated,
 			plans: plans.data,
+			user: SESSION_USER
 		});
 	}
 };

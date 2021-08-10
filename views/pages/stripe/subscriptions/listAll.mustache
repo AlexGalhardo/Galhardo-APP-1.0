@@ -3,9 +3,11 @@
 	<div class="container col-lg-12 text-center mt-3">
 
         <div class="mb-3">
-            <a href="/stripe/subscriptions/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            {{#user.admin}}
+                <a href="/stripe/subscriptions/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+                <a href="/stripe/subscriptions/cancel" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Cancel</a>
+            {{/user.admin}}
             <a href="/stripe/subscriptions/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
-            <a href="/stripe/subscriptions/cancel" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Cancel</a>
             <a href="/stripe/subscriptions/listAll" class="btn shadow-sm ms-1 me-1 btn-info">List All</a>
         </div>
 

@@ -3,7 +3,9 @@
 	<div class="container col-lg-8 text-center mt-3">
 
         <div class="mb-3">
-            <a href="/stripe/prices/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            {{#user.admin}}
+                <a href="/stripe/prices/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            {{/user.admin}}
             <a href="/stripe/prices/retrieve" class="btn shadow-sm ms-1 me-1 btn-primary">Retrieve</a>
             <a href="/stripe/prices/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
         </div>
@@ -19,7 +21,7 @@
             </a>
 
             <div class="col-lg-5">
-        		<form action="/prices/retrieve" method="POST" class="mb-3">
+        		<form action="/stripe/prices/retrieve" method="POST" class="mb-3">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="price_id" id="price_id" placeholder="Customer Name" required autofocus value="plan_JxJMW54dmkHkfF">
                         <label for="price_id">PRICE_ID</label>

@@ -4,9 +4,9 @@
 
         <div class="mb-3">
             <a href="/stripe/products/create" class="btn shadow-sm ms-1 me-1 btn-success">Create</a>
-            <a href="/stripe/products/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/products/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
             <a href="/stripe/products/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            <a href="/stripe/products/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/products/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">ListAll</a>
         </div>
 
@@ -20,7 +20,7 @@
 
             <div class="col-lg-5">
   		
-        		<form action="/products/create" method="POST" class="mb-3">
+        		<form action="/stripe/products/create" method="POST" class="mb-3">
         			<div class="form-floating mb-3">
                         <input type="text" class="form-control" id="product_name" name="product_name" value="Plano PREMIUM" required>
                         <label for="product_name">PRODUCT_NAME</label>

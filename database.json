@@ -26,8 +26,9 @@
         "country": "BRAZIL"
       },
       "stripe": {
-        "customer_id": null,
-        "card_id": null,
+        "customer_id": "cus_K15RnWHRhUA0HF",
+        "card_token_id": "tok_1JN3UBBD6lhzYmkOV3LcL9cX",
+        "card_id": "card_1JN3UBBD6lhzYmkO7W8rsCO3",
         "currently_subscription_id": null,
         "currently_subscription_name": "FREE",
         "subscription_start": null,
@@ -45,7 +46,7 @@
       "confirm_email_token": null,
       "password": "$2b$12$PRiFiCTX9zQpVo/wjniUt.toXi5R9OOE9eNlO5AalO9811ixx1C4S",
       "reset_password_token": null,
-      "admin": false,
+      "admin": true,
       "avatar": "avatar.png",
       "document": null,
       "phone": null,
@@ -402,5 +403,14 @@
       "updated_at": "04/08/2021 18:55:16"
     }
   ],
-  "customers": []
+  "customers": [
+    {
+      "stripe_customer_id": "cus_K15RnWHRhUA0HF",
+      "name": "Test Jack",
+      "email": "test@gmail.com",
+      "created_at": "10/08/2021 19:18:09",
+      "updated_at": "10/08/2021 19:18:09",
+      "id": 1
+    }
+  ]
 }

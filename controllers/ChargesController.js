@@ -5,7 +5,9 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const ChargesController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/stripe/charges/create');
+		res.render('pages/stripe/charges/create', {
+			user: SESSION_USER
+		});
 	},
 	postCreateCharge: async (req, res) => {
 		const amount = req.body.charge_amount;
@@ -32,11 +34,14 @@ const ChargesController = {
 				type: 'success',
 				message: `Charge Card Success!`
 			},
-			charge
+			charge,
+			user: SESSION_USER
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/stripe/charges/retrieve');
+		res.render('pages/stripe/charges/retrieve', {
+			user: SESSION_USER
+		});
 	},
 	postRetrieveCharge: async (req, res) => {
 		const charge_id = req.body.charge_id;
@@ -52,7 +57,8 @@ const ChargesController = {
 				type: 'success',
 				message: `Charge Exists!`
 			},
-			charge
+			charge,
+			user: SESSION_USER
 		});
 	},
 	getViewListAll: async (req, res) => {
@@ -67,7 +73,8 @@ const ChargesController = {
 
 		res.render('pages/stripe/charges/listAll', {
 			charges: charges.data,
-			totalCharges
+			totalCharges,
+			user: SESSION_USER
 		});
 	}
 };

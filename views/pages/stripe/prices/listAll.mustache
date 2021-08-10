@@ -3,7 +3,9 @@
 	<div class="container col-lg-12 text-center mt-3">
 
         <div class="mb-3">
-            <a href="/stripe/prices/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            {{#user.admin}}
+                <a href="/stripe/prices/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            {{/user.admin}}
             <a href="/stripe/prices/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/prices/listAll" class="btn shadow-sm ms-1 me-1 btn-info">List All</a>
         </div>

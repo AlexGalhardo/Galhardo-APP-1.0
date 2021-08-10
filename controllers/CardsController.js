@@ -4,7 +4,9 @@ const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const CardsController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/stripe/cards/create');
+		res.render('pages/stripe/cards/create', {
+			user: SESSION_USER
+		});
 	},
 	postCreateCreditCard: async (req, res) => {
 		const customer_id = req.body.customer_id;
@@ -40,11 +42,13 @@ const CardsController = {
 			},
 			customer_id: customer_id,
 			card: creditCardToken,
-			// card_metadata_token_id: card.metadata.token
+			user: SESSION_USER
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/stripe/cards/retrieve');
+		res.render('pages/stripe/cards/retrieve', {
+			user: SESSION_USER
+		});
 	},
 	postRetrieveCard: async (req, res) => {
 		const customer_id = req.body.customer_id;
@@ -60,11 +64,14 @@ const CardsController = {
 				type: 'success',
 				message: `Credit Card Exist!`
 			},
-			card
+			card,
+			user: SESSION_USER
 		});
 	},
 	getViewUpdate: (req, res) => {
-		res.render('pages/stripe/cards/update');
+		res.render('pages/stripe/cards/update', {
+			user: SESSION_USER
+		});
 	},
 	postUpdateCard: async (req, res) => {
 		const customer_id = req.body.customer_id;
@@ -92,11 +99,14 @@ const CardsController = {
 				type: 'success',
 				message: `Credit Card UPDATED!`
 			},
-			card
+			card,
+			user: SESSION_USER
 		});
 	},
 	getViewDelete: (req, res) => {
-		res.render('pages/stripe/cards/delete');
+		res.render('pages/stripe/cards/delete', {
+			user: SESSION_USER
+		});
 	},
 	postDeleteCard: async (req, res) => {
 		const customer_id = req.body.customer_id;
@@ -122,11 +132,14 @@ const CardsController = {
 				type: 'success',
 				message: `Credit Card DELETED!`
 			},
-			card: cardDeleted
+			card: cardDeleted,
+			user: SESSION_USER
 		});
 	},
 	getViewListAll: (req, res) => {
-		res.render('pages/stripe/cards/listAll');
+		res.render('pages/stripe/cards/listAll', {
+			user: SESSION_USER
+		});
 	},
 	postListAll: async (req, res) => {
 		let customer_id = req.body.customer_id;
@@ -149,7 +162,8 @@ const CardsController = {
 				type: flash_type,
 				message: flash_message
 			},
-			cards: cards.data
+			cards: cards.data,
+			user: SESSION_USER
 		});
 	}
 };

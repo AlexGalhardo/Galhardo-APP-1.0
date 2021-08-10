@@ -3,7 +3,9 @@
 	<div class="container col-lg-8 text-center mt-3">
 
         <div class="mb-3">
-            <a href="/stripe/charges/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            {{#user.admin}}
+                <a href="/stripe/charges/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            {{/user.admin}}
             <a href="/stripe/charges/retrieve" class="btn shadow-sm ms-1 me-1 btn-primary">Retrieve</a>
             <a href="/stripe/charges/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
         </div>
@@ -19,7 +21,7 @@
             </a>
 
             <div class="col-lg-5">
-        		<form action="/charges/retrieve" method="POST" class="mb-3">
+        		<form action="/stripe/charges/retrieve" method="POST" class="mb-3">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="charge_id" id="charge_id" placeholder="Customer Name" required autofocus value="ch_3JJ3O2BD6lhzYmkO17GM7JzX">
                         <label for="charge_id">CHARGE_ID</label>

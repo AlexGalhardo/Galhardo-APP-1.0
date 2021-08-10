@@ -111,7 +111,7 @@ const CustomersController = {
 	postDeleteCustomer: async (req, res) => {
 		let customer_id = req.body.customer_id;
 
-		if(customer_id == "cus_Jy49RB199LvElV"){
+		if(customer_id == "cus_K15RnWHRhUA0HF"){
 			res.render('pages/stripe/customers/delete', {
 				flash: {
 					type: 'warning',

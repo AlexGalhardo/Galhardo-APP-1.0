@@ -4,8 +4,8 @@
 
         <div class="mb-3">
             <a href="/stripe/plans/create" class="btn shadow-sm ms-1 me-1 btn-success">Create</a>
-            <a href="/stripe/plans/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/plans/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            <a href="/stripe/plans/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
             <a href="/stripe/plans/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
         </div>
 
@@ -19,7 +19,7 @@
 
             <div class="col-lg-5">
   		
-        		<form action="/plans/create" method="POST" class="mb-3">
+        		<form action="/stripe/plans/create" method="POST" class="mb-3">
         			<div class="form-floating mb-3">
                         <input type="number" step="1" min="100" class="form-control" id="plan_amount" name="plan_amount" value="100" required>
                         <label for="plan_amount">PLAN_AMOUNT (100 = $1)</label>

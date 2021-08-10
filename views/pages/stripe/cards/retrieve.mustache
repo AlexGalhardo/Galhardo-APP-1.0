@@ -3,10 +3,12 @@
 	<div class="container col-lg-8 text-center mt-3">
 
         <div class="mb-3">
-            <a href="/stripe/cards/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            {{#user.admin}}
+                <a href="/stripe/cards/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+                <a href="/stripe/cards/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
+                <a href="/stripe/cards/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            {{/user.admin}}
             <a href="/stripe/cards/retrieve" class="btn shadow-sm ms-1 me-1 btn-primary">Retrieve</a>
-            <a href="/stripe/cards/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
-            <a href="/stripe/cards/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
             <a href="/stripe/cards/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
         </div>
 
@@ -21,14 +23,14 @@
             </a>
 
             <div class="col-lg-5">
-        		<form action="/cards/retrieve" method="POST" class="mb-3">
+        		<form action="/stripe/cards/retrieve" method="POST" class="mb-3">
         			<div class="form-floating mb-3">
-        			  	<input type="text" class="form-control" name="customer_id" id="customer_id" placeholder="Customer Name" required autofocus value="cus_JwuIk74ZSSQXwX">
+        			  	<input type="text" class="form-control" name="customer_id" id="customer_id" placeholder="Customer Name" required autofocus value="cus_K15RnWHRhUA0HF">
         			  	<label for="customer_id">CUSTOMER_ID</label>
         			</div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="card_id" id="card_id" placeholder="Customer Name" required autofocus value="card_1JJ0VlBD6lhzYmkOMFGXXueH">
+                        <input type="text" class="form-control" name="card_id" id="card_id" placeholder="Customer Name" required autofocus value="card_1JN3UBBD6lhzYmkO7W8rsCO3">
                         <label for="card_id">CARD_ID</label>
                     </div>
 

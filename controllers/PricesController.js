@@ -5,7 +5,9 @@ const stripe = require('stripe')(process.env.STRIPE_SK_TEST);
 
 const PricesController = {
 	getViewCreate: (req, res) => {
-		res.render('pages/stripe/prices/create');
+		res.render('pages/stripe/prices/create', {
+			user: SESSION_USER
+		});
 	},
 	postCreatePrice: async (req, res) => {
 		const price_amount = req.body.price_amount;
@@ -29,11 +31,14 @@ const PricesController = {
 				type: 'success',
 				message: 'Price Created With Success!'
 			},
-			price
+			price,
+			user: SESSION_USER
 		});
 	},
 	getViewRetrieve: (req, res) => {
-		res.render('pages/stripe/prices/retrieve');
+		res.render('pages/stripe/prices/retrieve', {
+			user: SESSION_USER
+		});
 	},
 	postRetrievePrice: async (req, res) => {
 		const price_id = req.body.price_id;
@@ -49,7 +54,8 @@ const PricesController = {
 				type: 'success',
 				message: 'Price Exists!'
 			},
-			price
+			price,
+			user: SESSION_USER
 		});
 	},
 	getViewListAll: async (req, res) => {
@@ -66,6 +72,7 @@ const PricesController = {
 		res.render('pages/stripe/prices/listAll', {
 			lastPricesCreated,
 			prices: prices.data,
+			user: SESSION_USER
 		});
 	}
 };
