@@ -20,6 +20,7 @@ const BlogController = {
 		}
 
 		const blog = await Blog.getBlogPostsByPageLimit(page, blogPostsPerPage);
+		console.log(blog)
 
 		res.render('pages/blog/blog', {
 			blog,
@@ -114,33 +115,24 @@ const BlogController = {
 	},
 
 	postBlogComment: async (req, res) => {
-		let user = null;
-		if(req.session.userID){
-			user = await Users.getUserByID(req.session.userID)
-		}
-
 		const slug = req.params.slug;
 		const { blog_comment } = req.body;
 
-		const blogPost = await Blog.getBlogPostBySlug(slug);
-		console.log(blogPost);
-
-		const blogCommentCreated = await Blog.createBlogComment({
-	        "blog_post_id": blogPost.id,
-	        "user_id": user.id,
-	        "user_name": user.name,
-	        "user_avatar": user.avatar,
+		const blogComment = {
+	        "user_id": req.session.userID,
+	        "user_logged_can_delete": true,
+	        "user_name": SESSION_USER.name,
+	        "user_avatar": SESSION_USER.avatar,
 	        "comment": blog_comment,
 	        "created_at": DateTime.getNow()
-		});
-
-		console.log(blogCommentCreated)
-
-		if(!blogCommentCreated){
-			return console.log('blog comment não foi criado no json database!')
 		}
 
-		const blogPostComments = await Blog.getBlogPostsCommentsByBlogPostID(blogPost.id);
+		// return blog post if success, null if not success
+		const blogPost = Blog.createBlogComment(slug, blogComment)
+
+		if(!blogPost){
+			return console.log('blog comment não foi criado no json database!')
+		}
 
 		return res.render('pages/blog/blogPost', {
 			flash: {
@@ -148,9 +140,29 @@ const BlogController = {
 				message: "Comment Created!"
 			},
 			blogPost,
-			blogPostComments
+			user: SESSION_USER
 		})
 	},
+
+	getDeleteBlogCommentByCommentID: (req, res) => {
+		const { slug, comment_id } = req.params;
+		
+		// return blog post if success, null if not success
+		const blogPost = Blog.deleteCommentByCommentID(slug, comment_id)
+
+		if(!blogPost){
+			return res.redirect(`/blog/${slug}`)
+		}
+	
+		return res.render('pages/blog/blogPost', {
+			flash: {
+				type: "success",
+				message: "Comment Deleted!"
+			},
+			blogPost,
+			user: SESSION_USER
+		})
+	}
 };
 
 module.exports = BlogController;

@@ -48,7 +48,7 @@
                                         <h5 class="card-title">{{user_name}}</h5>
                                         {{#user}}
                                             {{#user_logged_can_delete}}
-                                                <a href="#" class="w-25 btn btn-sm btn-outline-danger">Delete Comment</a>
+                                                <a href="/blog/{{slug}}/deleteComment/{{comment_id}}" class="w-25 btn btn-sm btn-outline-danger">Delete Comment</a>
                                             {{/user_logged_can_delete}}
                                         {{/user}}
                                     </div>

@@ -80,6 +80,8 @@ router.get('/blog/page/:page', BlogController.getViewBlog);
 router.get('/blog/:slug', BlogController.getViewBlogPost);
 router.post('/blog/:slug', BlogController.postBlogComment);
 
+router.get('/blog/:slug/deleteComment/:comment_id', BlogController.getDeleteBlogCommentByCommentID)
+
 
 
 // SHOP CONTROLLER

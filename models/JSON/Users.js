@@ -4,7 +4,7 @@ const uuid = require('uuid');
 const Bcrypt = require('../../helpers/Bcrypt');
 const DateTime = require('../../helpers/DateTime');
 
-const { JSON_DATABASE_FILE, database, database } = require('../../config/global');
+const { JSON_DATABASE_FILE, database } = require('../../config/global');
 
 class Users {
 

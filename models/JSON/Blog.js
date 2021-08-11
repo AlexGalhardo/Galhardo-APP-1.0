@@ -1,3 +1,4 @@
+const fs = require('fs')
 const fetch = require('node-fetch');
 const DateTime = require('../../helpers/DateTime');
 
@@ -18,94 +19,105 @@ class Blog {
 	}
 
 	static async getBlogPostsByPageLimit(page, limit) {
-		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog/?_page=${page}&_limit=${limit}`, {
-  			"method": "GET"
-		});
+		let totalBlogPosts = database.blog.length
+		let totalPages = parseInt(totalBlogPosts/limit)
+		let totalBlogPostsLastPage = (totalBlogPosts%limit)
 
-		const json = await response.json();
+		let offset = (page * limit) - limit;
+		let getUntil = page * limit
 
-		if(json.length > 0) return json;
+		if(page == totalPages+1){
+			getUntil = offset + totalBlogPostsLastPage
+		}
 
-		return null;
-
+		let blogPosts = []
 		try {
-	      for(let i = 0; i < database.blog.length; i++){
-	        if(database.users[i].id == user_id) return database.users[i]
-	      }
-	      return null
-	    } catch (error) {
-	      return console.log("ERROR getUserByID: ", error);
-	    }
+      		for(offset; offset < getUntil; offset++){
+        		blogPosts.push(database.blog[offset])
+      		}
+      		return blogPosts
+    	} catch (error) {
+      		return console.log("ERROR getBlogPostsByPageLimit: ", error);
+    	}
 	}
 
 	static getAllBlogPosts() {
-		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog`, {
-  			"method": "GET"
-		});
-
-		const json = await response.json();
-
-		if(json.length > 0) return json;
-
-		return null;
+		try {
+	      return database.blog
+	    } catch (error) {
+	      return console.log("ERROR getUsers: ", error);
+	    };
 	}
 
-	static getTotalBlogPosts () {
-		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog`, {
-  			"method": "GET"
-		});
-
-		const json = await response.json();
-
-		if(json.length > 0) return json.length;
-
-		return null;
-	},
+	static async getTotalBlogPosts () {
+		try {
+      		return database.blog.length
+    	} catch (error) {
+      		return console.log("ERROR getTotalBlogPosts: ", error);
+    	}
+	}
 
 	static getBlogPostBySlug (slug) {
-		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog?slug=${slug}`, {
-  			"method": "GET"
-		});
-		const json = await response.json();
-
-		if(json.length > 0) return json[0];
-
-		return null;
+		try {
+      		for(let i=0; i < database.blog.length; i++){
+        		if(database.blog[i].slug === slug){
+        			return database.blog[i]
+        		}
+      		}
+      		return null
+    	} catch (error) {
+      		return console.log("ERROR getBlogPostBySlug: ", error);
+    	}
 	}
 
-	static getBlogPostsCommentsByBlogPostID(blogPostID) {
-		console.log('recebeu id: ' + blogPostID)
-		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog_comments?blog_post_id=${blogPostID}?_sort=created_at&_order=ASC`, {
-  			"method": "GET"
-		});
-
-		const json = await response.json();
-
-		if(json.length > 0) return json;
-
-		return null;
+	static createBlogComment (slug, commentObject) {
+		try {
+      		for(let i=0; i < database.blog.length; i++){
+        		if(database.blog[i].slug === slug){
+        			commentObject.comment_id = database.blog[i].comments.length+1
+        			database.blog[i].comments.push(commentObject)
+        			Blog.save(database, 'Error createBlogComment: ')
+        			return database.blog[i]
+        		}
+      		}
+      		return null
+    	} catch (error) {
+      		return console.log("ERROR createBlogComment: ", error);
+    	}
 	}
 
-	static createBlogComment (body) {
-		console.log('recebeu body: ', body)
-		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog_comments`, {
-		    method: 'POST',
-		    body:    JSON.stringify(body),
-		    headers: { 'Content-Type': 'application/json' },
-		})
+	static deleteCommentByCommentID(slug, comment_id) {
+		try {
+      		
+      		for(let i=0; i < database.blog.length; i++){
+        		
+        		if(database.blog[i].slug === slug){
+        			
+        			for(let index=0; index < database.blog[i].comments.length; index++){
 
-		const json = await response.json();
-
-		if(json) return true;
-
-		return false;
+        				if(database.blog[i].comments[index].comment_id == comment_id){
+        					
+        					if(database.blog[i].comments[index].user_id == SESSION_USER.id){
+        						
+        						database.blog[i].comments.splice(index, 1)
+        						Blog.save(database, 'Error deleteCommentByCommentID: ')
+        						return database.blog[i]	
+        					}
+        				}
+        			}
+        		}
+      		}
+      		return null
+    	} catch (error) {
+      		return console.log("ERROR deleteCommentByCommentID: ", error);
+    	}
 	}
 
 	static createBlogPost (blog_title, blog_category, blog_body) {
 		const slug = slugify(blog_title)
 		console.log('slug é: ' + slug)
 
-		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog`, {
+		const response =  fetch(`${process.env.DATABASE_JSON_URL}/blog`, {
 		    method: 'POST',
 		    body: JSON.stringify({
 		    	title: blog_title,
@@ -118,7 +130,7 @@ class Blog {
 		    headers: { 'Content-Type': 'application/json' },
 		});
 
-		const blogPostCreated = await response.json();
+		const blogPostCreated =  response.json();
 		console.log(blogPostCreated);
 
 		return blogPostCreated;
@@ -128,7 +140,7 @@ class Blog {
 
 		const slug = slugify(blog_title)
 
-		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog/${blog_id}`, {
+		const response =  fetch(`${process.env.DATABASE_JSON_URL}/blog/${blog_id}`, {
 		    method: 'PATCH',
 		    body: JSON.stringify({
 		    	title: blog_title,
@@ -140,7 +152,7 @@ class Blog {
 		    headers: { 'Content-Type': 'application/json' },
 		});
 
-		const blogPostUpdated = await response.json();
+		const blogPostUpdated =  response.json();
 		console.log(blogPostUpdated);
 
 		return blogPostUpdated;
