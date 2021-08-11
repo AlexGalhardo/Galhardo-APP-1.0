@@ -28,6 +28,12 @@
                         <i class="bi bi-play-fill"></i> 
                         Recommend Other
                 </button>
+
+                {{#user.admin}}
+                    <a href="/admin/update/book/{{id}}" class="w-75 shadow mb-2 btn btn-warning shadow-sm">
+                    <i class="bi bi-unlock-fill"></i>
+                    Edit This Book</a>
+                {{/user.admin}}
             </div>
             
 
@@ -45,10 +51,6 @@
                             </a>
                         </h5>
                     </div>
-
-                    {{#user.admin}}
-                        <a href="/admin/update/book/{{id}}" class="mb-2 btn btn-outline-warning shadow-sm">ADMIN Edit This Book</a>
-                    {{/user.admin}}
                     
                     <input id="book_id" name="book_id" type="hidden" value="{{id}}">
                     

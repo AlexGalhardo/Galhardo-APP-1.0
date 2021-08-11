@@ -3,9 +3,21 @@ const DateTime = require('../../helpers/DateTime');
 
 var slugify = require('slugify')
 
-const Blog = {
+const { JSON_DATABASE_FILE, database } = require('../../config/global');
 
-	getBlogPostsByPageLimit: async (page, limit) => {
+class Blog {
+
+	static save(database, error_message){
+	    fs.writeFileSync(JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
+	      if (error) {
+	        console.log("Error writing file in registerUser: ", error);
+	        return false
+	      }
+	    });
+	    return true
+	}
+
+	static async getBlogPostsByPageLimit(page, limit) {
 		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog/?_page=${page}&_limit=${limit}`, {
   			"method": "GET"
 		});
@@ -15,9 +27,18 @@ const Blog = {
 		if(json.length > 0) return json;
 
 		return null;
-	},
 
-	getAllBlogPosts: async () => {
+		try {
+	      for(let i = 0; i < database.blog.length; i++){
+	        if(database.users[i].id == user_id) return database.users[i]
+	      }
+	      return null
+	    } catch (error) {
+	      return console.log("ERROR getUserByID: ", error);
+	    }
+	}
+
+	static getAllBlogPosts() {
 		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog`, {
   			"method": "GET"
 		});
@@ -27,9 +48,9 @@ const Blog = {
 		if(json.length > 0) return json;
 
 		return null;
-	},
+	}
 
-	getTotalBlogPosts: async () => {
+	static getTotalBlogPosts () {
 		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog`, {
   			"method": "GET"
 		});
@@ -41,7 +62,7 @@ const Blog = {
 		return null;
 	},
 
-	getBlogPostBySlug: async (slug) => {
+	static getBlogPostBySlug (slug) {
 		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog?slug=${slug}`, {
   			"method": "GET"
 		});
@@ -50,9 +71,9 @@ const Blog = {
 		if(json.length > 0) return json[0];
 
 		return null;
-	},
+	}
 
-	getBlogPostsCommentsByBlogPostID: async(blogPostID) => {
+	static getBlogPostsCommentsByBlogPostID(blogPostID) {
 		console.log('recebeu id: ' + blogPostID)
 		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog_comments?blog_post_id=${blogPostID}?_sort=created_at&_order=ASC`, {
   			"method": "GET"
@@ -63,9 +84,9 @@ const Blog = {
 		if(json.length > 0) return json;
 
 		return null;
-	},
+	}
 
-	createBlogComment: async (body) => {
+	static createBlogComment (body) {
 		console.log('recebeu body: ', body)
 		const response = await fetch(`${process.env.DATABASE_JSON_URL}/blog_comments`, {
 		    method: 'POST',
@@ -78,9 +99,9 @@ const Blog = {
 		if(json) return true;
 
 		return false;
-	},
+	}
 
-	createBlogPost: async (blog_title, blog_category, blog_body) => {
+	static createBlogPost (blog_title, blog_category, blog_body) {
 		const slug = slugify(blog_title)
 		console.log('slug é: ' + slug)
 
@@ -101,9 +122,9 @@ const Blog = {
 		console.log(blogPostCreated);
 
 		return blogPostCreated;
-	},
+	}
 
-	updateBlogPost: async (blog_id, blog_title, blog_category, blog_body) => {
+	static updateBlogPost (blog_id, blog_title, blog_category, blog_body) {
 
 		const slug = slugify(blog_title)
 
@@ -124,6 +145,6 @@ const Blog = {
 
 		return blogPostUpdated;
 	}
-};
+}
 
 module.exports = Blog;

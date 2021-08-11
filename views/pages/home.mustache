@@ -28,6 +28,12 @@
                         <i class="bi bi-play-fill"></i> 
                         Recommend Other
                 </button>
+
+                {{#user.admin}}
+                    <a href="/admin/update/game/{{id}}" class="w-75 shadow mb-2 btn btn-warning shadow-sm">
+                    <i class="bi bi-unlock-fill"></i>
+                    Edit This Game</a>
+                {{/user.admin}}
             </div>
             
 
@@ -52,9 +58,6 @@
                         </h4>
                     </div>
 
-                    {{#user.admin}}
-                        <a href="/admin/update/game/{{id}}" class="mb-2 btn btn-outline-warning shadow-sm">ADMIN Edit This Game</a>
-                    {{/user.admin}}
                     
                     <input id="game_id" name="game_id" type="hidden" value="<?= $game->id; ?>">
                     

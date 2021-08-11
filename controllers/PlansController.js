@@ -1,123 +1,98 @@
 const bodyParser = require('body-parser');
 const DateTime = require('../helpers/DateTime');
+const NodeMailer = require('../helpers/NodeMailer');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 const PlansController = {
-	getViewCreate: (req, res) => {
-		res.render('pages/stripe/plans/create', {
-			user: SESSION_USER
+
+	getViewPlans: async (req, res) => {
+		res.render('pages/plans/plans', {
+			user: SESSION_USER,
+			plans_active: true
 		});
 	},
-	postCreatePlan: async (req, res) => {
-		const amount = req.body.plan_amount;
-		const currency = req.body.plan_currency;	
-		const interval = req.body.plan_interval;
-		const product_id = req.body.product_id;
-		
-		const plan = await stripe.plans.create({
-			amount: amount,
-			currency: currency,
-		  	interval: interval,
-		  	product: product_id
+
+	getViewPlanPremiumCheckout: async (req, res) => {
+		if(!req.session.userID){
+	      	return res.render('pages/plans/plan_checkout', {
+	      		flash: {
+	      			type: "warning",
+	      			message: "You Must Be Logued To Make A Subscription Transaction!"
+	      		}
+	      	})
+	  	}
+
+		res.render('pages/plans/plan_checkout', {
+			user: SESSION_USER,
+			plans_active: true
+		});
+	},
+
+	postPlanPremiumPayLog: async (req, res) => {
+
+		if(!req.session.userID){
+        	return res.render('pages/plans/plan_checkout', {
+        		flash: {
+        			type: "danger",
+        			message: "You Must Be Logued To Make A Subscription Transaction!"
+        		}
+        	})
+    	}
+
+		const customer_email = req.body.customer_email;
+
+		// CREATE CUSTOMER AND CREDIT CARD ONLY IF NOT REGISTRED IN STRIPE YET
+
+		// create customer
+		const customer = await stripe.customers.create({
+  			description: 'Customer example created to test plan premium',
+  			email: customer_email
 		});
 
-		const product = await stripe.products.retrieve(
-  			product_id
+		// create credit card
+		const card_number = req.body.card_number;
+		const card_exp_month = req.body.card_exp_month;
+		const card_exp_year = req.body.card_exp_year;
+		const card_cvc = req.body.card_cvc;;
+
+		// generate card token
+		const cardToken = await stripe.tokens.create({
+		 	card: {
+		    	number: card_number,
+		   		exp_month: card_exp_month,
+		    	exp_year: card_exp_year,
+		    	cvc: card_cvc,
+		  	},
+		});
+
+		// create credit card
+		const card = await stripe.customers.createSource(
+		  	customer.id,
+		  	{source: cardToken.id}
 		);
 
-		plan.created = DateTime.getDateTime(plan.created);
-		plan.amount = (plan.amount/100).toFixed(2)
+		// create subscription
+		const subscription = await stripe.subscriptions.create({
+			customer: customer.id,
+		  	items: [
+		    	{price: 'plan_JxJMW54dmkHkfF'}, // PLAN PREMIUM ALREADY REGISTRED
+		  	],
+		});
 
-		res.render('pages/stripe/plans/create', {
+		subscription.created = DateTime.getDateTime(subscription.created);
+		subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
+		subscription.current_period_start = DateTime.getDateTime(subscription.current_period_start);
+
+		res.render('pages/plans/planPayLog', {
 			flash: {
 				type: 'success',
-				message: 'Plan Created With Success!'
+				message: 'Subscription Created with Success!'
 			},
-			plan,
-			plan_name: product.name,
-			user: SESSION_USER
-		});
-	},
-	getViewRetrieve: (req, res) => {
-		res.render('pages/stripe/plans/retrieve', {
-			user: SESSION_USER
-		});
-	},
-	postRetrievePlan: async (req, res) => {
-		let plan_id = req.body.plan_id;
-		
-		const plan = await stripe.plans.retrieve(
-  			plan_id
-		);
-
-		plan.created = DateTime.getDateTime(plan.created);
-
-		res.render('pages/stripe/plans/retrieve', {
-			flash: {
-				type: 'success',
-				message: 'Plan ID Valid!'
-			},
-			plan,
-			user: SESSION_USER
-		});
-	},
-	getViewUpdate: (req, res) => {
-		res.render('pages/stripe/plans/update', {
-			user: SESSION_USER
-		});
-	},
-	postUpdatePlan: async (req, res) => {
-		const customer = await stripe.customers.update(
-  			customer_id,
-  			{
-  				name,
-  				email
-  			}
-		);
-
-		res.render('pages/stripe/plans/update', {
-			flash: {
-				type: 'success',
-				message: 'Customer UPDATED!'
-			},
-			customer,
-			user: SESSION_USER
-		});
-	},
-	getViewDelete: (req, res) => {
-		res.render('pages/stripe/plans/delete', {
-			user: SESSION_USER
-		});
-	},
-	postDeletePlan: async (req, res) => {
-		const plan_id = req.body.plan_id.trim()
-		const planDeleted = await stripe.plans.del(
-  			plan_id
-		);
-
-		res.render('pages/stripe/plans/delete', {
-			flash: {
-				type: 'success',
-				message: 'Plan DELETED!'
-			},
-			plan: planDeleted,
-			user: SESSION_USER
-		});
-	},
-	getViewListAll: async (req, res) => {
-		const plans = await stripe.plans.list({limit: 10});
-
-		let lastPlansCreated = plans.data.length;
-
-		plans.data.forEach(function(plan){
-			plan.created = DateTime.getDateTime(plan.created);
-		})
-
-		res.render('pages/stripe/plans/listAll', {
-			lastPlansCreated,
-			plans: plans.data,
-			user: SESSION_USER
+			subscription,
+			customer_email,
+			user: SESSION_USR,
+			plans_active: true
 		});
 	}
 };

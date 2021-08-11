@@ -33,8 +33,8 @@ async function displayAPIs() {
     
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position){
-            document.getElementById("latitude").innerHTML = "<b>Latitude: </b>" + position.coords.latitude;
-            document.getElementById("longitude").innerHTML = "<b>Longitude: </b>" + position.coords.longitude;
+            document.getElementById("latitude").innerHTML = "<b>Latitude: </b>" + position.coords.latitude.toFixed(6);
+            document.getElementById("longitude").innerHTML = "<b>Longitude: </b>" + position.coords.longitude.toFixed(6);
         });
     }
 }());

@@ -1,14 +1,10 @@
 const fs = require('fs')
-const fetch = require('node-fetch');
 const uuid = require('uuid');
-const randomToken = require('rand-token');
 
 const Bcrypt = require('../../helpers/Bcrypt');
 const DateTime = require('../../helpers/DateTime');
 
-const JSON_DATABASE_FILE = "./database.json";
-const database = JSON.parse(fs.readFileSync(JSON_DATABASE_FILE));
-
+const { JSON_DATABASE_FILE, database, database } = require('../../config/global');
 
 class Users {
 
@@ -126,7 +122,7 @@ class Users {
       const passwordHash = await Bcrypt.cryptPassword(password)
 
       database.users.push({
-        id: 'id novo',
+        id: uuid.v4(),
         name: username,
         email: email,
         confirmed_email: false,
