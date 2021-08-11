@@ -3,7 +3,7 @@
     {
       "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "name": "Test Jack",
-      "email": "testando@gmail.com",
+      "email": "test@gmail.com",
       "confirmed_email": true,
       "confirm_email_token": null,
       "password": "$2b$12$qmFqKwOkAfdQLy04VBtOLObd6FUU7H2P3XKa1f95JbKlLgjyOy4kG",
