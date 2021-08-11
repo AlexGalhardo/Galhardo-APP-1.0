@@ -46,7 +46,11 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
                                         <h5 class="card-title">{{user_name}}</h5>
-                                        <a href="#" class="w-25 btn btn-sm btn-outline-danger">Delete Comment</a>
+                                        {{#user}}
+                                            {{#user_logged_can_delete}}
+                                                <a href="#" class="w-25 btn btn-sm btn-outline-danger">Delete Comment</a>
+                                            {{/user_logged_can_delete}}
+                                        {{/user}}
                                     </div>
                                     <p class="card-text"><small class="text-muted">{{created_at}}</small></p>
                                     <p class="card-text">{{comment}}</p>

@@ -190,34 +190,61 @@ const AppController = {
 		const slug = req.params.slug;
 
 		const blogPost = await Blog.getBlogPostBySlug(slug)
-		const blogPostComments = await Blog.getBlogPostsCommentsByBlogPostID(blogPost.id);
-		
-		console.log(blogPost.id, blogPostComments);
+
+		const responseBlogComments = [
+        {
+          "id": 1,
+          "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+          "user_logged_can_delete": false,
+          "user_name": "Test Jack",
+          "user_avatar": "avatar.png",
+          "comment": " It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          "created_at": "04/08/2021 18:35:09"
+        },
+        {
+          "id": 2,
+          "user_id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
+          "user_logged_can_delete": false,
+          "user_name": "Johny SilverHand",
+          "user_avatar": "avatar.png",
+          "comment": " It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          "created_at": "04/08/2021 18:35:09"
+        },
+        {
+          "user_id": "b6e074ee-565b-4bb0-9a28-6b1231781216",
+          "user_logged_can_delete": false,
+          "user_name": "ADMIN Alex",
+          "user_avatar": "profile.jpeg",
+          "comment": " It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+          "created_at": "08/08/2021 20:11:47",
+          "id": 3
+        }
+      ];
+
+		blogPost.comments = await blogPost.comments.map(comment => {
+			if(SESSION_USER && comment.user_id == SESSION_USER.id){
+				comment.user_logged_can_delete = true
+				console.log('true agora é: ', comment.user_logged_can_delete)
+			}
+			return comment
+		})
+
+		console.log(blogPost.comments)
 
 		res.render('pages/blog/blogPost', {
 			user,
 			blogPost,
-			blogPostComments
+			user: SESSION_USER
 		});
 	},
 
 	getViewContact: async (req, res) => {
-		let user = null;
-		if(req.session.userID){
-			user = await Users.getUserByID(req.session.userID)
-		}
-
 		res.render('pages/contact', {
-			user
+			user: SESSION_USER
 		});
 	},
 
 	postContact: async (req, res) => {
-		let user = null;
-		if(req.session.userID){
-			user = await Users.getUserByID(req.session.userID)
-		}
-		
 		const { contact_username,
 				contact_email,
 				contact_subject,
@@ -233,7 +260,7 @@ const AppController = {
 					type: 'success',
 					message: 'Message Send!'
 				},
-				user
+				user: SESSION_USER
 			});
 		}
 
