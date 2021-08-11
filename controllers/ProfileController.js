@@ -7,10 +7,8 @@ const Users = require('../models/JSON/Users');
 const ProfileController = {
 	
 	getViewProfile: async (req, res) => {
-		let user = await Users.getUserByID(req.session.userID)
-
     	return res.render('pages/profile/profile', {
-    		user
+    		user: SESSION_USER
     	});
 	},
 	
@@ -53,19 +51,26 @@ const ProfileController = {
 			country
 		};
 
-		const updatedProfileInJSON = await Users.updateProfile(userObject);
+		let message = null;
+		let type = null;
 
-		if(!updatedProfileInJSON){
-			return console.log('NOT updatedProfileInJSON')
+		if(Users.emailIsAlreadyRegistred(email)){
+			type = "warning"
+			message = 'This email is already registred!'
+		}
+		else if(email === "test@gmail.com"){
+			type = "warning"
+			message = "You cant update test@gmail.com!"
+		} else {
+			if(!Users.updateProfile(userObject)) return console.log('NOT updatedProfileInJSON')
 		}
 
-		let user = await Users.getUserByID(req.session.userID)
 		return res.render('pages/profile/profile', {
     		flash: {
-    			type: "success",
-    			message: "Profile Updated!"
+    			type: type,
+    			message: message
     		},
-    		user
+    		user: SESSION_USER
     	});
 	},
 

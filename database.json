@@ -3,26 +3,26 @@
     {
       "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "name": "Test Jack",
-      "email": "test@gmail.com",
+      "email": "testando@gmail.com",
       "confirmed_email": true,
       "confirm_email_token": null,
       "password": "$2b$12$qmFqKwOkAfdQLy04VBtOLObd6FUU7H2P3XKa1f95JbKlLgjyOy4kG",
       "reset_password_token": null,
       "admin": false,
       "avatar": "profile.jpg",
-      "document": null,
-      "phone": null,
-      "birth_date": null,
+      "document": "44557777777",
+      "phone": "18999999999",
+      "birth_date": "2021-08-05",
       "google_id": null,
       "github_id": null,
       "facebook_id": null,
       "address": {
-        "zipcode": null,
-        "street": null,
-        "street_number": null,
-        "neighborhood": null,
-        "city": null,
-        "state": null,
+        "zipcode": "13560290",
+        "street": "Rua Dona Alexandrina",
+        "street_number": "42",
+        "neighborhood": "Vila Monteiro (Gleba I)",
+        "city": "São Carlos",
+        "state": "SP",
         "country": "BRAZIL"
       },
       "stripe": {
@@ -36,7 +36,7 @@
         "subscription_automatically_renew": true
       },
       "created_at": "09/08/2021 03:52:14",
-      "updated_at": "09/08/2021 03:52:14"
+      "updated_at": "11/08/2021 04:04:17"
     },
     {
       "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",

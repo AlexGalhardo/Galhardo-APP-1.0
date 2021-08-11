@@ -42,7 +42,7 @@
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
    - [x] CRUD Profile
    - [ ] (CREATE, READ, DELETE) Blog Comments
-- MySQL DataBase
+- MySQL DataBase using Docker
    - [ ] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
@@ -50,7 +50,7 @@
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
    - [ ] CRUD Profile
    - [ ] (CREATE, READ, DELETE) Blog Comments
-- MongoDB DataBase
+- MongoDB DataBase using Docker
    - [ ] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
@@ -70,7 +70,7 @@
    - [ ] Using my own domain
    - [ ] Configure SSL/HTTPS in VPS
 - TypeScript Version
-   - [ ] After previous goals are complete, create a branch "typescript" and refactor the code using typescript
+   - [ ] After previous goals are complete, create a branch "typescript" and refactor the code using Typescript
 
 ## Some Images
 ![ga_home](https://user-images.githubusercontent.com/19540357/128649484-4ea2b8c1-73ae-40e9-b4af-ef05dc7e11fb.png)

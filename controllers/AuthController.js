@@ -49,9 +49,9 @@ const AuthController = {
 	            });
 	    	}
 
-	    	const userID = await Users.verifyLogin(email, password)
+	    	const userObject = await Users.verifyLogin(email, password)
 	        
-	        if(!userID){
+	        if(!userObject){
 	        	return res.render('pages/auth/login', {
 	        		flash: {
 	        			type: "warning",
@@ -60,8 +60,8 @@ const AuthController = {
 	            });
 	        }
 
-	        req.session.userID = userID;
-	        global.SESSION_USER = await Users.getUserByID(req.session.userID)
+	        req.session.userID = userObject.id
+	        global.SESSION_USER = userObject
 	        return res.redirect('/');
 	    }
 	    catch (error) {
