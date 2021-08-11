@@ -234,84 +234,128 @@ class AdminController {
 
 	/************** BOOK ********************/
 	static getViewCreateBook(req, res)  {
-		res.render('pages/admin/createBlogPost', {
+		res.render('pages/admin/createBook', {
 			user: SESSION_USER
 		});
 	}
 
 	static postCreateBook (req, res)  {
-		const { blog_title, blog_category, blog_body } = req.body;
-		
-		const blogPostObject = {
-			title: blog_title,
-			category: blog_category,
-			body: blog_body
+		const { book_title, 
+				book_year_release,
+				book_image,
+				book_amazon_link,
+				book_resume,
+				book_pages,
+				book_genres,
+				book_author } = req.body;
+
+		const bookObject = {
+			id: null, 
+			title: book_title,
+			year_release: parseInt(book_year_release),
+			image: book_image,
+			amazon_link: book_amazon_link,
+			resume: book_resume,
+			pages: parseInt(book_pages),
+			genres: book_genres,
+			author: book_author
 		}
 
-		const blogPost = Blog.createBlogPost(blogPostObject);
+		const book = Books.createBook(bookObject);
 
-		if(!blogPost){
-			return res.render('pages/admin/createBlogPost', {
+		if(!book){
+			return res.render('pages/admin/createBook', {
 				flash: {
 					type: "warning",
-					message: "Error: blog post not created!"
+					message: "Error: Book not created!"
 				},
+				book,
 				user: SESSION_USER
 			});
 		}
 
-		return res.render(`pages/admin/updateBlogPost`, {
+		return res.render('pages/admin/updateBook', {
 			flash: {
 				type: "success",
-				message: "Blog Post Created!"
+				message: "Book Created!"
 			},
-			blogPost,
+			book,
 			user: SESSION_USER
 		});
 	}
 
 	static getViewUpdateBook (req, res){
-		const slug = req.params.slug;
-		const blogPost = Blog.getBlogPostBySlug(slug);
+		const book_id = req.params.book_id;
+		const book = Books.getBookByID(book_id);
 
-		res.render('pages/admin/updateBlogPost', {
-			blogPost,
+		res.render('pages/admin/updateBook', {
+			book,
 			user: SESSION_USER
 		});
 	}
 
 	static postUpdateBook (req, res){
 		
-		const { blog_id, blog_title, blog_category, blog_body } = req.body;
+		const { book_id,
+				book_title, 
+				book_year_release,
+				book_image,
+				book_amazon_link,
+				book_resume,
+				book_pages,
+				book_genres,
+				book_author } = req.body;
 
-		const blogPostObject = {
-			id: blog_id,
-			title: blog_title,
-			category: blog_category,
-			body: blog_body
+		const bookObject = {
+			id: parseInt(book_id), 
+			title: book_title,
+			year_release: parseInt(book_year_release),
+			image: book_image,
+			amazon_link: book_amazon_link,
+			resume: book_resume,
+			pages: parseInt(book_pages),
+			genres: book_genres,
+			author: book_author
 		}
 
-		const blogPost = Blog.updateBlogPost(blogPostObject);
+		const book = Books.updateBookByID(bookObject);
 
-		if(!blogPost){
-			return res.render('pages/admin/updateBlogPost', {
+		console.log('book é', book)
+
+		if(!book){
+			return res.render('pages/admin/updateBook', {
 				flash: {
 					type: "warning",
-					message: "Error: blog post not updated!"
+					message: "Error: Book not updated!"
 				},
-				blogPost,
+				book,
 				user: SESSION_USER
 			});
 		}
 
-		res.render('pages/admin/updateBlogPost', {
+		return res.render('pages/admin/updateBook', {
 			flash: {
 				type: "success",
-				message: "Blog Post UPDATED!"
+				message: "Book UPDATED!"
 			},
-			blogPost,
+			book,
 			user: SESSION_USER
 		});
+	}
+
+	static postDeleteBook(req, res) {
+		const book_id = req.params.book_id;
+		
+		if(Books.deleteBookByID(parseInt(book_id))){
+			/*return res.render("pages/admin/createGame", {
+				flash: {
+					type: "success",
+					message: `book_id: ${book_id} deleted with success!`
+				}
+			})*/
+			return res.redirect('/admin/create/book')
+		}
+		return res.redirect(`/admin/update/book/${book_id}`)
 	}
 }
 

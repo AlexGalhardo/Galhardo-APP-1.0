@@ -151,10 +151,13 @@ router.post('/admin/update/game/:game_id', isAdmin, AdminController.postUpdateGa
 router.post('/admin/delete/game/:game_id', isAdmin, AdminController.postDeleteGame);
 
 router.get('/admin/create/book', isAdmin, AdminController.getViewCreateBook);
-router.post('/admin/create/book', isAdmin, AdminController.postCreateBlogPost);
+router.post('/admin/create/book', isAdmin, AdminController.postCreateBook);
 
 router.get('/admin/update/book/:book_id', isAdmin, AdminController.getViewUpdateBook);
 router.post('/admin/update/book/:book_id', isAdmin, AdminController.postUpdateBook);
+
+router.post('/admin/delete/book/:book_id', isAdmin, AdminController.postDeleteBook);
+
 
 
 

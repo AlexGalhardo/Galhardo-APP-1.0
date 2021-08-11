@@ -1,5 +1,7 @@
 {{>partials/header}}
 	
+	{{#user.admin}}
+
 	{{#game}}
 
 	<main class="container col-lg-10 mt-3 text-center">
@@ -103,5 +105,7 @@
     </main>
 
     {{/game}}
+
+    {{/user.admin}}
 
 {{>partials/footer}}

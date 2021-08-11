@@ -40,9 +40,9 @@ class Games {
 		try {
 			const totalGames = Games.getTotalGames()
 		
-			const random_game_id = Math.floor(Math.random() * totalGames) + 1 
+			const random_game_index = Math.floor(Math.random() * totalGames) + 1 
 
-	      	return database.games[random_game_id]
+	      	return database.games[random_game_index-1]
 	    } catch (error) {
 	      	return console.log("ERROR getRandomGame: ", error);
 	    };
