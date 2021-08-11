@@ -9,9 +9,13 @@ const { JSON_DATABASE_FILE, database } = require('../../config/global');
 class Blog {
 
 	static save(database, error_message){
+		for(let i = 0; i < database.blog.length; i++){
+			database.blog[i].id = i+1
+		}
+
 	    fs.writeFileSync(JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
 	      if (error) {
-	        console.log("Error writing file in registerUser: ", error);
+	        console.log(`Error writing file in ${JSON_DATABASE_FILE}: `, error);
 	        return false
 	      }
 	    });
@@ -113,49 +117,36 @@ class Blog {
     	}
 	}
 
-	static createBlogPost (blog_title, blog_category, blog_body) {
-		const slug = slugify(blog_title)
-		console.log('slug é: ' + slug)
+	static createBlogPost (blogPostObject) {
+		const slug = slugify(blogPostObject.title)
 
-		const response =  fetch(`${process.env.DATABASE_JSON_URL}/blog`, {
-		    method: 'POST',
-		    body: JSON.stringify({
-		    	title: blog_title,
-		    	slug: slug,
-		    	category: blog_category,
-		    	body: blog_body,
-		    	created_at: DateTime.getNow(),
-		    	updated_at: DateTime.getNow()
-		    }),
-		    headers: { 'Content-Type': 'application/json' },
-		});
-
-		const blogPostCreated =  response.json();
-		console.log(blogPostCreated);
-
-		return blogPostCreated;
+		try {
+			blogPostObject.id = database.blog.length + 1
+			database.blog.push(blogPostObject)
+			Blog.save(database, 'Error createBlogPost: ')
+			return blogPostObject
+    	} catch (error) {
+      		return console.log("ERROR createBlogComment: ", error);
+    	}
 	}
 
-	static updateBlogPost (blog_id, blog_title, blog_category, blog_body) {
+	static updateBlogPost (blogPostObject) {
 
-		const slug = slugify(blog_title)
+		const slug = slugify(blogPostObject.title)
 
-		const response =  fetch(`${process.env.DATABASE_JSON_URL}/blog/${blog_id}`, {
-		    method: 'PATCH',
-		    body: JSON.stringify({
-		    	title: blog_title,
-		    	slug: slug,
-		    	category: blog_category,
-		    	body: blog_body,
-		    	updated_at: DateTime.getNow()
-		    }),
-		    headers: { 'Content-Type': 'application/json' },
-		});
-
-		const blogPostUpdated =  response.json();
-		console.log(blogPostUpdated);
-
-		return blogPostUpdated;
+		try {
+			for(let i = 0; i < databse.blog.length; i++){
+				if(database.blog[i].id === blogPostObject.id){
+					database.blog.splice(i, 1)
+					database.blog.push(blogPostObject)
+					Blog.save(database, 'Error updateBlogPost: ')
+					return blogPostObject
+				}
+			}
+			return null
+    	} catch (error) {
+      		return console.log("ERROR createBlogComment: ", error);
+    	}
 	}
 }
 

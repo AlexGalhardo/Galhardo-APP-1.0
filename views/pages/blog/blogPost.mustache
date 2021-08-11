@@ -9,6 +9,12 @@
                 <div class="text-center mb-5">
             		<h3 class="fw-bold text-primary">{{title}}</h3>
             		<small class="mb-5">{{updated_at}}</small>
+                    <br><br>
+                    {{#user.admin}}
+                        <a href="/admin/update/blogPost/{{blogPost.id}}" class="w-50 shadow mb-2 btn btn-warning shadow-sm">
+                        <i class="bi bi-unlock-fill"></i>
+                        Edit This Blog Post</a>
+                    {{/user.admin}}
                 </div>
 
         		{{{body}}}

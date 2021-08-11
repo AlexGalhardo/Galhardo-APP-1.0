@@ -1,12 +1,12 @@
 {{>partials/header}}
-
-	{{#blogPost}}
 	
+	{{#book}}
+
 	<main class="container col-lg-6 mt-3 text-center">
 
         <div class="row" class="text-end">
 
-        	<form action="/admin/update/blogPost/{{slug}}" method="POST">
+        	<form action="/admin/update/book/{{slug}}" method="POST">
 
 	        	<div class="mb-3 row">
 
@@ -54,11 +54,11 @@
 						<div class="col-sm-10 mb-3">
 		  					<textarea class="form-control" name="blog_body" rows="8" required>{{body}}</textarea>
 						</div>
-						
+					
 				</div>
 
 				<button type="submit" class="mb-3 w-25 btn btn-outline-primary shadow">
-	        		Update Blog Post
+	        		Update Book
 	        	</button>
 
 			</form>
@@ -67,6 +67,6 @@
 
     </main>
 
-    {{/blogPost}}
+    {{#book}}
 
 {{>partials/footer}}

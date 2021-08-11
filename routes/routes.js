@@ -136,23 +136,25 @@ router.get('/logout', userIsNotLoggedIn, ProfileController.getLogout);
 
 
 // ADMIN Controller
-router.get('/admin/create/blogPost', AdminController.getViewCreateBlogPost);
-router.post('/admin/create/blogPost', AdminController.postCreateBlogPost);
+router.get('/admin/create/blogPost', isAdmin, AdminController.getViewCreateBlogPost);
+router.post('/admin/create/blogPost', isAdmin, AdminController.postCreateBlogPost);
 
-router.get('/admin/update/blogPost/:slug', AdminController.getViewUpdateBlogPost);
-router.post('/admin/update/blogPost/:slug', AdminController.postUpdateBlogPost);
+router.get('/admin/update/blogPost/:slug', isAdmin, AdminController.getViewUpdateBlogPost);
+router.post('/admin/update/blogPost/:slug', isAdmin, AdminController.postUpdateBlogPost);
 
-// router.get('/admin/create/game', AdminController.getViewCreateGame);
-// router.post('/admin/create/game', AdminController.postCreateGame);
+router.get('/admin/create/game', isAdmin, AdminController.getViewCreateGame);
+router.post('/admin/create/game', isAdmin, AdminController.postCreateGame);
 
-// router.get('/admin/update/game/:title', AdminController.getViewUpdateGame);
-// router.post('/admin/update/game/:title', AdminController.postUpdateGame);
+router.get('/admin/update/game/:game_id', isAdmin, AdminController.getViewUpdateGame);
+router.post('/admin/update/game/:game_id', isAdmin, AdminController.postUpdateGame);
 
-// router.get('/admin/create/book', AdminController.getViewCreateBook);
-// router.post('/admin/create/book', AdminController.postCreateBlogPost);
+router.post('/admin/delete/game/:game_id', isAdmin, AdminController.postDeleteGame);
 
-// router.get('/admin/update/book/:title', AdminController.getViewUpdateBook);
-// router.post('/admin/update/book/:title', AdminController.postUpdateBook);
+router.get('/admin/create/book', isAdmin, AdminController.getViewCreateBook);
+router.post('/admin/create/book', isAdmin, AdminController.postCreateBlogPost);
+
+router.get('/admin/update/book/:book_id', isAdmin, AdminController.getViewUpdateBook);
+router.post('/admin/update/book/:book_id', isAdmin, AdminController.postUpdateBook);
 
 
 
@@ -165,16 +167,16 @@ router.get('/api/v1/', APIController.getWelcome);
 
 // CUSTOMERS CONTROLLER
 router.get('/stripe/customers/create', isAdmin, StripeCustomersController.getViewCreate);
-router.post('/stripe/customers/create', StripeCustomersController.postCreateCustomer);
+router.post('/stripe/customers/create', isAdmin, StripeCustomersController.postCreateCustomer);
 
 router.get('/stripe/customers/retrieve', isAdmin, StripeCustomersController.getViewRetrieve);
-router.post('/stripe/customers/retrieve', StripeCustomersController.postRetrieveCustomer);
+router.post('/stripe/customers/retrieve', isAdmin, StripeCustomersController.postRetrieveCustomer);
 
 router.get('/stripe/customers/update', isAdmin, StripeCustomersController.getViewUpdate);
-router.post('/stripe/customers/update', StripeCustomersController.postUpdateCustomer);
+router.post('/stripe/customers/update', isAdmin, StripeCustomersController.postUpdateCustomer);
 
 router.get('/stripe/customers/delete', isAdmin, StripeCustomersController.getViewDelete);
-router.post('/stripe/customers/delete', StripeCustomersController.postDeleteCustomer);
+router.post('/stripe/customers/delete', isAdmin, StripeCustomersController.postDeleteCustomer);
 
 router.get('/stripe/customers/listAll', isAdmin, StripeCustomersController.getViewListAll);
 
@@ -182,28 +184,28 @@ router.get('/stripe/customers/listAll', isAdmin, StripeCustomersController.getVi
 
 // CARDS CONTROLLER
 router.get('/stripe/cards/create', isAdmin, StripeCardsController.getViewCreate);
-router.post('/stripe/cards/create', StripeCardsController.postCreateCreditCard);
+router.post('/stripe/cards/create', isAdmin, StripeCardsController.postCreateCreditCard);
 
 router.get('/stripe/cards/retrieve', isAdmin, StripeCardsController.getViewRetrieve);
-router.post('/stripe/cards/retrieve', StripeCardsController.postRetrieveCard);
+router.post('/stripe/cards/retrieve', isAdmin, StripeCardsController.postRetrieveCard);
 
 router.get('/stripe/cards/update', isAdmin, StripeCardsController.getViewUpdate);
-router.post('/stripe/cards/update', StripeCardsController.postUpdateCard);
+router.post('/stripe/cards/update', isAdmin, StripeCardsController.postUpdateCard);
 
 router.get('/stripe/cards/delete', isAdmin, StripeCardsController.getViewDelete);
-router.post('/stripe/cards/delete', StripeCardsController.postDeleteCard);
+router.post('/stripe/cards/delete', isAdmin, StripeCardsController.postDeleteCard);
 
 router.get('/stripe/cards/listAll', isAdmin, StripeCardsController.getViewListAll);
-router.post('/stripe/cards/listAll', StripeCardsController.postListAll);
+router.post('/stripe/cards/listAll', isAdmin, StripeCardsController.postListAll);
 
 
 
 // CHARGES CONTROLLER
 router.get('/stripe/charges/create', isAdmin, StripeChargesController.getViewCreate);
-router.post('/stripe/charges/create', StripeChargesController.postCreateCharge);
+router.post('/stripe/charges/create', isAdmin, StripeChargesController.postCreateCharge);
 
 router.get('/stripe/charges/retrieve', isAdmin, StripeChargesController.getViewRetrieve);
-router.post('/stripe/charges/retrieve', StripeChargesController.postRetrieveCharge);
+router.post('/stripe/charges/retrieve', isAdmin, StripeChargesController.postRetrieveCharge);
 
 router.get('/stripe/charges/listAll', isAdmin, StripeChargesController.getViewListAll);
 

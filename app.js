@@ -11,7 +11,7 @@ const Logger = require('./config/winston');
 
 // PWD ROOT
 global.APP_ROOT_PATH = path.resolve(__dirname);
-global.SESSION_USER = null;
+
 
 /*
  * with LocalHost HTTPS
@@ -45,6 +45,7 @@ app.use(session({
         maxAge: 3600 * 1000, // 1hr
     }
 }));
+global.SESSION_USER = null;
 
 
 // BODY PARSER
@@ -64,7 +65,9 @@ app.use(mainRoutes);
 
 // ERROR 404
 app.use((req, res) => {
-	return res.render('pages/404');
+	return res.render('pages/404', {
+    user: SESSION_USER
+  });
 });
   
 

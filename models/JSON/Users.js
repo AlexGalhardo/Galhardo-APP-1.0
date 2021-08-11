@@ -11,7 +11,7 @@ class Users {
   static save(database, error_message){
     fs.writeFileSync(JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
       if (error) {
-        console.log("Error writing file in registerUser: ", error);
+        console.log(`Error writing file in ${JSON_DATABASE_FILE}: `, error);
         return false
       }
     });

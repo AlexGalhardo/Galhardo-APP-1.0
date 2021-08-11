@@ -1,0 +1,36 @@
+{{>partials/header}}
+	
+	<main class="container col-lg-8 mt-3 text-center">
+
+        <div class="row">
+
+        	<form action="/admin/create/book" method="POST">
+
+	        	<div class="mb-3 row">
+
+	        		{{#flash}}
+			            <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+			                <b>{{message}}</b>
+			            </div>
+			        {{/flash}}
+				    
+				    <label for="title" class="col-sm-2 col-form-label">Title</label>
+				    <div class="col-sm-10 mb-3">
+				      	<input type="text" class="form-control" name="title" id="title" required autofocus>
+				    </div>
+
+					<label for="resume" class="col-sm-2 col-form-label">Resume (HTML Code)</label>
+					<div class="col-sm-10 mb-3">
+	  					<textarea class="form-control" name="resume" id="resume" rows="8" required></textarea>
+					</div>
+				</div>
+
+				<button type="submit" class="mb-3 w-25 btn btn-outline-success shadow">Create Book</button>
+
+			</form>
+
+        </div>
+
+    </main>
+
+{{>partials/footer}}
