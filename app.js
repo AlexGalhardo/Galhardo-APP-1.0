@@ -1,3 +1,10 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ */
+
 const express = require('express');
 const mustache = require('mustache-express');
 const path = require('path');

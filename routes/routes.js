@@ -135,7 +135,10 @@ router.get('/logout', userIsNotLoggedIn, ProfileController.getLogout);
 
 
 
-// ADMIN Controller
+
+
+
+// ********************** ADMIN Controller
 router.get('/admin/create/blogPost', isAdmin, AdminController.getViewCreateBlogPost);
 router.post('/admin/create/blogPost', isAdmin, AdminController.postCreateBlogPost);
 
@@ -163,15 +166,52 @@ router.post('/admin/delete/book/:book_id', isAdmin, AdminController.postDeleteBo
 
 
 
-// API CONTROLLER
+
+
+
+// *************************** API CONTROLLER
+
+// INTRODUCTION
 router.get('/api', APIController.getWelcomeToAPI);
 router.get('/api/public', APIController.getPublicEndpoints);
 router.get('/api/admin', APIController.getAdminEndpoints);
 
+// PUBLIC
+router.get('/api/public/blog', APIController.getPublicBlog);
+router.get('/api/public/blog/:blog_id', APIController.getPublicBlogPostByID);
+
+router.get('/api/public/games', APIController.getPublicGames);
+router.get('/api/public/games/:game_id', APIController.getPublicGameByID);
+
+router.get('/api/public/books', APIController.getPublicBooks);
+router.get('/api/public/books/:book_id', APIController.getPublicBookByID);
+
+// ADMIN
 router.post('/api/admin/login', APIController.postAdminLogin);
 router.post('/api/admin/test', APIController.postAdminTest);
 
-router.post('/api/admin/stripe/customers/listAll/:limit', APIController.postAdminStripeCustomersListAll)
+// ADMIN BLOG
+router.post('/api/admin/blog/create', APIController.postAdminBlogCreate);
+router.put('/api/admin/blog/update/:blog_id', APIController.putAdminBlogUpdate);
+router.delete('/api/admin/blog/delete/:blog_id', APIController.deleteAdminBlogDelete);
+
+// ADMIN GAMES
+router.post('/api/admin/game/create', APIController.postAdminGameCreate);
+router.put('/api/admin/game/update/:blog_id', APIController.putAdminGameUpdate);
+router.delete('/api/admin/game/delete/:blog_id', APIController.deleteAdminGameDelete);
+
+// ADMIN BOOKS
+router.post('/api/admin/book/create', APIController.postAdminBookCreate);
+router.put('/api/admin/book/update/:blog_id', APIController.putAdminBookUpdate);
+router.delete('/api/admin/book/delete/:blog_id', APIController.deleteAdminBookDelete);
+
+// ADMIN STRIPE
+router.get('/api/admin/stripe/customers/listAll/:limit', APIController.getAdminStripeCustomersListAll)
+
+
+
+
+
 
 
 
@@ -189,6 +229,8 @@ router.get('/stripe/customers/delete', isAdmin, StripeCustomersController.getVie
 router.post('/stripe/customers/delete', isAdmin, StripeCustomersController.postDeleteCustomer);
 
 router.get('/stripe/customers/listAll', isAdmin, StripeCustomersController.getViewListAll);
+
+
 
 
 
@@ -210,6 +252,8 @@ router.post('/stripe/cards/listAll', isAdmin, StripeCardsController.postListAll)
 
 
 
+
+
 // CHARGES CONTROLLER
 router.get('/stripe/charges/create', isAdmin, StripeChargesController.getViewCreate);
 router.post('/stripe/charges/create', isAdmin, StripeChargesController.postCreateCharge);
@@ -223,16 +267,16 @@ router.get('/stripe/charges/listAll', isAdmin, StripeChargesController.getViewLi
 
 // PRODUCTS CONTROLLER
 router.get('/stripe/products/create', isAdmin, StripeProductsController.getViewCreate);
-router.post('/stripe/products/create', StripeProductsController.postCreateProduct);
+router.post('/stripe/products/create', isAdmin, StripeProductsController.postCreateProduct);
 
 router.get('/stripe/products/retrieve', isAdmin, StripeProductsController.getViewRetrieve);
-router.post('/stripe/products/retrieve', StripeProductsController.postRetrieveProduct);
+router.post('/stripe/products/retrieve', isAdmin, StripeProductsController.postRetrieveProduct);
 
 router.get('/stripe/products/update', isAdmin, StripeProductsController.getViewUpdate);
-router.post('/stripe/products/update', StripeProductsController.postUpdateProduct);
+router.post('/stripe/products/update', isAdmin, StripeProductsController.postUpdateProduct);
 
 router.get('/stripe/products/delete', isAdmin, StripeProductsController.getViewDelete);
-router.post('/stripe/products/delete', StripeProductsController.postDeleteProduct);
+router.post('/stripe/products/delete', isAdmin, StripeProductsController.postDeleteProduct);
 
 router.get('/stripe/products/listAll', isAdmin, StripeProductsController.getViewListAll);
 
@@ -240,10 +284,10 @@ router.get('/stripe/products/listAll', isAdmin, StripeProductsController.getView
 
 // PRICES CONTROLLER
 router.get('/stripe/prices/create', isAdmin, StripePricesController.getViewCreate);
-router.post('/stripe/prices/create', StripePricesController.postCreatePrice);
+router.post('/stripe/prices/create', isAdmin, StripePricesController.postCreatePrice);
 
 router.get('/stripe/prices/retrieve', isAdmin, StripePricesController.getViewRetrieve);
-router.post('/stripe/prices/retrieve', StripePricesController.postRetrievePrice);
+router.post('/stripe/prices/retrieve', isAdmin, StripePricesController.postRetrievePrice);
 
 router.get('/stripe/prices/listAll', isAdmin, StripePricesController.getViewListAll);
 
@@ -251,13 +295,13 @@ router.get('/stripe/prices/listAll', isAdmin, StripePricesController.getViewList
 
 // PLANS CONTROLLER
 router.get('/stripe/plans/create', isAdmin, StripePlansController.getViewCreate);
-router.post('/stripe/plans/create', StripePlansController.postCreatePlan);
+router.post('/stripe/plans/create', isAdmin, StripePlansController.postCreatePlan);
 
 router.get('/stripe/plans/retrieve', isAdmin, StripePlansController.getViewRetrieve);
-router.post('/stripe/plans/retrieve', StripePlansController.postRetrievePlan);
+router.post('/stripe/plans/retrieve', isAdmin, StripePlansController.postRetrievePlan);
 
 router.get('/stripe/plans/delete', isAdmin, StripePlansController.getViewDelete);
-router.post('/stripe/plans/delete', StripePlansController.postDeletePlan);
+router.post('/stripe/plans/delete', isAdmin, StripePlansController.postDeletePlan);
 
 router.get('/stripe/plans/listAll', isAdmin, StripePlansController.getViewListAll);
 
@@ -265,13 +309,13 @@ router.get('/stripe/plans/listAll', isAdmin, StripePlansController.getViewListAl
 
 // SUBSCRIPTIONS CONTROLLER
 router.get('/stripe/subscriptions/create', isAdmin, StripeSubscriptionsController.getViewCreate);
-router.post('/stripe/subscriptions/create', StripeSubscriptionsController.postCreateSubscription);
+router.post('/stripe/subscriptions/create', isAdmin, StripeSubscriptionsController.postCreateSubscription);
 
 router.get('/stripe/subscriptions/retrieve', isAdmin, StripeSubscriptionsController.getViewRetrieve);
-router.post('/stripe/subscriptions/retrieve', StripeSubscriptionsController.postRetrieveSubscription);
+router.post('/stripe/subscriptions/retrieve', isAdmin, StripeSubscriptionsController.postRetrieveSubscription);
 
 router.get('/stripe/subscriptions/cancel', isAdmin, StripeSubscriptionsController.getViewCancel);
-router.post('/stripe/subscriptions/cancel', StripeSubscriptionsController.postCancelSubscription);
+router.post('/stripe/subscriptions/cancel', isAdmin, StripeSubscriptionsController.postCancelSubscription);
 
 router.get('/stripe/subscriptions/listAll', isAdmin, StripeSubscriptionsController.getViewListAll);
 

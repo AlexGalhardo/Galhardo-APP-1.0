@@ -1,3 +1,12 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ * 
+ * http://localhost:3000/blog
+ */
+
 const bodyParser = require('body-parser');
 var pagination = require('pagination')
 

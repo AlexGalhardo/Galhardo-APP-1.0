@@ -1,3 +1,17 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ * 
+ * 
+ * http://localhost:3000/login
+ * http://localhost:3000/register
+ * http://localhost:3000/forgetPassword
+ * http://localhost:3000/resetPassword
+ * http://localhost:3000/confirmEmail
+ */
+
 const bodyParser = require('body-parser');
 const { validationResult } = require("express-validator");
 const queryString = require('query-string');

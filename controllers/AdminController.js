@@ -1,3 +1,13 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ * 
+ * 
+ * http://localhost:3000/admin
+ */
+
 const Blog = require('../models/JSON/Blog');
 const Games = require('../models/JSON/Games');
 const Books = require('../models/JSON/Books');

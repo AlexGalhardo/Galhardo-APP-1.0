@@ -11991,3 +11991,349 @@
 [35m[39m
 2021-08-12 16:48:32 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 3.057 ms[39m
 [35m[39m
+2021-08-12 17:12:40 [35mhttp[39m: [35mGET /api/public/blog 200 CONTENT-LENGTH=- 49.612 ms[39m
+[35m[39m
+2021-08-12 17:12:41 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 101.569 ms[39m
+[35m[39m
+2021-08-12 17:13:17 [35mhttp[39m: [35mGET /api/public/blog/1 200 CONTENT-LENGTH=981 5.848 ms[39m
+[35m[39m
+2021-08-12 17:13:18 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 9.959 ms[39m
+[35m[39m
+2021-08-12 17:14:18 [35mhttp[39m: [35mGET /api/public/games 200 CONTENT-LENGTH=- 62.273 ms[39m
+[35m[39m
+2021-08-12 17:14:19 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 79.484 ms[39m
+[35m[39m
+2021-08-12 17:14:26 [35mhttp[39m: [35mGET /api/public/games/1 200 CONTENT-LENGTH=795 8.160 ms[39m
+[35m[39m
+2021-08-12 17:14:26 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 10.126 ms[39m
+[35m[39m
+2021-08-12 17:14:33 [35mhttp[39m: [35mGET /api/public/games/2 200 CONTENT-LENGTH=- 8.317 ms[39m
+[35m[39m
+2021-08-12 17:14:34 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 15.192 ms[39m
+[35m[39m
+2021-08-12 17:14:35 [35mhttp[39m: [35mGET /api/public/games/10 200 CONTENT-LENGTH=909 4.280 ms[39m
+[35m[39m
+2021-08-12 17:14:36 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 5.410 ms[39m
+[35m[39m
+2021-08-12 17:14:39 [35mhttp[39m: [35mGET /api/public/games/20 200 CONTENT-LENGTH=13 4.686 ms[39m
+[35m[39m
+2021-08-12 17:14:40 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 8.907 ms[39m
+[35m[39m
+2021-08-12 17:14:48 [35mhttp[39m: [35mGET /api/public/games/19 200 CONTENT-LENGTH=13 5.114 ms[39m
+[35m[39m
+2021-08-12 17:14:48 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 5.362 ms[39m
+[35m[39m
+2021-08-12 17:14:50 [35mhttp[39m: [35mGET /api/public/games/10 304 CONTENT-LENGTH=- 6.325 ms[39m
+[35m[39m
+2021-08-12 17:14:51 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 10.764 ms[39m
+[35m[39m
+2021-08-12 17:15:35 [35mhttp[39m: [35mGET /api/public/games 304 CONTENT-LENGTH=- 32.600 ms[39m
+[35m[39m
+2021-08-12 17:15:36 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 96.057 ms[39m
+[35m[39m
+2021-08-12 17:15:38 [35mhttp[39m: [35mGET /api/public/games/1 200 CONTENT-LENGTH=795 6.226 ms[39m
+[35m[39m
+2021-08-12 17:15:39 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 8.094 ms[39m
+[35m[39m
+2021-08-12 17:15:46 [35mhttp[39m: [35mGET /api/public/games/20 200 CONTENT-LENGTH=13 5.489 ms[39m
+[35m[39m
+2021-08-12 17:15:47 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 7.937 ms[39m
+[35m[39m
+2021-08-12 17:15:51 [35mhttp[39m: [35mGET /api/public/games 304 CONTENT-LENGTH=- 5.419 ms[39m
+[35m[39m
+2021-08-12 17:15:52 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 7.341 ms[39m
+[35m[39m
+2021-08-12 17:15:54 [35mhttp[39m: [35mGET /api/public/books 200 CONTENT-LENGTH=- 12.450 ms[39m
+[35m[39m
+2021-08-12 17:15:55 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 5.962 ms[39m
+[35m[39m
+2021-08-12 17:15:58 [35mhttp[39m: [35mGET /api/public/books 304 CONTENT-LENGTH=- 7.420 ms[39m
+[35m[39m
+2021-08-12 17:15:59 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 6.595 ms[39m
+[35m[39m
+2021-08-12 17:16:00 [35mhttp[39m: [35mGET /api/public/books/1 200 CONTENT-LENGTH=- 5.609 ms[39m
+[35m[39m
+2021-08-12 17:16:01 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 4.287 ms[39m
+[35m[39m
+2021-08-12 17:16:03 [35mhttp[39m: [35mGET /api/public/books/5 200 CONTENT-LENGTH=13 3.554 ms[39m
+[35m[39m
+2021-08-12 17:16:04 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 6.794 ms[39m
+[35m[39m
+2021-08-12 17:16:07 [35mhttp[39m: [35mGET /api/public/blog 304 CONTENT-LENGTH=- 3.855 ms[39m
+[35m[39m
+2021-08-12 17:16:08 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 4.963 ms[39m
+[35m[39m
+2021-08-12 17:16:09 [35mhttp[39m: [35mGET /api/public/blog/1 304 CONTENT-LENGTH=- 5.285 ms[39m
+[35m[39m
+2021-08-12 17:16:10 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 5.628 ms[39m
+[35m[39m
+2021-08-12 17:16:18 [35mhttp[39m: [35mGET /api/public 200 CONTENT-LENGTH=493 6.872 ms[39m
+[35m[39m
+2021-08-12 17:16:19 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 3.975 ms[39m
+[35m[39m
+2021-08-12 17:16:55 [35mhttp[39m: [35mGET /api 200 CONTENT-LENGTH=297 7.752 ms[39m
+[35m[39m
+2021-08-12 17:16:55 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 4.698 ms[39m
+[35m[39m
+2021-08-12 17:17:16 [35mhttp[39m: [35mGET /api/admin 200 CONTENT-LENGTH=771 6.183 ms[39m
+[35m[39m
+2021-08-12 17:17:17 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 9.875 ms[39m
+[35m[39m
+2021-08-12 17:18:30 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 28.993 ms[39m
+[35m[39m
+2021-08-12 17:18:31 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 6.617 ms[39m
+[35m[39m
+2021-08-12 17:18:31 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 4.053 ms[39m
+[35m[39m
+2021-08-12 17:18:31 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 2.810 ms[39m
+[35m[39m
+2021-08-12 17:18:31 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 4.672 ms[39m
+[35m[39m
+2021-08-12 17:18:33 [35mhttp[39m: [35mGET /login 200 CONTENT-LENGTH=- 58.435 ms[39m
+[35m[39m
+2021-08-12 17:18:34 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 8.287 ms[39m
+[35m[39m
+2021-08-12 17:18:35 [35mhttp[39m: [35mPOST /login 302 CONTENT-LENGTH=46 620.674 ms[39m
+[35m[39m
+2021-08-12 17:18:35 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 10.873 ms[39m
+[35m[39m
+2021-08-12 17:18:35 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 4.876 ms[39m
+[35m[39m
+2021-08-12 17:18:35 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 12.501 ms[39m
+[35m[39m
+2021-08-12 17:18:35 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 13.822 ms[39m
+[35m[39m
+2021-08-12 17:18:35 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 24.262 ms[39m
+[35m[39m
+2021-08-12 17:23:21 [35mhttp[39m: [35mGET /api/admin/stripe/customers/listAll/10 200 CONTENT-LENGTH=10214 7.180 ms[39m
+[35m[39m
+2021-08-12 17:23:22 [35mhttp[39m: [35mGET /api/admin/stripe/customers/listAll/scripts/navbar_apis.js 200 CONTENT-LENGTH=- 5.084 ms[39m
+[35m[39m
+2021-08-12 17:23:22 [35mhttp[39m: [35mGET /api/admin/stripe/customers/listAll/scripts/privacy.js 200 CONTENT-LENGTH=- 5.068 ms[39m
+[35m[39m
+2021-08-12 17:24:01 [35mhttp[39m: [35mPOST /api/admin/login 200 CONTENT-LENGTH=217 485.546 ms[39m
+[35m[39m
+2021-08-12 17:24:14 [35mhttp[39m: [35mGET /api/admin/stripe/customers/listAll/scripts/navbar_apis.js 200 CONTENT-LENGTH=- 5.367 ms[39m
+[35m[39m
+2021-08-12 17:24:14 [35mhttp[39m: [35mGET /api/admin/stripe/customers/listAll/scripts/privacy.js 200 CONTENT-LENGTH=- 5.617 ms[39m
+[35m[39m
+2021-08-12 17:24:42 [35mhttp[39m: [35mGET /api/admin/stripe/customers/listAll/10 200 CONTENT-LENGTH=16855 1403.276 ms[39m
+[35m[39m
+2021-08-12 17:24:52 [35mhttp[39m: [35mGET /api/admin/stripe/customers/listAll/10 500 CONTENT-LENGTH=32 19.995 ms[39m
+[35m[39m
+2021-08-12 17:25:01 [35mhttp[39m: [35mGET /api/admin/stripe/customers/listAll/10 500 CONTENT-LENGTH=32 7.960 ms[39m
+[35m[39m
+2021-08-12 17:25:09 [35mhttp[39m: [35mGET /api/admin/stripe/customers/listAll/10 200 CONTENT-LENGTH=16855 645.245 ms[39m
+[35m[39m
+2021-08-12 17:26:01 [35mhttp[39m: [35mGET /api/admin/stripe/customers/listAll/10 200 CONTENT-LENGTH=16855 1662.403 ms[39m
+[35m[39m
+2021-08-12 17:26:06 [35mhttp[39m: [35mGET /api/admin/stripe/customers/listAll/10 200 CONTENT-LENGTH=10 15.834 ms[39m
+[35m[39m
+2021-08-12 17:32:16 [35mhttp[39m: [35mGET /api/admin 200 CONTENT-LENGTH=- 43.310 ms[39m
+[35m[39m
+2021-08-12 17:32:17 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 105.098 ms[39m
+[35m[39m
+2021-08-12 17:33:02 [35mhttp[39m: [35mGET /api/admin 200 CONTENT-LENGTH=- 41.031 ms[39m
+[35m[39m
+2021-08-12 17:33:03 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 88.213 ms[39m
+[35m[39m
+2021-08-12 17:33:47 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 25.848 ms[39m
+[35m[39m
+2021-08-12 17:33:47 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 7.523 ms[39m
+[35m[39m
+2021-08-12 17:33:47 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 3.791 ms[39m
+[35m[39m
+2021-08-12 17:33:47 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 9.664 ms[39m
+[35m[39m
+2021-08-12 17:33:47 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 11.633 ms[39m
+[35m[39m
+2021-08-12 17:33:50 [35mhttp[39m: [35mGET /login 200 CONTENT-LENGTH=- 36.878 ms[39m
+[35m[39m
+2021-08-12 17:33:51 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 7.413 ms[39m
+[35m[39m
+2021-08-12 17:33:52 [35mhttp[39m: [35mPOST /login 302 CONTENT-LENGTH=46 520.648 ms[39m
+[35m[39m
+2021-08-12 17:33:52 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 9.819 ms[39m
+[35m[39m
+2021-08-12 17:33:52 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 6.947 ms[39m
+[35m[39m
+2021-08-12 17:33:52 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 14.760 ms[39m
+[35m[39m
+2021-08-12 17:33:52 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 14.809 ms[39m
+[35m[39m
+2021-08-12 17:33:52 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 13.836 ms[39m
+[35m[39m
+2021-08-12 17:33:53 [35mhttp[39m: [35mGET /login 302 CONTENT-LENGTH=46 3.721 ms[39m
+[35m[39m
+2021-08-12 17:33:57 [35mhttp[39m: [35mGET /logout 302 CONTENT-LENGTH=56 11.150 ms[39m
+[35m[39m
+2021-08-12 17:33:57 [35mhttp[39m: [35mGET /login 200 CONTENT-LENGTH=- 7.056 ms[39m
+[35m[39m
+2021-08-12 17:33:57 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 5.705 ms[39m
+[35m[39m
+2021-08-12 17:33:59 [35mhttp[39m: [35mPOST /login 302 CONTENT-LENGTH=46 477.637 ms[39m
+[35m[39m
+2021-08-12 17:33:59 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 8.193 ms[39m
+[35m[39m
+2021-08-12 17:33:59 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 3.405 ms[39m
+[35m[39m
+2021-08-12 17:34:00 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 5.170 ms[39m
+[35m[39m
+2021-08-12 17:34:00 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 2.623 ms[39m
+[35m[39m
+2021-08-12 17:34:00 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 5.914 ms[39m
+[35m[39m
+2021-08-12 17:34:30 [35mhttp[39m: [35mGET /logout 302 CONTENT-LENGTH=56 39.274 ms[39m
+[35m[39m
+2021-08-12 17:34:30 [35mhttp[39m: [35mGET /login 200 CONTENT-LENGTH=- 45.218 ms[39m
+[35m[39m
+2021-08-12 17:34:31 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 94.466 ms[39m
+[35m[39m
+2021-08-12 17:34:59 [35mhttp[39m: [35mGET /login 200 CONTENT-LENGTH=- 69.619 ms[39m
+[35m[39m
+2021-08-12 17:35:00 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 80.558 ms[39m
+[35m[39m
+2021-08-12 17:35:24 [35mhttp[39m: [35mGET /login 304 CONTENT-LENGTH=- 62.952 ms[39m
+[35m[39m
+2021-08-12 17:35:25 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 82.608 ms[39m
+[35m[39m
+2021-08-12 17:35:26 [35mhttp[39m: [35mGET /register 200 CONTENT-LENGTH=- 11.555 ms[39m
+[35m[39m
+2021-08-12 17:35:27 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 13.549 ms[39m
+[35m[39m
+2021-08-12 17:35:28 [35mhttp[39m: [35mGET /login 304 CONTENT-LENGTH=- 5.865 ms[39m
+[35m[39m
+2021-08-12 17:35:29 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 5.914 ms[39m
+[35m[39m
+2021-08-12 17:35:30 [35mhttp[39m: [35mGET /forgetPassword 200 CONTENT-LENGTH=- 14.069 ms[39m
+[35m[39m
+2021-08-12 17:35:30 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 7.222 ms[39m
+[35m[39m
+2021-08-12 17:35:33 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 15.214 ms[39m
+[35m[39m
+2021-08-12 17:35:33 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 6.928 ms[39m
+[35m[39m
+2021-08-12 17:35:33 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 3.584 ms[39m
+[35m[39m
+2021-08-12 17:35:33 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 3.195 ms[39m
+[35m[39m
+2021-08-12 17:35:34 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 3.001 ms[39m
+[35m[39m
+2021-08-12 17:35:35 [35mhttp[39m: [35mGET /login 304 CONTENT-LENGTH=- 5.012 ms[39m
+[35m[39m
+2021-08-12 17:35:35 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 7.429 ms[39m
+[35m[39m
+2021-08-12 17:35:37 [35mhttp[39m: [35mPOST /login 302 CONTENT-LENGTH=46 515.742 ms[39m
+[35m[39m
+2021-08-12 17:35:37 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 10.431 ms[39m
+[35m[39m
+2021-08-12 17:35:37 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 5.045 ms[39m
+[35m[39m
+2021-08-12 17:35:37 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 4.035 ms[39m
+[35m[39m
+2021-08-12 17:35:37 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 7.914 ms[39m
+[35m[39m
+2021-08-12 17:35:37 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 9.750 ms[39m
+[35m[39m
+2021-08-12 17:35:50 [35mhttp[39m: [35mGET /stripe/customers/listAll 200 CONTENT-LENGTH=- 1556.272 ms[39m
+[35m[39m
+2021-08-12 17:35:51 [35mhttp[39m: [35mGET /stripe/customers/images/favicon.png 200 CONTENT-LENGTH=- 6.607 ms[39m
+[35m[39m
+2021-08-12 17:36:03 [35mhttp[39m: [35mGET /stripe/cards/listAll 200 CONTENT-LENGTH=- 30.492 ms[39m
+[35m[39m
+2021-08-12 17:36:03 [35mhttp[39m: [35mGET /stripe/cards/images/favicon.png 200 CONTENT-LENGTH=- 6.314 ms[39m
+[35m[39m
+2021-08-12 17:37:06 [35mhttp[39m: [35mGET /stripe/cards/retrieve 200 CONTENT-LENGTH=- 46.976 ms[39m
+[35m[39m
+2021-08-12 17:37:07 [35mhttp[39m: [35mGET /stripe/cards/images/favicon.png 304 CONTENT-LENGTH=- 4.619 ms[39m
+[35m[39m
+2021-08-12 17:37:11 [35mhttp[39m: [35mGET /stripe/cards/listAll 304 CONTENT-LENGTH=- 5.657 ms[39m
+[35m[39m
+2021-08-12 17:37:12 [35mhttp[39m: [35mGET /stripe/cards/images/favicon.png 304 CONTENT-LENGTH=- 5.582 ms[39m
+[35m[39m
+2021-08-12 17:37:12 [35mhttp[39m: [35mGET /stripe/cards/retrieve 304 CONTENT-LENGTH=- 6.275 ms[39m
+[35m[39m
+2021-08-12 17:37:13 [35mhttp[39m: [35mGET /stripe/cards/images/favicon.png 304 CONTENT-LENGTH=- 7.389 ms[39m
+[35m[39m
+2021-08-12 17:37:58 [35mhttp[39m: [35mGET /stripe/cards/update 200 CONTENT-LENGTH=- 37.005 ms[39m
+[35m[39m
+2021-08-12 17:37:58 [35mhttp[39m: [35mGET /stripe/cards/images/favicon.png 304 CONTENT-LENGTH=- 5.416 ms[39m
+[35m[39m
+2021-08-12 17:39:15 [35mhttp[39m: [35mGET /stripe/cards/delete 200 CONTENT-LENGTH=- 39.011 ms[39m
+[35m[39m
+2021-08-12 17:39:16 [35mhttp[39m: [35mGET /stripe/cards/images/favicon.png 304 CONTENT-LENGTH=- 4.938 ms[39m
+[35m[39m
+2021-08-12 17:39:46 [35mhttp[39m: [35mGET /stripe/cards/create 200 CONTENT-LENGTH=- 55.692 ms[39m
+[35m[39m
+2021-08-12 17:39:46 [35mhttp[39m: [35mGET /stripe/scripts/jquery.min.js 200 CONTENT-LENGTH=- 7.652 ms[39m
+[35m[39m
+2021-08-12 17:39:46 [35mhttp[39m: [35mGET /stripe/scripts/jquery.card.js 200 CONTENT-LENGTH=- 11.832 ms[39m
+[35m[39m
+2021-08-12 17:39:47 [35mhttp[39m: [35mGET /stripe/cards/images/favicon.png 304 CONTENT-LENGTH=- 8.689 ms[39m
+[35m[39m
+2021-08-12 17:41:29 [35mhttp[39m: [35mGET /api/admin 200 CONTENT-LENGTH=- 41.185 ms[39m
+[35m[39m
+2021-08-12 17:41:30 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 90.217 ms[39m
+[35m[39m
+2021-08-12 17:41:50 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 27.473 ms[39m
+[35m[39m
+2021-08-12 17:41:51 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 7.876 ms[39m
+[35m[39m
+2021-08-12 17:41:51 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 8.708 ms[39m
+[35m[39m
+2021-08-12 17:41:51 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 6.247 ms[39m
+[35m[39m
+2021-08-12 17:41:51 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 11.639 ms[39m
+[35m[39m
+2021-08-12 18:02:29 [35mhttp[39m: [35mGET /login 200 CONTENT-LENGTH=- 43.070 ms[39m
+[35m[39m
+2021-08-12 18:02:30 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 8.590 ms[39m
+[35m[39m
+2021-08-12 18:02:31 [35mhttp[39m: [35mPOST /login 302 CONTENT-LENGTH=46 518.502 ms[39m
+[35m[39m
+2021-08-12 18:02:31 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 9.578 ms[39m
+[35m[39m
+2021-08-12 18:02:31 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 10.271 ms[39m
+[35m[39m
+2021-08-12 18:02:31 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 11.461 ms[39m
+[35m[39m
+2021-08-12 18:02:31 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 7.113 ms[39m
+[35m[39m
+2021-08-12 18:02:31 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 12.241 ms[39m
+[35m[39m
+2021-08-12 18:02:34 [35mhttp[39m: [35mGET /admin/create/blogPost 200 CONTENT-LENGTH=- 18.640 ms[39m
+[35m[39m
+2021-08-12 18:02:35 [35mhttp[39m: [35mGET /admin/create/images/favicon.png 200 CONTENT-LENGTH=- 6.216 ms[39m
+[35m[39m
+2021-08-12 18:05:12 [35mhttp[39m: [35mGET /blog 200 CONTENT-LENGTH=- 43.701 ms[39m
+[35m[39m
+2021-08-12 18:05:13 [35mhttp[39m: [35mGET /scripts/scroll_bar.js 304 CONTENT-LENGTH=- 3.272 ms[39m
+[35m[39m
+2021-08-12 18:05:13 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 4.082 ms[39m
+[35m[39m
+2021-08-12 18:05:13 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 3.444 ms[39m
+[35m[39m
+2021-08-12 18:05:14 [35mhttp[39m: [35mGET /blog/simpsons-editado-pelo-admin 200 CONTENT-LENGTH=- 30.792 ms[39m
+[35m[39m
+2021-08-12 18:05:14 [35mhttp[39m: [35mGET /scripts/scroll_bar.js 304 CONTENT-LENGTH=- 5.034 ms[39m
+[35m[39m
+2021-08-12 18:05:14 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 3.901 ms[39m
+[35m[39m
+2021-08-12 18:05:14 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 10.928 ms[39m
+[35m[39m
+2021-08-12 18:05:14 [35mhttp[39m: [35mGET /uploads/avatars/13667f62-03d6-4b46-bd22-0bbf2a3b89d2_avatar.png 304 CONTENT-LENGTH=- 3.374 ms[39m
+[35m[39m
+2021-08-12 18:05:15 [35mhttp[39m: [35mGET /blog/images/favicon.png 200 CONTENT-LENGTH=- 9.874 ms[39m
+[35m[39m
+2021-08-12 18:06:17 [35mhttp[39m: [35mGET /plans 200 CONTENT-LENGTH=- 50.159 ms[39m
+[35m[39m
+2021-08-12 18:06:21 [35mhttp[39m: [35mGET /plans/premium/checkout 200 CONTENT-LENGTH=- 37.782 ms[39m
+[35m[39m
+2021-08-12 18:06:21 [35mhttp[39m: [35mGET /scripts/jquery.min.js 304 CONTENT-LENGTH=- 11.935 ms[39m
+[35m[39m
+2021-08-12 18:06:21 [35mhttp[39m: [35mGET /scripts/jquery.card.js 304 CONTENT-LENGTH=- 7.785 ms[39m
+[35m[39m
+2021-08-12 18:06:21 [35mhttp[39m: [35mGET /scripts/render_credit_card.js 304 CONTENT-LENGTH=- 4.378 ms[39m
+[35m[39m
+2021-08-12 18:06:24 [35mhttp[39m: [35mGET /plans/premium/images/favicon.png 200 CONTENT-LENGTH=- 5.315 ms[39m
+[35m[39m
