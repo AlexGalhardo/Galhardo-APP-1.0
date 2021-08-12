@@ -1,24 +1,33 @@
 const Logger = require('../config/winston');
 
-// STRIPE CONTROLLERS
-const StripeCustomersController = require('../controllers/StripeCustomersController');
-const StripeCardsController = require('../controllers/StripeCardsController');
-const StripeChargesController = require('../controllers/StripeChargesController');
-const StripePlansController = require('../controllers/StripePlansController');
-const StripeSubscriptionsController = require('../controllers/StripeSubscriptionsController');
-const StripeProductsController = require('../controllers/StripeProductsController');
-const StripePricesController = require('../controllers/StripePricesController');
+// ADMIN VIEW STRIPE CONTROLLERS
+const StripeCustomersController = require('../controllers/Stripe/StripeCustomersController');
+const StripeCardsController = require('../controllers/Stripe/StripeCardsController');
+const StripeChargesController = require('../controllers/Stripe/StripeChargesController');
+const StripePlansController = require('../controllers/Stripe/StripePlansController');
+const StripeSubscriptionsController = require('../controllers/Stripe/StripeSubscriptionsController');
+const StripeProductsController = require('../controllers/Stripe/StripeProductsController');
+const StripePricesController = require('../controllers/Stripe/StripePricesController');
 
-// CONTROLLERS
+
+// VIEWS CONTROLLERS
 const AppController = require('../controllers/AppController');
 const BlogController = require('../controllers/BlogController');
 const ShopController = require('../controllers/ShopController');
 const PlansController = require('../controllers/PlansController');
 const AuthController = require('../controllers/AuthController');
 const ProfileController = require('../controllers/ProfileController');
-
 const AdminController = require('../controllers/AdminController');
-const APIController = require('../controllers/APIController');
+
+
+// API CONTROLLERS
+const APIController = require('../controllers/API/APIController');
+const APIPublicController = require('../controllers/API/APIPublicController');
+const APIAdminController = require('../controllers/API/APIAdminController');
+const APIAdminBlogController = require('../controllers/API/APIAdminBlogController');
+const APIAdminGameController = require('../controllers/API/APIAdminGameController');
+const APIAdminBookController = require('../controllers/API/APIAdminBookController');
+const APIAdminStripeController = require('../controllers/API/APIAdminStripeController');
 
 
 // INIT EXPRESS 
@@ -34,12 +43,14 @@ const isAdmin = (req, res, next) => {
 	next()
 }
 
+
 const userIsNotLoggedIn = (req, res, next) => {
 	if(!req.session.userID){
         return res.redirect('/login');
     }
 	next()
 }
+
 
 const userIsAlreadyLoggedIn = (req, res, next) => {
 	if(req.session.userID){
@@ -61,7 +72,9 @@ router.get('/logger', (req, res) => {
 });
 
 
-// APP CONTROLLER
+
+
+// APP VIEWS CONTROLLER
 router.get('/', AppController.getViewHome);
 router.get('/books', AppController.getViewBooks);
 
@@ -72,7 +85,7 @@ router.get('/privacy', AppController.getViewPrivacy);
 
 
 
-// BLOG CONTROLLER
+// BLOG VIEWS CONTROLLER
 router.get('/blog', BlogController.getViewBlog);
 router.get('/blog/search', BlogController.getSearchBlogTitle);
 router.get('/blog/page/:page', BlogController.getViewBlog);
@@ -90,7 +103,7 @@ router.post('/shop', ShopController.postShopPayLog);
 
 
 
-// PLANS CONTROLLER
+// PLANS VIEWS CONTROLLER
 router.get('/plans', PlansController.getViewPlans);
 
 // router.get('/plans/starter/checkout', PlansController.getViewPlanStarterCheckout);
@@ -104,7 +117,7 @@ router.post('/plan/premium/checkout', PlansController.postPlanPremiumPayLog);
 
 
 
-// AUTH CONTROLLER
+// AUTH VIEWS CONTROLLER
 router.get('/login', userIsAlreadyLoggedIn, AuthController.getViewLogin);
 router.post('/login', AuthController.postLogin);
 
@@ -138,7 +151,7 @@ router.get('/logout', userIsNotLoggedIn, ProfileController.getLogout);
 
 
 
-// ********************** ADMIN Controller
+// ********************** ADMIN VIEW CONTROLLERS
 router.get('/admin/create/blogPost', isAdmin, AdminController.getViewCreateBlogPost);
 router.post('/admin/create/blogPost', isAdmin, AdminController.postCreateBlogPost);
 
@@ -169,7 +182,7 @@ router.post('/admin/delete/book/:book_id', isAdmin, AdminController.postDeleteBo
 
 
 
-// *************************** API CONTROLLER
+// *************************** API CONTROLLERS
 
 // INTRODUCTION
 router.get('/api', APIController.getWelcomeToAPI);
@@ -177,36 +190,36 @@ router.get('/api/public', APIController.getPublicEndpoints);
 router.get('/api/admin', APIController.getAdminEndpoints);
 
 // PUBLIC
-router.get('/api/public/blog', APIController.getPublicBlog);
-router.get('/api/public/blog/:blog_id', APIController.getPublicBlogPostByID);
+router.get('/api/public/blog', APIPublicController.getPublicBlog);
+router.get('/api/public/blog/:blog_id', APIPublicController.getPublicBlogPostByID);
 
-router.get('/api/public/games', APIController.getPublicGames);
-router.get('/api/public/games/:game_id', APIController.getPublicGameByID);
+router.get('/api/public/games', APIPublicController.getPublicGames);
+router.get('/api/public/games/:game_id', APIPublicController.getPublicGameByID);
 
-router.get('/api/public/books', APIController.getPublicBooks);
-router.get('/api/public/books/:book_id', APIController.getPublicBookByID);
+router.get('/api/public/books', APIPublicController.getPublicBooks);
+router.get('/api/public/books/:book_id', APIPublicController.getPublicBookByID);
 
 // ADMIN
-router.post('/api/admin/login', APIController.postAdminLogin);
-router.post('/api/admin/test', APIController.postAdminTest);
+router.post('/api/admin/login', APIAdminController.postAdminLogin);
+router.post('/api/admin/test', APIAdminController.postAdminTest);
 
 // ADMIN BLOG
-router.post('/api/admin/blog/create', APIController.postAdminBlogCreate);
-router.put('/api/admin/blog/update/:blog_id', APIController.putAdminBlogUpdate);
-router.delete('/api/admin/blog/delete/:blog_id', APIController.deleteAdminBlogDelete);
+router.post('/api/admin/blog/create', APIAdminBlogController.postAdminBlogCreate);
+router.put('/api/admin/blog/update/:blog_id', APIAdminBlogController.putAdminBlogUpdate);
+router.delete('/api/admin/blog/delete/:blog_id', APIAdminBlogController.deleteAdminBlogDelete);
 
 // ADMIN GAMES
-router.post('/api/admin/game/create', APIController.postAdminGameCreate);
-router.put('/api/admin/game/update/:blog_id', APIController.putAdminGameUpdate);
-router.delete('/api/admin/game/delete/:blog_id', APIController.deleteAdminGameDelete);
+router.post('/api/admin/game/create', APIAdminGameController.postAdminGameCreate);
+router.put('/api/admin/game/update/:blog_id', APIAdminGameController.putAdminGameUpdate);
+router.delete('/api/admin/game/delete/:blog_id', APIAdminGameController.deleteAdminGameDelete);
 
 // ADMIN BOOKS
-router.post('/api/admin/book/create', APIController.postAdminBookCreate);
+router.post('/api/admin/book/create', APIAdminBookController.postAdminBookCreate);
 router.put('/api/admin/book/update/:blog_id', APIController.putAdminBookUpdate);
 router.delete('/api/admin/book/delete/:blog_id', APIController.deleteAdminBookDelete);
 
 // ADMIN STRIPE
-router.get('/api/admin/stripe/customers/listAll/:limit', APIController.getAdminStripeCustomersListAll)
+router.get('/api/admin/stripe/customers/listAll/:limit', APIAdminStripeController.getAdminStripeCustomersListAll)
 
 
 
@@ -214,6 +227,8 @@ router.get('/api/admin/stripe/customers/listAll/:limit', APIController.getAdminS
 
 
 
+
+// *************************** STRIPE CONTROLLERS
 
 // CUSTOMERS CONTROLLER
 router.get('/stripe/customers/create', isAdmin, StripeCustomersController.getViewCreate);

@@ -22,8 +22,36 @@
    - To view JSON DataBase
 
 
+## Introduction
+### I created this project to LEARN and PRATICE in my spare time:
+- JavaScript, JSON, NodeJS, Express, NPM, TypeScript, DOM, Git, Bootstrap5
+- NGINX
+   - Reverse-Proxy, Load Balancing, Cache, Response Compreesion
+- AWS
+   - DevOps, DNS, How to configure SSL/HTTPs in a VPS, etc
+- Docker
+   - For MySQL and MongoDB
+- Payment REST API
+   - Stripe for USD, PagarME for BRL
+- Testing
+   - Jest
+- How to document a software
+- Code best practices
+   - MVC, CRUDs, ESLint, Prettier, Design Patterns, etc
+- Google Tools
+   - SEO, CDN, Analytics, Search Console, SiteMap, XML, etc
+- Logs
+   - Console, files, telegram, etc
+- API RESTs
+   - JWT, Oauth2, AJAX, Bearer Token, etc
+- Others usefull things
+   - Mobile First, SMTP, Flash Messages, Pagination, Slug, UUID, Searchs, etc
+- Deploys
+   - CI, CD, Heroku, Git Workflows, etc
+- I will be refactoring it over the years during my professional career as I develop my programming skills.
 
-## [Project Introduction / Install Locally](https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INTRODUCTION.md)
+
+## [Install Locally](https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INSTALL_LOCALLY.md)
 
 
 ## RoadMap
