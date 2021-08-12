@@ -12,7 +12,7 @@ const AppController = {
 
 	    res.render('pages/home', {
 	    	game,
-	      user: SESSION_USER
+	      	user: SESSION_USER
 	    });
 	},
 
@@ -21,7 +21,7 @@ const AppController = {
 
 	    res.render('pages/books', {
 	    	book,
-	      user: SESSION_USER
+	      	user: SESSION_USER
 	    });
 	},
 

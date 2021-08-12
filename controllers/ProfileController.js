@@ -89,7 +89,7 @@ const ProfileController = {
 	        	if (err) throw err;
 	        })
 
-	        Users.updateAvatarName(files.avatar.name, req.session.userID);
+	        Users.updateAvatarName(`${req.session.userID}_${files.avatar.name}`, req.session.userID);
 	    });
 
 		res.redirect('/profile');

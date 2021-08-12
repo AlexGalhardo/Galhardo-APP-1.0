@@ -12,10 +12,3 @@
 - pm2 logs site1 --lines 100
 - pm2 start app.js --watch
 
-## TODO
-- CRUD VIEW GAMES AND BOOKS ADMIN
-- API JWT ADMIN
-   - STRIPE
-   - GAMES
-   - BOOKS
-   - BLOG

@@ -139,8 +139,8 @@ router.get('/logout', userIsNotLoggedIn, ProfileController.getLogout);
 router.get('/admin/create/blogPost', isAdmin, AdminController.getViewCreateBlogPost);
 router.post('/admin/create/blogPost', isAdmin, AdminController.postCreateBlogPost);
 
-router.get('/admin/update/blogPost/:slug', isAdmin, AdminController.getViewUpdateBlogPost);
-router.post('/admin/update/blogPost/:slug', isAdmin, AdminController.postUpdateBlogPost);
+router.get('/admin/update/blogPost/:blog_id', isAdmin, AdminController.getViewUpdateBlogPost);
+router.post('/admin/update/blogPost/:blog_id', isAdmin, AdminController.postUpdateBlogPost);
 
 router.get('/admin/create/game', isAdmin, AdminController.getViewCreateGame);
 router.post('/admin/create/game', isAdmin, AdminController.postCreateGame);

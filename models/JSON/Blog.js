@@ -74,6 +74,19 @@ class Blog {
     	}
 	}
 
+	static getBlogPostByID (blog_id) {
+		try {
+      		for(let i=0; i < database.blog.length; i++){
+        		if(database.blog[i].id === parseInt(blog_id)){
+        			return database.blog[i]
+        		}
+      		}
+      		return null
+    	} catch (error) {
+      		return console.log("ERROR getBlogPostByID: ", error);
+    	}
+	}
+
 	static createBlogComment (slug, commentObject) {
 		try {
       		for(let i=0; i < database.blog.length; i++){
@@ -132,13 +145,18 @@ class Blog {
 
 	static updateBlogPost (blogPostObject) {
 
-		const slug = slugify(blogPostObject.title)
+		const slug = slugify(blogPostObject.title, {
+			lower: true
+		})
+		blogPostObject.slug = slug
 
 		try {
-			for(let i = 0; i < databse.blog.length; i++){
+			for(let i = 0; i < database.blog.length; i++){
 				if(database.blog[i].id === blogPostObject.id){
-					database.blog.splice(i, 1)
-					database.blog.push(blogPostObject)
+					blogPostObject.created_at = database.blog[i].created_at
+					blogPostObject.updated_at = DateTime.getNow()
+					blogPostObject.comments = database.blog[i].comments
+					database.blog.splice(i, 1, blogPostObject)
 					Blog.save(database, 'Error updateBlogPost: ')
 					return blogPostObject
 				}

@@ -1,6 +1,6 @@
 {{>partials/header}}
 
-        <main class="container col-lg-10 mt-3">
+        <main class="container col-lg-8 mt-3">
 
         <!-- ROW -->
         <div class="row">
@@ -14,13 +14,13 @@
             {{#user}}
 
             <!-- AVATAR -->
-            <div class="col-sm-5">
+            <div class="col-sm-6">
                 <form action="/profile/avatar"
                     method="POST" 
                     enctype="multipart/form-data"
                     class="col-lg-8">
                 
-                    <img src="/uploads/avatars/{{avatar}}" class="text-center w-75 h-50 image-fluid rounded-circle" alt="avatar">
+                    <img src="/uploads/avatars/{{avatar}}" class="d-block mx-auto w-50 h-50 image-fluid rounded-circle" alt="avatar">
 
                     <br>
                     
@@ -34,48 +34,36 @@
 
                 <hr>
 
-                <div class="form-group row mt-3">
-                    <label class="col-lg-4 col-form-label">CREATED_AT</label>
-                    <div class="col-lg-8">
-                        <input placeholder="Digit your username" class="mb-2 form-control" name="created_at" type="text" value="{{created_at}}" readonly>
-                    </div>
+                <div class="form-floating mb-3">
+                      <input placeholder="Digit your username" class="mb-2 form-control" name="created_at" type="text" value="{{created_at}}" readonly>
+                      <label for="name">CREATED_AT</label>
                 </div>
 
-                <div class="form-group row">
-                    <label class="col-lg-4 col-form-label">UPDATED_AT</label>
-                    <div class="col-lg-8">
-                        <input placeholder="Digit your username" class="mb-2 form-control" name="updated_at" type="text" value="{{updated_at}}" readonly>
-                    </div>
+                <div class="form-floating mb-3">
+                      <input placeholder="Digit your username" class="mb-2 form-control" name="updated_at" type="text" value="{{updated_at}}" readonly>
+                      <label for="name">UPDATED_AT</label>
                 </div>
 
-                <div class="form-group row">
-                    <label class="col-lg-4 col-form-label">ADMIN</label>
-                    <div class="col-lg-8">
-                        <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{admin}}" readonly>
-                    </div>
+                <div class="form-floating mb-3">
+                      <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{admin}}" readonly>
+                      <label for="name">ADMIN</label>
                 </div>
 
                 <hr>
 
-                <div class="form-group row">
-                    <label class="col-lg-4 col-form-label">CUSTOMER_ID</label>
-                    <div class="col-lg-8">
-                        <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.customer_id}}" readonly>
-                    </div>
+                <div class="form-floating mb-3">
+                      <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.customer_id}}" readonly>
+                      <label for="name">CUSTOMER_ID</label>
                 </div>
 
-                <div class="form-group row">
-                    <label class="col-lg-4 col-form-label">CARD_TOKEN_ID</label>
-                    <div class="col-lg-8">
-                        <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.card_token_id}}" readonly>
-                    </div>
+                <div class="form-floating mb-3">
+                      <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.card_token_id}}" readonly>
+                      <label for="name">CARD_TOKEN_ID</label>
                 </div>
 
-                <div class="form-group row">
-                    <label class="col-lg-4 col-form-label">CARD_ID</label>
-                    <div class="col-lg-8">
-                        <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.card_id}}" readonly>
-                    </div>
+                <div class="form-floating mb-3">
+                      <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.card_id}}" readonly>
+                      <label for="name">CARD_ID</label>
                 </div>
 
                 {{#stripe.card_id}}
@@ -87,25 +75,19 @@
                     </div>
                 {{/stripe.card_id}}
 
-                <div class="form-group row">
-                    <label class="col-lg-4 col-form-label">PLAN</label>
-                    <div class="col-lg-8">
-                        <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.currently_subscription_name}}" readonly>
-                    </div>
+                <div class="form-floating mb-3">
+                      <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.currently_subscription_name}}" readonly>
+                      <label for="name">PLAN</label>
                 </div>
 
-                <div class="form-group row">
-                    <label class="col-lg-4 col-form-label">Automatically Renew?</label>
-                    <div class="col-lg-8">
-                        <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.subscription_automatically_renew}}" readonly>
-                    </div>
+                <div class="form-floating mb-3">
+                      <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.subscription_automatically_renew}}" readonly>
+                      <label for="name">AUTOMATICALLY_RENEW</label>
                 </div>
 
-                <div class="form-group row">
-                    <label class="col-lg-4 col-form-label">Subs End</label>
-                    <div class="col-lg-8">
-                        <input class="mb-2 form-control" name="subs_end" type="text" value="{{stripe.subscription_end}}" readonly>
-                    </div>
+                <div class="form-floating mb-3">
+                      <input class="mb-2 form-control" name="subs_end" type="text" value="{{stripe.subscription_end}}" readonly>
+                      <label for="name">SUBSCRIPTION_END_DATE_TIME</label>
                 </div>
 
                 {{#stripe.subscription_automatically_renew}}
@@ -123,114 +105,89 @@
 
 
             <!-- COL-LG-6 -->
-            <div class="col-lg-7">
+            <div class="col-lg-6">
 
                 <form action="/profile" class="form" method="POST">
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">Username</label>
-                        <div class="col-lg-8">
-                            <input placeholder="Digit your username" class="mb-2 form-control" name="username" type="text" value="{{name}}" required autofocus>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">Email</label>
-                        <div class="col-lg-8">
-                            <input class="mb-2 form-control" type="email" name="email" placeholder="Digit your email" value="{{email}}" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">Document</label>
-                        <div class="col-lg-8">
-                            <input class="mb-2 form-control" type="text" minlength="11" maxlength="11" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" id="document" name="document" placeholder="Digit your document" value="{{document}}" required>
-                        </div>
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" name="name" id="name" placeholder="name@example.com">
+                      <label for="name">NAME</label>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">Phone</label>
-                        <div class="col-lg-8">
-                            <input class="mb-2 form-control" id="phone" type="text" name="phone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" placeholder="Digit your cellphone" value="{{phone}}" required>
-                        </div>
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Your email">
+                      <label for="floatingInput">EMAIL</label>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">Birth Date</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="date" name="birth_date" id="birth_date"  value="{{birth_date}}"/>
-                        </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" minlength="11" maxlength="11" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" class="form-control" id="document" name="document" placeholder="name@example.com">
+                      <label for="document">DOCUMENT</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                      <input class="mb-2 form-control" id="phone" type="text" name="phone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" placeholder="Digit your cellphone" value="{{phone}}" required>
+                      <label for="document">PHONE</label>
+                    </div>
+
+
+                    <div class="form-floating mb-3">
+                      <input class="form-control" type="date" name="birth_date" id="birth_date"  value="{{birth_date}}" required>
+                      <label for="document">BIRTH_DATE</label>
                     </div>
 
                     <hr>
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">Older Password</label>
-                        <div class="col-lg-8">
-                            <input class="mb-2 form-control" minlength="6" name="olderPassword" type="password" placeholder="Confirm your older password">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">New Password</label>
-                        <div class="col-lg-8">
-                            <input class="mb-2 form-control" minlength="6" name="newPassword" type="password" placeholder="Digit your new password">
-                        </div>
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control" id="older_password" name="older_password">
+                      <label for="older_password">OLDER_PASSWORD</label>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label mb-2 form-control-label">Confirm New Password</label>
-                        <div class="col-lg-8">
-                            <input class="mb-2 form-control" minlength="6" name="confirmNewPassword" type="password" placeholder="Confirm your new password">
-                        </div>
+
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control" id="new_password" name="new_password">
+                      <label for="new_password">NEW_PASSWORD</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control" id="confirm_new_password" name="confirm_new_password">
+                      <label for="confirm_new_password">CONFIRM_NEW_PASSWORD</label>
                     </div>
 
                     <hr>
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">ZipCode</label>
-                        <div class="col-lg-8">
-                            <input type="number" class="mb-2 form-control" id="zipcode" name="zipcode" placeholder="Enter Your Zip Code" value="{{address.zipcode}}" required>
-                        </div>
+                    <div class="form-floating mb-3">
+                      <input class="mb-2 form-control" id="zipcode" type="text" name="zipcode" pattern= "\d{5}-?\d{3}"  value="{{address.zipcode}}" required>
+                      <label for="document">ZIPCODE</label>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">Street</label>
-                        <div class="col-lg-8">
-                            <input type="text" class="mb-2 form-control" id="street" name="street" placeholder="Street" value="{{address.street}}" onkeydown="return false;" required>
-                        </div>
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" id="street" value="{{address.street}}" onkeydown="return false;" required>
+                      <label for="street">STREET</label>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">Street Number</label>
-                        <div class="col-lg-8">
-                            <input class="mb-2 form-control" type="number" min='1' max='9999' name="street_number" placeholder="Digit your street number" value="{{address.street_number}}" required>
-                        </div>
+                    <div class="form-floating mb-3">
+                      <input class="mb-2 form-control" type="number" min='1' max='9999' name="street_number" placeholder="Digit your street number" value="{{address.street_number}}" required>
+                      <label for="street">STREET_NUMBER</label>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">Neighborhood</label>
-                        <div class="col-lg-8">
-                            <input type="text" class="mb-2 form-control" id="neighborhood" name="neighborhood" placeholder="Neighborhood" value="{{address.neighborhood}}" onkeydown="return false;" required>
-                        </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" class="mb-2 form-control" id="neighborhood" name="neighborhood" placeholder="Neighborhood" value="{{address.neighborhood}}" onkeydown="return false;" required>
+                      <label for="street">NEIGHBORHOOD</label>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">City</label>
-                        <div class="col-lg-8">
-                            <input type="text" class="mb-2 form-control" id="city" name="city" placeholder="City" value="{{address.city}}" onkeydown="return false;" required>
-                        </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" class="mb-2 form-control" id="city" name="city" placeholder="City" value="{{address.city}}" onkeydown="return false;" required>
+                      <label for="street">CITY</label>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">State</label>
-                        <div class="col-lg-8">
-                            <input type="text" class="mb-2 form-control" id="state" name="state" placeholder="State" value="{{address.state}}" onkeydown="return false;" required>
-                        </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" class="mb-2 form-control" id="state" name="state" placeholder="State" value="{{address.state}}" onkeydown="return false;" required>
+                      <label for="street">STATE</label>
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-lg-4 col-form-label">Country</label>
-                        <div class="col-lg-8">
-                            <input type="text" class="mb-2 form-control" id="country" name="country" value="BRAZIL" onkeydown="return false;" required>
-                        </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" class="mb-2 form-control" id="country" name="country" value="BRAZIL" onkeydown="return false;" required>
+                      <label for="street">COUNTRY</label>
                     </div>
 
                 {{/user}}

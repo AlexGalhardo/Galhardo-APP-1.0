@@ -43,8 +43,8 @@ class AdminController {
 	}
 
 	static getViewUpdateBlogPost (req, res){
-		const slug = req.params.slug;
-		const blogPost = Blog.getBlogPostBySlug(slug);
+		const blog_id = req.params.blog_id;
+		const blogPost = Blog.getBlogPostByID(blog_id);
 
 		res.render('pages/admin/updateBlogPost', {
 			blogPost,
@@ -54,13 +54,22 @@ class AdminController {
 
 	static postUpdateBlogPost (req, res){
 		
-		const { blog_id, blog_title, blog_category, blog_body } = req.body;
+		const { blog_id, 
+				blog_title, 
+				blog_resume,
+				blog_image,
+				blog_category, 
+				blog_body } = req.body;
 
 		const blogPostObject = {
-			id: blog_id,
+			id: parseInt(blog_id),
 			title: blog_title,
+			resume: blog_resume,
+			image: blog_image,
 			category: blog_category,
-			body: blog_body
+			body: blog_body,
+      		updated_at: null,
+      		comments: []
 		}
 
 		const blogPost = Blog.updateBlogPost(blogPostObject);

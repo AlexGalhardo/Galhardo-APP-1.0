@@ -1,65 +1,80 @@
 {{>partials/header}}
 
-	{{#blogPost}}
+	{{#user.admin}}
 	
-	<main class="container col-lg-6 mt-3 text-center">
+	{{#blogPost}}
 
-        <div class="row" class="text-end">
+	<main class="container col-lg-10 mt-3">
 
-        	<form action="/admin/update/blogPost/{{slug}}" method="POST">
+        <div class="row">
 
-	        	<div class="mb-3 row">
+        	{{#flash}}
+	            <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+	                <b>{{message}}</b>
+	            </div>
+	        {{/flash}}
 
-	        		{{#flash}}
-			            <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
-			                <b>{{message}}</b>
-			            </div>
-			        {{/flash}}
+        	<form action="/admin/update/blogPost/{{id}}" method="POST">
+
+        		<div class="row">
+
+	        		<div class="col-lg-6">
+
+				        <div class="form-floating mb-3">
+						  <input type="text" class="form-control" name="blog_id" id="blog_id" value="{{id}}" readonly>
+						  <label for="blog_id">BLOG_ID</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  <input type="text" class="form-control" name="blog_slug" id="blog_slug" value="{{slug}}" readonly>
+						  <label for="blog_slug">BLOG_SLUG</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  <input type="text" class="form-control" name="blog_updated_at" id="blog_updated_at" value="{{updated_at}}" readonly>
+						  <label for="blog_updated_at">BLOG_UPDATED_AT</label>
+						</div>
 
 
-			        	<label for="blog_slug" class="col-sm-2 col-form-label">ID</label>
-					    <div class="col-sm-10 mb-3">
-					      	<input type="text" class="form-control" name="blog_id" readonly value="{{id}}" required>
-					    </div>
+					    <div class="form-floating mb-3">
+						  <input type="text" class="form-control" name="blog_title" id="blog_title" required autofocus value="{{title}}">
+						  <label for="blog_title">BLOG_TITLE</label>
+						</div>
 
-		        		<label for="blog_slug" class="col-sm-2 col-form-label">Slug</label>
-					    <div class="col-sm-10 mb-3">
-					      	<input type="text" class="form-control" name="blog_slug" readonly value="{{slug}}" required>
-					    </div>
+					    <div class="form-floating mb-3">
+						  <input type="text" maxlength="256" class="form-control" name="blog_resume" id="blog_resume" required value="{{resume}}">
+						  <label for="blog_resume">BLOG_RESUME</label>
+						</div>
 
-					    <label for="blog_slug" class="col-sm-2 col-form-label">Updated at</label>
-					    <div class="col-sm-10 mb-3">
-					      	<input type="text" class="form-control" id="blog_slug" readonly value="{{updated_at}}">
-					    </div>
-					    
-					    <label for="blog_title" class="col-sm-2 col-form-label">Title</label>
-					    <div class="col-sm-10 mb-3">
-					      	<input type="text" value="{{title}}" class="form-control" name="blog_title" required autofocus>
-					    </div>
 
-					    <label for="blog_resume" class="col-sm-2 col-form-label">Resume</label>
-					    <div class="col-sm-10 mb-3">
-					      	<input type="text" value="{{resume}}" class="form-control" name="blog_resume" required autofocus>
-					    </div>
+						<div class="form-floating mb-3">
+						  <input type="text" maxlength="256" class="form-control" name="blog_image" id="blog_image" required value="{{image}}">
+						  <label for="blog_image">BLOG_IMAGE_RESUME</label>
+						</div>
 
-					    <label for="blog_category" class="col-sm-2 col-form-label">Category</label>
-					    <div class="col-sm-10 mb-3">
-						    <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="blog_category" required>
-						    	<option selected value="software">Software</option>
+					</div>
+
+
+					<div class="col-lg-6">
+
+						<div class="form-floating mb-3">
+						  	<select class="form-select" name="blog_category" id="blog_category" aria-label="Floating label select example" required>
+						    	<option value="software" selected>Software</option>
 						    	<option value="bussiness">Bussiness</option>
 						  	</select>
+						  	<label for="blog_category">BLOG_CATEGORY</label>
 						</div>
 
-						<label for="blog_body" class="col-sm-2 col-form-label">Body</label>
-						<div class="col-sm-10 mb-3">
-		  					<textarea class="form-control" name="blog_body" rows="8" required>{{body}}</textarea>
+						<div class="form-floating mb-3">
+						  <textarea class="form-control" name="blog_body" id="blog_body" style="height: 400px">{{body}}</textarea>
+						  <label for="blog_body">BLOG_BODY (HTML CODE)</label>
 						</div>
-						
+
+					</div>
+
 				</div>
 
-				<button type="submit" class="mb-3 w-25 btn btn-outline-primary shadow">
-	        		Update Blog Post
-	        	</button>
+				<button type="submit" class="mb-3 w-25 btn btn-outline-primary shadow">UPDATE Blog Post</button>
 
 			</form>
 
@@ -68,5 +83,7 @@
     </main>
 
     {{/blogPost}}
+
+    {{/user.admin}}
 
 {{>partials/footer}}
