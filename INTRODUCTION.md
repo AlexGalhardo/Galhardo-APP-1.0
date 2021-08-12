@@ -22,6 +22,7 @@
 - [https://translate.google.com/](https://translate.google.com/)
 - [https://www.freeprivacypolicy.com/](https://www.freeprivacypolicy.com/)
 - [https://sendgrid.com/](https://sendgrid.com/)
+- [Insomnia for HTTP Requests](https://snapcraft.io/insomnia)
 - https://picsum.photos/images
 - Bash
 - API Brazil Correios
