@@ -1,0 +1,126 @@
+{{>partials/header}}
+
+	<div class="container col-lg-7 mt-3">
+
+		<div class="row">
+
+            {{#flash}}
+                <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+                    <b class="fw-bold">{{message}}</b>
+                </div>
+            {{/flash}}
+
+            {{#user}}
+
+            <form id="formCreditCard" action="/plan/starter/checkout" method="POST">
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+
+                        <div class="card mb-4 rounded-3 shadow-sm text-center">
+                            <div class="card-header py-3 bg-warning">
+                                <h4 class="my-0 fw-normal">Plan STARTER</h4>
+                            </div>
+                            
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">$ 4.99<small class="text-muted fw-light">/month</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>✔️ Support via Telegram/WhatsApp</li>
+                                    <li>❌ Ilimited Recomendations</li>
+                                    <li>❌ Get news in email</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="email" name="customer_email" class="form-control" id="customer_email" placeholder="email@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autofocus value="test@gmail.com">
+                            <label for="customer_email">Email</label>
+                        </div>
+
+
+                        <!-- CONFIRM PASSWORD -->
+                        <div class="form-floating">
+                            <input id="password" name="password" value="123456" type="password" class="form-control" placeholder="Confirm your password" required minlength="6">
+                            <label for="password">Password</label>
+                        </div>
+
+
+                        <br>
+
+                    </div>
+                    <!-- END COL LG 5 -->
+
+
+
+                    <div class="col-lg-6">
+
+                        <div id="credit-card" class="tab-pane fade show active pt-3">
+
+                            <div id="div_credit_card"></div>
+
+                            <div class="form-group mb-2">
+                                <br>
+                                <input type="text" name="holder_name" placeholder="Credit Card Holder Name" required class="form-control" value="Test">
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <div class="input-group">
+                                    <input type="text" name="card_number" placeholder="Credit Card Number" class="form-control" value="4242424242424242" required>
+                                    <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="bi bi-credit-card h-100"></i> </span> </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <span class="hidden-xs">
+                                            <h6 class="text-muted small">Expiration Date</h6>
+                                        </span>
+                                        <div class="input-group">
+                                            <input type="number" placeholder="Month" name="card_exp_month" class="form-control" value="07" required>
+                                            <input type="number" placeholder="Year" name="card_exp_year" class="form-control" required value="2022"> </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-4">
+                                        <label data-toggle="tooltip" title="Digite os 3 dígitos de segurança atrás do Credit Card.">
+                                        <h6 class="text-muted small">CVV
+                                            <i class="fa fa-question-circle d-inline"></i>
+                                        </h6>
+                                        <input type="text" name="card_cvc" required class="form-control" placeholder="Code CVV" value="314"> </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="btn btn-outline-success btn-block shadow w-100">
+                                    <i class="bi bi-credit-card"></i> <span>Pay $4.99/Month</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- end row -->
+
+            </form>
+
+            {{/user}}
+
+
+        </div>
+
+	</div>
+
+    {{#user}}
+    	<script src="/scripts/jquery.min.js"></script>
+        <script src="/scripts/jquery.card.js"></script>
+        <script src="/scripts/render_credit_card.js"></script>
+    {{/user}}
+
+
+{{>partials/footer}}

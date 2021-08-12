@@ -163,7 +163,7 @@ class Users {
             customer_id: null,
             card_id: null,
             currently_subscription_id: null,
-            currently_subscription_name: null,
+            currently_subscription_name: "FREE",
             subscription_start: null, 
             subscription_end: null,
             subscription_automatically_renew: false
@@ -240,6 +240,56 @@ class Users {
       return false
     } catch (error) {
       return console.log("ERROR updateAvatarName: ", error);
+    }
+  }
+
+  static createStripeCustomer(user_id, customer_id){
+    try {
+      for(let i = 0; i < database.users.length; i++){
+        if(database.users[i].id === parseInt(user_id)){
+          database.users[i].stripe.customer_id = customer_id
+          Users.save(database, 'Error createStripeCustomer: ')
+          return true
+        }
+      }
+      return false
+    } catch (error) {
+      return console.log("ERROR createStripeCustomer: ", error);
+    }
+  }
+
+  static createStripeCard(user_id, card_token_id, card_id){
+    try {
+      for(let i = 0; i < database.users.length; i++){
+        if(database.users[i].id === parseInt(user_id)){
+          database.users[i].stripe.card_token_id = card_token_id
+          database.users[i].stripe.card_id = card_id
+          Users.save(database, 'Error createStripeCard: ')
+          return true
+        }
+      }
+      return false
+    } catch (error) {
+      return console.log("ERROR createStripeCard: ", error);
+    }
+  }
+
+  static createStripeSubscription(user_id, subscriptionObject){
+    try {
+      for(let i = 0; i < database.users.length; i++){
+        if(database.users[i].id === parseInt(user_id)){
+          database.users[i].stripe.currently_subscription_id = subscriptionObject.id
+          database.users[i].stripe.currently_subscription_name = 'PREMIUM'
+          database.users[i].stripe.subscription_start = subscriptionObject.current_period_start
+          database.users[i].stripe.subscription_end = subscriptionObject.current_period_end
+          database.users[i].stripe.subscription_automatically_renew = true
+          Users.save(database, 'Error createStripeSubscription: ')
+          return true
+        }
+      }
+      return false
+    } catch (error) {
+      return console.log("ERROR createStripeSubscription: ", error);
     }
   }
 }

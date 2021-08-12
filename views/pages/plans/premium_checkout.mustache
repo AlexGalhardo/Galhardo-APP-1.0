@@ -1,5 +1,7 @@
 {{>partials/header}}
 
+    {{#user}}
+
 	<div class="container col-lg-7 mt-3">
 
 		<div class="row">
@@ -9,8 +11,6 @@
                     <b class="fw-bold">{{message}}</b>
                 </div>
             {{/flash}}
-
-            {{#user}}
 
             <form id="formCreditCard" action="/plan/premium/checkout" method="POST">
 
@@ -27,7 +27,6 @@
                                 <h1 class="card-title pricing-card-title">$ 4.99<small class="text-muted fw-light">/month</small></h1>
                                 <ul class="list-unstyled mt-3 mb-4">
                                     <li>✔️ Support via Telegram/WhatsApp</li>
-                                    <li>✔️ Products descounts</li>
                                     <li>✔️ Ilimited Recomendations</li>
                                     <li>✔️ Get news in email</li>
                                 </ul>
@@ -36,14 +35,13 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="email" name="customer_email" class="form-control" id="customer_email" placeholder="email@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autofocus value="test@gmail.com">
+                            <input type="email" name="customer_email" class="form-control" id="customer_email" placeholder="email@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autofocus value="{{email}}">
                             <label for="customer_email">Email</label>
                         </div>
 
-
                         <!-- CONFIRM PASSWORD -->
                         <div class="form-floating">
-                            <input id="password" name="password" value="123456" type="password" class="form-control" placeholder="Confirm your password" required minlength="6">
+                            <input id="password" name="password" value="" type="password" class="form-control" placeholder="Confirm your password" required minlength="6">
                             <label for="password">Password</label>
                         </div>
 
@@ -57,6 +55,17 @@
 
                     <div class="col-lg-6">
 
+                        {{#customer_stripe_card_id}}
+                            <div class="form-floating mb-3">
+                                <select name="customer_stripe_card_id" class="form-select" id="stripe_card_id">
+                                    <option value="{{customer_stripe_card_id}}" selected>{{customer_stripe_card_id}}</option>
+                                </select>
+                                <label for="stripe_card_id">PAY WITH YOUR STRIPE CARD_ID</label>
+                            </div>
+                        {{/customer_stripe_card_id}}
+
+
+                        {{^customer_stripe_card_id}}
                         <div id="credit-card" class="tab-pane fade show active pt-3">
 
                             <div id="div_credit_card"></div>
@@ -94,10 +103,11 @@
                                         <input type="text" name="card_cvc" required class="form-control" placeholder="Code CVV" value="314"> </div>
                                 </div>
                             </div>
+                            {{/customer_stripe_card_id}}
                             
                             <div>
                                 <button type="submit" class="btn btn-outline-success btn-block shadow w-100">
-                                    <i class="bi bi-credit-card"></i> <span>Pay $4.99/Month</span>
+                                    <span>Pay $4.99/Month</span>
                                 </button>
                             </div>
 
@@ -110,18 +120,20 @@
 
             </form>
 
-            {{/user}}
+            
 
 
         </div>
 
 	</div>
 
-    {{#user}}
-    	<script src="/scripts/jquery.min.js"></script>
-        <script src="/scripts/jquery.card.js"></script>
-        <script src="/scripts/render_credit_card.js"></script>
+    
+	<script src="/scripts/jquery.min.js"></script>
+    <script src="/scripts/jquery.card.js"></script>
+    <script src="/scripts/render_credit_card.js"></script>
+
     {{/user}}
+    
 
 
 {{>partials/footer}}

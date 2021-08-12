@@ -54,8 +54,8 @@ const userIsNotLoggedIn = (req, res, next) => {
 
 const userIsAlreadyLoggedIn = (req, res, next) => {
 	if(req.session.userID){
-        return res.redirect('/');
-    }
+    return res.redirect('/');
+  }
 	next()
 }
 
@@ -106,13 +106,13 @@ router.post('/shop', ShopController.postShopPayLog);
 // PLANS VIEWS CONTROLLER
 router.get('/plans', PlansController.getViewPlans);
 
-// router.get('/plans/starter/checkout', PlansController.getViewPlanStarterCheckout);
+// router.get('/plan/starter/checkout', PlansController.getViewPlanStarterCheckout);
 // router.post('/plan/starter/checkout', PlansController.postPlanStarterPayLog);
 
-// router.get('/plans/pro/checkout', PlansController.getViewPlanProCheckout);
+// router.get('/plan/pro/checkout', PlansController.getViewPlanProCheckout);
 // router.post('/plan/pro/checkout', PlansController.postPlanProPayLog);
 
-router.get('/plans/premium/checkout', PlansController.getViewPlanPremiumCheckout);
+router.get('/plan/premium/checkout', PlansController.getViewPlanPremiumCheckout);
 router.post('/plan/premium/checkout', PlansController.postPlanPremiumPayLog);
 
 

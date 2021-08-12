@@ -68,10 +68,10 @@
         "card_token_id": null,
         "card_id": null,
         "currently_subscription_id": null,
-        "currently_subscription_name": null,
+        "currently_subscription_name": "FREE",
         "subscription_start": null,
         "subscription_end": null,
-        "subscription_automatically_renew": false
+        "subscription_automatically_renew": null
       },
       "created_at": "10/08/2021 02:25:35",
       "updated_at": "10/08/2021 02:25:35"
@@ -105,7 +105,7 @@
         "customer_id": null,
         "card_id": null,
         "currently_subscription_id": null,
-        "currently_subscription_name": null,
+        "currently_subscription_name": "FREE",
         "subscription_start": null,
         "subscription_end": null,
         "subscription_automatically_renew": false
