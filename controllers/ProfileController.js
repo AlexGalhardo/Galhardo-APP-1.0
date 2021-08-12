@@ -1,26 +1,26 @@
-const bodyParser = require('body-parser');
-const formidable = require('formidable');
-var fs = require('fs');
+const bodyParser = require('body-parser')
 
-const Users = require('../models/JSON/Users');
+const Upload = require('../helpers/Upload')
 
-const ProfileController = {
+const Users = require('../models/JSON/Users')
+
+class ProfileController {
 	
-	getViewProfile: async (req, res) => {
+	static async getViewProfile (req, res) {
     	return res.render('pages/profile/profile', {
     		user: SESSION_USER
     	});
-	},
+	}
 	
-	getLogout: (req, res, next) => {
-		req.session.destroy((err) => {
+	static getLogout (req, res, next) {
+		req.session.destroy((err) =>  {
 			SESSION_USER = null;
 	        next(err);
 	    });
 	    res.redirect('/login');
-	},
+	}
 
-	updateProfile: async(req, res) => {
+	static updateProfile (req, res) {
 		const { username, 
 				email, 
 				document, 
@@ -62,7 +62,7 @@ const ProfileController = {
 			type = "warning"
 			message = "You cant update test@gmail.com!"
 		} else {
-			if(!Users.updateProfile(userObject)) return console.log('NOT updatedProfileInJSON')
+			if(!Users.updateProfile(userObject)) return console.log('NOT updated Profile In JSON')
 		}
 
 		return res.render('pages/profile/profile', {
@@ -72,25 +72,11 @@ const ProfileController = {
     		},
     		user: SESSION_USER
     	});
-	},
+	}
 
-	updateProfileAvatar: async (req, res) => {
+	static updateProfileAvatar (req, res) {
 
-		const { avatar } = req.body
-
-		var form = new formidable.IncomingForm();
-
-		form.parse(req, function (err, fields, files) {
-	    	var oldpath = files.avatar.path;
-	      	
-	      	var newpath = `${APP_ROOT_PATH}/public/uploads/avatars/${req.session.userID}_${files.avatar.name}`;
-	      	
-	      	fs.rename(oldpath, newpath, function (err) {
-	        	if (err) throw err;
-	        })
-
-	        Users.updateAvatarName(`${req.session.userID}_${files.avatar.name}`, req.session.userID);
-	    });
+		Upload.avatarProfile(req)
 
 		res.redirect('/profile');
 	}

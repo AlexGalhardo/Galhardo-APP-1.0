@@ -14,17 +14,17 @@ const Users = require('../models/JSON/Users');
 
 const URL = require('../helpers/URL');
 
-const AuthController = {
+class AuthController {
 	
-	getViewLogin: (req, res) => {
+	static getViewLogin (req, res){
 		res.render('pages/auth/login', {
 			FacebookLoginURL: URL.getFacebookURL,
 			GitHubLoginURL: URL.getGitHubURL,
 			GoogleLoginURL: URL.getGoogleURL
 		});
-	},
+	}
 	
-	postLogin: async (req, res, next) => {
+	static async postLogin (req, res, next){
 		const errors = validationResult(req);
 	    const { email, password } = req.body;
 
@@ -72,16 +72,16 @@ const AuthController = {
         		}
             });
 	    }
-	},
+	}
 	
-	getViewRegister: (req, res) => {
+	static getViewRegister (req, res){
 		res.render('pages/auth/register');
-	},
+	}
 
-	verifyIfConfirmEmailURLIsValid: async (req, res) => {
+	static verifyIfConfirmEmailURLIsValid (req, res){
 		const { email, token } = req.params;
 
-		const confirmEmailValid = await Users.verifyConfirmEmailToken(email, token)
+		const confirmEmailValid = Users.verifyConfirmEmailToken(email, token)
 
 		if(confirmEmailValid){
 			return res.render('pages/auth/login', {
@@ -93,9 +93,9 @@ const AuthController = {
 		}
 
 		return res.redirect('/login')
-	},
+	}
 
-	postRegister: async (req, res, next) => {
+	static postRegister (req, res, next){
 		const errors = validationResult(req);
 	    const { username, email, password, confirm_password } = req.body;
 	    const confirm_email_token = randomToken.generate(16)
@@ -113,7 +113,7 @@ const AuthController = {
 
 	    try {
 
-	    	const responseRegisterUser = await Users.registerUser(username, email, password, confirm_password, confirm_email_token)
+	    	const responseRegisterUser = Users.registerUser(username, email, password, confirm_password, confirm_email_token)
 
 	    	if(responseRegisterUser.error){
 	    		return res.render("pages/auth/register", {
@@ -141,17 +141,17 @@ const AuthController = {
             	}
 	        });
 	    }
-	},
+	}
 	
-	getViewForgetPassword: (req, res) => {
+	static getViewForgetPassword(req, res){
 		res.render('pages/auth/forgetPassword');
-	},
+	}
 	
-	postForgetPassword: async (req, res) => {
+	static postForgetPassword (req, res){
 		const { email } = req.body;
 		const reset_password_token = randomToken.generate(16);
 
-        const resetPasswordTokenCreated = await Users.createResetPasswordToken(email, reset_password_token);
+        const resetPasswordTokenCreated = Users.createResetPasswordToken(email, reset_password_token);
 
         NodeMailer.postForgetPassword(email, reset_password_token);
 
@@ -165,9 +165,9 @@ const AuthController = {
 				message: `If this email exists, we'll send a link to this email to recover password!`
 			}
 		});
-	},
+	}
 	
-	getViewResetPassword: (req, res) => {
+	static getViewResetPassword (req, res){
 		const email = req.params.email;
 		const token = req.params.token;
 
@@ -184,9 +184,9 @@ const AuthController = {
 		res.render('pages/auth/resetPassword', {
 			email
 		});
-	},
+	}
 
-	postResetPassword: async (req, res) => {
+	static postResetPassword (req, res){
 		const email = req.body.email;
 		const newPassword = req.body.new_password;
 		const confirmNewPassword = req.body.confirm_new_password;
@@ -212,9 +212,9 @@ const AuthController = {
 				message: "You updated your password!"
 			}
 		});
-	},
+	}
 
-	loginFacebook: async (req, res) => {
+	static async loginFacebook (req, res){
 		const code = req.query.code;
 		console.log(`The facebook code is: ${code}`);
 
@@ -247,9 +247,9 @@ const AuthController = {
 	  			message: `FACEBOOK: ${id}, ${email}`
 	  		}
 	  	});
-	},
+	}
 
-	loginGitHub: async (req, res) => {
+	static async loginGitHub (req, res){
 		const code = req.query.code;
 		console.log(`The code is: ${code}`);
 
@@ -285,9 +285,9 @@ const AuthController = {
 	  			message: `GITHUB: ${id}, ${email}, ${name}, ${avatar_url}`
 	  		}
 	  	});
-	},
+	}
 
-	loginGoogle: async (req, res) => {
+	static async loginGoogle (req, res){
 		const code = req.query.code;
 		console.log(`The google code is: ${code}`);
 
@@ -319,7 +319,7 @@ const AuthController = {
 	  			message: `GOOGLE: ${id}, ${email}`
 	  		}
 	  	});
-	},
+	}
 }
 
 module.exports = AuthController;

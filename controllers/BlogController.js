@@ -7,9 +7,9 @@ const DateTime = require('../helpers/DateTime');
 // Models
 const Blog = require('../models/JSON/Blog');
 
-const BlogController = {
+class BlogController {
 
-	getViewBlog: async (req, res) => {
+	static async getViewBlog(req, res){
 		const totalBlogPosts = await Blog.getTotalBlogPosts();
 		const blogPostsPerPage = 4;
 		
@@ -28,10 +28,10 @@ const BlogController = {
 			blog_active: true,
 			boostrapPaginator: BlogController.getRenderBootstrapPaginator(page, blogPostsPerPage, totalBlogPosts)
 		});
-	},
+	}
 
-	getSearchBlogTitle: async (req, res) => {
-		const blogPosts = await Blog.getAllBlogPosts();
+	static getSearchBlogTitle (req, res){
+		const blogPosts = Blog.getAllBlogPosts();
 		const searchBlogTitle = req.query.blogTitle;
 
 		if(!searchBlogTitle){
@@ -40,7 +40,7 @@ const BlogController = {
 		
 		console.log(blogPosts, searchBlogTitle);
 
-		const blogTitlesSearched = await blogPosts.filter(blogPost => blogPost.title.toLowerCase().indexOf(searchBlogTitle.toLowerCase()) > -1);
+		const blogTitlesSearched = blogPosts.filter(blogPostblogPost.title.toLowerCase().indexOf(searchBlogTitle.toLowerCase()) > -1);
 
 		const totalBlogPostsFoundFromSearch = blogTitlesSearched.length;
 
@@ -50,20 +50,20 @@ const BlogController = {
 			totalBlogPostsFoundFromSearch,
 			blog_active: true,
 		})
-	},
+	}
 
-	getViewBlogPost: async (req, res) => {
+	static getViewBlogPost (req, res) {
 		const slug = req.params.slug;
 
-		const blogPost = await Blog.getBlogPostBySlug(slug)
+		const blogPost = Blog.getBlogPostBySlug(slug)
 
-		blogPost.comments = await blogPost.comments.map(comment => {
+		blogPost.comments = blogPost.comments.map(comment => {
 			if(SESSION_USER && comment.user_id == SESSION_USER.id){
 				comment.user_logged_can_delete = true
 				console.log('true agora é: ', comment.user_logged_can_delete)
 			}
 			return comment
-		})
+		});
 
 		console.log(blogPost.comments)
 
@@ -72,9 +72,9 @@ const BlogController = {
 			blogPost,
 			blog_active: true,
 		});
-	},
+	}
 
-	getRenderBootstrapPaginator: function(current, blogPostsPerPage, totalBlogPosts, searchBlogTitle) {
+	static getRenderBootstrapPaginator(current, blogPostsPerPage, totalBlogPosts, searchBlogTitle) {
 
 		let prelinkUrl = '/blog/';
 
@@ -112,9 +112,9 @@ const BlogController = {
 		        return html;
 		    }
 		}).render();
-	},
+	}
 
-	postBlogComment: async (req, res) => {
+	static postBlogComment (req, res){
 		const slug = req.params.slug;
 		const { blog_comment } = req.body;
 
@@ -142,9 +142,9 @@ const BlogController = {
 			blogPost,
 			user: SESSION_USER
 		})
-	},
+	}
 
-	getDeleteBlogCommentByCommentID: (req, res) => {
+	static getDeleteBlogCommentByCommentID (req, res){
 		const { slug, comment_id } = req.params;
 		
 		// return blog post if success, null if not success
@@ -163,6 +163,6 @@ const BlogController = {
 			user: SESSION_USER
 		})
 	}
-};
+}
 
 module.exports = BlogController;

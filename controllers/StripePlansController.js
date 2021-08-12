@@ -3,13 +3,15 @@ const DateTime = require('../helpers/DateTime');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
-const PlansController = {
-	getViewCreate: (req, res) => {
+class StripePlansController {
+	
+	static getViewCreate (req, res) {
 		res.render('pages/stripe/plans/create', {
 			user: SESSION_USER
 		});
-	},
-	postCreatePlan: async (req, res) => {
+	}
+
+	static async postCreatePlan (req, res) {
 		const amount = req.body.plan_amount;
 		const currency = req.body.plan_currency;	
 		const interval = req.body.plan_interval;
@@ -38,13 +40,15 @@ const PlansController = {
 			plan_name: product.name,
 			user: SESSION_USER
 		});
-	},
-	getViewRetrieve: (req, res) => {
+	}
+	
+	static getViewRetrieve (req, res) {
 		res.render('pages/stripe/plans/retrieve', {
 			user: SESSION_USER
 		});
-	},
-	postRetrievePlan: async (req, res) => {
+	}
+
+	static async postRetrievePlan (req, res) {
 		let plan_id = req.body.plan_id;
 		
 		const plan = await stripe.plans.retrieve(
@@ -61,13 +65,15 @@ const PlansController = {
 			plan,
 			user: SESSION_USER
 		});
-	},
-	getViewUpdate: (req, res) => {
+	}
+	
+	static getViewUpdate (req, res) {
 		res.render('pages/stripe/plans/update', {
 			user: SESSION_USER
 		});
-	},
-	postUpdatePlan: async (req, res) => {
+	}
+
+	static async postUpdatePlan (req, res) {
 		const customer = await stripe.customers.update(
   			customer_id,
   			{
@@ -84,13 +90,15 @@ const PlansController = {
 			customer,
 			user: SESSION_USER
 		});
-	},
-	getViewDelete: (req, res) => {
+	}
+	
+	static getViewDelete (req, res) {
 		res.render('pages/stripe/plans/delete', {
 			user: SESSION_USER
 		});
-	},
-	postDeletePlan: async (req, res) => {
+	}
+
+	static async postDeletePlan (req, res) {
 		const plan_id = req.body.plan_id.trim()
 		const planDeleted = await stripe.plans.del(
   			plan_id
@@ -104,8 +112,9 @@ const PlansController = {
 			plan: planDeleted,
 			user: SESSION_USER
 		});
-	},
-	getViewListAll: async (req, res) => {
+	}
+	
+	static async getViewListAll (req, res)  {
 		const plans = await stripe.plans.list({limit: 10});
 
 		let lastPlansCreated = plans.data.length;
@@ -122,4 +131,4 @@ const PlansController = {
 	}
 };
 
-module.exports = PlansController;
+module.exports = StripePlansController;

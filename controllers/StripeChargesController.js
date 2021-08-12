@@ -3,13 +3,15 @@ const DateTime = require('../helpers/DateTime');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
-const ChargesController = {
-	getViewCreate: (req, res) => {
+class StripeChargesController  {
+	
+	static getViewCreate (req, res)  {
 		res.render('pages/stripe/charges/create', {
 			user: SESSION_USER
 		});
-	},
-	postCreateCharge: async (req, res) => {
+	}
+
+	static async postCreateCharge (req, res) {
 		const amount = req.body.charge_amount;
 		const currency = req.body.charge_currency;
 		const customer_card_id = req.body.customer_card_id;
@@ -37,13 +39,15 @@ const ChargesController = {
 			charge,
 			user: SESSION_USER
 		});
-	},
-	getViewRetrieve: (req, res) => {
+	}
+	
+	static getViewRetrieve (req, res) {
 		res.render('pages/stripe/charges/retrieve', {
 			user: SESSION_USER
 		});
-	},
-	postRetrieveCharge: async (req, res) => {
+	}
+	
+	static async postRetrieveCharge (req, res) {
 		const charge_id = req.body.charge_id;
 		
 		const charge = await stripe.charges.retrieve(
@@ -60,8 +64,9 @@ const ChargesController = {
 			charge,
 			user: SESSION_USER
 		});
-	},
-	getViewListAll: async (req, res) => {
+	}
+
+	static async getViewListAll (req, res) {
 		const charges = await stripe.charges.list({
   			limit: 10
 		});
@@ -79,4 +84,4 @@ const ChargesController = {
 	}
 };
 
-module.exports = ChargesController;
+module.exports = StripeChargesController;

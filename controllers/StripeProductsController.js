@@ -3,13 +3,15 @@ const DateTime = require('../helpers/DateTime');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
-const ProductsController = {
-	getViewCreate: (req, res) => {
+class StripeProductsController {
+
+	static getViewCreate (req, res) {
 		res.render('pages/stripe/products/create', {
 			user: SESSION_USER
 		});
-	},
-	postCreateProduct: async (req, res) => {
+	} 
+
+	static async postCreateProduct (req, res) {
 		const product_name = req.body.product_name;
 		
 		const product = await stripe.products.create({
@@ -26,13 +28,15 @@ const ProductsController = {
 			product,
 			user: SESSION_USER
 		});
-	},
-	getViewRetrieve: (req, res) => {
+	}
+	
+	static getViewRetrieve (req, res) {
 		res.render('pages/stripe/products/retrieve', {
 			user: SESSION_USER
 		});
-	},
-	postRetrieveProduct: async (req, res) => {
+	}
+	
+	static async postRetrieveProduct (req, res) {
 		const product_id = req.body.product_id;
 
 		const product = await stripe.products.retrieve(
@@ -50,13 +54,15 @@ const ProductsController = {
 			product,
 			user: SESSION_USER
 		});
-	},
-	getViewUpdate: (req, res) => {
+	}
+
+	static getViewUpdate (req, res) {
 		res.render('pages/stripe/products/update', {
 			user: SESSION_USER
 		});
-	},
-	postUpdateProduct: async (req, res) => {
+	}
+
+	static async postUpdateProduct (req, res) {
 		const product_id = req.body.product_id;
 		const description = req.body.description;
 		const name = req.body.name;
@@ -89,11 +95,13 @@ const ProductsController = {
 			product,
 			user: SESSION_USER
 		});
-	},
-	getViewDelete: (req, res) => {
-		res.render('pages/stripe/products/delete');
-	},
-	postDeleteProduct: async (req, res) => {
+	}
+
+	static getViewDelete (req, res){
+		return res.render('pages/stripe/products/delete');
+	}
+	
+	static async postDeleteProduct (req, res) {
 		let product_id = req.body.product_id;
 
 		if(product_id == "prod_JxIQjuKdjaZdHk"){
@@ -119,8 +127,9 @@ const ProductsController = {
 			product: productDeleted,
 			user: SESSION_USER
 		});
-	},
-	getViewListAll: async (req, res) => {
+	}
+	
+	static async getViewListAll (req, res) {
 		const products = await stripe.products.list({
   			limit: 10,
 		});
@@ -138,7 +147,7 @@ const ProductsController = {
 			products: products.data,
 			user: SESSION_USER
 		});
-	},
+	}
 }
 
-module.exports = ProductsController;
+module.exports = StripeProductsController;

@@ -6,16 +6,18 @@ const DateTime = require('../helpers/DateTime');
 // Stripe
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
-const ShopController = {
 
-	getViewShop: async (req, res) => {
+
+class ShopController {
+
+	static getViewShop (req, res)  {
 	    res.render('pages/shop/shop_checkout', {
 	        user: SESSION_USER,
 	        shop_active: true
 	    });
-	},
+	}
 
-	postShopPayLog: async (req, res) => {
+	static async postShopPayLog (req, res) {
 		
 		// get post request name inputs
 		const { quantityOranges,
@@ -93,7 +95,7 @@ const ShopController = {
 			shipping,
 			user: SESSION_USER
 		});
-	},
+	}
 
 };
 

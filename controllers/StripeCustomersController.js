@@ -5,31 +5,33 @@ const StripeModel = require('../models/JSON/Stripe');
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 
-const CustomersController = {
+class StripeCustomersController {
 
-	getViewCreate: (req, res) => {
+	static getViewCreate(req, res) {
 		return res.render('pages/stripe/customers/create', {
 			user: SESSION_USER
 		});	
-	},
-	getViewRetrieve: (req, res) => {
+	}
+	
+	static getViewRetrieve (req, res) {
 		res.render('pages/stripe/customers/retrieve', {
 			user: SESSION_USER
 		});
-	},
-	getViewUpdate: (req, res) => {
+	} 
+
+	static getViewUpdate (req, res) {
 		return res.render('pages/stripe/customers/update', {
 			user: SESSION_USER
 		});	
-	},
+	}
 	
-	getViewDelete: (req, res) => {
+	static getViewDelete (req, res) {
 		return res.render('pages/stripe/customers/delete', {
 			user: SESSION_USER
 		});	
-	},
+	}
 
-	getViewListAll: async (req, res) => {
+	static async getViewListAll (req, res) {
 
 		let customers = await stripe.customers.list({
 			limit: 20
@@ -48,9 +50,9 @@ const CustomersController = {
 			customers: customers.data,
 			user: SESSION_USER
 		});
-	},
+	}
 	
-	postCreateCustomer: async (req, res) => {
+	static async postCreateCustomer (req, res) {
 		let name = req.body.customer_name
 		let email = req.body.customer_email		
 		let customer = await stripe.customers.create({
@@ -71,8 +73,9 @@ const CustomersController = {
 			},
 			customer
 		});
-	},
-	postRetrieveCustomer: async (req, res) => {
+	}
+
+	static async postRetrieveCustomer (req, res) {
 		let customer_id = req.body.customer_id;
 		console.log(customer_id)
 		const customer = await stripe.customers.retrieve(
@@ -86,8 +89,9 @@ const CustomersController = {
 			},
 			customer
 		});
-	},
-	postUpdateCustomer: async (req, res) => {
+	}
+	
+	static async postUpdateCustomer (req, res) {
 		let customer_id = req.body.customer_id;
 		let name = req.body.customer_name;
 		let email = req.body.customer_email;
@@ -107,8 +111,9 @@ const CustomersController = {
 			},
 			customer
 		});
-	},
-	postDeleteCustomer: async (req, res) => {
+	}
+
+	static async postDeleteCustomer (req, res) {
 		let customer_id = req.body.customer_id;
 
 		if(customer_id == "cus_K15RnWHRhUA0HF"){
@@ -135,4 +140,4 @@ const CustomersController = {
 	}
 };
 
-module.exports = CustomersController;
+module.exports = StripeCustomersController;

@@ -3,13 +3,15 @@ const DateTime = require('../helpers/DateTime');
 
 const stripe = require('stripe')(process.env.STRIPE_SK_TEST);
 
-const PricesController = {
-	getViewCreate: (req, res) => {
+class StripePricesController {
+	
+	static getViewCreate (req, res) {
 		res.render('pages/stripe/prices/create', {
 			user: SESSION_USER
 		});
-	},
-	postCreatePrice: async (req, res) => {
+	}
+
+	static async postCreatePrice (req, res) {
 		const price_amount = req.body.price_amount;
 		const price_currency = req.body.price_currency;
 		const price_recurring = req.body.price_recurring;
@@ -34,13 +36,15 @@ const PricesController = {
 			price,
 			user: SESSION_USER
 		});
-	},
-	getViewRetrieve: (req, res) => {
+	}
+	
+	static getViewRetrieve (req, res) {
 		res.render('pages/stripe/prices/retrieve', {
 			user: SESSION_USER
 		});
-	},
-	postRetrievePrice: async (req, res) => {
+	}
+	
+	static async postRetrievePrice (req, res) {
 		const price_id = req.body.price_id;
 		
 		const price = await stripe.prices.retrieve(
@@ -57,8 +61,9 @@ const PricesController = {
 			price,
 			user: SESSION_USER
 		});
-	},
-	getViewListAll: async (req, res) => {
+	}
+	
+	static async getViewListAll (req, res) {
 		const prices = await stripe.prices.list({
   			limit: 10,
 		});
@@ -77,4 +82,4 @@ const PricesController = {
 	}
 };
 
-module.exports = PricesController;
+module.exports = StripePricesController;

@@ -215,21 +215,9 @@ class Users {
       for(let i = 0; i < database.users.length; i++){
 
         if(database.users[i].id == userObject.id){
-          
-          database.users[i].name = userObject.username
-          database.users[i].email = userObject.email
-          database.users[i].document = userObject.document
-          database.users[i].phone = userObject.phone
-          database.users[i].birth_date = userObject.birth_date
-          database.users[i].address.zipcode = userObject.zipcode
-          database.users[i].address.street = userObject.street
-          database.users[i].address.street_number = userObject.street_number
-          database.users[i].address.neighborhood = userObject.neighborhood
-          database.users[i].address.city = userObject.city
-          database.users[i].address.state = userObject.state
-          database.users[i].address.country = userObject.country
-          database.users[i].updated_at = DateTime.getNow()
-          
+          userObject.created_at = database.users[i].created_at
+          userObject.updated_at = DateTime.getNow()
+          datbase.users.splice(i, 1, userObject)
           Users.save(database, 'Error updateProfile: ')
           return true
         }

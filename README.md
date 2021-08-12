@@ -105,6 +105,9 @@
 ![ga_profile](https://user-images.githubusercontent.com/19540357/128649496-ff6721c2-f9f4-4884-9a30-dd564a713920.png)
 
 
+## Feedbacks
+- If you have any feedback or improvement tip about this project, send a pull request or send me a email at: aleexgvieira@gmail.com
+- I really apreciate good feedbacks
 
 ## License
 

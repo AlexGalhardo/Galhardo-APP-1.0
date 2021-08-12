@@ -4,35 +4,34 @@ const NodeMailer = require('../helpers/NodeMailer');
 const Games = require('../models/JSON/Games');
 const Books = require('../models/JSON/Books');
 
-
-const AppController = {
+class AppController {
 	
-	getViewHome: async (req, res) => {
-		const game = await Games.getRandomGame()
+	static getViewHome (req, res) {
+		const game = Games.getRandomGame()
 
 	    res.render('pages/home', {
 	    	game,
 	      	user: SESSION_USER
 	    });
-	},
+	}
 
-	getViewBooks: async (req, res) => {
-		const book = await Books.getRandomBook()
+	static getViewBooks (req, res){
+		const book = Books.getRandomBook()
 
 	    res.render('pages/books', {
 	    	book,
 	      	user: SESSION_USER
 	    });
-	},
+	}
 
-	getViewContact: async (req, res) => {
+	static getViewContact (req, res){
 		res.render('pages/contact', {
 			user: SESSION_USER,
 			contact_active: true,
 		});
-	},
+	}
 
-	postContact: async (req, res) => {
+	static postContact (req, res){
 		const { contact_username,
 				contact_email,
 				contact_subject,
@@ -53,14 +52,14 @@ const AppController = {
 		}
 
 		return res.redirect('/contact')
-	},
+	}
 
-	getViewPrivacy: async (req, res) => {
+	static getViewPrivacy (req, res){
 		res.render('pages/privacy', {
 			user: SESSION_USER,
 			privacy_active: true
 		});
-	},
+	}
 };
 
 module.exports = AppController;

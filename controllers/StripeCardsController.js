@@ -2,13 +2,15 @@ const bodyParser = require('body-parser')
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
-const CardsController = {
-	getViewCreate: (req, res) => {
+class StripeCardsController {
+
+	static getViewCreate (req, res)  {
 		res.render('pages/stripe/cards/create', {
 			user: SESSION_USER
 		});
-	},
-	postCreateCreditCard: async (req, res) => {
+	}
+
+	static async postCreateCreditCard (req, res) {
 		const customer_id = req.body.customer_id;
 		const card_number = req.body.card_number;
 		const card_exp_month = req.body.card_exp_month;
@@ -44,13 +46,15 @@ const CardsController = {
 			card: creditCardToken,
 			user: SESSION_USER
 		});
-	},
-	getViewRetrieve: (req, res) => {
+	}
+
+	static getViewRetrieve (req, res) {
 		res.render('pages/stripe/cards/retrieve', {
 			user: SESSION_USER
 		});
-	},
-	postRetrieveCard: async (req, res) => {
+	}
+
+	static async postRetrieveCard (req, res) {
 		const customer_id = req.body.customer_id;
 		const card_id = req.body.card_id;
 
@@ -67,13 +71,15 @@ const CardsController = {
 			card,
 			user: SESSION_USER
 		});
-	},
-	getViewUpdate: (req, res) => {
+	}
+
+	static getViewUpdate (req, res) {
 		res.render('pages/stripe/cards/update', {
 			user: SESSION_USER
 		});
-	},
-	postUpdateCard: async (req, res) => {
+	}
+	
+	static async postUpdateCard (req, res) {
 		const customer_id = req.body.customer_id;
 		const card_id = req.body.card_id;
 		const card_holder_name = req.body.card_holder_name;
@@ -102,13 +108,15 @@ const CardsController = {
 			card,
 			user: SESSION_USER
 		});
-	},
-	getViewDelete: (req, res) => {
+	}
+	
+	static getViewDelete (req, res) {
 		res.render('pages/stripe/cards/delete', {
 			user: SESSION_USER
 		});
-	},
-	postDeleteCard: async (req, res) => {
+	}
+	
+	static async postDeleteCard (req, res) {
 		const customer_id = req.body.customer_id;
 		const card_id = req.body.card_id;
 
@@ -135,13 +143,15 @@ const CardsController = {
 			card: cardDeleted,
 			user: SESSION_USER
 		});
-	},
-	getViewListAll: (req, res) => {
+	}
+	
+	static getViewListAll (req, res) {
 		res.render('pages/stripe/cards/listAll', {
 			user: SESSION_USER
 		});
-	},
-	postListAll: async (req, res) => {
+	}
+	
+	static async postListAll (req, res) {
 		let customer_id = req.body.customer_id;
 		
 		let cards = await stripe.customers.listSources(
@@ -168,4 +178,4 @@ const CardsController = {
 	}
 };
 
-module.exports = CardsController;
+module.exports = StripeCardsController;

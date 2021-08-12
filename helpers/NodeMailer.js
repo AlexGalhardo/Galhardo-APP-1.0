@@ -6,8 +6,9 @@ const randomToken = require('rand-token');
 
 const Users = require('../models/JSON/Users');
 
-const NodeMailer = {
-    postContact: async (username, email, subject, message) => {
+class NodeMailer {
+    
+    static async postContact (username, email, subject, message) {
         // const filePath = path.join(__dirname, '../views/emails/contact.html');
         // const filePath = path.join(__dirname, '../views/emails/subscription_transaction.html');
         const filePath = path.join(__dirname, '../views/emails/forget_password.html');
@@ -49,9 +50,9 @@ const NodeMailer = {
         console.log(response);
 
         return response
-    },
+    }
 
-    sendConfirmEmailToken: async (email, confirm_email_token) => {
+    static async sendConfirmEmailToken (email, confirm_email_token) {
         const smtpTransport = nodemailer.createTransport({
             host: process.env.SENDGRID_SERVER,
             port: 587,
@@ -79,9 +80,9 @@ const NodeMailer = {
         console.log(response)
 
         return true
-    },
+    }
 
-    postForgetPassword: async (email, reset_password_token) => {
+    static async postForgetPassword (email, reset_password_token) {
         const smtpTransport = nodemailer.createTransport({
             host: process.env.SENDGRID_SERVER,
             port: 587,

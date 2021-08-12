@@ -3,13 +3,15 @@ const DateTime = require('../helpers/DateTime');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
-const SubscriptionsController = {
-	getViewCreate: (req, res) => {
+class StripeSubscriptionsController  {
+	
+	static getViewCreate (req, res) {
 		res.render('pages/stripe/subscriptions/create', {
 			user: SESSION_USER
 		});
-	},
-	postCreateSubscription: async (req, res) => {
+	}
+	
+	static async postCreateSubscription (req, res) {
 		const customer_id = req.body.customer_id
 		const plan_id = req.body.plan_id; 
 
@@ -34,13 +36,15 @@ const SubscriptionsController = {
 			subscription,
 			user: SESSION_USER
 		});
-	},
-	getViewRetrieve: (req, res) => {
+	}
+
+	static getViewRetrieve (req, res) {
 		res.render('pages/stripe/subscriptions/retrieve', {
 			user: SESSION_USER
 		});
-	},
-	postRetrieveSubscription: async (req, res) => {
+	}
+
+	static async postRetrieveSubscription (req, res) {
 		let subs_id = req.body.subs_id;
 		
 		const subscription = await stripe.subscriptions.retrieve(
@@ -59,13 +63,15 @@ const SubscriptionsController = {
 			subscription,
 			user: SESSION_USER
 		});
-	},
-	getViewUpdate: (req, res) => {
+	}
+	
+	static getViewUpdate(req, res) {
 		res.render('pages/stripe/subscriptions/update', {
 			user: SESSION_USER
 		});
-	},
-	postUpdateSubscription: async (req, res) => {
+	}
+	
+	static async postUpdateSubscription (req, res) {
 		const customer = await stripe.customers.update(
   			customer_id,
   			{
@@ -82,13 +88,15 @@ const SubscriptionsController = {
 			customer,
 			user: SESSION_USER
 		});
-	},
-	getViewCancel: (req, res) => {
+	}
+	
+	static getViewCancel (req, res) {
 		res.render('pages/stripe/subscriptions/cancel', {
 			user: SESSION_USER
 		});
-	},
-	postCancelSubscription: async (req, res) => {
+	}
+	
+	static async postCancelSubscription (req, res) {
 		const subs_id = req.body.subs_id;
 
 		if(subs_id == "sub_Jy4iOLKMWVoWzr"){
@@ -119,8 +127,9 @@ const SubscriptionsController = {
 			subscription: canceledSubscription,
 			user: SESSION_USER
 		});
-	},
-	getViewListAll: async (req, res) => {
+	}
+	
+	static async getViewListAll (req, res) {
 		const subscriptions = await stripe.subscriptions.list({
   			limit: 10,
 		});
@@ -141,4 +150,4 @@ const SubscriptionsController = {
 	}
 };
 
-module.exports = SubscriptionsController;
+module.exports = StripeSubscriptionsController;
