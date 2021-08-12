@@ -142,6 +142,8 @@ router.post('/admin/create/blogPost', isAdmin, AdminController.postCreateBlogPos
 router.get('/admin/update/blogPost/:blog_id', isAdmin, AdminController.getViewUpdateBlogPost);
 router.post('/admin/update/blogPost/:blog_id', isAdmin, AdminController.postUpdateBlogPost);
 
+router.post('/admin/delete/blogPost/:blog_id', isAdmin, AdminController.postDeleteBlogPost);
+
 router.get('/admin/create/game', isAdmin, AdminController.getViewCreateGame);
 router.post('/admin/create/game', isAdmin, AdminController.postCreateGame);
 

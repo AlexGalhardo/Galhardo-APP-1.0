@@ -166,6 +166,21 @@ class Blog {
       		return console.log("ERROR createBlogComment: ", error);
     	}
 	}
+
+	static deleteBlogPostByID(blog_id){
+		try {
+      		for(let i=0; i < database.blog.length; i++){
+        		if(database.blog[i].id === parseInt(blog_id)){
+        			database.blog.splice(i, 1)
+        			Blog.save(database, "Error deleteBlogPostByID: ")
+        			return true
+        		}
+      		}
+      		return false
+    	} catch (error) {
+      		return console.log("ERROR deleteBlogPostByID: ", error);
+    	}
+	}
 }
 
 module.exports = Blog;

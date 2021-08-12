@@ -95,6 +95,22 @@ class AdminController {
 		});
 	}
 
+	static postDeleteBlogPost(req, res) {
+		const blog_id = req.params.blog_id;
+		
+		if(Blog.deleteBlogPostByID(parseInt(blog_id))){
+			/*return res.render("pages/admin/createGame", {
+				flash: {
+					type: "success",
+					message: `blog_id: ${blog_id} deleted with success!`
+				}
+			})*/
+			return res.redirect('/admin/create/blogPost')
+		}
+		return res.redirect(`/admin/update/blogPost/${blog_id}`)
+	}
+
+
 
 
 

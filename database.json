@@ -162,18 +162,6 @@
       "comments": []
     },
     {
-      "title": "Blog Title 4",
-      "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-      "slug": "blog-title-4",
-      "category": "Soft Skills",
-      "body": "Blog Body 4",
-      "image": "https://picsum.photos/id/4/230/230",
-      "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "id": 4,
-      "comments": []
-    },
-    {
       "title": "Blog Title 5",
       "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
       "slug": "blog-title-5",
@@ -182,7 +170,7 @@
       "image": "https://picsum.photos/id/5/230/230",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "id": 5,
+      "id": 4,
       "comments": []
     },
     {
@@ -194,7 +182,7 @@
       "image": "https://picsum.photos/id/6/230/230",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "id": 6,
+      "id": 5,
       "comments": []
     }
   ],
