@@ -10,9 +10,9 @@
 
 const bodyParser = require('body-parser')
 
-const Blog = require('../models/JSON/Blog')
-const Games = require('../models/JSON/Games')
-const Books = require('../models/JSON/Books')
+const Blog = require('../../models/JSON/Blog')
+const Games = require('../../models/JSON/Games')
+const Books = require('../../models/JSON/Books')
 
 
 class APIPublicController {

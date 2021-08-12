@@ -9,7 +9,7 @@
  */
 
 const bodyParser = require('body-parser');
-const DateTime = require('../helpers/DateTime');
+const DateTime = require('../../helpers/DateTime');
 
 const StripeJSONModel = require('../../models/JSON/Stripe');
 // const StripeMySQLModel = require('../../models/MySQL/Stripe');

@@ -204,19 +204,19 @@ router.post('/api/admin/login', APIAdminController.postAdminLogin);
 router.post('/api/admin/test', APIAdminController.postAdminTest);
 
 // ADMIN BLOG
-router.post('/api/admin/blog/create', APIAdminBlogController.postAdminBlogCreate);
-router.put('/api/admin/blog/update/:blog_id', APIAdminBlogController.putAdminBlogUpdate);
-router.delete('/api/admin/blog/delete/:blog_id', APIAdminBlogController.deleteAdminBlogDelete);
+// router.post('/api/admin/blog/create', APIAdminBlogController.postAdminBlogCreate);
+// router.put('/api/admin/blog/update/:blog_id', APIAdminBlogController.putAdminBlogUpdate);
+// router.delete('/api/admin/blog/delete/:blog_id', APIAdminBlogController.deleteAdminBlogDelete);
 
 // ADMIN GAMES
-router.post('/api/admin/game/create', APIAdminGameController.postAdminGameCreate);
-router.put('/api/admin/game/update/:blog_id', APIAdminGameController.putAdminGameUpdate);
-router.delete('/api/admin/game/delete/:blog_id', APIAdminGameController.deleteAdminGameDelete);
+// router.post('/api/admin/game/create', APIAdminGameController.postAdminGameCreate);
+// router.put('/api/admin/game/update/:blog_id', APIAdminGameController.putAdminGameUpdate);
+// router.delete('/api/admin/game/delete/:blog_id', APIAdminGameController.deleteAdminGameDelete);
 
 // ADMIN BOOKS
-router.post('/api/admin/book/create', APIAdminBookController.postAdminBookCreate);
-router.put('/api/admin/book/update/:blog_id', APIController.putAdminBookUpdate);
-router.delete('/api/admin/book/delete/:blog_id', APIController.deleteAdminBookDelete);
+// router.post('/api/admin/book/create', APIAdminBookController.postAdminBookCreate);
+// router.put('/api/admin/book/update/:blog_id', APIController.putAdminBookUpdate);
+// router.delete('/api/admin/book/delete/:blog_id', APIController.deleteAdminBookDelete);
 
 // ADMIN STRIPE
 router.get('/api/admin/stripe/customers/listAll/:limit', APIAdminStripeController.getAdminStripeCustomersListAll)
