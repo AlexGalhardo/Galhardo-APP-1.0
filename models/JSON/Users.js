@@ -48,6 +48,19 @@ class Users {
     }
   }
 
+  static verifyIfAdminByID(user_id) {
+    try {
+      for(let i = 0; i < database.users.length; i++){
+        if(database.users[i].id === user_id) {
+          if(database.users[i].admin) return true
+        }
+      }
+      return false
+    } catch (error) {
+      return console.log("ERROR verifyIfAdminByID: ",error);
+    }
+  }
+
   static emailIsAlreadyRegistred(email){
     try {
       for(let i = 0; i < database.users.length; i++){

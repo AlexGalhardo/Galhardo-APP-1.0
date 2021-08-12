@@ -21,6 +21,8 @@
 - https://galhardoapp-json-database.herokuapp.com/
    - To view JSON DataBase
 
+
+
 ## [Project Introduction / Install Locally](https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INTRODUCTION.md)
 
 
@@ -60,10 +62,12 @@
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
    - [ ] CRUD Profile
    - [ ] (CREATE, READ, DELETE) Blog Comments
-- ADMIN API REST using JWT
-   - [ ] For Blog Posts (Create, Update, Delete)
-   - [ ] For Stripe (Create, Update, Delete, Cancel)
-   - [ ] For Games and Books (Create, Update, Delete)
+- GALHARDO APP API
+   - [ ] GET/READ only Public APIs for BlogPosts, Games, Books
+   - [ ] ADMIN JWT For Blog Posts (Create, Update, Delete)
+   - [ ] ADMIN JWT For Stripe (Read, Create, Update, Delete, Cancel)
+   - [ ] ADMIN JWT For Games and Books (Create, Update, Delete)
+   - [x] API HTML Documentation Using Insomnia Documenter
 - Deploy on AWS LightSail
    - [ ] Using MySQL or MongoDB
    - [ ] Using NGINX as Reverse Proxy

@@ -164,10 +164,15 @@ router.post('/admin/delete/book/:book_id', isAdmin, AdminController.postDeleteBo
 
 
 // API CONTROLLER
-// http://localhost:3000/api/v1/correios/shippingFeeAndDeadline/:zipcode
-router.get('/api/v1/correios/shippingFeeAndDeadline/:zipcode', APIController.getCorreiosShippingFeeAndDeadline);
+router.get('/api', APIController.getWelcomeToAPI);
+router.get('/api/public', APIController.getPublicEndpoints);
+router.get('/api/admin', APIController.getAdminEndpoints);
 
-router.get('/api/v1/', APIController.getWelcome);
+router.post('/api/admin/login', APIController.postAdminLogin);
+router.post('/api/admin/test', APIController.postAdminTest);
+
+router.post('/api/admin/stripe/customers/listAll/:limit', APIController.postAdminStripeCustomersListAll)
+
 
 
 // CUSTOMERS CONTROLLER

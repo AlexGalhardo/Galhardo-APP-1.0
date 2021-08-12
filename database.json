@@ -112,6 +112,14 @@
       },
       "created_at": "10/08/2021 03:48:54",
       "updated_at": "10/08/2021 03:48:54"
+    },
+    {
+      "id": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7",
+      "name": "teste",
+      "email": "teste@gmail.com",
+      "password": "paopksoaks122098apsko",
+      "created_at": "24/07/2021 13:45:52",
+      "updated_at": "24/07/2021 13:45:52"
     }
   ],
   "blog": [

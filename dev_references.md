@@ -12,3 +12,7 @@
 - pm2 logs site1 --lines 100
 - pm2 start app.js --watch
 
+
+- https://neilpatel.com/br/blog/robots-txt/
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6IjEzNjY3ZjYyLTAzZDYtNGI0Ni1iZDIyLTBiYmYyYTNiODlkMiIsImlhdCI6MTYyODc1MjYwMiwiZXhwIjoxNjI4NzU2MjAyfQ.Rvpr9rNIpAWZtsYh_mwL5QjYpKF3f9c8nrdV6pE9peI

@@ -8,6 +8,8 @@ const MySQL = mysql2.createConnection({
     // waitForConnections: true,
     // connectionLimit: 10,
     // queueLimit: 0
-});
+}).on("error", (err) => {
+    console.log("Failed to connect to Database - ", err);
+  });
 
 module.exports = MySQL.promise();
