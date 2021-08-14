@@ -8,8 +8,8 @@
       "confirm_email_token": null,
       "password": "$2b$12$qmFqKwOkAfdQLy04VBtOLObd6FUU7H2P3XKa1f95JbKlLgjyOy4kG",
       "reset_password_token": null,
-      "admin": true,
-      "avatar": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2_alex.jpeg",
+      "admin": false,
+      "avatar": "profile.jpg",
       "document": "44557777777",
       "phone": "18999999999",
       "birth_date": "2021-08-05",
@@ -47,7 +47,7 @@
       "password": "$2b$12$PRiFiCTX9zQpVo/wjniUt.toXi5R9OOE9eNlO5AalO9811ixx1C4S",
       "reset_password_token": null,
       "admin": true,
-      "avatar": "profile.jpg",
+      "avatar": "avatar.png",
       "document": null,
       "phone": null,
       "birth_date": null,
@@ -68,29 +68,29 @@
         "card_token_id": null,
         "card_id": null,
         "currently_subscription_id": null,
-        "currently_subscription_name": "FREE",
+        "currently_subscription_name": null,
         "subscription_start": null,
         "subscription_end": null,
-        "subscription_automatically_renew": null
+        "subscription_automatically_renew": false
       },
       "created_at": "10/08/2021 02:25:35",
       "updated_at": "10/08/2021 02:25:35"
     },
     {
-      "id": "fc0f7d51-4701-4907-8ee2-1c328651aa1e",
-      "name": "Alex Galhardo",
-      "email": "aleexgvieira@gmail.com",
+      "id": "2227a102-7d06-4d0a-a375-c0488229736f",
+      "name": "test",
+      "email": "aleexgalhardoo@gmail.com",
       "confirmed_email": true,
       "confirm_email_token": null,
-      "password": "$2b$12$681.M8XOiytM0SJxEpXewu9ABfScdEQ7jK4gGUfnw7JXDZHMiZ/Ea",
+      "password": "$2b$12$/OzTrAzeW7t7S3hZEnFiqOFqRsAIv93OVCaclsqVZpx6qgRMCCKxW",
       "reset_password_token": null,
       "admin": false,
-      "avatar": "https://lh3.googleusercontent.com/a-/AOh14GgiwO7iPDkLu45ky0N0V5cVNNBsrSDFG7M5Gmch7w=s96-c",
+      "avatar": "avatar.png",
       "document": null,
       "phone": null,
       "birth_date": null,
-      "google_id": "116016806999832323637",
-      "github_id": 19540357,
+      "google_id": null,
+      "github_id": null,
       "facebook_id": null,
       "address": {
         "zipcode": null,
@@ -105,83 +105,27 @@
         "customer_id": null,
         "card_id": null,
         "currently_subscription_id": null,
-        "currently_subscription_name": "FREE",
+        "currently_subscription_name": null,
         "subscription_start": null,
         "subscription_end": null,
         "subscription_automatically_renew": false
       },
-      "created_at": "13/08/2021 20:12:06",
-      "updated_at": "13/08/2021 20:12:06"
-    },
-    {
-      "id": "4124d532-d5b9-4a66-8816-4b95f8109b07",
-      "name": "Jack Boby",
-      "email": "aleexgalhardoo@gmail.com",
-      "confirmed_email": true,
-      "confirm_email_token": null,
-      "password": "$2b$12$XSnKlAsPfoR2n6nSM7KZOevWw2Q1y/j.BDPxDjwNpQKsRLC/RrVDm",
-      "reset_password_token": null,
-      "admin": false,
-      "avatar": "avatar.png",
-      "document": null,
-      "phone": null,
-      "birth_date": null,
-      "google_id": null,
-      "github_id": null,
-      "facebook_id": "356995519245532",
-      "address": {
-        "zipcode": null,
-        "street": null,
-        "street_number": null,
-        "neighborhood": null,
-        "city": null,
-        "state": null,
-        "country": "BRAZIL"
-      },
-      "stripe": {
-        "customer_id": null,
-        "card_id": null,
-        "currently_subscription_id": null,
-        "currently_subscription_name": "FREE",
-        "subscription_start": null,
-        "subscription_end": null,
-        "subscription_automatically_renew": false
-      },
-      "created_at": "13/08/2021 22:12:57",
-      "updated_at": "13/08/2021 22:12:57"
+      "created_at": "10/08/2021 03:48:54",
+      "updated_at": "10/08/2021 03:48:54"
     }
   ],
   "blog": [
     {
-      "id": 1,
       "title": "Why Simpsons Is So Succesfull?",
       "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "slug": "blog-title-1",
+      "category": "Software",
+      "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p> <img class='w-100 image-fluid' src='https://rollingstone.uol.com.br/media/_versions/os-simpsons-teoria-final_widelg.jpg'> <p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p>  <p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p>",
       "image": "https://picsum.photos/id/1/230/230",
-      "category": "software",
-      "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n\r\n<img src='https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/05/Os-Simpsons.jpg' class='w-100 image-fluid'>\r\n\r\n<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>",
-      "updated_at": "12/08/2021 18:49:33",
-      "comments": [
-        {
-          "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "user_logged_can_delete": true,
-          "user_name": "Test Jack",
-          "user_avatar": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2_avatar.png",
-          "comment": "new comment",
-          "created_at": "12/08/2021 02:50:24",
-          "comment_id": 1
-        },
-        {
-          "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "user_logged_can_delete": true,
-          "user_name": "Test Jack",
-          "user_avatar": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2_avatar.png",
-          "comment": "New comment test 2",
-          "created_at": "12/08/2021 18:49:51",
-          "comment_id": 2
-        }
-      ],
-      "slug": "why-simpsons-is-so-succesfull",
-      "created_at": "04/08/2021 18:35:09"
+      "created_at": "04/08/2021 18:35:09",
+      "updated_at": "04/08/2021 18:55:16",
+      "id": 1,
+      "comments": []
     },
     {
       "title": "Blog Title 2",
@@ -192,8 +136,7 @@
       "image": "https://picsum.photos/id/2/230/230",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "id": 2,
-      "comments": []
+      "id": 2
     },
     {
       "title": "Blog Title 3",
@@ -204,11 +147,21 @@
       "image": "https://picsum.photos/id/3/230/230",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "id": 3,
-      "comments": []
+      "id": 3
     },
     {
       "title": "Blog Title 4",
+      "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "slug": "blog-title-4",
+      "category": "Soft Skills",
+      "body": "Blog Body 4",
+      "image": "https://picsum.photos/id/4/230/230",
+      "created_at": "04/08/2021 18:35:09",
+      "updated_at": "04/08/2021 18:55:16",
+      "id": 4
+    },
+    {
+      "title": "Blog Title 5",
       "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
       "slug": "blog-title-5",
       "category": "software",
@@ -216,11 +169,10 @@
       "image": "https://picsum.photos/id/5/230/230",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "id": 4,
-      "comments": []
+      "id": 5
     },
     {
-      "title": "Blog Title 5",
+      "title": "Blog Title 6",
       "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
       "slug": "blog-title-6",
       "category": "software",
@@ -228,8 +180,7 @@
       "image": "https://picsum.photos/id/6/230/230",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "id": 5,
-      "comments": []
+      "id": 6
     }
   ],
   "games": [
