@@ -11,6 +11,7 @@ const path = require('path');
 const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const { flash } = require('express-flash-message');
 const compression = require('compression');
 const cors = require('cors');
 const morgan = require('./config/morgan');
@@ -24,10 +25,10 @@ global.APP_ROOT_PATH = path.resolve(__dirname);
  * with LocalHost HTTPS
  * Need to change .env APP_URL to https
  */
-// const app = require("https-localhost")()
+const app = require("https-localhost")()
 
 // with LocalHost HTTP
-const app = express();
+// const app = express();
 
 
 // Morgan + Winston Logging Setup
@@ -52,6 +53,11 @@ app.use(session({
         maxAge: 3600 * 1000, // 1hr
     }
 }));
+
+// apply express-flash-message middleware
+app.use(flash({ sessionKeyName: 'flashMessage' }));
+
+// temporary session_user
 global.SESSION_USER = null;
 
 

@@ -1,4 +1,6 @@
 const queryString = require('query-string');
+const googleLogin = require('./GoogleLogin');
+const facebookLogin = require('node-fb-login');
 
 class URL {
     
@@ -14,32 +16,24 @@ class URL {
     }
 
     static getGoogleURL() {
-        const stringifiedParams = queryString.stringify({
-            client_id: process.env.GOOGLE_CLIENT_ID,
-            redirect_uri: 'http://localhost:3000/google/callback',
-            scope: [
-                'https://www.googleapis.com/auth/userinfo.email',
-                'https://www.googleapis.com/auth/userinfo.profile',
-            ].join(' '), // space seperated string
-            response_type: 'code',
-            access_type: 'offline',
-            prompt: 'consent',
-        });
-
-        return `https://accounts.google.com/o/oauth2/v2/auth?${stringifiedParams}`;
+        const googleLoginURL = googleLogin.generateAuthUrl()
+        return googleLoginURL
     }
 
-    static getFacebookURL () {
-        const stringifiedParams = queryString.stringify({
-            client_id: process.env.FACEBOOK_CLIENT_ID,
-            redirect_uri: process.env.FACEBOOK_CALLBACK_URL,
-            scope: ['email', 'user_friends'].join(','),
-            response_type: 'code',
-            auth_type: 'rerequest',
-            display: 'popup',
-        });
+    static async getFacebookURL () {
+        try {
+            const facebookLoginURL = await facebookLogin.generateAuthURL({
+              fbAppID: process.env.FACEBOOK_CLIENT_ID,
+              redirectURI: process.env.FACEBOOK_CALLBACK_URL,
+              scopes:["public_profile", "email"]
+            })
 
-        return `https://www.facebook.com/v4.0/dialog/oauth?${stringifiedParams}`;
+            console.log(facebookLoginURL)
+            return facebookLoginURL
+        }
+        catch(error){
+            console.log(error)
+        }
     }
 };
 

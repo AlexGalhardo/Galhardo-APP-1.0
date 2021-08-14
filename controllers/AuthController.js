@@ -19,10 +19,12 @@ const axios = require('axios');
 const fetch = require('node-fetch');
 const randomToken = require('rand-token');
 
+const googleLogin = require('../helpers/GoogleLogin');
+const facebookLogin = require('node-fb-login');
+
 const DateTime = require('../helpers/DateTime');
 const Bcrypt = require('../helpers/Bcrypt');
 const NodeMailer = require('../helpers/NodeMailer');
-
 
 const Users = require('../models/JSON/Users');
 
@@ -30,9 +32,11 @@ const URL = require('../helpers/URL');
 
 class AuthController {
 	
-	static getViewLogin (req, res){
+	static async getViewLogin (req, res){
+		const facebookLoginURL = await URL.getFacebookURL()
+		console.log(facebookLoginURL)
 		res.render('pages/auth/login', {
-			FacebookLoginURL: URL.getFacebookURL,
+			FacebookLoginURL: facebookLoginURL,
 			GitHubLoginURL: URL.getGitHubURL,
 			GoogleLoginURL: URL.getGoogleURL
 		});
@@ -94,8 +98,10 @@ class AuthController {
 
 	static verifyIfConfirmEmailURLIsValid (req, res){
 		const { email, token } = req.params;
+		console.log(email, token)
 
 		const confirmEmailValid = Users.verifyConfirmEmailToken(email, token)
+		console.log(confirmEmailValid)
 
 		if(confirmEmailValid){
 			return res.render('pages/auth/login', {
@@ -111,10 +117,16 @@ class AuthController {
 
 	static postRegister (req, res, next){
 		const errors = validationResult(req);
-	    const { username, email, password, confirm_password } = req.body;
-	    const confirm_email_token = randomToken.generate(16)
+	    
+	    const { username, 
+	    		email, 
+	    		password, 
+	    		confirm_password,
+	    		github_id,
+	    		facebook_id,
+	    		google_id } = req.body;
 
-	    console.log(username, email, password, confirm_password);
+	    console.log(username, email, password, confirm_password, github_id, facebook_id, google_id);
 
 	    if (!errors.isEmpty()) {
 	        return res.render('pages/auth/register', {
@@ -127,13 +139,25 @@ class AuthController {
 
 	    try {
 
-	    	const responseRegisterUser = Users.registerUser(username, email, password, confirm_password, confirm_email_token)
+	    	const confirm_email_token = randomToken.generate(16)
+	    	
+	    	const userObject = {
+	    		username,
+	    		email,
+	    		password,
+	    		github_id,
+	    		facebook_id,
+	    		google_id,
+	    		confirm_email_token
+	    	};
 
-	    	if(responseRegisterUser.error){
+	    	const userRegistred = Users.registerUser(userObject)
+
+	    	if(!userRegistred){
 	    		return res.render("pages/auth/register", {
 		            flash: {
 	            		type: "warning",
-	            		message: responseRegisterUser.message
+	            		message: "User not saved in JSON database!"
 	            	}
 	        	});
 	    	}
@@ -229,110 +253,140 @@ class AuthController {
 	}
 
 	static async loginFacebook (req, res){
-		const code = req.query.code;
-		console.log(`The facebook code is: ${code}`);
+		const url_query_code = req.query.code;
+		
+		try {
+			const token = await facebookLogin.getAccessToken({
+			  code: `${url_query_code}`,
+			  fbAppID: process.env.FACEBOOK_CLIENT_ID,
+			  fbAppSecret: process.env.FACEBOOK_CLIENT_SECRET,
+			  redirectURI: process.env.FACEBOOK_CALLBACK_URL
+			})
 
-		var { data } = await fetch({
-		    url: 'https://graph.facebook.com/v4.0/oauth/access_token',
-		    method: 'post',
-		    data: {
-		      client_id: process.env.FACEBOOK_CLIENT_ID,
-		      client_secret: process.env.FACEBOOK_CLIENT_SECRET,
-		      redirect_uri: 'http://localhost:3000/facebook/callback',
-		      grant_type: 'authorization_code',
-		      code,
-		    }
-		});
-		console.log(data, data.access_token);
+			const facebookUser = await facebookLogin.getUserProfile({
+			  accessToken: `${token.access_token}`,
+			  fields: ["id","name","email"]
+			})
 
-		var { data } = await axios({
-		    url: 'https://graph.facebook.com/me',
-		    method: 'get',
-		    params: {
-		      fields: ['id', 'email', 'first_name', 'last_name'].join(','),
-		      access_token: accesstoken,
-		    },
-		});
-		console.log(data); // { id, email, first_name, last_name }
-	  	
-	  	res.render('pages/auth/login', {
-	  		flash: {
-	  			type: "info",
-	  			message: `FACEBOOK: ${id}, ${email}`
-	  		}
-	  	});
+			// return user registred in database
+			const userRegistred = await Users.verifyLoginFacebook(facebookUser.id, facebookUser.email)
+	    	
+	    	if(!userRegistred){
+	    		return res.render('pages/auth/register', {
+	        		flash: {
+	        			type: "warning",
+	        			message: "Create Your account Linked to Your Facebook Account"
+	        		},
+	        		name: facebookUser.name,
+	        		email: facebookUser.email,
+	        		email_readonly: true,
+	        		facebook_id: facebookUser.id
+	            });
+	    	} 
+	    	else {
+	    		req.session.userID = userRegistred.id
+	        	global.SESSION_USER = userRegistred
+	        	return res.redirect('/');
+	    	} 
+	    	
+	    	return res.redirect('/login')  
+
+		} catch(error){
+			console.log(error)
+		}
 	}
 
 	static async loginGitHub (req, res){
 		const code = req.query.code;
-		console.log(`The code is: ${code}`);
 
-		const { data } = await axios({
-		    url: 'https://github.com/login/oauth/access_token',
-		    method: 'get',
-		    params: {
-		      client_id: process.env.GITHUB_CLIENT_ID,
-		      client_secret: process.env.GITHUB_CLIENT_SECRET,
-		      redirect_uri: `${process.env.APP_URL}/github/callback`,
-		      code,
-		    },
-		});
-	  	
-	  	const parsedData = queryString.parse(data);
-	  	console.log('parsedData', parsedData); 
-	  	
-	  	if (parsedData.error) throw new Error(parsedData.error_description)
-	  	console.log('acces token', parsedData.access_token);
+		try {
 
-		const { response } = await axios({
-		    url: 'https://api.github.com/user',
-		    method: 'GET',
-		    headers: {
-		      Authorization: `token ${parsedData.access_token}`,
-		    },
-		});
-	  	
-	  	console.log('response', response); // { id, email, name, login, avatar_url }
-	  	res.render('pages/auth/login', {
-	  		fash: {
-	  			type: "info",
-	  			message: `GITHUB: ${id}, ${email}, ${name}, ${avatar_url}`
-	  		}
-	  	});
+			const { data } = await axios({
+			    url: 'https://github.com/login/oauth/access_token',
+			    method: 'get',
+			    params: {
+			      client_id: process.env.GITHUB_CLIENT_ID,
+			      client_secret: process.env.GITHUB_CLIENT_SECRET,
+			      redirect_uri: `${process.env.GITHUB_CALLBACK_URL}`,
+			      code
+			    }
+			});
+		  	
+		  	const parsedData = queryString.parse(data);
+		  	
+		  	if (parsedData.error) throw new Error(parsedData.error_description)
+
+			const response = await axios({
+			    url: 'https://api.github.com/user',
+			    method: 'GET',
+			    headers: {
+			      Authorization: `token ${parsedData.access_token}`,
+			    },
+			});
+
+	    	const user = await Users.verifyLoginGitHub(response.data.id, response.data.email, response.data.avatar_url)
+	    	
+	    	if(!user){
+	    		return res.render('pages/auth/register', {
+	        		flash: {
+	        			type: "warning",
+	        			message: "Create Your account Linked to Your GitHub"
+	        		},
+	        		name: response.data.name,
+	        		email: response.data.email,
+	        		email_readonly: true,
+	        		github_id: response.data.id
+	            });
+	    	} else {
+	    		req.session.userID = user.id
+	        	global.SESSION_USER = user
+	        	return res.redirect('/');
+	    	} 
+	    	return res.redirect('/login')  
+	    }
+	    catch (error) {
+	        return res.render('pages/auth/login', {
+        		flash: {
+        			type: "warning",
+        			message: `Error: ${error}`
+        		}
+            });
+	    }
 	}
 
 	static async loginGoogle (req, res){
 		const code = req.query.code;
-		console.log(`The google code is: ${code}`);
 
-		var { data } = await axios({
-		    url: `https://oauth2.googleapis.com/token`,
-		    method: 'post',
-		    data: {
-		      client_id: process.env.GOOGLE_CLIENT_ID,
-		      client_secret: process.env.GOOGLE_CLIENT_SECRET,
-		      redirect_uri: 'http://localhost:3000/google/callback',
-		      grant_type: 'authorization_code',
-		      code,
-		    }
-		});
-		console.log(data, data.access_token);
-
-		var response = await fetch(`https://www.googleapis.com/oauth2/v2/userinfo`, {
-		    method: 'GET',
-		    headers: {
-		      Authorization: `Bearer ${data.access_token}`,
-		    }
-		 })
-
-	  	console.log(response); // { id, email, given_name, family_name }
-	  	
-	  	res.render('pages/auth/login', {
-	  		flash: {
-	  			type: "info",
-	  			message: `GOOGLE: ${id}, ${email}`
-	  		}
-	  	});
+	  	try {
+			const { user } = await googleLogin.getUserProfile(`${code}`)
+			
+			// return user registred in database
+			const userRegistred = await Users.verifyLoginGoogle(user.id, user.email, user.avatar)
+	    	
+	    	if(!userRegistred){
+	    		return res.render('pages/auth/register', {
+	        		flash: {
+	        			type: "warning",
+	        			message: "Create Your account Linked to Your Google Account"
+	        		},
+	        		name: user.name,
+	        		email: user.email,
+	        		email_readonly: true,
+	        		google_id: user.id
+	            });
+	    	} 
+	    	else {
+	    		req.session.userID = userRegistred.id
+	        	global.SESSION_USER = userRegistred
+	        	return res.redirect('/');
+	    	} 
+	    	
+	    	return res.redirect('/login')  
+		
+		} catch(error){
+			console.log(error)
+			res.redirect('/login')
+		}
 	}
 }
 

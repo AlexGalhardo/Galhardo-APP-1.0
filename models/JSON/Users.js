@@ -78,20 +78,20 @@ class Users {
     try {
       
       for(let i = 0; i < database.users.length; i++){
-        
+        console.log(database.users[i].email, database.users[i].confirm_email_token)
         if(
           database.users[i].email === email 
           && 
           database.users[i].confirm_email_token === token)
         {
-
-          database.users[i].confirmed_email = true;
-          // database.users[i].confirm_email_token = null;
+          console.log('entrou')
+          database.users[i].confirmed_email = true
+          database.users[i].confirm_email_token = null
           Users.save(database, 'ERROR verifyConfirmEmailToken: ')
+          return true
         }
-
-        return false
       }
+      return false
     } 
     catch (error) {
       return console.log("ERROR verifyConfirmEmailToken: ", error);
@@ -127,19 +127,19 @@ class Users {
     }
   }
 
-  static async registerUser (username, email, password, confirm_password, confirm_email_token) {
+  static async registerUser (userObject) {
     try {
       
-      if(Users.emailIsAlreadyRegistred(email)) return false
+      if(Users.emailIsAlreadyRegistred(userObject.email)) return false
 
-      const passwordHash = await Bcrypt.cryptPassword(password)
+      const passwordHash = await Bcrypt.cryptPassword(userObject.password)
 
       database.users.push({
         id: uuid.v4(),
-        name: username,
-        email: email,
+        name: userObject.username,
+        email: userObject.email,
         confirmed_email: false,
-        confirm_email_token: confirm_email_token,
+        confirm_email_token: userObject.confirm_email_token,
         password: passwordHash,
         reset_password_token: null,
         admin: false,
@@ -147,9 +147,9 @@ class Users {
         document: null,
         phone: null,
         birth_date: null,
-        google_id: null,
-          github_id: null,
-          facebook_id: null,
+        google_id: parseInt(userObject.google_id),
+        github_id: parseInt(userObject.github_id),
+        facebook_id: parseInt(userObject.facebook_id),
         address: {
           zipcode: null,
             street: null,
@@ -173,6 +173,8 @@ class Users {
       })
 
       Users.save(database, 'error register user: ')
+
+      return true
 
     } catch (error) {
       return console.log("ERROR registerUser: ", error);
@@ -290,6 +292,53 @@ class Users {
       return false
     } catch (error) {
       return console.log("ERROR createStripeSubscription: ", error);
+    }
+  }
+
+  static verifyLoginGitHub(github_id, email, avatar){
+    try {
+      for(let i = 0; i < database.users.length; i++){
+        if(database.users[i].email == email){
+          database.users[i].github_id = github_id
+          database.users[i].avatar = avatar
+          Users.save(database, "ERROR verifyLoginGitHub: ")
+          return database.users[i]
+        }
+      }
+      return null
+    } catch (error) {
+      console.log("ERROR verifyLoginGitHub: ", error);
+    }
+  }
+
+  static verifyLoginGoogle(google_id, email, avatar){
+    try {
+      for(let i = 0; i < database.users.length; i++){
+        if(database.users[i].email == email){
+          database.users[i].google_id = google_id
+          database.users[i].avatar = avatar
+          Users.save(database, "ERROR verifyLoginGoogle: ")
+          return database.users[i]
+        }
+      }
+      return null
+    } catch (error) {
+      console.log("ERROR verifyLoginGoogle: ", error);
+    }
+  }
+
+  static verifyLoginFacebook(facebook_id, email){
+    try {
+      for(let i = 0; i < database.users.length; i++){
+        if(database.users[i].email == email){
+          database.users[i].facebook_id = facebook_id
+          Users.save(database, "ERROR verifyLoginFacebook: ")
+          return database.users[i]
+        }
+      }
+      return null
+    } catch (error) {
+      console.log("ERROR verifyLoginFacebook: ", error);
     }
   }
 }

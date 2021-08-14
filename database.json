@@ -77,12 +77,12 @@
       "updated_at": "10/08/2021 02:25:35"
     },
     {
-      "id": "2227a102-7d06-4d0a-a375-c0488229736f",
-      "name": "test",
-      "email": "aleexgalhardoo@gmail.com",
+      "id": "fc0f7d51-4701-4907-8ee2-1c328651aa1e",
+      "name": "Alex Galhardo",
+      "email": "aleexgvieira@gmail.com",
       "confirmed_email": true,
       "confirm_email_token": null,
-      "password": "$2b$12$/OzTrAzeW7t7S3hZEnFiqOFqRsAIv93OVCaclsqVZpx6qgRMCCKxW",
+      "password": "$2b$12$681.M8XOiytM0SJxEpXewu9ABfScdEQ7jK4gGUfnw7JXDZHMiZ/Ea",
       "reset_password_token": null,
       "admin": false,
       "avatar": "avatar.png",
@@ -90,7 +90,7 @@
       "phone": null,
       "birth_date": null,
       "google_id": null,
-      "github_id": null,
+      "github_id": 19540357,
       "facebook_id": null,
       "address": {
         "zipcode": null,
@@ -110,16 +110,8 @@
         "subscription_end": null,
         "subscription_automatically_renew": false
       },
-      "created_at": "10/08/2021 03:48:54",
-      "updated_at": "10/08/2021 03:48:54"
-    },
-    {
-      "id": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7",
-      "name": "teste",
-      "email": "teste@gmail.com",
-      "password": "paopksoaks122098apsko",
-      "created_at": "24/07/2021 13:45:52",
-      "updated_at": "24/07/2021 13:45:52"
+      "created_at": "13/08/2021 20:12:06",
+      "updated_at": "13/08/2021 20:12:06"
     }
   ],
   "blog": [

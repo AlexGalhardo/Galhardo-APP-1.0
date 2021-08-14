@@ -132,9 +132,9 @@ router.get('/confirmEmail/:email/:token', AuthController.verifyIfConfirmEmailURL
 router.get('/resetPassword/:email/:token', userIsAlreadyLoggedIn, AuthController.getViewResetPassword);
 router.post('/resetPassword', AuthController.postResetPassword);
 
-// router.get('/github/callback', AuthController.loginGitHub);
-// router.get('/facebook/callback', AuthController.loginFacebook);
-// router.get('/google/callback', AuthController.loginGoogle);
+router.get('/github/callback', AuthController.loginGitHub);
+router.get('/facebook/callback', AuthController.loginFacebook);
+router.get('/google/callback', AuthController.loginGoogle);
 
 
 
