@@ -85,11 +85,11 @@
       "password": "$2b$12$681.M8XOiytM0SJxEpXewu9ABfScdEQ7jK4gGUfnw7JXDZHMiZ/Ea",
       "reset_password_token": null,
       "admin": false,
-      "avatar": "avatar.png",
+      "avatar": "https://lh3.googleusercontent.com/a-/AOh14GgiwO7iPDkLu45ky0N0V5cVNNBsrSDFG7M5Gmch7w=s96-c",
       "document": null,
       "phone": null,
       "birth_date": null,
-      "google_id": null,
+      "google_id": "116016806999832323637",
       "github_id": 19540357,
       "facebook_id": null,
       "address": {
@@ -112,6 +112,43 @@
       },
       "created_at": "13/08/2021 20:12:06",
       "updated_at": "13/08/2021 20:12:06"
+    },
+    {
+      "id": "4124d532-d5b9-4a66-8816-4b95f8109b07",
+      "name": "Jack Boby",
+      "email": "aleexgalhardoo@gmail.com",
+      "confirmed_email": true,
+      "confirm_email_token": null,
+      "password": "$2b$12$XSnKlAsPfoR2n6nSM7KZOevWw2Q1y/j.BDPxDjwNpQKsRLC/RrVDm",
+      "reset_password_token": null,
+      "admin": false,
+      "avatar": "avatar.png",
+      "document": null,
+      "phone": null,
+      "birth_date": null,
+      "google_id": null,
+      "github_id": null,
+      "facebook_id": "356995519245532",
+      "address": {
+        "zipcode": null,
+        "street": null,
+        "street_number": null,
+        "neighborhood": null,
+        "city": null,
+        "state": null,
+        "country": "BRAZIL"
+      },
+      "stripe": {
+        "customer_id": null,
+        "card_id": null,
+        "currently_subscription_id": null,
+        "currently_subscription_name": "FREE",
+        "subscription_start": null,
+        "subscription_end": null,
+        "subscription_automatically_renew": false
+      },
+      "created_at": "13/08/2021 22:12:57",
+      "updated_at": "13/08/2021 22:12:57"
     }
   ],
   "blog": [

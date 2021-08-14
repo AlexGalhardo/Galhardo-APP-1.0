@@ -268,6 +268,8 @@ class AuthController {
 			  fields: ["id","name","email"]
 			})
 
+			console.log(facebookUser)
+
 			// return user registred in database
 			const userRegistred = await Users.verifyLoginFacebook(facebookUser.id, facebookUser.email)
 	    	
@@ -360,8 +362,10 @@ class AuthController {
 	  	try {
 			const { user } = await googleLogin.getUserProfile(`${code}`)
 			
+			console.log(user)
+
 			// return user registred in database
-			const userRegistred = await Users.verifyLoginGoogle(user.id, user.email, user.avatar)
+			const userRegistred = await Users.verifyLoginGoogle(user.sub, user.email, user.picture)
 	    	
 	    	if(!userRegistred){
 	    		return res.render('pages/auth/register', {
