@@ -25,10 +25,10 @@ global.APP_ROOT_PATH = path.resolve(__dirname);
  * with LocalHost HTTPS
  * Need to change .env APP_URL to https
  */
-const app = require("https-localhost")()
+// const app = require("https-localhost")()
 
 // with LocalHost HTTP
-// const app = express();
+const app = express();
 
 
 // Morgan + Winston Logging Setup

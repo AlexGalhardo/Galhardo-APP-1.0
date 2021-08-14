@@ -14,5 +14,4 @@
 
 
 - https://neilpatel.com/br/blog/robots-txt/
-
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6IjEzNjY3ZjYyLTAzZDYtNGI0Ni1iZDIyLTBiYmYyYTNiODlkMiIsImlhdCI6MTYyODc1MjYwMiwiZXhwIjoxNjI4NzU2MjAyfQ.Rvpr9rNIpAWZtsYh_mwL5QjYpKF3f9c8nrdV6pE9peI
+- https://medium.com/@pimterry/host-your-node-app-on-dokku-digitalocean-1cb97e3ab041
