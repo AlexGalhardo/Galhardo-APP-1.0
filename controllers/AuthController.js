@@ -309,7 +309,7 @@ class AuthController {
 			    params: {
 			      client_id: process.env.GITHUB_CLIENT_ID,
 			      client_secret: process.env.GITHUB_CLIENT_SECRET,
-			      redirect_uri: `${process.env.GITHUB_CALLBACK_URL}`,
+			      redirect_uri: process.env.GITHUB_CALLBACK_URL,
 			      code
 			    }
 			});
