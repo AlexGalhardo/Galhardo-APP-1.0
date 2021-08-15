@@ -43,7 +43,7 @@ function getTotal(){
 $("#zipcode").change(function() {
     var zipcode = $("#zipcode").val();
 
-    axios.get("https://galhardo-correios.herokuapp.com/cep/" + zipcode)
+    axios.get("https://correios.galhardoapp.com/cep/" + zipcode)
     .then(function(response) {
         var street = response.data.logradouro;
         var neighborhood = response.data.bairro;
@@ -55,7 +55,7 @@ $("#zipcode").change(function() {
         $('#customer_state').val(state);
     });
 
-    axios.get("https://galhardo-correios.herokuapp.com/shipping/" + zipcode )
+    axios.get("https://correios.galhardoapp.com/shipping/" + zipcode )
     .then(function(response) {
         console.log(response);
         var shipping_fee = response.data[0].Valor;

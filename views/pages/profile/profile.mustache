@@ -1,6 +1,6 @@
 {{>partials/header}}
 
-        <main class="container col-lg-8 mt-3">
+        <main class="container col-lg-12 mt-3">
 
         <!-- ROW -->
         <div class="row">
@@ -14,7 +14,8 @@
             {{#user}}
 
             <!-- AVATAR -->
-            <div class="col-sm-6">
+            <div class="col-sm-4">
+                
                 <form action="/profile/avatar"
                     method="POST" 
                     enctype="multipart/form-data"
@@ -46,10 +47,37 @@
 
                 <div class="form-floating mb-3">
                       <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{admin}}" readonly>
-                      <label for="name">ADMIN</label>
+                      <label for="admin">ADMIN</label>
                 </div>
 
-                <hr>
+                <div class="form-floating mb-3">
+                      <input class="mb-2 form-control" name="operation_system" id="operation_system" type="text" readonly>
+                      <label for="operation_system">OPERATION_SYSTEM</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                      <input class="mb-2 form-control" name="browser" id="browser" type="text" readonly>
+                      <label for="browser">BROWSER</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                      <input class="mb-2 form-control" name="public_ip" id="public_ip" type="text" readonly>
+                      <label for="public_ip">PUBLIC IP</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                      <input  class="mb-2 form-control" name="latitude" id="latitude" type="text" readonly>
+                      <label for="latitude">LATITUDE</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                      <input class="mb-2 form-control" type="text" name="longitude" id="longitude" readonly>
+                      <label for="longitude">LONGITUDE</label>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
 
                 <div class="form-floating mb-3">
                       <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.customer_id}}" readonly>
@@ -100,12 +128,9 @@
                 {{/stripe.subscription_automatically_renew}}
 
             </div>
-            <!-- END COL AVATAR -->
 
 
-
-            <!-- COL-LG-6 -->
-            <div class="col-lg-6">
+            <div class="col-lg-4">
 
                 <form action="/profile" class="form" method="POST">
 
@@ -227,23 +252,15 @@
 
         <script src="scripts/jquery.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script>
-        $("#zipcode").change(function() {
-            var zipcode = $("#zipcode").val();
-
-            axios.get("https://galhardo-correios.herokuapp.com/cep/" + zipcode)
-            .then(function(response) {
-                var street = response.data.logradouro;
-                var neighborhood = response.data.bairro;
-                var city = response.data.localidade;
-                var state = response.data.uf;
-                $('#street').val(street);
-                $('#neighborhood').val(neighborhood);
-                $('#city').val(city);
-                $('#state').val(state);
-            });
-        });
-        </script>
-    </div>
+        <script src="scripts/profile.js"></script>
+        
+        <!--<li><hr class="dropdown-divider"></li>
+        <li class="dropdown-item" id="os"></li>
+        <li class="dropdown-item" id="browser"></li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-item" id="public_ip"></li>
+        <li class="dropdown-item" id="latitude"></li>
+        <li class="dropdown-item" id="longitude"></li>
+        </div>-->
 
 {{>partials/footer}}
