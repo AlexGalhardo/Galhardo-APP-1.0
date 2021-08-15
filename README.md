@@ -2,23 +2,22 @@
 <h1 align="center">⭐ Galhardo APP 💵</h1>
 
 ## Live Demo
-- You can access: https://galhardo-app.herokuapp.com/
+- You can access: https://galhardoapp.com/
 - You can use default TEST inputs already in forms to try 
 - Test User
    - email: test@gmail.com
    - password: test123
-- In this live demo, you can't do ADMIN actions. Install locally to try ADMIN.
 - **IMPORTANT:**
    - **All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY**
    - **NO REAL Money Transactions will be made**
    - **All CRUDs in Heroku Live Demo are made in JSON DataBase, for obvious reasons.**
 
 ## Subdomains
-- https://galhardo-correios.herokuapp.com/cep/13560290 (zipcode here)
+- https://correios.galhardoapp.com/cep/13560290 (zipcode here)
    - To get ZipCode/CEP Information
-- https://galhardo-correios.herokuapp.com/shipping/13560290 (zipcode here)
+- https://correios.galhardoapp.com/shipping/13560290 (zipcode here)
    - To get Shipping Deadline and Fee
-- https://galhardoapp-json-database.herokuapp.com/
+- https://json-database.galhardoapp.com/
    - To view JSON DataBase
 
 
