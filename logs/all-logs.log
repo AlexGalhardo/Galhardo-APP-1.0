@@ -15805,3 +15805,15 @@
 [35m[39m
 2021-08-14 21:05:06 [35mhttp[39m: [35mGET /scripts/profile.js 304 CONTENT-LENGTH=- 3.309 ms[39m
 [35m[39m
+2021-08-14 21:14:15 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 102.309 ms[39m
+[35m[39m
+2021-08-14 21:14:16 [35mhttp[39m: [35mGET /scripts/games.js 200 CONTENT-LENGTH=- 23.236 ms[39m
+[35m[39m
+2021-08-14 21:14:16 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 200 CONTENT-LENGTH=- 33.483 ms[39m
+[35m[39m
+2021-08-14 21:14:16 [35mhttp[39m: [35mGET /scripts/privacy.js 200 CONTENT-LENGTH=890 24.238 ms[39m
+[35m[39m
+2021-08-14 21:14:16 [35mhttp[39m: [35mGET /images/amazon-button.png 200 CONTENT-LENGTH=5537 14.500 ms[39m
+[35m[39m
+2021-08-14 21:14:16 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 3.357 ms[39m
+[35m[39m
