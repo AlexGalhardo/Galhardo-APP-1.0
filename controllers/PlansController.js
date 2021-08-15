@@ -141,60 +141,76 @@ class PlansController {
 
 	static async getViewPlanStarterCheckout (req, res) {
 		if(!req.session.userID){
-	      	return res.render('pages/plans', {
-	      		flash: {
-	      			type: "warning",
-	      			message: "You Must Be Logued To Make A Subscription Transaction!"
-	      		}
-	      	})
+			return res.redirect('/login')
 	  	}
 
-		res.render('pages/plans/plan_checkout', {
+	  	if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
+    		return res.render('pages/plans/plans', {
+        		flash: {
+        			type: "warning",
+        			message: `You already have a currently plan ${SESSION_USER.stripe.currently_subscription_name} active! Wait until it ends to make a new subscription transaction!`
+        		},
+        		user: SESSION_USER,
+				navbar_plans_active: true,
+        	})
+    	}
+
+		return res.render('pages/plans/starter_checkout', {
 			user: SESSION_USER,
 			navbar_plans_active: true
 		});
 	}
+
 
 	static async getViewPlanProCheckout (req, res) {
 		if(!req.session.userID){
-	      	return res.render('pages/plans', {
-	      		flash: {
-	      			type: "warning",
-	      			message: "You Must Be Logued To Make A Subscription Transaction!"
-	      		}
-	      	})
+			return res.redirect('/login')
 	  	}
 
-		res.render('pages/plans/plan_checkout', {
+	  	if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
+    		return res.render('pages/plans/plans', {
+        		flash: {
+        			type: "warning",
+        			message: `You already have a currently plan ${SESSION_USER.stripe.currently_subscription_name} active! Wait until it ends to make a new subscription transaction!`
+        		},
+        		user: SESSION_USER,
+				navbar_plans_active: true,
+        	})
+    	}
+
+		return res.render('pages/plans/pro_checkout', {
 			user: SESSION_USER,
 			navbar_plans_active: true
 		});
 	}
 
+
 	static async getViewPlanPremiumCheckout (req, res) {
 		if(!req.session.userID){
-	      	return res.render('pages/plans', {
-	      		flash: {
-	      			type: "warning",
-	      			message: "You Must Be Logued To Make A Subscription Transaction!"
-	      		}
-	      	})
+			return res.redirect('/login')
 	  	}
 
-	  	// user is already stripe customer and have a stripe card registred also
-	  	let customer_stripe_card_id = null
-	  	if(SESSION_USER.stripe.customer_id && SESSION_USER.stripe.card_id){
-	  		customer_stripe_card_id = SESSION_USER.stripe.card_id
-	  	}
+	  	if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
+    		return res.render('pages/plans/plans', {
+        		flash: {
+        			type: "warning",
+        			message: `You already have a currently plan ${SESSION_USER.stripe.currently_subscription_name} active! Wait until it ends to make a new subscription transaction!`
+        		},
+        		user: SESSION_USER,
+				navbar_plans_active: true,
+        	})
+    	}
 
-		res.render('pages/plans/premium_checkout', {
+		return res.render('pages/plans/premium_checkout', {
 			user: SESSION_USER,
-			navbar_plans_active: true,
-			customer_stripe_card_id
+			navbar_plans_active: true
 		});
 	}
 
-	static async postPlanPremiumPayLog (req, res) {
+	static async postSubscription (req, res) {
+
+		const { plan_name } = req.body 
+		console.log(plan_name)
 
 		if(!req.session.userID){
         	return res.render('pages/plans/plans', {
@@ -205,33 +221,68 @@ class PlansController {
         	})
     	}
 
-    	const divPlanBanner = `
-		<div class="card mb-4 rounded-3 shadow-sm text-center">
-            <div class="card-header py-3 bg-info">
-                <h4 class="my-0 fw-normal">Plan PREMIUM</h4>
-            </div>
-            
-            <div class="card-body">
-                <h1 class="card-title pricing-card-title">$ 4.99<small class="text-muted fw-light">/month</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>✔️ Support via Telegram/WhatsApp</li>
-                    <li>✔️ Ilimited Recomendations</li>
-                    <li>✔️ Get news in email</li>
-                </ul>
-            </div>
+    	let divPlanBanner = null
+    	if(plan_name === 'starter'){
+    		divPlanBanner = `
+    		<div class="card mb-4 rounded-3 shadow-sm text-center">
+		            <div class="card-header py-3 bg-warning">
+		                <h4 class="my-0 fw-normal">You Are STARTER!</h4>
+		            </div>
+		            
+		            <div class="card-body">
+		                <h1 class="card-title pricing-card-title">$ 4.99<small class="text-muted fw-light">/month</small></h1>
+		                <ul class="list-unstyled mt-3 mb-4">
+		                    <li>✔️ Support via Telegram/WhatsApp</li>
+		                </ul>
+		            </div>
 
-        </div>
-        `
+		        </div>`
+    	}
+    	else if(plan_name === 'pro'){
+    		divPlanBanner = `
+    		<div class="card mb-4 rounded-3 shadow-sm text-center">
+		            <div class="card-header py-3 bg-danger">
+		                <h4 class="my-0 fw-normal">You Are PRO!</h4>
+		            </div>
+		            
+		            <div class="card-body">
+		                <h1 class="card-title pricing-card-title">$ 4.99<small class="text-muted fw-light">/month</small></h1>
+		                <ul class="list-unstyled mt-3 mb-4">
+		                    <li>✔️ Support via Telegram/WhatsApp</li>
+		                    <li>✔️ Ilimited Recomendations</li>
+		                </ul>
+		            </div>
+
+		        </div>`
+    	} 
+    	else {
+    		divPlanBanner = `
+				<div class="card mb-4 rounded-3 shadow-sm text-center">
+		            <div class="card-header py-3 bg-info">
+		                <h4 class="my-0 fw-normal">You Are PREMIUM!</h4>
+		            </div>
+		            
+		            <div class="card-body">
+		                <h1 class="card-title pricing-card-title">$ 4.99<small class="text-muted fw-light">/month</small></h1>
+		                <ul class="list-unstyled mt-3 mb-4">
+		                    <li>✔️ Support via Telegram/WhatsApp</li>
+		                    <li>✔️ Ilimited Recomendations</li>
+		                    <li>✔️ Get news in email</li>
+		                </ul>
+		            </div>
+
+		        </div>
+		    `
+    	}
 
     	if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
-    		return res.render('pages/plans/premium_checkout', {
+    		return res.render('pages/plans/planPayLog', {
         		flash: {
         			type: "warning",
         			message: `You already have a currently plan ${SESSION_USER.stripe.currently_subscription_name} active! Wait until it ends to make a new subscription transaction!`
         		},
         		user: SESSION_USER,
 				navbar_plans_active: true,
-				divPlanBanner
         	})
     	}
 

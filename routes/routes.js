@@ -106,14 +106,14 @@ router.post('/shop', ShopController.postShopPayLog);
 // PLANS VIEWS CONTROLLER
 router.get('/plans', PlansController.getViewPlans);
 
-// router.get('/plan/starter/checkout', PlansController.getViewPlanStarterCheckout);
-// router.post('/plan/starter/checkout', PlansController.postPlanStarterPayLog);
+router.get('/plan/starter/checkout', PlansController.getViewPlanStarterCheckout);
+router.post('/plan/starter/checkout', PlansController.postSubscription);
 
-// router.get('/plan/pro/checkout', PlansController.getViewPlanProCheckout);
-// router.post('/plan/pro/checkout', PlansController.postPlanProPayLog);
+router.get('/plan/pro/checkout', PlansController.getViewPlanProCheckout);
+router.post('/plan/pro/checkout', PlansController.postSubscription);
 
 router.get('/plan/premium/checkout', PlansController.getViewPlanPremiumCheckout);
-router.post('/plan/premium/checkout', PlansController.postPlanPremiumPayLog);
+router.post('/plan/premium/checkout', PlansController.postSubscription);
 
 
 

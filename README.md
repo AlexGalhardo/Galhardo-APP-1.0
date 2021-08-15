@@ -14,12 +14,36 @@
 
 ## Subdomains
 - https://correios.galhardoapp.com/cep/13560290 (zipcode here)
-   - To get ZipCode/CEP Information
+   - To GET ZipCode/CEP Information (Correios BRAZIL)
 - https://correios.galhardoapp.com/shipping/13560290 (zipcode here)
-   - To get Shipping Deadline and Fee
-- https://json-database.galhardoapp.com/
-   - To view JSON DataBase
+   - To GET Shipping Deadline and Fee (Correios BRAZIL)
 
+## Public REST APIs
+- https://galhardoapp.com/api/public/blog
+   - GET all blogs posts
+- https://galhardoapp.com/api/public/games
+   - GET all games
+- https://galhardoapp.com/api/public/blog
+   - GET all books
+
+## ADMIN REST APIs
+- Need JWT Token in header authorization bearer token to access all endpoints
+- Examples:
+   - https://galhardoapp.com/api/admin/login
+      - method: POST,
+      - data: "email and password in body form",
+      - response: "ADMIN JWT Token for 1 hour duration"
+   - https://galhardoapp.com/api/admin/test
+      - method: POST,
+      - data: "ADMIN JWT TOKEN in Header Authorization Bearer Token",
+      - response: "Admin Data and JWT remaining duration"
+   - https://galhardoapp.com/api/admin/users
+      - Method: GET
+      - Response: Return JSON with all users
+      - Data: JWT Token in header authorization bearer token
+- You can use ADMIN API to 
+   - Manage your Stripe Account (Transactions, Subscriptions, Create Plans, Update, etc)
+   - CRUD Blog Posts, Games and Books
 
 ## Introduction
 ### I created this project to LEARN and PRATICE in my spare time:
@@ -63,7 +87,6 @@
 - [ ] In Code Compression Responses
 - [ ] In Code Cache Most used data
 - [x] Contact SMTP 
-- [ ] Confirm Email/Forget Password using SMTP
 - [ ] Confirm Email / Forget Password using SMTP
 - [ ] Subscriptions Transactions using SMTP (Email HTML Template)
 - [ ] Shop Transactions using SMTP (Email HTML Template)

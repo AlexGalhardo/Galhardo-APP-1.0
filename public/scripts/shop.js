@@ -4,39 +4,41 @@ const priceApples = 1.99;
 const priceStrawberries = 2.99;
 let totalCart = 0;
 
-document.querySelector('#quantityOranges').addEventListener('change', function() {
-    document.querySelector("#priceOranges").innerHTML = (this.value * priceOranges).toFixed(2);
-    getTotal()
+const priceOrangesEl = document.querySelector("#priceOranges")
+const priceGrapesEl = document.querySelector("#priceGrapes")
+const priceApplesEl = document.querySelector("#priceApples")
+const priceStrawberriesEl = document.querySelector("#priceStrawberries")
+const totalShopCartEl = document.querySelector("#button_pay_with_credit_card")
+
+document.querySelector('#quantityOranges').addEventListener('change', function(e) {
+    priceOrangesEl.innerHTML = (e.target.value * priceOranges).toFixed(2);
+    updateShopCartTotal()
 });
 
-document.querySelector('#quantityGrapes').addEventListener('change', function() {
-    document.querySelector("#priceGrapes").innerHTML = (this.value * priceGrapes).toFixed(2);
-    getTotal()
+document.querySelector('#quantityGrapes').addEventListener('change', function(e) {
+    priceGrapesEl.innerHTML = (e.target.value * priceGrapes).toFixed(2);
+    updateShopCartTotal()
 });
 
-document.querySelector('#quantityApples').addEventListener('change', function() {
-    document.querySelector("#priceApples").innerHTML = (this.value * priceApples).toFixed(2);
-    getTotal()
+document.querySelector('#quantityApples').addEventListener('change', function(e) {
+    priceApplesEl.innerHTML = (e.target.value * priceApples).toFixed(2);
+    updateShopCartTotal()
 });
 
-document.querySelector('#quantityStrawberries').addEventListener('change', function() {
-    document.querySelector("#priceStrawberries").innerHTML = (this.value * priceStrawberries).toFixed(2);
-    getTotal()
+document.querySelector('#quantityStrawberries').addEventListener('change', function(e) {
+    priceStrawberriesEl.innerHTML = (e.target.value * priceStrawberries).toFixed(2);
+    updateShopCartTotal()
 });
 
-function getTotal(){
-    document.querySelector("#totalCartShop").innerHTML = 
-        (
-            parseFloat(document.querySelector("#priceOranges").innerHTML) + 
-            parseFloat(document.querySelector("#priceGrapes").innerHTML) + 
-            parseFloat(document.querySelector("#priceApples").innerHTML) + 
-            parseFloat(document.querySelector("#priceStrawberries").innerHTML))
-        .toFixed(2)
+function updateShopCartTotal(){
+    totalShopCartEl.innerHTML = 
+        (    parseFloat(priceOrangesEl.innerHTML) + 
+            parseFloat(priceGrapesEl.innerHTML) + 
+            parseFloat(priceApplesEl.innerHTML) + 
+            parseFloat(priceStrawberriesEl.innerHTML)).toFixed(2)
 
-    document.querySelector("#value_totalShopCart").value = document.querySelector("#totalCartShop").innerHTML
-
-    console.log(document.querySelector("#totalCartShop").innerHTML)
-    console.log(document.querySelector("#value_totalShopCart").value)
+    document.querySelector("#input_hidden_total_shop_cart").value = document.querySelector("#button_pay_with_credit_card").innerHTML
+    document.querySelector("#total_shop_cart").innerHTML = document.querySelector("#button_pay_with_credit_card").innerHTML
 }
         
 

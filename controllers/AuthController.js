@@ -34,7 +34,6 @@ class AuthController {
 	
 	static async getViewLogin (req, res){
 		const facebookLoginURL = await URL.getFacebookURL()
-		console.log(facebookLoginURL)
 		res.render('pages/auth/login', {
 			FacebookLoginURL: facebookLoginURL,
 			GitHubLoginURL: URL.getGitHubURL,

@@ -12,6 +12,8 @@
                 </div>
             {{/flash}}
 
+            <input type="text" name="plan_name" value="premium" hidden>
+
             <form id="formCreditCard" action="/plan/premium/checkout" method="POST">
 
                 <div class="row">
@@ -35,14 +37,14 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="email" name="customer_email" class="form-control" id="customer_email" placeholder="email@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autofocus value="{{email}}">
+                            <input type="email" name="customer_email" class="form-control" id="customer_email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autofocus value="{{email}}" readonly>
                             <label for="customer_email">Email</label>
                         </div>
 
                         <!-- CONFIRM PASSWORD -->
                         <div class="form-floating">
                             <input id="password" name="password" value="" type="password" class="form-control" placeholder="Confirm your password" required minlength="6">
-                            <label for="password">Password</label>
+                            <label for="password">Confirm Password</label>
                         </div>
 
 
@@ -55,17 +57,42 @@
 
                     <div class="col-lg-6">
 
-                        {{#customer_stripe_card_id}}
+                        {{#user.stripe.card_id}}
                             <div class="form-floating mb-3">
                                 <select name="customer_stripe_card_id" class="form-select" id="stripe_card_id">
-                                    <option value="{{customer_stripe_card_id}}" selected>{{customer_stripe_card_id}}</option>
+                                    <option value="{{user.stripe.card_id}}" selected>{{user.stripe.card_id}}</option>
                                 </select>
                                 <label for="stripe_card_id">PAY WITH YOUR STRIPE CARD_ID</label>
                             </div>
-                        {{/customer_stripe_card_id}}
+
+                            <div class="form-floating mb-3">
+                                  <input id="stripe_card_holder_id" name="stripe_card_holder_id" class="mb-2 form-control" type="text" value="{{user.stripe.card_holder_name}}" readonly>
+                                  <label for="stripe_card_holder_id">STRIPE_CARD_HOLDER_NAME</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                  <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_last_4_digits}}" readonly>
+                                  <label for="stripe_card_last_4_digits">STRIPE_CARD_LAST_4_DIGITS</label>
+                            </div>
+
+                            <div class="row g-2">
+                              <div class="col-md">
+                                <div class="form-floating">
+                                  <input type="text" class="form-control" name="card_exp_year" id="card_exp_month" value="{{stripe.card_exp_month}}" readonly>
+                                  <label for="card_exp_month">CARD_EXP_MONTH</label>
+                                </div>
+                              </div>
+                              <div class="col-md">
+                                <div class="form-floating">
+                                  <input type="text" class="form-control" name="card_exp_year" id="card_exp_year" value="{{stripe.card_exp_year}}" readonly>
+                                  <label for="card_exp_year">CARD_EXP_YEAR</label>
+                                </div>
+                              </div>
+                            </div>
+                        {{/user.stripe.card_id}}
 
 
-                        {{^customer_stripe_card_id}}
+                        {{^user.stripe.card_id}}
                         <div id="credit-card" class="tab-pane fade show active pt-3">
 
                             <div id="div_credit_card"></div>
@@ -82,31 +109,26 @@
                                 </div>
                             </div>
 
-                            <div class="row">
 
-                                <div class="col-sm-8">
-                                    <div class="form-group">
-                                        <span class="hidden-xs">
-                                            <h6 class="text-muted small">Expiration Date</h6>
-                                        </span>
-                                        <div class="input-group">
-                                            <input type="number" placeholder="Month" name="card_exp_month" class="form-control" value="07" required>
-                                            <input type="number" placeholder="Year" name="card_exp_year" class="form-control" required value="2022"> </div>
-                                    </div>
+                            <div class="row g-2">
+                              <div class="col-md">
+                                <div class="form-floating">
+                                  <input type="text" class="form-control" name="card_exp_year" id="card_exp_month" value="{{stripe.card_exp_month}}">
+                                  <label for="card_exp_month">CARD_EXPIRATION_MONTH</label>
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group mb-4">
-                                        <label data-toggle="tooltip" title="Digite os 3 dígitos de segurança atrás do Credit Card.">
-                                        <h6 class="text-muted small">CVV
-                                            <i class="fa fa-question-circle d-inline"></i>
-                                        </h6>
-                                        <input type="text" name="card_cvc" required class="form-control" placeholder="Code CVV" value="314"> </div>
+                              </div>
+                              <div class="col-md">
+                                <div class="form-floating">
+                                  <input type="text" class="form-control" name="card_exp_year" id="card_exp_year" value="{{stripe.card_exp_year}}">
+                                  <label for="card_exp_year">CARD_EXPIRATION_YEAR</label>
                                 </div>
+                              </div>
                             </div>
-                            {{/customer_stripe_card_id}}
+
+                            {{/user.stripe.card_id}}
                             
                             <div>
-                                <button type="submit" class="btn btn-outline-success btn-block shadow w-100">
+                                <button type="submit" class="mt-3 btn btn-outline-success btn-block shadow w-100">
                                     <span>Pay $4.99/Month</span>
                                 </button>
                             </div>
@@ -120,8 +142,6 @@
 
             </form>
 
-            
-
 
         </div>
 
@@ -131,6 +151,9 @@
 	<script src="/scripts/jquery.min.js"></script>
     <script src="/scripts/jquery.card.js"></script>
     <script src="/scripts/render_credit_card.js"></script>
+
+    <script src="../../scripts/navbar_apis.js"></script>
+    <script src="../../scripts/privacy.js"></script>
 
     {{/user}}
     
