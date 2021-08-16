@@ -17,23 +17,27 @@ class Books {
 	}
 
 	static getTotalBooks()  {
-		try {
-	      return database.books.length
-	    } catch (error) {
-	      return console.log("ERROR getTotalBooks: ", error);
-	    };
+		let stmt = "SELECT COUNT(*) FROM books";
+
+		const [ rows ] = await mysql.execute(stmt);
+		
+		console.log(rows)
+
+		return rows ? rows : false
 	}
 
 	static getRandomBook()  {		
-		try {
-			const totalBooks = Books.getTotalBooks()
+	    const totalBooks = Books.getTotalBooks()
 		
-			const random_book_index = Math.floor(Math.random() * totalBooks) + 1 
+		const random_book_index = Math.floor(Math.random() * totalBooks) + 1 
 
-	      	return database.books[random_book_index-1]
-	    } catch (error) {
-	      	return console.log("ERROR getRandomBook: ", error);
-	    };
+	    let stmt = `SELECT * FROM books WHERE id = ${random_book_id}`;
+
+		const [ rows ] = await mysql.execute(stmt);
+		
+		console.log(rows)
+
+		return rows ? rows : false
 	}
 
 	static getBookByID(book_id) {
