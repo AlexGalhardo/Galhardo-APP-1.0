@@ -1,8 +1,8 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const fetch = require('node-fetch');
 const DateTime = require('../../helpers/DateTime');
 
-const { JSON_DATABASE_FILE, database } = require('../../config/global');
+const { JSON_DATABASE_FILE, database } = require('../../config/json_database');
 
 class Games {
 

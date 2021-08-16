@@ -19361,3 +19361,233 @@
 [35m[39m
 2021-08-15 06:57:38 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 7.816 ms[39m
 [35m[39m
+2021-08-15 07:00:16 [35mhttp[39m: [35mGET /api 200 CONTENT-LENGTH=297 45.798 ms[39m
+[35m[39m
+2021-08-15 07:00:17 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 98.514 ms[39m
+[35m[39m
+2021-08-15 07:00:20 [35mhttp[39m: [35mGET /api/public 200 CONTENT-LENGTH=493 5.839 ms[39m
+[35m[39m
+2021-08-15 07:00:21 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 8.819 ms[39m
+[35m[39m
+2021-08-15 07:01:26 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 152.840 ms[39m
+[35m[39m
+2021-08-15 07:01:26 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 21.862 ms[39m
+[35m[39m
+2021-08-15 07:01:26 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 20.416 ms[39m
+[35m[39m
+2021-08-15 07:01:26 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 39.960 ms[39m
+[35m[39m
+2021-08-15 07:01:26 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 38.176 ms[39m
+[35m[39m
+2021-08-15 07:01:27 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 5.583 ms[39m
+[35m[39m
+2021-08-15 07:07:07 [35mhttp[39m: [35mGET /login 200 CONTENT-LENGTH=- 47.598 ms[39m
+[35m[39m
+2021-08-15 07:07:08 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 33.938 ms[39m
+[35m[39m
+2021-08-15 07:07:16 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 47.632 ms[39m
+[35m[39m
+2021-08-15 07:07:16 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 4.348 ms[39m
+[35m[39m
+2021-08-15 07:07:16 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 13.467 ms[39m
+[35m[39m
+2021-08-15 07:07:16 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 4.673 ms[39m
+[35m[39m
+2021-08-15 07:07:16 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 3.752 ms[39m
+[35m[39m
+2021-08-15 07:07:18 [35mhttp[39m: [35mGET /blog 200 CONTENT-LENGTH=- 20.284 ms[39m
+[35m[39m
+2021-08-15 07:07:19 [35mhttp[39m: [35mGET /scripts/scroll_bar.js 304 CONTENT-LENGTH=- 3.269 ms[39m
+[35m[39m
+2021-08-15 07:07:19 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 5.358 ms[39m
+[35m[39m
+2021-08-15 07:07:19 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 6.133 ms[39m
+[35m[39m
+2021-08-15 07:07:22 [35mhttp[39m: [35mGET /blog/page/2 200 CONTENT-LENGTH=- 8.922 ms[39m
+[35m[39m
+2021-08-15 07:07:23 [35mhttp[39m: [35mGET /blog/scripts/scroll_bar.js 200 CONTENT-LENGTH=- 16.435 ms[39m
+[35m[39m
+2021-08-15 07:07:23 [35mhttp[39m: [35mGET /blog/scripts/navbar_apis.js 200 CONTENT-LENGTH=- 15.206 ms[39m
+[35m[39m
+2021-08-15 07:07:23 [35mhttp[39m: [35mGET /blog/scripts/privacy.js 200 CONTENT-LENGTH=- 6.741 ms[39m
+[35m[39m
+2021-08-15 07:07:24 [35mhttp[39m: [35mGET /blog/page/images/favicon.png 200 CONTENT-LENGTH=- 7.273 ms[39m
+[35m[39m
+2021-08-15 07:07:25 [35mhttp[39m: [35mGET /blog/blog-title-6 200 CONTENT-LENGTH=- 24.082 ms[39m
+[35m[39m
+2021-08-15 07:07:25 [35mhttp[39m: [35mGET /scripts/scroll_bar.js 304 CONTENT-LENGTH=- 11.764 ms[39m
+[35m[39m
+2021-08-15 07:07:25 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 25.585 ms[39m
+[35m[39m
+2021-08-15 07:07:25 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 16.670 ms[39m
+[35m[39m
+2021-08-15 07:07:25 [35mhttp[39m: [35mGET /blog/images/favicon.png 200 CONTENT-LENGTH=- 4.624 ms[39m
+[35m[39m
+2021-08-15 07:07:28 [35mhttp[39m: [35mGET /shop 200 CONTENT-LENGTH=- 62.275 ms[39m
+[35m[39m
+2021-08-15 07:07:30 [35mhttp[39m: [35mGET /contact 200 CONTENT-LENGTH=- 9.379 ms[39m
+[35m[39m
+2021-08-15 07:07:30 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 4.273 ms[39m
+[35m[39m
+2021-08-15 07:07:30 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 6.896 ms[39m
+[35m[39m
+2021-08-15 07:07:31 [35mhttp[39m: [35mGET /plans 200 CONTENT-LENGTH=- 13.358 ms[39m
+[35m[39m
+2021-08-15 07:07:31 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 3.056 ms[39m
+[35m[39m
+2021-08-15 07:07:31 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 3.133 ms[39m
+[35m[39m
+2021-08-15 07:07:32 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 54.865 ms[39m
+[35m[39m
+2021-08-15 07:07:32 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 3.155 ms[39m
+[35m[39m
+2021-08-15 07:07:32 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 3.436 ms[39m
+[35m[39m
+2021-08-15 07:07:32 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 5.306 ms[39m
+[35m[39m
+2021-08-15 07:07:32 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 5.696 ms[39m
+[35m[39m
+2021-08-15 07:07:47 [35mhttp[39m: [35mGET /books 200 CONTENT-LENGTH=- 30.155 ms[39m
+[35m[39m
+2021-08-15 07:07:47 [35mhttp[39m: [35mGET /scripts/books.js 200 CONTENT-LENGTH=949 12.290 ms[39m
+[35m[39m
+2021-08-15 07:07:47 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 9.023 ms[39m
+[35m[39m
+2021-08-15 07:07:47 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 13.288 ms[39m
+[35m[39m
+2021-08-15 07:07:47 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 11.199 ms[39m
+[35m[39m
+2021-08-15 07:07:54 [35mhttp[39m: [35mGET / 304 CONTENT-LENGTH=- 41.855 ms[39m
+[35m[39m
+2021-08-15 07:07:54 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 3.090 ms[39m
+[35m[39m
+2021-08-15 07:07:54 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 9.659 ms[39m
+[35m[39m
+2021-08-15 07:07:54 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 27.432 ms[39m
+[35m[39m
+2021-08-15 07:07:54 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 30.569 ms[39m
+[35m[39m
+2021-08-15 20:27:55 [35mhttp[39m: [35mPOST /api/admin/book/create 500 CONTENT-LENGTH=34 203.690 ms[39m
+[35m[39m
+2021-08-15 20:28:47 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=154 71.254 ms[39m
+[35m[39m
+2021-08-15 20:29:27 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=154 16.196 ms[39m
+[35m[39m
+2021-08-15 20:29:42 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=154 67.018 ms[39m
+[35m[39m
+2021-08-15 20:30:06 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=154 71.179 ms[39m
+[35m[39m
+2021-08-15 20:30:53 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=154 64.157 ms[39m
+[35m[39m
+2021-08-15 20:33:57 [35mhttp[39m: [35mPOST /api/admin/book/create 422 CONTENT-LENGTH=85 68.439 ms[39m
+[35m[39m
+2021-08-15 20:38:28 [35mhttp[39m: [35mPOST /api/admin/book/create 422 CONTENT-LENGTH=85 59.849 ms[39m
+[35m[39m
+2021-08-15 20:42:03 [35mhttp[39m: [35mPOST /api/admin/test 500 CONTENT-LENGTH=42 19.732 ms[39m
+[35m[39m
+2021-08-15 20:43:20 [35mhttp[39m: [35mPOST /api/admin/test 500 CONTENT-LENGTH=32 144.406 ms[39m
+[35m[39m
+2021-08-15 20:43:45 [35mhttp[39m: [35mPOST /api/admin/login - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-15 20:44:24 [35mhttp[39m: [35mPOST /api/admin/login 500 CONTENT-LENGTH=34 74.914 ms[39m
+[35m[39m
+2021-08-15 20:44:52 [35mhttp[39m: [35mPOST /api/admin/login 500 CONTENT-LENGTH=35 67.645 ms[39m
+[35m[39m
+2021-08-15 20:45:24 [35mhttp[39m: [35mPOST /api/admin/login 500 CONTENT-LENGTH=32 592.601 ms[39m
+[35m[39m
+2021-08-15 20:46:12 [35mhttp[39m: [35mPOST /api/admin/login 200 CONTENT-LENGTH=217 552.436 ms[39m
+[35m[39m
+2021-08-15 20:46:23 [35mhttp[39m: [35mPOST /api/admin/test 500 CONTENT-LENGTH=37 27.161 ms[39m
+[35m[39m
+2021-08-15 20:46:56 [35mhttp[39m: [35mPOST /api/admin/test 200 CONTENT-LENGTH=133 325.928 ms[39m
+[35m[39m
+2021-08-15 20:47:14 [35mhttp[39m: [35mPOST /api/admin/book/create 500 CONTENT-LENGTH=32 17.393 ms[39m
+[35m[39m
+2021-08-15 20:47:37 [35mhttp[39m: [35mPOST /api/admin/book/create 500 CONTENT-LENGTH=32 9.128 ms[39m
+[35m[39m
+2021-08-15 20:47:48 [35mhttp[39m: [35mPOST /api/admin/book/create 500 CONTENT-LENGTH=32 76.720 ms[39m
+[35m[39m
+2021-08-15 20:48:23 [35mhttp[39m: [35mPOST /api/admin/book/create 500 CONTENT-LENGTH=34 75.534 ms[39m
+[35m[39m
+2021-08-15 20:49:03 [35mhttp[39m: [35mPOST /api/admin/book/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-15 20:50:41 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=154 81.458 ms[39m
+[35m[39m
+2021-08-15 20:53:30 [35mhttp[39m: [35mPOST /api/admin/book/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-15 20:53:51 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=189 139.807 ms[39m
+[35m[39m
+2021-08-15 20:59:29 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=189 130.922 ms[39m
+[35m[39m
+2021-08-15 21:00:44 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=189 134.241 ms[39m
+[35m[39m
+2021-08-15 21:03:24 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=199 137.937 ms[39m
+[35m[39m
+2021-08-15 21:04:56 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=199 141.304 ms[39m
+[35m[39m
+2021-08-15 21:05:10 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=199 16.252 ms[39m
+[35m[39m
+2021-08-15 21:05:32 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=199 138.512 ms[39m
+[35m[39m
+2021-08-15 21:13:09 [35mhttp[39m: [35mPOST /api/admin/book/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-15 21:16:25 [35mhttp[39m: [35mPOST /api/admin/book/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-15 21:16:51 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=154 4449.929 ms[39m
+[35m[39m
+2021-08-15 21:18:35 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=40 4288.070 ms[39m
+[35m[39m
+2021-08-15 21:19:35 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=154 314.906 ms[39m
+[35m[39m
+2021-08-15 21:21:02 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=154 4265.679 ms[39m
+[35m[39m
+2021-08-15 21:21:52 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=154 323.800 ms[39m
+[35m[39m
+2021-08-15 21:23:03 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=154 328.615 ms[39m
+[35m[39m
+2021-08-15 21:25:57 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=162 362.567 ms[39m
+[35m[39m
+2021-08-15 21:27:49 [35mhttp[39m: [35mPOST /api/admin/book/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-15 21:28:38 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=232 383.234 ms[39m
+[35m[39m
+2021-08-15 21:35:49 [35mhttp[39m: [35mGET /api/public/books 500 CONTENT-LENGTH=70 48.518 ms[39m
+[35m[39m
+2021-08-15 21:37:49 [35mhttp[39m: [35mGET /api/public/books 500 CONTENT-LENGTH=70 44.597 ms[39m
+[35m[39m
+2021-08-15 21:37:57 [35mhttp[39m: [35mGET /api/public/books 500 CONTENT-LENGTH=70 14.433 ms[39m
+[35m[39m
+2021-08-15 21:38:53 [35mhttp[39m: [35mGET /api/public/books 500 CONTENT-LENGTH=70 46.945 ms[39m
+[35m[39m
+2021-08-15 21:38:56 [35mhttp[39m: [35mGET /api/public/books 500 CONTENT-LENGTH=70 15.805 ms[39m
+[35m[39m
+2021-08-15 21:40:06 [35mhttp[39m: [35mGET /api/public/books 500 CONTENT-LENGTH=36 45.309 ms[39m
+[35m[39m
+2021-08-15 21:40:32 [35mhttp[39m: [35mGET /api/public/books 500 CONTENT-LENGTH=537 49.111 ms[39m
+[35m[39m
+2021-08-15 21:41:01 [35mhttp[39m: [35mGET /api/public/books 500 CONTENT-LENGTH=70 45.912 ms[39m
+[35m[39m
+2021-08-15 21:41:43 [35mhttp[39m: [35mGET /api/public/books 500 CONTENT-LENGTH=70 52.033 ms[39m
+[35m[39m
+2021-08-15 21:44:52 [35mhttp[39m: [35mGET /api/public/books 200 CONTENT-LENGTH=2 40.204 ms[39m
+[35m[39m
+2021-08-15 21:46:19 [35mhttp[39m: [35mGET /api/public/books 500 CONTENT-LENGTH=70 49.709 ms[39m
+[35m[39m
+2021-08-15 21:49:20 [35mhttp[39m: [35mGET /api/public/books 500 CONTENT-LENGTH=70 46.734 ms[39m
+[35m[39m
+2021-08-15 21:54:30 [35mhttp[39m: [35mGET /api/public/books 200 CONTENT-LENGTH=469 6487.628 ms[39m
+[35m[39m
+2021-08-15 21:57:10 [35mhttp[39m: [35mPOST /api/admin/book/create 500 CONTENT-LENGTH=25 83.817 ms[39m
+[35m[39m
+2021-08-15 21:57:17 [35mhttp[39m: [35mPOST /api/admin/login 200 CONTENT-LENGTH=217 492.019 ms[39m
+[35m[39m
+2021-08-15 21:57:44 [35mhttp[39m: [35mPOST /api/admin/book/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-15 22:00:00 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=40 6551.780 ms[39m
+[35m[39m
+2021-08-15 22:00:18 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=40 268.919 ms[39m
+[35m[39m
+2021-08-15 22:02:11 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=224 6492.108 ms[39m
+[35m[39m
+2021-08-15 22:03:35 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=232 6671.097 ms[39m
+[35m[39m

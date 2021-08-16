@@ -8,6 +8,15 @@
  *  http://localhost:3000/api/admin
  */
 
+const { validationResult } = require("express-validator");
+const jwt = require('jsonwebtoken');
+
+// models
+const Users = require('../../models/JSON/Users')
+
+// helpers
+const Bcrypt = require('../../helpers/Bcrypt')
+const DateTime = require('../../helpers/DateTime')
 
 class APIAdminController {
 
@@ -45,10 +54,10 @@ class APIAdminController {
 	        }
 
 	        const JWT_TOKEN = jwt.sign(
-	        	{admin_id:admin.id}, 
-	        	process.env.JWT_SECRET,
-	        	{ expiresIn: '1h' }
-	        );
+						        	{admin_id:admin.id}, 
+						        	process.env.JWT_SECRET,
+						        	{ expiresIn: '1h' }
+						        );
 
 	        return res.json({
 	            ADMIN_JWT_TOKEN: JWT_TOKEN
@@ -60,11 +69,15 @@ class APIAdminController {
 	    }
 	}
 
-	static postAdminTest(req, res, next) {
+	/**
+	 * POST /api/admin/test
+	 */
+	static postAdminTestJWT(req, res, next) {
 		try {
 
-			// if success, return admin data
-	        const admin = APIController.verifyAdminAPIRequestUsingJWT(req)
+			const JWT_TOKEN = req.headers.authorization.split(' ')[1];
+        	const decoded = jwt.verify(JWT_TOKEN, process.env.JWT_SECRET);
+	        const admin = Users.getUserByID(decoded.admin_id)
             
             return res.json({
                 admin: {

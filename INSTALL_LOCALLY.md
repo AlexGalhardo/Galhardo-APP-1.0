@@ -18,6 +18,9 @@
 - $ npm start
    - http://localhost:3000
 
+## How To Use Locally with SQLITE
+- You can use SQLite for fast development and MySQL for Production
+
 ## How To Use Locally with MySQL and Docker
 - In Development
 

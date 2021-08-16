@@ -1,10 +1,10 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const uuid = require('uuid');
 
 const Bcrypt = require('../../helpers/Bcrypt');
 const DateTime = require('../../helpers/DateTime');
 
-const { JSON_DATABASE_FILE, database } = require('../../config/global');
+const { JSON_DATABASE_FILE, database } = require('../../config/json_database');
 
 class Users {
 

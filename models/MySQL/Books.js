@@ -2,30 +2,18 @@ const fs = require('fs-extra')
 const fetch = require('node-fetch');
 const DateTime = require('../../helpers/DateTime');
 
-const { JSON_DATABASE_FILE, database } = require('../../config/json_database');
+const mysql = require('../../config/mysql');
 
 class Books {
 
-	static save(database, error_message){
-		for(let i = 0; i < database.books.length; i++){
-			database.books[i].id = i+1
-		}
+	static async  getAllBooks()  {
+		let stmt = "SELECT * FROM `books`";
 
-	    fs.writeFileSync(JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
-	      if (error) {
-	        console.log(`Error writing file in ${JSON_DATABASE_FILE}: `, error);
-	        return false
-	      }
-	    });
-	    return true
-	}
+		const [ rows ] = await mysql.execute(stmt);
+		
+		console.log(rows)
 
-	static getAllBooks()  {
-		try {
-	      return database.books
-	    } catch (error) {
-	      return console.log("ERROR getAllBooks: ", error);
-	    };
+		return rows ? rows : false
 	}
 
 	static getTotalBooks()  {
@@ -62,16 +50,39 @@ class Books {
 	}
 
 
-	static createBook(bookObject) {
-		try {
-			bookObject.updated_at = DateTime.getNow()
-			bookObject.created_at = DateTime.getNow()
-			database.books.push(bookObject)
-			Books.save(database, "Error createBook: ")
-			return bookObject
-    	} catch (error) {
-      		return console.log("ERROR createBook: ", error);
-    	}
+	static async create(bookObject) {
+
+		let stmt = `INSERT INTO books
+								(title, 
+								year_release, 
+								image, 
+								amazon_link, 
+								resume, 
+								pages, 
+								genres, 
+								author,
+								created_at,
+								updated_at) 
+					VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+		
+		let data = [
+		  	bookObject.title,
+		  	bookObject.year_release,
+            bookObject.image,
+            bookObject.amazon_link,
+            bookObject.resume,
+            bookObject.pages,
+            bookObject.genres,
+            bookObject.author,
+            bookObject.created_at,
+            bookObject.updated_at
+		];
+
+		const [ rows ] = await mysql.execute(stmt, data);
+		
+		console.log(rows)
+
+		return rows ? rows : false		
 	}
 
 

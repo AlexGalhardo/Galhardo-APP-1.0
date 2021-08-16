@@ -100,7 +100,7 @@
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
    - [x] CRUD Profile
    - [ ] (CREATE, READ, DELETE) Blog Comments
-- MySQL DataBase using Docker
+- MySQL DataBase using Docker (without ORM)
    - [ ] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
@@ -108,7 +108,7 @@
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
    - [ ] CRUD Profile
    - [ ] (CREATE, READ, DELETE) Blog Comments
-- MongoDB DataBase using Docker
+- MongoDB DataBase using Docker (without ORM)
    - [ ] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)

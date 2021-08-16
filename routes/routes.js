@@ -1,4 +1,8 @@
 const Logger = require('../config/winston');
+const jwt = require('jsonwebtoken');
+
+// models
+const Users = require('../models/JSON/Users');
 
 // ADMIN VIEW STRIPE CONTROLLERS
 const StripeCustomersController = require('../controllers/Stripe/StripeCustomersController');
@@ -32,10 +36,16 @@ const APIAdminStripeController = require('../controllers/API/APIAdminStripeContr
 
 // INIT EXPRESS 
 const express = require('express');
-const router = express();
+const router = express.Router();
 
 
-// MIDDLEWARES
+
+
+
+
+
+
+// ---------------------- MIDDLEWARES
 const isAdmin = (req, res, next) => {
 	if(SESSION_USER && !SESSION_USER.admin || !SESSION_USER){
 		return res.redirect('/')
@@ -59,6 +69,32 @@ const userIsAlreadyLoggedIn = (req, res, next) => {
 	next()
 }
 
+const verifyAPIAdminJWTToken = (req, res, next) => {
+    if(
+      !req.headers.authorization ||
+      !req.headers.authorization.startsWith('Bearer') ||
+      !req.headers.authorization.split(' ')[1]
+    ){
+      return res.status(422).json({
+          message: "Please provide the ADMIN JWT Token in Header Authorization Bearer Token",
+      });
+    }
+
+    const JWT_TOKEN = req.headers.authorization.split(' ')[1];
+    const decoded = jwt.verify(JWT_TOKEN, process.env.JWT_SECRET);
+
+    if(!Users.verifyIfAdminByID(decoded.admin_id)){
+      return res.status(422).json({
+        message: "This JWT Token is Inválid!",
+      });
+    }
+    return next()
+}
+
+
+
+
+
 
 // Test Logger
 router.get('/logger', (req, res) => {
@@ -70,6 +106,8 @@ router.get('/logger', (req, res) => {
 
   res.send("Logger tested");
 });
+
+
 
 
 
@@ -201,7 +239,7 @@ router.get('/api/public/books/:book_id', APIPublicController.getPublicBookByID);
 
 // ADMIN
 router.post('/api/admin/login', APIAdminController.postAdminLogin);
-router.post('/api/admin/test', APIAdminController.postAdminTest);
+router.post('/api/admin/test', APIAdminController.postAdminTestJWT);
 
 // ADMIN BLOG
 // router.post('/api/admin/blog/create', APIAdminBlogController.postAdminBlogCreate);
@@ -214,7 +252,7 @@ router.post('/api/admin/test', APIAdminController.postAdminTest);
 // router.delete('/api/admin/game/delete/:blog_id', APIAdminGameController.deleteAdminGameDelete);
 
 // ADMIN BOOKS
-// router.post('/api/admin/book/create', APIAdminBookController.postAdminBookCreate);
+router.post('/api/admin/book/create', verifyAPIAdminJWTToken, APIAdminBookController.postAdminBookCreate);
 // router.put('/api/admin/book/update/:blog_id', APIController.putAdminBookUpdate);
 // router.delete('/api/admin/book/delete/:blog_id', APIController.deleteAdminBookDelete);
 
