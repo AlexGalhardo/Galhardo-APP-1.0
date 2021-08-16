@@ -16,7 +16,7 @@ class Books {
 		return rows ? rows : false
 	}
 
-	static getTotalBooks()  {
+	static async getTotalBooks()  {
 		let stmt = "SELECT COUNT(*) FROM books";
 
 		const [ rows ] = await mysql.execute(stmt);
@@ -26,7 +26,7 @@ class Books {
 		return rows ? rows : false
 	}
 
-	static getRandomBook()  {		
+	static async getRandomBook()  {		
 	    const totalBooks = Books.getTotalBooks()
 		
 		const random_book_index = Math.floor(Math.random() * totalBooks) + 1 
