@@ -28,17 +28,17 @@ class NodeMailer {
         
         const htmlBody = template(replacements);
 
-        let sendEmail = await smtpTransport.sendMail({
+        let sendEmail = await SendGrid.sendMail({
             from: process.env.SENDGRID_EMAIL_FROM,
             to: "aleexgvieira@gmail.com",
-            subject: `Galhardo APP Contact: Subject ${subject} from ${username}`,
+            subject: `Galhardo APP Contact: ${subject} from ${username}`,
             text: subject,
             html: htmlBody
         });
         
         SendGrid.close();
 
-        console.log(`NodeMailer sendEmailContact: ${sendEmail}`);
+        console.log(`NodeMailer sendEmailContact: `, sendEmail);
 
         return sendEmail ? true : false
     }
@@ -64,11 +64,11 @@ class NodeMailer {
         
         const htmlBody = template(replacements);
 
-        let sendEmail = await smtpTransport.sendMail({
+        let sendEmail = await SendGrid.sendMail({
             from: process.env.SENDGRID_EMAIL_FROM,
-            to: shopTransactionObject.customer_email,
+            to: 'aleexgvieira@gmail.com', //shopTransactionObject.customer_email,
             subject: `Galhardo APP: Shop Transaction ${shopTransactionObject.status}!`,
-            text: subject,
+            // text: subject,
             html: htmlBody
         });
         
@@ -88,28 +88,32 @@ class NodeMailer {
         const source = fs.readFileSync(filePath, 'utf-8').toString();
         
         const template = handlebars.compile(source);
+
+        console.log(subsTransactionObject)
         
         const replacements = {
             status: subsTransactionObject.status,
-            plan_name: subsTransactionObject.name,
+            plan_name: subsTransactionObject.plan_name,
             transaction_id: subsTransactionObject.transaction_id,
-            subs_start: subsTransactionObject.start,
-            subs_end: subsTransactionObject.end
+            subs_start: subsTransactionObject.subs_start,
+            subs_end: subsTransactionObject.subs_end
         };
+
+        console.log('enviou html email noemilaer', replacements)
         
         const htmlBody = template(replacements);
 
-        let sendEmail = await smtpTransport.sendMail({
+        let sendEmail = await SendGrid.sendMail({
             from: process.env.SENDGRID_EMAIL_FROM,
-            to: subsTransactionObject.customer_email,
+            to: 'aleexgvieira@gmail.com', //shopTransactionObject.customer_email,
             subject: `Galhardo APP: Subscription Transaction ${subsTransactionObject.status}`,
-            text: subject,
+            // text: subject,
             html: htmlBody
         });
         
         SendGrid.close();
 
-        console.log(`NodeMailer sendEmailSubscriptionTransaction: ${sendEmail}`);
+        console.log(`NodeMailer sendEmailSubscriptionTransaction:`, sendEmail);
 
         return sendEmail ? true : false
     }
@@ -146,7 +150,7 @@ class NodeMailer {
         });
         SendGrid.close();
 
-        console.log(`NodeMailer sendEmailForgetPassword: ${emailSend}`);
+        console.log(`NodeMailer sendEmailForgetPassword: `, emailSend);
 
         return emailSend ? true : false
     }

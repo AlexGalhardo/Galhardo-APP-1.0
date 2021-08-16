@@ -190,7 +190,7 @@ class AuthController {
 
         const resetPasswordTokenCreated = Users.createResetPasswordToken(email, reset_password_token);
 
-        NodeMailer.postForgetPassword(email, reset_password_token);
+        NodeMailer.sendEmailForgetPassword(email, reset_password_token);
 
         if(!resetPasswordTokenCreated){
             return console.log('reset_password_token not saved in JSON DATABASE!');

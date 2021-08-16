@@ -207,23 +207,9 @@ class PlansController {
 		});
 	}
 
-	static async postSubscription (req, res) {
-
-		const { plan_name } = req.body 
-		console.log(plan_name)
-
-		if(!req.session.userID){
-        	return res.render('pages/plans/plans', {
-        		flash: {
-        			type: "danger",
-        			message: "You Must Be Logued To Make A Subscription Transaction!"
-        		}
-        	})
-    	}
-
-    	let divPlanBanner = null
-    	if(plan_name === 'starter'){
-    		divPlanBanner = `
+	static getSubscriptionBanner (plan_name){
+		if(plan_name === 'starter'){
+    		return `
     		<div class="card mb-4 rounded-3 shadow-sm text-center">
 		            <div class="card-header py-3 bg-warning">
 		                <h4 class="my-0 fw-normal">You Are STARTER!</h4>
@@ -239,7 +225,7 @@ class PlansController {
 		        </div>`
     	}
     	else if(plan_name === 'pro'){
-    		divPlanBanner = `
+    		return `
     		<div class="card mb-4 rounded-3 shadow-sm text-center">
 		            <div class="card-header py-3 bg-danger">
 		                <h4 class="my-0 fw-normal">You Are PRO!</h4>
@@ -256,7 +242,7 @@ class PlansController {
 		        </div>`
     	} 
     	else {
-    		divPlanBanner = `
+    		return `
 				<div class="card mb-4 rounded-3 shadow-sm text-center">
 		            <div class="card-header py-3 bg-info">
 		                <h4 class="my-0 fw-normal">You Are PREMIUM!</h4>
@@ -274,6 +260,20 @@ class PlansController {
 		        </div>
 		    `
     	}
+	}
+
+	static async postSubscription (req, res) {
+
+		const { plan_name } = req.body 
+
+		if(!req.session.userID){
+        	return res.render('pages/plans/planPayLog', {
+        		flash: {
+        			type: "danger",
+        			message: "You Must Be Logued To Make A Subscription Transaction!"
+        		}
+        	})
+    	}
 
     	if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
     		return res.render('pages/plans/planPayLog', {
@@ -288,6 +288,18 @@ class PlansController {
 
     	const subscription = await PlansController.verifySubscription(req)
 
+    	const subsTransactionObject = {
+    		status: 'Success',
+            plan_name: plan_name,
+            transaction_id: subscription.id,
+            subs_start: subscription.current_period_start,
+            subs_end: subscription.current_period_end
+    	}
+
+    	console.log('entrou nodemailer', subsTransactionObject)
+
+    	NodeMailer.sendEmailSubscriptionTransaction(subsTransactionObject)
+
 		res.render('pages/plans/planPayLog', {
 			flash: {
 				type: 'success',
@@ -296,7 +308,7 @@ class PlansController {
 			subscription,
 			user: SESSION_USER,
 			navbar_plans_active: true,
-			divPlanBanner
+			divPlanBanner: PlansController.getSubscriptionBanner(plan_name)
 		});
 	}
 };
