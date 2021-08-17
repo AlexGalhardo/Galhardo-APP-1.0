@@ -1,5 +1,6 @@
 <br>
 <h1 align="center">⭐ Galhardo APP 💵</h1>
+<small align="center">A Simple Web App Project for Lifetime Learning</small>
 
 ## Live Demo
 - **Currently Version: ALPHA - Not finished/stable**
@@ -11,7 +12,7 @@
 - **IMPORTANT:**
    - **All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY**
    - **NO REAL Money Transactions will be made**
-   - **All CRUDs in Heroku Live Demo are made in JSON DataBase, for obvious reasons.**
+   - **All CRUDs in this Live Demo are made in JSON DataBase, for obvious reasons.**
 
 ## Subdomains
 - https://correios.galhardoapp.com/cep/13560290 (zipcode here)
@@ -33,23 +34,14 @@
 - Each user registred can use this endpoint to update or delete his account
 - POST https://galhardoapp.com/api/profile/login
 - PATCH https://galhardoapp.com/api/profile/patch
-- POST https://galhardoapp.com/api/profile/delete
+- DELETE https://galhardoapp.com/api/profile/delete
 
 ### ADMIN REST APIs Endpoints Examples
 - Need JWT Token in header authorization bearer token to access all endpoints
 - Examples:
-   - https://galhardoapp.com/api/admin/login
-      - method: POST,
-      - data: "email and password in body form",
-      - response: "ADMIN JWT Token for 1 hour duration"
-   - https://galhardoapp.com/api/admin/test
-      - method: POST,
-      - data: "ADMIN JWT TOKEN in Header Authorization Bearer Token",
-      - response: "Admin Data and JWT remaining duration"
-   - https://galhardoapp.com/api/admin/users
-      - Method: GET
-      - Response: Return JSON with all users
-      - Data: JWT Token in header authorization bearer token
+   - POST https://galhardoapp.com/api/admin/login
+   - POST https://galhardoapp.com/api/admin/test
+   - GET https://galhardoapp.com/api/admin/users
 - You can use ADMIN API to 
    - Manage your Stripe Account (Transactions, Subscriptions, Create Plans, Update, etc)
    - CRUD Blog Posts, Games and Books

@@ -216,16 +216,44 @@ class Users {
     }
   }
 
-  static updateProfile(userObject){
-    try {
-      for(let i = 0; i < database.users.length; i++){
 
-        if(database.users[i].id == userObject.id){
-          userObject.created_at = database.users[i].created_at
-          userObject.updated_at = DateTime.getNow()
-          datbase.users.splice(i, 1, userObject)
-          Users.save(database, 'Error updateProfile: ')
-          return true
+
+  static async updateProfile(userObject){
+    try {
+
+      for(let i = 0; i < database.users.length; i++){
+        
+        if(database.users[i].email === userObject.email){
+          const passwordValid = await Bcrypt.comparePassword(userObject.password, database.users[i].password)
+            console.log(passwordValid)
+          if(passwordValid){
+            console.log('PASSWORD IS VALID')
+            
+            // I need to refactor this shit code someday
+            if(userObject.name) database.users[i].name = userObject.name
+            if(userObject.new_email) database.users[i].email = userObject.new_email
+            if(userObject.new_password) database.users[i].password = await Bcrypt.cryptPassword(userObject.new_password)
+            if(userObject.document) database.users[i].document = userObject.document
+            if(userObject.phone) database.users[i].phone = userObject.phone
+            if(userObject.birth_date) database.users[i].birth_date = userObject.birth_date
+            if(userObject.zipcode) database.users[i].address.zipcode = userObject.zipcode
+            if(userObject.street) database.users[i].address.street = userObject.street
+            if(userObject.street_number) database.users[i].address.street_number = userObject.street_number
+            if(userObject.neighborhood) database.users[i].address.neighborhood = userObject.neighborhood
+            if(userObject.city) database.users[i].address.city = userObject.city
+            if(userObject.state) database.users[i].address.state = userObject.state
+            if(userObject.country) database.users[i].address.country = userObject.country
+
+            database.users[i].updated_at = DateTime.getNow()
+
+            console.log(database.users[i])
+            
+            Users.save(database, 'Error updateProfile: ')
+            
+            return database.users[i]
+          } else {
+            return false
+          }
         }
       }
       return false
@@ -233,6 +261,8 @@ class Users {
       return console.log("ERROR updateProfile: ", error);
     }
   }
+
+
 
   static updateAvatarName(avatarName, user_id){
     try {
@@ -246,6 +276,25 @@ class Users {
       return false
     } catch (error) {
       return console.log("ERROR updateAvatarName: ", error);
+    }
+  }
+
+  static async deleteProfile(email, password){
+    try {
+      for(let i = 0; i < database.users.length; i++){
+        console.log('entrou', email, database.users[i].email)
+        if(database.users[i].email === email){
+          const passwordValid = await Bcrypt.comparePassword(password, database.users[i].password)
+          if(passwordValid){
+            database.users.splice(i, 1)
+            Users.save(database, "ERROR deleteProfile: ")
+            return true
+          }
+        }
+      }
+      return false
+    } catch (error) {
+      return console.log("ERROR deleteProfile: ", error);
     }
   }
 

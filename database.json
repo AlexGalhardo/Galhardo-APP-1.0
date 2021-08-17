@@ -81,78 +81,42 @@
       "updated_at": "10/08/2021 02:25:35"
     },
     {
-      "id": "fc0f7d51-4701-4907-8ee2-1c328651aa1e",
-      "name": "Alex Galhardo",
-      "email": "aleexgvieira@gmail.com",
+      "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "name": "SILVA",
+      "email": "silva@gmail.com",
       "confirmed_email": true,
       "confirm_email_token": null,
-      "password": "$2b$12$681.M8XOiytM0SJxEpXewu9ABfScdEQ7jK4gGUfnw7JXDZHMiZ/Ea",
+      "password": "$2b$12$TWsxaxwyAktdsR61PqEfYO9yVC7hJbesrWE2ReeAEwSVRV7CqzZmi",
       "reset_password_token": null,
       "admin": false,
-      "avatar": "https://lh3.googleusercontent.com/a-/AOh14GgiwO7iPDkLu45ky0N0V5cVNNBsrSDFG7M5Gmch7w=s96-c",
-      "document": null,
-      "phone": null,
-      "birth_date": null,
-      "google_id": "116016806999832323637",
-      "github_id": 19540357,
-      "facebook_id": null,
-      "address": {
-        "zipcode": null,
-        "street": null,
-        "street_number": null,
-        "neighborhood": null,
-        "city": null,
-        "state": null,
-        "country": "BRAZIL"
-      },
-      "stripe": {
-        "customer_id": null,
-        "card_id": null,
-        "currently_subscription_id": null,
-        "currently_subscription_name": "FREE",
-        "subscription_start": null,
-        "subscription_end": null,
-        "subscription_automatically_renew": false
-      },
-      "created_at": "13/08/2021 20:12:06",
-      "updated_at": "13/08/2021 20:12:06"
-    },
-    {
-      "id": "4124d532-d5b9-4a66-8816-4b95f8109b07",
-      "name": "Jack Boby",
-      "email": "aleexgalhardoo@gmail.com",
-      "confirmed_email": true,
-      "confirm_email_token": null,
-      "password": "$2b$12$XSnKlAsPfoR2n6nSM7KZOevWw2Q1y/j.BDPxDjwNpQKsRLC/RrVDm",
-      "reset_password_token": null,
-      "admin": false,
-      "avatar": "avatar.png",
-      "document": null,
-      "phone": null,
-      "birth_date": null,
+      "avatar": "profile.jpg",
+      "document": "123456789",
+      "phone": "18999999999",
+      "birth_date": "23/09/1997",
       "google_id": null,
       "github_id": null,
-      "facebook_id": "356995519245532",
+      "facebook_id": null,
       "address": {
-        "zipcode": null,
-        "street": null,
-        "street_number": null,
-        "neighborhood": null,
-        "city": null,
-        "state": null,
-        "country": "BRAZIL"
+        "zipcode": "12345678",
+        "street": "Rua ali",
+        "street_number": "42",
+        "neighborhood": "Bairro aqui",
+        "city": "City here",
+        "state": "SP",
+        "country": "Brazil"
       },
       "stripe": {
         "customer_id": null,
+        "card_token_id": null,
         "card_id": null,
         "currently_subscription_id": null,
         "currently_subscription_name": "FREE",
         "subscription_start": null,
         "subscription_end": null,
-        "subscription_automatically_renew": false
+        "subscription_automatically_renew": null
       },
-      "created_at": "13/08/2021 22:12:57",
-      "updated_at": "13/08/2021 22:12:57"
+      "created_at": "10/08/2021 02:25:35",
+      "updated_at": "17/08/2021 04:53:53"
     }
   ],
   "blog": [
@@ -234,6 +198,18 @@
       "updated_at": "04/08/2021 18:55:16",
       "id": 5,
       "comments": []
+    },
+    {
+      "title": "New blog title insomnia",
+      "resume": "New blog resume by insomnia",
+      "image": "https://picsum.photos/id/10/230/230",
+      "category": "Software",
+      "body": "new blog post body by insomnia",
+      "comments": [],
+      "created_at": "17/08/2021 04:48:46",
+      "updated_at": "17/08/2021 04:48:46",
+      "slug": "New-blog-title-insomnia",
+      "id": 6
     }
   ],
   "games": [
@@ -386,6 +362,21 @@
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
+    },
+    {
+      "title": "Hades",
+      "year_release": "2020",
+      "resume": "A rogue-lite hack and slash dungeon crawler in which Zagreus, son of Hades the Greek god of the dead, attempts to escape his home and his oppressive father by fighting the souls of the dead through the various layers of the ever-shifting underworld, while getting to know and forging relationships with its inhabitants.",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co39vc.jpg",
+      "igdb_link": "https://www.igdb.com/games/hades--1",
+      "igdb_rating": "94",
+      "platforms": "PC, XboxOne Series S|X, PS4, PS5",
+      "developer": "Supergiant Games",
+      "genres": "Adventure, Hack and slash/Beat 'em up, Indie, Role-playing (RPG)",
+      "amazon_link": "amazon link",
+      "id": 11,
+      "updated_at": "17/08/2021 05:28:54",
+      "created_at": "17/08/2021 05:28:54"
     }
   ],
   "books": [
@@ -399,7 +390,8 @@
       "pages": 464,
       "genres": "Historic",
       "author": "Yuval Noah Harari ",
-      "updated_at": "11/08/2021 20:36:33"
+      "updated_at": "11/08/2021 20:36:33",
+      "created_at": "11/08/2021 20:36:33"
     },
     {
       "id": 2,
@@ -411,7 +403,8 @@
       "pages": "355",
       "genres": "Historic",
       "author": "Yuval Harari",
-      "updated_at": "11/08/2021 20:32:39"
+      "updated_at": "11/08/2021 20:32:39",
+      "created_at": "11/08/2021 20:32:39"
     },
     {
       "id": 3,
@@ -424,16 +417,28 @@
       "genres": "Historic",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
+    },
+    {
+      "title": "HARRY POTTER E A PEDRA FILOSOFAL",
+      "year_release": "2020",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/51C5FSmGlqL._SX331_BO1,204,203,200_.jpg",
+      "amazon_link": "https://www.amazon.com.br/dp/8532531768/ref=s9_acsd_al_bw_c2_x_1_t?pf_rd_m=A3RN7G7QC5MWSZ&pf_rd_s=merchandised-search-4&pf_rd_r=94401YP4EFQBKS2C6QK8&pf_rd_t=101&pf_rd_p=bed818b6-7184-4c08-8637-f6cb1f410f34&pf_rd_i=13348890011",
+      "resume": "Há 20 anos a magia aterrissou no Brasil com a chegada de Harry Potter e a Pedra Filosofal. Para comemorar este aniversário tão especial de um dos livros mais vendidos da história, a Rocco lançou esta coleção de luxo em edição limitada com os sete livros em capa dura, com ilustrações de Brian Selznick (vencedor da Medalha Caldecott) e Mary GrandPré. Uma novidade que irá encantar novos leitores e fãs que acompanham a série por todos esses anos",
+      "pages": "256",
+      "genres": "Fiction",
+      "author": "J.K. Rowling",
+      "id": 4,
+      "updated_at": "17/08/2021 05:49:19",
+      "created_at": "17/08/2021 05:49:19"
     }
   ],
-  "customers": [
-    {
-      "stripe_customer_id": "cus_K15RnWHRhUA0HF",
-      "name": "Test Jack",
-      "email": "test@gmail.com",
-      "created_at": "10/08/2021 19:18:09",
-      "updated_at": "10/08/2021 19:18:09",
-      "id": 1
-    }
-  ]
+  "stripe": {
+    "customers": [],
+    "cards": [],
+    "charges": [],
+    "products": [],
+    "prices": [],
+    "plans": [],
+    "subscriptions": []
+  }
 }
