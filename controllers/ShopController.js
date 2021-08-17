@@ -29,7 +29,6 @@ class ShopController {
 
 	static async postShopPayLog (req, res) {
 		
-		// get post request name inputs
 		const { quantityOranges,
 				quantityGrapes, 
 				quantityApples,
@@ -41,35 +40,11 @@ class ShopController {
 				customer_street,
 				customer_name,
 				customer_phone,
-				value_totalShopCart,
+				total_shop_cart_amount,
 				card_number,
 				card_exp_month,
 				card_exp_year,
 				card_cvc } = req.body;
-
-		const shipping = {
-			address: {
-				city: customer_city,
-				country: "BRAZIL",
-				postal_code: zipcode,
-				state: customer_state,
-				line1: customer_street
-			},
-			name: customer_name,
-			phone: customer_phone,
-			carrier: "CORREIOS"
-		}
-
-		const shopCartItems = {
-			quantityOranges,
-			quantityGrapes,
-			quantityApples,
-			quantityStrawberries,
-			totalOranges: parseFloat(quantityOranges * 0.49).toFixed(2),
-			totalGrapes: parseFloat(quantityGrapes * 0.99).toFixed(2),
-			totalApples: parseFloat(quantityApples * 1.99).toFixed(2),
-			totalStrawberries: parseFloat(quantityStrawberries * 2.99).toFixed(2)
-		};
 
 		// generate card token
 		const cardToken = await stripe.tokens.create({
@@ -91,18 +66,57 @@ class ShopController {
 		  	shipping: shipping
 		});
 
-		shopCardCharge.created = DateTime.getDateTime(shopCardCharge.created);
+		const shopTransactionObject = {
+            status: 'Success',
+            customer_email: customer_email,
+            amount: total_shop_cart_amount,
+            transaction_id: shopCardCharge.id,
+            created_at: DateTime.getNow(),
+            products: [
+                {
+                    quantity: quantityOranges,
+                    name: 'Oranges',
+                    total: parseFloat(quantityOranges * 0.49).toFixed(2)
+                },
+                {
+                    quantity: quantityGrapes,
+                    name: 'Grapes',
+                    total: parseFloat(quantityGrapes * 0.99).toFixed(2)
+                },
+                {
+                    quantity: totalApples,
+                    name: 'Apples',
+                    total: parseFloat(quantityApples * 1.99).toFixed(2)
+                },
+                {
+                    quantity: totalStrawberries,
+                    name: 'Strawberries',
+                    total: parseFloat(quantityStrawberries * 2.99).toFixed(2)
+                },
+            ],
+            shipping: {
+				address: {
+					city: customer_city,
+					country: "BRAZIL",
+					postal_code: zipcode,
+					state: customer_state,
+					line1: customer_street
+				},
+				name: customer_name,
+				phone: customer_phone,
+				carrier: "CORREIOS"
+			}
+        }
 
+		NodeMailer.sendEmailShopTransaction(shopTransactionObject)
+		
 		return res.render('pages/shop/shopPayLog', {
 			flash: {
 				type: 'success',
-				message: 'Shop Cart Card Charge Created with Success!'
+				message: 'Shop Transaction Created with Success!'
 			},
 			shopCardCharge,
-			shopCartItems,
-			value_totalShopCart,
-			customer_email,
-			shipping,
+			shopTransactionObject,
 			user: SESSION_USER
 		});
 	}

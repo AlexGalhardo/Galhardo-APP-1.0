@@ -2,6 +2,7 @@
 <h1 align="center">⭐ Galhardo APP 💵</h1>
 
 ## Live Demo
+- **Currently Version: ALPHA - Not finished/stable**
 - You can access: https://galhardoapp.com/
 - You can use default TEST inputs already in forms to try 
 - Test User
@@ -14,12 +15,44 @@
 
 ## Subdomains
 - https://correios.galhardoapp.com/cep/13560290 (zipcode here)
-   - To get ZipCode/CEP Information
+   - To GET ZipCode/CEP Information (Correios BRAZIL)
 - https://correios.galhardoapp.com/shipping/13560290 (zipcode here)
-   - To get Shipping Deadline and Fee
-- https://json-database.galhardoapp.com/
-   - To view JSON DataBase
+   - To GET Shipping Deadline and Fee (Correios BRAZIL)
 
+## APIs
+- **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
+### Public REST APIs Endpoints Examples
+- GET https://galhardoapp.com/api/public/blog
+- GET https://galhardoapp.com/api/public/blog/:blog_id
+- GET https://galhardoapp.com/api/public/games
+- GET https://galhardoapp.com/api/public/games/:game_id
+- GET https://galhardoapp.com/api/public/books
+- GET https://galhardoapp.com/api/public/books/:book_id
+
+### Profile REST API Endpoints Examples
+- Each user registred can use this endpoint to update or delete his account
+- POST https://galhardoapp.com/api/profile/login
+- PATCH https://galhardoapp.com/api/profile/patch
+- POST https://galhardoapp.com/api/profile/delete
+
+### ADMIN REST APIs Endpoints Examples
+- Need JWT Token in header authorization bearer token to access all endpoints
+- Examples:
+   - https://galhardoapp.com/api/admin/login
+      - method: POST,
+      - data: "email and password in body form",
+      - response: "ADMIN JWT Token for 1 hour duration"
+   - https://galhardoapp.com/api/admin/test
+      - method: POST,
+      - data: "ADMIN JWT TOKEN in Header Authorization Bearer Token",
+      - response: "Admin Data and JWT remaining duration"
+   - https://galhardoapp.com/api/admin/users
+      - Method: GET
+      - Response: Return JSON with all users
+      - Data: JWT Token in header authorization bearer token
+- You can use ADMIN API to 
+   - Manage your Stripe Account (Transactions, Subscriptions, Create Plans, Update, etc)
+   - CRUD Blog Posts, Games and Books
 
 ## Introduction
 ### I created this project to LEARN and PRATICE in my spare time:
@@ -63,7 +96,6 @@
 - [ ] In Code Compression Responses
 - [ ] In Code Cache Most used data
 - [x] Contact SMTP 
-- [ ] Confirm Email/Forget Password using SMTP
 - [ ] Confirm Email / Forget Password using SMTP
 - [ ] Subscriptions Transactions using SMTP (Email HTML Template)
 - [ ] Shop Transactions using SMTP (Email HTML Template)
@@ -77,7 +109,7 @@
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
    - [x] CRUD Profile
    - [ ] (CREATE, READ, DELETE) Blog Comments
-- MySQL DataBase using Docker
+- MySQL DataBase using Docker (without ORM)
    - [ ] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
@@ -85,7 +117,7 @@
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
    - [ ] CRUD Profile
    - [ ] (CREATE, READ, DELETE) Blog Comments
-- MongoDB DataBase using Docker
+- MongoDB DataBase using Docker (without ORM)
    - [ ] Register and Login Account using Session
    - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
@@ -106,8 +138,11 @@
    - [ ] Using NGINX Cache and Compression
    - [ ] Using my own domain
    - [ ] Configure SSL/HTTPS in VPS
-- TypeScript Version
-   - [ ] After previous goals are complete, create a branch "typescript" and refactor the code using Typescript
+- [ ] TypeScript Version
+   - After previous goals are complete, create a branch "typescript" and refactor the code using Typescript
+- [ ] Make the API a Microservice
+   - Using: https://api.galhardoapp.com
+   - Create a branch "api" for this microservice
 
 ## Some APP Images
 

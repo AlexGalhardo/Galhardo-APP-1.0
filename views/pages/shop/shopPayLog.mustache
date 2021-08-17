@@ -14,33 +14,28 @@
 	                    
 	            <ul class="list-group text-center">
 	                
-	                <li class="list-group-item d-flex justify-content-between align-items-center">
-	                    <input name="quantityOranges" class="form-control w-25" type="number" min="1" step="1" value="{{shopCartItems.quantityOranges}}" id="quantityOranges" readonly>
-	                    Oranges  
-	                    <b>$<span id="priceOranges">{{shopCartItems.totalOranges}}</span></b>
-	                </li>
-	                  
-	                <li class="list-group-item d-flex justify-content-between align-items-center">
-	                    <input name="quantityGrapes" class="form-control w-25" type="number" min="1" step="1" value="{{shopCartItems.quantityGrapes}}" id="quantityGrapes" readonly>
-	                    Grapes  
-	                    <b>$<span id="priceGrapes">{{shopCartItems.totalGrapes}}</span></b>
-	                </li>
-	                  
-	                <li class="list-group-item d-flex justify-content-between align-items-center">
-	                    <input name="quantityApples" class="form-control w-25" type="number" min="1" step="1" value="{{shopCartItems.quantityApples}}" id="quantityApples" readonly>
-	                    Apples  
-	                    <b>$<span id="priceApples">{{shopCartItems.totalApples}}</span></b>
-	                </li>
-	                  
-	                <li class="list-group-item d-flex justify-content-between align-items-center">
-	                    <input name="quantityStrawberries" class="form-control w-25" type="number" min="1" step="1" value="{{shopCartItems.quantityStrawberries}}" id="quantityStrawberries" readonly>
-	                    Strawberries  
-	                    <b>$<span id="priceStrawberries">{{shopCartItems.totalStrawberries}}</span></b>
-	                </li>
+	                {{#shopTransactionObject.products}}
+		                
+		                <li class="list-group-item d-flex justify-content-between align-items-center">
+		                    
+		                    <input name="quantityOranges" class="form-control w-25" type="number" min="1" step="1" 
+		                    	value="{{shopTransactionObject.products.quantity}}" id="quantityOranges" readonly>
+		                    
+		                    {{shopTransactionObject.products.name}}
+		                    
+		                    <b>
+		                    	$
+		                    	<span id="priceOranges">
+		                    		{{shopTransactionObject.products.total}}
+		                    	</span>
+		                   	</b>
+		                </li>
+
+	                {{/shopTransactionObject.products}}  
 
 	                <li class="list-group-item d-flex justify-content-between align-items-center">
 	                    <b>TOTAL</b>  
-	                    <b>$<span id="priceStrawberries">{{value_totalShopCart}}</span></b>
+	                    <b>$<span id="total_shop_cart">{{shopTransactionObject.amount}}</span></b>
 	                </li>
 	            
 	            </ul>
@@ -64,7 +59,7 @@
 
 
 	        <div class="col-lg-4">
-        		{{#shipping}}
+        		{{#shopTransactionObject}}
         			<ul class="list-group list-group-flush text-start">
                         <li class="list-group-item"><b>Customer:</b> {{shipping.name}}</li>
                         <li class="list-group-item"><b>Phone:</b> {{shipping.phone}}</li>
@@ -76,7 +71,7 @@
                         <li class="list-group-item"><b>Shipping Country:</b> {{shipping.address.country}}</li>
                         <li class="list-group-item"><b>Shipping Carrier:</b> {{shipping.carrier}}</li>
                     </ul>
-        		{{/shipping}}
+        		{{/shopTransactionObject}}
 	        </div>
 
 	    </div>

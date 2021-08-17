@@ -49,6 +49,11 @@
                             Strawberries  
                             <b>$<span id="priceStrawberries">2.99</span></b>
                         </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-warning">
+                            <b>TOTAL</b>  
+                            <b>$ <span id="total_shop_cart">6.46</span></b>
+                        </li>
                     
                     </ul>
 
@@ -59,69 +64,46 @@
                 <!-- START COL-LG-4 -->
                 <div class="col-lg-4">
 
-                    <!-- NAME -->
-                    <div class="">
-                        <input name="customer_name" id="name" value="{{name}}" type="text" class="form-control mb-2" placeholder="Your Name">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" name="name" id="name" value="{{name}}">
+                      <label for="name">NAME</label>
                     </div>
 
-                    <!-- EMAIL -->
-                    <div class="form-group">
-                        <input
-                        value="{{email}}"
-                        type="email"
-                        name="customer_email"
-                        id="customer_email"
-                        class="form-control mb-2"
-                        placeholder="Your email"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" name="email" id="email" value="{{email}}">
+                      <label for="floatingInput">EMAIL</label>
                     </div>
 
-                    <!-- TELEPHONE -->
-                    <div class="form-group">
-                        <input name="customer_phone" id="customer_phone" type="tel" class="form-control mb-2" placeholder="Your telephone" 
-                        value="{{phone}}">
+                    <div class="form-floating mb-3">
+                      <input type="text" minlength="11" maxlength="11" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" class="form-control" id="document" name="document" value="{{document}}">
+                      <label for="document">DOCUMENT</label>
                     </div>
 
-                    <!-- CPF -->
-                    <div>
-                        <input id="cpf" type="text" name="document" id="document" class="mb-2 form-control"
-                        placeholder="Digit your document id"
-                        value="{{document}}">
+                    <div class="form-floating mb-3">
+                      <input class="mb-2 form-control" id="phone" type="text" name="phone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" placeholder="Digit your cellphone" value="{{phone}}" required>
+                      <label for="phone">PHONE</label>
                     </div>
 
-                    <br>
 
-                    <!-- BORN_AT -->
-                    <div class="form-group">
-                      <input id="birthdate" type="text" name="born_at" id="born_at" class="form-control mb-2"
-                        placeholder="Digit your birth date like day/month/year"
-                        value="{{birth_date}}">
+                    <div class="form-floating mb-3">
+                      <input class="form-control" type="date" name="birth_date" id="birth_date"  value="{{birth_date}}" required>
+                      <label for="document">BIRTH_DATE</label>
                     </div>
 
-                    <!-- CONFIRM PASSWORD -->
-                    <div class="">
-                        <input name="name" type="password" class="form-control" placeholder="Confirm your account password"
-                        value="" autofocus required>
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                      <label for="confirm_password">CONFIRM_PASSWORD</label>
                     </div>
 
 
                     <br>
 
+                    <div class="form-floating mb-3">
+                          <input class="mb-2 form-control" id="zipcode" type="text" name="zipcode" pattern= "\d{5}-?\d{3}"  value="" required>
+                          <label for="zipcode">ZIPCODE</label>
+                    </div>
 
-                    <div class="form-group row">
-
-                        <!-- ZIP CODE -->
-                        <label for="inputPassword" class="col-sm-4 col-form-label">ZIP Code:</label>
-                        <div class="col-sm-8">
-                          <input type="number" class="form-control" id="zipcode" name="zipcode" placeholder="Enter Your Zip Code"
-                          value="" required>
-                          <br>
-                        </div>
-                        
-                        <br><br>
-
-                        <div class="result"></div>
-
+                    <div class="row">
 
                         <!-- STREET -->
                         <div class="col-sm-12 mb-2">
@@ -146,13 +128,13 @@
                         <label for="shipping_fee" class="col-sm-5 col-form-label">Shipping Fee R$</label>
                         <div class="col-sm-7 mb-3">
                             <!-- SHIPMENT_PRICE -->
-                            <input type="text" class="form-control" value="" placeholder="Shipment Price" name="shipping_fee" id="shipping_fee" required onkeydown="return false;">
+                            <input type="text" class="form-control" value="0" placeholder="Shipment Price" name="shipping_fee" id="shipping_fee" required onkeydown="return false;">
                         </div>
                         
                         <label for="shipping_deadline" class="col-sm-5 col-form-label">Deadline (days)</label>
                         <div class="col-sm-7">
                             <!-- SHIPMENT__TIME -->
-                            <input type="text" class="form-control" value="" placeholder="Delivery Time" name="shipping_deadline" id="shipping_deadline" required onkeydown="return false;">
+                            <input type="text" class="form-control" value="0" placeholder="Delivery Time" name="shipping_deadline" id="shipping_deadline" required onkeydown="return false;">
                         </div>
 
                     </div>
@@ -171,9 +153,9 @@
 
                         <div id="div_credit_card"></div>
 
-                        <div class="form-group mb-2">
-                            <br>
-                            <input type="text" name="holder_name" placeholder="Credit Card Holder Name" required class="form-control" value="Test Jack">
+                        <div class="form-floating mb-3 mt-3">
+                          <input type="text" class="form-control" name="holder_name" id="holder_name" value="{{stripe.card_holder_name}}">
+                          <label for="holder_name">CARD_HOLDER_NAME</label>
                         </div>
 
                         <div class="form-group mb-2">
@@ -191,8 +173,8 @@
                                         <h6 class="text-muted small">Expiration Date</h6>
                                     </span>
                                     <div class="input-group">
-                                        <input type="number" placeholder="Month" name="card_exp_month" class="form-control" value="08" required>
-                                        <input type="number" placeholder="Year" name="card_exp_year" class="form-control" required value="2022"> 
+                                        <input type="number" placeholder="Month" name="card_exp_month" min="1" max="12" step="1" class="form-control" value="08" required>
+                                        <input type="number" placeholder="Year" name="card_exp_year" min="2021" step="1" class="form-control" required value="2022"> 
                                     </div>
                                 </div>
                             </div>
@@ -207,9 +189,9 @@
                         </div>
                         
                         <div>
-                            <input type="number" value="6.46" id="value_totalShopCart" name="value_totalShopCart" readonly hidden>
+                            <input type="number" value="6.46" id="total_shop_cart_amount" name="total_shop_cart_amount" readonly hidden>
                             <button type="submit" class="btn btn-outline-success btn-block shadow w-100">
-                                Pay $<span id="totalCartShop">6.46</span>
+                                Pay $<span id="button_pay_with_credit_card">6.46</span>
                             </button>
                         </div>
 

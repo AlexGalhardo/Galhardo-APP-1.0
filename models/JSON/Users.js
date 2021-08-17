@@ -1,10 +1,10 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const uuid = require('uuid');
 
 const Bcrypt = require('../../helpers/Bcrypt');
 const DateTime = require('../../helpers/DateTime');
 
-const { JSON_DATABASE_FILE, database } = require('../../config/global');
+const { JSON_DATABASE_FILE, database } = require('../../config/json_database');
 
 class Users {
 
@@ -162,6 +162,10 @@ class Users {
           stripe: {
             customer_id: null,
             card_id: null,
+            card_holder_name: null,
+            card_last_4_digits: null,
+            card_exp_month: null,
+            card_exp_year: null,
             currently_subscription_id: null,
             currently_subscription_name: "FREE",
             subscription_start: null, 

@@ -18,6 +18,7 @@ class AppController {
 	
 	static getViewHome (req, res) {
 		const game = Games.getRandomGame()
+		console.log(res, res)
 
 	    res.render('pages/home', {
 	    	game,
@@ -47,7 +48,7 @@ class AppController {
 				contact_subject,
 				contact_message } = req.body;
 
-		if(NodeMailer.postContact(contact_username, 
+		if(NodeMailer.sendEmailContact(contact_username, 
 									contact_email, 
 									contact_subject, 
 									contact_message))
