@@ -81,78 +81,42 @@
       "updated_at": "10/08/2021 02:25:35"
     },
     {
-      "id": "fc0f7d51-4701-4907-8ee2-1c328651aa1e",
-      "name": "Alex Galhardo",
-      "email": "aleexgvieira@gmail.com",
+      "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "name": "SILVA",
+      "email": "silva@gmail.com",
       "confirmed_email": true,
       "confirm_email_token": null,
-      "password": "$2b$12$681.M8XOiytM0SJxEpXewu9ABfScdEQ7jK4gGUfnw7JXDZHMiZ/Ea",
+      "password": "$2b$12$TWsxaxwyAktdsR61PqEfYO9yVC7hJbesrWE2ReeAEwSVRV7CqzZmi",
       "reset_password_token": null,
       "admin": false,
-      "avatar": "https://lh3.googleusercontent.com/a-/AOh14GgiwO7iPDkLu45ky0N0V5cVNNBsrSDFG7M5Gmch7w=s96-c",
-      "document": null,
-      "phone": null,
-      "birth_date": null,
-      "google_id": "116016806999832323637",
-      "github_id": 19540357,
-      "facebook_id": null,
-      "address": {
-        "zipcode": null,
-        "street": null,
-        "street_number": null,
-        "neighborhood": null,
-        "city": null,
-        "state": null,
-        "country": "BRAZIL"
-      },
-      "stripe": {
-        "customer_id": null,
-        "card_id": null,
-        "currently_subscription_id": null,
-        "currently_subscription_name": "FREE",
-        "subscription_start": null,
-        "subscription_end": null,
-        "subscription_automatically_renew": false
-      },
-      "created_at": "13/08/2021 20:12:06",
-      "updated_at": "13/08/2021 20:12:06"
-    },
-    {
-      "id": "4124d532-d5b9-4a66-8816-4b95f8109b07",
-      "name": "Jack Boby",
-      "email": "aleexgalhardoo@gmail.com",
-      "confirmed_email": true,
-      "confirm_email_token": null,
-      "password": "$2b$12$XSnKlAsPfoR2n6nSM7KZOevWw2Q1y/j.BDPxDjwNpQKsRLC/RrVDm",
-      "reset_password_token": null,
-      "admin": false,
-      "avatar": "avatar.png",
-      "document": null,
-      "phone": null,
-      "birth_date": null,
+      "avatar": "profile.jpg",
+      "document": "123456789",
+      "phone": "18997103281",
+      "birth_date": "23/09/1997",
       "google_id": null,
       "github_id": null,
-      "facebook_id": "356995519245532",
+      "facebook_id": null,
       "address": {
-        "zipcode": null,
-        "street": null,
-        "street_number": null,
-        "neighborhood": null,
-        "city": null,
-        "state": null,
-        "country": "BRAZIL"
+        "zipcode": "16050590",
+        "street": "Rua ali",
+        "street_number": "42",
+        "neighborhood": "Santana",
+        "city": "Araçatuba",
+        "state": "SP",
+        "country": "Brazil"
       },
       "stripe": {
         "customer_id": null,
+        "card_token_id": null,
         "card_id": null,
         "currently_subscription_id": null,
         "currently_subscription_name": "FREE",
         "subscription_start": null,
         "subscription_end": null,
-        "subscription_automatically_renew": false
+        "subscription_automatically_renew": null
       },
-      "created_at": "13/08/2021 22:12:57",
-      "updated_at": "13/08/2021 22:12:57"
+      "created_at": "10/08/2021 02:25:35",
+      "updated_at": "17/08/2021 04:11:21"
     }
   ],
   "blog": [
@@ -234,6 +198,18 @@
       "updated_at": "04/08/2021 18:55:16",
       "id": 5,
       "comments": []
+    },
+    {
+      "title": "New blog title insomnia",
+      "resume": "New blog resume by insomnia",
+      "image": "https://picsum.photos/id/10/230/230",
+      "category": "Software",
+      "body": "new blog post body by insomnia",
+      "comments": [],
+      "created_at": "17/08/2021 04:48:46",
+      "updated_at": "17/08/2021 04:48:46",
+      "slug": "New-blog-title-insomnia",
+      "id": 6
     }
   ],
   "games": [

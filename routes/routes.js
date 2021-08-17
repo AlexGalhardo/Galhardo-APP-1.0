@@ -26,7 +26,11 @@ const AdminController = require('../controllers/AdminController');
 
 // API CONTROLLERS
 const APIController = require('../controllers/API/APIController');
+
+const APIProfileController = require('../controllers/API/APIProfileController');
+
 const APIPublicController = require('../controllers/API/APIPublicController');
+
 const APIAdminController = require('../controllers/API/APIAdminController');
 const APIAdminBlogController = require('../controllers/API/APIAdminBlogController');
 const APIAdminGameController = require('../controllers/API/APIAdminGameController');
@@ -45,7 +49,7 @@ const router = express.Router();
 
 
 
-// ---------------------- MIDDLEWARES
+// ---------------------- MIDDLEWARES 
 const isAdmin = (req, res, next) => {
 	if(SESSION_USER && !SESSION_USER.admin || !SESSION_USER){
 		return res.redirect('/')
@@ -220,50 +224,6 @@ router.post('/admin/delete/book/:book_id', isAdmin, AdminController.postDeleteBo
 
 
 
-// *************************** API CONTROLLERS
-
-// INTRODUCTION
-router.get('/api', APIController.getWelcomeToAPI);
-router.get('/api/public', APIController.getPublicEndpoints);
-router.get('/api/admin', APIController.getAdminEndpoints);
-
-// PUBLIC
-router.get('/api/public/blog', APIPublicController.getPublicBlog);
-router.get('/api/public/blog/:blog_id', APIPublicController.getPublicBlogPostByID);
-
-router.get('/api/public/games', APIPublicController.getPublicGames);
-router.get('/api/public/games/:game_id', APIPublicController.getPublicGameByID);
-
-router.get('/api/public/books', APIPublicController.getPublicBooks);
-router.get('/api/public/books/:book_id', APIPublicController.getPublicBookByID);
-
-// ADMIN
-router.post('/api/admin/login', APIAdminController.postAdminLogin);
-router.post('/api/admin/test', APIAdminController.postAdminTestJWT);
-
-// ADMIN BLOG
-// router.post('/api/admin/blog/create', APIAdminBlogController.postAdminBlogCreate);
-// router.put('/api/admin/blog/update/:blog_id', APIAdminBlogController.putAdminBlogUpdate);
-// router.delete('/api/admin/blog/delete/:blog_id', APIAdminBlogController.deleteAdminBlogDelete);
-
-// ADMIN GAMES
-// router.post('/api/admin/game/create', APIAdminGameController.postAdminGameCreate);
-// router.put('/api/admin/game/update/:blog_id', APIAdminGameController.putAdminGameUpdate);
-// router.delete('/api/admin/game/delete/:blog_id', APIAdminGameController.deleteAdminGameDelete);
-
-// ADMIN BOOKS
-router.post('/api/admin/book/create', verifyAPIAdminJWTToken, APIAdminBookController.postAdminBookCreate);
-// router.put('/api/admin/book/update/:blog_id', APIController.putAdminBookUpdate);
-// router.delete('/api/admin/book/delete/:blog_id', APIController.deleteAdminBookDelete);
-
-// ADMIN STRIPE
-router.get('/api/admin/stripe/customers/listAll/:limit', APIAdminStripeController.getAdminStripeCustomersListAll)
-
-
-
-
-
-
 
 
 // *************************** STRIPE CONTROLLERS
@@ -371,6 +331,64 @@ router.get('/stripe/subscriptions/cancel', isAdmin, StripeSubscriptionsControlle
 router.post('/stripe/subscriptions/cancel', isAdmin, StripeSubscriptionsController.postCancelSubscription);
 
 router.get('/stripe/subscriptions/listAll', isAdmin, StripeSubscriptionsController.getViewListAll);
+
+
+
+
+
+
+
+// *************************** API CONTROLLERS
+
+// INTRODUCTION
+router.get('/api', APIController.getWelcomeToAPI);
+router.get('/api/public', APIController.getPublicEndpoints);
+router.get('/api/admin', APIController.getAdminEndpoints);
+
+// PUBLIC
+router.get('/api/public/blog', APIPublicController.getPublicBlog);
+router.get('/api/public/blog/:blog_id', APIPublicController.getPublicBlogPostByID);
+
+router.get('/api/public/games', APIPublicController.getPublicGames);
+router.get('/api/public/games/:game_id', APIPublicController.getPublicGameByID);
+
+router.get('/api/public/books', APIPublicController.getPublicBooks);
+router.get('/api/public/books/:book_id', APIPublicController.getPublicBookByID);
+
+
+
+
+// PROFILE
+router.post('/api/profile/login', APIProfileController.postProfileLogin);
+router.patch('/api/profile/patch', APIProfileController.updateProfile);
+router.delete('/api/profile/delete', APIProfileController.deleteProfile);
+
+
+
+
+// ADMIN
+router.post('/api/admin/login', APIAdminController.postAdminLogin);
+router.post('/api/admin/test', APIAdminController.postAdminTestJWT);
+
+// ADMIN BLOG
+router.post('/api/admin/blog/create', verifyAPIAdminJWTToken, APIAdminBlogController.postCreateBlogPost);
+router.patch('/api/admin/blog/patch/:blog_id', verifyAPIAdminJWTToken, APIAdminBlogController.patchBlogPost);
+router.delete('/api/admin/blog/delete/:blog_id', verifyAPIAdminJWTToken, APIAdminBlogController.deleteBlogPost);
+
+// ADMIN GAMES
+// router.post('/api/admin/game/create', APIAdminGameController.postAdminGameCreate);
+// router.put('/api/admin/game/update/:blog_id', APIAdminGameController.putAdminGameUpdate);
+// router.delete('/api/admin/game/delete/:blog_id', APIAdminGameController.deleteAdminGameDelete);
+
+// ADMIN BOOKS
+router.post('/api/admin/book/create', verifyAPIAdminJWTToken, APIAdminBookController.postAdminBookCreate);
+// router.put('/api/admin/book/update/:blog_id', APIController.putAdminBookUpdate);
+// router.delete('/api/admin/book/delete/:blog_id', APIController.deleteAdminBookDelete);
+
+// ADMIN STRIPE
+router.get('/api/admin/stripe/customers/listAll/:limit', verifyAPIAdminJWTToken, APIAdminStripeController.getAdminStripeCustomersListAll)
+
+
 
 
 module.exports = router;
