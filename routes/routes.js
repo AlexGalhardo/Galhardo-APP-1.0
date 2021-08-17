@@ -376,14 +376,14 @@ router.patch('/api/admin/blog/patch/:blog_id', verifyAPIAdminJWTToken, APIAdminB
 router.delete('/api/admin/blog/delete/:blog_id', verifyAPIAdminJWTToken, APIAdminBlogController.deleteBlogPost);
 
 // ADMIN GAMES
-// router.post('/api/admin/game/create', APIAdminGameController.postAdminGameCreate);
-// router.put('/api/admin/game/update/:blog_id', APIAdminGameController.putAdminGameUpdate);
-// router.delete('/api/admin/game/delete/:blog_id', APIAdminGameController.deleteAdminGameDelete);
+router.post('/api/admin/games/create', verifyAPIAdminJWTToken, APIAdminGameController.postCreateGame);
+router.patch('/api/admin/games/patch/:game_id', verifyAPIAdminJWTToken, APIAdminGameController.patchGame);
+router.delete('/api/admin/games/delete/:game_id', verifyAPIAdminJWTToken, APIAdminGameController.deleteGame);
 
 // ADMIN BOOKS
-router.post('/api/admin/book/create', verifyAPIAdminJWTToken, APIAdminBookController.postAdminBookCreate);
-// router.put('/api/admin/book/update/:blog_id', APIController.putAdminBookUpdate);
-// router.delete('/api/admin/book/delete/:blog_id', APIController.deleteAdminBookDelete);
+router.post('/api/admin/books/create', verifyAPIAdminJWTToken, APIAdminBookController.postCreateBook);
+router.patch('/api/admin/books/patch/:book_id', verifyAPIAdminJWTToken, APIAdminBookController.patchBook);
+router.delete('/api/admin/books/delete/:book_id', verifyAPIAdminJWTToken, APIAdminBookController.deleteBook);
 
 // ADMIN STRIPE
 router.get('/api/admin/stripe/customers/listAll/:limit', verifyAPIAdminJWTToken, APIAdminStripeController.getAdminStripeCustomersListAll)

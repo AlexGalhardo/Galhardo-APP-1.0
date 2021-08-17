@@ -20,6 +20,7 @@ const DateTime = require('../../helpers/DateTime')
 
 class APIAdminBlogController {
 
+
     /**
      * http://localhost:3000/api/admin/blog/create
      */
@@ -55,6 +56,9 @@ class APIAdminBlogController {
 
 
 
+    /**
+     * http://localhost:3000/api/admin/blog/patch/:blog_id
+     */
     static async patchBlogPost(req, res, next){
         try {
             const blog_id = req.params.blog_id
@@ -88,6 +92,11 @@ class APIAdminBlogController {
         }
     }
 
+
+
+    /**
+     * http://localhost:3000/api/admin/blog/delete/:blog_id
+     */
     static async deleteBlogPost(req, res, next){
         try {
             const blog_id = req.params.blog_id

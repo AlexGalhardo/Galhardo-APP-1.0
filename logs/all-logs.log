@@ -20945,3 +20945,91 @@
 [35m[39m
 2021-08-17 04:49:09 [35mhttp[39m: [35mPOST /api/admin/blog/create 200 CONTENT-LENGTH=326 15.108 ms[39m
 [35m[39m
+2021-08-17 04:53:53 [35mhttp[39m: [35mPATCH /api/profile/patch 200 CONTENT-LENGTH=857 643.239 ms[39m
+[35m[39m
+2021-08-17 05:02:05 [35mhttp[39m: [35mPOST /api/admin/login 200 CONTENT-LENGTH=217 487.269 ms[39m
+[35m[39m
+2021-08-17 05:02:18 [35mhttp[39m: [35mPOST /api/admin/test 200 CONTENT-LENGTH=133 16.430 ms[39m
+[35m[39m
+2021-08-17 05:03:29 [35mhttp[39m: [35mPOST /api/admin/test 200 CONTENT-LENGTH=133 10.723 ms[39m
+[35m[39m
+2021-08-17 05:03:49 [35mhttp[39m: [35mPOST /api/admin/login 200 CONTENT-LENGTH=217 498.422 ms[39m
+[35m[39m
+2021-08-17 05:04:04 [35mhttp[39m: [35mPOST /api/admin/test 200 CONTENT-LENGTH=135 9.913 ms[39m
+[35m[39m
+2021-08-17 05:15:44 [35mhttp[39m: [35mPOST /api/admin/games/create 422 CONTENT-LENGTH=85 69.099 ms[39m
+[35m[39m
+2021-08-17 05:16:00 [35mhttp[39m: [35mPOST /api/admin/games/create 200 CONTENT-LENGTH=766 102.804 ms[39m
+[35m[39m
+2021-08-17 05:24:06 [35mhttp[39m: [35mPATCH /api/admin/games/patch/11 200 CONTENT-LENGTH=4813 160.508 ms[39m
+[35m[39m
+2021-08-17 05:24:08 [35mhttp[39m: [35mGET /api/admin/games/patch/scripts/navbar_apis.js 200 CONTENT-LENGTH=- 22.019 ms[39m
+[35m[39m
+2021-08-17 05:24:08 [35mhttp[39m: [35mGET /api/admin/games/patch/scripts/privacy.js 200 CONTENT-LENGTH=- 10.514 ms[39m
+[35m[39m
+2021-08-17 05:24:51 [35mhttp[39m: [35mPATCH /api/admin/games/patch/11 200 CONTENT-LENGTH=806 157.071 ms[39m
+[35m[39m
+2021-08-17 05:25:11 [35mhttp[39m: [35mPATCH /api/admin/games/patch/11 200 CONTENT-LENGTH=790 21.077 ms[39m
+[35m[39m
+2021-08-17 05:28:44 [35mhttp[39m: [35mDELETE /api/admin/games/delete/11 200 CONTENT-LENGTH=32 58.016 ms[39m
+[35m[39m
+2021-08-17 05:28:54 [35mhttp[39m: [35mPOST /api/admin/games/create 200 CONTENT-LENGTH=766 114.504 ms[39m
+[35m[39m
+2021-08-17 05:31:20 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 165.662 ms[39m
+[35m[39m
+2021-08-17 05:31:21 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 8.214 ms[39m
+[35m[39m
+2021-08-17 05:31:21 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 8.358 ms[39m
+[35m[39m
+2021-08-17 05:31:21 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 6.185 ms[39m
+[35m[39m
+2021-08-17 05:31:21 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 17.699 ms[39m
+[35m[39m
+2021-08-17 05:31:23 [35mhttp[39m: [35mGET /login 200 CONTENT-LENGTH=- 32.228 ms[39m
+[35m[39m
+2021-08-17 05:31:23 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 20.445 ms[39m
+[35m[39m
+2021-08-17 05:31:25 [35mhttp[39m: [35mPOST /login 302 CONTENT-LENGTH=46 512.778 ms[39m
+[35m[39m
+2021-08-17 05:31:25 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 56.964 ms[39m
+[35m[39m
+2021-08-17 05:31:25 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 10.128 ms[39m
+[35m[39m
+2021-08-17 05:31:25 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 10.838 ms[39m
+[35m[39m
+2021-08-17 05:31:25 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 10.068 ms[39m
+[35m[39m
+2021-08-17 05:31:25 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 11.453 ms[39m
+[35m[39m
+2021-08-17 05:36:39 [35mhttp[39m: [35mPOST /api/admin/book/create 200 CONTENT-LENGTH=224 148.618 ms[39m
+[35m[39m
+2021-08-17 05:43:26 [35mhttp[39m: [35mPATCH /api/admin/book/patch/4 500 CONTENT-LENGTH=33 81.238 ms[39m
+[35m[39m
+2021-08-17 05:43:50 [35mhttp[39m: [35mPATCH /api/admin/book/patch/4 200 CONTENT-LENGTH=247 136.055 ms[39m
+[35m[39m
+2021-08-17 05:45:08 [35mhttp[39m: [35mPATCH /api/admin/book/patch/4 200 CONTENT-LENGTH=1028 26.632 ms[39m
+[35m[39m
+2021-08-17 05:47:08 [35mhttp[39m: [35mDELETE /api/admin/books/delete/4 200 CONTENT-LENGTH=4813 97.252 ms[39m
+[35m[39m
+2021-08-17 05:47:10 [35mhttp[39m: [35mGET /api/admin/books/delete/scripts/navbar_apis.js 200 CONTENT-LENGTH=- 18.537 ms[39m
+[35m[39m
+2021-08-17 05:47:10 [35mhttp[39m: [35mGET /api/admin/books/delete/scripts/privacy.js 200 CONTENT-LENGTH=- 9.688 ms[39m
+[35m[39m
+2021-08-17 05:47:40 [35mhttp[39m: [35mGET /api/admin/books/delete/scripts/navbar_apis.js 200 CONTENT-LENGTH=- 118.245 ms[39m
+[35m[39m
+2021-08-17 05:47:40 [35mhttp[39m: [35mGET /api/admin/books/delete/scripts/privacy.js 200 CONTENT-LENGTH=- 113.679 ms[39m
+[35m[39m
+2021-08-17 05:47:40 [35mhttp[39m: [35mDELETE /api/admin/books/delete/4 500 CONTENT-LENGTH=33 16.970 ms[39m
+[35m[39m
+2021-08-17 05:47:54 [35mhttp[39m: [35mDELETE /api/admin/books/delete/4 200 CONTENT-LENGTH=2 48.830 ms[39m
+[35m[39m
+2021-08-17 05:48:29 [35mhttp[39m: [35mDELETE /api/admin/books/delete/4 200 CONTENT-LENGTH=31 53.319 ms[39m
+[35m[39m
+2021-08-17 05:48:37 [35mhttp[39m: [35mPOST /api/admin/books/create 200 CONTENT-LENGTH=224 108.487 ms[39m
+[35m[39m
+2021-08-17 05:49:19 [35mhttp[39m: [35mPOST /api/admin/books/create 200 CONTENT-LENGTH=1006 19.328 ms[39m
+[35m[39m
+2021-08-17 05:49:27 [35mhttp[39m: [35mDELETE /api/admin/books/delete/5 200 CONTENT-LENGTH=35 8.936 ms[39m
+[35m[39m
+2021-08-17 05:49:37 [35mhttp[39m: [35mDELETE /api/admin/books/delete/4 200 CONTENT-LENGTH=31 8.051 ms[39m
+[35m[39m
