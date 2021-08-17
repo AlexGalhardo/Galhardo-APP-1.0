@@ -12,6 +12,12 @@
 - pm2 logs site1 --lines 100
 - pm2 start app.js --watch
 
-
 - https://neilpatel.com/br/blog/robots-txt/
 - https://medium.com/@pimterry/host-your-node-app-on-dokku-digitalocean-1cb97e3ab041
+
+- terminar de finalizar o shop com JSON
+- terminar os SMTPs com JSON
+- terminar subscriptions com JSON
+- terminar LGPD privacy
+- fazer logs de transactions no telegram
+- terminar api ADMIN com JSON e mysql

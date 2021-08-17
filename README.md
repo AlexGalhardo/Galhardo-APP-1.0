@@ -12,21 +12,31 @@
    - **NO REAL Money Transactions will be made**
    - **All CRUDs in Heroku Live Demo are made in JSON DataBase, for obvious reasons.**
 
+## Currently Version: ALPHA - Not finished/stable
+
 ## Subdomains
 - https://correios.galhardoapp.com/cep/13560290 (zipcode here)
    - To GET ZipCode/CEP Information (Correios BRAZIL)
 - https://correios.galhardoapp.com/shipping/13560290 (zipcode here)
    - To GET Shipping Deadline and Fee (Correios BRAZIL)
 
-## Public REST APIs
-- https://galhardoapp.com/api/public/blog
-   - GET all blogs posts
-- https://galhardoapp.com/api/public/games
-   - GET all games
-- https://galhardoapp.com/api/public/blog
-   - GET all books
+## APIs
+- **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
+### Public REST APIs Endpoints Examples
+- GET https://galhardoapp.com/api/public/blog
+- GET https://galhardoapp.com/api/public/blog/:blog_id
+- GET https://galhardoapp.com/api/public/games
+- GET https://galhardoapp.com/api/public/games/:game_id
+- GET https://galhardoapp.com/api/public/books
+- GET https://galhardoapp.com/api/public/books/:book_id
 
-## ADMIN REST APIs
+## Profile REST API Endpoints Examples
+- Each user registred can use this endpoint to update or delete his account
+- POST https://galhardoapp.com/api/profile/login
+- PATCH https://galhardoapp.com/api/profile/patch
+- POST https://galhardoapp.com/api/profile/delete
+
+## ADMIN REST APIs Endpoints Examples
 - Need JWT Token in header authorization bearer token to access all endpoints
 - Examples:
    - https://galhardoapp.com/api/admin/login
@@ -129,8 +139,11 @@
    - [ ] Using NGINX Cache and Compression
    - [ ] Using my own domain
    - [ ] Configure SSL/HTTPS in VPS
-- TypeScript Version
-   - [ ] After previous goals are complete, create a branch "typescript" and refactor the code using Typescript
+- [ ] TypeScript Version
+   - After previous goals are complete, create a branch "typescript" and refactor the code using Typescript
+- [ ] Make the API a Microservice
+   - Using: https://api.galhardoapp.com
+   - Create a branch "api" for this microservice
 
 ## Some APP Images
 
