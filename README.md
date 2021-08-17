@@ -10,7 +10,7 @@
    - email: test@gmail.com
    - password: test123
 - **IMPORTANT:**
-   - **All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY**
+   - **All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY in SANDBOX Environment**
    - **NO REAL Money Transactions will be made**
    - **All CRUDs in this Live Demo are made in JSON DataBase, for obvious reasons.**
 
@@ -165,16 +165,19 @@
 ![ga_admin_update_blogpost](https://user-images.githubusercontent.com/19540357/129276418-4444a071-90fe-4f2b-9e74-6fc26d3aad0b.png)
 
 ### Profile
-![ga_profile_1](https://user-images.githubusercontent.com/19540357/129276420-fb32a955-e8b1-4117-a085-17435879d6a4.png)
-![ga_profile_2](https://user-images.githubusercontent.com/19540357/129276422-81f66dce-51e2-48e5-8c52-1413c3735a78.png)
+![ga_profile_1](https://user-images.githubusercontent.com/19540357/129701716-bd679910-e1ce-42e5-9cae-e39f3003da28.png)
+![ga_profile_2](https://user-images.githubusercontent.com/19540357/129701714-92dc33ea-adcb-45e6-a9d0-a6f5054a999a.png)
 
 ### ADMIN VIEWs
 ![ga_stripe_customers](https://user-images.githubusercontent.com/19540357/129276423-53d02a50-b70b-47d1-b64c-a9c84d07a30c.png)
 ![ga_admin_update_game](https://user-images.githubusercontent.com/19540357/129276424-91aab56a-125d-43a8-985a-cd2bbf387e12.png)
 
-### Simple APIs
-![ga_api_admin](https://user-images.githubusercontent.com/19540357/129276426-fd4acfe5-725f-473f-ab90-729ed5a1675a.png)
+### Simple REST APIs
+![ga_insomnia_site](https://user-images.githubusercontent.com/19540357/129701712-422efd6b-2522-43af-b11f-7652126c834b.png)
 ![ga_api_public_games](https://user-images.githubusercontent.com/19540357/129276429-af7341c2-eabe-4c4a-85a2-d6546add0a54.png)
+![ga_insomnia_jwt](https://user-images.githubusercontent.com/19540357/129701701-a7565b7f-e121-4cdf-9246-03055dd707d5.png)
+![ga_insomnia_api](https://user-images.githubusercontent.com/19540357/129701706-1df154ce-6f2a-4255-8bc0-af0d2687954c.png)
+![ga_insomnia_create_game](https://user-images.githubusercontent.com/19540357/129701707-b4a0fa16-5088-4246-8f48-a43a6e661eb8.png)
 
 
 ## Feedbacks
