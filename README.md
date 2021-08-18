@@ -3,7 +3,7 @@
 <small align="center">A Simple Web App Project for Lifetime Learning</small>
 
 ## Live Demo
-- **Currently Version: ALPHA - Not finished/stable**
+- **Currently Version: ALPHA - NOT STABLE **
 - You can access: https://galhardoapp.com/
 - You can use default TEST inputs already in forms to try 
 - Test User

@@ -1,0 +1,52 @@
+2021-08-17 23:26:55 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 106.317 ms[39m
+[35m[39m
+2021-08-17 23:26:55 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 8.842 ms[39m
+[35m[39m
+2021-08-17 23:26:56 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 6.110 ms[39m
+[35m[39m
+2021-08-17 23:26:56 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 7.496 ms[39m
+[35m[39m
+2021-08-17 23:26:56 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 6.219 ms[39m
+[35m[39m
+2021-08-17 23:26:56 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 10.853 ms[39m
+[35m[39m
+2021-08-18 00:45:02 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 144.278 ms[39m
+[35m[39m
+2021-08-18 00:45:03 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 27.864 ms[39m
+[35m[39m
+2021-08-18 00:45:03 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 29.975 ms[39m
+[35m[39m
+2021-08-18 00:45:03 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 19.038 ms[39m
+[35m[39m
+2021-08-18 00:45:03 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 28.040 ms[39m
+[35m[39m
+2021-08-18 00:45:04 [35mhttp[39m: [35mGET /login 200 CONTENT-LENGTH=- 40.944 ms[39m
+[35m[39m
+2021-08-18 00:45:05 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 50.597 ms[39m
+[35m[39m
+2021-08-18 00:45:06 [35mhttp[39m: [35mPOST /login 302 CONTENT-LENGTH=46 666.657 ms[39m
+[35m[39m
+2021-08-18 00:45:07 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 10.640 ms[39m
+[35m[39m
+2021-08-18 00:45:07 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 7.487 ms[39m
+[35m[39m
+2021-08-18 00:45:07 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 23.814 ms[39m
+[35m[39m
+2021-08-18 00:45:07 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 21.771 ms[39m
+[35m[39m
+2021-08-18 00:45:07 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 8.787 ms[39m
+[35m[39m
+2021-08-18 00:45:16 [35mhttp[39m: [35mGET /shop 200 CONTENT-LENGTH=- 16.787 ms[39m
+[35m[39m
+2021-08-18 00:45:16 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 21.023 ms[39m
+[35m[39m
+2021-08-18 00:45:16 [35mhttp[39m: [35mGET /scripts/render_credit_card.js 200 CONTENT-LENGTH=316 47.666 ms[39m
+[35m[39m
+2021-08-18 00:45:16 [35mhttp[39m: [35mGET /scripts/jquery.min.js 304 CONTENT-LENGTH=- 36.092 ms[39m
+[35m[39m
+2021-08-18 00:45:16 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 34.575 ms[39m
+[35m[39m
+2021-08-18 00:45:16 [35mhttp[39m: [35mGET /scripts/jquery.card.js 200 CONTENT-LENGTH=- 43.912 ms[39m
+[35m[39m
+2021-08-18 00:45:16 [35mhttp[39m: [35mGET /scripts/shop.js 200 CONTENT-LENGTH=- 23.162 ms[39m
+[35m[39m
