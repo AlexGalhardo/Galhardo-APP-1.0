@@ -96,7 +96,6 @@ app.use((err, req, res, next) => {
 
 /*
  * THIS CODE FORCE REQUESTS FROM HTTP TO HTTPS IN PRODUCTION
- */
 if(process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
     if (req.header('x-forwarded-proto') !== 'https') {
@@ -105,7 +104,7 @@ if(process.env.NODE_ENV === 'production') {
       next();
     }
   });
-}
+}*/
 
 
 // START HTTP SERVER WITH PORT

@@ -2,19 +2,12 @@ const fs = require('fs-extra')
 const fetch = require('node-fetch');
 const DateTime = require('../../helpers/DateTime');
 
-const mongodb = require('../../config/mongodb');
-
+// const mongodb = require('../../config/mongodb');
 
 class Books {
 
 	static async  getAllBooks()  {
-		let stmt = "SELECT * FROM `books`";
-
-		const [ rows ] = await mysql.execute(stmt);
-		
-		console.log(rows)
-
-		return rows ? rows : false
+    	return global.mongodb.collection("books").find().toArray();
 	}
 
 	static async getTotalBooks()  {
@@ -53,38 +46,10 @@ class Books {
 
 
 	static async createBook(bookObject) {
-
-		let stmt = `INSERT INTO books
-								(title, 
-								year_release, 
-								image, 
-								amazon_link, 
-								resume, 
-								pages, 
-								genres, 
-								author,
-								created_at,
-								updated_at) 
-					VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-		
-		let data = [
-		  	bookObject.title,
-		  	bookObject.year_release,
-            bookObject.image,
-            bookObject.amazon_link,
-            bookObject.resume,
-            bookObject.pages,
-            bookObject.genres,
-            bookObject.author,
-            DateTime.getNow(),
-            DateTime.getNow()
-		];
-
-		const [ rows ] = await mysql.execute(stmt, data);
-		
-		console.log(rows)
-
-		return rows ? rows : false		
+		// const result = await global.mongodb.insert(bookObject);
+		const result = await global.conn.collection("books").insertOne(bookObject);
+    	console.log(result);
+    	return result
 	}
 
 

@@ -11,9 +11,9 @@
 
 
 // models
-const Books = require('../../models/JSON/Books');
+// const Books = require('../../models/JSON/Books');
 // const Books = require('../../models/MySQL/Books');
-// const Books = require('../../models/MONGODB/Books');
+const Books = require('../../models/MONGODB/Books');
 
 // helpers
 const DateTime = require('../../helpers/DateTime')
@@ -52,7 +52,7 @@ class APIAdminBookController {
 
         const bookCreated = await Books.createBook(bookObject)
 
-        bookObject.id = bookCreated.insertId
+        // bookObject.id = bookCreated.insertId
 
         if(bookCreated) return res.json(bookObject)
 

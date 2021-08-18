@@ -1,10 +1,5 @@
-var mongo = require('mongodb');
+const mongoClient = require("mongodb").MongoClient;
 
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/mydb";
-
-module.exports = MongoClient.connect(url, function(err db) {
-  if (err) throw err;
-  console.log("Database created!");
-  db.close();
-});
+mongoClient.connect("mongodb+srv://alex:gegege123@cluster0.tr1pt.mongodb.net/galhardoapp")
+            .then(conn => global.conn = conn.db("galhardoapp"))
+            .catch(err => console.log(err))
