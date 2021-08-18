@@ -12,11 +12,14 @@
 const bodyParser = require('body-parser');
 const DateTime = require('../../helpers/DateTime');
 
-const StripeJSONModel = require('../../models/JSON/Stripe');
-// const StripeMySQLModel = require('../../models/MySQL/Stripe');
-// const StripeMongoDBModel = require('../../models/MONGODB/Stripe');
+// models
+// const StripeModel = require('../../models/JSON/Stripe');
+// const StripeModel = require('../../models/MySQL/Stripe');
+// const StripeModel = require('../../models/MONGODB/Stripe');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
+
+
 
 class StripeProductsController {
 
@@ -82,7 +85,9 @@ class StripeProductsController {
 		const description = req.body.description;
 		const name = req.body.name;
 
-		if(product_id == "prod_JxIQjuKdjaZdHk"){
+		if(product_id == "prod_JxIQjuKdjaZdHk" 
+			|| product_id == 'prod_K2lMaFvU02Mnwh' 
+			|| product_id == 'prod_K2lN2CO9llTt02'){
 			res.render('pages/stripe/products/update', {
 				flash: {
 					type: 'warning',
@@ -152,9 +157,7 @@ class StripeProductsController {
 		let lastProductsCreated = products.data.length;
 
 		products.data.forEach(function(product){
-			let date = new Date(product.created*1000).toLocaleDateString("pt-BR")
-			let time = new Date(product.created*1000).toLocaleTimeString("pt-BR")
-			product.created = `${date} ${time}`;
+			product.created = DateTime.getDateTime(product.created)
 		})
 
 		res.render('pages/stripe/products/listAll', {

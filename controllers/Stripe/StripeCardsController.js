@@ -10,9 +10,13 @@
 
 const bodyParser = require('body-parser')
 
-const StripeJSONModel = require('../../models/JSON/Stripe');
-// const StripeMySQLModel = require('../../models/MySQL/Stripe');
-// const StripeMongoDBModel = require('../../models/MONGODB/Stripe');
+// helpers
+const DateTime = require('../../helpers/DateTime')
+
+// models
+const StripeModel = require('../../models/JSON/Stripe');
+// const StripeModel = require('../../models/MySQL/Stripe');
+// const StripeModel = require('../../models/MONGODB/Stripe');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
@@ -41,9 +45,7 @@ class StripeCardsController {
 		  },
 		});
 
-		let date = new Date(creditCardToken.created*1000).toLocaleDateString("pt-BR")
-		let time = new Date(creditCardToken.created*1000).toLocaleTimeString("pt-BR")
-		creditCardToken.created = `${date} ${time}`;
+		creditCardToken.created = DateTime.getDateTime(creditCardToken.created)
 
 		// create credit card in customer
 		const card = await stripe.customers.createSource(

@@ -10,7 +10,7 @@
 
 const bodyParser = require('body-parser')
 
-const StripeJSONModel = require('../../models/JSON/Stripe');
+// const StripeJSONModel = require('../../models/JSON/Stripe');
 // const StripeMySQLModel = require('../../models/MySQL/Stripe');
 // const StripeMongoDBModel = require('../../models/MONGODB/Stripe');
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);

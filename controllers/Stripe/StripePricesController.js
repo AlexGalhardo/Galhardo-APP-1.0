@@ -26,12 +26,10 @@ class StripePricesController {
 	}
 
 	static async postCreatePrice (req, res) {
-		const price_amount = req.body.price_amount;
-		const price_currency = req.body.price_currency;
-		const price_recurring = req.body.price_recurring;
-		const product_id = req.body.product_id;
-
-		console.log(product_id)
+		const { price_amount,
+				price_currency,
+				price_recurring,
+				product_id } = req.body
 		
 		const price = await stripe.prices.create({
   			unit_amount: price_amount,
