@@ -681,10 +681,10 @@ class APIAdminStripeController {
      */
     static async getRetrievePlan(req, res) {
         try {
-            let { plan_id } = req.body
+            let { price_id } = req.body
         
             const plan = await stripe.plans.retrieve(
-                plan_id
+                price_id
             );
 
             plan.created = DateTime.getDateTime(plan.created);
@@ -744,10 +744,10 @@ class APIAdminStripeController {
      */
     static async deletePlan(req, res) {
         try {
-            const plan_id = req.body.plan_id.trim()
+            const { price_id } = req.body
             
             const planDeleted = await stripe.plans.del(
-                plan_id
+                price_id
             );
 
             return res.json({

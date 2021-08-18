@@ -1,8 +1,12 @@
 const Logger = require('../config/winston');
 const jwt = require('jsonwebtoken');
 
-// models
+
+
+// MODELS
 const Users = require('../models/JSON/Users');
+
+
 
 // ADMIN VIEW STRIPE CONTROLLERS
 const StripeCustomersController = require('../controllers/Stripe/StripeCustomersController');
@@ -14,6 +18,7 @@ const StripeProductsController = require('../controllers/Stripe/StripeProductsCo
 const StripePricesController = require('../controllers/Stripe/StripePricesController');
 
 
+
 // VIEWS CONTROLLERS
 const AppController = require('../controllers/AppController');
 const BlogController = require('../controllers/BlogController');
@@ -22,6 +27,7 @@ const PlansController = require('../controllers/PlansController');
 const AuthController = require('../controllers/AuthController');
 const ProfileController = require('../controllers/ProfileController');
 const AdminController = require('../controllers/AdminController');
+
 
 
 // API CONTROLLERS
@@ -36,6 +42,7 @@ const APIAdminBlogController = require('../controllers/API/APIAdminBlogControlle
 const APIAdminGameController = require('../controllers/API/APIAdminGameController');
 const APIAdminBookController = require('../controllers/API/APIAdminBookController');
 const APIAdminStripeController = require('../controllers/API/APIAdminStripeController');
+
 
 
 // INIT EXPRESS 
