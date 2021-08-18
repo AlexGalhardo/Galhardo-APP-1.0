@@ -24,6 +24,17 @@ class APIAdminBookController {
 
 
     /**
+     * http://localhost:3000/api/admin/book/listAll
+     */
+    static async getBooks(req, res){
+        let books = await Books.find({});
+        res.json({
+            books
+        })
+    }
+
+
+    /**
      * http://localhost:3000/api/admin/book/create
      */
     static async postCreateBook(req, res){

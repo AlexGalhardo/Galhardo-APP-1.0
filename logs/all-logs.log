@@ -822,3 +822,11 @@
 [35m[39m
 2021-08-18 06:50:58 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
 [35m[39m
+2021-08-18 06:59:23 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-18 07:00:50 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-18 08:03:08 [35mhttp[39m: [35mGET /api/admin/books/listAll 200 CONTENT-LENGTH=- 297.779 ms[39m
+[35m[39m
+2021-08-18 08:03:10 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 121.089 ms[39m
+[35m[39m

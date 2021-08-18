@@ -17,9 +17,12 @@ const cors = require('cors');
 const morgan = require('./config/morgan');
 const Logger = require('./config/winston');
 
+const mongodb = require('./config/mongodb');
+
 // PWD ROOT
 global.APP_ROOT_PATH = path.resolve(__dirname);
 
+mongodb();
 
 /*
  * with LocalHost HTTPS

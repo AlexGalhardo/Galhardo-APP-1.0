@@ -1,5 +1,17 @@
-const mongoClient = require("mongodb").MongoClient;
+const { connect } = require('mongoose');
 
-mongoClient.connect("mongodb+srv://alex:gegege123@cluster0.tr1pt.mongodb.net/galhardoapp")
-            .then(conn => global.conn = conn.db("galhardoapp"))
-            .catch(err => console.log(err))
+const mongoConnect = async () => {
+  try {
+    console.log('connecting to mongodb...')
+    await connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+    console.log('Connect to MONGODB Success!')
+  }
+  catch(error){
+    console.log("MONGODB Connection ERROR!", error)
+  }
+}
+
+module.exports = mongoConnect;
