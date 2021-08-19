@@ -77,6 +77,7 @@ document.querySelector('#zipcode').addEventListener('change', async function(e) 
 
     // UPDATE PAY BUTTON PRICE
     buttonPayEl.innerHTML = (parseFloat(totalShopCartEl.innerHTML) + parseFloat(shipping_fee)).toFixed(2)
+    totalAmount.value = (parseFloat(totalShopCartEl.innerHTML) + parseFloat(shipping_fee)).toFixed(2)
 });
 
 

@@ -23,6 +23,7 @@ const AuthController = require('../controllers/AuthController');
 const ProfileController = require('../controllers/ProfileController');
 
 
+
 // ---------------------- MIDDLEWARES 
 const userIsNotLoggedIn = (req, res, next) => {
 	if(!req.session.userID){
@@ -34,10 +35,11 @@ const userIsNotLoggedIn = (req, res, next) => {
 
 const userIsAlreadyLoggedIn = (req, res, next) => {
 	if(req.session.userID){
-    return res.redirect('/');
-  }
+        return res.redirect('/');
+    }
 	next()
 }
+
 
 
 // APP VIEWS CONTROLLER
@@ -85,30 +87,30 @@ router.post('/plan/premium/checkout', PlansController.postSubscription);
 
 // AUTH VIEWS CONTROLLER
 router.get('/login', userIsAlreadyLoggedIn, AuthController.getViewLogin);
-router.post('/login', AuthController.postLogin);
+router.post('/login', userIsAlreadyLoggedIn, AuthController.postLogin);
 
 router.get('/register', userIsAlreadyLoggedIn, AuthController.getViewRegister);
-router.post('/register', AuthController.postRegister);
+router.post('/register', userIsAlreadyLoggedIn, AuthController.postRegister);
 
 router.get('/forgetPassword', userIsAlreadyLoggedIn, AuthController.getViewForgetPassword);
-router.post('/forgetPassword', AuthController.postForgetPassword);
+router.post('/forgetPassword', userIsAlreadyLoggedIn, AuthController.postForgetPassword);
 
 router.get('/confirmEmail/:email/:token', AuthController.verifyIfConfirmEmailURLIsValid);
 
 router.get('/resetPassword/:email/:token', userIsAlreadyLoggedIn, AuthController.getViewResetPassword);
-router.post('/resetPassword', AuthController.postResetPassword);
+router.post('/resetPassword', userIsAlreadyLoggedIn, AuthController.postResetPassword);
 
-router.get('/github/callback', AuthController.loginGitHub);
-router.get('/facebook/callback', AuthController.loginFacebook);
-router.get('/google/callback', AuthController.loginGoogle);
+router.get('/github/callback', userIsAlreadyLoggedIn, AuthController.loginGitHub);
+router.get('/facebook/callback', userIsAlreadyLoggedIn, AuthController.loginFacebook);
+router.get('/google/callback', userIsAlreadyLoggedIn, AuthController.loginGoogle);
 
 
 
 // PROFILE CONTROLLER
 router.get('/profile', userIsNotLoggedIn, ProfileController.getViewProfile);
-router.post('/profile', ProfileController.updateProfile);
+router.post('/profile', userIsNotLoggedIn, ProfileController.updateProfile);
 
-router.post('/profile/avatar', ProfileController.updateProfileAvatar);
+router.post('/profile/avatar', userIsNotLoggedIn, ProfileController.updateProfileAvatar);
 
 router.get('/logout', userIsNotLoggedIn, ProfileController.getLogout);
 

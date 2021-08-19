@@ -49,7 +49,7 @@ User.find({
 let newUser = await User.create({
 	name: 'pedro',
 	email: 'pedro@gmail.com',
-	interests: ['art', 'pizza']
+	interests: ['art', 'pizza'],
 	age: 24
 })
 

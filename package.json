@@ -53,6 +53,7 @@
     "nodemon": "^2.0.12",
     "pagination": "^0.4.6",
     "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
     "pm2": "^5.1.0",
     "query-string": "^7.0.1",
     "rand-token": "^1.0.1",

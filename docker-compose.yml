@@ -1,31 +1,94 @@
-# https://imasters.com.br/banco-de-dados/mysql-adminer-docker-compose-montando-rapidamente-um-ambiente-para-uso
 # $ sudo docker-compose up -d
 # $ sudo docker network ls 
 # $ sudo docker-compose ps
-# Server: mysql-database
-# sudo docker inspect CONTAINER_NAME_OR_ID | grep '"IPAddress"' | head -n 1
+# $ sudo docker-compose ps -a
+# $ sudo docker rm -f CONTAINER_ID
+# $ sudo docker rmi -f IMAGE_ID
+# $ sudo docker inspect CONTAINER_NAME_OR_ID | grep '"IPAddress"' | head -n 1
+# $ docker inspect --format '{{ .NetworkSettings.IPAddress }}' container_name_or_id
+
 
 version: '3'
 
 services:
-  mysql-database:
+  
+  # MYSQL
+  # https://imasters.com.br/banco-de-dados/mysql-adminer-docker-compose-montando-rapidamente-um-ambiente-para-uso
+
+  galhardoapp_mysql:
     image: mysql
-    container_name: mysql-database
+    container_name: galhardoapp_mysql
     environment:
       MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "galhardoapp"
     ports:
       - "3306:3306"
+    #volumes:
+    #  - /home/alex/Desktop/galhardo-app/backups/backuos/mysql:/var/www/html
     networks:
-      - mysql-compose-network
+      - galhardoapp_network
 
-  adminer:
+  galhardoapp_adminer:
     image: adminer
-    container_name: adminer
+    container_name: galhardoapp_adminer
     ports:
       - 8080:8080
+    depends_on: 
+      - "galhardoapp_mysql"
     networks:
-      - mysql-compose-network
+      - galhardoapp_network
+
+
+  # POSTGRES
+  # https://renatogroffe.medium.com/postgresql-pgadmin-4-docker-compose-montando-rapidamente-um-ambiente-para-uso-55a2ab230b89
+
+  galhardoapp_postgres:
+    image: postgres
+    container_name: galhardoapp_postgres
+    environment:
+      POSTGRES_PASSWORD: "root"
+    ports:
+      - "15432:5432"
+    #volumes:
+    #  - /home/alex/Desktop/galhardo-app:/var/lib/postgresql/data 
+    networks:
+      - galhardoapp_network
+
+
+
+  # MONGODB
+  # https://renatogroffe.medium.com/mongodb-mongo-express-docker-compose-montando-rapidamente-um-ambiente-para-uso-824f25ca6957
+
+  galhardoapp_mongodb:
+    image: mongo
+    container_name: galhardoapp_mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - "27017:27017"
+    #volumes:
+    #  - /home/alex/Desktop/galhardo-app/backups/mongodb:/data/db
+    networks:
+      - galhardoapp_network
+
+  galhardoapp_mongoexpress:
+    image: mongo-express
+    container_name: galhardoapp_mongoexpress
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: alex
+      ME_CONFIG_BASICAUTH_PASSWORD: root
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+    #depends_on:
+    #  - galhardoapp_mongodb
+    networks:
+      - galhardoapp_network
+
 
 networks: 
-  mysql-compose-network:
+  galhardoapp_network:
     driver: bridge

@@ -22,11 +22,11 @@ class ProfileController {
     	});
 	}
 	
-	static getLogout (req, res, next) {
+	static getLogout (req, res) {
 		req.session.destroy((err) =>  {
-			SESSION_USER = null;
-	        next(err);
+			console.log(err)
 	    });
+	    SESSION_USER = null;
 	    res.redirect('/login');
 	}
 

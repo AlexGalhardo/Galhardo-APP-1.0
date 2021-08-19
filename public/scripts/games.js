@@ -1,20 +1,18 @@
 async function recommendOtherGame(){
+    const response = await fetch(`https://galhardoapp.com/api/public/games/random`);
+    const object = await response.json();
 
-    const random_game_id = await Math.floor(Math.random() * 10) + 1;
-    const response = await fetch(`https://json-database.galhardoapp.com/games/${random_game_id}`);
-    const game = await response.json();
-
-    Object.entries(game).forEach(([key, value]) => {
-        document.getElementById("game_id").value = game.id;
-        document.getElementById("game_image").src = game.image;
-        document.getElementById("game_title").innerHTML = game.title;
-        document.getElementById("game_year_release").innerHTML = game.year_release;
-        document.getElementById("game_resume").innerHTML = game.resume;
-        document.getElementById("game_genres").innerHTML = game.genres;
-        document.getElementById("game_platforms").innerHTML = game.platforms;
-        document.getElementById("game_developer").innerHTML = game.developer;
-        document.getElementById("game_igdb_link").href = game.igdb_link;
-        document.getElementById("game_igdb_rating").innerHTML = (game.igdb_rating).toFixed(1);
-        document.getElementById("game_amazon_link").href = game.amazon_link;
+    Object.entries(object).forEach(([key, value]) => {
+        document.getElementById("game_id").value = object.game.id;
+        document.getElementById("game_image").src = object.game.image;
+        document.getElementById("game_title").innerHTML = object.game.title;
+        document.getElementById("game_year_release").innerHTML = object.game.year_release;
+        document.getElementById("game_resume").innerHTML = object.game.resume;
+        document.getElementById("game_genres").innerHTML = object.game.genres;
+        document.getElementById("game_platforms").innerHTML = object.game.platforms;
+        document.getElementById("game_developer").innerHTML = object.game.developer;
+        document.getElementById("game_igdb_link").href = object.game.igdb_link;
+        document.getElementById("game_igdb_rating").innerHTML = (object.game.igdb_rating).toFixed(1);
+        document.getElementById("game_amazon_link").href = object.game.amazon_link;
     });
 }

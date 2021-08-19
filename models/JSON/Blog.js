@@ -57,11 +57,12 @@ class Blog {
 
 
 
-	static async getTotalBlogPosts () {
+	static async getTotalBlogPosts() {
 		try {
       		return database.blog.length
     	} catch (error) {
-      		return console.log("ERROR getTotalBlogPosts: ", error);
+      		console.log(error)
+      		return 0
     	}
 	}
 

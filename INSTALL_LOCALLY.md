@@ -1,10 +1,15 @@
 ## Installs
+- SETUP UBUNTU 20.04 SERVER
+   - https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04-pt
 - REDIS
    - https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-20-04-quickstart-pt
 - DOCKER
    - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-pt
 - NGINX
    - https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04-pt
+- POSTGRE 
+   - https://www.elephantsql.com/
+   - https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart-pt
 - MYSQL AS A SERVICE
    - https://remotemysql.com/
 - MONGODB AS A SERVICE 
