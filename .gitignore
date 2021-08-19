@@ -9,7 +9,6 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 __DEV_BRANCH__
-__MAIN_BRANCH__
 __TYPESCRIPT_BRANCH__
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
