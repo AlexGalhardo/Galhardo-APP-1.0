@@ -3,7 +3,7 @@
 <small align="center">A Simple Web App Project for Lifetime Learning</small>
 </div>
 
-## WHY THIS PROJECT?  
+## Why This Project ? 
    - <b>“Talk is cheap. Show me the code.” - Linus Torvalds</b>
 
 ## Live Demo
@@ -162,8 +162,9 @@
 ![ga_books](https://user-images.githubusercontent.com/19540357/129276417-8b22e199-fa74-4c8d-86a9-ba9870971b22.png)
 
 ### SHOP
-![ga_shop](https://user-images.githubusercontent.com/19540357/128649497-41ec6054-27f6-446e-87a5-0b3279793382.png)
-![ga_shop_log](https://user-images.githubusercontent.com/19540357/128649498-52b632e9-39f0-4389-87e4-3a9376657832.png)
+![ga_shop_1](https://user-images.githubusercontent.com/19540357/130067628-644dcc1c-4b5e-4ab7-974c-54eb01c48f0b.png)
+![ga_shop_2](https://user-images.githubusercontent.com/19540357/130067635-7c8c3b70-dd30-4db9-b3b9-965897bd90b3.png)
+![ga_shop_3](https://user-images.githubusercontent.com/19540357/130067637-7fa2bab5-cd52-4b59-9314-0379689a65e5.png)
 
 ### Subscription
 ![ga_plans](https://user-images.githubusercontent.com/19540357/128649491-ab2a9c36-e3bf-45cf-9768-6bd781e502e7.png)
@@ -172,13 +173,16 @@
 
 ### AuthController
 ![ga_login](https://user-images.githubusercontent.com/19540357/128446082-32d21dda-9794-428d-a8f2-f6f6475aced7.png)
-![ga_register](https://user-images.githubusercontent.com/19540357/128446078-671db5e9-064c-4458-941f-a6cf15e39d49.png)
+![ga_google](https://user-images.githubusercontent.com/19540357/130067660-c50adabf-7b75-4f4f-a871-4532294ace4b.png)
+![ga_register_github](https://user-images.githubusercontent.com/19540357/130067666-04018b3f-e900-4b69-be2c-bb6bc7768416.png)
 ![ga_forgetPassword](https://user-images.githubusercontent.com/19540357/128446079-b6fc9f98-ea0f-4906-8d85-c581b554dee3.png)
 ![ga_resetPassword](https://user-images.githubusercontent.com/19540357/128446080-afa13a81-34be-4a74-9b8d-3cbc8688e0eb.png)
 
 ### Blog
 ![ga_blog](https://user-images.githubusercontent.com/19540357/129276413-93b7a40c-f8f5-4bb9-b1cc-df5df78b73da.png)
 ![ga_blog_post](https://user-images.githubusercontent.com/19540357/129276447-239ae567-4c74-46c1-8c0d-fda16449456a.png)
+![ga_blog_comment_1](https://user-images.githubusercontent.com/19540357/130067633-96702bac-a9b9-40a4-9af1-30d44da1c827.png)
+![ga_blog_comment_2](https://user-images.githubusercontent.com/19540357/130067642-fb771181-f73e-47f8-93f4-7a64d51af7e4.png)
 ![ga_admin_update_blogpost](https://user-images.githubusercontent.com/19540357/129276418-4444a071-90fe-4f2b-9e74-6fc26d3aad0b.png)
 
 ### Profile
@@ -195,6 +199,7 @@
 ![ga_insomnia_jwt](https://user-images.githubusercontent.com/19540357/129701701-a7565b7f-e121-4cdf-9246-03055dd707d5.png)
 ![ga_insomnia_api](https://user-images.githubusercontent.com/19540357/129701706-1df154ce-6f2a-4255-8bc0-af0d2687954c.png)
 ![ga_insomnia_create_game](https://user-images.githubusercontent.com/19540357/129701707-b4a0fa16-5088-4246-8f48-a43a6e661eb8.png)
+
 
 
 ## JSON DATABASE STRUCTURE EXAMPLE

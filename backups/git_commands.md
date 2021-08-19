@@ -7,6 +7,12 @@
 - $ git remote rename origin github
 - $ git push --all origin
 
+- // delete branch locally
+- git branch -d localBranchName
+
+- // delete branch remotely
+- git push origin --delete remoteBranchName
+
 
 - To kill any process listening to the port 3000:
    - kill $(lsof -t -i:3000)
