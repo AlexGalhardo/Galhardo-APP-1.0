@@ -91,9 +91,11 @@ class AuthController {
 	    }
 	}
 	
+
 	static getViewRegister (req, res){
 		res.render('pages/auth/register');
 	}
+	
 
 	static verifyIfConfirmEmailURLIsValid (req, res){
 		const { email, token } = req.params;
