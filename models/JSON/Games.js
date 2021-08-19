@@ -32,7 +32,8 @@ class Games {
 		try {
 	      return database.games.length
 	    } catch (error) {
-	      return console.log("ERROR getTotalGames: ", error);
+	      console.log("ERROR getTotalGames: ", error);
+	      return 0
 	    };
 	}
 

@@ -24,12 +24,18 @@
 ## APIs
 - **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
 ### Public REST APIs Endpoints Examples
-- GET https://galhardoapp.com/api/public/blog
-- GET https://galhardoapp.com/api/public/blog/:blog_id
-- GET https://galhardoapp.com/api/public/games
-- GET https://galhardoapp.com/api/public/games/:game_id
-- GET https://galhardoapp.com/api/public/books
-- GET https://galhardoapp.com/api/public/books/:book_id
+- BlogPosts
+   - GET https://galhardoapp.com/api/public/blog
+   - GET https://galhardoapp.com/api/public/blog/random
+   - GET https://galhardoapp.com/api/public/blog/:blog_id
+- Games
+   - GET https://galhardoapp.com/api/public/games
+   - GET https://galhardoapp.com/api/public/games/random
+   - GET https://galhardoapp.com/api/public/games/:game_id
+- Books
+   - GET https://galhardoapp.com/api/public/books
+   - GET https://galhardoapp.com/api/public/books/random
+   - GET https://galhardoapp.com/api/public/books/:book_id
 
 ### Profile REST API Endpoints Examples
 - Each user registred can use this endpoint to update or delete his account
@@ -146,7 +152,7 @@
 
 ## Some APP Images
 
-### Games 
+### Games
 ![ga_home](https://user-images.githubusercontent.com/19540357/129276444-830fa647-5414-44ef-bf34-2a3bb24b3ccd.png)
 
 ### Books

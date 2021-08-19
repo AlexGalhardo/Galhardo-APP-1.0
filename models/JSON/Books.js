@@ -33,9 +33,10 @@ class Books {
 
 	static getTotalBooks()  {
 		try {
-	      return database.books.length
+	      	return database.books.length
 	    } catch (error) {
-	      return console.log("ERROR getTotalBooks: ", error);
+	      	console.log("ERROR getTotalBooks: ", error);
+	    	return 0
 	    };
 	}
 

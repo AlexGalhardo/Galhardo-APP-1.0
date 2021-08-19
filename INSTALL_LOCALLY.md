@@ -5,6 +5,8 @@
    - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-pt
 - NGINX
    - https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04-pt
+- POSTGRE AS A SERVICE
+   - https://www.elephantsql.com/
 - MYSQL AS A SERVICE
    - https://remotemysql.com/
 - MONGODB AS A SERVICE 

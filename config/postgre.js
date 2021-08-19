@@ -1,7 +1,4 @@
 const { Sequelize } = require('sequelize');
-const dotenv = require('dotenv');
-
-dotenv.config();
 
 /* FOR LOCALL POSTGRESQL
 export const sequelize = new Sequelize(
