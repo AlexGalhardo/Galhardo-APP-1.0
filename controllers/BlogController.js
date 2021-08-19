@@ -29,7 +29,6 @@ class BlogController {
 		}
 
 		const blog = await Blog.getBlogPostsByPageLimit(page, blogPostsPerPage);
-		console.log(blog)
 
 		res.render('pages/blog/blog', {
 			blog,
@@ -61,18 +60,35 @@ class BlogController {
 		})
 	}
 
-	static getViewBlogPost (req, res) {
-		const slug = req.params.slug;
 
-		const blogPost = Blog.getBlogPostBySlug(slug)
-
+	/**
+	 * This methods verify if user logged can delete comment
+	 * and get comments by DESC ORDER
+	 */
+	static fixComments(blogPost){
 		blogPost.comments = blogPost.comments.map(comment => {
 			if(SESSION_USER && comment.user_id == SESSION_USER.id){
 				comment.user_logged_can_delete = true
-				console.log('true agora é: ', comment.user_logged_can_delete)
+			}
+			else {
+				comment.user_logged_can_delete = false
 			}
 			return comment
 		});
+
+		// blogPost.comments.sort((a,b) => (a.id < b.id) ? -1 : ((b.id < a.id) ? 1 : 0));
+
+		return blogPost
+	}
+
+	static getViewBlogPost (req, res) {
+		const slug = req.params.slug;
+
+		let blogPost = Blog.getBlogPostBySlug(slug)
+
+		blogPost = BlogController.fixComments(blogPost)
+		
+		if(blogPost.comments[0].comment_id < blogPost.comments[1].comment_id) blogPost.comments.reverse()
 
 		console.log(blogPost.comments)
 
@@ -137,11 +153,14 @@ class BlogController {
 		}
 
 		// return blog post if success, null if not success
-		const blogPost = Blog.createBlogComment(slug, blogComment)
+		let blogPost = Blog.createBlogComment(slug, blogComment)
 
 		if(!blogPost){
-			return console.log('blog comment não foi criado no json database!')
+			console.log('blog comment não foi criado no json database!')
+			return res.redirect('/blog')
 		}
+
+		blogPost = BlogController.fixComments(blogPost)
 
 		return res.render('pages/blog/blogPost', {
 			flash: {
@@ -149,7 +168,8 @@ class BlogController {
 				message: "Comment Created!"
 			},
 			blogPost,
-			user: SESSION_USER
+			user: SESSION_USER,
+			blog_active: true,
 		})
 	}
 
@@ -157,11 +177,13 @@ class BlogController {
 		const { slug, comment_id } = req.params;
 		
 		// return blog post if success, null if not success
-		const blogPost = Blog.deleteCommentByCommentID(slug, comment_id)
+		let blogPost = Blog.deleteCommentByCommentID(slug, comment_id)
 
 		if(!blogPost){
 			return res.redirect(`/blog/${slug}`)
 		}
+
+		blogPost = BlogController.fixComments(blogPost)
 	
 		return res.render('pages/blog/blogPost', {
 			flash: {
@@ -169,7 +191,8 @@ class BlogController {
 				message: "Comment Deleted!"
 			},
 			blogPost,
-			user: SESSION_USER
+			user: SESSION_USER,
+			blog_active: true,
 		})
 	}
 }
