@@ -12,6 +12,7 @@ const bodyParser = require('body-parser');
 
 // Helpers
 const DateTime = require('../helpers/DateTime');
+const NodeMailer = require('../helpers/NodeMailer');
 
 // Stripe
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
@@ -34,12 +35,13 @@ class ShopController {
 				quantityApples,
 				quantityStrawberries,
 				customer_email,
-				customer_city,
-				zipcode,
-				customer_state,
-				customer_street,
 				customer_name,
 				customer_phone,
+				zipcode,
+				customer_street,
+				customer_city,
+				customer_state,
+				shipping_fee,
 				total_shop_cart_amount,
 				card_number,
 				card_exp_month,
@@ -58,17 +60,18 @@ class ShopController {
 
 		// create shop cart credit card charge
 		const shopCardCharge = await stripe.charges.create({
-			amount: parseInt(value_totalShopCart * 100),
+			amount: parseInt(total_shop_cart_amount * 100),
 		  	currency: 'usd',
 		  	source: cardToken.id,
-		  	description: JSON.stringify(shopCartItems),
-		  	receipt_email: customer_email,
-		  	shipping: shipping
+		  	description: "Shop cart itens",
+		  	receipt_email: customer_email
 		});
 
 		const shopTransactionObject = {
             status: 'Success',
-            customer_email: customer_email,
+            customer_name,
+            customer_email,
+            customer_phone,
             amount: total_shop_cart_amount,
             transaction_id: shopCardCharge.id,
             created_at: DateTime.getNow(),
@@ -84,12 +87,12 @@ class ShopController {
                     total: parseFloat(quantityGrapes * 0.99).toFixed(2)
                 },
                 {
-                    quantity: totalApples,
+                    quantity: quantityApples,
                     name: 'Apples',
                     total: parseFloat(quantityApples * 1.99).toFixed(2)
                 },
                 {
-                    quantity: totalStrawberries,
+                    quantity: quantityStrawberries,
                     name: 'Strawberries',
                     total: parseFloat(quantityStrawberries * 2.99).toFixed(2)
                 },
@@ -102,8 +105,7 @@ class ShopController {
 					state: customer_state,
 					line1: customer_street
 				},
-				name: customer_name,
-				phone: customer_phone,
+				fee: shipping_fee, 
 				carrier: "CORREIOS"
 			}
         }
@@ -117,7 +119,8 @@ class ShopController {
 			},
 			shopCardCharge,
 			shopTransactionObject,
-			user: SESSION_USER
+			user: SESSION_USER,
+			shop_active: true
 		});
 	}
 

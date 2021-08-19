@@ -19,14 +19,14 @@
 		                <li class="list-group-item d-flex justify-content-between align-items-center">
 		                    
 		                    <input name="quantityOranges" class="form-control w-25" type="number" min="1" step="1" 
-		                    	value="{{shopTransactionObject.products.quantity}}" id="quantityOranges" readonly>
+		                    	value="{{quantity}}" id="quantityOranges" readonly>
 		                    
-		                    {{shopTransactionObject.products.name}}
+		                    {{name}}
 		                    
 		                    <b>
 		                    	$
 		                    	<span id="priceOranges">
-		                    		{{shopTransactionObject.products.total}}
+		                    		{{total}}
 		                    	</span>
 		                   	</b>
 		                </li>
@@ -34,8 +34,13 @@
 	                {{/shopTransactionObject.products}}  
 
 	                <li class="list-group-item d-flex justify-content-between align-items-center">
+	                    Shipping Fee  
+	                    <b>$ <span>{{shopTransactionObject.shipping.fee}}</span></b>
+	                </li>
+
+	                <li class="list-group-item d-flex justify-content-between align-items-center bg-warning">
 	                    <b>TOTAL</b>  
-	                    <b>$<span id="total_shop_cart">{{shopTransactionObject.amount}}</span></b>
+	                    <b>$ <span>{{shopTransactionObject.amount}}</span></b>
 	                </li>
 	            
 	            </ul>
@@ -52,7 +57,7 @@
                         <li class="list-group-item"><b>AMOUNT:</b> {{amount}}</li>
                         <li class="list-group-item"><b>PAID:</b> {{paid}}</li>
                         <li class="list-group-item"><b>PAYMENT_METHOD:</b> {{payment_method}}</li>
-                        <li class="list-group-item"><b>CREATED_AT:</b> {{created}}</li>
+                        <li class="list-group-item"><b>CREATED_AT:</b> {{shopTransactionObject.created_at}}</li>
                     </ul>
         		{{/shopCardCharge}}
 	        </div>
@@ -61,8 +66,8 @@
 	        <div class="col-lg-4">
         		{{#shopTransactionObject}}
         			<ul class="list-group list-group-flush text-start">
-                        <li class="list-group-item"><b>Customer:</b> {{shipping.name}}</li>
-                        <li class="list-group-item"><b>Phone:</b> {{shipping.phone}}</li>
+                        <li class="list-group-item"><b>Customer:</b> {{customer_name}}</li>
+                        <li class="list-group-item"><b>Phone:</b> {{customer_phone}}</li>
                         <li class="list-group-item"><b>Email:</b> {{customer_email}}</li>
                         <li class="list-group-item"><b>Shipping ZipCode:</b> {{shipping.address.postal_code}}</li>
                         <li class="list-group-item"><b>Shipping Street:</b> {{shipping.address.line1}}</li>

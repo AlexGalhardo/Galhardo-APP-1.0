@@ -163,7 +163,7 @@ class AuthController {
 	        	});
 	    	}
 
-	    	NodeMailer.sendConfirmEmailToken(email, confirm_email_token)
+	    	NodeMailer.sendEmailConfirmEmailToken(email, confirm_email_token)
 	        
 	        return res.render("pages/auth/register", {
 	            flash: {

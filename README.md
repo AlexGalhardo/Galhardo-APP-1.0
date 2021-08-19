@@ -3,7 +3,8 @@
 <small align="center">A Simple Web App Project for Lifetime Learning</small>
 </div>
 
-# WHY THIS PROJECT?  “Talk is cheap. Show me the code.” - Linus Torvalds
+## WHY THIS PROJECT?  
+   - <b>“Talk is cheap. Show me the code.” - Linus Torvalds</b>
 
 ## Live Demo
 - **Currently Version: ALPHA - NOT STABLE**
@@ -195,6 +196,130 @@
 ![ga_insomnia_api](https://user-images.githubusercontent.com/19540357/129701706-1df154ce-6f2a-4255-8bc0-af0d2687954c.png)
 ![ga_insomnia_create_game](https://user-images.githubusercontent.com/19540357/129701707-b4a0fa16-5088-4246-8f48-a43a6e661eb8.png)
 
+
+## JSON DATABASE STRUCTURE EXAMPLE
+```json
+{
+  "users": [
+    {
+      "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "name": "Test Jack",
+      "email": "test@gmail.com",
+      "confirmed_email": true,
+      "confirm_email_token": null,
+      "password": "$2b$12$qmFqKwOkAfdQLy04VBtOLObd6FUU7H2P3XKa1f95JbKlLgjyOy4kG",
+      "reset_password_token": null,
+      "admin": false,
+      "avatar": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2_alex.jpeg",
+      "document": "44557777777",
+      "phone": "18999999999",
+      "birth_date": "2021-08-05",
+      "google_id": null,
+      "github_id": null,
+      "facebook_id": null,
+      "address": {
+        "zipcode": "13560290",
+        "street": "Rua Dona Alexandrina",
+        "street_number": "42",
+        "neighborhood": "Vila Monteiro (Gleba I)",
+        "city": "S�o Carlos",
+        "state": "SP",
+        "country": "BRAZIL"
+      },
+      "stripe": {
+        "customer_id": "cus_K15RnWHRhUA0HF",
+        "card_token_id": "tok_1JN3UBBD6lhzYmkOV3LcL9cX",
+        "card_id": "card_1JN3UBBD6lhzYmkO7W8rsCO3",
+        "card_holder_name": "Alex Galhardo",
+        "card_last_4_digits": "4242",
+        "card_exp_month": "07",
+        "card_exp_year": 2022,
+        "currently_subscription_id": "sub_K162ez3Perblxs",
+        "currently_subscription_name": "PREMIUM",
+        "subscription_start": "10/08/2021 19:54:32",
+        "subscription_end": "10/09/2021 19:54:32",
+        "subscription_automatically_renew": true
+      },
+      "created_at": "09/08/2021 03:52:14",
+      "updated_at": "11/08/2021 04:04:17"
+    }
+  ],
+  "blog": [
+    {
+      "id": 1,
+      "title": "Why Simpsons Is So Succesfull?",
+      "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "image": "https://picsum.photos/id/1/230/230",
+      "category": "software",
+      "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n\r\n<img src='https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/05/Os-Simpsons.jpg' class='w-100 image-fluid'>\r\n\r\n<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>",
+      "updated_at": "12/08/2021 18:49:33",
+      "slug": "why-simpsons-is-so-succesfull",
+      "created_at": "04/08/2021 18:35:09",
+      "comments": [
+        {
+          "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+          "user_logged_can_delete": true,
+          "user_name": "Test Jack",
+          "user_avatar": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2_avatar.png",
+          "comment": "new comment",
+          "created_at": "12/08/2021 02:50:24",
+          "comment_id": 1
+        },
+        {
+          "user_id": "13667f62-03d6-4b46-bd22-01nasookas12",
+          "user_logged_can_delete": true,
+          "user_name": "ADMIN Akex",
+          "user_avatar": "13667f62-03d6-4b46-bd22-01nasookas12_avatar.png",
+          "comment": "New comment test 2",
+          "created_at": "12/08/2021 18:49:51",
+          "comment_id": 2
+        }
+      ]
+    }
+  ],
+  "games": [
+    {
+      "id": 1,
+      "title": "God Of War",
+      "year_release": 2018,
+      "resume": "It is a new beginning for Kratos. Living as a man, outside the shadow of the gods, he seeks solitude in the unfamiliar lands of Norse mythology. With new purpose and his son at his side, Kratos must fight for survival as powerful forces threaten to disrupt the new life he has created...",
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg",
+      "igdb_link": "https://www.igdb.com/games/god-of-war--1",
+      "igdb_rating": 9.5,
+      "platforms": "PS4, PS5",
+      "developer": "Santa M�nica Studios",
+      "genres": "Action, Third Person, Adventure, Hack and slash/Beat 'em up",
+      "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+      "created_at": "04/08/2021 18:35:09",
+      "updated_at": "04/08/2021 18:55:16"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "title": "Sapiens - Uma Breve História da Humanidade",
+      "year_release": 2014,
+      "image": "https://images-na.ssl-images-amazon.com/images/I/51fuvXO6wvL._SX346_BO1,204,203,200_.jpg",
+      "amazon_link": "https://www.amazon.com.br/Sapiens-Uma-Breve-Hist%C3%B3ria-Humanidade/dp/8525432180",
+      "resume": "O que possibilitou ao Homo sapiens subjugar as demais espécies? O que nos torna capazes das mais belas obras de arte, dos avanços científicos mais impensáveis e das mais horripilantes guerras? Nossa capacidade imaginativa. Somos a única espécie que acredita em coisas que não existem na natureza, como Estados, dinheiro e direitos humanos. Partindo dessa ideia, Yuval Noah Harari, doutor em história pela Universidade de Oxford, aborda em Sapiens a história da humanidade sob uma perspectiva inovadora. Explica que o capitalismo é a mais bem-sucedida religião, que o imperialismo é o sistema político mais lucrativo, que nós, humanos modernos, embora sejamos muito mais poderosos que nossos ancestrais, provavelmente não somos mais felizes. Um relato eletrizante sobre a aventura de nossa extraordinária espécie, de primatas insignificantes a senhores do mundo.",
+      "pages": 464,
+      "genres": "Historic",
+      "author": "Yuval Noah Harari ",
+      "updated_at": "11/08/2021 20:36:33",
+      "created_at": "11/08/2021 20:36:33"
+    }
+  ],
+  "stripe": {
+    "customers": [],
+    "cards": [],
+    "charges": [],
+    "products": [],
+    "prices": [],
+    "plans": [],
+    "subscriptions": []  
+  }
+}
+```
 
 ## Feedbacks
 - If you have any feedback or improvements tips about this project, send a pull request or send me a email at: aleexgvieira@gmail.com
