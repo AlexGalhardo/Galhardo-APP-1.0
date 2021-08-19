@@ -2,8 +2,6 @@ async function recommendOtherBook(){
     const response = await fetch(`http://localhost:3000/api/public/books/random`);
     const object = await response.json();
 
-    console.log(object)
-
     Object.entries(object).forEach(([key, value]) => {
         document.getElementById("book_id").value = object.book.id;
         document.getElementById("book_image").src = object.book.image;

@@ -438,6 +438,7 @@
     {
       "title": "Código limpo: Habilidades práticas do Agile Software",
       "year_release": "2009",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/4153E2zZmTS._SX350_BO1,204,203,200_.jpg",
       "amazon_link": "https://www.amazon.com.br/Código-limpo-Robert-C-Martin/dp/8576082675/ref=sr_1_1?__mk_pt_BR=ÅMÅŽÕÑ&crid=1JW8ZICZ9H771&dchild=1&keywords=clean+code&qid=1629353057&s=books&sprefix=clean+code,stripbooks,305&sr=1-1&ufe=app_do:amzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9",
       "resume": "Mesmo um código ruim pode funcionar. Mas se ele não for limpo, pode acabar com uma empresa de desenvolvimento. Perdem-se a cada ano horas incontáveis e recursos importantes devido a um código mal escrito. Mas não precisa ser assim.O renomado especialista em software, Robert C. Martin, apresenta um paradigma revolucionário com Código limpo: Habilidades Práticas do Agile Software. Martin se reuniu com seus colegas do Mentor Object para destilar suas melhores e mais ágeis práticas de limpar códigos “dinamicamente” em um livro que introduzirá gradualmente dentro de você os valores da habilidade de um profissional de softwares e lhe tornar um programador melhor –mas só se você praticar.",
       "pages": "425",
@@ -450,6 +451,7 @@
     {
       "title": "Domain-Driven Design: Atacando as complexidades no coração do software",
       "year_release": "2016",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/51HGF9mg6iL._SX323_BO1,204,203,200_.jpg",
       "amazon_link": "https://www.amazon.com.br/Domain-Driven-Design-Eric-Evans/dp/8550800651",
       "resume": "A comunidade de desenvolvimento de softwares reconhece que a modelagem de domínios é fundamental para o design de softwares. Através de modelos de domínios, os desenvolvedores de software conseguem expressar valiosas funcionalidades e traduzi-las em uma implementação de software que realmente atenda às necessidades de seus usuários. Mas, apesar de sua óbvia importância, existem poucos recursos práticos que explicam como incorporar uma modelagem de domínios eficiente no processo de desenvolvimento de softwares.",
       "pages": "528",
@@ -458,6 +460,32 @@
       "id": 6,
       "updated_at": "19/08/2021 03:35:50",
       "created_at": "19/08/2021 03:35:50"
+    },
+    {
+      "title": "Como Fazer Amigos e Influenciar Pessoas",
+      "year_release": "2012",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/41o4tjSB4TL._SX346_BO1,204,203,200_.jpg",
+      "amazon_link": "https://www.amazon.com.br/Como-Fazer-Amigos-Influenciar-Pessoas/dp/8504018024",
+      "resume": "A comunidade de desenvolvimento de softwares reconhece que a modelagem de domínios é fundamental para o design de softwares. Através de modelos de domínios, os desenvolvedores de software conseguem expressar valiosas funcionalidades e traduzi-las em uma implementação de software que realmente atenda às necessidades de seus usuários. Mas, apesar de sua óbvia importância, existem poucos recursos práticos que explicam como incorporar uma modelagem de domínios eficiente no processo de desenvolvimento de softwares.",
+      "pages": "264",
+      "genres": "Personal Development",
+      "author": "Dale Carnegie",
+      "id": 7,
+      "updated_at": "19/08/2021 04:48:10",
+      "created_at": "19/08/2021 04:48:10"
+    },
+    {
+      "title": "A Arte da Guerra",
+      "year_release": "2021",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/41Ma2ZRlN1L._SX341_BO1,204,203,200_.jpg",
+      "amazon_link": "https://www.amazon.com.br/arte-guerra-Sun-Tzu/dp/6589678189/ref=sr_1_4?__mk_pt_BR=ÅMÅŽÕÑ&crid=1E7JQNRYKSKAX&dchild=1&keywords=a+arte+da+guerra&qid=1629353095&s=books&sprefix=a+arte+da+guerra,stripbooks,309&sr=1-4&ufe=app_do:amzn1.fos.25548f35-0de7-44b3-b28e-0f56f3f96147",
+      "resume": "O sucesso das estratégias de Sun Tzu foi um grande responsável para criação de um tratado militar de treze capítulos, o Arte da Guerra, que traz ensinamentos e diretrizes para persuadir e vencer o adversário. Para alguns historiadores, além de Sun Tzu, o tratado conta com ensinamentos de outros filósofos militares. Hoje, a obra não desperta interesse apenas de militares e combatentes, pois a aplicação dos ensinamentos de Sun Tzu abrange os campos político, administrativo e empresarial.",
+      "pages": "160",
+      "genres": "Strategic",
+      "author": "Sun Tzu",
+      "id": 8,
+      "updated_at": "19/08/2021 04:51:03",
+      "created_at": "19/08/2021 04:51:03"
     }
   ],
   "stripe": {
