@@ -4,7 +4,8 @@
 </div>
 
 ## Why This Project ? 
-   - <b>“Talk is cheap. Show me the code.” - Linus Torvalds</b>
+   - <b>"Talk is cheap. Show me the code." - Linus Torvalds</b>
+   - First Commit: August 01, 2021
 
 ## Live Demo
 - **Currently Version: ALPHA - NOT STABLE**
@@ -172,7 +173,7 @@
 ![ga_plan_log](https://user-images.githubusercontent.com/19540357/128649493-fb32d152-8f84-4a5b-84eb-74047b54b138.png)
 
 ### AuthController
-![ga_login](https://user-images.githubusercontent.com/19540357/128446082-32d21dda-9794-428d-a8f2-f6f6475aced7.png)
+![ga_login](https://user-images.githubusercontent.com/19540357/130070737-aae84e0c-5525-4207-80a4-f057e26295aa.png)
 ![ga_google](https://user-images.githubusercontent.com/19540357/130067660-c50adabf-7b75-4f4f-a871-4532294ace4b.png)
 ![ga_register_github](https://user-images.githubusercontent.com/19540357/130067666-04018b3f-e900-4b69-be2c-bb6bc7768416.png)
 ![ga_forgetPassword](https://user-images.githubusercontent.com/19540357/128446079-b6fc9f98-ea0f-4906-8d85-c581b554dee3.png)
