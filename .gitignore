@@ -8,9 +8,9 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
-mysql.js
-
 __DEV_BRANCH__
+__MAIN_BRANCH__
+__TYPESCRIPT_BRANCH__
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
