@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-## Galhardo-APP TypeScript Version
-=======
 <br>
 <h1 align="center">⭐ Galhardo APP 💵</h1>
 <small align="center">A Simple Web App Project for Lifetime Learning</small>
