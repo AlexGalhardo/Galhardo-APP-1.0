@@ -104,7 +104,7 @@ router.patch('/admin/games/patch/:game_id', verifyAPIAdminJWTToken, APIAdminGame
 router.delete('/admin/games/delete/:game_id', verifyAPIAdminJWTToken, APIAdminGameController.deleteGame);
 
 //  ---------------- ADMIN BOOKS
-router.get('/admin/books/listAll', APIAdminBookController.getBooks);
+router.get('/admin/books/listAll', APIAdminBookController.getAllBooks);
 router.post('/admin/books/create', verifyAPIAdminJWTToken, APIAdminBookController.postCreateBook);
 router.patch('/admin/books/patch/:book_id', verifyAPIAdminJWTToken, APIAdminBookController.patchBook);
 router.delete('/admin/books/delete/:book_id', verifyAPIAdminJWTToken, APIAdminBookController.deleteBook);

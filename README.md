@@ -3,6 +3,8 @@
 <small align="center">A Simple Web App Project for Lifetime Learning</small>
 </div>
 
+# WHY THIS PROJECT?  “Talk is cheap. Show me the code.” - Linus Torvalds
+
 ## Live Demo
 - **Currently Version: ALPHA - NOT STABLE**
 - You can access: https://galhardoapp.com/

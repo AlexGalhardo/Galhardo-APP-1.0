@@ -5,6 +5,8 @@
 # $ sudo docker rm -f CONTAINER_ID
 # $ sudo docker rmi -f IMAGE_ID
 # $ sudo docker inspect CONTAINER_NAME_OR_ID | grep '"IPAddress"' | head -n 1
+# $ docker inspect --format '{{ .NetworkSettings.IPAddress }}' container_name_or_id
+
 
 version: '3'
 
@@ -49,19 +51,6 @@ services:
       - "15432:5432"
     #volumes:
     #  - /home/alex/Desktop/galhardo-app:/var/lib/postgresql/data 
-    networks:
-      - galhardoapp_network
-      
-  galhardoapp_pgadmin:
-    image: dpage/pgadmin4
-    container_name: galhardoapp_pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "aleexgvieira@gmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "root"
-    ports:
-      - "16543:16543"
-    depends_on:
-      - galhardoapp_postgres
     networks:
       - galhardoapp_network
 

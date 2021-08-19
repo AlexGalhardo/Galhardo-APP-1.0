@@ -486,6 +486,19 @@
       "id": 8,
       "updated_at": "19/08/2021 04:51:03",
       "created_at": "19/08/2021 04:51:03"
+    },
+    {
+      "title": "A Arte da Guerra",
+      "year_release": "2021",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/41Ma2ZRlN1L._SX341_BO1,204,203,200_.jpg",
+      "amazon_link": "https://www.amazon.com.br/arte-guerra-Sun-Tzu/dp/6589678189/ref=sr_1_4?__mk_pt_BR=ÅMÅŽÕÑ&crid=1E7JQNRYKSKAX&dchild=1&keywords=a+arte+da+guerra&qid=1629353095&s=books&sprefix=a+arte+da+guerra,stripbooks,309&sr=1-4&ufe=app_do:amzn1.fos.25548f35-0de7-44b3-b28e-0f56f3f96147",
+      "resume": "O sucesso das estratégias de Sun Tzu foi um grande responsável para criação de um tratado militar de treze capítulos, o Arte da Guerra, que traz ensinamentos e diretrizes para persuadir e vencer o adversário. Para alguns historiadores, além de Sun Tzu, o tratado conta com ensinamentos de outros filósofos militares. Hoje, a obra não desperta interesse apenas de militares e combatentes, pois a aplicação dos ensinamentos de Sun Tzu abrange os campos político, administrativo e empresarial.",
+      "pages": "160",
+      "genres": "Strategic",
+      "author": "Sun Tzu",
+      "created_at": "19/08/2021 06:46:13",
+      "updated_at": "19/08/2021 06:46:13",
+      "id": 9
     }
   ],
   "stripe": {

@@ -2234,3 +2234,43 @@
 [35m[39m
 2021-08-19 05:21:33 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 10.117 ms[39m
 [35m[39m
+2021-08-19 06:45:48 [35mhttp[39m: [35mPOST /api/admin/login 422 CONTENT-LENGTH=35 658.525 ms[39m
+[35m[39m
+2021-08-19 06:45:56 [35mhttp[39m: [35mPOST /api/admin/login 200 CONTENT-LENGTH=217 497.421 ms[39m
+[35m[39m
+2021-08-19 06:46:13 [35mhttp[39m: [35mPOST /api/admin/books/create 200 CONTENT-LENGTH=1086 333.118 ms[39m
+[35m[39m
+2021-08-19 06:57:17 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-19 06:58:23 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-19 07:00:08 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-19 07:00:43 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-19 07:01:05 [35mhttp[39m: [35mPOST /api/admin/books/create 200 CONTENT-LENGTH=1079 333.761 ms[39m
+[35m[39m
+2021-08-19 07:05:15 [35mhttp[39m: [35mGET /api/admin/books/listAll - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-19 07:07:36 [35mhttp[39m: [35mGET /api/admin/books/listAll 200 CONTENT-LENGTH=1094 228.644 ms[39m
+[35m[39m
+2021-08-19 07:14:30 [35mhttp[39m: [35mPOST /api/admin/login 200 CONTENT-LENGTH=217 653.498 ms[39m
+[35m[39m
+2021-08-19 07:14:40 [35mhttp[39m: [35mPATCH /api/admin/books/patch/29 200 CONTENT-LENGTH=20 216.164 ms[39m
+[35m[39m
+2021-08-19 07:15:18 [35mhttp[39m: [35mPATCH /api/admin/books/patch/1 200 CONTENT-LENGTH=1016 122.219 ms[39m
+[35m[39m
+2021-08-19 07:18:57 [35mhttp[39m: [35mPATCH /api/admin/books/patch/1 200 CONTENT-LENGTH=1016 337.435 ms[39m
+[35m[39m
+2021-08-19 07:19:14 [35mhttp[39m: [35mDELETE /api/admin/books/delete/28 500 CONTENT-LENGTH=47 42.072 ms[39m
+[35m[39m
+2021-08-19 07:19:20 [35mhttp[39m: [35mDELETE /api/admin/books/delete/1 500 CONTENT-LENGTH=47 16.169 ms[39m
+[35m[39m
+2021-08-19 07:20:49 [35mhttp[39m: [35mDELETE /api/admin/books/delete/1 500 CONTENT-LENGTH=47 221.453 ms[39m
+[35m[39m
+2021-08-19 07:21:44 [35mhttp[39m: [35mDELETE /api/admin/books/delete/1 200 CONTENT-LENGTH=31 256.766 ms[39m
+[35m[39m
+2021-08-19 07:22:21 [35mhttp[39m: [35mDELETE /api/admin/books/delete/1 200 CONTENT-LENGTH=31 250.542 ms[39m
+[35m[39m
+2021-08-19 07:22:25 [35mhttp[39m: [35mDELETE /api/admin/books/delete/1 200 CONTENT-LENGTH=31 18.390 ms[39m
+[35m[39m
