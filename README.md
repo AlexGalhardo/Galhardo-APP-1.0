@@ -83,48 +83,55 @@
 
 
 ## RoadMap
-- [ ] Telegram Logs
-- [ ] Winston And Morgan File/Console Logs
-- [ ] In Code Compression Responses
-- [ ] In Code Cache Most used data
-- [x] Contact SMTP 
-- [ ] Confirm Email / Forget Password using SMTP
-- [ ] Subscriptions Transactions using SMTP (Email HTML Template)
-- [ ] Shop Transactions using SMTP (Email HTML Template)
+- Logs using Winston and Morgan
+   - [ ] Telegram
+   - [ ] Files txt
+   - [ ] Console
+- SMTP using HTML Templates
+   - [ ] Contact
+   - [ ] Shop Transactions
+   - [ ] Subscriptions Transactions
+   - [ ] Confirm Email
+   - [ ] Reset Password 
+- [ ] In Code Compression Responses (HTML, JS, CSS)
+- [ ] In Code Cache Most used data (Redis and In-Memory)
 - [ ] Google Tools (SEO, Search Console, Analytics, Sitemap, Robots.txt, etc)
-- [ ] CDN (Cloudflare)
-- JSON DataBase 
-   - [x] Register and Login Account using Session
-   - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
-   - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
+- [x] CDN (Cloudflare)
+- [x] API HTML Documentation Using Insomnia Documenter
+- Using JSON DataBase 
+   - [x] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
+   - [x] ADMIN ACL for Blog Posts (Create, Update, Delete)
+   - [x] (CREATE, READ, DELETE) Blog Comments
    - [x] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
-   - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
+   - [x] ADMIN ACL for Games and Books (Create, Update, Delete)
    - [x] CRUD Profile
-   - [ ] (CREATE, READ, DELETE) Blog Comments
-- MySQL DataBase using Docker (without ORM)
-   - [ ] Register and Login Account using Session
-   - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
+   - [x] CRUD APIs
+- Using MySQL DataBase with Docker and pure SQL
+   - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
+   - [ ] (CREATE, READ, DELETE) Blog Comments
    - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
    - [ ] CRUD Profile
-   - [ ] (CREATE, READ, DELETE) Blog Comments
-- MongoDB DataBase using Docker (without ORM)
-   - [ ] Register and Login Account using Session
-   - [ ] Register and Login using SocialLogin (Github, Facebook, Google)
+   - [ ] CRUD APIs
+- Using PostgreSQL DataBase with Docker and Sequelize ORM
+   - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
+   - [ ] (CREATE, READ, DELETE) Blog Comments
    - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
    - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
    - [ ] CRUD Profile
+   - [ ] CRUD APIs
+- Using MongoDB DataBase with Docker and Mongoose ORM
+   - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
+   - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
    - [ ] (CREATE, READ, DELETE) Blog Comments
-- GALHARDO APP API
-   - [ ] GET/READ only Public APIs for BlogPosts, Games, Books
-   - [ ] ADMIN JWT For Blog Posts (Create, Update, Delete)
-   - [ ] ADMIN JWT For Stripe (Read, Create, Update, Delete, Cancel)
-   - [ ] ADMIN JWT For Games and Books (Create, Update, Delete)
-   - [x] API HTML Documentation Using Insomnia Documenter
+   - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
+   - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
+   - [ ] CRUD Profile
+   - [ ] CRUD APIs
 - Deploy on AWS LightSail
-   - [ ] Using MySQL or MongoDB
+   - [ ] Using SQL or MongoDB
    - [ ] Using NGINX as Reverse Proxy
    - [ ] Using NGINX as Load Balancing
    - [ ] Using NGINX Cache and Compression

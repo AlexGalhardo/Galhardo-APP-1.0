@@ -6,6 +6,7 @@ const { JSON_DATABASE_FILE, database } = require('../../config/json_database');
 
 class Books {
 
+
 	static save(database, error_message){
 		for(let i = 0; i < database.books.length; i++){
 			database.books[i].id = i+1
@@ -20,6 +21,7 @@ class Books {
 	    return true
 	}
 
+
 	static getAllBooks()  {
 		try {
 	      return database.books
@@ -28,6 +30,7 @@ class Books {
 	    };
 	}
 
+
 	static getTotalBooks()  {
 		try {
 	      return database.books.length
@@ -35,6 +38,7 @@ class Books {
 	      return console.log("ERROR getTotalBooks: ", error);
 	    };
 	}
+
 
 	static getRandomBook()  {		
 		try {
@@ -47,6 +51,7 @@ class Books {
 	      	return console.log("ERROR getRandomBook: ", error);
 	    };
 	}
+
 
 	static getBookByID(book_id) {
 		try {
