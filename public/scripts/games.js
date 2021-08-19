@@ -1,5 +1,5 @@
 async function recommendOtherGame(){
-    const response = await fetch(`http://localhost:3000/api/public/games/random`);
+    const response = await fetch(`https://galhardoapp.com/api/public/games/random`);
     const object = await response.json();
 
     Object.entries(object).forEach(([key, value]) => {
