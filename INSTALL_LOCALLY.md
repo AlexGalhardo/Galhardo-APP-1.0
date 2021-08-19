@@ -1,18 +1,15 @@
 ## Installs
-- Redis
+- REDIS
    - https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-20-04-quickstart-pt
-- Docker
+- DOCKER
    - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-pt
 - NGINX
    - https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04-pt
-- MYSQL (without docker)
+- MYSQL AS A SERVICE
    - https://remotemysql.com/
-- MongoDB (without docker)
+- MONGODB AS A SERVICE 
    - https://www.mongodb.com/cloud/atlas
 
-- Important: ALL Models (JSON, MySQL and MongoDB) have the same methods names.
-- You only need to change:
-   - const mysql = require('../models/MODEL_FOLDER_NAME')
 
 ## How To Use Locally with JSON DataBase
 - $ git clone https://github.com/alexgalhardo/galhardo-app
@@ -25,9 +22,12 @@
 ## How To Use Locally with MySQL and Docker
 - In Development
 
+## How To Use Locally with PostgreSQL and Docker
+- In Development
+
 ## How To Use Locally with MongoDB and Docker
 - In Development
 
 ## API HTTP Requests
-- You can use my INSOMNIA Configuration JSON with all HTTP Requests Ready to try
+- You can use my INSOMNIA Configuration JSON with all HTTP Requests Ready to TRY
    - INSOMNIA_GALHARDOAPP_API_REQUESTS.json
