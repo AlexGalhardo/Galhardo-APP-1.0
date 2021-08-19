@@ -18,7 +18,6 @@ class AppController {
 	
 	static getViewHome (req, res) {
 		const game = Games.getRandomGame()
-		console.log(res, res)
 
 	    res.render('pages/home', {
 	    	game,

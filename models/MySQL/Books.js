@@ -2,7 +2,8 @@ const fs = require('fs-extra')
 const fetch = require('node-fetch');
 const DateTime = require('../../helpers/DateTime');
 
-const mysql = require('../../config/mysql');
+const mongodb = require('../../config/mongodb');
+
 
 class Books {
 
@@ -40,21 +41,18 @@ class Books {
 		return rows ? rows : false
 	}
 
-	static getBookByID(book_id) {
-		try {
-      		for(let i=0; i < database.books.length; i++){
-        		if(database.books[i].id == book_id){
-        			return database.books[i]
-        		}
-      		}
-      		return null
-    	} catch (error) {
-      		return console.log("ERROR getBookByID: ", error);
-    	}
+	static async getBookByID(book_id) {
+		let stmt = `SELECT * FROM books WHERE id = ${book_id}`;
+
+		const [ rows ] = await mysql.execute(stmt);
+		
+		console.log(rows)
+
+		return rows ? rows : false
 	}
 
 
-	static async create(bookObject) {
+	static async createBook(bookObject) {
 
 		let stmt = `INSERT INTO books
 								(title, 
@@ -78,8 +76,8 @@ class Books {
             bookObject.pages,
             bookObject.genres,
             bookObject.author,
-            bookObject.created_at,
-            bookObject.updated_at
+            DateTime.getNow(),
+            DateTime.getNow()
 		];
 
 		const [ rows ] = await mysql.execute(stmt, data);
@@ -90,35 +88,38 @@ class Books {
 	}
 
 
-	static updateBookByID(bookObject) {
-		try {
-      		for(let i=0; i < database.books.length; i++){
-        		if(database.books[i].id === bookObject.id){
-        			bookObject.updated_at = DateTime.getNow()
-        			database.books.splice(i, 1, bookObject)
-        			Books.save(database, "Error updateBookByID: ")
-        			return bookObject
-        		}
-      		}
-      		return false
-    	} catch (error) {
-      		return console.log("ERROR updateBookByID: ", error);
-    	}
+	static async updateBookByID(bookObject) {
+		// let stmt = `UPDATE books SET (title, year_release, image, amazon_link, resume, pages, genres, author, updated_at) VALUES (${bookObject.title}, ${bookObject.year_release}, ${bookObject.image}, ${bookObject.amazon_link}, ${bookObject.resume}, ${bookObject.pages}, ${bookObject.genres}, ${bookObject.author}, ${DateTime.getNow()}) WHERE id = ${bookObject.id};`;
+		console.log(bookObject)
+
+		let stmt = `UPDATE books SET title=${bookObject.title} WHERE id=${bookObject.id}`;
+		
+		let data = [
+		  	bookObject.title,
+		  	bookObject.year_release,
+            bookObject.image,
+            bookObject.amazon_link,
+            bookObject.resume,
+            bookObject.pages,
+            bookObject.genres,
+            bookObject.author
+		];
+
+		const [ rows ] = await mysql.execute(stmt);
+		
+		console.log(rows)
+
+		return rows ? rows : false		
 	}
 
-	static deleteBookByID(book_id){
-		try {
-      		for(let i=0; i < database.books.length; i++){
-        		if(database.books[i].id === book_id){
-        			database.books.splice(i, 1)
-        			Games.save(database, "Error deleteGameByID: ")
-        			return true
-        		}
-      		}
-      		return false
-    	} catch (error) {
-      		return console.log("ERROR deleteBookByID: ", error);
-    	}
+	static async deleteBookByID(book_id){
+		let stmt = `DELETE FROM books WHERE id = ${book_id}`;
+
+		const [ rows ] = await mysql.execute(stmt);
+		
+		console.log(rows)
+
+		return rows.affectedRows ? `Book ID ${book_id} DELETED!` : `Book ID ${book_id} NOT Deleted!`
 	}
 }
 

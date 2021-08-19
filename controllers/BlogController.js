@@ -49,7 +49,7 @@ class BlogController {
 		
 		console.log(blogPosts, searchBlogTitle);
 
-		const blogTitlesSearched = blogPosts.filter(blogPostblogPost.title.toLowerCase().indexOf(searchBlogTitle.toLowerCase()) > -1);
+		const blogTitlesSearched = blogPosts.filter(blogPost => blogPost.title.toLowerCase().indexOf(searchBlogTitle.toLowerCase()) > -1);
 
 		const totalBlogPostsFoundFromSearch = blogTitlesSearched.length;
 

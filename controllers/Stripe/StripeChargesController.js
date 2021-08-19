@@ -26,18 +26,17 @@ class StripeChargesController  {
 	}
 
 	static async postCreateCharge (req, res) {
-		const amount = req.body.charge_amount;
-		const currency = req.body.charge_currency;
-		const customer_card_id = req.body.customer_card_id;
-		const customer_id = req.body.customer_id;
-		const description = req.body.charge_description;
-
-		const token = req.body.stripeToken; // Using Express
+		const { amount,
+				currency,
+				customer_card_id, 
+				customer_id, 
+				description,
+				stripeToken } = req.body
 
 		const charge = await stripe.charges.create({
-		  	amount: amount,
-		  	currency: currency,
-		  	description: description,
+		  	amount,
+		  	currency,
+		  	description,
 			source: customer_card_id,
 			customer: customer_id
 		});

@@ -11,9 +11,9 @@
 
 
 // models
-const Books = require('../../models/JSON/Books');
+// const Books = require('../../models/JSON/Books');
 // const Books = require('../../models/MySQL/Books');
-// const Books = require('../../models/MONGODB/Books');
+const Books = require('../../models/MONGODB/Books');
 
 // helpers
 const DateTime = require('../../helpers/DateTime')
@@ -21,6 +21,17 @@ const DateTime = require('../../helpers/DateTime')
 
 
 class APIAdminBookController {
+
+
+    /**
+     * http://localhost:3000/api/admin/book/listAll
+     */
+    static async getBooks(req, res){
+        let books = await Books.find({});
+        res.json({
+            books
+        })
+    }
 
 
     /**
@@ -52,7 +63,7 @@ class APIAdminBookController {
 
         const bookCreated = await Books.createBook(bookObject)
 
-        bookObject.id = bookCreated.insertId
+        // bookObject.id = bookCreated.insertId
 
         if(bookCreated) return res.json(bookObject)
 

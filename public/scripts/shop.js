@@ -10,70 +10,73 @@ const priceStrawberriesEl = document.querySelector("#priceStrawberries")
 
 const totalShopCartEl = document.querySelector("#total_shop_cart")
 const buttonPayEl = document.querySelector("#button_pay_with_credit_card")
-const totalShippingFee = parseFloat(document.querySelector('#shipping_fee').value)
 const totalAmount = document.querySelector("#total_shop_cart_amount")
+
+let pricePayButton = parseFloat(buttonPayEl.innerHTML)
+
 
 document.querySelector('#quantityOranges').addEventListener('change', function(e) {
     priceOrangesEl.innerHTML = (e.target.value * priceOranges).toFixed(2);
-    updateShopCartTotal()
+    updatePricePayButton()
 });
 
 document.querySelector('#quantityGrapes').addEventListener('change', function(e) {
     priceGrapesEl.innerHTML = (e.target.value * priceGrapes).toFixed(2);
-    updateShopCartTotal()
+    updatePricePayButton()
 });
 
 document.querySelector('#quantityApples').addEventListener('change', function(e) {
     priceApplesEl.innerHTML = (e.target.value * priceApples).toFixed(2);
-    updateShopCartTotal()
+    updatePricePayButton()
 });
 
 document.querySelector('#quantityStrawberries').addEventListener('change', function(e) {
     priceStrawberriesEl.innerHTML = (e.target.value * priceStrawberries).toFixed(2);
-    updateShopCartTotal()
+    updatePricePayButton()
 });
 
-function updateShopCartTotal(){
-    buttonPayEl.innerHTML = 
-        (   totalShippingFee + 
-            parseFloat(priceOrangesEl.innerHTML) + 
-            parseFloat(priceGrapesEl.innerHTML) + 
-            parseFloat(priceApplesEl.innerHTML) + 
-            parseFloat(priceStrawberriesEl.innerHTML)).toFixed(2)
+function updatePricePayButton() {
+    buttonPayEl.innerHTML = (
+        parseFloat(document.querySelector('#shipping_fee').value) + 
+        parseFloat(priceOrangesEl.innerHTML) + 
+        parseFloat(priceGrapesEl.innerHTML) + 
+        parseFloat(priceApplesEl.innerHTML) + 
+        parseFloat(priceStrawberriesEl.innerHTML)
+    ).toFixed(2)
 
-    totalShopCartEl.innerHTML = buttonPayEl.innerHTML
-    totalAmount.value = buttonPayEl.innerHTML
+    totalShopCartEl.innerHTML = (parseFloat(buttonPayEl.innerHTML) - parseFloat(document.querySelector('#shipping_fee').value)).toFixed(2)
+    
+    totalAmount.value = parseFloat(buttonPayEl.innerHTML).toFixed(2)
 }
-        
 
-$("#zipcode").change(function() {
-    var zipcode = $("#zipcode").val();
 
-    axios.get("https://correios.galhardoapp.com/cep/" + zipcode)
-    .then(function(response) {
-        var street = response.data.logradouro;
-        var neighborhood = response.data.bairro;
-        var city = response.data.localidade;
-        var state = response.data.uf;
-        $('#customer_street').val(street);
-        $('#customer_neighborhood').val(neighborhood);
-        $('#customer_city').val(city);
-        $('#customer_state').val(state);
-    });
+document.querySelector('#zipcode').addEventListener('change', async function(e) {
 
-    axios.get("https://correios.galhardoapp.com/shipping/" + zipcode )
-    .then(function(response) {
-        
-        var shipping_fee = parseFloat(response.data[0].Valor);
-        var shipping_deadline = response.data[0].PrazoEntrega;
-        
-        $('#shipping_fee').val(shipping_fee);
-        $('#shipping_deadline').val(shipping_deadline);
-        
-        let totalShopCart = parseFloat(buttonPayEl.innerHTML)
-        
-        let amount = parseFloat(totalShopCart + shipping_fee).toFixed(2)
-        
-        buttonPayEl.innerHTML = amount
-    });
+    const zipcode = e.target.value
+    
+    // CEP DATA
+    const responseCEP = await fetch(`https://correios.galhardoapp.com/cep/${zipcode}`)
+    const cepJson = await responseCEP.json()
+
+    const { logradouro, bairro, localidade, uf } = cepJson
+
+    document.querySelector('#customer_street').value = logradouro
+    document.querySelector('#customer_neighborhood').value = bairro
+    document.querySelector('#customer_city').value = localidade
+    document.querySelector('#customer_state').value = uf
+
+    // SHIPPING DATA
+    const responseShipping = await fetch(`https://correios.galhardoapp.com/shipping/${zipcode}`)
+    const shippingJson = await responseShipping.json()
+    
+    const shipping_fee = parseFloat(shippingJson[0].Valor);
+    const shipping_deadline = shippingJson[0].PrazoEntrega;
+
+    document.querySelector('#shipping_fee').value = shipping_fee
+    document.querySelector('#shipping_deadline').value = shipping_deadline
+
+    // UPDATE PAY BUTTON PRICE
+    buttonPayEl.innerHTML = (parseFloat(totalShopCartEl.innerHTML) + parseFloat(shipping_fee)).toFixed(2)
 });
+
+

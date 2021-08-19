@@ -68,9 +68,9 @@
         "country": "Brazil"
       },
       "stripe": {
-        "customer_id": "cus_K15RnWHRhUA0HF",
-        "card_token_id": "tok_1JN3UBBD6lhzYmkOV3LcL9cX",
-        "card_id": "card_1JN3UBBD6lhzYmkO7W8rsCO3",
+        "customer_id": "cus_K3keRif5hEPSI2",
+        "card_token_id": "tok_1JPdCrBD6lhzYmkO59di8vhE",
+        "card_id": "card_1JPdCrBD6lhzYmkOydvtdVNW",
         "card_holder_name": "Alex Galhardo",
         "card_last_4_digits": "4242",
         "card_exp_month": "07",

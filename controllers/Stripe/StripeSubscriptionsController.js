@@ -26,8 +26,7 @@ class StripeSubscriptionsController  {
 	}
 	
 	static async postCreateSubscription (req, res) {
-		const customer_id = req.body.customer_id
-		const plan_id = req.body.plan_id; 
+		const { customer_id, plan_id } = req.body
 
 		const subscription = await stripe.subscriptions.create({
   			customer: customer_id,
@@ -35,8 +34,6 @@ class StripeSubscriptionsController  {
     			{price: plan_id},
   			],
 		});
-
-		// const plan_name = plan.name;
 
 		subscription.created = DateTime.getDateTime(subscription.created);
 		subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
@@ -59,7 +56,7 @@ class StripeSubscriptionsController  {
 	}
 
 	static async postRetrieveSubscription (req, res) {
-		let subs_id = req.body.subs_id;
+		let { subs_id } = req.body
 		
 		const subscription = await stripe.subscriptions.retrieve(
 			subs_id

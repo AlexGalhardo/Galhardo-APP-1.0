@@ -1,10 +1,17 @@
-var mongo = require('mongodb');
+const { connect } = require('mongoose');
 
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/mydb";
+const mongoConnect = async () => {
+  try {
+    console.log('connecting to mongodb...')
+    await connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+    console.log('Connect to MONGODB Success!')
+  }
+  catch(error){
+    console.log("MONGODB Connection ERROR!", error)
+  }
+}
 
-module.exports = MongoClient.connect(url, function(err db) {
-  if (err) throw err;
-  console.log("Database created!");
-  db.close();
-});
+module.exports = mongoConnect;
