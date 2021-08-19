@@ -1,0 +1,60 @@
+{{>partials/header}}
+
+  <div class="container col-lg-8 text-center mt-3">
+
+        <div class="mb-3">
+            {{#user.admin}}
+                <a href="/admin/stripe/subscriptions/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+                <a href="/admin/stripe/subscriptions/cancel" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Cancel</a>
+            {{/user.admin}}
+            <a href="/admin/stripe/subscriptions/retrieve" class="btn shadow-sm ms-1 me-1 btn-primary">Retrieve</a>
+            <a href="/admin/stripe/subscriptions/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
+        </div>
+
+        <div class="row">
+
+            <h3 class="fw-bold text-primary mb-3">
+                <i class="bi bi-person"></i> RETRIEVE Subscription
+            </h3>
+
+            <a class="mb-5" target="_blank" href="https://stripe.com/docs/api/subscriptions/retrieve">https://stripe.com/docs/api/subscriptions/retrieve</a>
+
+            <div class="col-lg-5">
+  		
+        		<form action="/admin/stripe/subscriptions/retrieve" method="POST" class="mb-3">
+        			<div class="form-floating mb-3">
+        			  	<input type="text" class="form-control" name="subs_id" id="subs_id" placeholder="Customer Name" required autofocus value="sub_Jy4iOLKMWVoWzr">
+        			  	<label for="subs_id">SUBSCRIPTION_ID</label>
+        			</div>
+
+        			<button type="submit" class="btn btn-outline-primary w-100 shadow">Retrieve Subscription</button>
+        		</form>
+
+            </div>
+
+
+            <div class="col-lg-7">
+        		{{#flash}}
+        			<div class="alert alert-{{type}}" role="alert" class="mb-3">
+        				{{message}}
+        			</div>
+        		{{/flash}}
+
+        		{{#subscription}}
+        			<ul class="list-group list-group-flush text-start">
+                        <li class="list-group-item"><b>SUBS_ID:</b> {{id}}</li>
+                        <li class="list-group-item"><b>CUSTOMER_ID:</b> {{customer}}</li>
+                        <li class="list-group-item"><b>current_period_start:</b> {{current_period_start}}</li>
+                        <li class="list-group-item"><b>current_period_end:</b> {{current_period_end}}</li>
+                        <li class="list-group-item"><b>cancel_at_period_end:</b> {{cancel_at_period_end}}</li>
+                        <li class="list-group-item"><b>collection_method:</b> {{collection_method}}</li>
+                        <li class="list-group-item"><b>CREATED:</b> {{created}}</li>
+                    </ul>
+        		{{/subscription}}
+            </div>
+
+        </div>
+
+	</div>
+
+{{>partials/footer}}
