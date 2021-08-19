@@ -1,0 +1,122 @@
+{{>partials/header}}
+
+	<div class="container col-lg-8 text-center mt-3 mb-5">
+
+        <div class="mb-3">
+            <a href="/admin/stripe/cards/create" class="btn shadow-sm ms-1 me-1 btn-success">Create</a>
+            <a href="/admin/stripe/cards/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
+            <a href="/admin/stripe/cards/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            <a href="/admin/stripe/cards/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
+            <a href="/admin/stripe/cards/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
+        </div>
+
+        <div class="row">
+
+            <h3 class="fw-bold text-success mb-3">
+                <i class="bi bi-plus"></i> CREATE Credit Card
+            </h3>
+
+            <a class="mb-3" target="_blank" href="https://stripe.com/docs/api/tokens/create_card">
+                https://stripe.com/docs/api/tokens/create_card
+            </a>
+
+            <a class="mb-5" target="_blank" href="https://stripe.com/docs/api/cards/create">
+                https://stripe.com/docs/api/cards/create
+            </a>
+      
+            <div class="col-lg-6">
+  		
+    		    <form id="formCreditCard" action="/admin/stripe/cards/create" method="POST">
+
+                    <div id="div_credit_card"></div>
+
+                    <div class="form-group mb-2">
+                        <br>
+                        <input type="text" name="card_name" placeholder="Credit Card Holder Name" required class="form-control" value="Alex Galhardo">
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <div class="input-group">
+                            <input type="text" name="card_number" placeholder="Credit Card Number" class="form-control" value="4242424242424242" required>
+                            <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="bi bi-credit-card h-100"></i> </span> </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <span class="hidden-xs">
+                                    <h6 class="text-muted small">Expiration Date</h6>
+                                </span>
+                                <div class="input-group">
+                                    <input type="number" name="card_exp_month" placeholder="Month" class="form-control" value="7" required>
+                                    <input type="number" placeholder="Year" name="card_exp_year" class="form-control" required value="2022"> </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group mb-2">
+                                <label data-toggle="tooltip" title="Digite os 3 dígitos de segurança atrás do Credit Card.">
+                                <h6 class="text-muted small">CVV
+                                    <i class="fa fa-question-circle d-inline"></i>
+                                </h6>
+                                <input type="text" name="card_cvc" required class="form-control" placeholder="Code CVV" value="314"> </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <br>
+                        <input type="text" name="customer_id" placeholder="enter customer_id" required class="form-control" value="">
+                    </div>
+
+                    <button class="btn btn-outline-success shadow" type="submit">
+                        Create Credit Card
+                    </button>
+                        
+                </form>
+
+            </div>
+
+
+            <div class="col-lg-6">
+        		{{#flash}}
+        			<div class="alert alert-{{type}}" role="alert" class="mb-3">
+        				<b>{{message}}</b>
+        			</div>
+        		{{/flash}}
+
+        		{{#card}}
+        			<ul class="list-group list-group-flush text-start">
+                        <li class="list-group-item"><b>CUSTOMER_ID:</b> {{customer_id}}</li>
+                        <li class="list-group-item"><b>CARD_TOKEN_ID:</b> {{id}}</li>
+                        <li class="list-group-item"><b>CARD_ID:</b> {{card.id}}</li>
+                        <li class="list-group-item"><b>CARD_EXP_MONTH:</b> {{card.exp_month}}</li>
+                        <li class="list-group-item"><b>CARD_EXP_YEAR:</b> {{card.exp_year}}</li>
+                        <li class="list-group-item"><b>CARD_EXP_BRAND:</b> {{card.brand}}</li>
+                        <li class="list-group-item"><b>CARD_LAST4:</b> {{card.last4}}</li>
+                        <li class="list-group-item"><b>CARD_CREATED_AT:</b> {{created}}</li>
+                        
+                    </ul>
+        		{{/card}}
+            </div>
+
+        </label>
+
+    </div>
+
+	
+    <script src="../scripts/jquery.min.js"></script>
+    <script src="../scripts/jquery.card.js"></script>
+    <script>
+        $('#formCreditCard').card({
+            container: '#div_credit_card',
+            formSelectors: {
+                numberInput: 'input[name="card_number"]',
+                nameInput: 'input[name="card_name"]',
+                expiryInput: 'input[name="card_exp_month"], input[name="card_exp_year"]',
+                cvcInput: 'input[name="card_cvc"]'
+            }
+        });
+    </script>
+
+{{>partials/footer}}

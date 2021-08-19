@@ -74,7 +74,7 @@
 - API RESTs
    - JWT, Oauth2, AJAX, Bearer Token, HTML Documentation, etc
 - Others usefull things
-   - Mobile First, SMTP, Flash Messages, Pagination, Slug, UUID, Searchs, etc
+   - Mobile First, Regex, SMTP, Flash Messages, Pagination, Slug, UUID, Searchs, etc
 - Deploys
    - CI, CD, Heroku, Git Workflows, etc
 - <b>I will be refactoring it over the years during my professional career as I develop my programming skills.</b>

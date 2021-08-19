@@ -1,0 +1,69 @@
+{{>partials/header}}
+
+	<div class="container col-lg-8 text-center mt-3">
+
+        <div class="mb-3">
+            <a href="/admin/stripe/cards/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            <a href="/admin/stripe/cards/update" class="btn shadow-sm ms-1 me-1 btn-warning">Update</a>
+            <a href="/admin/stripe/cards/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            <a href="/admin/stripe/cards/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
+            <a href="/admin/stripe/cards/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
+        </div>
+
+        <div class="row">
+
+            <h3 class="fw-bold text-warning mb-3">
+                <i class="bi bi-credit-card-2-front"></i> UPDATE Card Information
+            </h3>
+
+            <a class="mb-5" target="_blank" href="https://stripe.com/docs/api/cards/update">
+                https://stripe.com/docs/api/cards/update
+            </a>
+
+            <div class="col-lg-5">
+        		<form action="/admin/stripe/cards/update" method="POST" class="mb-3">
+        			<div class="form-floating mb-3">
+        			  	<input type="text" class="form-control" name="customer_id" id="customer_id" placeholder="Customer Name" required autofocus value="cus_Jy49RB199LvElV">
+        			  	<label for="customer_id">CUSTOMER_ID</label>
+        			</div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="card_id" id="card_id" placeholder="Customer Name" required autofocus value="card_1JK82WBD6lhzYmkOTexAPcYA">
+                        <label for="card_id">CARD_ID</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="card_holder_name" id="card_holder_name" placeholder="Customer Name" required autofocus>
+                        <label for="card_holder_name">CARD HOLDER NAME</label>
+                    </div>
+
+        			<button type="submit" class="btn btn-outline-warning w-100 shadow">Update Card</button>
+        		</form>
+            </div>
+
+
+            <div class="col-lg-7">
+        		{{#flash}}
+        			<div class="alert alert-{{type}}" role="alert" class="mb-3">
+        				{{message}}
+        			</div>
+        		{{/flash}}
+
+        		{{#card}}
+        			<ul class="list-group list-group-flush text-start">
+                        <li class="list-group-item"><b>CARD ID:</b> {{id}}</li>
+                        <li class="list-group-item"><b>CUSTOMER ID:</b> {{customer}}</li>
+                        <li class="list-group-item"><b>CARD_HOLDER_NAME:</b> {{name}}</li>
+                        <li class="list-group-item"><b>BRAND:</b> {{brand}}</li>
+                        <li class="list-group-item"><b>CARD_EXP_MONTH:</b> {{exp_month}}</li>
+                        <li class="list-group-item"><b>CARD_EXP_YEAR:</b> {{exp_year}}</li>
+                        <li class="list-group-item"><b>CARD_LAST4:</b> {{last4}}</li>
+                    </ul>
+        		{{/card}}
+            </div>
+
+        </div>
+
+	</div>
+
+{{>partials/footer}}

@@ -500,7 +500,7 @@
 
             {{#user.admin}}
                 <form action="/deleteProfile" class="form mb-5" method="POST">
-                    <button type="submit"
+                    <button disabled type="submit"
                             class="btn btn btn-outline-danger float-right"
                             onclick="confirm('Are you sure you want to delete your account?!');"
                             >
@@ -520,14 +520,5 @@
         <script src="scripts/jquery.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="scripts/profile.js"></script>
-        
-        <!--<li><hr class="dropdown-divider"></li>
-        <li class="dropdown-item" id="os"></li>
-        <li class="dropdown-item" id="browser"></li>
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-item" id="public_ip"></li>
-        <li class="dropdown-item" id="latitude"></li>
-        <li class="dropdown-item" id="longitude"></li>
-        </div>-->
 
 {{>partials/footer}}

@@ -5,6 +5,7 @@
  * https://github.com/AlexGalhardo
  */
 
+
 // MODULES
 const express = require('express');
 const mustache = require('mustache-express');
@@ -16,39 +17,38 @@ const { flash } = require('express-flash-message');
 const compression = require('compression');
 const cors = require('cors');
 
+
 // ./config
 const morgan = require('./config/morgan');
 const Logger = require('./config/winston');
 const mongodb = require('./config/mongodb');
-mongodb();
+// mongodb();
+
 
 // GLOBALS
 global.APP_ROOT_PATH = path.resolve(__dirname);
 global.SESSION_USER = null;
 
 
-/*
- * with LocalHost HTTPS
- * Need to change .env APP_URL to https
- */
+// LocalHost HTTPS | Need to change .env APP_URL to https
 // const app = require("https-localhost")()
 
 
-// with LocalHost HTTP
+// LocalHost HTTP
 const app = express();
 
 
-// Morgan + Winston Logging Setup
-// Log all HTTP Requests in console.log()
-// app.use(morgan("combined", { stream: Logger.stream.write }));
+// LOGS 
 app.use(morgan)
 
 
-// compress all responses
+// COMPRESS RESPONSES
 app.use(compression())
+
 
 // CORS
 app.use(cors())
+
 
 // SESSION
 app.use(session({
@@ -61,26 +61,36 @@ app.use(session({
     }
 }));
 
-// apply express-flash-message middleware
+
+// FLASH MESSAGES
 app.use(flash({ sessionKeyName: 'flashMessage' }));
 
 
-
-
 // BODY PARSER
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
+
 
 // TEMPLATE ENGINE
 app.set('view engine', 'mustache');
 app.set('views', path.join(__dirname, 'views'));
 app.engine('mustache', mustache());
 
+
 // PUBLIC STATIC FILES
 app.use(express.static(path.join(__dirname, './public')));
 
+
 // ROUTES
-const mainRoutes = require('./routes/routes.js');
-app.use(mainRoutes);
+const publicRoutes = require('./routes/public_routes');
+const apiRoutes = require('./routes/api_routes');
+const adminRoutes = require('./routes/admin_routes');
+const testRoutes = require('./routes/test_routes');
+
+app.use('/api', apiRoutes);
+app.use('/admin', adminRoutes);
+app.use('/test', testRoutes);
+app.use(publicRoutes);
+
 
 // ERROR 404
 app.use((req, res) => {
@@ -89,6 +99,7 @@ app.use((req, res) => {
   });
 });
   
+
 // Handling Errors
 app.use((err, req, res, next) => {
     // console.log(err);

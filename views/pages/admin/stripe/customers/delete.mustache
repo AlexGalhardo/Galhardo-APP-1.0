@@ -1,0 +1,53 @@
+{{>partials/header}}
+
+    <div class="container col-lg-8 text-center mt-3">
+
+        <div class="mb-3">
+            <a href="/admin/stripe/customers/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            <a href="/admin/stripe/customers/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
+            <a href="/admin/stripe/customers/delete" class="btn shadow-sm ms-1 me-1 btn-danger">Delete</a>
+            <a href="/admin/stripe/customers/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
+            <a href="/admin/stripe/customers/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
+        </div>
+
+        <div class="row">
+
+            <h3 class="fw-bold text-danger mb-3">
+                <i class="bi bi-trash"></i> DELETE Customer
+            </h3>
+
+            <a class="mb-5" target="_blank" href="https://stripe.com/docs/api/customers/delete">https://stripe.com/docs/api/customers/delete</a>
+
+            <div class="col-lg-5">
+  		
+        		<form action="/admin/stripe/customers/delete" method="POST" class="mb-3">
+        			<div class="form-floating mb-3">
+        			  	<input type="text" class="form-control" name="customer_id" id="customer_id" placeholder="Customer Name" required autofocus>
+        			  	<label for="customer_id">CUSTOMER ID</label>
+        			</div>
+
+        			<button type="submit" class="btn btn-outline-danger w-100 shadow">Delete Customer</button>
+        		</form>
+
+            </div>
+
+
+            <div class="col-lg-7">
+        		{{#flash}}
+        			<div class="alert alert-{{type}}" role="alert" class="mb-3">
+        				{{message}}
+        			</div>
+        		{{/flash}}
+
+        		{{#customer}}
+        			<ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>ID:</b> {{id}}</li>
+                    </ul>
+        		{{/customer}}
+            </div>
+
+        </div>
+
+	</div>
+
+{{>partials/footer}}
