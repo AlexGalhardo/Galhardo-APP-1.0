@@ -224,10 +224,10 @@
       "facebook_id": null,
       "address": {
         "zipcode": "13560290",
-        "street": "Rua Dona Alexandrina",
+        "street": "Rua Avenida Paulista",
         "street_number": "42",
-        "neighborhood": "Vila Monteiro (Gleba I)",
-        "city": "S�o Carlos",
+        "neighborhood": "Bairro Chique",
+        "city": "Sao Paulo",
         "state": "SP",
         "country": "BRAZIL"
       },
