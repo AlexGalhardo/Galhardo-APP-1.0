@@ -1,10 +1,11 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const fetch = require('node-fetch');
 const DateTime = require('../../helpers/DateTime');
 
-const { JSON_DATABASE_FILE, database } = require('../../config/global');
+const { JSON_DATABASE_FILE, database } = require('../../config/json_database');
 
 class Books {
+
 
 	static save(database, error_message){
 		for(let i = 0; i < database.books.length; i++){
@@ -20,6 +21,7 @@ class Books {
 	    return true
 	}
 
+
 	static getAllBooks()  {
 		try {
 	      return database.books
@@ -28,6 +30,7 @@ class Books {
 	    };
 	}
 
+
 	static getTotalBooks()  {
 		try {
 	      return database.books.length
@@ -35,6 +38,7 @@ class Books {
 	      return console.log("ERROR getTotalBooks: ", error);
 	    };
 	}
+
 
 	static getRandomBook()  {		
 		try {
@@ -47,6 +51,7 @@ class Books {
 	      	return console.log("ERROR getRandomBook: ", error);
 	    };
 	}
+
 
 	static getBookByID(book_id) {
 		try {
@@ -64,10 +69,14 @@ class Books {
 
 	static createBook(bookObject) {
 		try {
+			bookObject.id = database.books.length + 1
 			bookObject.updated_at = DateTime.getNow()
 			bookObject.created_at = DateTime.getNow()
+			
 			database.books.push(bookObject)
+			
 			Books.save(database, "Error createBook: ")
+			
 			return bookObject
     	} catch (error) {
       		return console.log("ERROR createBook: ", error);
@@ -77,30 +86,45 @@ class Books {
 
 	static updateBookByID(bookObject) {
 		try {
+      		
       		for(let i=0; i < database.books.length; i++){
+        		
         		if(database.books[i].id === bookObject.id){
-        			bookObject.updated_at = DateTime.getNow()
-        			database.books.splice(i, 1, bookObject)
+        			
+        			if(bookObject.title) database.books[i].title = bookObject.title
+	                if(bookObject.year_release) database.books[i].year_release = bookObject.year_release
+	                if(bookObject.image) database.books[i].image = bookObject.image
+	                if(bookObject.amazon_link) database.books[i].amazon_link = bookObject.amazon_link
+	                if(bookObject.resume) database.books[i].resume = bookObject.resume
+	                if(bookObject.pages) database.books[i].pages = bookObject.pages
+	                if(bookObject.genres) database.books[i].genres = bookObject.genres
+	                if(bookObject.author) database.books[i].author = bookObject.author
+
+        			database.books[i].updated_at = DateTime.getNow()
+        			
         			Books.save(database, "Error updateBookByID: ")
-        			return bookObject
+        			
+        			return database.books[i]
         		}
       		}
-      		return false
+      		return "Book NOT Updated!"
     	} catch (error) {
-      		return console.log("ERROR updateBookByID: ", error);
+      		console.log("ERROR updateBookByID: ", error);
     	}
 	}
+
+
 
 	static deleteBookByID(book_id){
 		try {
       		for(let i=0; i < database.books.length; i++){
         		if(database.books[i].id === book_id){
         			database.books.splice(i, 1)
-        			Games.save(database, "Error deleteGameByID: ")
-        			return true
+        			Books.save(database, "Error deleteBookByID: ")
+        			return `Book ID ${book_id} DELETED!`
         		}
       		}
-      		return false
+      		return `Book ID ${book_id} NOT Deleted!`
     	} catch (error) {
       		return console.log("ERROR deleteBookByID: ", error);
     	}

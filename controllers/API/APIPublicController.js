@@ -10,9 +10,15 @@
 
 const bodyParser = require('body-parser')
 
+// JSON DATABASE
 const Blog = require('../../models/JSON/Blog')
 const Games = require('../../models/JSON/Games')
 const Books = require('../../models/JSON/Books')
+
+
+// MYSQL DATABASE
+// const Books = require('../../models/MySQL/Books')
+
 
 
 class APIPublicController {

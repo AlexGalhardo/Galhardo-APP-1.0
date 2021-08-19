@@ -6,107 +6,153 @@ const randomToken = require('rand-token');
 
 const Users = require('../models/JSON/Users');
 
+const SendGrid = require('../config/SendGrid');
+
 class NodeMailer {
     
-    static async postContact (username, email, subject, message) {
-        // const filePath = path.join(__dirname, '../views/emails/contact.html');
-        // const filePath = path.join(__dirname, '../views/emails/subscription_transaction.html');
-        const filePath = path.join(__dirname, '../views/emails/forget_password.html');
-        const source = fs.readFileSync(filePath, 'utf-8').toString();
-        const template = handlebars.compile(source);
-        const replacements = {
-            // username: username,
-            email: email,
-            // subject: subject,
-            // message: message,
-            // transaction_id: 'k123aosk123kasp',
-            // subs_start: '23/09/2021 13:45:52',
-            // subs_end: '23/10/2021 13:45:52'
-            resetPasswordToken: "123456789"
-        };
-        const htmlToSend = template(replacements);
 
-        const smtpTransport = nodemailer.createTransport({
-            host: process.env.SENDGRID_SERVER,
-            port: process.env.SENDGRID_PORT,
-            secure: false, 
-            auth: {
-                user: process.env.SENDGRID_USERNAME,
-                pass: process.env.SENDGRID_PASSWORD
-            }
-        })
+    static async sendEmailContact (username, email, subject, message) {
         
-        const mail = {
-            from: email,
+        const filePath = path.join(__dirname, '../views/emails/contact.html');
+        
+        const source = fs.readFileSync(filePath, 'utf-8').toString();
+        
+        const template = handlebars.compile(source);
+        
+        const replacements = {
+            name: username,
+            email: email,
+            subject: subject,
+            message: message,
+        };
+        
+        const htmlBody = template(replacements);
+
+        let sendEmail = await SendGrid.sendMail({
+            from: process.env.SENDGRID_EMAIL_FROM,
             to: "aleexgvieira@gmail.com",
-            subject: `Contact: Subject ${subject} from ${username}`,
+            subject: `Galhardo APP Contact: ${subject} from ${username}`,
             text: subject,
-            html: htmlToSend
-        }
+            html: htmlBody
+        });
+        
+        SendGrid.close();
 
-        let response = await smtpTransport.sendMail(mail);
-        smtpTransport.close();
+        console.log(`NodeMailer sendEmailContact: `, sendEmail);
 
-        console.log(response);
-
-        return response
+        return sendEmail ? true : false
     }
 
-    static async sendConfirmEmailToken (email, confirm_email_token) {
-        const smtpTransport = nodemailer.createTransport({
-            host: process.env.SENDGRID_SERVER,
-            port: 587,
-            secure: false,
-            auth: {
-                user: process.env.SENDGRID_USERNAME,
-                pass: process.env.SENDGRID_PASSWORD
-            }
-        })
 
+
+    static async sendEmailShopTransaction (shopTransactionObject) {
+        
+        const filePath = path.join(__dirname, '../views/emails/shop_transaction.html');
+        
+        const source = fs.readFileSync(filePath, 'utf-8').toString();
+        
+        const template = handlebars.compile(source);
+        
+        const replacements = {
+            status: shopTransactionObject.status,
+            products: shopTransactionObject.products,
+            transaction_id: shopTransactionObject.transaction_id,
+            amount: shopTransactionObject.amount,
+            created_at: shopTransactionObject.created_at,
+            shipping: shopTransactionObject.shipping
+        };
+        
+        const htmlBody = template(replacements);
+
+        let sendEmail = await SendGrid.sendMail({
+            from: process.env.SENDGRID_EMAIL_FROM,
+            to: 'aleexgvieira@gmail.com', //shopTransactionObject.customer_email,
+            subject: `Galhardo APP: Shop Transaction ${shopTransactionObject.status}!`,
+            // text: subject,
+            html: htmlBody
+        });
+        
+        SendGrid.close();
+
+        console.log(`NodeMailer sendEmailShopTransaction: ${sendEmail}`);
+
+        return sendEmail ? true : false
+    }
+
+
+
+    static async sendEmailSubscriptionTransaction (subsTransactionObject) {
+        
+        const filePath = path.join(__dirname, '../views/emails/subscription_transaction.html');
+        
+        const source = fs.readFileSync(filePath, 'utf-8').toString();
+        
+        const template = handlebars.compile(source);
+
+        console.log(subsTransactionObject)
+        
+        const replacements = {
+            status: subsTransactionObject.status,
+            plan_name: subsTransactionObject.plan_name,
+            transaction_id: subsTransactionObject.transaction_id,
+            subs_start: subsTransactionObject.subs_start,
+            subs_end: subsTransactionObject.subs_end
+        };
+
+        console.log('enviou html email noemilaer', replacements)
+        
+        const htmlBody = template(replacements);
+
+        let sendEmail = await SendGrid.sendMail({
+            from: process.env.SENDGRID_EMAIL_FROM,
+            to: 'aleexgvieira@gmail.com', //shopTransactionObject.customer_email,
+            subject: `Galhardo APP: Subscription Transaction ${subsTransactionObject.status}`,
+            // text: subject,
+            html: htmlBody
+        });
+        
+        SendGrid.close();
+
+        console.log(`NodeMailer sendEmailSubscriptionTransaction:`, sendEmail);
+
+        return sendEmail ? true : false
+    }
+
+
+
+    static async sendEmailConfirmEmailToken (email, confirm_email_token) {
         let confirmEmailLinkURL = `${process.env.APP_URL}/confirmEmail/${email}/${confirm_email_token}`;
-        console.log(confirmEmailLinkURL)
 
-        const mail = {
-            from: "aleexgvieira@gmail.com",
+        let sendEmail = await SendGrid.sendMail({
+            from: process.env.SENDGRID_EMAIL_FROM,
             to: email,
-            subject: `GALHARDO APP: Confirm Your Email Link!`,
-            text: `Your confirm email link is: ${confirmEmailLinkURL}`,
-            //html: "<b>Opcionalmente, pode enviar como HTML</b>"
-        }
+            subject: `GALHARDO APP: Confirm Your Email!`,
+            text: `Confirm your email by clicking this link: ${confirmEmailLinkURL}`,
+            //html: ""
+        });
+        
+        SendGrid.close();
 
-        let response = await smtpTransport.sendMail(mail);
-        smtpTransport.close();
+        console.log(`NodeMailer sendEmailConfirmEmailToken: ${sendEmail}`);
 
-        console.log(response)
-
-        return true
+        return emailSend ? true : false
     }
 
-    static async postForgetPassword (email, reset_password_token) {
-        const smtpTransport = nodemailer.createTransport({
-            host: process.env.SENDGRID_SERVER,
-            port: 587,
-            secure: false,
-            auth: {
-                user: process.env.SENDGRID_USERNAME,
-                pass: process.env.SENDGRID_PASSWORD
-            }
-        })
-
+    static async sendEmailForgetPassword (email, reset_password_token) {
         const resetPasswordLinkURL = `${process.env.APP_URL}/resetPassword/${email}/${reset_password_token}`;
 
-        const mail = {
-            from: "aleexgvieira@gmail.com",
+        const emailSend = await SendGrid.sendMail({
+            from: process.env.SENDGRID_EMAIL_FROM,
             to: email,
-            subject: `GALHARDO APP: Recover Your Password Link`,
+            subject: `GALHARDO APP: Recover Your Password!`,
             text: `Your password recovery link is: ${resetPasswordLinkURL}`,
-            //html: "<b>Opcionalmente, pode enviar como HTML</b>"
-        }
+            //html: ""
+        });
+        SendGrid.close();
 
-        const response = await smtpTransport.sendMail(mail);
-        smtpTransport.close();
+        console.log(`NodeMailer sendEmailForgetPassword: `, emailSend);
 
-        return response ? true : false
+        return emailSend ? true : false
     }
 };
 

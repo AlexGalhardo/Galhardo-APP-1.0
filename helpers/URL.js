@@ -7,7 +7,7 @@ class URL {
     static getGitHubURL() {
         const params = queryString.stringify({
             client_id: process.env.GITHUB_CLIENT_ID,
-            redirect_uri: 'http://localhost:3000/github/callback',
+            redirect_uri: process.env.GITHUB_CALLBACK_URL,
             scope: ['read:user', 'user:email'].join(' '),
             allow_signup: true,
         });

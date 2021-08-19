@@ -7,6 +7,7 @@
 	<title>Galhardo APP</title>
 	<link rel="shortcut icon" href="images/favicon.png" />
 
+	<link rel="stylesheet" href="https://galhardoapp.com/css/body.css">
 	<link rel="stylesheet" href="https://galhardoapp.com/css/scroll_bar.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	
@@ -24,7 +25,7 @@
 	</script>
 </head>
 
-<body class="bg-light" onload=displayAPIs(); style="padding-top: 70px">
+<body class="bg-light" onload=displayCurrentlyDateTime();>
 
 	<!-- Start Scroll Bar -->
     <div class="progress-container">
@@ -88,57 +89,21 @@
 	                            <li class="dropdown-item" id="euro"></li>
 	                            <li class="dropdown-item" id="bitcoin"></li>
 	                            <li><hr class="dropdown-divider"></li>
-	                            <li class="dropdown-item" id="os"></li>
-	                            <li class="dropdown-item" id="browser"></li>
-	                            <li><hr class="dropdown-divider"></li>
-	                            <li class="dropdown-item" id="public_ip"></li>
-	                            <li class="dropdown-item" id="latitude"></li>
-	                            <li class="dropdown-item" id="longitude"></li>
-	                            <li><hr class="dropdown-divider"></li>
 	                            <li>
 	                                <small class="dropdown-item" id="today"></small>
 	                            </li>
 	                            <li>
 	                                <small class="dropdown-item" id="realTime"></small>
 	                            </li>
+	                            <li>
+	                                <small class="dropdown-item" id="dateTimeFormat"><b>DateTime Format:</b> pt-BR</small>
+	                            </li>
 					         </ul>
 				        </li>
 
 				        <li class="nav-item dropdown">
 				          	
-				          	{{#user.admin}}
-				          	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				            	<i class="bi bi-unlock-fill"></i>
-				            	JSON DataBase
-				          	</a>
-				          	
-				          	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="https://galhardoapp-json-database.herokuapp.com/users">
-				            			<i class="bi bi-person"></i> 
-				            			JSON-DB Users
-				            		</a>
-				            	</li>
-				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="https://galhardoapp-json-database.herokuapp.com/blog">
-				            			<i class="bi bi-chat-quote"></i> 
-				            			JSON-DB Blog
-				            		</a>
-				            	</li>
-				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="https://galhardoapp-json-database.herokuapp.com/games">
-				            			<i class="bi bi-controller"></i> 
-				            			JSON-DB Games
-				            		</a>
-				            	</li>
-				            	<li>
-				            		<a target="_blank" class="dropdown-item fw-bold" href="https://galhardoapp-json-database.herokuapp.com/books">
-				            			<i class="bi bi-book"></i> 
-				            			JSON-DB Books
-				            		</a>
-				            	</li>
-				            </ul>
-				        </li>
+				        {{#user.admin}}
 
 				        <li class="nav-item dropdown">
 				          	

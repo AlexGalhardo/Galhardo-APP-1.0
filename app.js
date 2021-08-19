@@ -5,6 +5,7 @@
  * https://github.com/AlexGalhardo
  */
 
+// MODULES
 const express = require('express');
 const mustache = require('mustache-express');
 const path = require('path');
@@ -14,11 +15,16 @@ const session = require('express-session');
 const { flash } = require('express-flash-message');
 const compression = require('compression');
 const cors = require('cors');
+
+// ./config
 const morgan = require('./config/morgan');
 const Logger = require('./config/winston');
+const mongodb = require('./config/mongodb');
+mongodb();
 
-// PWD ROOT
+// GLOBALS
 global.APP_ROOT_PATH = path.resolve(__dirname);
+global.SESSION_USER = null;
 
 
 /*
@@ -26,6 +32,7 @@ global.APP_ROOT_PATH = path.resolve(__dirname);
  * Need to change .env APP_URL to https
  */
 // const app = require("https-localhost")()
+
 
 // with LocalHost HTTP
 const app = express();
@@ -57,8 +64,7 @@ app.use(session({
 // apply express-flash-message middleware
 app.use(flash({ sessionKeyName: 'flashMessage' }));
 
-// temporary session_user
-global.SESSION_USER = null;
+
 
 
 // BODY PARSER
@@ -96,7 +102,6 @@ app.use((err, req, res, next) => {
 
 /*
  * THIS CODE FORCE REQUESTS FROM HTTP TO HTTPS IN PRODUCTION
- */
 if(process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
     if (req.header('x-forwarded-proto') !== 'https') {
@@ -105,7 +110,7 @@ if(process.env.NODE_ENV === 'production') {
       next();
     }
   });
-}
+}*/
 
 
 // START HTTP SERVER WITH PORT

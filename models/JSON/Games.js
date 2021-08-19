@@ -1,8 +1,8 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const fetch = require('node-fetch');
 const DateTime = require('../../helpers/DateTime');
 
-const { JSON_DATABASE_FILE, database } = require('../../config/global');
+const { JSON_DATABASE_FILE, database } = require('../../config/json_database');
 
 class Games {
 
@@ -64,6 +64,7 @@ class Games {
 
 	static createGame(gameObject) {
 		try {
+			gameObject.id = database.games.length + 1
 			gameObject.updated_at = DateTime.getNow()
 			gameObject.created_at = DateTime.getNow()
 			database.games.push(gameObject)
@@ -75,21 +76,40 @@ class Games {
 	}
 
 
+
 	static updateGameByID(gameObject) {
 		try {
+      		
       		for(let i=0; i < database.games.length; i++){
+        		
         		if(database.games[i].id === gameObject.id){
-        			gameObject.updated_at = DateTime.getNow()
-        			database.games.splice(i, 1, gameObject)
+        			
+        			// refactor this shit later
+        			if(gameObject.title) database.games[i].title = gameObject.title
+	                if(gameObject.year_release) database.games[i].year_release = gameObject.year_release
+	                if(gameObject.resume) database.games[i].resume = gameObject.resume
+	                if(gameObject.image) database.games[i].image = gameObject.image
+	                if(gameObject.igdb_link) database.games[i].igdb_link = gameObject.igdb_link
+	                if(gameObject.igdb_rating) database.games[i].igdb_rating = gameObject.igdb_rating
+	                if(gameObject.platforms) database.games[i].platforms = gameObject.platforms
+	                if(gameObject.developer) database.games[i].developer = gameObject.developer
+	                if(gameObject.genres) database.games[i].genres = gameObject.genres
+	                if(gameObject.amazon_link) database.games[i].amazon_link = gameObject.amazon_link
+        			
+        			database.games[i].updated_at = DateTime.getNow()
+        			
         			Games.save(database, "Error updateGameByID: ")
-        			return gameObject
+        			
+        			return database.games[i]
         		}
       		}
-      		return null
+      		return "Game NOT Updated!"
     	} catch (error) {
       		return console.log("ERROR updateGameByID: ", error);
     	}
 	}
+
+
 
 	static deleteGameByID(game_id){
 		try {
@@ -97,10 +117,10 @@ class Games {
         		if(database.games[i].id === game_id){
         			database.games.splice(i, 1)
         			Games.save(database, "Error deleteGameByID: ")
-        			return true
+        			return `Game ID ${game_id} Deleted!`
         		}
       		}
-      		return false
+      		return `Game ID ${game_id} NOT Deleted!`
     	} catch (error) {
       		return console.log("ERROR deleteGameByID: ", error);
     	}

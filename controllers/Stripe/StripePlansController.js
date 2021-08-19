@@ -26,10 +26,10 @@ class StripePlansController {
 	}
 
 	static async postCreatePlan (req, res) {
-		const amount = req.body.plan_amount;
-		const currency = req.body.plan_currency;	
-		const interval = req.body.plan_interval;
-		const product_id = req.body.product_id;
+		const { amount,
+				currency,
+				interval,
+				product_id } = req.body
 		
 		const plan = await stripe.plans.create({
 			amount: amount,

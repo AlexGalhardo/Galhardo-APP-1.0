@@ -9,7 +9,124 @@
  */
 
 
+// models
+const Games = require('../../models/JSON/Games');
+// const Games = require('../../models/MySQL/Games');
+// const Games = require('../../models/MONGODB/Games');
+
+// helpers
+const DateTime = require('../../helpers/DateTime')
+
+
+
 class APIAdminGameController {
+
+    /**
+     * http://localhost:3000/api/admin/game/create
+     */
+    static async postCreateGame(req, res){
+
+        const {
+            title,
+            year_release,
+            resume,
+            image,
+            igdb_link,
+            igdb_rating,
+            platforms,
+            developer,
+            genres,
+            amazon_link
+        } = req.body
+
+        const gameObject = {
+            title,
+            year_release,
+            resume,
+            image,
+            igdb_link,
+            igdb_rating,
+            platforms,
+            developer,
+            genres,
+            amazon_link
+        }
+
+        const gameCreated = await Games.createGame(gameObject)
+
+        gameObject.id = gameCreated.insertId
+
+        if(gameCreated) return res.json(gameObject)
+
+        return res.json({ error: 'Game NOT Created!'})
+    }
+
+
+
+    /**
+     * http://localhost:3000/api/admin/game/patch/:game_id
+     */
+    static async patchGame(req, res, next){
+        try {
+            const game_id = req.params.game_id
+
+            const {
+                title,
+                year_release,
+                resume,
+                image,
+                igdb_link,
+                igdb_rating,
+                platforms,
+                developer,
+                genres,
+                amazon_link
+            } = req.body
+
+            const gameObject = {
+                id: parseInt(game_id),
+                title,
+                year_release,
+                resume,
+                image,
+                igdb_link,
+                igdb_rating,
+                platforms,
+                developer,
+                genres,
+                amazon_link
+            }
+            
+            const gameUpdated = await Games.updateGameByID(gameObject)
+            
+            return res.json({
+                gameUpdated
+            });            
+        }
+        catch(err){
+            next(err);
+        }
+    }
+
+
+
+    /**
+     * http://localhost:3000/api/admin/game/delete/:game_id
+     */
+    static async deleteGame(req, res, next){
+        try {
+            const game_id = req.params.game_id
+            
+            const gameDeleted = await Games.deleteGameByID(parseInt(game_id))
+
+            return res.json({
+                status: gameDeleted
+            });        
+        }
+        catch(err){
+            next(err);
+        }
+    }
 
 }
 

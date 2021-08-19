@@ -34,7 +34,6 @@ class AuthController {
 	
 	static async getViewLogin (req, res){
 		const facebookLoginURL = await URL.getFacebookURL()
-		console.log(facebookLoginURL)
 		res.render('pages/auth/login', {
 			FacebookLoginURL: facebookLoginURL,
 			GitHubLoginURL: URL.getGitHubURL,
@@ -191,7 +190,7 @@ class AuthController {
 
         const resetPasswordTokenCreated = Users.createResetPasswordToken(email, reset_password_token);
 
-        NodeMailer.postForgetPassword(email, reset_password_token);
+        NodeMailer.sendEmailForgetPassword(email, reset_password_token);
 
         if(!resetPasswordTokenCreated){
             return console.log('reset_password_token not saved in JSON DATABASE!');
@@ -309,7 +308,7 @@ class AuthController {
 			    params: {
 			      client_id: process.env.GITHUB_CLIENT_ID,
 			      client_secret: process.env.GITHUB_CLIENT_SECRET,
-			      redirect_uri: `${process.env.GITHUB_CALLBACK_URL}`,
+			      redirect_uri: process.env.GITHUB_CALLBACK_URL,
 			      code
 			    }
 			});

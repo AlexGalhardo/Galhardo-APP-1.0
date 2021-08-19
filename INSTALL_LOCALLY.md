@@ -10,6 +10,10 @@
 - MongoDB (without docker)
    - https://www.mongodb.com/cloud/atlas
 
+- Important: ALL Models (JSON, MySQL and MongoDB) have the same methods names.
+- You only need to change:
+   - const mysql = require('../models/MODEL_FOLDER_NAME')
+
 ## How To Use Locally with JSON DataBase
 - $ git clone https://github.com/alexgalhardo/galhardo-app
 - $ cd galhardo-app/

@@ -1,10 +1,10 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const fetch = require('node-fetch');
 const DateTime = require('../../helpers/DateTime');
 
 var slugify = require('slugify')
 
-const { JSON_DATABASE_FILE, database } = require('../../config/global');
+const { JSON_DATABASE_FILE, database } = require('../../config/json_database');
 
 class Blog {
 
@@ -45,6 +45,8 @@ class Blog {
     	}
 	}
 
+
+
 	static getAllBlogPosts() {
 		try {
 	      return database.blog
@@ -53,6 +55,8 @@ class Blog {
 	    };
 	}
 
+
+
 	static async getTotalBlogPosts () {
 		try {
       		return database.blog.length
@@ -60,6 +64,8 @@ class Blog {
       		return console.log("ERROR getTotalBlogPosts: ", error);
     	}
 	}
+
+
 
 	static getBlogPostBySlug (slug) {
 		try {
@@ -74,6 +80,8 @@ class Blog {
     	}
 	}
 
+
+
 	static getBlogPostByID (blog_id) {
 		try {
       		for(let i=0; i < database.blog.length; i++){
@@ -86,6 +94,8 @@ class Blog {
       		return console.log("ERROR getBlogPostByID: ", error);
     	}
 	}
+
+
 
 	static createBlogComment (slug, commentObject) {
 		try {
@@ -102,6 +112,8 @@ class Blog {
       		return console.log("ERROR createBlogComment: ", error);
     	}
 	}
+
+
 
 	static deleteCommentByCommentID(slug, comment_id) {
 		try {
@@ -130,8 +142,10 @@ class Blog {
     	}
 	}
 
+
+
 	static createBlogPost (blogPostObject) {
-		const slug = slugify(blogPostObject.title)
+		blogPostObject.slug = slugify(blogPostObject.title)
 
 		try {
 			blogPostObject.id = database.blog.length + 1
@@ -143,29 +157,33 @@ class Blog {
     	}
 	}
 
+
+
 	static updateBlogPost (blogPostObject) {
-
-		const slug = slugify(blogPostObject.title, {
-			lower: true
-		})
-		blogPostObject.slug = slug
-
 		try {
 			for(let i = 0; i < database.blog.length; i++){
+
 				if(database.blog[i].id === blogPostObject.id){
-					blogPostObject.created_at = database.blog[i].created_at
-					blogPostObject.updated_at = DateTime.getNow()
-					blogPostObject.comments = database.blog[i].comments
-					database.blog.splice(i, 1, blogPostObject)
+					database.blog[i].slug = slugify(blogPostObject.title, {lower: true})
+					if(blogPostObject.title) database.blog[i].title = blogPostObject.title
+					if(blogPostObject.resume) database.blog[i].resume = blogPostObject.resume
+					if(blogPostObject.image) database.blog[i].image = blogPostObject.image
+					if(blogPostObject.category) database.blog[i].category = blogPostObject.category
+					if(blogPostObject.body) database.blog[i].body = blogPostObject.body
+
 					Blog.save(database, 'Error updateBlogPost: ')
-					return blogPostObject
+					return database.blog[i]
 				}
 			}
-			return null
+			
+			return "Blog Post NOT UPDATED!"
+    	
     	} catch (error) {
-      		return console.log("ERROR createBlogComment: ", error);
+      		return console.log("ERROR updateBlogPost: ", error);
     	}
 	}
+
+
 
 	static deleteBlogPostByID(blog_id){
 		try {
