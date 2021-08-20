@@ -67,7 +67,6 @@ class Users {
         if(passwordValid){
 			return user
 		}
-		
 		return null
 	}
 
@@ -114,9 +113,7 @@ class Users {
         	await UsersSchema.findOneAndDelete({"_id": user._id})
         	return true
         }
-        else {
-        	return false
-        }
+        return false
 	}
 }
 
