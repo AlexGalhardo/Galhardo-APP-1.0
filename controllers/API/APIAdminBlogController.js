@@ -9,9 +9,10 @@
  */
 
 // models
-const Blog = require('../../models/JSON/Blog')
+// const Blog = require('../../models/JSON/Blog')
 // const Blog = require('../../models/MySQL/Blog')
-// const Blog = require('../../models/MONGODB/Blog')
+// const Blog = require('../../models/POSTGRES/Blog')
+const Blog = require('../../models/MONGODB/Blog')
 
 // helpers
 const DateTime = require('../../helpers/DateTime')
@@ -70,17 +71,15 @@ class APIAdminBlogController {
                     body } = req.body
 
             const blogObject = {
-                id: parseInt(blog_id),
+                id: blog_id,
                 title,
                 resume,
                 image,
                 category,
                 body,
-                comments: [],
                 updated_at: DateTime.getNow()
             }
             
-            console.log('entrou blogobject', blogObject)
             const blogPostUpdated = await Blog.updateBlogPost(blogObject)
             
             return res.json({
@@ -101,17 +100,11 @@ class APIAdminBlogController {
         try {
             const blog_id = req.params.blog_id
             
-            const blogPostDeleted = await Blog.deleteBlogPostByID(blog_id)
+            await Blog.deleteBlogPostByID(blog_id)
             
-            if(blogPostDeleted){
-                return res.json({
-                    status: `Blog Post ID ${blog_id} DELETED!`
-                });
-            }    
-
             return res.json({
-                status: `Blog Post ID ${blog_id} NOT DELETED!`
-            });        
+                status: `Blog Post ID ${blog_id} DELETED!`
+            });  
         }
         catch(err){
             next(err);

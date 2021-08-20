@@ -4270,3 +4270,51 @@
 [35m[39m
 2021-08-20 10:53:55 [35mhttp[39m: [35mDELETE /api/admin/books/delete/611fb3e310697d32303c6dce 200 CONTENT-LENGTH=54 42.262 ms[39m
 [35m[39m
+2021-08-20 11:00:52 [35mhttp[39m: [35mPOST /api/admin/games/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-20 11:01:16 [35mhttp[39m: [35mPOST /api/admin/games/create 200 CONTENT-LENGTH=803 520.113 ms[39m
+[35m[39m
+2021-08-20 11:04:07 [35mhttp[39m: [35mPATCH /api/admin/games/patch/611fb5ace0250a39498b864c 200 CONTENT-LENGTH=819 219.017 ms[39m
+[35m[39m
+2021-08-20 11:04:13 [35mhttp[39m: [35mPATCH /api/admin/games/patch/611fb5ace0250a39498b864c 200 CONTENT-LENGTH=827 45.639 ms[39m
+[35m[39m
+2021-08-20 11:04:23 [35mhttp[39m: [35mPATCH /api/admin/games/patch/611fb5ace0250a39498b864c 200 CONTENT-LENGTH=826 26.427 ms[39m
+[35m[39m
+2021-08-20 11:04:31 [35mhttp[39m: [35mPATCH /api/admin/games/patch/611fb5ace0250a39498b864c 200 CONTENT-LENGTH=819 43.363 ms[39m
+[35m[39m
+2021-08-20 11:05:43 [35mhttp[39m: [35mDELETE /api/admin/games/delete/611fb5ace0250a39498b864c 200 CONTENT-LENGTH=2 68.881 ms[39m
+[35m[39m
+2021-08-20 11:12:33 [35mhttp[39m: [35mPOST /api/admin/blog/create 500 CONTENT-LENGTH=25 155.812 ms[39m
+[35m[39m
+2021-08-20 11:12:38 [35mhttp[39m: [35mPOST /api/admin/login 200 CONTENT-LENGTH=217 505.354 ms[39m
+[35m[39m
+2021-08-20 11:12:48 [35mhttp[39m: [35mPOST /api/admin/blog/create 500 CONTENT-LENGTH=141 171.811 ms[39m
+[35m[39m
+2021-08-20 11:13:12 [35mhttp[39m: [35mPOST /api/admin/blog/create 200 CONTENT-LENGTH=360 499.031 ms[39m
+[35m[39m
+2021-08-20 11:17:20 [35mhttp[39m: [35mPATCH /api/admin/blog/patch/611fb878701e0a440fd8ae47 200 CONTENT-LENGTH=347 226.966 ms[39m
+[35m[39m
+2021-08-20 11:18:36 [35mhttp[39m: [35mDELETE /api/admin/blog/delete/611fb878701e0a440fd8ae47 200 CONTENT-LENGTH=59 71.160 ms[39m
+[35m[39m
+2021-08-20 11:30:36 [35mhttp[39m: [35mPOST /api/profile/login 500 CONTENT-LENGTH=53 105.569 ms[39m
+[35m[39m
+2021-08-20 11:32:15 [35mhttp[39m: [35mPOST /api/profile/login 200 CONTENT-LENGTH=1134 714.949 ms[39m
+[35m[39m
+2021-08-20 11:38:06 [35mhttp[39m: [35mPATCH /api/profile/patch 500 CONTENT-LENGTH=37 216.153 ms[39m
+[35m[39m
+2021-08-20 11:38:53 [35mhttp[39m: [35mPATCH /api/profile/patch 500 CONTENT-LENGTH=98 655.483 ms[39m
+[35m[39m
+2021-08-20 11:41:27 [35mhttp[39m: [35mPATCH /api/profile/patch 500 CONTENT-LENGTH=98 917.413 ms[39m
+[35m[39m
+2021-08-20 11:42:41 [35mhttp[39m: [35mPATCH /api/profile/patch 500 CONTENT-LENGTH=98 729.885 ms[39m
+[35m[39m
+2021-08-20 11:45:06 [35mhttp[39m: [35mPATCH /api/profile/patch 500 CONTENT-LENGTH=98 732.670 ms[39m
+[35m[39m
+2021-08-20 11:45:41 [35mhttp[39m: [35mPATCH /api/profile/patch 500 CONTENT-LENGTH=98 712.785 ms[39m
+[35m[39m
+2021-08-20 11:49:21 [35mhttp[39m: [35mPATCH /api/profile/patch 200 CONTENT-LENGTH=1128 839.421 ms[39m
+[35m[39m
+2021-08-20 11:52:17 [35mhttp[39m: [35mDELETE /api/profile/delete 500 CONTENT-LENGTH=39 597.118 ms[39m
+[35m[39m
+2021-08-20 11:52:48 [35mhttp[39m: [35mDELETE /api/profile/delete 200 CONTENT-LENGTH=44 631.479 ms[39m
+[35m[39m

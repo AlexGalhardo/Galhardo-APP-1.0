@@ -10,9 +10,10 @@
 
 
 // models
-const Games = require('../../models/JSON/Games');
+// const Games = require('../../models/JSON/Games');
 // const Games = require('../../models/MySQL/Games');
-// const Games = require('../../models/MONGODB/Games');
+// const Games = require('../../models/POSTGRES/Games');
+const Games = require('../../models/MONGODB/Games');
 
 // helpers
 const DateTime = require('../../helpers/DateTime')
@@ -49,14 +50,16 @@ class APIAdminGameController {
             platforms,
             developer,
             genres,
-            amazon_link
+            amazon_link,
+            created_at: DateTime.getNow(),
+            updated_at: DateTime.getNow()
         }
 
         const gameCreated = await Games.createGame(gameObject)
 
         gameObject.id = gameCreated.insertId
 
-        if(gameCreated) return res.json(gameObject)
+        if(gameCreated) return res.json(gameCreated)
 
         return res.json({ error: 'Game NOT Created!'})
     }
@@ -84,7 +87,7 @@ class APIAdminGameController {
             } = req.body
 
             const gameObject = {
-                id: parseInt(game_id),
+                id: game_id,
                 title,
                 year_release,
                 resume,
@@ -94,7 +97,8 @@ class APIAdminGameController {
                 platforms,
                 developer,
                 genres,
-                amazon_link
+                amazon_link,
+                updated_at: DateTime.getNow()
             }
             
             const gameUpdated = await Games.updateGameByID(gameObject)
@@ -117,7 +121,7 @@ class APIAdminGameController {
         try {
             const game_id = req.params.game_id
             
-            const gameDeleted = await Games.deleteGameByID(parseInt(game_id))
+            const gameDeleted = await Games.deleteGameByID(game_id)
 
             return res.json({
                 status: gameDeleted

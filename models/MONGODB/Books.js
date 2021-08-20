@@ -38,8 +38,6 @@ class Books {
 	static async updateBookByID(bookObject){
 		let book = await BookSchema.findOne({_id: bookObject.id})
 		
-		BookSchema.init()
-		book._id = new ObjectID()
 		book.title = bookObject.title
 		book.year_release = bookObject.year_release
         book.image = bookObject.image
