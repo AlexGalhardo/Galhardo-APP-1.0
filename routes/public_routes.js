@@ -26,17 +26,13 @@ const ProfileController = require('../controllers/ProfileController');
 
 // ---------------------- MIDDLEWARES 
 const userIsNotLoggedIn = (req, res, next) => {
-	if(!req.session.userID){
-        return res.redirect('/login');
-    }
+	if(!req.session.userID) return res.redirect('/login');
 	next()
 }
 
 
 const userIsAlreadyLoggedIn = (req, res, next) => {
-	if(req.session.userID){
-        return res.redirect('/');
-    }
+	if(req.session.userID) return res.redirect('/');
 	next()
 }
 

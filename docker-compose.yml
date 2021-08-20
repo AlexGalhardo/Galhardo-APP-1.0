@@ -1,3 +1,6 @@
+# https://renatogroffe.medium.com/postgresql-pgadmin-4-docker-compose-montando-rapidamente-um-ambiente-para-uso-55a2ab230b89
+# https://imasters.com.br/banco-de-dados/mysql-adminer-docker-compose-montando-rapidamente-um-ambiente-para-uso
+# https://renatogroffe.medium.com/mongodb-mongo-express-docker-compose-montando-rapidamente-um-ambiente-para-uso-824f25ca6957
 # $ sudo docker-compose up -d
 # $ sudo docker network ls 
 # $ sudo docker-compose ps
@@ -12,9 +15,8 @@ version: '3'
 
 services:
   
-  # MYSQL
-  # https://imasters.com.br/banco-de-dados/mysql-adminer-docker-compose-montando-rapidamente-um-ambiente-para-uso
-
+  
+  # MYSQL DB
   galhardoapp_mysql:
     image: mysql
     container_name: galhardoapp_mysql
@@ -28,20 +30,8 @@ services:
     networks:
       - galhardoapp_network
 
-  galhardoapp_adminer:
-    image: adminer
-    container_name: galhardoapp_adminer
-    ports:
-      - 8080:8080
-    depends_on: 
-      - "galhardoapp_mysql"
-    networks:
-      - galhardoapp_network
 
-
-  # POSTGRES
-  # https://renatogroffe.medium.com/postgresql-pgadmin-4-docker-compose-montando-rapidamente-um-ambiente-para-uso-55a2ab230b89
-
+  # POSTGRES DB
   galhardoapp_postgres:
     image: postgres
     container_name: galhardoapp_postgres
@@ -55,10 +45,17 @@ services:
       - galhardoapp_network
 
 
+  # ADMINER GUI FOR MYSQL AND POSTGRES
+  galhardoapp_adminer:
+    image: adminer
+    container_name: galhardoapp_adminer
+    ports:
+      - 8080:8080
+    networks:
+      - galhardoapp_network
+
 
   # MONGODB
-  # https://renatogroffe.medium.com/mongodb-mongo-express-docker-compose-montando-rapidamente-um-ambiente-para-uso-824f25ca6957
-
   galhardoapp_mongodb:
     image: mongo
     container_name: galhardoapp_mongodb
@@ -72,6 +69,7 @@ services:
     networks:
       - galhardoapp_network
 
+  # MONGO EXPRESS GUI FOR MONGODB
   galhardoapp_mongoexpress:
     image: mongo-express
     container_name: galhardoapp_mongoexpress
@@ -83,8 +81,6 @@ services:
       ME_CONFIG_MONGODB_PORT: 27017
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: root
-    #depends_on:
-    #  - galhardoapp_mongodb
     networks:
       - galhardoapp_network
 
