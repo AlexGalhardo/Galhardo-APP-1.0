@@ -4194,3 +4194,79 @@
 [35m[39m
 2021-08-20 07:42:56 [35mhttp[39m: [35mGET /scripts/shop.js 304 CONTENT-LENGTH=- 5.057 ms[39m
 [35m[39m
+2021-08-20 10:07:38 [35mhttp[39m: [35mGET /api/admin/books/listAll 200 CONTENT-LENGTH=- 142.287 ms[39m
+[35m[39m
+2021-08-20 10:07:40 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 157.446 ms[39m
+[35m[39m
+2021-08-20 10:08:51 [35mhttp[39m: [35mGET /api/admin/books/listAll 200 CONTENT-LENGTH=- 29.719 ms[39m
+[35m[39m
+2021-08-20 10:08:53 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 11.552 ms[39m
+[35m[39m
+2021-08-20 10:09:18 [35mhttp[39m: [35mGET /api/admin/books/listAll 200 CONTENT-LENGTH=- 16.819 ms[39m
+[35m[39m
+2021-08-20 10:09:19 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 13.447 ms[39m
+[35m[39m
+2021-08-20 10:11:16 [35mhttp[39m: [35mPOST /api/admin/login 200 CONTENT-LENGTH=217 730.352 ms[39m
+[35m[39m
+2021-08-20 10:11:33 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-20 10:13:31 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-20 10:13:47 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-20 10:13:58 [35mhttp[39m: [35mPOST /api/admin/books/create 200 CONTENT-LENGTH=1116 218.989 ms[39m
+[35m[39m
+2021-08-20 10:14:35 [35mhttp[39m: [35mGET /api/admin/books/listAll 200 CONTENT-LENGTH=2457 64.211 ms[39m
+[35m[39m
+2021-08-20 10:25:11 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611faa9633260d0e7470cd6f 500 CONTENT-LENGTH=36 511.381 ms[39m
+[35m[39m
+2021-08-20 10:25:36 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611faa9633260d0e7470cd6f 500 CONTENT-LENGTH=36 21.831 ms[39m
+[35m[39m
+2021-08-20 10:26:29 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611fa6436e13326c35f975b8 500 CONTENT-LENGTH=36 132.015 ms[39m
+[35m[39m
+2021-08-20 10:26:33 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611fa6436e13326c35f975b8 500 CONTENT-LENGTH=36 21.646 ms[39m
+[35m[39m
+2021-08-20 10:27:02 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611fa6436e13326c35f975b8 500 CONTENT-LENGTH=36 140.831 ms[39m
+[35m[39m
+2021-08-20 10:27:26 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611fa6436e13326c35f975b8 500 CONTENT-LENGTH=49 262.812 ms[39m
+[35m[39m
+2021-08-20 10:29:23 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611fa6436e13326c35f975b8 500 CONTENT-LENGTH=49 308.517 ms[39m
+[35m[39m
+2021-08-20 10:29:51 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611fa6436e13326c35f975b8 500 CONTENT-LENGTH=49 234.792 ms[39m
+[35m[39m
+2021-08-20 10:31:24 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611fa6436e13326c35f975b8 500 CONTENT-LENGTH=49 205.742 ms[39m
+[35m[39m
+2021-08-20 10:33:16 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611fa6436e13326c35f975b8 500 CONTENT-LENGTH=56 127.843 ms[39m
+[35m[39m
+2021-08-20 10:33:35 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611fa6436e13326c35f975b8 200 CONTENT-LENGTH=20 209.518 ms[39m
+[35m[39m
+2021-08-20 10:36:48 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611fa6436e13326c35f975b8 200 CONTENT-LENGTH=1038 241.954 ms[39m
+[35m[39m
+2021-08-20 10:38:18 [35mhttp[39m: [35mPATCH /api/admin/books/patch/611fa6436e13326c35f975b8 200 CONTENT-LENGTH=1038 249.027 ms[39m
+[35m[39m
+2021-08-20 10:40:08 [35mhttp[39m: [35mDELETE /api/admin/books/delete/611fa6436e13326c35f975b8 200 CONTENT-LENGTH=54 78.041 ms[39m
+[35m[39m
+2021-08-20 10:41:34 [35mhttp[39m: [35mDELETE /api/admin/books/delete/611fa6436e13326c35f975b8 200 CONTENT-LENGTH=54 64.125 ms[39m
+[35m[39m
+2021-08-20 10:41:51 [35mhttp[39m: [35mDELETE /api/admin/books/delete/611faa9633260d0e7470cd6f 200 CONTENT-LENGTH=54 16.932 ms[39m
+[35m[39m
+2021-08-20 10:42:46 [35mhttp[39m: [35mDELETE /api/admin/books/delete/611faa9633260d0e7470cd6f 200 CONTENT-LENGTH=54 67.457 ms[39m
+[35m[39m
+2021-08-20 10:43:03 [35mhttp[39m: [35mDELETE /api/admin/books/delete/611fa6436e13326c35f975b8 200 CONTENT-LENGTH=54 28.715 ms[39m
+[35m[39m
+2021-08-20 10:44:41 [35mhttp[39m: [35mDELETE /api/admin/books/delete/611faa9633260d0e7470cd6f 500 CONTENT-LENGTH=37 41.860 ms[39m
+[35m[39m
+2021-08-20 10:44:47 [35mhttp[39m: [35mDELETE /api/admin/books/delete/611faa9633260d0e7470cd6f 500 CONTENT-LENGTH=37 16.237 ms[39m
+[35m[39m
+2021-08-20 10:45:06 [35mhttp[39m: [35mDELETE /api/admin/books/delete/611faa9633260d0e7470cd6f 200 CONTENT-LENGTH=54 65.948 ms[39m
+[35m[39m
+2021-08-20 10:47:51 [35mhttp[39m: [35mDELETE /api/admin/books/delete/611faa9633260d0e7470cd6f 200 CONTENT-LENGTH=54 87.222 ms[39m
+[35m[39m
+2021-08-20 10:48:19 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-20 10:49:12 [35mhttp[39m: [35mPOST /api/admin/books/create - CONTENT-LENGTH=- - ms[39m
+[35m[39m
+2021-08-20 10:53:39 [35mhttp[39m: [35mPOST /api/admin/books/create 200 CONTENT-LENGTH=1116 222.640 ms[39m
+[35m[39m
+2021-08-20 10:53:55 [35mhttp[39m: [35mDELETE /api/admin/books/delete/611fb3e310697d32303c6dce 200 CONTENT-LENGTH=54 42.262 ms[39m
+[35m[39m

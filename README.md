@@ -82,7 +82,7 @@
 - Logs
    - Console, files, telegram, etc
 - Security
-   - OWASP, CRSF, XSS, Injection, CORS, etc
+   - OWASP, CSRF, XSS, Injection, CORS, etc
 - API RESTs
    - JWT, Oauth2, AJAX, Bearer Token, HTML Documentation, etc
 - Others usefull things

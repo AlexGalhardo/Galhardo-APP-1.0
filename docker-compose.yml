@@ -1,12 +1,25 @@
 # https://renatogroffe.medium.com/postgresql-pgadmin-4-docker-compose-montando-rapidamente-um-ambiente-para-uso-55a2ab230b89
 # https://imasters.com.br/banco-de-dados/mysql-adminer-docker-compose-montando-rapidamente-um-ambiente-para-uso
 # https://renatogroffe.medium.com/mongodb-mongo-express-docker-compose-montando-rapidamente-um-ambiente-para-uso-824f25ca6957
+
+# https://hub.docker.com/_/mongo
+# https://hub.docker.com/_/mongo-express
+# https://hub.docker.com/r/mongoclient/mongoclient
+# https://hub.docker.com/_/adminer
+# https://hub.docker.com/_/mysql
+# https://hub.docker.com/_/postgres
+
+
 # $ sudo docker-compose up -d
 # $ sudo docker network ls 
 # $ sudo docker-compose ps
 # $ sudo docker-compose ps -a
+# $ sudo docker-compose restart
+# $ sudo docker-compose down
 # $ sudo docker rm -f CONTAINER_ID
 # $ sudo docker rmi -f IMAGE_ID
+# $ sudo docker-compose up -d --remove-orphans
+
 # $ sudo docker inspect CONTAINER_NAME_OR_ID | grep '"IPAddress"' | head -n 1
 # $ docker inspect --format '{{ .NetworkSettings.IPAddress }}' container_name_or_id
 
@@ -22,7 +35,6 @@ services:
     container_name: galhardoapp_mysql
     environment:
       MYSQL_ROOT_PASSWORD: "root"
-      MYSQL_DATABASE: "galhardoapp"
     ports:
       - "3306:3306"
     #volumes:
@@ -46,45 +58,47 @@ services:
 
 
   # ADMINER GUI FOR MYSQL AND POSTGRES
+  # MYSQL username: root | server: galhardoapp_mysql
+  # POSTGRE username: postgres | server: galhardoapp_postgres
   galhardoapp_adminer:
     image: adminer
     container_name: galhardoapp_adminer
     ports:
-      - 8080:8080
+      - "8080:8080"
     networks:
       - galhardoapp_network
 
 
-  # MONGODB
+
   galhardoapp_mongodb:
     image: mongo
+    restart: always
     container_name: galhardoapp_mongodb
+    ports:
+      - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
-    ports:
-      - "27017:27017"
+      MONGO_INITDB_ROOT_PASSWORD: secret
     #volumes:
-    #  - /home/alex/Desktop/galhardo-app/backups/mongodb:/data/db
-    networks:
-      - galhardoapp_network
-
-  # MONGO EXPRESS GUI FOR MONGODB
+    #  - mongo-data:/data/db
+ 
   galhardoapp_mongoexpress:
     image: mongo-express
+    restart: always
     container_name: galhardoapp_mongoexpress
     ports:
       - 8081:8081
     environment:
-      ME_CONFIG_BASICAUTH_USERNAME: alex
-      ME_CONFIG_BASICAUTH_PASSWORD: root
-      ME_CONFIG_MONGODB_PORT: 27017
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: root
-    networks:
-      - galhardoapp_network
+      ME_CONFIG_MONGODB_ADMINPASSWORD: secret
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: secret
+      ME_CONFIG_MONGODB_SERVER: galhardoapp_mongodb
 
 
 networks: 
   galhardoapp_network:
     driver: bridge
+
+volumes:
+  mongo-data:

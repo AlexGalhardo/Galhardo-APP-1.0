@@ -47,11 +47,40 @@
 ## How To Use Locally with MySQL and Docker
 - In Development
 
+- username: root
+- server: galhardoapp_mysql
+
 ## How To Use Locally with PostgreSQL and Docker
 - In Development
 
+- $ sudo docker-compose up -d
+- Go to: http://localhost:8080
+   - Select PostgreSQL
+   - username: postgres 
+   - server: galhardoapp_postgres
+
 ## How To Use Locally with MongoDB and Docker
 - In Development
+```
+$ sudo docker run \
+    --name galhardoapp_mongodb \
+    -p 27017:27017 \
+    -e MONGO_INITDB_ROOT_USERNAME=admin \
+    -e MONGO_INITDB_ROOT_PASSWORD=root \
+    -d \
+    mongo:4
+
+$ sudo docker run \
+    --name galhardoapp_mongoclient \
+    -p 4000:3000 \
+    --link galhardoapp_mongodb:galhardoapp_mongodb \
+    -d \
+    mongoclient/mongoclient
+
+$ sudo docker exec -it galhardoapp_mongodb \
+    mongo --host localhost -u admin -p root --authenticationDatabase admin \
+    --eval "db.getSiblingDB('galhardoapp').createUser({user: 'alex', pwd: 'root', roles: [{role: 'readWrite', db: 'galhardoapp'}]})"
+```
 
 ## API HTTP Requests
 - You can use my INSOMNIA Configuration JSON with all HTTP Requests Ready to TRY
