@@ -21,8 +21,11 @@ const cors = require('cors');
 // ./config
 const morgan = require('./config/morgan');
 const Logger = require('./config/winston');
+
+
+// MONGODB
 const mongodb = require('./config/mongodb');
-// mongodb();
+mongodb();
 
 
 // GLOBALS

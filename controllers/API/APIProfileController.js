@@ -10,14 +10,11 @@
 
 const bodyParser = require('body-parser')
 
-// JSON DATABASE
-const Users = require('../../models/JSON/Users')
-
-// MYSQL DATABASE
+// Models
+// const Users = require('../../models/JSON/Users')
 // const Users = require('../../models/MySQL/Users')
-
-// MONGODB DATABASE
-// const Users = require('../../models/MONGODB/Users')
+// const Users = require('../../models/POSTGRES/Users')
+const Users = require('../../models/MONGODB/Users')
 
 
 
@@ -26,7 +23,6 @@ class APIProfileController {
 	static async postProfileLogin(req, res, next){
 		try {
 	        const { email, password } = req.body
-	        console.log('request chegou', email, password)
 	        
 	        const user = await Users.verifyLogin(email, password)
             
@@ -75,12 +71,15 @@ class APIProfileController {
 				country
 			}
 	        
-	        console.log('entrou no model', userObject)
 	        let user = await Users.updateProfile(userObject)
-            
+	        if(user){
+	        	return res.json({
+	                user
+	            });		
+	        }
             return res.json({
-                user
-            });	        
+                error: 'Some error found. User not found or password is invalid!'
+            });	           
 	    }
 	    catch(err){
 	        next(err);

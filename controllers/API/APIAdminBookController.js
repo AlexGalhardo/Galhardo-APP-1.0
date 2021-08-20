@@ -13,8 +13,8 @@
 // models
 // const Books = require('../../models/JSON/Books');
 // const Books = require('../../models/MySQL/Books');
-// const Books = require('../../models/MONGODB/Books');
-const Books = require('../../models/POSTGRES/Books');
+const Books = require('../../models/MONGODB/Books');
+// const Books = require('../../models/POSTGRES/Books');
 
 // helpers
 const DateTime = require('../../helpers/DateTime')
@@ -52,6 +52,7 @@ class APIAdminBookController {
         } = req.body
 
         const bookObject = {
+            id: null,
             title, 
             year_release,
             image,
@@ -66,7 +67,7 @@ class APIAdminBookController {
 
         const bookCreated = await Books.createBook(bookObject)
 
-        if(bookCreated) return res.json(bookObject)
+        if(bookCreated) return res.json(bookCreated)
 
         return res.json({ error: 'Book NOT registred in DataBase!'})
     }
@@ -78,6 +79,7 @@ class APIAdminBookController {
     static async patchBook(req, res, next){
         try {
             const book_id = req.params.book_id
+            console.log(book_id)
 
             const {
                 title,
@@ -91,7 +93,7 @@ class APIAdminBookController {
             } = req.body
 
             const bookObject = {
-                id: parseInt(book_id),
+                id: book_id,
                 title, 
                 year_release,
                 image,
@@ -104,7 +106,7 @@ class APIAdminBookController {
             }
             
             const bookUpdated = await Books.updateBookByID(bookObject)
-            
+
             return res.json({
                 bookUpdated
             });            
@@ -123,7 +125,7 @@ class APIAdminBookController {
         try {
             const book_id = req.params.book_id
             
-            await Books.deleteBookByID(parseInt(book_id))
+            await Books.deleteBookByID(book_id)
 
             return res.json({
                 status: `Book ID ${book_id} DELETED!`
