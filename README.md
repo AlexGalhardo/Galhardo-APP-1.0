@@ -68,7 +68,7 @@
 - AWS
    - DevOps, DNS, How to configure SSL/HTTPs in a VPS, etc
 - Docker
-   - For MySQL and MongoDB
+   - For MySQL, Postgres, Adminer and MongoDB
 - Payment REST API
    - Stripe for USD & PagarME for BRL
    - Subscription, Ecommerce, Shop Checkouts
