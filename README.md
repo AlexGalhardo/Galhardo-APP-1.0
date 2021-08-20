@@ -74,17 +74,19 @@
    - Subscription, Ecommerce, Shop Checkouts
    - ZipCode for Shipping Address, Fee and Deadline
 - Testing
-   - Jest
+   - White Box, Black Box, Regression, Usability, Security, Integration, Performance, Functional, etc
 - Code best practices
    - MVC, CRUDs, ESLint, Prettier, Design Patterns, etc
 - Google Tools
    - SEO, CDN, Analytics, Search Console, Sitemap, Robots.txt, etc
 - Logs
    - Console, files, telegram, etc
+- Security
+   - OWASP, CRSF, XSS, Injection, CORS, etc
 - API RESTs
    - JWT, Oauth2, AJAX, Bearer Token, HTML Documentation, etc
 - Others usefull things
-   - Mobile First, Regex, SMTP, Flash Messages, Pagination, Slug, UUID, Searchs, etc
+   - Mobile First, Regex, Charts, SMTP, Flash Messages, Pagination, Slug, UUID, Searchs, etc
 - Deploys
    - CI, CD, Heroku, Git Workflows, etc
 - <b>I will be refactoring it over the years during my professional career as I develop my programming skills.</b>
@@ -111,34 +113,22 @@
 - [x] API HTML Documentation Using Insomnia Documenter
 - Using JSON DataBase 
    - [x] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
-   - [x] ADMIN ACL for Blog Posts (Create, Update, Delete)
-   - [x] (CREATE, READ, DELETE) Blog Comments
-   - [x] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
-   - [x] ADMIN ACL for Games and Books (Create, Update, Delete)
+   - [x] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [x] CRUD Profile
    - [x] CRUD APIs
 - Using MySQL DataBase with Docker and pure SQL
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
-   - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
-   - [ ] (CREATE, READ, DELETE) Blog Comments
-   - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
-   - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
+   - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile
    - [ ] CRUD APIs
 - Using PostgreSQL DataBase with Docker and Sequelize ORM
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
-   - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
-   - [ ] (CREATE, READ, DELETE) Blog Comments
-   - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
-   - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
+   - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile
    - [ ] CRUD APIs
 - Using MongoDB DataBase with Docker and Mongoose ORM
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
-   - [ ] ADMIN ACL for Blog Posts (Create, Update, Delete)
-   - [ ] (CREATE, READ, DELETE) Blog Comments
-   - [ ] ADMIN ACL for Stripe (Create, Update, Delete, Cancel)
-   - [ ] ADMIN ACL for Games and Books (Create, Update, Delete)
+   - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile
    - [ ] CRUD APIs
 - Deploy on AWS LightSail
@@ -146,13 +136,13 @@
    - [ ] Using NGINX as Reverse Proxy
    - [ ] Using NGINX as Load Balancing
    - [ ] Using NGINX Cache and Compression
-   - [ ] Using my own domain
-   - [ ] Configure SSL/HTTPS in VPS
-- [ ] TypeScript Version
-   - After previous goals are complete, create a branch "typescript" and refactor the code using Typescript
+   - [ ] Using My Own Domain
+   - [ ] Configure SSL/HTTPS in VPS (https://certbot.eff.org/)
 - [ ] Make the API a Microservice
    - Using: https://api.galhardoapp.com
    - Create a branch "api" for this microservice
+- [ ] TypeScript Version
+   - After previous goals are complete, create a branch "typescript" and refactor the code using Typescript
 
 ## Some APP Images
 

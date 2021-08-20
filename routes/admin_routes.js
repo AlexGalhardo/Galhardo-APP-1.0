@@ -34,9 +34,7 @@ const StripePricesController = require('../controllers/ADMIN/StripePricesControl
 
 // ---------------------- MIDDLEWARES 
 const isAdmin = (req, res, next) => {
-	if(SESSION_USER && !SESSION_USER.admin || !SESSION_USER){
-		return res.redirect('/')
-	}
+	if(SESSION_USER && !SESSION_USER.admin || !SESSION_USER) return res.redirect('/')
 	next()
 }
 
