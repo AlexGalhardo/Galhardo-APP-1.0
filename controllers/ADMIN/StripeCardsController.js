@@ -15,7 +15,7 @@ const DateTime = require('../../helpers/DateTime')
 
 // models
 const StripeModel = require('../../models/JSON/Stripe');
-// const StripeModel = require('../../models/MySQL/Stripe');
+// const StripeModel = require('../../models/MYSQL/Stripe');
 // const StripeModel = require('../../models/MONGODB/Stripe');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
