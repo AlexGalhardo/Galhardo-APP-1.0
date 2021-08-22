@@ -2,7 +2,8 @@
 public/uploads/avatars/*
 
 # logs/
-logs/*
+logs/all-logs.log
+logs/error.log
 
 # *.log
 npm-debug.log*
