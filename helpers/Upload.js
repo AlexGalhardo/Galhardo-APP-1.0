@@ -2,9 +2,12 @@ const formidable = require('formidable')
 var fs = require('fs')
 
 const multer = require("multer");
-const multerConfig = require("./config/multer");
+const multerConfig = require("../config/multer");
 
 const Users = require('../models/JSON/Users')
+// const Users = require('../models/MYSQL/Users')
+// const Users = require('../models/POSTGRES/Users')
+// const Users = require('../models/MONGODB/Users')
 
 class Upload {
 

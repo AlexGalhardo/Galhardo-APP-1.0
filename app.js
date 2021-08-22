@@ -24,10 +24,7 @@ const Logger = require('./config/winston');
 
 
 // MONGODB
-if(process.env.NODE_ENV === 'development'){
-  require('./config/mongodb')()
-}
-
+if(process.env.NODE_ENV === 'development') require('./config/mongodb')()
 
 
 // GLOBALS
@@ -100,9 +97,6 @@ app.use('/admin', adminRoutes);
 app.use('/test', testRoutes);
 app.use(publicRoutes);
 
-
-// MORGAN HTTP LOGS
-app.use(morgan("dev"));
 
 
 // ERROR 404

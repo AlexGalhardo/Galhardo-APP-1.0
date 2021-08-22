@@ -19,3 +19,6 @@
 
 - https://www.codegrepper.com/code-examples/javascript/javascript+sort+array+of+objects
 - https://www.w3schools.com/js/js_array_sort.asp
+
+// MORGAN HTTP LOGS
+// app.use(morgan("dev"));
