@@ -73,6 +73,8 @@
    - Stripe for USD & PagarME for BRL
    - Subscription, Ecommerce, Shop Checkouts
    - ZipCode for Shipping Address, Fee and Deadline
+- Uploads
+   - S3, PDf, Png, Jpg, Jpeg, Gifs, Videos, etc
 - Testing
    - White Box, Black Box, Regression, Usability, Security, Integration, Performance, Functional, etc
 - Code best practices

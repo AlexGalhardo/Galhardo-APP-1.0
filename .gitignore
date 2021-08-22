@@ -1,4 +1,5 @@
-# Logs
+# uploads
+public/uploads/avatars/*
 
 # logs/
 # *.log

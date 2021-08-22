@@ -7,10 +7,10 @@
 
 
 // MODULES
+require('dotenv').config();
 const express = require('express');
 const mustache = require('mustache-express');
 const path = require('path');
-const dotenv = require('dotenv').config();
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const { flash } = require('express-flash-message');
@@ -73,6 +73,10 @@ app.use(flash({ sessionKeyName: 'flashMessage' }));
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
+// JSON 
+app.use(express.json());
+
+
 // TEMPLATE ENGINE
 app.set('view engine', 'mustache');
 app.set('views', path.join(__dirname, 'views'));
@@ -93,6 +97,10 @@ app.use('/api', apiRoutes);
 app.use('/admin', adminRoutes);
 app.use('/test', testRoutes);
 app.use(publicRoutes);
+
+
+// MORGAN HTTP LOGS
+app.use(morgan("dev"));
 
 
 // ERROR 404
