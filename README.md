@@ -77,8 +77,8 @@
    - PIX
    - Subscription, Ecommerce, Shop Checkouts
    - ZipCode for Shipping Address, Fee and Deadline
-- Uploads
-   - S3, PDf, Png, Jpg, Jpeg, Gifs, Videos, etc
+- Uploads Files
+   - S3, Images, Gifs, Videos, etc
 - Testing
    - White Box, Black Box, Regression, Usability, Security, Integration, Performance, Functional, etc
 - Code best practices
@@ -173,9 +173,13 @@
 ![ga_books](https://user-images.githubusercontent.com/19540357/129276417-8b22e199-fa74-4c8d-86a9-ba9870971b22.png)
 
 ### SHOP
-![ga_shop_1](https://user-images.githubusercontent.com/19540357/130067628-644dcc1c-4b5e-4ab7-974c-54eb01c48f0b.png)
-![ga_shop_2](https://user-images.githubusercontent.com/19540357/130067635-7c8c3b70-dd30-4db9-b3b9-965897bd90b3.png)
+![ga_shop_0](https://user-images.githubusercontent.com/19540357/130357432-ba895282-bcd5-4e7b-a7c5-b2fcafb8502c.png)
+![ga_shop_1](https://user-images.githubusercontent.com/19540357/130357436-65959bfc-e6b3-444f-8199-379a521a7d4a.png)
+![ga_shop_2](https://user-images.githubusercontent.com/19540357/130357435-799b4e2c-25a7-4a16-a573-9f6914c99e35.png)
 ![ga_shop_3](https://user-images.githubusercontent.com/19540357/130067637-7fa2bab5-cd52-4b59-9314-0379689a65e5.png)
+
+
+
 
 ### Subscription
 ![ga_plans](https://user-images.githubusercontent.com/19540357/128649491-ab2a9c36-e3bf-45cf-9768-6bd781e502e7.png)
