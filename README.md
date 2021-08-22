@@ -67,10 +67,14 @@
    - Reverse-Proxy, Load Balancing, Cache, Response Compression
 - AWS
    - DevOps, DNS, How to configure SSL/HTTPs in a VPS, etc
-- Docker
-   - For MySQL, Postgres, Adminer and MongoDB
-- Payment REST API
-   - Stripe for USD & PagarME for BRL
+- Docker and DataBases
+   - MySQL, Postgres, SQLite, Redis, Adminer and MongoDB
+- Payments REST APIs
+   - Stripe
+      - For Credit Card USD 
+   - PagarME
+      - For BRL and Bank Slip (Boleto Bancário)
+   - PIX
    - Subscription, Ecommerce, Shop Checkouts
    - ZipCode for Shipping Address, Fee and Deadline
 - Uploads
@@ -88,7 +92,7 @@
 - API RESTs
    - JWT, Oauth2, AJAX, Bearer Token, HTML Documentation, etc
 - Others usefull things
-   - Mobile First, Regex, Charts, SMTP, Flash Messages, Pagination, Slug, UUID, Searchs, etc
+   - Mobile First, WebHooks, Regex, Charts, SMTP, Flash Messages, Pagination, Slug, UUID, Searchs, etc
 - Deploys
    - CI, CD, Heroku, Git Workflows, etc
 - <b>I will be refactoring it over the years during my professional career as I develop my programming skills.</b>
@@ -108,6 +112,15 @@
    - [ ] Subscriptions Transactions
    - [ ] Confirm Email
    - [ ] Reset Password 
+- Payments
+   - SHOP (Ecommerce Checkout)
+      - [ ] Stripe Credit Card
+      - [ ] PagarME Credit Card
+      - [ ] PagarME Bank Slip (Boleto Bancário)
+      - [ ] PIX
+   - Plans (Subscriptions)
+      - [ ] Stripe Credit Card
+      - [ ] PagarME Credit Card
 - [ ] In Code Compression Responses (HTML, JS, CSS)
 - [ ] In Code Cache Most used data (Redis and In-Memory)
 - [ ] Google Tools (SEO, Search Console, Analytics, Sitemap, Robots.txt, etc)
@@ -123,7 +136,12 @@
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile
    - [ ] CRUD APIs
-- Using PostgreSQL DataBase with Docker and Sequelize ORM
+- Using PostgreSQL DataBase with Docker and Knex Query Builder
+   - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
+   - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
+   - [ ] CRUD Profile
+   - [ ] CRUD APIs
+- Using SQLite DataBase with Sequelize ORM
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile

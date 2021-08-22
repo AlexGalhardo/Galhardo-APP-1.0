@@ -42,6 +42,7 @@
     "joi": "^17.4.2",
     "json-server": "^0.16.3",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.10",
     "mongoose": "^5.13.7",
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
@@ -74,8 +75,8 @@
     "https-localhost": "^4.6.5",
     "insomnia-documenter": "^0.5.4",
     "jest": "^27.0.6",
-    "sitemap": "^7.0.0",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "sitemap": "^7.0.0"
   },
   "optionalDependencies": {
     "fsevents": "2.1.2"

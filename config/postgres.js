@@ -15,4 +15,10 @@ const sequelize = new Sequelize(
 // FOR POSTGRE AS A SERVICE
 // const sequelize = new Sequelize(`${process.env.PG_URL}`)
 
+const pg = require('knex')({
+  client: 'pg',
+  connection: process.env.PG_URL,
+  searchPath: ['knex', 'public'],
+});
+
 module.exports = sequelize;

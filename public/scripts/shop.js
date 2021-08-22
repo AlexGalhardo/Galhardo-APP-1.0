@@ -9,7 +9,7 @@ const priceApplesEl = document.querySelector("#priceApples")
 const priceStrawberriesEl = document.querySelector("#priceStrawberries")
 
 const totalShopCartEl = document.querySelector("#total_shop_cart")
-const buttonPayEl = document.querySelector("#button_pay_with_credit_card")
+const buttonPayEl = document.querySelector("#button_pay_stripe")
 const totalAmount = document.querySelector("#total_shop_cart_amount")
 
 let pricePayButton = parseFloat(buttonPayEl.innerHTML)
@@ -46,7 +46,7 @@ function updatePricePayButton() {
 
     totalShopCartEl.innerHTML = (parseFloat(buttonPayEl.innerHTML) - parseFloat(document.querySelector('#shipping_fee').value)).toFixed(2)
     
-    totalAmount.value = parseFloat(buttonPayEl.innerHTML).toFixed(2)
+    totalAmount.value = (parseFloat(totalShopCartEl.innerHTML) + parseFloat(shipping_fee)).toFixed(2)
 }
 
 
