@@ -9,7 +9,6 @@ const Users = require('../models/JSON/Users');
 const SendGrid = require('../config/SendGrid');
 
 class NodeMailer {
-    
 
     static async sendEmailContact (username, email, subject, message) {
         

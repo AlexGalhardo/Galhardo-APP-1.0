@@ -1,6 +1,10 @@
-# Logs
+# uploads
+public/uploads/avatars/*
 
 # logs/
+logs/all-logs.log
+logs/error.log
+
 # *.log
 npm-debug.log*
 yarn-debug.log*

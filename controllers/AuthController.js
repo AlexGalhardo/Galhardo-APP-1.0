@@ -72,7 +72,7 @@ class AuthController {
 	        	return res.render('pages/auth/login', {
 	        		flash: {
 	        			type: "warning",
-	        			message: "Invalid email or/and password!"
+	        			message: "Email OR Password Inválid!"
 	        		}
 	            });
 	        }
