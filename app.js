@@ -24,8 +24,10 @@ const Logger = require('./config/winston');
 
 
 // MONGODB
-const mongodb = require('./config/mongodb');
-mongodb();
+if(process.env.NODE_ENV === 'development'){
+  require('./config/mongodb')()
+}
+
 
 
 // GLOBALS
