@@ -19,7 +19,7 @@
    - **NO REAL Money Transactions will be made**
    - **All CRUDs in this Live Demo are made in JSON DataBase, for obvious reasons.**
 
-## Subdomains
+## MicroServices
 - https://correios.galhardoapp.com/cep/13560290 (zipcode here)
    - To GET ZipCode/CEP Information (Correios BRAZIL)
 - https://correios.galhardoapp.com/shipping/13560290 (zipcode here)
@@ -162,7 +162,7 @@
    - Using: https://api.galhardoapp.com
    - Create a branch "api" for this microservice
 - [ ] TypeScript Version
-   - After previous goals are complete, create a branch "typescript" and refactor the code using Typescript
+   - After previous goals are complete, create a branch "typescript" and refactor the code using Typescript and ES6+
 
 ## Some APP Images
 
