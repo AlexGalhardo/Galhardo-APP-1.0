@@ -11,7 +11,7 @@
 
 // INIT EXPRESS 
 const express = require('express');
-const router = express.Router();
+const router = express.Router()
 
 
 // VIEWS CONTROLLERS
@@ -38,77 +38,79 @@ const userIsAlreadyLoggedIn = (req, res, next) => {
 
 
 
+router
+
 // APP VIEWS CONTROLLER
-router.get('/', AppController.getViewHome);
-router.get('/books', AppController.getViewBooks);
+    .get('/', AppController.getViewHome)
+    .get('/books', AppController.getViewBooks)
 
-router.get('/contact', AppController.getViewContact);
-router.post('/contact', AppController.postContact);
+    .get('/contact', AppController.getViewContact)
+    .post('/contact', AppController.postContact)
 
-router.get('/privacy', AppController.getViewPrivacy);
+    .get('/privacy', AppController.getViewPrivacy)
 
 
 
 // BLOG VIEWS CONTROLLER
-router.get('/blog', BlogController.getViewBlog);
-router.get('/blog/search', BlogController.getSearchBlogTitle);
-router.get('/blog/page/:page', BlogController.getViewBlog);
+    .get('/blog', BlogController.getViewBlog)
+    .get('/blog/search', BlogController.getSearchBlogTitle)
+    .get('/blog/page/:page', BlogController.getViewBlog)
 
-router.get('/blog/:slug', BlogController.getViewBlogPost);
-router.post('/blog/:slug', BlogController.postBlogComment);
+    .get('/blog/:slug', BlogController.getViewBlogPost)
+    .post('/blog/:slug', BlogController.postBlogComment)
 
-router.get('/blog/:slug/deleteComment/:comment_id', BlogController.getDeleteBlogCommentByCommentID)
+    .get('/blog/:slug/deleteComment/:comment_id', BlogController.getDeleteBlogCommentByCommentID)
 
 
 
 // SHOP CONTROLLER
-router.get('/shop', ShopController.getViewShop);
-router.post('/shop', ShopController.postShopPayLog);
+    .get('/shop', ShopController.getViewShop)
+    .post('/shop', ShopController.postShopPayLog)
 
 
 
 // PLANS VIEWS CONTROLLER
-router.get('/plans', PlansController.getViewPlans);
+    .get('/plans', PlansController.getViewPlans)
 
-router.get('/plan/starter/checkout', PlansController.getViewPlanStarterCheckout);
-router.post('/plan/starter/checkout', PlansController.postSubscription);
+    .get('/plan/starter/checkout', PlansController.getViewPlanStarterCheckout)
+    .post('/plan/starter/checkout', PlansController.postSubscription)
 
-router.get('/plan/pro/checkout', PlansController.getViewPlanProCheckout);
-router.post('/plan/pro/checkout', PlansController.postSubscription);
+    .get('/plan/pro/checkout', PlansController.getViewPlanProCheckout)
+    .post('/plan/pro/checkout', PlansController.postSubscription)
 
-router.get('/plan/premium/checkout', PlansController.getViewPlanPremiumCheckout);
-router.post('/plan/premium/checkout', PlansController.postSubscription);
+    .get('/plan/premium/checkout', PlansController.getViewPlanPremiumCheckout)
+    .post('/plan/premium/checkout', PlansController.postSubscription)
 
 
 
 // AUTH VIEWS CONTROLLER
-router.get('/login', userIsAlreadyLoggedIn, AuthController.getViewLogin);
-router.post('/login', userIsAlreadyLoggedIn, AuthController.postLogin);
+    .get('/login', userIsAlreadyLoggedIn, AuthController.getViewLogin)
+    .post('/login', userIsAlreadyLoggedIn, AuthController.postLogin)
 
-router.get('/register', userIsAlreadyLoggedIn, AuthController.getViewRegister);
-router.post('/register', userIsAlreadyLoggedIn, AuthController.postRegister);
+    .get('/register', userIsAlreadyLoggedIn, AuthController.getViewRegister)
+    .post('/register', userIsAlreadyLoggedIn, AuthController.postRegister)
 
-router.get('/forgetPassword', userIsAlreadyLoggedIn, AuthController.getViewForgetPassword);
-router.post('/forgetPassword', userIsAlreadyLoggedIn, AuthController.postForgetPassword);
+    .get('/forgetPassword', userIsAlreadyLoggedIn, AuthController.getViewForgetPassword)
+    .post('/forgetPassword', userIsAlreadyLoggedIn, AuthController.postForgetPassword)
 
-router.get('/confirmEmail/:email/:token', AuthController.verifyIfConfirmEmailURLIsValid);
+    .get('/confirmEmail/:email/:token', AuthController.verifyIfConfirmEmailURLIsValid)
 
-router.get('/resetPassword/:email/:token', userIsAlreadyLoggedIn, AuthController.getViewResetPassword);
-router.post('/resetPassword', userIsAlreadyLoggedIn, AuthController.postResetPassword);
+    .get('/resetPassword/:email/:token', userIsAlreadyLoggedIn, AuthController.getViewResetPassword)
+    .post('/resetPassword', userIsAlreadyLoggedIn, AuthController.postResetPassword)
 
-router.get('/github/callback', userIsAlreadyLoggedIn, AuthController.loginGitHub);
-router.get('/facebook/callback', userIsAlreadyLoggedIn, AuthController.loginFacebook);
-router.get('/google/callback', userIsAlreadyLoggedIn, AuthController.loginGoogle);
+    .get('/github/callback', userIsAlreadyLoggedIn, AuthController.loginGitHub)
+    .get('/facebook/callback', userIsAlreadyLoggedIn, AuthController.loginFacebook)
+    .get('/google/callback', userIsAlreadyLoggedIn, AuthController.loginGoogle)
 
 
 
 // PROFILE CONTROLLER
-router.get('/profile', userIsNotLoggedIn, ProfileController.getViewProfile);
-router.post('/profile', userIsNotLoggedIn, ProfileController.updateProfile);
+    .get('/profile', userIsNotLoggedIn, ProfileController.getViewProfile)
+    .post('/profile', userIsNotLoggedIn, ProfileController.updateProfile)
 
-router.post('/profile/avatar', userIsNotLoggedIn, ProfileController.updateProfileAvatar);
+    .post('/profile/avatar', userIsNotLoggedIn, ProfileController.updateProfileAvatar)
 
-router.get('/logout', userIsNotLoggedIn, ProfileController.getLogout);
+    .get('/logout', userIsNotLoggedIn, ProfileController.getLogout)
 
 
 module.exports = router;
