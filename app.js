@@ -8,7 +8,6 @@
 
 // MODULES
 require('dotenv').config();
-const express = require('express');
 const mustache = require('mustache-express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -37,7 +36,7 @@ global.SESSION_USER = null;
 
 
 // LocalHost HTTP
-const app = express();
+const app = require('express')()
 
 
 // LOGS 

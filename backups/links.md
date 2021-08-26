@@ -1,0 +1,5 @@
+- https://neilpatel.com/br/blog/robots-txt/
+- https://medium.com/@pimterry/host-your-node-app-on-dokku-digitalocean-1cb97e3ab041
+- https://www.codegrepper.com/code-examples/javascript/javascript+sort+array+of+objects
+- https://www.w3schools.com/js/js_array_sort.asp
+- https://devhints.io/knex
