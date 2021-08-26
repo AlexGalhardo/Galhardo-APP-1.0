@@ -280,6 +280,7 @@
                                         <button type="submit" class="btn btn-outline-success btn-block shadow w-100 disabled" disabled>
                                             Pay $<span id="button_pay_pagarme_card">6.46</span>
                                         </button>
+                                        <!--<button id="pagarme_pay_button">Pay with PagarME</button>-->
                                     </div>
 
                                 </div>
@@ -349,6 +350,41 @@
 
     <!-- SHIPMENT PRICE -->
     <script src="scripts/shop.js"></script>
+
+    <script>
+      var button = document.querySelector('#pagarme_pay_button');
+      
+      // Abrir o modal ao clicar no botão
+      button.addEventListener('click', function() {     
+            
+        // inicia a instância do checkout
+        var checkout = new PagarMeCheckout.Checkout({
+          encryption_key: 'ek_test_hgxZnjj6oMglBivPOMQcCXO5ws02Pk',
+          success: function(data) {
+            console.log(data);
+          },
+          error: function(err) {
+            console.log(err);
+          },
+          close: function() {
+            console.log('The modal has been closed.');
+          }
+        });             
+
+        checkout.open({
+          amount: 10000,
+          customerData: 'true',
+          createToken: 'true',
+                items: [{
+            id: '1',
+            title: ‘ebook’,
+            unit_price: 1500,
+            quantity: 1,
+            tangible: 'false'
+          }]
+        })
+      });
+    </script>
 
     {{/user}}
 
