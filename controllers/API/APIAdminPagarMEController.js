@@ -9,7 +9,7 @@
  */
 
 
-const pagarmeModule = require('pagarme');
+const pagarme = require('pagarme');
 
 
 // helpers
@@ -23,22 +23,12 @@ const pagarmeModule = require('pagarme');
 // const StripeModel = require('../../models/SQLITE/Stripe');
 // const StripeModel = require('../../models/MONGODB/Stripe');
 
-let pagarme
-
-(async function(){
-    try {
-        pagarme = await pagarmeModule.client.connect({ api_key: process.env.PAGARME_AK_TEST })    
-    }
-    catch(err){
-        console.log(err)
-    }
-    
-})()
 
 
 class APIAdminPagarMEController {
 
-    async postCreateStripeCustomer(req, res){
+
+    postCreateStripeCustomer(req, res){
 
         const { user_id, 
                 name,
@@ -47,23 +37,24 @@ class APIAdminPagarMEController {
                 phone, 
                 birthday } = req.body
 
-        customer = await pagarme.customers.create({
-            external_id: user_id,
-            name: name,
-            type: 'individual',
-            country: 'br',
-            email: email,
-            documents: [
-              {
-                type: 'cpf',
-                number: cpf
-              }
-            ],
-            phone_numbers: [phone],
-            birthday: birthday
-          })
-        
-        res.json({ customer })
+        pagarme.client.connect({ api_key: process.env.PAGARME_AK_TEST })
+            .then(client => client.customers.create({
+                external_id: '#12345d789',
+                name: 'João das Neves',
+                type: 'individual',
+                country: 'br',
+                email: 'joaoneves@norte.com',
+                documents: [
+                  {
+                    type: 'cpf',
+                    number: '11111111111'
+                  }
+                ],
+                phone_numbers: ['+5511999999999', '+5511888888888'],
+                birthday: '1985-01-01'
+            })
+            .then(customer => console.log(customer))
+            .catch(err => console.log(err, err.response.errors)))
     }
 
 }

@@ -4,3 +4,4 @@
 - https://www.w3schools.com/js/js_array_sort.asp
 - https://devhints.io/knex
 - https://beta.dashboard.sandbox.pagar.me/
+- https://pt.stackoverflow.com/questions/191752/como-funciona-o-yield-no-javascript/191780#191780
