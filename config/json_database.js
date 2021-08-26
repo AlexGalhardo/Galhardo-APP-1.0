@@ -1,9 +1,5 @@
 const fs = require('fs-extra')
 
-const JSON_DATABASE_FILE = "./database.json";
-const database = JSON.parse(fs.readFileSync(JSON_DATABASE_FILE));
+const json_database = JSON.parse(fs.readFileSync(process.env.JSON_DATABASE_FILE));
 
-module.exports = {
-	JSON_DATABASE_FILE,
-	database
-}
+module.exports = json_database

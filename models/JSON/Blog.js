@@ -4,7 +4,7 @@ const DateTime = require('../../helpers/DateTime');
 
 var slugify = require('slugify')
 
-const { JSON_DATABASE_FILE, database } = require('../../config/json_database');
+const database = require('../../config/json_database');
 
 class Blog {
 
@@ -13,9 +13,9 @@ class Blog {
 			database.blog[i].id = i+1
 		}
 
-	    fs.writeFileSync(JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
+	    fs.writeFileSync(process.env.JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
 	      if (error) {
-	        console.log(`Error writing file in ${JSON_DATABASE_FILE}: `, error);
+	        console.log(`Error writing file in ${process.env.JSON_DATABASE_FILE}: `, error);
 	        return false
 	      }
 	    });
