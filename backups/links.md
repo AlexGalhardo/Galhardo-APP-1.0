@@ -17,3 +17,6 @@
 - https://beta.dashboard.sandbox.pagar.me/
 - https://docs.pagar.me/docs/configura%C3%A7%C3%B5es-do-checkout
 - https://codepen.io/pagarme/pen/YrgeLP
+
+## PIX
+- https://www.bcb.gov.br/estabilidadefinanceira/pix

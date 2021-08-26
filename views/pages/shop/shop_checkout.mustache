@@ -211,7 +211,7 @@
                             
                                     <div>
                                         <button type="submit" class="btn btn-outline-success btn-block shadow w-100">
-                                            Pay $<span id="button_pay_stripe">6.46</span>
+                                            Pay $<span class="button_pay">6.46</span>
                                         </button>
                                     </div>
 
@@ -223,109 +223,43 @@
   
 
 
-                        <!-- PAGARME CREDIT CARD -->
-                        <div class="accordion-item">
-                            
-
-                            <h2 class="accordion-header" id="heading_pagarme">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePagarMeCard" aria-expanded="false" aria-controls="collapsePagarMeCard">
-                                    PagarME Credit Card (BRL - R$)
-                                </button>
-                            </h2>
-                        
-                            <div id="collapsePagarMeCard" class="accordion-collapse collapse" aria-labelledby="heading_pagarme" data-bs-parent="#accordion_payments">
-                                
-                                <div class="accordion-body">
-                            
-                                    <div id="div_pagarme_credit_card"></div>
-
-                                    <div class="form-floating mb-3 mt-3">
-                                        <input type="text" class="form-control" name="pagarme_holder_name" id="pagarme_holder_name" value="{{stripe.card_holder_name}}">
-                                        <label for="pagarme_holder_name">CARD_HOLDER_NAME</label>
-                                    </div>
-
-                                    <div class="form-group mb-2">
-                                        <div class="input-group">
-                                            <input type="text" name="pagarme_card_number" placeholder="Credit Card Number" class="form-control" value="4242424242424242" required>
-                                            <div class="input-group-append"> 
-                                                <span class="input-group-text text-muted"> <i class="bi bi-credit-card h-100"></i> </span> 
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <span class="hidden-xs">
-                                                    <h6 class="text-muted small">Expiration Date</h6>
-                                                </span>
-                                                <div class="input-group">
-                                                    <input type="number" placeholder="Month" name="pagarme_card_exp_month" min="1" max="12" step="1" class="form-control" value="08" required>
-                                                    <input type="number" placeholder="Year" name="pagarme_card_exp_year" min="2021" step="1" class="form-control" required value="2022"> 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group mb-4">
-                                                <label data-toggle="tooltip" title="Digite os 3 dígitos de segurança atrás do Credit Card.">
-                                                <h6 class="text-muted small">CVV
-                                                    <i class="fa fa-question-circle d-inline"></i>
-                                                </h6>
-                                                <input type="text" name="pagarme_card_cvc" required class="form-control disabled" placeholder="Code CVV" value="314" disabled> </div>
-                                        </div>
-                                    </div>
-                            
-                                    <div>
-                                        <button type="submit" class="btn btn-outline-success btn-block shadow w-100 disabled" disabled>
-                                            Pay $<span id="button_pay_pagarme_card">6.46</span>
-                                        </button>
-                                        <!--<button id="pagarme_pay_button">Pay with PagarME</button>-->
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END PAGARME CARD -->
-                
-
-
-
-                        <!-- BOLETO BANCÁRIO -->
+                        <!-- PAGARME CHECKOUT -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="heading_boleto">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBoleto" aria-expanded="false" aria-controls="collapseBoleto">
-                                    PagarME Bank Slip (BRL - R$)
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePagarMECheckout" aria-expanded="false" aria-controls="collapsePagarMECheckout">
+                                    PagarME Checkout (BRL - R$)
                                 </button>
                             </h2>
-                            <div id="collapseBoleto" class="accordion-collapse collapse" aria-labelledby="heading_boleto" data-bs-parent="#accordion_payments">
+                            <div id="collapsePagarMECheckout" class="accordion-collapse collapse" aria-labelledby="heading_boleto" data-bs-parent="#accordion_payments">
                                 <div class="accordion-body">
-                                    <button disabled type="submit" class="btn btn-outline-primary btn-block shadow w-100">
-                                        Gerar PDF Boleto Bancário
-                                    </button>
+                                    <div>
+                                        <button class="btn btn-outline-success" id="pagarme_pay_button">Pay R$ <span class="button_pay">6.46</span> with PagarME Checkout</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- END PAGARME CHECKOUT -->
 
 
 
 
-                        <!-- PIX -->
+
+                        <!-- PAGARME LINK -->
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading_pix">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePix" aria-expanded="false" aria-controls="collapsePix">
-                                PIX (BRL - R$)
-                              </button>
+                            <h2 class="accordion-header" id="heading_boleto">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePagarMELink" aria-expanded="false" aria-controls="collapsePagarMELink">
+                                    PagarME Link (BRL - R$)
+                                </button>
                             </h2>
-                            <div id="collapsePix" class="accordion-collapse collapse" aria-labelledby="heading_pix" data-bs-parent="#accordion_payments">
+                            <div id="collapsePagarMELink" class="accordion-collapse collapse" aria-labelledby="heading_boleto" data-bs-parent="#accordion_payments">
                                 <div class="accordion-body">
-                                    <button type="submit" class="btn btn-outline-primary btn-block shadow w-100" disabled>
-                                        Gerar QR Code PIX
-                                    </button>
+                                    <div>
+                                        <button class="btn btn-outline-success" id="pagarme_pay_button">Pay R$ <span class="button_pay">6.46</span> with PagarME Link</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
+                        <!-- END PAGARME LINK -->
 
 
                     </div>
@@ -352,38 +286,110 @@
     <script src="scripts/shop.js"></script>
 
     <script>
-      var button = document.querySelector('#pagarme_pay_button');
-      
-      // Abrir o modal ao clicar no botão
-      button.addEventListener('click', function() {     
-            
-        // inicia a instância do checkout
-        var checkout = new PagarMeCheckout.Checkout({
-          encryption_key: 'ek_test_hgxZnjj6oMglBivPOMQcCXO5ws02Pk',
-          success: function(data) {
-            console.log(data);
-          },
-          error: function(err) {
-            console.log(err);
-          },
-          close: function() {
-            console.log('The modal has been closed.');
-          }
-        });             
+    var button = document.querySelector('#pagarme_pay_button');
 
-        checkout.open({
-          amount: 10000,
-          customerData: 'true',
-          createToken: 'true',
-                items: [{
-            id: '1',
-            title: ‘ebook’,
-            unit_price: 1500,
-            quantity: 1,
-            tangible: 'false'
-          }]
+        button.addEventListener('click', function() {
+          function handleSuccess (data) {
+            console.log(data);
+          }
+
+          function handleError (data) {
+            console.log(data);
+          }
+
+          var checkout = new PagarMeCheckout.Checkout({
+            encryption_key: 'ek_test_hgxZnjj6oMglBivPOMQcCXO5ws02Pk',
+            success: handleSuccess,
+            error: handleError
+          });
+
+          checkout.open({
+            paymentButtonText: 'Finalizar',
+            amount: 10000,
+            maxInstallments: 3,
+            defaultInstallment: 1,
+            customerData: true,
+            createToken: true,
+            paymentMethods: 'pix,boleto,credit_card',
+            uiColor: '#1ea51c',
+            boletoDiscountPercentage: 10,
+            boletoExpirationDate: '28/08/2021',
+            pixExpirationDate: '28/08/2021',
+            postbackUrl: "http://localhost:3000/shop/pagarme/status",
+            items: [
+              {
+                id: '1',
+                title: 'Oranges',
+                unit_price: 49,
+                quantity: 1,
+                tangible: true
+              },
+              {
+                id: '2',
+                title: 'Grapes',
+                unit_price: 99,
+                quantity: 1,
+                tangible: true
+              },
+              {
+                id: '3',
+                title: 'Apples',
+                unit_price: 199,
+                quantity: 1,
+                tangible: true
+              },
+              {
+                id: '4',
+                title: 'Strawberries',
+                unit_price: 299,
+                quantity: 1,
+                tangible: true
+              }
+            ],
+            customer: {
+              external_id: {{user.id}},
+              name: {{user.name}},
+              type: 'individual',
+              country: 'br',
+              email: {{user.email}},
+              documents: [
+                {
+                  type: 'cpf',
+                  number: {{user.document}},
+                },
+              ],
+              phone_numbers: ['+5511999998888'],
+              birthday: '1985-01-01',
+            },
+            billing: {
+              name: {{user.name}},
+              address: {
+                country: 'br',
+                state: 'SP',
+                city: 'São Paulo',
+                neighborhood: 'Fulanos bairro',
+                street: 'Rua dos fulanos',
+                street_number: '123',
+                zipcode: '05170060'
+              }
+            },
+            shipping: {
+              name: {{user.name}},
+              fee: 12345,
+              delivery_date: '2017-12-25',
+              expedited: false,
+              address: {
+                country: 'br',
+                state: 'SP',
+                city: 'São Paulo',
+                neighborhood: 'Fulanos bairro',
+                street: 'Rua dos fulanos',
+                street_number: '123',
+                zipcode: '05170060'
+              }
+            }
         })
-      });
+    });
     </script>
 
     {{/user}}
