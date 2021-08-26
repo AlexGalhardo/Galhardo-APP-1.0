@@ -6,6 +6,9 @@
  * 
  * 
  * http://localhost:3000/admin
+ * http://localhost:3000/admin/blog
+ * http://localhost:3000/admin/games
+ * http://localhost:3000/admin/books
  */
 
 const Blog = require('../../models/JSON/Blog');

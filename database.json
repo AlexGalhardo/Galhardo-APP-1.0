@@ -8,7 +8,7 @@
       "confirm_email_token": null,
       "password": "$2b$12$qmFqKwOkAfdQLy04VBtOLObd6FUU7H2P3XKa1f95JbKlLgjyOy4kG",
       "reset_password_token": null,
-      "admin": false,
+      "admin": true,
       "avatar": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2_alex.jpeg",
       "document": "44557777777",
       "phone": "18999999999",

@@ -1,6 +1,6 @@
 {
   "name": "galhardo-app",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "A simple Web App project for lifetime learning.",
   "main": "app.js",
   "author": "Alex Galhardo",
@@ -21,7 +21,10 @@
     "galhardoapp",
     "crud",
     "mysql2",
-    "mongodb"
+    "mongodb",
+    "postgresql",
+    "sqlite3",
+    "api"
   ],
   "dependencies": {
     "aws-sdk": "^2.973.0",
@@ -55,6 +58,7 @@
     "node-fetch": "^2.6.1",
     "node-google-login": "^1.0.1",
     "nodemailer": "^6.6.3",
+    "pagarme": "^4.19.3",
     "pagination": "^0.4.6",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",

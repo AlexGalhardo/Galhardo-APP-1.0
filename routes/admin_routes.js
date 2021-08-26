@@ -10,9 +10,7 @@
 
 
 // INIT EXPRESS 
-const express = require('express');
-const router = express.Router();
-
+const router = require('express').Router()
 
 
 // ADMIN CONTROLLER
@@ -21,13 +19,13 @@ const AdminController = require('../controllers/ADMIN/AdminController');
 
 
 // ADMIN VIEWS STRIPE CONTROLLERS
-const StripeCustomersController = require('../controllers/ADMIN/StripeCustomersController');
-const StripeCardsController = require('../controllers/ADMIN/StripeCardsController');
-const StripeChargesController = require('../controllers/ADMIN/StripeChargesController');
-const StripePlansController = require('../controllers/ADMIN/StripePlansController');
-const StripeSubscriptionsController = require('../controllers/ADMIN/StripeSubscriptionsController');
-const StripeProductsController = require('../controllers/ADMIN/StripeProductsController');
-const StripePricesController = require('../controllers/ADMIN/StripePricesController');
+const StripeCustomersController = require('../controllers/ADMIN/Stripe/StripeCustomersController');
+const StripeCardsController = require('../controllers/ADMIN/Stripe/StripeCardsController');
+const StripeChargesController = require('../controllers/ADMIN/Stripe/StripeChargesController');
+const StripePlansController = require('../controllers/ADMIN/Stripe/StripePlansController');
+const StripeSubscriptionsController = require('../controllers/ADMIN/Stripe/StripeSubscriptionsController');
+const StripeProductsController = require('../controllers/ADMIN/Stripe/StripeProductsController');
+const StripePricesController = require('../controllers/ADMIN/Stripe/StripePricesController');
 
 
 
