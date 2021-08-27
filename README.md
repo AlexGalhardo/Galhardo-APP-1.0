@@ -15,7 +15,7 @@
    - email: test@gmail.com
    - password: test123
 - **IMPORTANT:**
-   - **All transactions in this live demo use my SK_TEST DEVELOPMENT Stripe KEY in SANDBOX Environment**
+   - **All transactions in this live demo are made in a SANDBOX Environment**
    - **NO REAL Money Transactions will be made**
    - **All CRUDs in this Live Demo are made in JSON DataBase, for obvious reasons.**
 
@@ -68,12 +68,12 @@
 - AWS
    - DevOps, DNS, How to configure SSL/HTTPs in a VPS, etc
 - Docker and DataBases
-   - MySQL, Postgres, SQLite, Redis, Adminer and MongoDB
+   - MySQL, Postgres, SQLite, Redis and MongoDB
 - Payments REST APIs
-   - Stripe
-      - For Credit Card USD 
-   - PagarME
-      - For BRL and Bank Slip (Boleto Bancário)
+   - Stripe (https://stripe.com/docs/api)
+      - For USD Transactions
+   - PagarME (https://docs.pagar.me/docs/overview-principal)
+      - For BRL and Bank Slip (Boleto Bancário) Transactions
    - PIX
    - Subscription, Ecommerce, Shop Checkouts
    - ZipCode for Shipping Address, Fee and Deadline
@@ -82,7 +82,7 @@
 - Testing
    - White Box, Black Box, Regression, Usability, Security, Integration, Performance, Functional, etc
 - Code best practices
-   - MVC, CRUDs, ESLint, Prettier, Design Patterns, etc
+   - MVC, 12Factor APP, ESLint, Prettier, Design Patterns, etc
 - Google Tools
    - SEO, CDN, Analytics, Search Console, Sitemap, Robots.txt, etc
 - Logs
@@ -151,7 +151,7 @@
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile
    - [ ] CRUD APIs
-- Deploy on AWS LightSail
+- Deploy on a VPS (AWS or DigitalOcean)
    - [ ] Using SQL or MongoDB
    - [ ] Using NGINX as Reverse Proxy
    - [ ] Using NGINX as Load Balancing

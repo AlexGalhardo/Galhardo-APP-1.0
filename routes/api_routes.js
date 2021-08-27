@@ -11,12 +11,17 @@
 // MODULES
 const jwt = require('jsonwebtoken')
 
+
 // INIT EXPRESS 
-const express = require('express')
-const router = express.Router()
+const router = require('express').Router()
+
 
 // MODELS
 const Users = require('../models/JSON/Users')
+// const Users = require('../models/MYSQL/Users')
+// const Users = require('../models/POSTGRES/Users')
+// const Users = require('../models/SQLITE/Users')
+// const Users = require('../models/MONGODB/Users')
 
 
 // API CONTROLLERS
@@ -27,10 +32,13 @@ const APIProfileController = require('../controllers/API/APIProfileController')
 const APIPublicController = require('../controllers/API/APIPublicController')
 
 const APIAdminController = require('../controllers/API/APIAdminController')
+
 const APIAdminBlogController = require('../controllers/API/APIAdminBlogController')
 const APIAdminGameController = require('../controllers/API/APIAdminGameController')
 const APIAdminBookController = require('../controllers/API/APIAdminBookController')
+
 const APIAdminStripeController = require('../controllers/API/APIAdminStripeController')
+const APIAdminPagarMEController = require('../controllers/API/APIAdminPagarMEController')
 
 
 
@@ -197,6 +205,24 @@ router
     .post('/admin/stripe/subscriptions/create', verifyAPIAdminJWTToken, APIAdminStripeController.postCreateSubscription)
 
     .post('/admin/stripe/subscriptions/cancel', verifyAPIAdminJWTToken, APIAdminStripeController.postCancelSubscription)
+
+
+
+
+
+//  ---------------- ADMIN PAGARME
+
+// CUSTOMERS
+    // .get('/admin/pagarme/customers/listAll/:limit', verifyAPIAdminJWTToken, APIAdminPagarMEController.getCustomersListAll)
+
+    // .get('/admin/pagarme/customers/retrieve/:customer_id', verifyAPIAdminJWTToken, APIAdminPagarMEController.getRetrieveCustomer)
+
+    .post('/admin/pagarme/customers/create', verifyAPIAdminJWTToken, APIAdminPagarMEController.postCreateStripeCustomer)
+
+    // .patch('/admin/pagarme/customers/update/:customer_id', verifyAPIAdminJWTToken, APIAdminPagarMEController.patchStripeCustomer)
+
+    // .delete('/admin/pagarme/customers/delete/:customer_id', verifyAPIAdminJWTToken, APIAdminPagarMEController.deleteStripeCustomer)
+
 
 
 module.exports = router;

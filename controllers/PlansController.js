@@ -19,20 +19,29 @@ const Users = require('../models/JSON/Users');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
-const plan_premium = 'plan_JxJMW54dmkHkfF';
-
 
 
 class PlansController {
 
-	static getViewPlans (req, res) {
+	/*constructor(){
+		this.stripe_plan_starter_product_id=
+		this.stripe_plan_starter_price_id=
+
+		this.stripe_plan_pro_product_id=
+		this.stripe_plan_pro_price_id=
+
+		this.stripe_plan_premium_product_id=
+		this.stripe_plan_premium_price_id=
+	}*/
+
+	getViewPlans (req, res) {
 		res.render('pages/plans/plans', {
 			user: SESSION_USER,
 			navbar_plans_active: true
 		});
 	}
 
-	static async createStripeSubscription(customer_id, plan_id) {
+	async createStripeSubscription(customer_id, plan_id) {
 		const subscription = await stripe.subscriptions.create({
 			customer: customer_id,
 		  	items: [
@@ -44,13 +53,12 @@ class PlansController {
 		subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
 		subscription.current_period_start = DateTime.getDateTime(subscription.current_period_start);
 
-		// save transaction into JSON database
 		const subsSaved = await Users.createStripeSubscription(SESSION_USER.id, subscription)
 	
 		return subscription
 	}
 
-	static async createStripeCard(customer_id, 
+	async createStripeCard(customer_id, 
 									card_number, 
 									card_exp_month, 
 									card_exp_year, 
@@ -75,7 +83,7 @@ class PlansController {
 		return card
 	}
 
-	static async verifySubscription(req){
+	async verifySubscription(req){
 		const { customer_stripe_card_id,
 				customer_email, 
 				card_number, 
@@ -139,7 +147,7 @@ class PlansController {
 		}
 	}
 
-	static async getViewPlanStarterCheckout (req, res) {
+	async getViewPlanStarterCheckout (req, res) {
 		if(!req.session.userID){
 			return res.redirect('/login')
 	  	}
@@ -162,7 +170,7 @@ class PlansController {
 	}
 
 
-	static async getViewPlanProCheckout (req, res) {
+	async getViewPlanProCheckout (req, res) {
 		if(!req.session.userID){
 			return res.redirect('/login')
 	  	}
@@ -185,7 +193,7 @@ class PlansController {
 	}
 
 
-	static async getViewPlanPremiumCheckout (req, res) {
+	async getViewPlanPremiumCheckout (req, res) {
 		if(!req.session.userID){
 			return res.redirect('/login')
 	  	}
@@ -207,7 +215,7 @@ class PlansController {
 		});
 	}
 
-	static getSubscriptionBanner (plan_name){
+	getSubscriptionBanner (plan_name){
 		if(plan_name === 'starter'){
     		return `
     		<div class="card mb-4 rounded-3 shadow-sm text-center">
@@ -262,7 +270,7 @@ class PlansController {
     	}
 	}
 
-	static async postSubscription (req, res) {
+	async postSubscription (req, res) {
 
 		const { plan_name } = req.body 
 
@@ -298,7 +306,7 @@ class PlansController {
 
     	console.log('entrou nodemailer', subsTransactionObject)
 
-    	NodeMailer.sendEmailSubscriptionTransaction(subsTransactionObject)
+    	NodeMailer.sendSubscriptionTransaction(subsTransactionObject)
 
 		res.render('pages/plans/planPayLog', {
 			flash: {
@@ -313,4 +321,4 @@ class PlansController {
 	}
 };
 
-module.exports = PlansController;
+module.exports = new PlansController();

@@ -9,13 +9,20 @@
  */
 
 const bodyParser = require('body-parser')
-const DateTime = require('../../helpers/DateTime');
 
-const StripeJSONModel = require('../../models/JSON/Stripe');
-// const StripeMySQLModel = require('../../models/MySQL/Stripe');
-// const StripeMongoDBModel = require('../../models/MONGODB/Stripe');
+
+// helpers
+const DateTime = require('../../../helpers/DateTime')
+
+// models
+const StripeModel = require('../../../models/JSON/Stripe');
+// const StripeModel = require('../../models/MYSQL/Stripe');
+// const StripeModel = require('../../models/MONGODB/Stripe');
+
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
+
+
 
 class StripeSubscriptionsController  {
 	

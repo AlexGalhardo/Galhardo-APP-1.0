@@ -155,180 +155,50 @@
 
                 <!-- PAYMENTS -->
                 <div class="col-lg-4">
-
-                    <!-- START ACCORDION -->
-                    <div class="accordion" id="accordion_payments">
-                      
-                        <!-- STRIPE CREDIT CARD -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading_stripe">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStripe" aria-expanded="false" aria-controls="collapseStripe">
-                                    Stripe Credit Card (USD - $)
-                                </button>
-                            </h2>
-                        
-                            <div id="collapseStripe" class="accordion-collapse collapse" aria-labelledby="heading_stripe" data-bs-parent="#accordion_payments">
-                                
-                                <div class="accordion-body">
                             
-                                    <div id="div_stripe_credit_card"></div>
+                    <div id="div_stripe_credit_card"></div>
 
-                                    <div class="form-floating mb-3 mt-3">
-                                        <input type="text" class="form-control" name="holder_name" id="holder_name" value="{{stripe.card_holder_name}}">
-                                        <label for="holder_name">CARD_HOLDER_NAME</label>
-                                    </div>
-
-                                    <div class="form-group mb-2">
-                                        <div class="input-group">
-                                            <input type="text" name="card_number" placeholder="Credit Card Number" class="form-control" value="4242424242424242" required>
-                                            <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="bi bi-credit-card h-100"></i> </span> </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <span class="hidden-xs">
-                                                    <h6 class="text-muted small">Expiration Date</h6>
-                                                </span>
-                                                <div class="input-group">
-                                                    <input type="number" placeholder="Month" name="card_exp_month" min="1" max="12" step="1" class="form-control" value="08" required>
-                                                    <input type="number" placeholder="Year" name="card_exp_year" min="2021" step="1" class="form-control" required value="2022"> 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group mb-4">
-                                                <label data-toggle="tooltip" title="Digite os 3 dígitos de segurança atrás do Credit Card.">
-                                                <h6 class="text-muted small">CVV
-                                                    <i class="fa fa-question-circle d-inline"></i>
-                                                </h6>
-                                                <input type="text" name="card_cvc" required class="form-control" placeholder="Code CVV" value="314"> 
-                                            </div>
-                                        </div>
-                                    </div>
-                            
-                                    <div>
-                                        <button type="submit" class="btn btn-outline-success btn-block shadow w-100">
-                                            Pay $<span id="button_pay_stripe">6.46</span>
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-  
-
-  
-
-
-                        <!-- PAGARME CREDIT CARD -->
-                        <div class="accordion-item">
-                            
-
-                            <h2 class="accordion-header" id="heading_pagarme">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePagarMeCard" aria-expanded="false" aria-controls="collapsePagarMeCard">
-                                    PagarME Credit Card (BRL - R$)
-                                </button>
-                            </h2>
-                        
-                            <div id="collapsePagarMeCard" class="accordion-collapse collapse" aria-labelledby="heading_pagarme" data-bs-parent="#accordion_payments">
-                                
-                                <div class="accordion-body">
-                            
-                                    <div id="div_pagarme_credit_card"></div>
-
-                                    <div class="form-floating mb-3 mt-3">
-                                        <input type="text" class="form-control" name="pagarme_holder_name" id="pagarme_holder_name" value="{{stripe.card_holder_name}}">
-                                        <label for="pagarme_holder_name">CARD_HOLDER_NAME</label>
-                                    </div>
-
-                                    <div class="form-group mb-2">
-                                        <div class="input-group">
-                                            <input type="text" name="pagarme_card_number" placeholder="Credit Card Number" class="form-control" value="4242424242424242" required>
-                                            <div class="input-group-append"> 
-                                                <span class="input-group-text text-muted"> <i class="bi bi-credit-card h-100"></i> </span> 
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <span class="hidden-xs">
-                                                    <h6 class="text-muted small">Expiration Date</h6>
-                                                </span>
-                                                <div class="input-group">
-                                                    <input type="number" placeholder="Month" name="pagarme_card_exp_month" min="1" max="12" step="1" class="form-control" value="08" required>
-                                                    <input type="number" placeholder="Year" name="pagarme_card_exp_year" min="2021" step="1" class="form-control" required value="2022"> 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group mb-4">
-                                                <label data-toggle="tooltip" title="Digite os 3 dígitos de segurança atrás do Credit Card.">
-                                                <h6 class="text-muted small">CVV
-                                                    <i class="fa fa-question-circle d-inline"></i>
-                                                </h6>
-                                                <input type="text" name="pagarme_card_cvc" required class="form-control disabled" placeholder="Code CVV" value="314" disabled> </div>
-                                        </div>
-                                    </div>
-                            
-                                    <div>
-                                        <button type="submit" class="btn btn-outline-success btn-block shadow w-100 disabled" disabled>
-                                            Pay $<span id="button_pay_pagarme_card">6.46</span>
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END PAGARME CARD -->
-                
-
-
-
-                        <!-- BOLETO BANCÁRIO -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading_boleto">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBoleto" aria-expanded="false" aria-controls="collapseBoleto">
-                                    PagarME Bank Slip (BRL - R$)
-                                </button>
-                            </h2>
-                            <div id="collapseBoleto" class="accordion-collapse collapse" aria-labelledby="heading_boleto" data-bs-parent="#accordion_payments">
-                                <div class="accordion-body">
-                                    <button disabled type="submit" class="btn btn-outline-primary btn-block shadow w-100">
-                                        Gerar PDF Boleto Bancário
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <!-- PIX -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading_pix">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePix" aria-expanded="false" aria-controls="collapsePix">
-                                PIX (BRL - R$)
-                              </button>
-                            </h2>
-                            <div id="collapsePix" class="accordion-collapse collapse" aria-labelledby="heading_pix" data-bs-parent="#accordion_payments">
-                                <div class="accordion-body">
-                                    <button type="submit" class="btn btn-outline-primary btn-block shadow w-100" disabled>
-                                        Gerar QR Code PIX
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-
-
+                    <div class="form-floating mb-3 mt-3">
+                        <input type="text" class="form-control" name="holder_name" id="holder_name" value="{{stripe.card_holder_name}}">
+                        <label for="holder_name">CARD_HOLDER_NAME</label>
                     </div>
-                    <!-- END ACCORDION -->
+
+                    <div class="form-group mb-2">
+                        <div class="input-group">
+                            <input type="text" name="card_number" placeholder="Credit Card Number" class="form-control" value="4242424242424242" required>
+                            <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="bi bi-credit-card h-100"></i> </span> </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <span class="hidden-xs">
+                                    <h6 class="text-muted small">Expiration Date</h6>
+                                </span>
+                                <div class="input-group">
+                                    <input type="number" placeholder="Month" name="card_exp_month" min="1" max="12" step="1" class="form-control" value="08" required>
+                                    <input type="number" placeholder="Year" name="card_exp_year" min="2021" step="1" class="form-control" required value="2022"> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group mb-4">
+                                <label data-toggle="tooltip" title="Digite os 3 dígitos de segurança atrás do Credit Card.">
+                                <h6 class="text-muted small">CVV
+                                    <i class="fa fa-question-circle d-inline"></i>
+                                </h6>
+                                <input type="text" name="card_cvc" required class="form-control" placeholder="Code CVV" value="314"> 
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div>
+                        <button type="submit" class="btn btn-outline-success btn-block shadow w-100">
+                            Pay $<span id="button_pay">6.46</span>
+                        </button>
+                    </div>
 
                 </div>
                 <!-- END PAYMENTS -->

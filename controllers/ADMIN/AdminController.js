@@ -6,20 +6,28 @@
  * 
  * 
  * http://localhost:3000/admin
+ * http://localhost:3000/admin/blog
+ * http://localhost:3000/admin/games
+ * http://localhost:3000/admin/books
  */
+
+
 
 const Blog = require('../../models/JSON/Blog');
 const Games = require('../../models/JSON/Games');
 const Books = require('../../models/JSON/Books');
 
+
+
 class AdminController {
 	
-	/************** BLOG ********************/
+
 	static getViewCreateBlogPost(req, res)  {
 		res.render('pages/admin/createBlogPost', {
 			user: SESSION_USER
 		});
 	}
+
 
 	static postCreateBlogPost (req, res)  {
 		const { blog_title, blog_category, blog_body } = req.body;
@@ -127,7 +135,8 @@ class AdminController {
 
 
 
-	/************** GAME ********************/
+	
+
 	static getViewCreateGame(req, res)  {
 		res.render('pages/admin/createGame', {
 			user: SESSION_USER
@@ -267,7 +276,9 @@ class AdminController {
 
 
 
-	/************** BOOK ********************/
+	
+
+	
 	static getViewCreateBook(req, res)  {
 		res.render('pages/admin/createBook', {
 			user: SESSION_USER
