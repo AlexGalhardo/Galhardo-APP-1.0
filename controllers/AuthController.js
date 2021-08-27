@@ -1,5 +1,5 @@
 /**
- * GALHARDO APP
+ * GALHARDO APP | https://galhardoapp.com
  * Created By © Alex Galhardo  | August 2021-Present
  * aleexgvieira@gmail.com
  * https://github.com/AlexGalhardo
@@ -12,6 +12,8 @@
  * http://localhost:3000/confirmEmail
  */
 
+
+
 const bodyParser = require('body-parser');
 const { validationResult } = require("express-validator");
 const queryString = require('query-string');
@@ -19,16 +21,22 @@ const axios = require('axios');
 const fetch = require('node-fetch');
 const randomToken = require('rand-token');
 
+
 const googleLogin = require('../helpers/GoogleLogin');
 const facebookLogin = require('node-fb-login');
+
 
 const DateTime = require('../helpers/DateTime');
 const Bcrypt = require('../helpers/Bcrypt');
 const NodeMailer = require('../helpers/NodeMailer');
 
+
 const Users = require('../models/JSON/Users');
 
+
 const URL = require('../helpers/URL');
+
+
 
 class AuthController {
 	
@@ -99,10 +107,8 @@ class AuthController {
 
 	static verifyIfConfirmEmailURLIsValid (req, res){
 		const { email, token } = req.params;
-		console.log(email, token)
 
 		const confirmEmailValid = Users.verifyConfirmEmailToken(email, token)
-		console.log(confirmEmailValid)
 
 		if(confirmEmailValid){
 			return res.render('pages/auth/login', {
@@ -126,8 +132,6 @@ class AuthController {
 	    		github_id,
 	    		facebook_id,
 	    		google_id } = req.body;
-
-	    console.log(username, email, password, confirm_password, github_id, facebook_id, google_id);
 
 	    if (!errors.isEmpty()) {
 	        return res.render('pages/auth/register', {
@@ -195,7 +199,8 @@ class AuthController {
         NodeMailer.sendEmailForgetPassword(email, reset_password_token);
 
         if(!resetPasswordTokenCreated){
-            return console.log('reset_password_token not saved in JSON DATABASE!');
+            console.log('reset_password_token not saved in JSON DATABASE!');
+            res.redirect('/login')
         }
 
 		return res.render('pages/auth/forgetPassword', {
@@ -206,11 +211,10 @@ class AuthController {
 		});
 	}
 	
+
 	static getViewResetPassword (req, res){
 		const email = req.params.email;
 		const token = req.params.token;
-
-		console.log(email, token);
 
 		if(!email || !token){
 			return res.redirect('/forgetPassword');
@@ -225,12 +229,11 @@ class AuthController {
 		});
 	}
 
+
 	static postResetPassword (req, res){
 		const email = req.body.email;
 		const newPassword = req.body.new_password;
 		const confirmNewPassword = req.body.confirm_new_password;
-
-		console.log(email, newPassword, confirmNewPassword);
 
 		if(newPassword !== confirmNewPassword){
 			return res.render('pages/auth/resetPassword', {

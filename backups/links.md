@@ -1,6 +1,3 @@
-## MARKETING/SEO
-- https://neilpatel.com/br/blog/robots-txt/
-
 ## DEPLOY
 - https://medium.com/@pimterry/host-your-node-app-on-dokku-digitalocean-1cb97e3ab041
 
@@ -18,5 +15,19 @@
 - https://docs.pagar.me/docs/configura%C3%A7%C3%B5es-do-checkout
 - https://codepen.io/pagarme/pen/YrgeLP
 
+## STRIPE
+- https://dashboard.stripe.com
+
 ## PIX
 - https://www.bcb.gov.br/estabilidadefinanceira/pix
+
+## SOCIAL LOGIN
+- https://github.com/settings/developers
+- https://console.cloud.google.com/apis/credentials
+- https://developers.facebook.com/
+
+## SMTP
+- https://app.sendgrid.com/
+
+## MARKETING/SEO
+- https://neilpatel.com/br/blog/robots-txt/
