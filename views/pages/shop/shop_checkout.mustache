@@ -224,7 +224,7 @@
 
 
                         <!-- PAGARME CHECKOUT -->
-                        <div class="accordion-item">
+                        <div class="accordion-item disabled">
                             <h2 class="accordion-header" id="heading_boleto">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePagarMECheckout" aria-expanded="false" aria-controls="collapsePagarMECheckout">
                                     PagarME Checkout (BRL - R$)
@@ -245,7 +245,7 @@
 
 
                         <!-- PAGARME LINK -->
-                        <div class="accordion-item">
+                        <div class="accordion-item disabled">
                             <h2 class="accordion-header" id="heading_boleto">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePagarMELink" aria-expanded="false" aria-controls="collapsePagarMELink">
                                     PagarME Link (BRL - R$)
@@ -347,22 +347,22 @@
               }
             ],
             customer: {
-              external_id: {{user.id}},
-              name: {{user.name}},
+              external_id: '{{user.id}}',
+              name: '{{user.name}}',
               type: 'individual',
               country: 'br',
-              email: {{user.email}},
+              email: `{{user.email}},
               documents: [
                 {
                   type: 'cpf',
-                  number: {{user.document}},
+                  number: '{{user.document}}',
                 },
               ],
               phone_numbers: ['+5511999998888'],
               birthday: '1985-01-01',
             },
             billing: {
-              name: {{user.name}},
+              name: `{{user.name}}`,
               address: {
                 country: 'br',
                 state: 'SP',
@@ -374,7 +374,7 @@
               }
             },
             shipping: {
-              name: {{user.name}},
+              name: '{{user.name}}',
               fee: 12345,
               delivery_date: '2017-12-25',
               expedited: false,

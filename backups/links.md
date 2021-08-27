@@ -18,5 +18,10 @@
 - https://docs.pagar.me/docs/configura%C3%A7%C3%B5es-do-checkout
 - https://codepen.io/pagarme/pen/YrgeLP
 
+## STRIPE
+- https://dashboard.stripe.com
+- https://stripe.com/docs/payments/accept-a-payment?platform=web
+- https://github.com/stripe-samples/checkout-one-time-payments
+
 ## PIX
 - https://www.bcb.gov.br/estabilidadefinanceira/pix
