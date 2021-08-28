@@ -36,3 +36,6 @@
 
 ## Code Quality
 - https://fabiojanio.medium.com/node-js-express-es6-eslint-sucrase-de-forma-simples-e-r%C3%A1pida-8467fcfae728
+- https://fabiojanio.medium.com/editorconfig-padronizando-caracter%C3%ADsticas-essenciais-768a806ad33c
+- https://editorconfig.org/
+- https://www.npmjs.com/package/eslint
