@@ -3,6 +3,8 @@
  * Created By © Alex Galhardo  | August 2021-Present
  * aleexgvieira@gmail.com
  * https://github.com/AlexGalhardo
+ * 
+ * ./app.js
  */
 
 
@@ -46,6 +48,10 @@ app.use(morgan)
 
 // COMPRESS RESPONSES
 app.use(compression())
+
+
+// Desativa o X-Powered-By: Express
+app.disable('x-powered-by')
 
 
 // CORS
@@ -130,8 +136,4 @@ if(process.env.NODE_ENV === 'production') {
   });
 }*/
 
-
-// START HTTP SERVER WITH PORT
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server running on port ${process.env.PORT}`)
-});
+module.exports = app;
