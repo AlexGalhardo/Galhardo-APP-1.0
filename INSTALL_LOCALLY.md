@@ -44,6 +44,9 @@
 - $ npm start
    - http://localhost:3000
 
+## How To Use Locally with SQLite and Docker
+- In development
+
 ## How To Use Locally with MySQL and Docker
 - In Development
 

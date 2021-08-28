@@ -1,7 +1,6 @@
 ## DEPLOY
 - https://medium.com/@pimterry/host-your-node-app-on-dokku-digitalocean-1cb97e3ab041
 
-
 ## DATABASES
 - https://devhints.io/knex
 
@@ -29,5 +28,11 @@
 ## SMTP
 - https://app.sendgrid.com/
 
-## MARKETING/SEO
+## DIGITAL MARKETING 
 - https://neilpatel.com/br/blog/robots-txt/
+
+## TESTS
+- https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/
+
+## Code Quality
+- https://fabiojanio.medium.com/node-js-express-es6-eslint-sucrase-de-forma-simples-e-r%C3%A1pida-8467fcfae728

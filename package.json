@@ -10,9 +10,9 @@
     "node": "14.17.3"
   },
   "scripts": {
-    "dev": "nodemon -e mustache app.js",
-    "start": "node app.js",
-    "pm2": "pm2 start app.js -i max --name galhardoapp --watch",
+    "dev": "nodemon -e mustache server.js",
+    "start": "node server.js",
+    "pm2": "pm2 start server.js -i max --name galhardoapp --watch",
     "json-database": "json-server --watch database.json --port 4000",
     "test": "jest"
   },
@@ -74,13 +74,20 @@
   },
   "devDependencies": {
     "eslint": "^7.32.0",
-    "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-promise": "^5.1.0",
     "https-localhost": "^4.6.5",
     "insomnia-documenter": "^0.5.4",
     "jest": "^27.0.6",
     "nodemon": "^2.0.12",
-    "sitemap": "^7.0.0"
+    "prettier": "^2.3.2",
+    "sitemap": "^7.0.0",
+    "superagent": "^6.1.0",
+    "supertest": "^6.1.6"
   },
   "optionalDependencies": {
     "fsevents": "2.1.2"
