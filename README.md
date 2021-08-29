@@ -40,6 +40,23 @@
 - MAIN and DEV branchs uses Stripe Payment API
 - PAGARME branch uses PagarME Payment API
 
+## DataBases
+- This project uses 5 DataBases <b>FOR LEARNING PURPORSES</b>:
+   - JSON
+   - SQLITE using Knex Query Builder
+   - MySQL using pure SQL
+   - PostGres using sequelize ORM
+   - MongoDB using Mongoose ORM
+- All Databases use the SAME Model and Methods NAMES.
+- You can choose what DataBase you want to use like this example:
+```js
+const Users = require('../models/JSON/Users');
+// const Users = require('../models/MONGODB/Users');
+// const Users = require('../models/MYSQL/Users');
+// const Users = require('../models/POSTGRES/Users');
+// const Users = require('../models/SQLITE/Users');
+```
+
 ## APIs
 - **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
 ### Public REST APIs Endpoints Examples
