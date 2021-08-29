@@ -33,6 +33,13 @@
    - day/month/year hours:minutes:seconds
    - 23/08/2021 15:52:36
 
+## Payments
+- This project uses 2 APIs for Payments:
+   - USA Stripe for USD ($) Credit Card Transactions
+   - Brasil PagarME for BRL (R$) Credit Card, Bank Slip (Boleto Bancário) and PIX Transactions
+- MAIN and DEV branchs uses Stripe Payment API
+- PAGARME branch uses PagarME Payment API
+
 ## APIs
 - **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
 ### Public REST APIs Endpoints Examples
