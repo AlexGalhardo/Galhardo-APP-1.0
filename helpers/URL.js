@@ -1,3 +1,14 @@
+/**
+ * GALHARDO APP | https://galhardoapp.com
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ *
+ * ./helpers/URL.js
+ */
+
+
 const queryString = require('query-string');
 const googleLogin = require('./GoogleLogin');
 const facebookLogin = require('node-fb-login');

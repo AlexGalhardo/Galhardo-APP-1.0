@@ -47,7 +47,7 @@ class Games {
 
 	static getRandom()  {
 		try {
-			const totalGames = Games.getTotalGames()
+			const totalGames = Games.getTotal()
 		
 			const random_game_index = Math.floor(Math.random() * totalGames) + 1 
 

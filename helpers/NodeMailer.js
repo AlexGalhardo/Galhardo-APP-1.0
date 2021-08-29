@@ -1,12 +1,30 @@
+/**
+ * GALHARDO APP | https://galhardoapp.com
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ *
+ * ./helpers/NodeMailer.js
+ */
+
+
 const nodemailer = require("nodemailer");
 const handlebars = require("handlebars");
-const fs = require("fs");
+const fs = require("fs-extra");
 const path = require("path");
 const randomToken = require('rand-token');
 
-const Users = require('../models/JSON/Users');
-
 const SendGrid = require('../config/SendGrid');
+
+
+const Users = require('../models/JSON/Users');
+// const Users = require('../models/MONGODB/Users');
+// const Users = require('../models/MYSQL/Users');
+// const Users = require('../models/POSTGRES/Users');
+// const Users = require('../models/SQLITE/Users');
+
+
 
 class NodeMailer {
 
@@ -27,7 +45,7 @@ class NodeMailer {
         
         const htmlBody = template(replacements);
 
-        let sendEmail = await SendGrid.sendMail({
+        let emailSend = await SendGrid.sendMail({
             from: process.env.SENDGRID_EMAIL_FROM,
             to: "aleexgvieira@gmail.com",
             subject: `Galhardo APP Contact: ${subject} from ${username}`,
@@ -37,9 +55,7 @@ class NodeMailer {
         
         SendGrid.close();
 
-        console.log(`NodeMailer sendEmailContact: `, sendEmail);
-
-        return sendEmail ? true : false
+        return emailSend ? true : false
     }
 
 
@@ -63,19 +79,16 @@ class NodeMailer {
         
         const htmlBody = template(replacements);
 
-        let sendEmail = await SendGrid.sendMail({
+        let emailSend = await SendGrid.sendMail({
             from: process.env.SENDGRID_EMAIL_FROM,
             to: 'aleexgvieira@gmail.com', //shopTransactionObject.customer_email,
             subject: `Galhardo APP: Shop Transaction ${shopTransactionObject.status}!`,
-            // text: subject,
             html: htmlBody
         });
         
         SendGrid.close();
 
-        console.log(`NodeMailer sendEmailShopTransaction: ${sendEmail}`);
-
-        return sendEmail ? true : false
+        return emailSend ? true : false
     }
 
 
@@ -102,19 +115,16 @@ class NodeMailer {
         
         const htmlBody = template(replacements);
 
-        let sendEmail = await SendGrid.sendMail({
+        let emailSend = await SendGrid.sendMail({
             from: process.env.SENDGRID_EMAIL_FROM,
             to: 'aleexgvieira@gmail.com', //shopTransactionObject.customer_email,
             subject: `Galhardo APP: Subscription Transaction ${subsTransactionObject.status}`,
-            // text: subject,
             html: htmlBody
         });
         
         SendGrid.close();
 
-        console.log(`NodeMailer sendEmailSubscriptionTransaction:`, sendEmail);
-
-        return sendEmail ? true : false
+        return emailSend ? true : false
     }
 
 
@@ -122,17 +132,14 @@ class NodeMailer {
     static async sendConfirmEmailToken (email, confirm_email_token) {
         let confirmEmailLinkURL = `${process.env.APP_URL}/confirmEmail/${email}/${confirm_email_token}`;
 
-        let sendEmail = await SendGrid.sendMail({
+        let emailSend = await SendGrid.sendMail({
             from: process.env.SENDGRID_EMAIL_FROM,
             to: email,
             subject: `GALHARDO APP: Confirm Your Email!`,
             text: `Confirm your email by clicking this link: ${confirmEmailLinkURL}`,
-            //html: ""
         });
         
         SendGrid.close();
-
-        console.log(`NodeMailer sendEmailConfirmEmailToken: ${sendEmail}`);
 
         return emailSend ? true : false
     }
@@ -146,11 +153,8 @@ class NodeMailer {
             to: email,
             subject: `GALHARDO APP: Recover Your Password!`,
             text: `Your password recovery link is: ${resetPasswordLinkURL}`,
-            //html: ""
         });
         SendGrid.close();
-
-        console.log(`NodeMailer sendEmailForgetPassword: `, emailSend);
 
         return emailSend ? true : false
     }

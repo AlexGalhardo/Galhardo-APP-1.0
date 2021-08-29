@@ -12,64 +12,76 @@ const bodyParser = require('body-parser');
 const NodeMailer = require('../helpers/NodeMailer');
 
 const Games = require('../models/JSON/Games');
+// const Games = require('../models/MONGODB/Games');
+// const Games = require('../models/MYSQL/Games');
+// const Games = require('../models/POSTGRES/Games');
+// const Games = require('../models/SQLITE/Games');
+
+
 const Books = require('../models/JSON/Books');
+// const Books = require('../models/MONGODB/Books');
+// const Books = require('../models/MYSQL/Books');
+// const Books = require('../models/POSTGRES/Books');
+// const Books = require('../models/SQLITE/Books');
+
+
 
 class AppController {
-	
-	static getViewHome (req, res) {
-		const game = Games.getRandomGame()
 
-	    res.render('pages/home', {
-	    	game,
-	      	user: SESSION_USER
-	    });
-	}
+    static getViewHome (req, res) {
+        const game = Games.getRandom()
 
-	static getViewBooks (req, res){
-		const book = Books.getRandomBook()
+        res.render('pages/home', {
+            game,
+            user: SESSION_USER
+        });
+    }
 
-	    res.render('pages/books', {
-	    	book,
-	      	user: SESSION_USER
-	    });
-	}
+    static getViewBooks (req, res){
+        const book = Books.getRandom()
 
-	static getViewContact (req, res){
-		res.render('pages/contact', {
-			user: SESSION_USER,
-			contact_active: true,
-		});
-	}
+        res.render('pages/books', {
+            book,
+            user: SESSION_USER
+        });
+    }
 
-	static postContact (req, res){
-		const { contact_username,
-				contact_email,
-				contact_subject,
-				contact_message } = req.body;
+    static getViewContact (req, res){
+        res.render('pages/contact', {
+            user: SESSION_USER,
+            contact_active: true,
+        });
+    }
 
-		if(NodeMailer.sendEmailContact(contact_username, 
-									contact_email, 
-									contact_subject, 
-									contact_message))
-		{
-			return res.render('pages/contact', {
-				flash: {
-					type: 'success',
-					message: 'Message Send!'
-				},
-				user: SESSION_USER
-			});
-		}
+    static postContact (req, res){
+        const { contact_username,
+                contact_email,
+                contact_subject,
+                contact_message } = req.body;
 
-		return res.redirect('/contact')
-	}
+        if(NodeMailer.sendContact(contact_username,
+                                    contact_email,
+                                    contact_subject,
+                                    contact_message))
+        {
+            return res.render('pages/contact', {
+                flash: {
+                    type: 'success',
+                    message: 'Message Send!'
+                },
+                user: SESSION_USER
+            });
+        }
 
-	static getViewPrivacy (req, res){
-		res.render('pages/privacy', {
-			user: SESSION_USER,
-			privacy_active: true
-		});
-	}
+        return res.redirect('/contact')
+    }
+
+    static getViewPrivacy (req, res){
+        res.render('pages/privacy', {
+            user: SESSION_USER,
+            privacy_active: true
+        });
+    }
 };
 
 module.exports = AppController;

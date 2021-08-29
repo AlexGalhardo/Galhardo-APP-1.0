@@ -27,22 +27,24 @@ class Users {
     return true
   }
 
-  static getAllUsers () {
+  static getAll() {
     try {
       return database.users
     } catch (error) {
-      return console.log("ERROR getUsers: ", error);
+      console.log("ERROR getAll: ", error);
+      return null
     };
   }
 
-  static getUserByID(user_id) {
+  static getByID(user_id) {
     try {
       for(let i = 0; i < database.users.length; i++){
         if(database.users[i].id == user_id) return database.users[i]
       }
       return null
     } catch (error) {
-      return console.log("ERROR getUserByID: ", error);
+      console.log("ERROR getByID: ", error);
+      return null
     }
   }
 
@@ -53,9 +55,11 @@ class Users {
       }
       return null
     } catch (error) {
-      return console.log("ERROR getUsers: ",error);
+      console.log("ERROR getUsers: ", error);
+      return null
     }
   }
+
 
   static verifyIfAdminByID(user_id) {
     try {
@@ -70,18 +74,23 @@ class Users {
     }
   }
 
-  static emailIsAlreadyRegistred(email){
+
+
+  static emailRegistred(email){
     try {
       for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email == email){
+        if(database.users[i].email === email){
           return true
         }
       }
       return false
     } catch (error) {
-      return console.log("ERROR emailIsAlreadyRegistred: ", error);
+      console.log("ERROR emailRegistred: ", error);
+      return false
     }
   }
+
+
 
   static verifyConfirmEmailToken (email, token) {
     try {
@@ -107,6 +116,8 @@ class Users {
     }
   }
 
+
+
   static verifyIfEmailIsConfirmed (email) {
     try {
       for(let i = 0; i < database.users.length; i++){
@@ -119,6 +130,8 @@ class Users {
       return console.log("ERROR emailIsAlreadyRegistred: ", error);
     }
   }
+
+
 
   static async verifyLogin(email, password){
     try {
@@ -136,10 +149,12 @@ class Users {
     }
   }
 
-  static async registerUser (userObject) {
+
+
+  static async register(userObject) {
     try {
       
-      if(Users.emailIsAlreadyRegistred(userObject.email)) return false
+      if(Users.emailRegistred(userObject.email)) return false
 
       const passwordHash = await Bcrypt.cryptPassword(userObject.password)
 
@@ -196,7 +211,7 @@ class Users {
 
 
 
-  static storeResetPasswordToken(email, reset_password_token){
+  static createResetPasswordToken(email, reset_password_token){
     try {
       for(let i = 0; i < database.users.length; i++){
         if(database.users[i].email == email){
@@ -219,7 +234,6 @@ class Users {
         if(database.users[i].email === email 
           && 
           database.users[i].reset_password_token === resetPasswordToken){
-          
           return true
         }
         return false
@@ -229,6 +243,23 @@ class Users {
     }
   }
 
+
+  static async resetPassword(email, newPassword){
+    try {
+      for(let i = 0; i < database.users.length; i++){
+        if(database.users[i].email === email){
+            const passwordHash = await Bcrypt.cryptPassword(newPassword)
+            database.users[i].password = passwordHash
+            Users.save(database, 'error resetPassword: ')
+            return true
+        }
+        return false
+      }
+    } catch (error) {
+      console.log("ERROR passwordResetTokenIsValid: ", error);
+      return false
+    }
+  }
 
 
   static async updateProfile(userObject){
@@ -292,7 +323,7 @@ class Users {
     }
   }
 
-  static async deleteProfile(email, password){
+  static async delete(email, password){
     try {
       for(let i = 0; i < database.users.length; i++){
         console.log('entrou', email, database.users[i].email)
@@ -300,7 +331,7 @@ class Users {
           const passwordValid = await Bcrypt.comparePassword(password, database.users[i].password)
           if(passwordValid){
             database.users.splice(i, 1)
-            Users.save(database, "ERROR deleteProfile: ")
+            Users.save(database, "ERROR Users.delete(): ")
             return true
           }
         }

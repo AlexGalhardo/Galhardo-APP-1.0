@@ -11,10 +11,10 @@
 const bodyParser = require('body-parser')
 
 // JSON DATABASE
+const Users = require('../../models/JSON/Users');
 const Blog = require('../../models/JSON/Blog')
 const Games = require('../../models/JSON/Games')
 const Books = require('../../models/JSON/Books')
-
 
 // MYSQL DATABASE
 // const Books = require('../../models/MySQL/Books')
@@ -22,6 +22,19 @@ const Books = require('../../models/JSON/Books')
 
 
 class APIPublicController {
+
+
+    static async getPublicEmailRegistred(req, res, next){
+        try {
+            let emailRegistred = await Users.emailRegistred(req.params.email)
+            return res.json({
+                emailRegistred
+            });
+        }
+        catch(err){
+            next(err);
+        }
+    }
 
 
 	static async getPublicBlog(req, res, next){
@@ -68,7 +81,7 @@ class APIPublicController {
 
 	static async getPublicGames(req, res, next) {
 		try {
-	        let games = await Games.getAllGames()
+	        let games = await Games.getAll()
             return res.json({
                 games
             });	        
@@ -82,7 +95,7 @@ class APIPublicController {
 	static async getPublicGameByID(req, res, next){
 		try {
 			const { game_id } = req.params
-	        let game = await Games.getGameByID(game_id)
+	        let game = await Games.getByID(game_id)
             return res.json({
                 game
             });	        
