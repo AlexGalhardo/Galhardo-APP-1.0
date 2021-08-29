@@ -10,7 +10,7 @@ const SendGrid = require('../config/SendGrid');
 
 class NodeMailer {
 
-    static async sendEmailContact (username, email, subject, message) {
+    static async sendContact (username, email, subject, message) {
         
         const filePath = path.join(__dirname, '../views/emails/contact.html');
         
@@ -44,7 +44,7 @@ class NodeMailer {
 
 
 
-    static async sendEmailShopTransaction (shopTransactionObject) {
+    static async sendShopTransaction (shopTransactionObject) {
         
         const filePath = path.join(__dirname, '../views/emails/shop_transaction.html');
         
@@ -80,7 +80,7 @@ class NodeMailer {
 
 
 
-    static async sendEmailSubscriptionTransaction (subsTransactionObject) {
+    static async sendSubscriptionTransaction (subsTransactionObject) {
         
         const filePath = path.join(__dirname, '../views/emails/subscription_transaction.html');
         
@@ -119,7 +119,7 @@ class NodeMailer {
 
 
 
-    static async sendEmailConfirmEmailToken (email, confirm_email_token) {
+    static async sendConfirmEmailToken (email, confirm_email_token) {
         let confirmEmailLinkURL = `${process.env.APP_URL}/confirmEmail/${email}/${confirm_email_token}`;
 
         let sendEmail = await SendGrid.sendMail({
@@ -137,7 +137,8 @@ class NodeMailer {
         return emailSend ? true : false
     }
 
-    static async sendEmailForgetPassword (email, reset_password_token) {
+
+    static async sendForgetPassword (email, reset_password_token) {
         const resetPasswordLinkURL = `${process.env.APP_URL}/resetPassword/${email}/${reset_password_token}`;
 
         const emailSend = await SendGrid.sendMail({

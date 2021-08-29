@@ -185,7 +185,9 @@ class Users {
     }
   }
 
-  static createResetPasswordToken(email, reset_password_token){
+
+
+  static storeResetPasswordToken(email, reset_password_token){
     try {
       for(let i = 0; i < database.users.length; i++){
         if(database.users[i].email == email){
@@ -199,6 +201,8 @@ class Users {
       return console.log("ERROR createResetPasswordToken: ", error);
     }
   }
+
+
 
   static resetPasswordTokenIsValid(email, resetPasswordToken){
     try {
@@ -379,6 +383,7 @@ class Users {
       console.log("ERROR verifyLoginGoogle: ", error);
     }
   }
+
 
   static verifyLoginFacebook(facebook_id, email){
     try {

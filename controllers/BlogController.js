@@ -76,21 +76,20 @@ class BlogController {
 			return comment
 		});
 
-		// blogPost.comments.sort((a,b) => (a.id < b.id) ? -1 : ((b.id < a.id) ? 1 : 0));
-
 		return blogPost
 	}
+
 
 	static getViewBlogPost (req, res) {
 		const slug = req.params.slug;
 
 		let blogPost = Blog.getBlogPostBySlug(slug)
 
-		blogPost = BlogController.fixComments(blogPost)
-		
-		if(blogPost.comments[0].comment_id < blogPost.comments[1].comment_id) blogPost.comments.reverse()
+        if(blogPost.comments.length){
+            blogPost = BlogController.fixComments(blogPost)
 
-		console.log(blogPost.comments)
+            if(blogPost.comments[0].comment_id < blogPost.comments[1].comment_id) blogPost.comments.reverse()
+        }
 
 		res.render('pages/blog/blogPost', {
 			user: SESSION_USER,
@@ -98,6 +97,7 @@ class BlogController {
 			blog_active: true,
 		});
 	}
+
 
 	static getRenderBootstrapPaginator(current, blogPostsPerPage, totalBlogPosts, searchBlogTitle) {
 

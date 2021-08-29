@@ -27,6 +27,12 @@
 - https://correios.galhardoapp.com/shipping/13560290 (zipcode here)
    - To GET Shipping Deadline and Fee (Correios BRAZIL)
 
+## DateTime
+- This project uses <b>"BRASIL Brasília LocaleDateTime (BRT – Brasília Time em UTC -03:00)</b>
+- Example:
+   - day/month/year hours:minutes:seconds
+   - 23/08/2021 15:52:36
+
 ## APIs
 - **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
 ### Public REST APIs Endpoints Examples
@@ -219,7 +225,7 @@
 
 
 
-## JSON DATABASE STRUCTURE EXAMPLE
+## JSON (and SQL/MongoDB) DATABASE STRUCTURE EXAMPLE
 ```json
 {
   "users": [
@@ -332,13 +338,59 @@
     }
   ],
   "stripe": {
-    "customers": [],
-    "cards": [],
-    "charges": [],
-    "products": [],
-    "prices": [],
-    "plans": [],
-    "subscriptions": []  
+    "shop_transactions": [
+        {
+            "id": 1,
+            "transaction_id": "ch_23poKpIYpaoksopas",
+            "total_amount": 5299,
+            "payment_method": "card_iuahs12ui3a76sl",
+            "currency": "usd",
+            "paid": true,
+            "shipping_fee": 2700,
+            "products_amount": 2599,
+            "products": "[{bananas: 3, amount: 244}, {grapes: 2, amount: 124}, {apples: 5, amount: 99},  {oranges: 4, amount: 399}]",
+            "customer": {
+                "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+                "stripe_id": "cus_iuahsuiasl",
+                "email": "test@gmail.com",
+                "name": "TEST JACK",
+            },
+            "shipping": {
+                "address_zipcode": "13560290",
+                "address_street": "Street Name",
+                "address_street_number": 42,
+                "address_neighborhood": "NeighBorHood",
+                "address_city": "Campinas",
+                "address_state": "São Paulo",
+                "address_country": "Brazil",
+                "carrier": "Brasil Correios",
+            },
+            "created_at": "11/08/2021 20:36:33"
+        }
+    ],
+    "subscriptions_transactions": [
+        {
+            "id": 1,
+            "transaction_id": "sub_kakspOPKkaskpaks",
+            "payment_method": "card_iauhsiuasaps",
+            "currency": "usd",
+            "paid": true,
+            "subs_period_start": "29/09/2021",
+            "subs_period_end": "29/10/2021",
+            "plan": {
+                "id": "plan_id",
+                "name": "PREMIUM",
+                "amount": 499,
+            },
+            "customer": {
+                "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+                "stripe_id": "cus_iuahsuiasl",
+                "email": "test@gmail.com",
+                "name": "TEST JACK",
+            },
+            "created_at": "11/08/2021 20:36:33"
+        }
+    ]
   }
 }
 ```

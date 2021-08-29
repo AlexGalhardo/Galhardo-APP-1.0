@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize  = require('../../config/postgres.js');
+const sequelize  = require('../../config/knex.js');
 
 
 const BookModel = sequelize.define('BookModel', {
@@ -45,7 +45,7 @@ const BookModel = sequelize.define('BookModel', {
 
 
 
-class Books {
+class Users {
 	
 	static async getAllBooks(){
 		let books = await BookModel.findAll({})

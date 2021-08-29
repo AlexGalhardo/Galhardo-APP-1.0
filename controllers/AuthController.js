@@ -4,6 +4,8 @@
  * aleexgvieira@gmail.com
  * https://github.com/AlexGalhardo
  * 
+ *
+ * ./controllers/AuthController.js
  * 
  * http://localhost:3000/login
  * http://localhost:3000/register
@@ -29,17 +31,21 @@ const facebookLogin = require('node-fb-login');
 const DateTime = require('../helpers/DateTime');
 const Bcrypt = require('../helpers/Bcrypt');
 const NodeMailer = require('../helpers/NodeMailer');
+const URL = require('../helpers/URL');
 
 
 const Users = require('../models/JSON/Users');
+// const Users = require('../models/MONGODB/Users');
+// const Users = require('../models/MYSQL/Users');
+// const Users = require('../models/POSTGRES/Users');
+// const Users = require('../models/SQLITE/Users');
 
-
-const URL = require('../helpers/URL');
 
 
 
 class AuthController {
 	
+
 	static async getViewLogin (req, res){
 		const facebookLoginURL = await URL.getFacebookURL()
 		res.render('pages/auth/login', {
@@ -48,6 +54,7 @@ class AuthController {
 			GoogleLoginURL: URL.getGoogleURL
 		});
 	}
+
 	
 	static async postLogin (req, res, next){
 		const errors = validationResult(req);
@@ -101,7 +108,7 @@ class AuthController {
 	
 
 	static getViewRegister (req, res){
-		res.render('pages/auth/register');
+		return res.render('pages/auth/register');
 	}
 	
 
@@ -167,7 +174,7 @@ class AuthController {
 	        	});
 	    	}
 
-	    	NodeMailer.sendEmailConfirmEmailToken(email, confirm_email_token)
+	    	NodeMailer.sendConfirmEmailToken(email, confirm_email_token)
 	        
 	        return res.render("pages/auth/register", {
 	            flash: {
@@ -186,21 +193,22 @@ class AuthController {
 	    }
 	}
 	
+
 	static getViewForgetPassword(req, res){
-		res.render('pages/auth/forgetPassword');
+		return res.render('pages/auth/forgetPassword');
 	}
 	
+
 	static postForgetPassword (req, res){
 		const { email } = req.body;
 		const reset_password_token = randomToken.generate(16);
 
-        const resetPasswordTokenCreated = Users.createResetPasswordToken(email, reset_password_token);
+        const resetPasswordTokenCreated = Users.storeResetPasswordToken(email, reset_password_token);
 
-        NodeMailer.sendEmailForgetPassword(email, reset_password_token);
+        NodeMailer.sendForgetPassword(email, reset_password_token);
 
         if(!resetPasswordTokenCreated){
-            console.log('reset_password_token not saved in JSON DATABASE!');
-            res.redirect('/login')
+            return res.redirect('/login')
         }
 
 		return res.render('pages/auth/forgetPassword', {
@@ -256,6 +264,8 @@ class AuthController {
 		});
 	}
 
+
+
 	static async loginFacebook (req, res){
 		const url_query_code = req.query.code;
 		
@@ -301,6 +311,7 @@ class AuthController {
 			console.log(error)
 		}
 	}
+
 
 	static async loginGitHub (req, res){
 		const code = req.query.code;
@@ -360,15 +371,13 @@ class AuthController {
 	    }
 	}
 
+
 	static async loginGoogle (req, res){
 		const code = req.query.code;
 
 	  	try {
 			const { user } = await googleLogin.getUserProfile(`${code}`)
 			
-			console.log(user)
-
-			// return user registred in database
 			const userRegistred = await Users.verifyLoginGoogle(user.sub, user.email, user.picture)
 	    	
 	    	if(!userRegistred){
@@ -393,7 +402,7 @@ class AuthController {
 		
 		} catch(error){
 			console.log(error)
-			res.redirect('/login')
+			return res.redirect('/login')
 		}
 	}
 }
