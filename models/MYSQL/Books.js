@@ -1,8 +1,13 @@
-const fs = require('fs-extra')
-const fetch = require('node-fetch');
-const DateTime = require('../../helpers/DateTime');
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ * ./models/MYSQL/Books.js
+ */
 
-const mongodb = require('../../config/mongodb');
+const DateTime = require('../../helpers/DateTime');
 
 
 class Books {
@@ -90,7 +95,6 @@ class Books {
 
 	static async updateBookByID(bookObject) {
 		// let stmt = `UPDATE books SET (title, year_release, image, amazon_link, resume, pages, genres, author, updated_at) VALUES (${bookObject.title}, ${bookObject.year_release}, ${bookObject.image}, ${bookObject.amazon_link}, ${bookObject.resume}, ${bookObject.pages}, ${bookObject.genres}, ${bookObject.author}, ${DateTime.getNow()}) WHERE id = ${bookObject.id};`;
-		console.log(bookObject)
 
 		let stmt = `UPDATE books SET title=${bookObject.title} WHERE id=${bookObject.id}`;
 		

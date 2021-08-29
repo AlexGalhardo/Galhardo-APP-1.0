@@ -1,7 +1,18 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ * ./models/MONGODB/Users.js
+ */
+
+const DateTime = require('../../helpers/DateTime');
+
 const { Schema, model, connection, SchemaTypes } = require('mongoose')
 const Bcrypt = require('../../helpers/Bcrypt');
 
-const DateTime = require('../../helpers/DateTime')
+
 
 const schema = new Schema({
 	// _id: SchemaTypes.ObjectId,

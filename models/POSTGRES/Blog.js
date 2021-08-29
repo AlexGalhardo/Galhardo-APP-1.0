@@ -1,8 +1,19 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ * ./models/POSTGRES/Blog.js
+ */
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize  = require('../../config/postgres.js');
 
+const DateTime = require('../../helpers/DateTime');
+const slugify = require('slugify')
 
-const BookModel = sequelize.define('BookModel', {
+const BlogModel = sequelize.define('BlogModel', {
 	id: {
 		primaryKey: true,
 		autoIncrement: true,
@@ -11,26 +22,20 @@ const BookModel = sequelize.define('BookModel', {
 	title: {
 		type: DataTypes.STRING
 	},
-	year_release: {
+	resume: {
 		type: DataTypes.INTEGER
 	},
 	image: {
 		type: DataTypes.STRING
 	},
-	amazon_link: {
+	category: {
 		type: DataTypes.STRING
 	},
-	resume: {
+	body: {
 		type: DataTypes.STRING
 	},
-	pages: {
+	slug: {
 		type: DataTypes.INTEGER
-	},
-	genres: {
-		type: DataTypes.STRING
-	},
-	author: {
-		type: DataTypes.STRING
 	},
 	created_at: {
 		type: DataTypes.STRING
@@ -45,41 +50,17 @@ const BookModel = sequelize.define('BookModel', {
 
 
 
-class Books {
-	
-	static async getAllBooks(){
-		let books = await BookModel.findAll({})
-		return books
-	}
-
-	static async createBook (bookObject) {
-		let bookCreated = await BookModel.create(bookObject)
-		return bookCreated
-	}
-
-	static async updateBookByID(bookObject){
-		let book = await BookModel.findByPk(bookObject.id)
-		if(!book){
-			return null
-		}
-
-		book.title = bookObject.title
-		book.year_release = bookObject.year_release
-		book.image = bookObject.image
-		book.amazon_link = bookObject.amazon_link
-		book.resume = bookObject.resume
-		book.pages = bookObject.pages
-		book.genres = bookObject.genres
-		book.author = bookObject.author
-		await book.save()
-
-		return book
-	}
-
-	static async deleteBookByID(id){
-		console.log(id)
-		await BookModel.destroy({where: {id}})
-	}
+class Blog {
+	static async getPostsByPageLimit(page, limit) {}
+    static getAll() {}
+    static async getTotal() {}
+    static getBySlug(slug) {}
+    static getByID (blog_id) {}
+    static createComment (blog_id, commentObject) {}
+    static deleteCommentByID(blog_id, comment_id) {}
+    static create(blogPostObject) {}
+    static update(blogPostObject) {}
+    static delete(blog_id){}
 }
 
-module.exports = Books;
+module.exports = Blog;

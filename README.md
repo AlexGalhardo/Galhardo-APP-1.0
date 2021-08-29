@@ -21,74 +21,6 @@
    - **NO REAL Money Transactions will be made**
    - **All CRUDs in this Live Demo are made in JSON DataBase, for obvious reasons.**
 
-## MicroServices
-- https://correios.galhardoapp.com/cep/13560290 (zipcode here)
-   - To GET ZipCode/CEP Information (Correios BRAZIL)
-- https://correios.galhardoapp.com/shipping/13560290 (zipcode here)
-   - To GET Shipping Deadline and Fee (Correios BRAZIL)
-
-## DateTime
-- This project uses <b>"BRASIL Brasília LocaleDateTime (BRT – Brasília Time em UTC -03:00)</b>
-- Example:
-   - day/month/year hours:minutes:seconds
-   - 23/08/2021 15:52:36
-
-## Payments
-- This project uses 2 APIs for Payments:
-   - USA Stripe for USD ($) Credit Card Transactions
-   - Brasil PagarME for BRL (R$) Credit Card, Bank Slip (Boleto Bancário) and PIX Transactions
-- MAIN and DEV branchs uses Stripe Payment API
-- PAGARME branch uses PagarME Payment API
-
-## DataBases
-- This project uses 5 DataBases <b>FOR LEARNING PURPORSES</b>:
-   - JSON
-   - SQLITE using Knex Query Builder
-   - MySQL using pure SQL
-   - PostGres using sequelize ORM
-   - MongoDB using Mongoose ORM
-- All Databases use the SAME Model and Methods NAMES.
-- You can choose what DataBase you want to use like this example:
-```js
-const Users = require('../models/JSON/Users');
-// const Users = require('../models/MONGODB/Users');
-// const Users = require('../models/MYSQL/Users');
-// const Users = require('../models/POSTGRES/Users');
-// const Users = require('../models/SQLITE/Users');
-```
-
-## APIs
-- **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
-### Public REST APIs Endpoints Examples
-- BlogPosts
-   - GET https://galhardoapp.com/api/public/blog
-   - GET https://galhardoapp.com/api/public/blog/random
-   - GET https://galhardoapp.com/api/public/blog/:blog_id
-- Games
-   - GET https://galhardoapp.com/api/public/games
-   - GET https://galhardoapp.com/api/public/games/random
-   - GET https://galhardoapp.com/api/public/games/:game_id
-- Books
-   - GET https://galhardoapp.com/api/public/books
-   - GET https://galhardoapp.com/api/public/books/random
-   - GET https://galhardoapp.com/api/public/books/:book_id
-
-### Profile REST API Endpoints Examples
-- Each user registred can use this endpoint to update or delete his account
-- POST https://galhardoapp.com/api/profile/login
-- PATCH https://galhardoapp.com/api/profile/patch
-- DELETE https://galhardoapp.com/api/profile/delete
-
-### ADMIN REST APIs Endpoints Examples
-- Need JWT Token in header authorization bearer token to access all endpoints
-- Examples:
-   - POST https://galhardoapp.com/api/admin/login
-   - POST https://galhardoapp.com/api/admin/test
-   - GET https://galhardoapp.com/api/admin/users
-- You can use ADMIN API to 
-   - Manage your Stripe Account (Transactions, Subscriptions, Create Plans, Update, etc)
-   - CRUD Blog Posts, Games and Books
-
 ## Introduction
 ### I created this project to LEARN and PRATICE in my spare time:
 - JavaScript, JSON, NodeJS, Express, NPM, TypeScript, DOM, Git, Bootstrap5
@@ -132,6 +64,84 @@ const Users = require('../models/JSON/Users');
 
 ## [Install Locally](https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INSTALL_LOCALLY.md)
 
+## MicroServices
+- https://correios.galhardoapp.com/cep/13560290 (zipcode here)
+   - To GET ZipCode/CEP Information (Correios BRAZIL)
+- https://correios.galhardoapp.com/shipping/13560290 (zipcode here)
+   - To GET Shipping Deadline and Fee (Correios BRAZIL)
+
+## DateTime
+- This project uses <b>"BRASIL Brasília LocaleDateTime (BRT – Brasília Time em UTC -03:00)</b>
+- Example:
+   - day/month/year hours:minutes:seconds
+   - 23/08/2021 15:52:36
+
+## Payments
+- This project uses 2 APIs for Payments:
+   - USA Stripe for USD ($) Credit Card Transactions
+   - Brasil PagarME for BRL (R$) Credit Card, Bank Slip (Boleto Bancário) and PIX Transactions
+- MAIN and DEV branchs uses Stripe Payment API
+- PAGARME branch uses PagarME Payment API
+
+## DataBases
+- This project uses 5 DataBases <b>FOR LEARNING PURPORSES</b>:
+   - JSON
+   - SQLITE using Knex Query Builder
+   - MySQL using pure SQL
+   - PostgresSQL using Sequelize ORM
+   - MongoDB using Mongoose ORM
+- All Databases use the SAME Model and Methods NAMES.
+- You can choose what DataBase you want to use like this example:
+```js
+const Games = require('../models/JSON/Games');
+// const Games = require('../models/MONGODB/Games');
+// const Games = require('../models/MYSQL/Games');
+// const Games = require('../models/POSTGRES/Games');
+// const Games = require('../models/SQLITE/Games');
+
+// CRUD
+Games.create(gameObject)
+Games.update(gameObject)
+Games.delete(parseInt(game_id))
+
+Games.getAll() // return array with all game objects
+Games.getByID(parseInt(game_id)) // return game object
+Games.getTotal() // return integer total games
+Games.getRandom() // return a random game object
+```
+
+## APIs
+- **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
+### Public REST APIs Endpoints Examples
+- BlogPosts
+   - GET https://galhardoapp.com/api/public/blog
+   - GET https://galhardoapp.com/api/public/blog/random
+   - GET https://galhardoapp.com/api/public/blog/:blog_id
+- Games
+   - GET https://galhardoapp.com/api/public/games
+   - GET https://galhardoapp.com/api/public/games/random
+   - GET https://galhardoapp.com/api/public/games/:game_id
+- Books
+   - GET https://galhardoapp.com/api/public/books
+   - GET https://galhardoapp.com/api/public/books/random
+   - GET https://galhardoapp.com/api/public/books/:book_id
+
+### Profile REST API Endpoints Examples
+- Each user registred can use this endpoint to update or delete his account
+- POST https://galhardoapp.com/api/profile/login
+- PATCH https://galhardoapp.com/api/profile/patch
+- DELETE https://galhardoapp.com/api/profile/delete
+
+### ADMIN REST APIs Endpoints Examples
+- Need JWT Token in header authorization bearer token to access all endpoints
+- Examples:
+   - POST https://galhardoapp.com/api/admin/login
+   - POST https://galhardoapp.com/api/admin/test
+   - GET https://galhardoapp.com/api/admin/users
+- You can use ADMIN API to 
+   - Manage your Stripe Account (Transactions, Subscriptions, Create Plans, Update, etc)
+   - CRUD Blog Posts, Games and Books
+
 
 ## RoadMap
 - Logs using Winston and Morgan
@@ -168,12 +178,12 @@ const Users = require('../models/JSON/Users');
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile
    - [ ] CRUD APIs
-- Using PostgreSQL DataBase with Docker and Knex Query Builder
+- Using PostgreSQL DataBase with Docker and Sequelize ORM
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile
    - [ ] CRUD APIs
-- Using SQLite DataBase with Sequelize ORM
+- Using SQLite DataBase with Knex Query Builder
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile

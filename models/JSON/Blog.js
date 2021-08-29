@@ -1,5 +1,13 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ * ./models/JSON/Blog.js
+ */
+
 const fs = require('fs-extra')
-const fetch = require('node-fetch');
 const DateTime = require('../../helpers/DateTime');
 
 var slugify = require('slugify')

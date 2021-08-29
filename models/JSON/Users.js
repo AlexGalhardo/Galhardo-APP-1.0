@@ -1,3 +1,12 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ * ./models/JSON/Users.js
+ */
+
 const fs = require('fs-extra')
 const uuid = require('uuid');
 
@@ -18,7 +27,7 @@ class Users {
     return true
   }
 
-  static getUsers () {
+  static getAllUsers () {
     try {
       return database.users
     } catch (error) {

@@ -1,3 +1,12 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ * ./models/MONGODB/Games.js
+ */
+
 const { Schema, model, connection, SchemaTypes } = require('mongoose')
 
 const schema = new Schema({
@@ -27,12 +36,12 @@ const GamesSchema = (connection && connection.models[modelName])
 
 class Games {
 
-	static async createGame(gameObject){
+	static async create(gameObject){
 		let newGame = await GamesSchema.create(gameObject)
 		return newGame
 	}
 
-	static async updateGameByID(gameObject){
+	static async update(gameObject){
 		let game = await GamesSchema.findOne({_id: gameObject.id})
 		
 		game.title = gameObject.title
@@ -50,7 +59,7 @@ class Games {
 		return game
 	}
 
-	static async deleteGameByID(game_id){
+	static async delete(game_id){
 		await GamesSchema.findOneAndDelete({"_id": game_id})
 	}
 }

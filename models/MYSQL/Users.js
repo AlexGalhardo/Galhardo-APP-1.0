@@ -1,126 +1,35 @@
-const fs = require('fs-extra')
-const fetch = require('node-fetch');
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ * ./models/MYSQL/Users.js
+ */
+
 const DateTime = require('../../helpers/DateTime');
 
-const mongodb = require('../../config/mongodb');
-
-
-class Books {
-
-	static async  getAllBooks()  {
-		let stmt = "SELECT * FROM `books`";
-
-		const [ rows ] = await mysql.execute(stmt);
-		
-		console.log(rows)
-
-		return rows ? rows : false
-	}
-
-	static async getTotalBooks()  {
-		let stmt = "SELECT COUNT(*) FROM books";
-
-		const [ rows ] = await mysql.execute(stmt);
-		
-		console.log(rows)
-
-		return rows ? rows : false
-	}
-
-	static async getRandomBook()  {		
-	    const totalBooks = Books.getTotalBooks()
-		
-		const random_book_index = Math.floor(Math.random() * totalBooks) + 1 
-
-	    let stmt = `SELECT * FROM books WHERE id = ${random_book_id}`;
-
-		const [ rows ] = await mysql.execute(stmt);
-		
-		console.log(rows)
-
-		return rows ? rows : false
-	}
-
-	static async getBookByID(book_id) {
-		let stmt = `SELECT * FROM books WHERE id = ${book_id}`;
-
-		const [ rows ] = await mysql.execute(stmt);
-		
-		console.log(rows)
-
-		return rows ? rows : false
-	}
-
-
-	static async createBook(bookObject) {
-
-		let stmt = `INSERT INTO books
-								(title, 
-								year_release, 
-								image, 
-								amazon_link, 
-								resume, 
-								pages, 
-								genres, 
-								author,
-								created_at,
-								updated_at) 
-					VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-		
-		let data = [
-		  	bookObject.title,
-		  	bookObject.year_release,
-            bookObject.image,
-            bookObject.amazon_link,
-            bookObject.resume,
-            bookObject.pages,
-            bookObject.genres,
-            bookObject.author,
-            DateTime.getNow(),
-            DateTime.getNow()
-		];
-
-		const [ rows ] = await mysql.execute(stmt, data);
-		
-		console.log(rows)
-
-		return rows ? rows : false		
-	}
-
-
-	static async updateBookByID(bookObject) {
-		// let stmt = `UPDATE books SET (title, year_release, image, amazon_link, resume, pages, genres, author, updated_at) VALUES (${bookObject.title}, ${bookObject.year_release}, ${bookObject.image}, ${bookObject.amazon_link}, ${bookObject.resume}, ${bookObject.pages}, ${bookObject.genres}, ${bookObject.author}, ${DateTime.getNow()}) WHERE id = ${bookObject.id};`;
-		console.log(bookObject)
-
-		let stmt = `UPDATE books SET title=${bookObject.title} WHERE id=${bookObject.id}`;
-		
-		let data = [
-		  	bookObject.title,
-		  	bookObject.year_release,
-            bookObject.image,
-            bookObject.amazon_link,
-            bookObject.resume,
-            bookObject.pages,
-            bookObject.genres,
-            bookObject.author
-		];
-
-		const [ rows ] = await mysql.execute(stmt);
-		
-		console.log(rows)
-
-		return rows ? rows : false		
-	}
-
-	static async deleteBookByID(book_id){
-		let stmt = `DELETE FROM books WHERE id = ${book_id}`;
-
-		const [ rows ] = await mysql.execute(stmt);
-		
-		console.log(rows)
-
-		return rows.affectedRows ? `Book ID ${book_id} DELETED!` : `Book ID ${book_id} NOT Deleted!`
-	}
+class Users {
+    static getAllUsers () {}
+    static getUserByID(user_id) {}
+    static getUserByEmail(email) {}
+    static verifyIfAdminByID(user_id) {}
+    static emailIsAlreadyRegistred(email){}
+    static verifyConfirmEmailToken (email, token) {}
+    static verifyIfEmailIsConfirmed (email) {}
+    static async verifyLogin(email, password){}
+    static async registerUser (userObject) {}
+    static storeResetPasswordToken(email, reset_password_token){}
+    static resetPasswordTokenIsValid(email, resetPasswordToken){}
+    static async updateProfile(userObject){}
+    static updateAvatarName(avatarName, user_id){}
+    static async deleteProfile(email, password){}
+    static createStripeCustomer(user_id, customer_id){}
+    static createStripeCard(user_id, card_token_id, card_id){}
+    static createStripeSubscription(user_id, subscriptionObject){}
+    static verifyLoginGitHub(github_id, email, avatar){}
+    static verifyLoginGoogle(google_id, email, avatar){}
+    static verifyLoginFacebook(facebook_id, email){}
 }
 
-module.exports = Books;
+module.exports = Users;
