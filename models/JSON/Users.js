@@ -214,15 +214,16 @@ class Users {
   static createResetPasswordToken(email, reset_password_token){
     try {
       for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email == email){
+        if(database.users[i].email === email){
           database.users[i].reset_password_token = reset_password_token
           Users.save(database, 'error createResetPasswordToken: ')
           return true
         }
-        return false
       }
+      return false
     } catch (error) {
-      return console.log("ERROR createResetPasswordToken: ", error);
+      console.log("ERROR createResetPasswordToken: ", error);
+      return false
     }
   }
 

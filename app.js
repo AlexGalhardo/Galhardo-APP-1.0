@@ -18,6 +18,7 @@ const session = require('express-session');
 const { flash } = require('express-flash-message');
 const compression = require('compression');
 const cors = require('cors');
+const { MulterError } = require('multer');
 
 
 // ./config
@@ -114,14 +115,20 @@ app.use((req, res) => {
   
 
 // Handling Errors
-app.use((err, req, res, next) => {
-    // console.log(err);
-    err.statusCode = err.statusCode || 500;
-    err.message = err.message || "Internal Server Error";
-    res.status(err.statusCode).json({
-      message: err.message,
-    });
-});
+const errorHandler= (err, req, res, next) => {
+    res.status(400); // BAD REQUEST
+
+    if(err instanceof MulterError){
+        res.json({error: err.code })
+    } else {
+        console.log(err)
+        res.json({
+            error_name: err.name,
+            error_message: err.message
+        })
+    }
+}
+app.use(errorHandler);
 
 
 /*

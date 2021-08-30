@@ -9,8 +9,8 @@
  */
 
 
-const formidable = require('formidable')
-var fs = require('fs')
+const { unlink } = require('fs/promises');
+const sharp = require('sharp')
 
 const multer = require("multer");
 const multerConfig = require("../config/multer");
@@ -24,23 +24,25 @@ const Users = require('../models/JSON/Users')
 
 class Upload {
 
-	static avatarProfile(req){
+	static async profileAvatar(req){
+        console.log(req.body, req.body.avatar, req.body.file)
 
-		const { avatar } = req.body
+        if(req.file){
+            const filename = `${req.file.filename}.jpg`;
 
-		var form = new formidable.IncomingForm();
+            await sharp(req.file.path)
+                .resize(200, 200)
+                .toFormat('jpeg')
+                .toFile(`./public/uploads/avatars/${filename}`)
 
-		form.parse(req, function (err, fields, files) {
-	    	var oldpath = files.avatar.path;
-	      	
-	      	var newpath = `${APP_ROOT_PATH}/public/uploads/avatars/${req.session.userID}_${files.avatar.name}`;
-	      	
-	      	fs.rename(oldpath, newpath, function (err) {
-	        	if (err) throw err;
-	        })
+            await unlink(req.file.path);
 
-	        Users.updateAvatarName(`${req.session.userID}_${files.avatar.name}`, req.session.userID);
-	    });
+            console.log(`${req.file.filename}.jpg`)
+            Users.updateAvatarName(`${req.file.filename}.jpg`, req.session.userID)
+        } else {
+            res.status(400);
+            return res.json({error: 'Arquivo inválido.'})
+        }
 	}
 
 }

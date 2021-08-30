@@ -11,6 +11,7 @@
 
 // INIT EXPRESS 
 const router = require('express').Router()
+const multer = require('multer')
 
 
 // VIEWS CONTROLLERS
@@ -19,21 +20,39 @@ const BlogController = require('../controllers/BlogController');
 const ShopController = require('../controllers/ShopController');
 const PlansController = require('../controllers/PlansController');
 const AuthController = require('../controllers/AuthController');
-const ProfileController = require('../controllers/ProfileController');
-
 
 
 // ---------------------- MIDDLEWARES 
-const userIsNotLoggedIn = (req, res, next) => {
-	if(!req.session.userID) return res.redirect('/login');
-	next()
-}
-
-
 const userIsAlreadyLoggedIn = (req, res, next) => {
 	if(req.session.userID) return res.redirect('/');
 	next()
 }
+
+
+const storageConfig = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './tmp');
+    },
+    filename: (req, file, cb) => {
+        let randomName = Math.floor(Math.random()*99999)
+        cb(null, `${randomName+Date.now()}.jpg`);
+    }
+});
+
+const upload = multer({
+    dest: './tmp',
+    // storage: multer.memoryStorage(), // salvar na memória ram
+    // storage: storageConfig // salvar em uma pasta temporária
+    fileFilter: (req, file, cb) => {
+        // cb(null, false); // não aceito nada
+        // cb(null, true) // aceito qualquer tipo de arquvio
+
+        const allowed = ['image/jpg', 'image/jpeg', 'image/png'];
+
+        cb(null, allowed.includes(file.mimetype))
+    },
+    limits: { fieldSize: 1000000 } // 1MB
+});
 
 
 
@@ -101,15 +120,6 @@ router
     .get('/facebook/callback', userIsAlreadyLoggedIn, AuthController.loginFacebook)
     .get('/google/callback', userIsAlreadyLoggedIn, AuthController.loginGoogle)
 
-
-
-// PROFILE CONTROLLER
-    .get('/profile', userIsNotLoggedIn, ProfileController.getViewProfile)
-    .post('/profile', userIsNotLoggedIn, ProfileController.updateProfile)
-
-    .post('/profile/avatar', userIsNotLoggedIn, ProfileController.updateProfileAvatar)
-
-    .get('/logout', userIsNotLoggedIn, ProfileController.getLogout)
 
 
 module.exports = router;

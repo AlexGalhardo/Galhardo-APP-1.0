@@ -38,12 +38,11 @@ class URL {
               redirectURI: process.env.FACEBOOK_CALLBACK_URL,
               scopes:["public_profile", "email"]
             })
-
-            console.log(facebookLoginURL)
             return facebookLoginURL
         }
         catch(error){
             console.log(error)
+            return null
         }
     }
 };

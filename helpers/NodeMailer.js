@@ -28,6 +28,7 @@ const Users = require('../models/JSON/Users');
 
 class NodeMailer {
 
+
     static async sendContact (username, email, subject, message) {
         
         const filePath = path.join(__dirname, '../views/emails/contact.html');
@@ -46,8 +47,8 @@ class NodeMailer {
         const htmlBody = template(replacements);
 
         let emailSend = await SendGrid.sendMail({
-            from: process.env.SENDGRID_EMAIL_FROM,
-            to: "aleexgvieira@gmail.com",
+            from: email,
+            to: process.env.GALHARDO_APP_EMAIL,
             subject: `Galhardo APP Contact: ${subject} from ${username}`,
             text: subject,
             html: htmlBody
@@ -148,11 +149,24 @@ class NodeMailer {
     static async sendForgetPassword (email, reset_password_token) {
         const resetPasswordLinkURL = `${process.env.APP_URL}/resetPassword/${email}/${reset_password_token}`;
 
+        const filePath = path.join(__dirname, '../views/emails/forget_password.html');
+
+        const source = fs.readFileSync(filePath, 'utf-8').toString();
+
+        const template = handlebars.compile(source);
+
+        const replacements = {
+            resetPasswordLinkURL
+        };
+
+        const htmlBody = template(replacements);
+
         const emailSend = await SendGrid.sendMail({
             from: process.env.SENDGRID_EMAIL_FROM,
             to: email,
             subject: `GALHARDO APP: Recover Your Password!`,
-            text: `Your password recovery link is: ${resetPasswordLinkURL}`,
+            // text: `Your password recovery link is: ${resetPasswordLinkURL}`,
+            html: htmlBody
         });
         SendGrid.close();
 

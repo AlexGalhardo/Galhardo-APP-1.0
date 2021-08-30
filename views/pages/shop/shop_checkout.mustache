@@ -47,9 +47,9 @@
                         </li>
                           
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <input name="quantityStrawberries" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityStrawberries">
-                            Strawberries  
-                            <b>$<span id="priceStrawberries">2.99</span></b>
+                            <input name="quantityBananas" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityBananas">
+                            Bananas
+                            <b>$<span id="priceBananas">2.99</span></b>
                         </li>
 
                         <li class="list-group-item d-flex justify-content-between align-items-center bg-warning">
@@ -131,7 +131,7 @@
                         <label for="shipping_fee" class="col-sm-5 col-form-label">Shipping Fee R$</label>
                         <div class="col-sm-7 mb-3">
                             <!-- SHIPMENT_PRICE -->
-                            <input type="text" class="form-control" value="" name="shipping_fee" id="shipping_fee" required onkeydown="return false;">
+                            <input type="number" class="form-control" value="0" name="shipping_fee" id="shipping_fee" required onkeydown="return false;">
                         </div>
                         
                         <!-- SHIPPING DEADLINE -->
@@ -213,11 +213,6 @@
 	<script src="scripts/jquery.min.js"></script>
     <script src="scripts/jquery.card.js"></script>
     <script src="scripts/render_credit_card.js"></script>
-
-    <script src="scripts/navbar_apis.js"></script>
-    <script src="scripts/privacy.js"></script>
-
-    <!-- SHIPMENT PRICE -->
     <script src="scripts/shop.js"></script>
 
     {{/user}}

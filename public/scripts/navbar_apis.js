@@ -16,10 +16,13 @@ async function displayCurrentlyDateTime() {
 }
 
 (async function(){
+
     const res = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL');
     const money = await res.json();
-    document.getElementById("dolar").innerHTML = `<b>USD: R$</b> ${money.USDBRL.high}`
-    document.getElementById("euro").innerHTML = `<b>EURO: R$</b> ${money.EURBRL.high}`
+    document.getElementById("dolar").innerHTML = `<b>USD: R$</b> ${parseFloat(money.USDBRL.high).toFixed(2)}`
+    document.getElementById("euro").innerHTML = `<b>EURO: R$</b> ${parseFloat(money.EURBRL.high).toFixed(2)}`
+
+
     const response = await fetch('https://www.mercadobitcoin.net/api/BTC/ticker/');
     const resJson = await response.json()
     document.getElementById("bitcoin").innerHTML = `<b>BITCOIN: R$</b> ${parseFloat(resJson.ticker.buy).toFixed(2)}`

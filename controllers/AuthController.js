@@ -195,16 +195,17 @@ class AuthController {
     }
 
 
-    static postForgetPassword (req, res){
+    static async postForgetPassword (req, res){
         const { email } = req.body;
+
         const reset_password_token = randomToken.generate(16);
 
-        const resetPasswordTokenCreated = Users.createResetPasswordToken(email, reset_password_token);
+        const resetPasswordTokenCreated = await Users.createResetPasswordToken(email, reset_password_token);
 
-        NodeMailer.sendForgetPassword(email, reset_password_token);
-
-        if(!resetPasswordTokenCreated){
-            return res.redirect('/login')
+        console.log(email, reset_password_token, resetPasswordTokenCreated)
+        if(resetPasswordTokenCreated){
+            console.log('entrou')
+            NodeMailer.sendForgetPassword(email, reset_password_token);
         }
 
         return res.render('pages/auth/forgetPassword', {
