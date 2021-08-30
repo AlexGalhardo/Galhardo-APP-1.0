@@ -31,7 +31,7 @@ class Books {
 	}
 
 
-	static getAllBooks()  {
+	static getAll()  {
 		try {
 	      return database.books
 	    } catch (error) {
@@ -40,7 +40,7 @@ class Books {
 	}
 
 
-	static getTotalBooks()  {
+	static getTotal()  {
 		try {
 	      	return database.books.length
 	    } catch (error) {
@@ -50,7 +50,7 @@ class Books {
 	}
 
 
-	static getRandomBook()  {		
+	static getRandom()  {
 		try {
 			const totalBooks = Books.getTotalBooks()
 		
@@ -63,7 +63,7 @@ class Books {
 	}
 
 
-	static getBookByID(book_id) {
+	static getByID(book_id) {
 		try {
       		for(let i=0; i < database.books.length; i++){
         		if(database.books[i].id == book_id){
@@ -77,7 +77,7 @@ class Books {
 	}
 
 
-	static createBook(bookObject) {
+	static create(bookObject) {
 		try {
 			bookObject.id = database.books.length + 1
 			bookObject.updated_at = DateTime.getNow()
@@ -94,7 +94,7 @@ class Books {
 	}
 
 
-	static updateBookByID(bookObject) {
+	static update(bookObject) {
 		try {
       		
       		for(let i=0; i < database.books.length; i++){
@@ -125,7 +125,7 @@ class Books {
 
 
 
-	static deleteBookByID(book_id){
+	static delete(book_id){
 		try {
       		for(let i=0; i < database.books.length; i++){
         		if(database.books[i].id === book_id){
