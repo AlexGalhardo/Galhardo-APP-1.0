@@ -52,7 +52,7 @@ class Books {
 
 	static getRandom()  {
 		try {
-			const totalBooks = Books.getTotalBooks()
+			const totalBooks = Books.getTotal()
 		
 			const random_book_index = Math.floor(Math.random() * totalBooks) + 1 
 
