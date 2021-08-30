@@ -1,3 +1,12 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ * ./models/POSTGRES/Books.js
+ */
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize  = require('../../config/postgres.js');
 
@@ -47,17 +56,17 @@ const BookModel = sequelize.define('BookModel', {
 
 class Books {
 	
-	static async getAllBooks(){
+	static async getAll(){
 		let books = await BookModel.findAll({})
 		return books
 	}
 
-	static async createBook (bookObject) {
+	static async create(bookObject) {
 		let bookCreated = await BookModel.create(bookObject)
 		return bookCreated
 	}
 
-	static async updateBookByID(bookObject){
+	static async update(bookObject){
 		let book = await BookModel.findByPk(bookObject.id)
 		if(!book){
 			return null
@@ -76,9 +85,8 @@ class Books {
 		return book
 	}
 
-	static async deleteBookByID(id){
-		console.log(id)
-		await BookModel.destroy({where: {id}})
+	static async delete(book_id){
+		await BookModel.destroy({where: {book_id}})
 	}
 }
 

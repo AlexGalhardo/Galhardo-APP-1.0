@@ -13,7 +13,7 @@
 
         <form id="form_shop_checkout" action="/shop" method="POST">
 
-            <input type="text" value="6.46" id="total_shop_cart_amount" hidden onkeydown="return false;">
+            <input type="text" value="6.46" id="total_shop_amount" name="total_shop_amount" hidden onkeydown="return false;">
 
           	<div class="row">
 
@@ -47,9 +47,9 @@
                         </li>
                           
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <input name="quantityStrawberries" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityStrawberries">
-                            Strawberries  
-                            <b>$<span id="priceStrawberries">2.99</span></b>
+                            <input name="quantityBananas" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityBananas">
+                            Bananas
+                            <b>$<span id="priceBananas">2.99</span></b>
                         </li>
 
                         <li class="list-group-item d-flex justify-content-between align-items-center bg-warning">
@@ -67,13 +67,13 @@
                 <div class="col-lg-4">
 
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control" name="customer_name" id="customer_name" value="{{name}}">
-                      <label for="name">NAME</label>
+                      <input type="text" class="form-control" name="customer_name" id="customer_name" value="{{name}}" required>
+                      <label for="customer_name">NAME</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                      <input type="email" class="form-control" name="customer_email" id="customer_email" value="{{email}}">
-                      <label for="floatingInput">EMAIL</label>
+                      <input type="email" class="form-control" name="customer_email" id="customer_email" value="{{email}}" required onkeydown="return false;">
+                      <label for="customer_email">EMAIL</label>
                     </div>
 
                     <div class="form-floating mb-3">
@@ -127,11 +127,25 @@
                           <input type="text" class="form-control" id="customer_state" name="customer_state" placeholder="State" value="" required onkeydown="return false;">
                         </div>
 
+                        <!-- COUNTRY -->
+                        <div class="col-sm-12 mb-2">
+                          <input type="text" class="form-control" id="customer_country" name="customer_country" placeholder="Country" value="" required onkeydown="return false;">
+                        </div>
+
+
+                        <!-- SHIPPING CARRIER -->
+                        <label for="shipping_fee" class="col-sm-5 col-form-label">Shipping Carrier</label>
+                        <div class="col-sm-7 mb-3">
+                            <!-- SHIPMENT_PRICE -->
+                            <input type="text" class="form-control" value="" name="shipping_carrier" id="shipping_carrier" required onkeydown="return false;">
+                        </div>
+
+
                         <!-- SHIPPING FEE -->
                         <label for="shipping_fee" class="col-sm-5 col-form-label">Shipping Fee R$</label>
                         <div class="col-sm-7 mb-3">
                             <!-- SHIPMENT_PRICE -->
-                            <input type="text" class="form-control" value="" name="shipping_fee" id="shipping_fee" required onkeydown="return false;">
+                            <input type="text" class="form-control" value="0" name="shipping_fee" id="shipping_fee" required onkeydown="return false;">
                         </div>
                         
                         <!-- SHIPPING DEADLINE -->
@@ -213,11 +227,6 @@
 	<script src="scripts/jquery.min.js"></script>
     <script src="scripts/jquery.card.js"></script>
     <script src="scripts/render_credit_card.js"></script>
-
-    <script src="scripts/navbar_apis.js"></script>
-    <script src="scripts/privacy.js"></script>
-
-    <!-- SHIPMENT PRICE -->
     <script src="scripts/shop.js"></script>
 
     {{/user}}

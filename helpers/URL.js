@@ -1,3 +1,14 @@
+/**
+ * GALHARDO APP | https://galhardoapp.com
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ *
+ * ./helpers/URL.js
+ */
+
+
 const queryString = require('query-string');
 const googleLogin = require('./GoogleLogin');
 const facebookLogin = require('node-fb-login');
@@ -27,12 +38,11 @@ class URL {
               redirectURI: process.env.FACEBOOK_CALLBACK_URL,
               scopes:["public_profile", "email"]
             })
-
-            console.log(facebookLoginURL)
             return facebookLoginURL
         }
         catch(error){
             console.log(error)
+            return null
         }
     }
 };

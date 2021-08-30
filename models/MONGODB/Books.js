@@ -1,3 +1,12 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ * ./models/MONGODB/Books.js
+ */
+
 const { Schema, model, connection, SchemaTypes } = require('mongoose')
 
 const schema = new Schema({

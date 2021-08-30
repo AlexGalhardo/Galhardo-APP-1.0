@@ -1,5 +1,13 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ * ./models/JSON/Games.js
+ */
+
 const fs = require('fs-extra')
-const fetch = require('node-fetch');
 const DateTime = require('../../helpers/DateTime');
 
 const database = require('../../config/json_database');
@@ -20,7 +28,7 @@ class Games {
 	    return true
 	}
 
-	static getAllGames()  {
+	static getAll()  {
 		try {
 	      return database.games
 	    } catch (error) {
@@ -28,7 +36,7 @@ class Games {
 	    };
 	}
 
-	static getTotalGames()  {
+	static getTotal()  {
 		try {
 	      return database.games.length
 	    } catch (error) {
@@ -37,9 +45,9 @@ class Games {
 	    };
 	}
 
-	static getRandomGame()  {		
+	static getRandom()  {
 		try {
-			const totalGames = Games.getTotalGames()
+			const totalGames = Games.getTotal()
 		
 			const random_game_index = Math.floor(Math.random() * totalGames) + 1 
 
@@ -49,7 +57,7 @@ class Games {
 	    };
 	}
 
-	static getGameByID(game_id) {
+	static getByID(game_id) {
 		try {
       		for(let i=0; i < database.games.length; i++){
         		if(database.games[i].id == game_id){
@@ -63,7 +71,7 @@ class Games {
 	}
 
 
-	static createGame(gameObject) {
+	static create(gameObject) {
 		try {
 			gameObject.id = database.games.length + 1
 			gameObject.updated_at = DateTime.getNow()
@@ -78,7 +86,7 @@ class Games {
 
 
 
-	static updateGameByID(gameObject) {
+	static update(gameObject) {
 		try {
       		
       		for(let i=0; i < database.games.length; i++){
@@ -111,8 +119,10 @@ class Games {
 	}
 
 
-
-	static deleteGameByID(game_id){
+    /**
+     * Games.delete(parseInt(game_id))
+     */
+	static delete(game_id){
 		try {
       		for(let i=0; i < database.games.length; i++){
         		if(database.games[i].id === game_id){

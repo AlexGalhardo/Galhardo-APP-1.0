@@ -14,6 +14,9 @@ const bodyParser = require('body-parser');
 const DateTime = require('../helpers/DateTime');
 const NodeMailer = require('../helpers/NodeMailer');
 
+// Models
+const StripeModel = require('../models/JSON/Stripe')
+
 // Stripe
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
@@ -28,27 +31,35 @@ class ShopController {
 	    });
 	}
 
+
+    /**
+     * GET /shop
+     * POST /shop/payLog
+     */
 	static async postShopPayLog (req, res) {
 		
 		const { quantityOranges,
 				quantityGrapes, 
 				quantityApples,
-				quantityStrawberries,
+				quantityBananas,
 				customer_email,
 				customer_name,
 				customer_phone,
 				zipcode,
 				customer_street,
+                customer_neighborhood,
 				customer_city,
 				customer_state,
+                shipping_country,
+                shipping_carrier,
 				shipping_fee,
-				total_shop_cart_amount,
+				total_shop_amount,
 				card_number,
 				card_exp_month,
 				card_exp_year,
 				card_cvc } = req.body;
 
-		// generate card token
+
 		const cardToken = await stripe.tokens.create({
 		 	card: {
 		    	number: card_number,
@@ -58,9 +69,8 @@ class ShopController {
 		  	},
 		});
 
-		// create shop cart credit card charge
 		const shopCardCharge = await stripe.charges.create({
-			amount: parseInt(total_shop_cart_amount * 100),
+			amount: parseInt(total_shop_amount * 100),
 		  	currency: 'usd',
 		  	source: cardToken.id,
 		  	description: "Shop cart itens",
@@ -68,13 +78,18 @@ class ShopController {
 		});
 
 		const shopTransactionObject = {
-            status: 'Success',
-            customer_name,
-            customer_email,
-            customer_phone,
-            amount: total_shop_cart_amount,
             transaction_id: shopCardCharge.id,
-            created_at: DateTime.getNow(),
+            total_amount: parseFloat(total_shop_amount).toFixed(2),
+            payment_method: {
+                card_id: shopCardCharge.source.id,
+                brand: shopCardCharge.source.brand,
+                exp_month: shopCardCharge.source.exp_month,
+                exp_year: shopCardCharge.source.exp_year,
+                last4: shopCardCharge.source.last4
+            },
+            currency: shopCardCharge.currency,
+            paid: shopCardCharge.paid,
+            products_amount: (parseFloat(total_shop_amount) - parseFloat(shipping_fee)).toFixed(2),
             products: [
                 {
                     quantity: quantityOranges,
@@ -92,25 +107,34 @@ class ShopController {
                     total: parseFloat(quantityApples * 1.99).toFixed(2)
                 },
                 {
-                    quantity: quantityStrawberries,
-                    name: 'Strawberries',
-                    total: parseFloat(quantityStrawberries * 2.99).toFixed(2)
+                    quantity: quantityBananas,
+                    name: 'Bananas',
+                    total: parseFloat(quantityBananas * 2.99).toFixed(2)
                 },
             ],
+            customer: {
+                id: req.session.userID,
+                stripe_id: SESSION_USER.stripe.customer_id,
+                email: customer_email,
+                phone: customer_phone,
+                name: customer_name
+            },
             shipping: {
-				address: {
-					city: customer_city,
-					country: "BRAZIL",
-					postal_code: zipcode,
-					state: customer_state,
-					line1: customer_street
-				},
-				fee: shipping_fee, 
-				carrier: "CORREIOS"
-			}
+                address_zipcode: zipcode,
+                address_street: customer_street,
+                address_street_number: 42,
+                address_neighborhood: customer_neighborhood,
+                address_city: customer_city,
+                address_state: customer_state,
+                address_country: "Brazil",
+                carrier: "Correios",
+                fee: parseFloat(shipping_fee).toFixed(2)
+            },
+            created_at: DateTime.getNow()
         }
 
-		NodeMailer.sendEmailShopTransaction(shopTransactionObject)
+        await StripeModel.createShopTransaction(shopTransactionObject)
+		await NodeMailer.sendShopTransaction(shopTransactionObject)
 		
 		return res.render('pages/shop/shopPayLog', {
 			flash: {

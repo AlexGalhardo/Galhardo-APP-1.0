@@ -1,5 +1,5 @@
 # uploads
-public/uploads/avatars/*
+# public/uploads/avatars/*
 
 # logs/
 logs/all-logs.log
@@ -11,6 +11,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+
+# temp uploads
+tmp/
 
 __DEV_BRANCH__
 __TYPESCRIPT_BRANCH__

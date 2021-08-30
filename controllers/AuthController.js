@@ -4,6 +4,8 @@
  * aleexgvieira@gmail.com
  * https://github.com/AlexGalhardo
  * 
+ *
+ * ./controllers/AuthController.js
  * 
  * http://localhost:3000/login
  * http://localhost:3000/register
@@ -22,380 +24,379 @@ const fetch = require('node-fetch');
 const randomToken = require('rand-token');
 
 
-const googleLogin = require('../helpers/GoogleLogin');
-const facebookLogin = require('node-fb-login');
-
-
 const DateTime = require('../helpers/DateTime');
 const Bcrypt = require('../helpers/Bcrypt');
 const NodeMailer = require('../helpers/NodeMailer');
+const URL = require('../helpers/URL');
 
 
 const Users = require('../models/JSON/Users');
+// const Users = require('../models/MONGODB/Users');
+// const Users = require('../models/MYSQL/Users');
+// const Users = require('../models/POSTGRES/Users');
+// const Users = require('../models/SQLITE/Users');
 
-
-const URL = require('../helpers/URL');
 
 
 
 class AuthController {
-	
-	static async getViewLogin (req, res){
-		const facebookLoginURL = await URL.getFacebookURL()
-		res.render('pages/auth/login', {
-			FacebookLoginURL: facebookLoginURL,
-			GitHubLoginURL: URL.getGitHubURL,
-			GoogleLoginURL: URL.getGoogleURL
-		});
-	}
-	
-	static async postLogin (req, res, next){
-		const errors = validationResult(req);
-	    const { email, password } = req.body;
 
-	    if (!errors.isEmpty()) {
-	        return res.render('pages/auth/login', {
-	        	flash: {
-	        		type: "warning",
-	           		message: errors.array()[0].msg,
-	        	}
-	        });
-	    }
 
-	    try {
+    static async getViewLogin (req, res){
+        const facebookLoginURL = await URL.getFacebookURL()
+        res.render('pages/auth/login', {
+            FacebookLoginURL: facebookLoginURL,
+            GitHubLoginURL: URL.getGitHubURL,
+            GoogleLoginURL: URL.getGoogleURL
+        });
+    }
 
-	    	const confirmedEmail = await Users.verifyIfEmailIsConfirmed(email)
-	    	if(!confirmedEmail){
-	    		return res.render('pages/auth/login', {
-	        		flash: {
-	        			type: "warning",
-	        			message: "You need to confirm your email!"
-	        		}
-	            });
-	    	}
 
-	    	const userObject = await Users.verifyLogin(email, password)
-	        
-	        if(!userObject){
-	        	return res.render('pages/auth/login', {
-	        		flash: {
-	        			type: "warning",
-	        			message: "Email OR Password Inválid!"
-	        		}
-	            });
-	        }
+    static async postLogin (req, res, next){
+        const errors = validationResult(req);
+        const { email, password } = req.body;
 
-	        req.session.userID = userObject.id
-	        global.SESSION_USER = userObject
-	        return res.redirect('/');
-	    }
-	    catch (error) {
-	        return res.render('pages/auth/login', {
-        		flash: {
-        			type: "warning",
-        			message: `Error: ${error}`
-        		}
+        if (!errors.isEmpty()) {
+            return res.render('pages/auth/login', {
+                flash: {
+                    type: "warning",
+                    message: errors.array()[0].msg,
+                }
             });
-	    }
-	}
-	
-
-	static getViewRegister (req, res){
-		res.render('pages/auth/register');
-	}
-	
-
-	static verifyIfConfirmEmailURLIsValid (req, res){
-		const { email, token } = req.params;
-
-		const confirmEmailValid = Users.verifyConfirmEmailToken(email, token)
-
-		if(confirmEmailValid){
-			return res.render('pages/auth/login', {
-				flash: {
-					type: 'Success',
-					message: 'Email Confirmed!'
-				}
-			})
-		}
-
-		return res.redirect('/login')
-	}
-
-	static postRegister (req, res, next){
-		const errors = validationResult(req);
-	    
-	    const { username, 
-	    		email, 
-	    		password, 
-	    		confirm_password,
-	    		github_id,
-	    		facebook_id,
-	    		google_id } = req.body;
-
-	    if (!errors.isEmpty()) {
-	        return res.render('pages/auth/register', {
-	        	flash: {
-	        		type: "warning",
-	        		message: errors.array()[0].msg
-	        	}
-	        });
-	    }
-
-	    try {
-
-	    	const confirm_email_token = randomToken.generate(16)
-	    	
-	    	const userObject = {
-	    		username,
-	    		email,
-	    		password,
-	    		github_id,
-	    		facebook_id,
-	    		google_id,
-	    		confirm_email_token
-	    	};
-
-	    	const userRegistred = Users.registerUser(userObject)
-
-	    	if(!userRegistred){
-	    		return res.render("pages/auth/register", {
-		            flash: {
-	            		type: "warning",
-	            		message: "User not saved in JSON database!"
-	            	}
-	        	});
-	    	}
-
-	    	NodeMailer.sendEmailConfirmEmailToken(email, confirm_email_token)
-	        
-	        return res.render("pages/auth/register", {
-	            flash: {
-            		type: "success",
-            		message: 'Account Created! Confirm your email by clicking the link send to your email inbox!'
-            	}
-	        });
-
-	    } catch (error) {
-	        return res.render("pages/auth/register", {
-	            flash: {
-            		type: "danger",
-            		message: `Error: ${error}`
-            	}
-	        });
-	    }
-	}
-	
-	static getViewForgetPassword(req, res){
-		res.render('pages/auth/forgetPassword');
-	}
-	
-	static postForgetPassword (req, res){
-		const { email } = req.body;
-		const reset_password_token = randomToken.generate(16);
-
-        const resetPasswordTokenCreated = Users.createResetPasswordToken(email, reset_password_token);
-
-        NodeMailer.sendEmailForgetPassword(email, reset_password_token);
-
-        if(!resetPasswordTokenCreated){
-            console.log('reset_password_token not saved in JSON DATABASE!');
-            res.redirect('/login')
         }
 
-		return res.render('pages/auth/forgetPassword', {
-			flash: {
-				type: "success",
-				message: `If this email exists, we'll send a link to this email to recover password!`
-			}
-		});
-	}
-	
+        try {
 
-	static getViewResetPassword (req, res){
-		const email = req.params.email;
-		const token = req.params.token;
+            const confirmedEmail = await Users.verifyIfEmailIsConfirmed(email)
+            if(!confirmedEmail){
+                return res.render('pages/auth/login', {
+                    flash: {
+                        type: "warning",
+                        message: "You need to confirm your email!"
+                    }
+                });
+            }
 
-		if(!email || !token){
-			return res.redirect('/forgetPassword');
-		}
+            const userObject = await Users.verifyLogin(email, password)
 
-		if(!Users.passwordResetTokenIsValid(email, token)){
-			return res.redirect('/forgetPassword');
-		}
+            if(!userObject){
+                return res.render('pages/auth/login', {
+                    flash: {
+                        type: "warning",
+                        message: "Email OR Password Inválid!"
+                    }
+                });
+            }
 
-		res.render('pages/auth/resetPassword', {
-			email
-		});
-	}
-
-
-	static postResetPassword (req, res){
-		const email = req.body.email;
-		const newPassword = req.body.new_password;
-		const confirmNewPassword = req.body.confirm_new_password;
-
-		if(newPassword !== confirmNewPassword){
-			return res.render('pages/auth/resetPassword', {
-				flash: {
-					type: "warning",
-					message: "New password and confirm new password are not equal!"
-				}
-			});
-		}
-
-		if(!Users.resetPassword(email, newPassword)){
-			return console.log('banco de dados não atualizou o password!');
-		}
-
-		return res.render('pages/auth/login', {
-			flash: {
-				type: "success",
-				message: "You updated your password!"
-			}
-		});
-	}
-
-	static async loginFacebook (req, res){
-		const url_query_code = req.query.code;
-		
-		try {
-			const token = await facebookLogin.getAccessToken({
-			  code: `${url_query_code}`,
-			  fbAppID: process.env.FACEBOOK_CLIENT_ID,
-			  fbAppSecret: process.env.FACEBOOK_CLIENT_SECRET,
-			  redirectURI: process.env.FACEBOOK_CALLBACK_URL
-			})
-
-			const facebookUser = await facebookLogin.getUserProfile({
-			  accessToken: `${token.access_token}`,
-			  fields: ["id","name","email"]
-			})
-
-			console.log(facebookUser)
-
-			// return user registred in database
-			const userRegistred = await Users.verifyLoginFacebook(facebookUser.id, facebookUser.email)
-	    	
-	    	if(!userRegistred){
-	    		return res.render('pages/auth/register', {
-	        		flash: {
-	        			type: "warning",
-	        			message: "Create Your account Linked to Your Facebook Account"
-	        		},
-	        		name: facebookUser.name,
-	        		email: facebookUser.email,
-	        		email_readonly: true,
-	        		facebook_id: facebookUser.id
-	            });
-	    	} 
-	    	else {
-	    		req.session.userID = userRegistred.id
-	        	global.SESSION_USER = userRegistred
-	        	return res.redirect('/');
-	    	} 
-	    	
-	    	return res.redirect('/login')  
-
-		} catch(error){
-			console.log(error)
-		}
-	}
-
-	static async loginGitHub (req, res){
-		const code = req.query.code;
-
-		try {
-
-			const { data } = await axios({
-			    url: 'https://github.com/login/oauth/access_token',
-			    method: 'get',
-			    params: {
-			      client_id: process.env.GITHUB_CLIENT_ID,
-			      client_secret: process.env.GITHUB_CLIENT_SECRET,
-			      redirect_uri: process.env.GITHUB_CALLBACK_URL,
-			      code
-			    }
-			});
-		  	
-		  	const parsedData = queryString.parse(data);
-		  	
-		  	if (parsedData.error) throw new Error(parsedData.error_description)
-
-			const response = await axios({
-			    url: 'https://api.github.com/user',
-			    method: 'GET',
-			    headers: {
-			      Authorization: `token ${parsedData.access_token}`,
-			    },
-			});
-
-	    	const user = await Users.verifyLoginGitHub(response.data.id, response.data.email, response.data.avatar_url)
-	    	
-	    	if(!user){
-	    		return res.render('pages/auth/register', {
-	        		flash: {
-	        			type: "warning",
-	        			message: "Create Your account Linked to Your GitHub"
-	        		},
-	        		name: response.data.name,
-	        		email: response.data.email,
-	        		email_readonly: true,
-	        		github_id: response.data.id
-	            });
-	    	} else {
-	    		req.session.userID = user.id
-	        	global.SESSION_USER = user
-	        	return res.redirect('/');
-	    	} 
-	    	return res.redirect('/login')  
-	    }
-	    catch (error) {
-	        return res.render('pages/auth/login', {
-        		flash: {
-        			type: "warning",
-        			message: `Error: ${error}`
-        		}
+            req.session.userID = userObject.id
+            global.SESSION_USER = userObject
+            return res.redirect('/');
+        }
+        catch (error) {
+            return res.render('pages/auth/login', {
+                flash: {
+                    type: "warning",
+                    message: `Error: ${error}`
+                }
             });
-	    }
-	}
+        }
+    }
 
-	static async loginGoogle (req, res){
-		const code = req.query.code;
 
-	  	try {
-			const { user } = await googleLogin.getUserProfile(`${code}`)
-			
-			console.log(user)
+    static getViewRegister (req, res){
+        return res.render('pages/auth/register');
+    }
 
-			// return user registred in database
-			const userRegistred = await Users.verifyLoginGoogle(user.sub, user.email, user.picture)
-	    	
-	    	if(!userRegistred){
-	    		return res.render('pages/auth/register', {
-	        		flash: {
-	        			type: "warning",
-	        			message: "Create Your account Linked to Your Google Account"
-	        		},
-	        		name: user.name,
-	        		email: user.email,
-	        		email_readonly: true,
-	        		google_id: user.id
-	            });
-	    	} 
-	    	else {
-	    		req.session.userID = userRegistred.id
-	        	global.SESSION_USER = userRegistred
-	        	return res.redirect('/');
-	    	} 
-	    	
-	    	return res.redirect('/login')  
-		
-		} catch(error){
-			console.log(error)
-			res.redirect('/login')
-		}
-	}
+
+    static verifyIfConfirmEmailURLIsValid (req, res){
+        const { email, token } = req.params;
+
+        const confirmEmailValid = Users.verifyConfirmEmailToken(email, token)
+
+        if(confirmEmailValid){
+            return res.render('pages/auth/login', {
+                flash: {
+                    type: 'Success',
+                    message: 'Email Confirmed!'
+                }
+            })
+        }
+
+        return res.redirect('/login')
+    }
+
+    static postRegister (req, res, next){
+        const errors = validationResult(req);
+
+        const { username,
+                email,
+                password,
+                confirm_password,
+                github_id,
+                facebook_id,
+                google_id } = req.body;
+
+        if (!errors.isEmpty()) {
+            return res.render('pages/auth/register', {
+                flash: {
+                    type: "warning",
+                    message: errors.array()[0].msg
+                }
+            });
+        }
+
+        try {
+
+            const confirm_email_token = randomToken.generate(16)
+
+            const userObject = {
+                username,
+                email,
+                password,
+                github_id,
+                facebook_id,
+                google_id,
+                confirm_email_token
+            };
+
+            const userRegistred = Users.register(userObject)
+
+            if(!userRegistred){
+                return res.render("pages/auth/register", {
+                    flash: {
+                        type: "warning",
+                        message: "User not saved in JSON database!"
+                    }
+                });
+            }
+
+            NodeMailer.sendConfirmEmailToken(email, confirm_email_token)
+
+            return res.render("pages/auth/register", {
+                flash: {
+                    type: "success",
+                    message: 'Account Created! Confirm your email by clicking the link send to your email inbox!'
+                }
+            });
+
+        } catch (error) {
+            return res.render("pages/auth/register", {
+                flash: {
+                    type: "danger",
+                    message: `Error: ${error}`
+                }
+            });
+        }
+    }
+
+
+    static getViewForgetPassword(req, res){
+        return res.render('pages/auth/forgetPassword');
+    }
+
+
+    static async postForgetPassword (req, res){
+        const { email } = req.body;
+
+        const reset_password_token = randomToken.generate(16);
+
+        const resetPasswordTokenCreated = await Users.createResetPasswordToken(email, reset_password_token);
+
+        console.log(email, reset_password_token, resetPasswordTokenCreated)
+        if(resetPasswordTokenCreated){
+            console.log('entrou')
+            NodeMailer.sendForgetPassword(email, reset_password_token);
+        }
+
+        return res.render('pages/auth/forgetPassword', {
+            flash: {
+                type: "success",
+                message: `If this email exists, we'll send a link to this email to recover password!`
+            }
+        });
+    }
+
+
+    static getViewResetPassword (req, res){
+        const { email, token } = req.params
+
+        if(!email || !token){
+            return res.redirect('/forgetPassword');
+        }
+
+        if(!Users.resetPasswordTokenIsValid(email, token)){
+            return res.redirect('/forgetPassword');
+        }
+
+        res.render('pages/auth/resetPassword', {
+            email
+        });
+    }
+
+
+    static postResetPassword (req, res){
+        const { email, newPassword } = req.body
+
+        if(!Users.resetPassword(email, newPassword)){
+            console.log('New Password not updated in database!');
+            return res.redirect('/forgetPassword')
+        }
+
+        return res.render('pages/auth/login', {
+            flash: {
+                type: "success",
+                message: "You updated your password!"
+            }
+        });
+    }
+
+
+
+    static async loginFacebook (req, res, next){
+        const url_query_code = req.query.code;
+
+        try {
+            const token = await facebookLogin.getAccessToken({
+              code: `${url_query_code}`,
+              fbAppID: process.env.FACEBOOK_CLIENT_ID,
+              fbAppSecret: process.env.FACEBOOK_CLIENT_SECRET,
+              redirectURI: process.env.FACEBOOK_CALLBACK_URL
+            })
+
+            const facebookUser = await facebookLogin.getUserProfile({
+              accessToken: `${token.access_token}`,
+              fields: ["id","name","email"]
+            })
+
+            const userRegistred = await Users.verifyLoginFacebook(facebookUser.id, facebookUser.email)
+
+            if(!userRegistred){
+                return res.render('pages/auth/register', {
+                    flash: {
+                        type: "warning",
+                        message: "Create Your account Linked to Your Facebook Account"
+                    },
+                    name: facebookUser.name,
+                    email: facebookUser.email,
+                    email_readonly: true,
+                    facebook_id: facebookUser.id
+                });
+            }
+            else {
+                req.session.userID = userRegistred.id
+                global.SESSION_USER = userRegistred
+                return res.redirect('/');
+            }
+
+            return res.redirect('/login')
+
+        } catch(error){
+            return res.render('pages/auth/login', {
+                flash: {
+                    type: "warning",
+                    message: `Error: ${error}`
+                }
+            });
+        }
+    }
+
+
+    static async loginGitHub (req, res){
+        const code = req.query.code;
+
+        try {
+
+            const { data } = await axios({
+                url: 'https://github.com/login/oauth/access_token',
+                method: 'get',
+                params: {
+                  client_id: process.env.GITHUB_CLIENT_ID,
+                  client_secret: process.env.GITHUB_CLIENT_SECRET,
+                  redirect_uri: process.env.GITHUB_CALLBACK_URL,
+                  code
+                }
+            });
+
+            const parsedData = queryString.parse(data);
+
+            if (parsedData.error) throw new Error(parsedData.error_description)
+
+            const response = await axios({
+                url: 'https://api.github.com/user',
+                method: 'GET',
+                headers: {
+                  Authorization: `token ${parsedData.access_token}`,
+                },
+            });
+
+            const user = await Users.verifyLoginGitHub(response.data.id, response.data.email, response.data.avatar_url)
+
+            if(!user){
+                return res.render('pages/auth/register', {
+                    flash: {
+                        type: "warning",
+                        message: "Create Your account Linked to Your GitHub"
+                    },
+                    name: response.data.name,
+                    email: response.data.email,
+                    email_readonly: true,
+                    github_id: response.data.id
+                });
+            } else {
+                req.session.userID = user.id
+                global.SESSION_USER = user
+                return res.redirect('/');
+            }
+            return res.redirect('/login')
+        }
+        catch (error) {
+            return res.render('pages/auth/login', {
+                flash: {
+                    type: "warning",
+                    message: `Error: ${error}`
+                }
+            });
+        }
+    }
+
+
+    static async loginGoogle (req, res){
+        const code = req.query.code;
+
+        try {
+            const { user } = await googleLogin.getUserProfile(`${code}`)
+
+            const userRegistred = await Users.verifyLoginGoogle(user.sub, user.email, user.picture)
+
+            if(!userRegistred){
+                return res.render('pages/auth/register', {
+                    flash: {
+                        type: "warning",
+                        message: "Create Your account Linked to Your Google Account"
+                    },
+                    name: user.name,
+                    email: user.email,
+                    email_readonly: true,
+                    google_id: user.id
+                });
+            }
+            else {
+                req.session.userID = userRegistred.id
+                global.SESSION_USER = userRegistred
+                return res.redirect('/');
+            }
+
+            return res.redirect('/login')
+
+        } catch(error){
+            return res.render('pages/auth/login', {
+                flash: {
+                    type: "warning",
+                    message: `Error: ${error}`
+                }
+            });
+        }
+    }
 }
 
 module.exports = AuthController;

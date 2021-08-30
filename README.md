@@ -21,44 +21,6 @@
    - **NO REAL Money Transactions will be made**
    - **All CRUDs in this Live Demo are made in JSON DataBase, for obvious reasons.**
 
-## MicroServices
-- https://correios.galhardoapp.com/cep/13560290 (zipcode here)
-   - To GET ZipCode/CEP Information (Correios BRAZIL)
-- https://correios.galhardoapp.com/shipping/13560290 (zipcode here)
-   - To GET Shipping Deadline and Fee (Correios BRAZIL)
-
-## APIs
-- **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
-### Public REST APIs Endpoints Examples
-- BlogPosts
-   - GET https://galhardoapp.com/api/public/blog
-   - GET https://galhardoapp.com/api/public/blog/random
-   - GET https://galhardoapp.com/api/public/blog/:blog_id
-- Games
-   - GET https://galhardoapp.com/api/public/games
-   - GET https://galhardoapp.com/api/public/games/random
-   - GET https://galhardoapp.com/api/public/games/:game_id
-- Books
-   - GET https://galhardoapp.com/api/public/books
-   - GET https://galhardoapp.com/api/public/books/random
-   - GET https://galhardoapp.com/api/public/books/:book_id
-
-### Profile REST API Endpoints Examples
-- Each user registred can use this endpoint to update or delete his account
-- POST https://galhardoapp.com/api/profile/login
-- PATCH https://galhardoapp.com/api/profile/patch
-- DELETE https://galhardoapp.com/api/profile/delete
-
-### ADMIN REST APIs Endpoints Examples
-- Need JWT Token in header authorization bearer token to access all endpoints
-- Examples:
-   - POST https://galhardoapp.com/api/admin/login
-   - POST https://galhardoapp.com/api/admin/test
-   - GET https://galhardoapp.com/api/admin/users
-- You can use ADMIN API to 
-   - Manage your Stripe Account (Transactions, Subscriptions, Create Plans, Update, etc)
-   - CRUD Blog Posts, Games and Books
-
 ## Introduction
 ### I created this project to LEARN and PRATICE in my spare time:
 - JavaScript, JSON, NodeJS, Express, NPM, TypeScript, DOM, Git, Bootstrap5
@@ -102,6 +64,84 @@
 
 ## [Install Locally](https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INSTALL_LOCALLY.md)
 
+## MicroServices
+- https://correios.galhardoapp.com/cep/13560290 (zipcode here)
+   - To GET ZipCode/CEP Information (Correios BRAZIL)
+- https://correios.galhardoapp.com/shipping/13560290 (zipcode here)
+   - To GET Shipping Deadline and Fee (Correios BRAZIL)
+
+## DateTime
+- This project uses <b>"BRASIL Brasília LocaleDateTime (BRT – Brasília Time em UTC -03:00)</b>
+- Example:
+   - day/month/year hours:minutes:seconds
+   - 23/08/2021 15:52:36
+
+## Payments
+- This project uses 2 APIs for Payments:
+   - USA Stripe for USD ($) Credit Card Transactions
+   - Brasil PagarME for BRL (R$) Credit Card, Bank Slip (Boleto Bancário) and PIX Transactions
+- MAIN and DEV branchs uses Stripe Payment API
+- PAGARME branch uses PagarME Payment API
+
+## DataBases
+- This project uses 5 DataBases <b>FOR LEARNING PURPORSES</b>:
+   - JSON
+   - SQLITE using Knex Query Builder
+   - MySQL using pure SQL
+   - PostgresSQL using Sequelize ORM
+   - MongoDB using Mongoose ORM
+- All Databases use the SAME Model and Methods NAMES.
+- You can choose what DataBase you want to use like this example:
+```js
+const Games = require('../models/JSON/Games');
+// const Games = require('../models/MONGODB/Games');
+// const Games = require('../models/MYSQL/Games');
+// const Games = require('../models/POSTGRES/Games');
+// const Games = require('../models/SQLITE/Games');
+
+// CRUD
+Games.create(gameObject)
+Games.update(gameObject)
+Games.delete(parseInt(game_id))
+
+Games.getAll() // return array with all game objects
+Games.getByID(parseInt(game_id)) // return game object
+Games.getTotal() // return integer total games
+Games.getRandom() // return a random game object
+```
+
+## APIs
+- **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
+### Public REST APIs Endpoints Examples
+- BlogPosts
+   - GET https://galhardoapp.com/api/public/blog
+   - GET https://galhardoapp.com/api/public/blog/random
+   - GET https://galhardoapp.com/api/public/blog/:blog_id
+- Games
+   - GET https://galhardoapp.com/api/public/games
+   - GET https://galhardoapp.com/api/public/games/random
+   - GET https://galhardoapp.com/api/public/games/:game_id
+- Books
+   - GET https://galhardoapp.com/api/public/books
+   - GET https://galhardoapp.com/api/public/books/random
+   - GET https://galhardoapp.com/api/public/books/:book_id
+
+### Profile REST API Endpoints Examples
+- Each user registred can use this endpoint to update or delete his account
+- POST https://galhardoapp.com/api/profile/login
+- PATCH https://galhardoapp.com/api/profile/patch
+- DELETE https://galhardoapp.com/api/profile/delete
+
+### ADMIN REST APIs Endpoints Examples
+- Need JWT Token in header authorization bearer token to access all endpoints
+- Examples:
+   - POST https://galhardoapp.com/api/admin/login
+   - POST https://galhardoapp.com/api/admin/test
+   - GET https://galhardoapp.com/api/admin/users
+- You can use ADMIN API to 
+   - Manage your Stripe Account (Transactions, Subscriptions, Create Plans, Update, etc)
+   - CRUD Blog Posts, Games and Books
+
 
 ## RoadMap
 - Logs using Winston and Morgan
@@ -116,13 +156,22 @@
    - [ ] Reset Password 
 - Payments
    - SHOP (Ecommerce Checkout)
-      - [ ] Stripe Credit Card
-      - [ ] PagarME Credit Card
-      - [ ] PagarME Bank Slip (Boleto Bancário)
+      - Stripe
+         - [ ] Credit Card Transparent Checkout
+         - [ ] Stripe Lib Checkout
+      - PagarME Credit Card
+         - Transparent Checkout
+            - [ ] Credit card
+            - [ ] Bank Slip (Boleto Bancário)
+         - [ ] PagarME Lib Checkout
       - [ ] PIX
    - Plans (Subscriptions)
-      - [ ] Stripe Credit Card
-      - [ ] PagarME Credit Card
+      - Stripe
+         - [ ] Transparent Checkout
+         - [ ] Stripe Lib Checkout
+      - PagarME Credit Card
+         - [ ] Transparent Checkout
+         - [ ] PagarME Lib Checkout
 - [ ] In Code Compression Responses (HTML, JS, CSS)
 - [ ] In Code Cache Most used data (Redis and In-Memory)
 - [ ] Google Tools (SEO, Search Console, Analytics, Sitemap, Robots.txt, etc)
@@ -138,12 +187,12 @@
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile
    - [ ] CRUD APIs
-- Using PostgreSQL DataBase with Docker and Knex Query Builder
+- Using PostgreSQL DataBase with Docker and Sequelize ORM
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile
    - [ ] CRUD APIs
-- Using SQLite DataBase with Sequelize ORM
+- Using SQLite DataBase with Knex Query Builder
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
    - [ ] CRUD Profile
@@ -175,12 +224,10 @@
 ![ga_books](https://user-images.githubusercontent.com/19540357/129276417-8b22e199-fa74-4c8d-86a9-ba9870971b22.png)
 
 ### SHOP
-![ga_shop_0](https://user-images.githubusercontent.com/19540357/130357432-ba895282-bcd5-4e7b-a7c5-b2fcafb8502c.png)
-![ga_shop_1](https://user-images.githubusercontent.com/19540357/130357436-65959bfc-e6b3-444f-8199-379a521a7d4a.png)
-![ga_shop_2](https://user-images.githubusercontent.com/19540357/130357435-799b4e2c-25a7-4a16-a573-9f6914c99e35.png)
-![ga_shop_3](https://user-images.githubusercontent.com/19540357/130067637-7fa2bab5-cd52-4b59-9314-0379689a65e5.png)
-
-
+![ga_shop_1](https://user-images.githubusercontent.com/19540357/131276355-3d687e16-fa43-457b-8c42-55ad04514196.png)
+![ga_shop_2](https://user-images.githubusercontent.com/19540357/131276356-c5d3733e-8d62-46d7-a6d7-9fc14e368350.png)
+![ga_shop_3](https://user-images.githubusercontent.com/19540357/131276360-477d23c2-4f3f-4c9c-abab-a8e58ed0d9b8.png)
+![ga_shop_4](https://user-images.githubusercontent.com/19540357/131276370-52cb4ef6-3f8c-402d-a6e8-ebe16850ad0a.png)
 
 
 ### Subscription
@@ -188,12 +235,18 @@
 ![ga_plan_checkout](https://user-images.githubusercontent.com/19540357/128649492-a9011598-f460-40f7-8289-513430228c9b.png)
 ![ga_plan_log](https://user-images.githubusercontent.com/19540357/128649493-fb32d152-8f84-4a5b-84eb-74047b54b138.png)
 
+## Contact
+![ga_message](https://user-images.githubusercontent.com/19540357/131276369-c89ab35a-3408-42ec-9d38-c2d4997f3eca.png)
+![ga_message_log](https://user-images.githubusercontent.com/19540357/131276348-baf084e6-23d7-48d5-9fa6-0ff2bdd30236.png)
+
 ### AuthController
-![ga_login](https://user-images.githubusercontent.com/19540357/130070737-aae84e0c-5525-4207-80a4-f057e26295aa.png)
+![ga_login](https://user-images.githubusercontent.com/19540357/131276346-5fa17a75-a768-459e-9ca2-5e1cf912dbd2.png)
 ![ga_google](https://user-images.githubusercontent.com/19540357/130067660-c50adabf-7b75-4f4f-a871-4532294ace4b.png)
 ![ga_register_github](https://user-images.githubusercontent.com/19540357/130067666-04018b3f-e900-4b69-be2c-bb6bc7768416.png)
-![ga_forgetPassword](https://user-images.githubusercontent.com/19540357/128446079-b6fc9f98-ea0f-4906-8d85-c581b554dee3.png)
-![ga_resetPassword](https://user-images.githubusercontent.com/19540357/128446080-afa13a81-34be-4a74-9b8d-3cbc8688e0eb.png)
+![ga_verify_register](https://user-images.githubusercontent.com/19540357/131276351-32fe3746-1dd0-4108-9f99-d1961ba65cdb.png)
+![ga_account_created](https://user-images.githubusercontent.com/19540357/131276342-7ecd924c-a877-4c6a-9e51-6c4a11f7335e.png)
+![ga_recoverpassword_view](https://user-images.githubusercontent.com/19540357/131276368-780e8880-ad49-479c-85ec-ecf4dde06d94.png)
+![ga_recover_password](https://user-images.githubusercontent.com/19540357/131276363-a56ab9fd-7ac1-491a-985f-9684c5fdc5bf.png)
 
 ### Blog
 ![ga_blog](https://user-images.githubusercontent.com/19540357/129276413-93b7a40c-f8f5-4bb9-b1cc-df5df78b73da.png)
@@ -219,7 +272,7 @@
 
 
 
-## JSON DATABASE STRUCTURE EXAMPLE
+## JSON (and SQL/MongoDB) DATABASE STRUCTURE EXAMPLE
 ```json
 {
   "users": [
@@ -332,13 +385,84 @@
     }
   ],
   "stripe": {
-    "customers": [],
-    "cards": [],
-    "charges": [],
-    "products": [],
-    "prices": [],
-    "plans": [],
-    "subscriptions": []  
+    "shop_transactions": [
+        {
+        "total_amount": "33.46",
+        "payment_method": {
+            "card_id": "card_1JTzSZHoneB4Zvrp4p9pMX7p",
+            "brand": "Visa",
+            "exp_month": 8,
+            "exp_year": 2022,
+            "last4": "4242"
+        },
+        "currency": "usd",
+        "paid": true,
+        "products_amount": "6.46",
+        "products": [
+            {
+                "quantity": "1",
+                "name": "Oranges",
+                "total": "0.49"
+            },
+            {
+                "quantity": "1",
+                "name": "Grapes",
+                "total": "0.99"
+            },
+            {
+                "quantity": "1",
+                "name": "Apples",
+                "total": "1.99"
+            },
+            {
+                "quantity": "1",
+                "name": "Bananas",
+                "total": "2.99"
+            }
+        ],
+        "customer": {
+            "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+            "stripe_id": "cus_K3keRif5hEPSI2",
+            "email": "admin@gmail.com",
+            "phone": "18999999999",
+            "name": "ADMIN Alex"
+        },
+        "shipping": {
+            "address_zipcode": "13560290",
+            "address_street": "Rua Dona Alexandrina",
+            "address_street_number": 42,
+            "address_city": "São Carlos",
+            "address_state": "SP",
+            "address_country": "Brazil",
+            "carrier": "Correios",
+            "fee": "27.00"
+        },
+        "created_at": "29/08/2021 22:38:53"
+      }
+    ],
+    "subscriptions_transactions": [
+        {
+            "id": 1,
+            "transaction_id": "sub_kakspOPKkaskpaks",
+            "payment_method": "card_iauhsiuasaps",
+            "currency": "usd",
+            "paid": true,
+            "subs_period_start": "29/09/2021",
+            "subs_period_end": "29/10/2021",
+            "plan": {
+                "id": "plan_id",
+                "name": "PREMIUM",
+                "amount": 499,
+            },
+            "customer": {
+                "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+                "stripe_id": "cus_iuahsuiasl",
+                "email": "test@gmail.com",
+                "name": "TEST JACK",
+            },
+            "created_at": "11/08/2021 20:36:33"
+        }
+    ]
   }
 }
 ```

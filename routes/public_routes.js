@@ -13,23 +13,16 @@
 const router = require('express').Router()
 
 
+
 // VIEWS CONTROLLERS
 const AppController = require('../controllers/AppController');
 const BlogController = require('../controllers/BlogController');
 const ShopController = require('../controllers/ShopController');
 const PlansController = require('../controllers/PlansController');
 const AuthController = require('../controllers/AuthController');
-const ProfileController = require('../controllers/ProfileController');
-
 
 
 // ---------------------- MIDDLEWARES 
-const userIsNotLoggedIn = (req, res, next) => {
-	if(!req.session.userID) return res.redirect('/login');
-	next()
-}
-
-
 const userIsAlreadyLoggedIn = (req, res, next) => {
 	if(req.session.userID) return res.redirect('/');
 	next()
@@ -37,8 +30,8 @@ const userIsAlreadyLoggedIn = (req, res, next) => {
 
 
 
-router
 
+router
 // APP VIEWS CONTROLLER
     .get('/', AppController.getViewHome)
     .get('/books', AppController.getViewBooks)
@@ -101,15 +94,6 @@ router
     .get('/facebook/callback', userIsAlreadyLoggedIn, AuthController.loginFacebook)
     .get('/google/callback', userIsAlreadyLoggedIn, AuthController.loginGoogle)
 
-
-
-// PROFILE CONTROLLER
-    .get('/profile', userIsNotLoggedIn, ProfileController.getViewProfile)
-    .post('/profile', userIsNotLoggedIn, ProfileController.updateProfile)
-
-    .post('/profile/avatar', userIsNotLoggedIn, ProfileController.updateProfileAvatar)
-
-    .get('/logout', userIsNotLoggedIn, ProfileController.getLogout)
 
 
 module.exports = router;

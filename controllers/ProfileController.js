@@ -10,9 +10,14 @@
 
 const bodyParser = require('body-parser')
 
+// Helpers
 const Upload = require('../helpers/Upload')
 
+// Models
 const Users = require('../models/JSON/Users')
+const StripeModel = require('../models/JSON/Stripe')
+
+
 
 class ProfileController {
 	
@@ -30,6 +35,10 @@ class ProfileController {
 	    res.redirect('/login');
 	}
 
+
+    /**
+     * POST /profile
+     */
 	static updateProfile (req, res) {
 		const { username, 
 				email, 
@@ -84,12 +93,71 @@ class ProfileController {
     	});
 	}
 
-	static updateProfileAvatar (req, res) {
 
-		Upload.avatarProfile(req)
-
+    /**
+     * POST /profile/avatar
+     */
+	static async updateProfileAvatar(req, res) {
+		await Upload.profileAvatar(req)
 		res.redirect('/profile');
 	}
+
+
+    /**
+     * GET /profile/shop/transactions
+     */
+    static async getViewShopTransactions(req, res){
+        const shopTransactions = await StripeModel.getShopTransactionsByUserID(req.session.userID)
+
+        return res.render('pages/profile/shop_transactions', {
+            user: SESSION_USER,
+            shopTransactions
+        })
+    }
+
+
+    /**
+     * GET /profile/shop/transaction/:shop_transaction_id
+     */
+    static async getViewShopTransactionByID(req, res){
+        const { shop_transaction_id } = req.params
+
+        const shopTransaction = await StripeModel.getShopTransactionByID(shop_transaction_id)
+
+        return res.render('pages/profile/subs_transaction', {
+            user: SESSION_USER,
+            shopTransaction
+        })
+    }
+
+
+
+    /**
+     * GET /profile/subscriptions/transactions
+     */
+    static async getViewSubscriptionsTransactions(req, res){
+        const subsTransactions = await StripeModel.getSubsTransactionsByUserID(req.session.userID)
+
+        return res.render('pages/profile/subs_transactions', {
+            user: SESSION_USER,
+            subsTransactions
+        })
+    }
+
+
+
+    /**
+     * GET /profile/subscription/transaction/:subs_transaction_id
+     */
+    static async getViewSubscriptionTransactionByID(req, res){
+        const { subs_transaction_id } = req.params
+
+        const subsTransaction = await StripeModel.getSubsTransactionByID()
+
+        return res.render('pages/profile/subs_transaction', {
+            user: SESSION_USER
+        })
+    }
 }
 
 module.exports = ProfileController;

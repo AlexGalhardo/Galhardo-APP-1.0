@@ -1,11 +1,20 @@
+/**
+ * GALHARDO APP
+ * Created By © Alex Galhardo  | August 2021-Present
+ * aleexgvieira@gmail.com
+ * https://github.com/AlexGalhardo
+ *
+ * ./models/JSON/Books.js
+ */
+
 const fs = require('fs-extra')
-const fetch = require('node-fetch');
 const DateTime = require('../../helpers/DateTime');
 
 const database = require('../../config/json_database');
 
-class Books {
 
+
+class Books {
 
 	static save(database, error_message){
 		for(let i = 0; i < database.books.length; i++){
