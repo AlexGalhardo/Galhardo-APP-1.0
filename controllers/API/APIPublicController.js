@@ -147,7 +147,6 @@ class APIPublicController {
 	    }
 	}
 
-
 	static async getPublicBookRandom(req, res, next){
 		try {
 			const totalBooks = await Books.getTotal()
