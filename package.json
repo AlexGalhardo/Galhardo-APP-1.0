@@ -7,7 +7,8 @@
   "license": "MIT",
   "homepage": "https://github.com/AlexGalhardo/Galhardo-APP",
   "engines": {
-    "node": "14.17.5"
+    "node": "14.17.5",
+    "npm": "7.21.1"
   },
   "scripts": {
     "dev": "nodemon -e mustache server.js",
@@ -45,7 +46,6 @@
     "joi": "^17.4.2",
     "json-server": "^0.16.3",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^0.95.10",
     "mongoose": "^5.13.7",
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
@@ -69,7 +69,6 @@
     "sequelize": "^6.6.5",
     "sharp": "^0.29.0",
     "slugify": "^1.6.0",
-    "sqlite3": "^4.2.0",
     "stripe": "^8.167.0",
     "uuid": "^8.3.2",
     "winston": "^3.3.3"
@@ -89,7 +88,9 @@
     "prettier": "^2.3.2",
     "sitemap": "^7.0.0",
     "superagent": "^6.1.0",
-    "supertest": "^6.1.6"
+    "supertest": "^6.1.6",
+    "sqlite3": "^4.2.0",
+    "knex": "^0.95.10",
   },
   "optionalDependencies": {
     "fsevents": "2.3"
