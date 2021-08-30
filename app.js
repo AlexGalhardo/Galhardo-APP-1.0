@@ -26,14 +26,6 @@ const morgan = require('./config/morgan');
 const Logger = require('./config/winston');
 
 
-// MONGODB
-if(process.env.NODE_ENV === 'development') require('./config/mongodb')()
-
-
-// GLOBALS
-global.APP_ROOT_PATH = path.resolve(__dirname);
-global.SESSION_USER = null;
-
 
 // LocalHost HTTPS | Need to change .env APP_URL to https
 // const app = require("https-localhost")()

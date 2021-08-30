@@ -156,13 +156,22 @@ Games.getRandom() // return a random game object
    - [ ] Reset Password 
 - Payments
    - SHOP (Ecommerce Checkout)
-      - [ ] Stripe Credit Card
-      - [ ] PagarME Credit Card
-      - [ ] PagarME Bank Slip (Boleto Bancário)
+      - Stripe
+         - [ ] Credit Card Transparent Checkout
+         - [ ] Stripe Lib Checkout
+      - PagarME Credit Card
+         - Transparent Checkout
+            - [ ] Credit card
+            - [ ] Bank Slip (Boleto Bancário)
+         - [ ] PagarME Lib Checkout
       - [ ] PIX
    - Plans (Subscriptions)
-      - [ ] Stripe Credit Card
-      - [ ] PagarME Credit Card
+      - Stripe
+         - [ ] Transparent Checkout
+         - [ ] Stripe Lib Checkout
+      - PagarME Credit Card
+         - [ ] Transparent Checkout
+         - [ ] PagarME Lib Checkout
 - [ ] In Code Compression Responses (HTML, JS, CSS)
 - [ ] In Code Cache Most used data (Redis and In-Memory)
 - [ ] Google Tools (SEO, Search Console, Analytics, Sitemap, Robots.txt, etc)
@@ -374,33 +383,58 @@ Games.getRandom() // return a random game object
   "stripe": {
     "shop_transactions": [
         {
-            "id": 1,
-            "transaction_id": "ch_23poKpIYpaoksopas",
-            "total_amount": 5299,
-            "payment_method": "card_iuahs12ui3a76sl",
-            "currency": "usd",
-            "paid": true,
-            "products_amount": 2599,
-            "products": "[{bananas: 3, amount: 244}, {grapes: 2, amount: 124}, {apples: 5, amount: 99},  {oranges: 4, amount: 399}]",
-            "customer": {
-                "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-                "stripe_id": "cus_iuahsuiasl",
-                "email": "test@gmail.com",
-                "name": "TEST JACK",
+        "total_amount": "33.46",
+        "payment_method": {
+            "card_id": "card_1JTzSZHoneB4Zvrp4p9pMX7p",
+            "brand": "Visa",
+            "exp_month": 8,
+            "exp_year": 2022,
+            "last4": "4242"
+        },
+        "currency": "usd",
+        "paid": true,
+        "products_amount": "6.46",
+        "products": [
+            {
+                "quantity": "1",
+                "name": "Oranges",
+                "total": "0.49"
             },
-            "shipping": {
-                "address_zipcode": "13560290",
-                "address_street": "Street Name",
-                "address_street_number": 42,
-                "address_neighborhood": "NeighBorHood",
-                "address_city": "Campinas",
-                "address_state": "São Paulo",
-                "address_country": "Brazil",
-                "carrier": "Brasil Correios",
-                "fee": 2700
+            {
+                "quantity": "1",
+                "name": "Grapes",
+                "total": "0.99"
             },
-            "created_at": "11/08/2021 20:36:33"
-        }
+            {
+                "quantity": "1",
+                "name": "Apples",
+                "total": "1.99"
+            },
+            {
+                "quantity": "1",
+                "name": "Bananas",
+                "total": "2.99"
+            }
+        ],
+        "customer": {
+            "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+            "stripe_id": "cus_K3keRif5hEPSI2",
+            "email": "admin@gmail.com",
+            "phone": "18999999999",
+            "name": "ADMIN Alex"
+        },
+        "shipping": {
+            "address_zipcode": "13560290",
+            "address_street": "Rua Dona Alexandrina",
+            "address_street_number": 42,
+            "address_city": "São Carlos",
+            "address_state": "SP",
+            "address_country": "Brazil",
+            "carrier": "Correios",
+            "fee": "27.00"
+        },
+        "created_at": "29/08/2021 22:38:53"
+      }
     ],
     "subscriptions_transactions": [
         {

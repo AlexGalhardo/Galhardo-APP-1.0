@@ -522,32 +522,57 @@
   "stripe": {
     "shop_transactions": [
       {
-        "id": 1,
-        "transaction_id": "ch_23poKpIYpaoksopas",
-        "total_amount": 5299,
-        "payment_method": "card_iuahs12ui3a76sl",
+        "total_amount": "33.46",
+        "payment_method": {
+          "card_id": "card_1JU03XHoneB4Zvrp72YRR7bA",
+          "brand": "Visa",
+          "exp_month": 8,
+          "exp_year": 2022,
+          "last4": "4242"
+        },
         "currency": "usd",
         "paid": true,
-        "products_amount": 2599,
-        "products": "[{bananas: 3, amount: 244}, {grapes: 2, amount: 124}, {apples: 5, amount: 99},  {oranges: 4, amount: 399}]",
+        "products_amount": "6.46",
+        "products": [
+          {
+            "quantity": "1",
+            "name": "Oranges",
+            "total": "0.49"
+          },
+          {
+            "quantity": "1",
+            "name": "Grapes",
+            "total": "0.99"
+          },
+          {
+            "quantity": "1",
+            "name": "Apples",
+            "total": "1.99"
+          },
+          {
+            "quantity": "1",
+            "name": "Bananas",
+            "total": "2.99"
+          }
+        ],
         "customer": {
-          "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "stripe_id": "cus_iuahsuiasl",
-          "email": "test@gmail.com",
-          "name": "TEST JACK"
+          "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+          "stripe_id": "cus_K3keRif5hEPSI2",
+          "email": "admin@gmail.com",
+          "phone": "18999999999",
+          "name": "ADMIN Alex"
         },
         "shipping": {
           "address_zipcode": "13560290",
-          "address_street": "Street Name",
+          "address_street": "Rua Dona Alexandrina",
           "address_street_number": 42,
-          "address_neighborhood": "NeighBorHood",
-          "address_city": "Campinas",
-          "address_state": "São Paulo",
+          "address_city": "São Carlos",
+          "address_state": "SP",
           "address_country": "Brazil",
-          "carrier": "Brasil Correios",
-          "fee": 2700
+          "carrier": "Correios",
+          "fee": "27.00"
         },
-        "created_at": "11/08/2021 20:36:33"
+        "created_at": "29/08/2021 23:17:04"
       }
     ],
     "subscriptions_transactions": [

@@ -14,7 +14,7 @@ const priceBananasEl = document.querySelector("#priceBananas")
 
 const totalShopCartEl = document.querySelector("#total_shop_cart")
 const buttonPayEl = document.querySelector("#button_pay")
-const totalAmount = document.querySelector("#total_shop_cart_amount")
+const totalAmount = document.querySelector("#total_shop_amount")
 
 let pricePayButton = parseFloat(buttonPayEl.innerHTML)
 

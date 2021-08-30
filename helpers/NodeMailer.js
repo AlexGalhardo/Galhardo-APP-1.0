@@ -61,7 +61,7 @@ class NodeMailer {
 
 
 
-    static async sendShopTransaction (shopTransactionObject) {
+    static async sendShopTransaction(shopTransactionObject) {
         
         const filePath = path.join(__dirname, '../views/emails/shop_transaction.html');
         
@@ -70,21 +70,31 @@ class NodeMailer {
         const template = handlebars.compile(source);
         
         const replacements = {
-            status: shopTransactionObject.status,
-            products: shopTransactionObject.products,
             transaction_id: shopTransactionObject.transaction_id,
-            amount: shopTransactionObject.amount,
-            created_at: shopTransactionObject.created_at,
-            shipping: shopTransactionObject.shipping
+            payment_method: shopTransactionObject.payment_method.card_id,
+            paid: shopTransactionObject.paid,
+            products: JSON.stringify(shopTransactionObject.products),
+            total_products: shopTransactionObject.products_amount,
+            shipping_fee: shopTransactionObject.shipping.fee,
+            amount: shopTransactionObject.total_amount,
+            shipping: {
+                zipcode:shopTransactionObject.shipping.address_zipcode,
+                street:shopTransactionObject.shipping.address_street,
+                neighborhood: shopTransactionObject.shipping.address_neighborhood,
+                city:shopTransactionObject.shipping.address_city,
+                state:shopTransactionObject.shipping.address_state
+            },
+            created_at: shopTransactionObject.created_at
         };
         
         const htmlBody = template(replacements);
 
         let emailSend = await SendGrid.sendMail({
-            from: process.env.SENDGRID_EMAIL_FROM,
-            to: 'aleexgvieira@gmail.com', //shopTransactionObject.customer_email,
-            subject: `Galhardo APP: Shop Transaction ${shopTransactionObject.status}!`,
+            from: process.env.GALHARDO_APP_EMAIL,
+            to: "aleexgvieira@gmail.com", //shopTransactionObject.customer.email,
+            subject: `Galhardo APP: Shop Transaction Success!`,
             html: htmlBody
+            // text:
         });
         
         SendGrid.close();

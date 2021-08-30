@@ -13,7 +13,7 @@
 
         <form id="form_shop_checkout" action="/shop" method="POST">
 
-            <input type="text" value="6.46" id="total_shop_cart_amount" hidden onkeydown="return false;">
+            <input type="text" value="6.46" id="total_shop_amount" name="total_shop_amount" hidden onkeydown="return false;">
 
           	<div class="row">
 
@@ -67,13 +67,13 @@
                 <div class="col-lg-4">
 
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control" name="customer_name" id="customer_name" value="{{name}}">
-                      <label for="name">NAME</label>
+                      <input type="text" class="form-control" name="customer_name" id="customer_name" value="{{name}}" required>
+                      <label for="customer_name">NAME</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                      <input type="email" class="form-control" name="customer_email" id="customer_email" value="{{email}}">
-                      <label for="floatingInput">EMAIL</label>
+                      <input type="email" class="form-control" name="customer_email" id="customer_email" value="{{email}}" required onkeydown="return false;">
+                      <label for="customer_email">EMAIL</label>
                     </div>
 
                     <div class="form-floating mb-3">

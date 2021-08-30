@@ -42,7 +42,7 @@ class Stripe {
                 products: transactionObject.products,
                 customer: transactionObject.customer,
                 shipping: transactionObject.shipping,
-                created_at: DateTime.getNow()
+                created_at: transactionObject.created_at
             })
             Stripe.save(database)
             return true
