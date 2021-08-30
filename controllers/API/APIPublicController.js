@@ -152,7 +152,7 @@ class APIPublicController {
 		try {
 			const totalBooks = await Books.getTotal()
 			const random_book_id = await Math.floor(Math.random() * totalBooks) + 1;
-	        let book = await Books.getBookByID(random_book_id)
+	        let book = await Books.getByID(random_book_id)
             return res.json({
                 book
             });	        
