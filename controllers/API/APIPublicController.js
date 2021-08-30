@@ -39,7 +39,7 @@ class APIPublicController {
 
 	static async getPublicBlog(req, res, next){
 		try {
-	        let blog = await Blog.getAllBlogPosts()
+	        let blog = await Blog.getAll()
             return res.json({
                 blog
             });	        
@@ -53,7 +53,7 @@ class APIPublicController {
 	static async getPublicBlogPostByID(req, res, next){
 		try {
 			const { blog_id } = req.params
-	        let blog = await Blog.getBlogPostByID(blog_id)
+	        let blog = await Blog.getByID(blog_id)
             return res.json({
                 blog
             });	        
@@ -66,7 +66,7 @@ class APIPublicController {
 
 	static async getPublicBlogPostRandom(req, res, next){
 		try {
-			const totalBlogPosts = await Blog.getTotalBlogPosts()
+			const totalBlogPosts = await Blog.getTotal()
 			const random_blogPost_id = await Math.floor(Math.random() * totalBlogPosts) + 1;
 	        let blog = await Blog.getBlogPostByID(random_blogPost_id)
             return res.json({
@@ -108,9 +108,9 @@ class APIPublicController {
 
 	static async getPublicGameRandom(req, res, next){
 		try {
-			const totalGames = await Games.getTotalGames()
+			const totalGames = await Games.getTotal()
 			const random_game_id = await Math.floor(Math.random() * totalGames) + 1;
-	        let game = await Games.getGameByID(random_game_id)
+	        let game = await Games.getByID(random_game_id)
             return res.json({
                 game
             });	        
@@ -123,7 +123,7 @@ class APIPublicController {
 
 	static async getPublicBooks(req, res, next) {
 		try {
-	        let books = await Books.getAllBooks()
+	        let books = await Books.getAll()
             return res.json({
                 books
             });	        
@@ -137,7 +137,7 @@ class APIPublicController {
 	static async getPublicBookByID(req, res, next){
 		try {
 			const { book_id } = req.params
-	        let book = await Books.getBookByID(book_id)
+	        let book = await Books.getByID(book_id)
             return res.json({
                 book
             });	        
@@ -150,7 +150,7 @@ class APIPublicController {
 
 	static async getPublicBookRandom(req, res, next){
 		try {
-			const totalBooks = await Books.getTotalBooks()
+			const totalBooks = await Books.getTotal()
 			const random_book_id = await Math.floor(Math.random() * totalBooks) + 1;
 	        let book = await Books.getBookByID(random_book_id)
             return res.json({

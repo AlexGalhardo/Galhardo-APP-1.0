@@ -38,7 +38,7 @@ class AdminController {
 			body: blog_body
 		}
 
-		const blogPost = Blog.createBlogPost(blogPostObject);
+		const blogPost = Blog.create(blogPostObject);
 
 		if(!blogPost){
 			return res.render('pages/admin/createBlogPost', {
@@ -62,7 +62,7 @@ class AdminController {
 
 	static getViewUpdateBlogPost (req, res){
 		const blog_id = req.params.blog_id;
-		const blogPost = Blog.getBlogPostByID(blog_id);
+		const blogPost = Blog.getByID(blog_id);
 
 		res.render('pages/admin/updateBlogPost', {
 			blogPost,
@@ -90,7 +90,7 @@ class AdminController {
       		comments: []
 		}
 
-		const blogPost = Blog.updateBlogPost(blogPostObject);
+		const blogPost = Blog.update(blogPostObject);
 
 		if(!blogPost){
 			return res.render('pages/admin/updateBlogPost', {
@@ -116,7 +116,7 @@ class AdminController {
 	static postDeleteBlogPost(req, res) {
 		const blog_id = req.params.blog_id;
 		
-		if(Blog.deleteBlogPostByID(parseInt(blog_id))){
+		if(Blog.delete(parseInt(blog_id))){
 			/*return res.render("pages/admin/createGame", {
 				flash: {
 					type: "success",
@@ -169,7 +169,7 @@ class AdminController {
 			resume: game_resume
 		}
 
-		const game = Games.createGame(gameObject);
+		const game = Games.create(gameObject);
 
 		if(!game){
 			return res.render('pages/admin/createGame', {
@@ -194,7 +194,7 @@ class AdminController {
 
 	static getViewUpdateGame (req, res){
 		const game_id = req.params.game_id;
-		const game = Games.getGameByID(game_id);
+		const game = Games.getByID(game_id);
 
 		res.render('pages/admin/updateGame', {
 			game,
@@ -232,7 +232,7 @@ class AdminController {
 
 		console.log('gameObject é', gameObject)
 
-		const game = Games.updateGameByID(gameObject);
+		const game = Games.updateByID(gameObject);
 
 		if(!game){
 			return res.render('pages/admin/updateGame', {
@@ -257,8 +257,8 @@ class AdminController {
 
 	static postDeleteGame(req, res) {
 		const game_id = req.params.game_id;
-		console.log(Games.deleteGameByID(parseInt(game_id)))
-		if(Games.deleteGameByID(parseInt(game_id))){
+		console.log(Games.delete(parseInt(game_id)))
+		if(Games.delete(parseInt(game_id))){
 			/*return res.render("pages/admin/createGame", {
 				flash: {
 					type: "success",
@@ -307,7 +307,7 @@ class AdminController {
 			author: book_author
 		}
 
-		const book = Books.createBook(bookObject);
+		const book = Books.create(bookObject);
 
 		if(!book){
 			return res.render('pages/admin/createBook', {
@@ -330,9 +330,9 @@ class AdminController {
 		});
 	}
 
-	static getViewUpdateBook (req, res){
+	static getViewUpdateBook(req, res){
 		const book_id = req.params.book_id;
-		const book = Books.getBookByID(book_id);
+		const book = Books.getByID(book_id);
 
 		res.render('pages/admin/updateBook', {
 			book,
@@ -364,7 +364,7 @@ class AdminController {
 			author: book_author
 		}
 
-		const book = Books.updateBookByID(bookObject);
+		const book = Books.update(bookObject);
 
 		console.log('book é', book)
 
@@ -392,7 +392,7 @@ class AdminController {
 	static postDeleteBook(req, res) {
 		const book_id = req.params.book_id;
 		
-		if(Books.deleteBookByID(parseInt(book_id))){
+		if(Books.delete(parseInt(book_id))){
 			/*return res.render("pages/admin/createGame", {
 				flash: {
 					type: "success",
