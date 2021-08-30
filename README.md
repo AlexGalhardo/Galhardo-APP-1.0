@@ -380,7 +380,6 @@ Games.getRandom() // return a random game object
             "payment_method": "card_iuahs12ui3a76sl",
             "currency": "usd",
             "paid": true,
-            "shipping_fee": 2700,
             "products_amount": 2599,
             "products": "[{bananas: 3, amount: 244}, {grapes: 2, amount: 124}, {apples: 5, amount: 99},  {oranges: 4, amount: 399}]",
             "customer": {
@@ -398,6 +397,7 @@ Games.getRandom() // return a random game object
                 "address_state": "São Paulo",
                 "address_country": "Brazil",
                 "carrier": "Brasil Correios",
+                "fee": 2700
             },
             "created_at": "11/08/2021 20:36:33"
         }

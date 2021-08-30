@@ -14,6 +14,9 @@ const bodyParser = require('body-parser');
 const DateTime = require('../helpers/DateTime');
 const NodeMailer = require('../helpers/NodeMailer');
 
+// Models
+const StripeModel = require('../models/JSON/Stripe')
+
 // Stripe
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
@@ -28,19 +31,27 @@ class ShopController {
 	    });
 	}
 
+
+    /**
+     * GET /shop
+     * POST /shop/payLog
+     */
 	static async postShopPayLog (req, res) {
 		
 		const { quantityOranges,
 				quantityGrapes, 
 				quantityApples,
-				quantityStrawberries,
+				quantityBananas,
 				customer_email,
 				customer_name,
 				customer_phone,
 				zipcode,
 				customer_street,
+                customer_neighborhood,
 				customer_city,
 				customer_state,
+                shipping_country,
+                shipping_carrier,
 				shipping_fee,
 				total_shop_cart_amount,
 				card_number,
@@ -68,13 +79,12 @@ class ShopController {
 		});
 
 		const shopTransactionObject = {
-            status: 'Success',
-            customer_name,
-            customer_email,
-            customer_phone,
-            amount: total_shop_cart_amount,
             transaction_id: shopCardCharge.id,
-            created_at: DateTime.getNow(),
+            total_amount: total_shop_cart_amount,
+            payment_method: shopCardCharge.source,
+            currency: shopCardCharge.currency,
+            paid: shopCardCharge.paid,
+            products_amount:2700,
             products: [
                 {
                     quantity: quantityOranges,
@@ -92,25 +102,33 @@ class ShopController {
                     total: parseFloat(quantityApples * 1.99).toFixed(2)
                 },
                 {
-                    quantity: quantityStrawberries,
-                    name: 'Strawberries',
-                    total: parseFloat(quantityStrawberries * 2.99).toFixed(2)
+                    quantity: quantityBananas,
+                    name: 'Bananas',
+                    total: parseFloat(quantityBananas * 2.99).toFixed(2)
                 },
             ],
+            customer: {
+                id: req.session.userID,
+                stripe_id: SESSION_USER.stripe.customer_id,
+                email: customer_email,
+                name: customer_name
+            },
             shipping: {
-				address: {
-					city: customer_city,
-					country: "BRAZIL",
-					postal_code: zipcode,
-					state: customer_state,
-					line1: customer_street
-				},
-				fee: shipping_fee, 
-				carrier: "CORREIOS"
-			}
+                address_zipcode: zipcode,
+                address_street: customer_street,
+                address_street_number: 42,
+                address_neighborhood: customer_neighborhood,
+                address_city: customer_city,
+                address_state: customer_state,
+                address_country: "Brazil",
+                carrier: "Correios",
+                fee: shipping_fee
+            },
+            created_at: DateTime.getNow()
         }
 
-		NodeMailer.sendEmailShopTransaction(shopTransactionObject)
+        await StripeModel.createShopTransaction(shopTransactionObject)
+		await NodeMailer.sendEmailShopTransaction(shopTransactionObject)
 		
 		return res.render('pages/shop/shopPayLog', {
 			flash: {

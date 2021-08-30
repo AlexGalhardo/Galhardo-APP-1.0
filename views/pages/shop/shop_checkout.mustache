@@ -127,11 +127,25 @@
                           <input type="text" class="form-control" id="customer_state" name="customer_state" placeholder="State" value="" required onkeydown="return false;">
                         </div>
 
+                        <!-- COUNTRY -->
+                        <div class="col-sm-12 mb-2">
+                          <input type="text" class="form-control" id="customer_country" name="customer_country" placeholder="Country" value="" required onkeydown="return false;">
+                        </div>
+
+
+                        <!-- SHIPPING CARRIER -->
+                        <label for="shipping_fee" class="col-sm-5 col-form-label">Shipping Carrier</label>
+                        <div class="col-sm-7 mb-3">
+                            <!-- SHIPMENT_PRICE -->
+                            <input type="text" class="form-control" value="" name="shipping_carrier" id="shipping_carrier" required onkeydown="return false;">
+                        </div>
+
+
                         <!-- SHIPPING FEE -->
                         <label for="shipping_fee" class="col-sm-5 col-form-label">Shipping Fee R$</label>
                         <div class="col-sm-7 mb-3">
                             <!-- SHIPMENT_PRICE -->
-                            <input type="number" class="form-control" value="0" name="shipping_fee" id="shipping_fee" required onkeydown="return false;">
+                            <input type="text" class="form-control" value="0" name="shipping_fee" id="shipping_fee" required onkeydown="return false;">
                         </div>
                         
                         <!-- SHIPPING DEADLINE -->

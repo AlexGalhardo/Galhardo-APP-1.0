@@ -200,12 +200,13 @@ class Users {
         updated_at: DateTime.getNow()
       })
 
-      Users.save(database, 'error register user: ')
+        Users.save(database, 'error register user: ')
 
-      return true
+        return true
 
     } catch (error) {
-      return console.log("ERROR registerUser: ", error);
+        console.log("ERROR registerUser: ", error);
+        return false
     }
   }
 

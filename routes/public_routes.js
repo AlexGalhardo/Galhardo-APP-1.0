@@ -11,7 +11,7 @@
 
 // INIT EXPRESS 
 const router = require('express').Router()
-const multer = require('multer')
+
 
 
 // VIEWS CONTROLLERS
@@ -29,35 +29,9 @@ const userIsAlreadyLoggedIn = (req, res, next) => {
 }
 
 
-const storageConfig = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './tmp');
-    },
-    filename: (req, file, cb) => {
-        let randomName = Math.floor(Math.random()*99999)
-        cb(null, `${randomName+Date.now()}.jpg`);
-    }
-});
-
-const upload = multer({
-    dest: './tmp',
-    // storage: multer.memoryStorage(), // salvar na memória ram
-    // storage: storageConfig // salvar em uma pasta temporária
-    fileFilter: (req, file, cb) => {
-        // cb(null, false); // não aceito nada
-        // cb(null, true) // aceito qualquer tipo de arquvio
-
-        const allowed = ['image/jpg', 'image/jpeg', 'image/png'];
-
-        cb(null, allowed.includes(file.mimetype))
-    },
-    limits: { fieldSize: 1000000 } // 1MB
-});
-
 
 
 router
-
 // APP VIEWS CONTROLLER
     .get('/', AppController.getViewHome)
     .get('/books', AppController.getViewBooks)

@@ -74,6 +74,7 @@ document.querySelector('#zipcode').addEventListener('change', async function(e) 
     document.querySelector('#customer_neighborhood').value = bairro
     document.querySelector('#customer_city').value = localidade
     document.querySelector('#customer_state').value = uf
+    document.querySelector('#customer_country').value = 'Brazil'
 
     // SHIPPING DATA
     const responseShipping = await fetch(`https://correios.galhardoapp.com/shipping/${zipcode}`)
@@ -82,6 +83,7 @@ document.querySelector('#zipcode').addEventListener('change', async function(e) 
     const shipping_fee = parseFloat(shippingJson[0].Valor);
     const shipping_deadline = shippingJson[0].PrazoEntrega;
 
+    document.querySelector('#shipping_carrier').value = "Correios"
     document.querySelector('#shipping_fee').value = shipping_fee
     document.querySelector('#shipping_deadline').value = shipping_deadline
 

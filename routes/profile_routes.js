@@ -11,6 +11,7 @@
 
 // INIT EXPRESS
 const router = require('express').Router()
+const multer = require('multer')
 
 
 // CONTROLLER
@@ -23,18 +24,47 @@ const userIsNotLoggedIn = (req, res, next) => {
     next()
 }
 
+
+
+const storageConfig = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './tmp');
+    },
+    filename: (req, file, cb) => {
+        let randomName = Math.floor(Math.random()*99999)
+        cb(null, `${randomName+Date.now()}.jpg`);
+    }
+});
+
+const upload = multer({
+    dest: './tmp',
+    // storage: multer.memoryStorage(), // salvar na memória ram
+    // storage: storageConfig // salvar em uma pasta temporária
+    fileFilter: (req, file, cb) => {
+        // cb(null, false); // não aceito nada
+        // cb(null, true) // aceito qualquer tipo de arquvio
+
+        const allowed = ['image/jpg', 'image/jpeg', 'image/png'];
+
+        cb(null, allowed.includes(file.mimetype))
+    },
+    limits: { fieldSize: 1000000 } // 1MB
+});
+
+
+
+
 router
-// PROFILE CONTROLLER
-    .get('/profile', userIsNotLoggedIn, ProfileController.getViewProfile)
-    .post('/profile', userIsNotLoggedIn, ProfileController.updateProfile)
+    .get('/', userIsNotLoggedIn, ProfileController.getViewProfile)
+    .post('/', userIsNotLoggedIn, ProfileController.updateProfile)
 
-    .post('/profile/avatar', userIsNotLoggedIn, upload.single('avatar'), ProfileController.updateProfileAvatar)
+    .post('/avatar', userIsNotLoggedIn, upload.single('avatar'), ProfileController.updateProfileAvatar)
 
-    .get('/profile/shop/transactions', userIsNotLoggedIn, ProfileController.getViewShopTransactions)
-    .get('/profile/shop/transaction/:shop_transaction_id', userIsNotLoggedIn, ProfileController.getViewShopTransactionByID)
+    .get('/shop/transactions', userIsNotLoggedIn, ProfileController.getViewShopTransactions)
+    .get('/shop/transaction/:shop_transaction_id', userIsNotLoggedIn, ProfileController.getViewShopTransactionByID)
 
-    .get('/profile/subscriptions/transactions', userIsNotLoggedIn, ProfileController.getViewSubscriptionsTransactions)
-    .get('/profile/shop/subscription/:subs_transaction_id', userIsNotLoggedIn, ProfileController.getViewSubscriptionTransactionByID)
+    .get('/subscriptions/transactions', userIsNotLoggedIn, ProfileController.getViewSubscriptionsTransactions)
+    .get('/shop/subscription/:subs_transaction_id', userIsNotLoggedIn, ProfileController.getViewSubscriptionTransactionByID)
 
     .get('/logout', userIsNotLoggedIn, ProfileController.getLogout)
 

@@ -95,10 +95,12 @@ app.use(express.static(path.join(__dirname, './public')));
 
 // ROUTES
 const publicRoutes = require('./routes/public_routes');
+const profileRoutes = require('./routes/profile_routes');
 const apiRoutes = require('./routes/api_routes');
 const adminRoutes = require('./routes/admin_routes');
 const testRoutes = require('./routes/test_routes');
 
+app.use('/profile', profileRoutes);
 app.use('/api', apiRoutes);
 app.use('/admin', adminRoutes);
 app.use('/test', testRoutes);

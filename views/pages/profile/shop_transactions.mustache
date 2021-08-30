@@ -11,6 +11,7 @@
             <table class="table table-over mt-5">
                 <thead>
                     <tr>
+                        <th scope="col">VIEW</th>
                         <th scope="col">ID</th>
                         <th scope="col">STATUS</th>
                         <th scope="col">AMOUNT</th>
@@ -21,6 +22,7 @@
                 <tbody>
                     {{#shopTransactions}}
                         <tr>
+                            <td><button class="btn btn-outline-success btn-sm">View</button></td>
                             <th>{{id}}</th>
                             <td>{{status}}</td>
                             <td>{{amount}}</td>
