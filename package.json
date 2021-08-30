@@ -90,7 +90,7 @@
     "superagent": "^6.1.0",
     "supertest": "^6.1.6",
     "sqlite3": "^4.2.0",
-    "knex": "^0.95.10",
+    "knex": "^0.95.10"
   },
   "optionalDependencies": {
     "fsevents": "2.3"
