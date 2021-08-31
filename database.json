@@ -26,18 +26,18 @@
         "country": "BRAZIL"
       },
       "stripe": {
-        "customer_id": "cus_K15RnWHRhUA0HF",
-        "card_token_id": "tok_1JN3UBBD6lhzYmkOV3LcL9cX",
-        "card_id": "card_1JN3UBBD6lhzYmkO7W8rsCO3",
-        "card_holder_name": "Alex Galhardo",
-        "card_last_4_digits": "4242",
-        "card_exp_month": "07",
-        "card_exp_year": 2022,
-        "currently_subscription_id": "sub_K162ez3Perblxs",
-        "currently_subscription_name": "PREMIUM",
-        "subscription_start": "10/08/2021 19:54:32",
-        "subscription_end": "10/09/2021 19:54:32",
-        "subscription_automatically_renew": true
+        "customer_id": null,
+        "card_token_id": null,
+        "card_id": null,
+        "card_holder_name": null,
+        "card_last_4_digits": null,
+        "card_exp_month": null,
+        "card_exp_year": null,
+        "currently_subscription_id": null,
+        "currently_subscription_name": null,
+        "subscription_start": null,
+        "subscription_end": null,
+        "subscription_automatically_renew": false
       },
       "created_at": "09/08/2021 03:52:14",
       "updated_at": "11/08/2021 04:04:17"
@@ -68,18 +68,18 @@
         "country": "Brazil"
       },
       "stripe": {
-        "customer_id": "cus_K3keRif5hEPSI2",
-        "card_token_id": "tok_1JPdCrBD6lhzYmkO59di8vhE",
-        "card_id": "card_1JPdCrBD6lhzYmkOydvtdVNW",
-        "card_holder_name": "Alex Galhardo",
-        "card_last_4_digits": "4242",
-        "card_exp_month": "07",
-        "card_exp_year": 2022,
-        "currently_subscription_id": "sub_K162ez3Perblxs",
-        "currently_subscription_name": "PREMIUM",
-        "subscription_start": "10/08/2021 19:54:32",
-        "subscription_end": "10/09/2021 19:54:32",
-        "subscription_automatically_renew": true
+        "customer_id": null,
+        "card_token_id": null,
+        "card_id": null,
+        "card_holder_name": null,
+        "card_last_4_digits": null,
+        "card_exp_month": null,
+        "card_exp_year": null,
+        "currently_subscription_id": null,
+        "currently_subscription_name": null,
+        "subscription_start": null,
+        "subscription_end": null,
+        "subscription_automatically_renew": false
       },
       "created_at": "10/08/2021 02:25:35",
       "updated_at": "15/08/2021 06:25:35"
@@ -705,6 +705,7 @@
           "email": "test@gmail.com",
           "name": "TEST JACK"
         },
+        "stripe_request_response": {},
         "created_at": "11/08/2021 20:36:33"
       }
     ]

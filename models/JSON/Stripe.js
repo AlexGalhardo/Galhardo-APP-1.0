@@ -18,14 +18,12 @@ const DateTime = require('../../helpers/DateTime');
 
 class Stripe {
 
-    static save(database, error_message){
+    static save(database){
         fs.writeFileSync(process.env.JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
-          if (error) {
-            console.log(`Error writing file in ${process.env.JSON_DATABASE_FILE}: `, error);
-            return false
-          }
+            if (error) {
+                throw new Error(error);
+            }
         });
-        return true
     }
 
 
@@ -45,10 +43,8 @@ class Stripe {
                 created_at: transactionObject.created_at
             })
             Stripe.save(database)
-            return true
         } catch(err){
-            console.log('Shop Transaction not created in database!')
-            return false
+            throw new Error('Shop Transaction not created in database!')
         }
     }
 
@@ -56,7 +52,15 @@ class Stripe {
     static async getShopTransactionsByUserID(user_id){}
     static async getShopTransactionByID(transaction_id){}
 
-	static async createSubscriptionTransaction(userObject, transactionObject){}
+	static async createSubscription(userObject, transactionObject){
+        try {
+            database.stripe.shop_transactions.push(transactionObject)
+            database.stripe.shop_transactions.push()
+            await Stripe.save(database)
+        } catch(err){
+            throw new Error('Subscription Transaction not created in database!')
+        }
+    }
     static async getSubsTransactionsByUserID(user_id){}
     static async getSubsTransactionByID(transaction_id){}
 }

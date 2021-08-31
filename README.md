@@ -26,11 +26,12 @@
 - JavaScript, JSON, NodeJS, Express, NPM, TypeScript, DOM, Git, Bootstrap5
 - How to document a software
 - Cookies Privacy
-   - LGPD & GPDR
-- NGINX
+   - LGPD (http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm)
+   - GPDR (https://gdpr-info.eu/)
+- NGINX (https://www.nginx.com/)
    - Reverse-Proxy, Load Balancing, Cache, Response Compression
-- AWS
-   - DevOps, DNS, How to configure SSL/HTTPs in a VPS, etc
+- DevOps
+   - SSH, Ports, DNS, How to configure SSL/HTTPs in a VPS, etc
 - Docker and DataBases
    - MySQL, Postgres, SQLite, Redis and MongoDB
 - Payments REST APIs

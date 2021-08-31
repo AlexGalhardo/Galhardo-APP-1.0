@@ -28,6 +28,10 @@ const userIsAlreadyLoggedIn = (req, res, next) => {
 	next()
 }
 
+const userIsNotLoggedIn = (req, res, next) => {
+    if(!req.session.userID) return res.redirect('/login');
+    next()
+}
 
 
 
@@ -64,14 +68,14 @@ router
 // PLANS VIEWS CONTROLLER
     .get('/plans', PlansController.getViewPlans)
 
-    .get('/plan/starter/checkout', PlansController.getViewPlanStarterCheckout)
-    .post('/plan/starter/checkout', PlansController.postSubscription)
+    .get('/plan/starter/checkout', userIsNotLoggedIn, PlansController.getViewPlanStarterCheckout)
+    .post('/plan/starter/checkout', userIsNotLoggedIn, PlansController.postSubscription)
 
-    .get('/plan/pro/checkout', PlansController.getViewPlanProCheckout)
-    .post('/plan/pro/checkout', PlansController.postSubscription)
+    .get('/plan/pro/checkout', userIsNotLoggedIn, PlansController.getViewPlanProCheckout)
+    .post('/plan/pro/checkout', userIsNotLoggedIn, PlansController.postSubscription)
 
-    .get('/plan/premium/checkout', PlansController.getViewPlanPremiumCheckout)
-    .post('/plan/premium/checkout', PlansController.postSubscription)
+    .get('/plan/premium/checkout', userIsNotLoggedIn, PlansController.getViewPlanPremiumCheckout)
+    .post('/plan/premium/checkout', userIsNotLoggedIn, PlansController.postSubscription)
 
 
 
