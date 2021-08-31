@@ -10,6 +10,7 @@
 
 const bodyParser = require('body-parser');
 const NodeMailer = require('../helpers/NodeMailer');
+const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
 
 const Games = require('../models/JSON/Games');
 // const Games = require('../models/MONGODB/Games');
@@ -28,19 +29,19 @@ const Books = require('../models/JSON/Books');
 
 class AppController {
 
-    static getViewHome (req, res) {
-        const game = Games.getRandom()
+    static async getViewHome (req, res) {
+        const game = await Games.getRandom()
 
-        res.render('pages/home', {
+        return res.render('pages/home', {
             game,
             user: SESSION_USER
         });
     }
 
-    static getViewBooks (req, res){
-        const book = Books.getRandom()
+    static async getViewBooks (req, res){
+        const book = await Books.getRandom()
 
-        res.render('pages/books', {
+        return res.render('pages/books', {
             book,
             user: SESSION_USER
         });
@@ -53,17 +54,24 @@ class AppController {
         });
     }
 
-    static postContact (req, res){
-        const { contact_username,
-                contact_email,
-                contact_subject,
-                contact_message } = req.body;
 
-        if(NodeMailer.sendContact(contact_username,
-                                    contact_email,
-                                    contact_subject,
-                                    contact_message))
-        {
+    static async postContact (req, res){
+        try {
+            const { name,
+                    email,
+                    subject,
+                    message } = req.body;
+
+            const contactObject = {
+                name,
+                email,
+                subject,
+                message
+            }
+
+            await NodeMailer.sendContact(contactObject)
+            await TelegramBOTLogger.logContact(contactObject)
+
             return res.render('pages/contact', {
                 flash: {
                     type: 'success',
@@ -72,8 +80,15 @@ class AppController {
                 user: SESSION_USER
             });
         }
-
-        return res.redirect('/contact')
+        catch(err){
+            return res.render('pages/contact', {
+                flash: {
+                    type: 'danger',
+                    message: err
+                },
+                user: SESSION_USER
+            });
+        }
     }
 
     static getViewPrivacy (req, res){

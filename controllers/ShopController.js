@@ -13,6 +13,7 @@ const bodyParser = require('body-parser');
 // Helpers
 const DateTime = require('../helpers/DateTime');
 const NodeMailer = require('../helpers/NodeMailer');
+const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
 
 // Models
 const StripeModel = require('../models/JSON/Stripe')
@@ -135,13 +136,13 @@ class ShopController {
 
         await StripeModel.createShopTransaction(shopTransactionObject)
 		await NodeMailer.sendShopTransaction(shopTransactionObject)
+        await TelegramBOTLogger.logShopTransaction(shopTransactionObject)
 		
 		return res.render('pages/shop/shopPayLog', {
 			flash: {
 				type: 'success',
 				message: 'Shop Transaction Created with Success!'
 			},
-			shopCardCharge,
 			shopTransactionObject,
 			user: SESSION_USER,
 			shop_active: true

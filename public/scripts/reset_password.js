@@ -1,5 +1,5 @@
-const newPassword = document.querySelector("#newPassword")
-const confirmNewPassword = document.querySelector("#confirmNewPassword")
+const newPassword = document.querySelector("#new_password")
+const confirmNewPassword = document.querySelector("#confirm_new_password")
 const btn = document.querySelector('#button_reset_password');
 const form = document.querySelector("#form_reset_password")
 

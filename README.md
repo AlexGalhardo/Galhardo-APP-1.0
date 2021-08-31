@@ -47,8 +47,8 @@
    - Unit, Integration, Perfomance, etc
 - Code best practices
    - MVC, 12Factor APP, ESLint, Prettier, Design Patterns, etc
-- Google Tools
-   - SEO, CDN, Analytics, Search Console, Sitemap, Robots.txt, etc
+- SEO
+   - Google Tools, SocialMedia MetaTags, CDN, Analytics, Search Console, Sitemap, Robots.txt, etc
 - Logs
    - Console, files, telegram, etc
 - Security

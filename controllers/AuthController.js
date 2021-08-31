@@ -125,16 +125,14 @@ class AuthController {
         return res.redirect('/login')
     }
 
-    static postRegister (req, res, next){
-        const errors = validationResult(req);
 
-        const { username,
-                email,
-                password,
-                confirm_password,
-                github_id,
-                facebook_id,
-                google_id } = req.body;
+
+    /**
+     * Create user in DataBase
+     * Send Confirm Email Token Email
+     */
+    static async postRegister (req, res, next){
+        const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
             return res.render('pages/auth/register', {
@@ -147,7 +145,15 @@ class AuthController {
 
         try {
 
-            const confirm_email_token = randomToken.generate(16)
+            const { username,
+                email,
+                password,
+                confirm_password,
+                github_id,
+                facebook_id,
+                google_id } = req.body;
+
+            const confirm_email_token = randomToken.generate(24)
 
             const userObject = {
                 username,
@@ -165,12 +171,12 @@ class AuthController {
                 return res.render("pages/auth/register", {
                     flash: {
                         type: "warning",
-                        message: "User not saved in JSON database!"
+                        message: "User not created in database!"
                     }
                 });
             }
 
-            NodeMailer.sendConfirmEmailToken(email, confirm_email_token)
+            await NodeMailer.sendConfirmEmailToken(email, confirm_email_token)
 
             return res.render("pages/auth/register", {
                 flash: {
@@ -198,15 +204,10 @@ class AuthController {
     static async postForgetPassword (req, res){
         const { email } = req.body;
 
-        const reset_password_token = randomToken.generate(16);
+        const reset_password_token = randomToken.generate(24);
 
-        const resetPasswordTokenCreated = await Users.createResetPasswordToken(email, reset_password_token);
-
-        console.log(email, reset_password_token, resetPasswordTokenCreated)
-        if(resetPasswordTokenCreated){
-            console.log('entrou')
-            NodeMailer.sendForgetPassword(email, reset_password_token);
-        }
+        await Users.createResetPasswordToken(email, reset_password_token);
+        await NodeMailer.sendForgetPassword(email, reset_password_token);
 
         return res.render('pages/auth/forgetPassword', {
             flash: {
@@ -228,17 +229,16 @@ class AuthController {
             return res.redirect('/forgetPassword');
         }
 
-        res.render('pages/auth/resetPassword', {
+        return res.render('pages/auth/resetPassword', {
             email
         });
     }
 
 
     static postResetPassword (req, res){
-        const { email, newPassword } = req.body
+        const { email, new_password } = req.body
 
-        if(!Users.resetPassword(email, newPassword)){
-            console.log('New Password not updated in database!');
+        if(!Users.resetPassword(email, new_password)){
             return res.redirect('/forgetPassword')
         }
 

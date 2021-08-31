@@ -13,16 +13,16 @@
                 {{/flash}}
 
                 <div class="form-floating mb-3">
-                    <input type="txt" class="mb-3 form-control" id="contact_username" name="contact_username" required autofocus>
-                    <label for="contact_username">Your Name</label>
+                    <input type="txt" class="mb-3 form-control" id="name" name="name" required autofocus>
+                    <label for="name">Your Name</label>
                 </div>
                 
                 <div class="form-floating mb-3">
-                    <input type="email" id="contact_email" name="contact_email" class="form-control" required>
-                    <label for="contact_email">Your Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                    <label for="email">Your Email</label>
                 </div>
 
-                <select class="form-select mb-3" name="contact_subject" required>
+                <select class="form-select mb-3" name="subject" required>
                     <option value="Feedback">Feedback</option>
                     <option value="Bug/Error">Bug/Error</option>
                     <option value="Privacy Policy">Privacy and Terms of Use Policy</option>
@@ -30,9 +30,9 @@
                 </select>
 
                 <div class="mb-3">
-                    <label for="contact_message" class="form-label">Digit your message</label>
+                    <label for="message" class="form-label">Digit your message</label>
                     <small id="count" class="text-muted"></small>
-                    <textarea id="contact_message" maxlength="1024" class="form-control" name="contact_message" rows="5" required></textarea>
+                    <textarea id="message" maxlength="1024" class="form-control" name="message" rows="5" required></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-outline-success shadow">Send Mensage</button>
@@ -44,7 +44,7 @@
     </main>
 
     <script>
-        var message = document.getElementById('contact_message');
+        var message = document.getElementById('message');
         var length = message.getAttribute("maxlength");
         var count = document.getElementById('count');
         count.innerHTML = length + ' words left';

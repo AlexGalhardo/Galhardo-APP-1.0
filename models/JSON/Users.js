@@ -15,26 +15,28 @@ const DateTime = require('../../helpers/DateTime');
 
 const database = require('../../config/json_database');
 
+
+
 class Users {
 
-  static save(database, error_message){
-    fs.writeFileSync(process.env.JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
-      if (error) {
-        console.log(`Error writing file in ${process.env.JSON_DATABASE_FILE}: `, error);
-        return false
-      }
-    });
-    return true
-  }
+    static save(database, error_message){
+        fs.writeFileSync(process.env.JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
+            if (error) {
+                console.log(error_message, error);
+                return false
+            }
+        });
+        return true
+    }
 
-  static getAll() {
-    try {
-      return database.users
-    } catch (error) {
-      console.log("ERROR getAll: ", error);
-      return null
-    };
-  }
+    static getAll() {
+        try {
+          return database.users
+        } catch (error) {
+          console.log("ERROR getAll: ", error);
+          return null
+        };
+    }
 
   static getByID(user_id) {
     try {
@@ -230,38 +232,39 @@ class Users {
 
 
 
-  static resetPasswordTokenIsValid(email, resetPasswordToken){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email === email 
-          && 
-          database.users[i].reset_password_token === resetPasswordToken){
-          return true
+    static resetPasswordTokenIsValid(email, resetPasswordToken){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email === email
+                &&
+                database.users[i].reset_password_token === resetPasswordToken){
+                    return true
+                }
+            }
+            return false
+        } catch (error) {
+            return console.log("ERROR passwordResetTokenIsValid: ", error);
         }
-        return false
-      }
-    } catch (error) {
-      return console.log("ERROR passwordResetTokenIsValid: ", error);
     }
-  }
 
 
-  static async resetPassword(email, newPassword){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email === email){
-            const passwordHash = await Bcrypt.cryptPassword(newPassword)
-            database.users[i].password = passwordHash
-            Users.save(database, 'error resetPassword: ')
-            return true
+    static async resetPassword(email, newPassword){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email === email){
+                    const passwordHash = await Bcrypt.cryptPassword(newPassword)
+                    database.users[i].password = passwordHash
+                    database.users[i].reset_password_token = null
+                    Users.save(database, 'error resetPassword: ')
+                    return true
+                }
+            }
+            return false
+        } catch (error) {
+            console.log("ERROR passwordResetTokenIsValid: ", error);
+            return false
         }
-        return false
-      }
-    } catch (error) {
-      console.log("ERROR passwordResetTokenIsValid: ", error);
-      return false
     }
-  }
 
 
   static async updateProfile(userObject){
