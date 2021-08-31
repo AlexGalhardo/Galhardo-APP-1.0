@@ -68,7 +68,7 @@
         "country": "Brazil"
       },
       "stripe": {
-        "customer_id": null,
+        "customer_id": "cus_K8xIrzfCnsBdRq",
         "card_token_id": null,
         "card_id": null,
         "card_holder_name": null,
@@ -76,7 +76,7 @@
         "card_exp_month": null,
         "card_exp_year": null,
         "currently_subscription_id": null,
-        "currently_subscription_name": null,
+        "currently_subscription_name": "FREE",
         "subscription_start": null,
         "subscription_end": null,
         "subscription_automatically_renew": false

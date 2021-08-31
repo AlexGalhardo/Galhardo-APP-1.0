@@ -11,7 +11,7 @@
 
         {{#user}}
 
-        <form id="form_shop_checkout" action="/shop" method="POST">
+        <form id="formCreditCard" action="/shop" method="POST">
 
             <input type="text" value="6.46" id="total_shop_amount" name="total_shop_amount" hidden onkeydown="return false;">
 
@@ -170,7 +170,7 @@
                 <!-- PAYMENTS -->
                 <div class="col-lg-4">
                             
-                    <div id="div_stripe_credit_card"></div>
+                    <div id="div_credit_card"></div>
 
                     <div class="form-floating mb-3 mt-3">
                         <input type="text" class="form-control" name="holder_name" id="holder_name" value="{{stripe.card_holder_name}}">

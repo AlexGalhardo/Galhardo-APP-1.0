@@ -19,14 +19,12 @@ const database = require('../../config/json_database');
 
 class Users {
 
-    static save(database, error_message){
+    static save(database){
         fs.writeFileSync(process.env.JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
             if (error) {
-                console.log(error_message, error);
-                return false
+                throw new Error(error);
             }
         });
-        return true
     }
 
     static getAll() {
@@ -135,21 +133,39 @@ class Users {
 
 
 
-  static async verifyLogin(email, password){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email == email){
-          const passwordValid = await Bcrypt.comparePassword(password, database.users[i].password)
-          if(passwordValid){
-            return database.users[i]
-          }
+    static async verifyLogin(email, password){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email === email){
+                    const passwordValid = await Bcrypt.comparePassword(password, database.users[i].password)
+                    if(passwordValid){
+                        return database.users[i]
+                    }
+
+                }
+            }
+            return null
+        } catch (error) {
+            return console.log("ERROR verifyLogin: ", error);
         }
-      }
-      return null
-    } catch (error) {
-      return console.log("ERROR verifyLogin: ", error);
     }
-  }
+
+
+    static async verifyPassword(user_id, password){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].id === user_id){
+                    const passwordValid = await Bcrypt.comparePassword(password, database.users[i].password)
+                    if(passwordValid){
+                        return true
+                    }
+                }
+            }
+            return false
+        } catch (error) {
+            throw new Error("ERROR Users.verifyPassword()");
+        }
+    }
 
 
 
@@ -347,20 +363,21 @@ class Users {
     }
   }
 
-  static createStripeCustomer(user_id, customer_id){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].id === parseInt(user_id)){
-          database.users[i].stripe.customer_id = customer_id
-          Users.save(database, 'Error createStripeCustomer: ')
-          return true
+    static createStripeCustomer(user_id, stripe_customer_id){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].id === user_id){
+                    database.users[i].stripe.customer_id = stripe_customer_id
+                    Users.save(database)
+                    return true
+                }
+            }
+            return false
+        } catch (error) {
+            throw new Error("ERROR createStripeCustomer");
         }
-      }
-      return false
-    } catch (error) {
-      return console.log("ERROR createStripeCustomer: ", error);
     }
-  }
+
 
   static createStripeCard(user_id, card_token_id, card_id){
     try {

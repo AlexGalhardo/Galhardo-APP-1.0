@@ -1,5 +1,5 @@
-$('#form_shop_checkout').card({
-    container: '#div_stripe_credit_card',
+$('#formCreditCard').card({
+    container: '#div_credit_card',
     formSelectors: {
         numberInput: 'input[name="card_number"]',
         nameInput: 'input[name="holder_name"]',

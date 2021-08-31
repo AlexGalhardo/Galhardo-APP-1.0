@@ -28,15 +28,13 @@ const StripeModel = require('../models/JSON/Users');
 // const StripeModel = require('../models/SQLITE/Stripe');
 
 
+stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
+
+
 
 class PlansController {
 
-	constructor(){
-        this.stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
-	}
-
-
-	getViewPlans (req, res) {
+	static getViewPlans (req, res) {
 		res.render('pages/plans/plans', {
 			user: SESSION_USER,
 			navbar_plans_active: true
@@ -44,7 +42,7 @@ class PlansController {
 	}
 
 
-    getViewPlanStarterCheckout (req, res) {
+    static getViewPlanStarterCheckout (req, res) {
         return res.render('pages/plans/starter_checkout', {
             user: SESSION_USER,
             navbar_plans_active: true
@@ -52,7 +50,7 @@ class PlansController {
     }
 
 
-    getViewPlanProCheckout (req, res) {
+    static getViewPlanProCheckout (req, res) {
         return res.render('pages/plans/pro_checkout', {
             user: SESSION_USER,
             navbar_plans_active: true
@@ -60,7 +58,7 @@ class PlansController {
     }
 
 
-    getViewPlanPremiumCheckout (req, res) {
+    static getViewPlanPremiumCheckout (req, res) {
         return res.render('pages/plans/premium_checkout', {
             user: SESSION_USER,
             navbar_plans_active: true
@@ -68,7 +66,7 @@ class PlansController {
     }
 
 
-    verifyIfUserHasActiveSubscription(){
+    static verifyIfUserHasActiveSubscription(){
         if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
             return res.render('pages/plans/planPayLog', {
                 flash: {
@@ -81,7 +79,9 @@ class PlansController {
         }
     }
 
-    getSubscriptionBanner (plan_name){
+
+
+    static getSubscriptionBanner (plan_name){
         if(plan_name === 'STARTER'){
             return `
             <div class="card mb-4 rounded-3 shadow-sm text-center">
@@ -139,26 +139,29 @@ class PlansController {
 
 
 
-    async verifyIfUserIsAlreadyAStripeCustomer(){
-        const customer = await this.stripe.customers.create({
-            description: 'Customer created in Subscription checkout!',
-            email: customer_email
-        });
-        await Users.createStripeCustomer(SESSION_USER.id, customer.id)
-        return customer
+    static async verifyIfUserIsAlreadyAStripeCustomer(customer_email){
+        if(!SESSION_USER.stripe.customer_id){
+            const customer = await stripe.customers.create({
+                description: 'Customer created in Subscription checkout!',
+                email: SESSION_USER.email
+            });
+            await Users.createStripeCustomer(SESSION_USER.id, customer.id)
+            return customer
+        }
+        return SESSION_USER.stripe.customer_id
     }
 
 
 
 
-    async verifyIfUserAlreadyHasAStripeCardRegistred(req){
+    static async verifyIfUserAlreadyHasAStripeCardRegistred(req){
         if(!SESSION_USER.stripe.card_id){
             const { card_number,
                 card_exp_year,
                 card_exp_month,
                 card_cvc } = req.body
 
-            const cardToken = await this.stripe.tokens.create({
+            const cardToken = await stripe.tokens.create({
                  card: {
                     number: card_number,
                     exp_month: card_exp_month,
@@ -167,7 +170,7 @@ class PlansController {
                   },
             });
 
-            const card = await this.stripe.customers.createSource(
+            const card = await stripe.customers.createSource(
                 SESSION_USER.stripe.customer_id,
                 {source: cardToken.id}
             );
@@ -182,7 +185,7 @@ class PlansController {
 
 
 
-    getStripePlanID(){
+    static getStripePlanID(){
         return {
             STARTER: process.env.STRIPE_PLAN_STARTER_PRODUCT_ID,
             PRO: process.env.STRIPE_PLAN_PRO_PRODUCT_ID,
@@ -191,9 +194,23 @@ class PlansController {
     }
 
 
+    static verifyIfPasswordIsCorrect(password){
+        if(!Users.verifyPassword(SESSION_USER.id, password)){
+            return res.render('pages/plans/plans', {
+                flash: {
+                    type: "warning",
+                    message: `Invalid Password!`
+                },
+                user: SESSION_USER,
+                navbar_plans_active: true,
+            })
+        }
+    }
 
-    async createStripeSubscription(stripe_customer_id, plan_id) {
-        const subscription = await this.stripe.subscriptions.create({
+
+
+    static async createStripeSubscription(stripe_customer_id, plan_id) {
+        const subscription = await stripe.subscriptions.create({
             customer: stripe_customer_id,
             items: [
                 {price: plan_id},
@@ -219,19 +236,23 @@ class PlansController {
      * verify if user already has a stripe credit card registred
      * Verify if user is not already registred in other plan
      */
-	async postSubscription (req, res) {
+    static async postSubscription (req, res) {
 
         // if false, continue
-        // await this.verifyIfUserHasActiveSubscription()
+        // this.verifyIfUserHasActiveSubscription()
 
-        let stripe_customer = await this.verifyIfUserIsAlreadyAStripeCustomer()
+        const { plan_name, customer_password } = req.body
 
-        let stripe_card = await this.verifyIfUserAlreadyHasAStripeCardRegistred(req)
+        // if true, continue
+        await PlansController.verifyIfPasswordIsCorrect(customer_password)
 
-        const { plan_name } = req.body
-        let stripe_plan_id = await this.getStripePlanID()[plan_name];
+        let stripe_customer = await PlansController.verifyIfUserIsAlreadyAStripeCustomer()
 
-        let subscription = await this.createStripeSubscription(stripe_customer.id, stripe_plan_id)
+        let stripe_card = await PlansController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
+
+        let stripe_plan_id = await PlansController.getStripePlanID()[plan_name];
+
+        let subscription = await PlansController.createStripeSubscription(stripe_customer.id, stripe_plan_id)
 
         const subsTransactionObject = {
             transaction_id: transactionObject.id,
@@ -271,4 +292,4 @@ class PlansController {
 	}
 };
 
-module.exports = new PlansController();
+module.exports = PlansController;
