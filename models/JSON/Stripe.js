@@ -49,20 +49,66 @@ class Stripe {
     }
 
 
-    static async getShopTransactionsByUserID(user_id){}
-    static async getShopTransactionByID(transaction_id){}
+    static async getShopTransactionsByUserID(user_id){
+        try {
+            const userShopTransactions = database.stripe.shop_transactions.filter(shopTransaction => shopTransaction.customer.id === user_id
+            )
+            return userShopTransactions
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+
+
+    static async getShopTransactionByID(transaction_id){
+        try {
+            for(let i = 0; i < database.stripe.shop_transactions.length; i++){
+                if(database.stripe.shop_transactions[i].transaction_id === transaction_id){
+                    return database.stripe.shop_transactions[i]
+                }
+            }
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+
 
 	static async createSubscriptionTransaction(SubsTransactionObject){
         try {
             database.stripe.subscriptions_transactions.push(SubsTransactionObject)
             await Stripe.save(database)
-        } catch(err){
-            throw new Error('Subscription Transaction not created in database!')
+        } catch(error){
+            throw new Error(error)
         }
     }
 
-    static async getSubsTransactionsByUserID(user_id){}
-    static async getSubsTransactionByID(transaction_id){}
+
+
+    static async getSubsTransactionsByUserID(user_id){
+        try {
+            const userSubsTransactions = database.stripe.subscriptions_transactions.filter(subsTransaction => subsTransaction.customer.id === user_id
+            )
+            return userSubsTransactions
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+
+
+    static async getSubsTransactionByID(transaction_id){
+        try {
+            for(let i = 0; i < database.stripe.subscriptions_transactions.length; i++){
+                if(database.stripe.subscriptions_transactions[i].transaction_id === transaction_id){
+                    return database.stripe.subscriptions_transactions[i]
+                }
+            }
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
 }
 
 module.exports = Stripe;

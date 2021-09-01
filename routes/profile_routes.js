@@ -56,15 +56,18 @@ const upload = multer({
 
 router
     .get('/', userIsNotLoggedIn, ProfileController.getViewProfile)
+
     .post('/', userIsNotLoggedIn, ProfileController.updateProfile)
 
     .post('/avatar', userIsNotLoggedIn, upload.single('avatar'), ProfileController.updateProfileAvatar)
 
-    .get('/shop/transactions', userIsNotLoggedIn, ProfileController.getViewShopTransactions)
+    .get('/shop/transactions', userIsNotLoggedIn, ProfileController.getViewMyShopTransactions)
+
     .get('/shop/transaction/:shop_transaction_id', userIsNotLoggedIn, ProfileController.getViewShopTransactionByID)
 
-    .get('/subscriptions/transactions', userIsNotLoggedIn, ProfileController.getViewSubscriptionsTransactions)
-    .get('/shop/subscription/:subs_transaction_id', userIsNotLoggedIn, ProfileController.getViewSubscriptionTransactionByID)
+    .get('/subscriptions/transactions', userIsNotLoggedIn, ProfileController.getViewMySubscriptionsTransactions)
+
+    .get('/subscription/transaction/:subs_transaction_id', userIsNotLoggedIn, ProfileController.getViewSubscriptionTransactionByID)
 
     .get('/logout', userIsNotLoggedIn, ProfileController.getLogout)
 

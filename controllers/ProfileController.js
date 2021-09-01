@@ -106,10 +106,10 @@ class ProfileController {
     /**
      * GET /profile/shop/transactions
      */
-    static async getViewShopTransactions(req, res){
+    static async getViewMyShopTransactions(req, res){
         const shopTransactions = await StripeModel.getShopTransactionsByUserID(req.session.userID)
 
-        return res.render('pages/profile/shop_transactions', {
+        return res.render('pages/profile/my_shop_transactions', {
             user: SESSION_USER,
             shopTransactions
         })
@@ -124,7 +124,7 @@ class ProfileController {
 
         const shopTransaction = await StripeModel.getShopTransactionByID(shop_transaction_id)
 
-        return res.render('pages/profile/subs_transaction', {
+        return res.render('pages/profile/shop_transaction', {
             user: SESSION_USER,
             shopTransaction
         })
@@ -135,10 +135,10 @@ class ProfileController {
     /**
      * GET /profile/subscriptions/transactions
      */
-    static async getViewSubscriptionsTransactions(req, res){
+    static async getViewMySubscriptionsTransactions(req, res){
         const subsTransactions = await StripeModel.getSubsTransactionsByUserID(req.session.userID)
 
-        return res.render('pages/profile/subs_transactions', {
+        return res.render('pages/profile/my_subs_transactions', {
             user: SESSION_USER,
             subsTransactions
         })
@@ -152,10 +152,11 @@ class ProfileController {
     static async getViewSubscriptionTransactionByID(req, res){
         const { subs_transaction_id } = req.params
 
-        const subsTransaction = await StripeModel.getSubsTransactionByID()
+        const subsTransaction = await StripeModel.getSubsTransactionByID(subs_transaction_id)
 
-        return res.render('pages/profile/subs_transaction', {
-            user: SESSION_USER
+        return res.render('pages/profile/sub_transaction', {
+            user: SESSION_USER,
+            subsTransaction
         })
     }
 }

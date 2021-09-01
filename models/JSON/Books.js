@@ -16,18 +16,16 @@ const database = require('../../config/json_database');
 
 class Books {
 
-	static save(database, error_message){
+	static save(database){
 		for(let i = 0; i < database.books.length; i++){
 			database.books[i].id = i+1
 		}
 
 	    fs.writeFileSync(process.env.JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
 	      if (error) {
-	        console.log(`Error writing file in ${process.env.JSON_DATABASE_FILE}: `, error);
-	        return false
+	        throw new Error(error);
 	      }
 	    });
-	    return true
 	}
 
 
@@ -35,7 +33,7 @@ class Books {
 		try {
 	      return database.books
 	    } catch (error) {
-	      return console.log("ERROR getAllBooks: ", error);
+	      throw new Error(error);
 	    };
 	}
 
@@ -44,8 +42,7 @@ class Books {
 		try {
 	      	return database.books.length
 	    } catch (error) {
-	      	console.log("ERROR getTotalBooks: ", error);
-	    	return 0
+	      	throw new Error(error);
 	    };
 	}
 
@@ -53,12 +50,10 @@ class Books {
 	static getRandom()  {
 		try {
 			const totalBooks = Books.getTotal()
-		
-			const random_book_index = Math.floor(Math.random() * totalBooks) + 1 
-
+			const random_book_index = Math.floor(Math.random() * totalBooks) + 1
 	      	return database.books[random_book_index-1]
 	    } catch (error) {
-	      	return console.log("ERROR getRandomBook: ", error);
+	      	throw new Error(error);
 	    };
 	}
 
@@ -72,7 +67,7 @@ class Books {
       		}
       		return null
     	} catch (error) {
-      		return console.log("ERROR getBookByID: ", error);
+      		throw new Error(error);
     	}
 	}
 
@@ -89,7 +84,7 @@ class Books {
 			
 			return bookObject
     	} catch (error) {
-      		return console.log("ERROR createBook: ", error);
+      		throw new Error(error);
     	}
 	}
 
@@ -119,7 +114,7 @@ class Books {
       		}
       		return "Book NOT Updated!"
     	} catch (error) {
-      		console.log("ERROR updateBookByID: ", error);
+      		throw new Error(error);
     	}
 	}
 
@@ -130,13 +125,12 @@ class Books {
       		for(let i=0; i < database.books.length; i++){
         		if(database.books[i].id === book_id){
         			database.books.splice(i, 1)
-        			Books.save(database, "Error deleteBookByID: ")
-        			return `Book ID ${book_id} DELETED!`
+        			Books.save(database)
+        			return
         		}
       		}
-      		return `Book ID ${book_id} NOT Deleted!`
     	} catch (error) {
-      		return console.log("ERROR deleteBookByID: ", error);
+      		throw new Error(error);
     	}
 	}
 }

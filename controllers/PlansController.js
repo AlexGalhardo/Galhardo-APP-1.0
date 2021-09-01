@@ -238,14 +238,20 @@ class PlansController {
                 created_at: DateTime.getNow(),
                 transaction_id: subscription.id,
                 status: subscription.status,
-                payment_method: SESSION_USER.stripe.card_id,
-                current_period_start: subscription.current_period_start,
-                current_period_end: subscription.current_period_end,
-                cancel_at_period_end: subscription.cancel_at_period_end,
+                payment_method: {
+                    card_id: SESSION_USER.stripe.card_id,
+                    brand: SESSION_USER.stripe.card_brand,
+                    exp_month: SESSION_USER.stripe.card_exp_month,
+                    exp_year: SESSION_USER.stripe.card_exp_year,
+                    last4: SESSION_USER.stripe.card_last4
+                },
                 plan: {
                     id: stripe_plan_id,
                     name: plan_name,
-                    amount: 199
+                    amount: 199,
+                    current_period_start: subscription.current_period_start,
+                    current_period_end: subscription.current_period_end,
+                    cancel_at_period_end: subscription.cancel_at_period_end
                 },
                 customer: {
                     id: SESSION_USER.id,
