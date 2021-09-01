@@ -37,6 +37,8 @@
             </div>
         {{/flash}}
 
+        {{{captcha}}}
+
         <form action="/register" method="POST" id="form_register">
 
             {{#github_id}}
@@ -50,6 +52,8 @@
             {{#facebook_id}}
                 <input value="{{facebook_id}}" name="facebook_id" hidden onkeydown="return false;">
             {{/facebook_id}}
+
+            <small><span id="alert_name" class="fw-bold text-danger"></span></small>
 
             <div class="form-floating mb-3">
                 <input type="text" class="form-control mb-3" id="username" name="username" placeholder="Enter your username" required autofocus value="{{name}}" minlength="4" maxlength="32">
@@ -105,8 +109,6 @@
     </div>
 
     <script src="scripts/register.js"></script>
-
-    </script>
 
 </body>
 

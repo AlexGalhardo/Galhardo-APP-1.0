@@ -16,6 +16,7 @@
 
 
 
+
 const bodyParser = require('body-parser');
 const { validationResult } = require("express-validator");
 const queryString = require('query-string');
@@ -47,22 +48,29 @@ class AuthController {
         res.render('pages/auth/login', {
             FacebookLoginURL: facebookLoginURL,
             GitHubLoginURL: URL.getGitHubURL,
-            GoogleLoginURL: URL.getGoogleURL
+            GoogleLoginURL: URL.getGoogleURL,
+            captcha: res.recaptcha
         });
     }
 
 
-    static async postLogin (req, res, next){
+    static async postLogin (req, res){
+
         const errors = validationResult(req);
         const { email, password } = req.body;
 
-        if (!errors.isEmpty()) {
-            return res.render('pages/auth/login', {
-                flash: {
-                    type: "warning",
-                    message: errors.array()[0].msg,
-                }
-            });
+        if (!req.recaptcha.error) {
+            if (!errors.isEmpty()) {
+                return res.render('pages/auth/login', {
+                    flash: {
+                        type: "warning",
+                        message: errors.array()[0].msg,
+                    }
+                });
+            }
+        } else {
+            console.log(req.recaptcha.error)
+            return res.redirect('/login')
         }
 
         try {
@@ -104,7 +112,9 @@ class AuthController {
 
 
     static getViewRegister (req, res){
-        return res.render('pages/auth/register');
+        return res.render('pages/auth/register', {
+            captcha: res.recaptcha
+        });
     }
 
 
@@ -132,15 +142,21 @@ class AuthController {
      * Send Confirm Email Token Email
      */
     static async postRegister (req, res, next){
-        const errors = validationResult(req);
 
-        if (!errors.isEmpty()) {
-            return res.render('pages/auth/register', {
-                flash: {
-                    type: "warning",
-                    message: errors.array()[0].msg
-                }
-            });
+        if (!req.recaptcha.error) {
+            const errors = validationResult(req);
+
+            if (!errors.isEmpty()) {
+                return res.render('pages/auth/register', {
+                    flash: {
+                        type: "warning",
+                        message: errors.array()[0].msg
+                    }
+                });
+            }
+        } else {
+            console.log(req.recaptcha.error)
+            return res.redirect('/register')
         }
 
         try {

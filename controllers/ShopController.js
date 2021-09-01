@@ -10,13 +10,19 @@
 
 const bodyParser = require('body-parser');
 
-// Helpers
+// HELPERS
 const DateTime = require('../helpers/DateTime');
 const NodeMailer = require('../helpers/NodeMailer');
 const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
+const Header = require('../helpers/Header');
 
-// Models
+// MODELS
 const StripeModel = require('../models/JSON/Stripe')
+// const StripeModel = require('../models/MONGODB/Stripe')
+// const StripeModel = require('../models/MYSQL/Stripe')
+// const StripeModel = require('../models/POSTGRES/Stripe')
+// const StripeModel = require('../models/SQLITE/Stripe')
+
 
 // Stripe
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
@@ -28,7 +34,7 @@ class ShopController {
 	static getViewShop (req, res)  {
 	    res.render('pages/shop/shop_checkout', {
 	        user: SESSION_USER,
-	        shop_active: true
+	        header: Header.shop()
 	    });
 	}
 
@@ -145,7 +151,7 @@ class ShopController {
 			},
 			shopTransactionObject,
 			user: SESSION_USER,
-			shop_active: true
+			header: Header.shop()
 		});
 	}
 

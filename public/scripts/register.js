@@ -1,15 +1,25 @@
-const cb = document.querySelector('#checkbox_policy');
+const checkbox = document.querySelector('#checkbox_policy');
 const btn = document.querySelector('#button_register');
 const password = document.querySelector("#password")
 const confirm_password = document.querySelector("#confirm_password")
+const name = document.querySelector('#username');
 const email = document.querySelector("#email")
 const form = document.querySelector("#form_register")
 
 let validPassword = false
 let validEmail = false
+let validName = true
 
 btn.addEventListener('click', async (e) => {
     e.preventDefault()
+
+    if(name.value.length < 4){
+        document.querySelector("#alert_name").innerHTML = "Invalid name"
+        validName = false
+    } else {
+        document.querySelector("#alert_name").innerHTML = ""
+        validName = true
+    }
 
     // verify email
     const response = await fetch(`https://galhardoapp.com/api/public/${email.value}`)
@@ -18,8 +28,8 @@ btn.addEventListener('click', async (e) => {
     if(email.value.length >= 8 && !json.emailRegistred){
         document.querySelector("#alert_email").innerHTML = ""
         validEmail = true
-    } else if(json.emailRegistred && email.value){
-        document.querySelector("#alert_email").innerHTML = "Email already registred!"
+    } else if(json.emailRegistred || email.value.length < 8){
+        document.querySelector("#alert_email").innerHTML = "Invalid email!"
         validEmail = false
     }
 
@@ -35,14 +45,24 @@ btn.addEventListener('click', async (e) => {
     }
 
     // verify checkbox policy
-    if(!cb.checked){
+    if(!checkbox.checked){
         alert('You need to agree with our Policy!')
         document.querySelector("#alert_checkbox").innerHTML = "You need to agree with our Policy!"
     } else {
         document.querySelector("#alert_checkbox").innerHTML = ""
     }
 
-    if(validEmail && validPassword && cb.checked){
+    if(validName && validEmail && validPassword && checkbox.checked){
         form.submit()
     }
 });
+
+// verify google recaptcha
+function cb(token){
+    var input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('name', 'g-recaptcha-response');
+    input.setAttribute('value', token);
+    input.setAttribute('type', 'hidden');
+    document.getElementsByTagName('form')[0].appendChild(input);
+}

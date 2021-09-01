@@ -53,7 +53,7 @@
 - Logs
    - Console, files, telegram, etc
 - Security
-   - OWASP, CSRF, XSS, Injection, CORS, etc
+   - OWASP, CSRF, XSS, Injection, CORS, Google Recaptcha, etc
 - API RESTs
    - JWT, Oauth2, AJAX, Bearer Token, HTML Documentation, etc
 - Others usefull things

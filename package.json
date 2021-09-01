@@ -2,13 +2,17 @@
   "name": "galhardo-app",
   "version": "2.1.0",
   "description": "A simple Web App project for lifetime learning.",
-  "main": "app.js",
+  "main": "server.js",
   "author": "Alex Galhardo",
   "license": "MIT",
   "homepage": "https://github.com/AlexGalhardo/Galhardo-APP",
   "engines": {
     "node": "14.17.5",
     "npm": "7.21.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexGalhardo/Galhardo-APP.git"
   },
   "scripts": {
     "dev": "nodemon -e mustache server.js",
@@ -38,6 +42,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-flash-message": "^2.1.0",
+    "express-recaptcha": "^5.0.2",
     "express-session": "^1.17.2",
     "express-validator": "^6.12.1",
     "formidable": "^1.2.2",
@@ -84,13 +89,13 @@
     "https-localhost": "^4.6.5",
     "insomnia-documenter": "^0.5.4",
     "jest": "^27.0.6",
+    "knex": "^0.95.10",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
     "sitemap": "^7.0.0",
-    "superagent": "^6.1.0",
-    "supertest": "^6.1.6",
     "sqlite3": "^4.2.0",
-    "knex": "^0.95.10"
+    "superagent": "^6.1.0",
+    "supertest": "^6.1.6"
   },
   "optionalDependencies": {
     "fsevents": "2.3"

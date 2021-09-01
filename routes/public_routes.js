@@ -9,6 +9,10 @@
  */
 
 
+const Recaptcha = require('express-recaptcha').RecaptchaV3;
+const recaptcha = new Recaptcha(process.env.RECAPTCHA_ID, process.env.RECAPTCHA_SECRET ,{callback:'cb'});
+
+
 // INIT EXPRESS 
 const router = require('express').Router()
 
@@ -93,11 +97,11 @@ router
 
 
 // AUTH VIEWS CONTROLLER
-    .get('/login', userIsAlreadyLoggedIn, AuthController.getViewLogin)
-    .post('/login', userIsAlreadyLoggedIn, AuthController.postLogin)
+    .get('/login', userIsAlreadyLoggedIn, recaptcha.middleware.render, AuthController.getViewLogin)
+    .post('/login', userIsAlreadyLoggedIn, recaptcha.middleware.verify, AuthController.postLogin)
 
-    .get('/register', userIsAlreadyLoggedIn, AuthController.getViewRegister)
-    .post('/register', userIsAlreadyLoggedIn, AuthController.postRegister)
+    .get('/register', userIsAlreadyLoggedIn, recaptcha.middleware.render, AuthController.getViewRegister)
+    .post('/register', userIsAlreadyLoggedIn, recaptcha.middleware.verify, AuthController.postRegister)
 
     .get('/forgetPassword', userIsAlreadyLoggedIn, AuthController.getViewForgetPassword)
     .post('/forgetPassword', userIsAlreadyLoggedIn, AuthController.postForgetPassword)

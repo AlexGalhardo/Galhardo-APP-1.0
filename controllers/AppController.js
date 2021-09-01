@@ -9,8 +9,13 @@
  */
 
 const bodyParser = require('body-parser');
+
+
+// HELPERS
 const NodeMailer = require('../helpers/NodeMailer');
 const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
+const Header = require('../helpers/Header');
+
 
 const Games = require('../models/JSON/Games');
 // const Games = require('../models/MONGODB/Games');
@@ -34,7 +39,8 @@ class AppController {
 
         return res.render('pages/home', {
             game,
-            user: SESSION_USER
+            user: SESSION_USER,
+            header: Header.games()
         });
     }
 
@@ -43,14 +49,15 @@ class AppController {
 
         return res.render('pages/books', {
             book,
-            user: SESSION_USER
+            user: SESSION_USER,
+            header: Header.books()
         });
     }
 
     static getViewContact (req, res){
         res.render('pages/contact', {
             user: SESSION_USER,
-            contact_active: true,
+            header: Header.contact()
         });
     }
 
@@ -77,7 +84,8 @@ class AppController {
                     type: 'success',
                     message: 'Message Send!'
                 },
-                user: SESSION_USER
+                user: SESSION_USER,
+                header: Header.contact()
             });
         }
         catch(err){
@@ -86,15 +94,16 @@ class AppController {
                     type: 'danger',
                     message: err
                 },
-                user: SESSION_USER
+                user: SESSION_USER,
+                header: Header.contact()
             });
         }
     }
 
     static getViewPrivacy (req, res){
-        res.render('pages/privacy', {
+        return res.render('pages/privacy', {
             user: SESSION_USER,
-            privacy_active: true
+            header: Header.privacy()
         });
     }
 };

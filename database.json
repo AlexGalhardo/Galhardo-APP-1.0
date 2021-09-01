@@ -83,47 +83,6 @@
       },
       "created_at": "10/08/2021 02:25:35",
       "updated_at": "15/08/2021 06:25:35"
-    },
-    {
-      "id": "ce239304-42b8-4d31-a410-01a96a109d64",
-      "name": "alex",
-      "email": "aleexgvieira@gmail.com",
-      "confirmed_email": true,
-      "confirm_email_token": null,
-      "password": "$2a$12$N7MkHmS1IFCtjljZQQGgtOmyTltH0IjW66pnbkkI4pGcQt6f3RxRW",
-      "reset_password_token": null,
-      "admin": false,
-      "avatar": "avatar.png",
-      "document": null,
-      "phone": null,
-      "birth_date": null,
-      "google_id": null,
-      "github_id": null,
-      "facebook_id": null,
-      "address": {
-        "zipcode": null,
-        "street": null,
-        "street_number": null,
-        "neighborhood": null,
-        "city": null,
-        "state": null,
-        "country": "BRAZIL"
-      },
-      "stripe": {
-        "customer_id": null,
-        "card_id": null,
-        "card_holder_name": null,
-        "card_last_4_digits": null,
-        "card_exp_month": null,
-        "card_exp_year": null,
-        "currently_subscription_id": null,
-        "currently_subscription_name": "FREE",
-        "subscription_start": null,
-        "subscription_end": null,
-        "subscription_automatically_renew": false
-      },
-      "created_at": "31/08/2021 17:06:36",
-      "updated_at": "31/08/2021 17:06:36"
     }
   ],
   "blog": [
@@ -633,8 +592,6 @@
         "created_at": "31/08/2021 21:20:54"
       }
     ],
-    "subscriptions_transactions": [
-
-    ]
+    "subscriptions_transactions": []
   }
 }

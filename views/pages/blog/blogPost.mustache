@@ -17,10 +17,12 @@
                     {{/user.admin}}
                 </div>
 
-                <div id="blog_body">
+                <div id="blog_body" class="mb-5">
         		  {{{body}}}
                 </div>
 
+
+                <div class="text-center mb-3">{{{header.share_buttons_inline}}}</div>
 
                 {{#user}}
                     <form class="mt-3" action="/blog/{{slug}}" method="POST">
@@ -35,10 +37,16 @@
                     </form>
                 {{/user}}
                 
-                
-                
 
-                <h5 class="mt-2 text-muted">Comments</h5>
+                {{#header.use_disqus}}
+                    {{{header.disqus_comments}}}
+                {{/header.use_disqus}}
+
+
+
+                {{^header.use_disqus}}
+
+                <h5 class="text-muted">Comments</h5>
                 {{#flash}}
                     <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
                         <b>{{message}}</b>
@@ -73,6 +81,8 @@
 
                 {{/blogPost.comments}}
 
+                {{/header.use_disqus}}
+
         	{{/blogPost}}
 
         </div>
@@ -89,6 +99,8 @@
         };
     </script>
 
+    {{{header.share_buttons_script}}}
+    {{{header.disqus_script}}}
 
     <script src="../scripts/scroll_bar.js"></script>
 

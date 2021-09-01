@@ -2,22 +2,41 @@
 <html>
 
 <head>
+
+    <title>{{header.title}}</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Galhardo APP</title>
+
+    <!-- SITE FAVICON -->
     <link rel="shortcut icon" href="images/favicon.png" />
+
+
+    <!-- LOADING PAGE JS -->
     <script src="/scripts/pace.min.js"></script>
+
+    <!-- LOADING PAGE CSS -->
     <link rel="stylesheet" href="/css/bounce.css">
 
+    <!-- BODY.CSS -->
     <link rel="stylesheet" href="https://galhardoapp.com/css/body.css">
+
+    <!-- SCROLLBAR CSS -->
     <link rel="stylesheet" href="https://galhardoapp.com/css/scroll_bar.css">
+
+    <!-- BOOTSTRAP5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- BOOTSTRAP5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- BOOTSTRAP5 ICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKZ0EYZ31J"></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -25,15 +44,12 @@
 
       gtag('config', 'G-TKZ0EYZ31J');
     </script>
+
 </head>
 
 <body class="bg-light" onload=displayCurrentlyDateTime(); style="margin-top: 70px;">
 
-    <!-- Start Scroll Bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="myBar"></div>
-    </div>
-    <!-- End Scroll Bar -->
+    {{{header.scroll_bar}}}
 
     <div class="fixed-top bg-dark">
 
@@ -55,29 +71,29 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link {{#blog_active}}fw-bold text-white{{/blog_active}}" aria-current="page" href="/blog">
+                            <a class="nav-link {{#header.navbar_blog_active}}fw-bold text-white{{/header.navbar_blog_active}}" aria-current="page" href="/blog">
 
                                 Blog
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{#contact_active}}fw-bold text-white{{/contact_active}}" aria-current="page" href="/contact">
+                            <a class="nav-link {{#header.navbar_contact_active}}fw-bold text-white{{/header.navbar_contact_active}}" aria-current="page" href="/contact">
 
                                 Contact
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{#shop_active}}fw-bold text-white{{/shop_active}}" aria-current="page" href="/shop"> Shop</a>
+                            <a class="nav-link {{#header.navbar_shop_active}}fw-bold text-white{{/header.navbar_shop_active}}" aria-current="page" href="/shop"> Shop</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{#navbar_plans_active}}fw-bold text-white{{/navbar_plans_active}}" aria-current="page" href="/plans"> Plans</a>
+                            <a class="nav-link {{#header.navbar_plans_active}}fw-bold text-white{{/header.navbar_plans_active}}" aria-current="page" href="/plans"> Plans</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{#privacy_active}}fw-bold text-white{{/privacy_active}}" aria-current="page" href="/privacy"> Privacy</a>
+                            <a class="nav-link {{#header.navbar_privacy_active}}fw-bold text-white{{/header.navbar_privacy_active}}" aria-current="page" href="/privacy"> Privacy</a>
                         </li>
 
                         <li class="nav-item dropdown">

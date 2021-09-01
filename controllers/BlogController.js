@@ -7,14 +7,22 @@
  * http://localhost:3000/blog
  */
 
+// MODULES
 const bodyParser = require('body-parser');
-var pagination = require('pagination')
+const pagination = require('pagination')
 
-// Helpers
+// HELPERS
 const DateTime = require('../helpers/DateTime');
+const Header = require('../helpers/Header');
 
-// Models
+// MODELS
 const Blog = require('../models/JSON/Blog');
+// const Blog = require('../models/MONGODB/Blog');
+// const Blog = require('../models/MYSQL/Blog');
+// const Blog = require('../models/POSTGRES/Blog');
+// const Blog = require('../models/SQLITE/Blog');
+
+
 
 class BlogController {
 
@@ -34,7 +42,8 @@ class BlogController {
 			blog,
 			user: SESSION_USER,
 			blog_active: true,
-			boostrapPaginator: BlogController.getRenderBootstrapPaginator(page, blogPostsPerPage, totalBlogPosts)
+			boostrapPaginator: BlogController.getRenderBootstrapPaginator(page, blogPostsPerPage, totalBlogPosts),
+            header: Header.blog()
 		});
 	}
 
@@ -56,7 +65,7 @@ class BlogController {
 			blog: blogTitlesSearched,
 			searchBlogTitle,
 			totalBlogPostsFoundFromSearch,
-			blog_active: true,
+			header: Header.blog()
 		})
 	}
 
@@ -94,7 +103,7 @@ class BlogController {
 		res.render('pages/blog/blogPost', {
 			user: SESSION_USER,
 			blogPost,
-			blog_active: true,
+            header: Header.blogPost(blogPost.title)
 		});
 	}
 
