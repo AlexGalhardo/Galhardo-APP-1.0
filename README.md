@@ -450,26 +450,26 @@ Games.getRandom() // return a random game object
     ],
     "subscriptions_transactions": [
         {
-            "id": 1,
-            "transaction_id": "sub_kakspOPKkaskpaks",
-            "payment_method": "card_iauhsiuasaps",
-            "currency": "usd",
-            "paid": true,
-            "subs_period_start": "29/09/2021",
-            "subs_period_end": "29/10/2021",
-            "plan": {
-                "id": "plan_id",
-                "name": "PREMIUM",
-                "amount": 499,
-            },
-            "customer": {
-                "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-                "stripe_id": "cus_iuahsuiasl",
-                "email": "test@gmail.com",
-                "name": "TEST JACK",
-            },
-            "created_at": "11/08/2021 20:36:33"
-        }
+        "created_at": "31/08/2021 21:12:22",
+        "transaction_id": "sub_K8z27OGjrhDujS",
+        "status": "active",
+        "payment_method": "card_1JUgN3HoneB4ZvrpIbVTJvEv",
+        "current_period_start": "31/08/2021 21:12:19",
+        "current_period_end": "30/09/2021 21:12:19",
+        "cancel_at_period_end": false,
+        "plan": {
+          "id": "price_1JUfS6HoneB4ZvrpSFzvXhXN",
+          "name": "STARTER",
+          "amount": 199
+        },
+        "customer": {
+          "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+          "stripe_id": "cus_K8y63RgFsRst7l",
+          "email": "admin@gmail.com",
+          "name": "ADMIN Alex"
+        },
+        "stripe_request_response": "{\"id\":\"sub_K8z27OGjrhDujS\",\"object\":\"subscription\",\"application_fee_percent\":null,\"automatic_tax\":{\"enabled\":false},\"billing_cycle_anchor\":1630455139,\"billing_thresholds\":null,\"cancel_at\":null,\"cancel_at_period_end\":false,\"canceled_at\":null,\"collection_method\":\"charge_automatically\",\"created\":\"31/08/2021 21:12:19\",\"current_period_end\":\"30/09/2021 21:12:19\",\"current_period_start\":\"31/08/2021 21:12:19\",\"customer\":\"cus_K8y63RgFsRst7l\",\"days_until_due\":null,\"default_payment_method\":null,\"default_source\":null,\"default_tax_rates\":[],\"discount\":null,\"ended_at\":null,\"items\":{\"object\":\"list\",\"data\":[{\"id\":\"si_K8z2kJf7Y5xRWs\",\"object\":\"subscription_item\",\"billing_thresholds\":null,\"created\":1630455140,\"metadata\":{},\"plan\":{\"id\":\"price_1JUfS6HoneB4ZvrpSFzvXhXN\",\"object\":\"plan\",\"active\":true,\"aggregate_usage\":null,\"amount\":199,\"amount_decimal\":\"199\",\"billing_scheme\":\"per_unit\",\"created\":1630448950,\"currency\":\"usd\",\"interval\":\"month\",\"interval_count\":1,\"livemode\":false,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K8xMlcmmUrLcDY\",\"tiers\":null,\"tiers_mode\":null,\"transform_usage\":null,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"price\":{\"id\":\"price_1JUfS6HoneB4ZvrpSFzvXhXN\",\"object\":\"price\",\"active\":true,\"billing_scheme\":\"per_unit\",\"created\":1630448950,\"currency\":\"usd\",\"livemode\":false,\"lookup_key\":null,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K8xMlcmmUrLcDY\",\"recurring\":{\"aggregate_usage\":null,\"interval\":\"month\",\"interval_count\":1,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"tax_behavior\":\"unspecified\",\"tiers_mode\":null,\"transform_quantity\":null,\"type\":\"recurring\",\"unit_amount\":199,\"unit_amount_decimal\":\"199\"},\"quantity\":1,\"subscription\":\"sub_K8z27OGjrhDujS\",\"tax_rates\":[]}],\"has_more\":false,\"total_count\":1,\"url\":\"/v1/subscription_items?subscription=sub_K8z27OGjrhDujS\"},\"latest_invoice\":\"in_1JUh3wHoneB4ZvrpSXQmVW2i\",\"livemode\":false,\"metadata\":{},\"next_pending_invoice_item_invoice\":null,\"pause_collection\":null,\"payment_settings\":{\"payment_method_options\":null,\"payment_method_types\":null},\"pending_invoice_item_interval\":null,\"pending_setup_intent\":null,\"pending_update\":null,\"plan\":{\"id\":\"price_1JUfS6HoneB4ZvrpSFzvXhXN\",\"object\":\"plan\",\"active\":true,\"aggregate_usage\":null,\"amount\":199,\"amount_decimal\":\"199\",\"billing_scheme\":\"per_unit\",\"created\":1630448950,\"currency\":\"usd\",\"interval\":\"month\",\"interval_count\":1,\"livemode\":false,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K8xMlcmmUrLcDY\",\"tiers\":null,\"tiers_mode\":null,\"transform_usage\":null,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"quantity\":1,\"schedule\":null,\"start_date\":1630455139,\"status\":\"active\",\"tax_percent\":null,\"transfer_data\":null,\"trial_end\":null,\"trial_start\":null}"
+      }
     ]
   }
 }
