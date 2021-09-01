@@ -8,11 +8,12 @@
  * http://localhost:3000/plans
  */
 
-const bodyParser = require('body-parser');
 
 // HELPERS
 const DateTime = require('../helpers/DateTime');
 const NodeMailer = require('../helpers/NodeMailer');
+const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
+
 
 // MODELS
 const Users = require('../models/JSON/Users');
@@ -21,13 +22,14 @@ const Users = require('../models/JSON/Users');
 // const Users = require('../models/POSTGRES/Users');
 // const Users = require('../models/SQLITE/Users');
 
-const StripeModel = require('../models/JSON/Users');
+const StripeModel = require('../models/JSON/Stripe');
 // const StripeModel = require('../models/MONGODB/Stripe');
 // const StripeModel = require('../models/MYSQL/Stripe');
 // const StripeModel = require('../models/POSTGRES/Stripe');
 // const StripeModel = require('../models/SQLITE/Stripe');
 
 
+// STRIPE
 stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
 
@@ -66,33 +68,21 @@ class PlansController {
     }
 
 
-    static verifyIfUserHasActiveSubscription(){
-        if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
-            return res.render('pages/plans/planPayLog', {
-                flash: {
-                    type: "warning",
-                    message: `You already have a currently plan ${SESSION_USER.stripe.currently_subscription_name} active! Wait until it ends to make a new subscription transaction!`
-                },
-                user: SESSION_USER,
-                navbar_plans_active: true,
-            })
-        }
-    }
-
-
 
     static getSubscriptionBanner (plan_name){
         if(plan_name === 'STARTER'){
             return `
             <div class="card mb-4 rounded-3 shadow-sm text-center">
                     <div class="card-header py-3 bg-warning">
-                        <h4 class="my-0 fw-normal">You Are STARTER!</h4>
+                        <h4 class="my-0 fw-bold"><i class="bi bi-award"></i> You Are STARTER!</h4>
                     </div>
 
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$ 4.99<small class="text-muted fw-light">/month</small></h1>
+                        <h1 class="card-title pricing-card-title">$ 1.99<small class="text-muted fw-light">/month</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
                             <li>✔️ Support via Telegram/WhatsApp</li>
+                            <li>❌ Ilimited Recomendations</li>
+                            <li>❌ Get news in email</li>
                         </ul>
                     </div>
 
@@ -106,10 +96,11 @@ class PlansController {
                     </div>
 
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$ 4.99<small class="text-muted fw-light">/month</small></h1>
+                        <h1 class="card-title pricing-card-title">$ 2.99<small class="text-muted fw-light">/month</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
                             <li>✔️ Support via Telegram/WhatsApp</li>
                             <li>✔️ Ilimited Recomendations</li>
+                            <li>❌ Get news in email</li>
                         </ul>
                     </div>
 
@@ -175,7 +166,7 @@ class PlansController {
                 {source: cardToken.id}
             );
 
-            await Users.createStripeCard(SESSION_USER.id, cardToken.id, card.id)
+            await Users.createStripeCard(SESSION_USER.id, cardToken.id, card)
 
             return card
         }
@@ -187,23 +178,9 @@ class PlansController {
 
     static getStripePlanID(){
         return {
-            STARTER: process.env.STRIPE_PLAN_STARTER_PRODUCT_ID,
+            STARTER: process.env.STRIPE_PLAN_STARTER_PRICE_ID,
             PRO: process.env.STRIPE_PLAN_PRO_PRODUCT_ID,
             PREMIUM:  process.env.STRIPE_PLAN_PREMIUM_PRODUCT_ID
-        }
-    }
-
-
-    static verifyIfPasswordIsCorrect(password){
-        if(!Users.verifyPassword(SESSION_USER.id, password)){
-            return res.render('pages/plans/plans', {
-                flash: {
-                    type: "warning",
-                    message: `Invalid Password!`
-                },
-                user: SESSION_USER,
-                navbar_plans_active: true,
-            })
         }
     }
 
@@ -221,9 +198,6 @@ class PlansController {
         subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
         subscription.current_period_start = DateTime.getDateTime(subscription.current_period_start);
 
-        await Users.createStripeSubscription(SESSION_USER.id, subscription)
-        await StripeModel.createSubscription(SESSION_USER, subscription)
-
         return subscription
     }
 
@@ -238,57 +212,72 @@ class PlansController {
      */
     static async postSubscription (req, res) {
 
-        // if false, continue
-        // this.verifyIfUserHasActiveSubscription()
+        try {
+            const { plan_name, customer_password } = req.body
 
-        const { plan_name, customer_password } = req.body
+            if(!Users.verifyPassword(SESSION_USER.id, customer_password)){
+                return res.render('pages/plans/plans', {
+                    flash: {
+                        type: "warning",
+                        message: `Invalid Password!`
+                    },
+                    user: SESSION_USER,
+                    navbar_plans_active: true,
+                })
+            }
 
-        // if true, continue
-        await PlansController.verifyIfPasswordIsCorrect(customer_password)
+            const stripe_customer_id = await PlansController.verifyIfUserIsAlreadyAStripeCustomer()
 
-        let stripe_customer = await PlansController.verifyIfUserIsAlreadyAStripeCustomer()
+            await PlansController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
 
-        let stripe_card = await PlansController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
+            const stripe_plan_id = await PlansController.getStripePlanID()[plan_name];
 
-        let stripe_plan_id = await PlansController.getStripePlanID()[plan_name];
+            const subscription = await PlansController.createStripeSubscription(stripe_customer_id, stripe_plan_id)
 
-        let subscription = await PlansController.createStripeSubscription(stripe_customer.id, stripe_plan_id)
+            const subsTransactionObject = {
+                created_at: DateTime.getNow(),
+                transaction_id: subscription.id,
+                status: subscription.status,
+                payment_method: SESSION_USER.stripe.card_id,
+                current_period_start: subscription.current_period_start,
+                current_period_end: subscription.current_period_end,
+                cancel_at_period_end: subscription.cancel_at_period_end,
+                plan: {
+                    id: stripe_plan_id,
+                    name: plan_name,
+                    amount: 199
+                },
+                customer: {
+                    id: SESSION_USER.id,
+                    stripe_id: SESSION_USER.stripe.customer_id,
+                    email: SESSION_USER.email,
+                    name: SESSION_USER.name
+                },
+                stripe_request_response: JSON.stringify(subscription),
+            }
 
-        const subsTransactionObject = {
-            transaction_id: transactionObject.id,
-            payment_method: payment_method,
-            currency: subscription.currency,
-            paid: subscription.paid,
-            subs_period_start: subscription.period_start,
-            subs_period_end: subscription.period_end,
-            plan: {
-                id: stripe_plan_id,
-                name: plan_name,
-                amount: 499
-            },
-            customer: {
-                id: SESSION_USER.id,
-                stripe_id: SESSION_USER.stripe.customer_id,
-                email: SESSION_USER.email,
-                name: SESSION_USER.name
-            },
-            stripe_request_response: transactionObject.stripe_request_response,
-            created_at: transactionObject.created_at
+            await Users.createStripeSubscription(SESSION_USER.id, plan_name, subscription)
+
+            await StripeModel.createSubscriptionTransaction(subsTransactionObject)
+
+            await NodeMailer.sendSubscriptionTransaction(subsTransactionObject)
+
+            await TelegramBOTLogger.logSubscriptionTransaction(subsTransactionObject)
+
+            res.render('pages/plans/planPayLog', {
+                flash: {
+                    type: 'success',
+                    message: 'Subscription Created with Success!'
+                },
+                subsTransactionObject,
+                user: SESSION_USER,
+                navbar_plans_active: true,
+                divPlanBanner: PlansController.getSubscriptionBanner(plan_name)
+            });
+
+        } catch(err){
+            throw new Error(err)
         }
-
-    	await NodeMailer.sendSubscriptionTransaction(subsTransactionObject)
-        await TelegramBOTLogger.logSubscriptionTransaction(subsTransactionObject)
-
-		res.render('pages/plans/planPayLog', {
-			flash: {
-				type: 'success',
-				message: 'Subscription Created with Success!'
-			},
-			subsTransactionObject,
-			user: SESSION_USER,
-			navbar_plans_active: true,
-			divPlanBanner: this.getSubscriptionBanner(plan_name)
-		});
 	}
 };
 

@@ -110,12 +110,14 @@ class NodeMailer {
         const template = handlebars.compile(source);
         
         const replacements = {
-            status: subsTransactionObject.status,
-            plan_name: subsTransactionObject.plan_name,
-            payment_method: subsTransactionObject.payment_method,
             transaction_id: subsTransactionObject.transaction_id,
-            subs_start: subsTransactionObject.subs_start,
-            subs_end: subsTransactionObject.subs_end
+            status: subsTransactionObject.status,
+            plan_name: subsTransactionObject.plan.name,
+            amount: parseFloat(subsTransactionObject.plan.amount / 100),
+            payment_method: subsTransactionObject.payment_method,
+            current_period_start: subsTransactionObject.current_period_start,
+            current_period_end: subsTransactionObject.current_period_end,
+            created_at: subsTransactionObject.created_at
         };
 
         

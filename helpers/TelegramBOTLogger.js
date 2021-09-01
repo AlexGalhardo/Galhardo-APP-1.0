@@ -103,7 +103,39 @@ class TelegramLogger {
         <b>SHIPPING_COUNTRY:</b> BRAZIL
         `
 
-        let message = `${emoji} CONTACT ${emoji}\n\n <b>CREATED_AT:</b> ${this.getDate()}\n ${log}`
+        let message = `${emoji} SHOP TRANSACTION ${emoji}\n\n <b>CREATED_AT:</b> ${this.getDate()}\n ${log}`
+
+        let urlParams = encodeURI(`chat_id=${this.channelName}&text=${message}&parse_mode=HTML`)
+
+        let url =  `${this.baseUrl}/sendMessage?${urlParams}`
+
+        this.sendRequest(url)
+    }
+
+
+
+    logSubscriptionTransaction(subsTransactionObject){
+        let emoji = this.emojiMap()['SUBSCRIPTION']
+
+        const log = `
+        <b>TRANSACTION_ID:</b> ${subsTransactionObject.transaction_id}
+        <b>STATUS: </b> ${subsTransactionObject.status}
+        ---------------------------------------------
+        <b>CURRENT_PERIOD_START: </b> ${subsTransactionObject.current_period_start}
+        <b>CURRENT_PERIOD_END:</b> ${subsTransactionObject.current_period_end}
+        <b>CANCEL_AT_PERIOD_END:</b> ${subsTransactionObject.cancel_at_period_end}
+        ---------------------------------------------
+        <b>PLAN_ID:</b> ${subsTransactionObject.plan.id}
+        <b>PLAN_NAME:</b> ${subsTransactionObject.plan.name}
+        <b>PLAN_AMOUNT:</b> ${subsTransactionObject.plan.amount}
+        ---------------------------------------------
+        <b>CUSTOMER_ID:</b> ${subsTransactionObject.customer.id}
+        <b>CUSTOMER_STRIPE_ID:</b> ${subsTransactionObject.customer.stripe_id}
+        <b>CUSTOMER_EMAIL:</b> ${subsTransactionObject.customer.email}
+        <b>CUSTOMER_NAME:</b> ${subsTransactionObject.customer.name}
+        `
+
+        let message = `${emoji} SUBSCRIPTION TRANSACTION ${emoji}\n\n <b>CREATED_AT:</b> ${this.getDate()}\n ${log}`
 
         let urlParams = encodeURI(`chat_id=${this.channelName}&text=${message}&parse_mode=HTML`)
 
@@ -132,79 +164,3 @@ class TelegramLogger {
 }
 
 module.exports = new TelegramLogger(process.env.TELEGRAM_BOT_HTTP_TOKEN, process.env.TELEGRAM_BOT_CHANNEL_ID)
-
-
-/*
-const products = [
-            {
-                "quantity": "1",
-                "name": "Oranges",
-                "total": "0.49"
-            },
-            {
-                "quantity": "1",
-                "name": "Grapes",
-                "total": "0.99"
-            },
-            {
-                "quantity": "1",
-                "name": "Apples",
-                "total": "1.99"
-            },
-            {
-                "quantity": "1",
-                "name": "Bananas",
-                "total": "2.99"
-            }
-        ];
-
-TelegramBOTLogger.sendMessage('ERROR', '<b>LOG ERROR</b>',
-    `
-    WINSTON LOG ERROR HERE
-    `,)
-
-
-TelegramBOTLogger.sendMessage('CONTACT', '<b>CONTACT</b>',
-    `
-    <b>CONTACT_FROM:</b> testing@gmail.com
-    <b>SUBJECT:</b> Feedback
-    ---------------------------------------
-    <b>MESSAGE:</b> Testing telegram logging contact
-    `,)
-
-TelegramBOTLogger.sendMessage('SHOP', '<b>SHOP TRANSACTION</b>',
-    `
-    <b>TRANSACTION_ID:</b> ch_pkspo1k2pkaps12
-    <b>AMOUNT: $</b> 4.99
-    <b>GATEWAY: </b> Stripe
-    <b>PAYMENT_METHOD: </b> card_apoaksapso812
-    ---------------------------------------
-    <b>CUSTOMER_EMAIL:</b> admin@gmail.com
-    <b>CUSTOMER_ID:</b> uuid4
-    <b>CUSTOMER_STRIPE_ID:</b> cus_1872892
-    ---------------------------------------
-    <b>PRODUCTS:</b> ${JSON.stringify(products)}
-    ---------------------------------------
-    <b>SHIPPING_STREET:</b> Avenida Paulista
-    <b>SHIPPING_NEIGHBORHOOD:</b> Mariana
-    <b>SHIPPING_CITY:</b> Campinas
-    <b>SHIPPING_STATE:</b> SP
-    <b>SHIPPING_COUNTRY:</b> Brazil
-    `,)
-
-TelegramBOTLogger.sendMessage('SUBSCRIPTION', '<b>SUBSCRIPTION TRANSACTION</b>',
-    `
-    <b>TRANSACTION_ID:</b> ch_pkspo1k2pkaps12
-    <b>AMOUNT: $</b> 4.99
-    <b>GATEWAY: </b> Stripe
-    <b>PAYMENT_METHOD: </b> card_apoaksapso812
-    ---------------------------------------
-    <b>CUSTOMER_EMAIL:</b> admin@gmail.com
-    <b>CUSTOMER_ID:</b> uuid4
-    <b>CUSTOMER_STRIPE_ID:</b> cus_1872892
-    ---------------------------------------
-    <b>PLAN_NAME:</b> PREMIUM
-    <b>SUBS_START:</b> 30/08/2021
-    <b>SUBS_END:</b> 30/09/2021
-    `,)
-*/

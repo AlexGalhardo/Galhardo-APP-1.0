@@ -165,17 +165,7 @@ class AuthController {
                 confirm_email_token
             };
 
-            const userRegistred = Users.register(userObject)
-
-            if(!userRegistred){
-                return res.render("pages/auth/register", {
-                    flash: {
-                        type: "warning",
-                        message: "User not created in database!"
-                    }
-                });
-            }
-
+            await Users.create(userObject)
             await NodeMailer.sendConfirmEmailToken(email, confirm_email_token)
 
             return res.render("pages/auth/register", {

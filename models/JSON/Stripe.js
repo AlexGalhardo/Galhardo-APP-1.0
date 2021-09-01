@@ -52,15 +52,15 @@ class Stripe {
     static async getShopTransactionsByUserID(user_id){}
     static async getShopTransactionByID(transaction_id){}
 
-	static async createSubscription(userObject, transactionObject){
+	static async createSubscriptionTransaction(SubsTransactionObject){
         try {
-            database.stripe.shop_transactions.push(transactionObject)
-            database.stripe.shop_transactions.push()
+            database.stripe.subscriptions_transactions.push(SubsTransactionObject)
             await Stripe.save(database)
         } catch(err){
             throw new Error('Subscription Transaction not created in database!')
         }
     }
+
     static async getSubsTransactionsByUserID(user_id){}
     static async getSubsTransactionByID(transaction_id){}
 }

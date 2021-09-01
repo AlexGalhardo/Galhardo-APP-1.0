@@ -27,6 +27,7 @@ class Users {
         });
     }
 
+
     static getAll() {
         try {
           return database.users
@@ -36,17 +37,19 @@ class Users {
         };
     }
 
-  static getByID(user_id) {
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].id == user_id) return database.users[i]
-      }
-      return null
-    } catch (error) {
-      console.log("ERROR getByID: ", error);
-      return null
+
+    static getByID(user_id) {
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].id == user_id) return database.users[i]
+              }
+            return null
+        } catch (error) {
+            console.log("ERROR getByID: ", error);
+            return null
+        }
     }
-  }
+
 
   static getUserByEmail(email) {
     try {
@@ -158,93 +161,90 @@ class Users {
                     const passwordValid = await Bcrypt.comparePassword(password, database.users[i].password)
                     if(passwordValid){
                         return true
+                    } else {
+                        return false
                     }
                 }
             }
             return false
         } catch (error) {
-            throw new Error("ERROR Users.verifyPassword()");
+            throw new Error(error);
         }
     }
 
 
 
-  static async register(userObject) {
-    try {
+    static async create(userObject) {
+        try {
       
-      if(Users.emailRegistred(userObject.email)) return false
+            if(Users.emailRegistred(userObject.email)) return false
 
-      const passwordHash = await Bcrypt.cryptPassword(userObject.password)
+            const passwordHash = await Bcrypt.cryptPassword(userObject.password)
 
-      database.users.push({
-        id: uuid.v4(),
-        name: userObject.username,
-        email: userObject.email,
-        confirmed_email: false,
-        confirm_email_token: userObject.confirm_email_token,
-        password: passwordHash,
-        reset_password_token: null,
-        admin: false,
-        avatar: "avatar.png",
-        document: null,
-        phone: null,
-        birth_date: null,
-        google_id: parseInt(userObject.google_id),
-        github_id: parseInt(userObject.github_id),
-        facebook_id: parseInt(userObject.facebook_id),
-        address: {
-          zipcode: null,
-            street: null,
-            street_number: null,
-            neighborhood: null,
-            city: null,
-            state: null,
-            country: "BRAZIL"
-        },
-          stripe: {
-            customer_id: null,
-            card_id: null,
-            card_holder_name: null,
-            card_last_4_digits: null,
-            card_exp_month: null,
-            card_exp_year: null,
-            currently_subscription_id: null,
-            currently_subscription_name: "FREE",
-            subscription_start: null, 
-            subscription_end: null,
-            subscription_automatically_renew: false
-        },
-        created_at: DateTime.getNow(),
-        updated_at: DateTime.getNow()
-      })
-
-        Users.save(database, 'error register user: ')
-
-        return true
-
-    } catch (error) {
-        console.log("ERROR registerUser: ", error);
-        return false
-    }
-  }
-
-
-
-  static createResetPasswordToken(email, reset_password_token){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email === email){
-          database.users[i].reset_password_token = reset_password_token
-          Users.save(database, 'error createResetPasswordToken: ')
-          return true
+            database.users.push({
+                id: uuid.v4(),
+                name: userObject.username,
+                email: userObject.email,
+                confirmed_email: false,
+                confirm_email_token: userObject.confirm_email_token,
+                password: passwordHash,
+                reset_password_token: null,
+                admin: false,
+                avatar: "avatar.png",
+                document: null,
+                phone: null,
+                birth_date: null,
+                google_id: parseInt(userObject.google_id),
+                github_id: parseInt(userObject.github_id),
+                facebook_id: parseInt(userObject.facebook_id),
+                address: {
+                  zipcode: null,
+                    street: null,
+                    street_number: null,
+                    neighborhood: null,
+                    city: null,
+                    state: null,
+                    country: "BRAZIL"
+                },
+                  stripe: {
+                    customer_id: null,
+                    card_id: null,
+                    card_brand: null,
+                    card_last_4_digits: null,
+                    card_exp_month: null,
+                    card_exp_year: null,
+                    currently_subscription_id: null,
+                    currently_subscription_name: "FREE",
+                    subscription_start: null,
+                    subscription_end: null,
+                    cancel_at_period_end: null
+                },
+                created_at: DateTime.getNow(),
+                updated_at: DateTime.getNow()
+            })
+            Users.save(database)
+        } catch (error) {
+            throw new Error(error);
         }
-      }
-      return false
-    } catch (error) {
-      console.log("ERROR createResetPasswordToken: ", error);
-      return false
     }
-  }
+
+
+
+    static createResetPasswordToken(email, reset_password_token){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email === email){
+                    database.users[i].reset_password_token = reset_password_token
+                    Users.save(database, 'error createResetPasswordToken: ')
+                    return true
+                }
+            }
+            return false
+        } catch (error) {
+            console.log("ERROR createResetPasswordToken: ", error);
+            return false
+        }
+    }
 
 
 
@@ -344,24 +344,24 @@ class Users {
     }
   }
 
-  static async delete(email, password){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        console.log('entrou', email, database.users[i].email)
-        if(database.users[i].email === email){
-          const passwordValid = await Bcrypt.comparePassword(password, database.users[i].password)
-          if(passwordValid){
-            database.users.splice(i, 1)
-            Users.save(database, "ERROR Users.delete(): ")
-            return true
-          }
+
+    static async delete(email, password){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email === email){
+                    const passwordValid = await Bcrypt.comparePassword(password, database.users[i].password)
+                    if(passwordValid){
+                        database.users.splice(i, 1)
+                        Users.save(database)
+                        return
+                    }
+                }
+            }
+        } catch (error) {
+            throw new Error("ERROR delete");
         }
-      }
-      return false
-    } catch (error) {
-      return console.log("ERROR deleteProfile: ", error);
     }
-  }
+
 
     static createStripeCustomer(user_id, stripe_customer_id){
         try {
@@ -369,50 +369,55 @@ class Users {
                 if(database.users[i].id === user_id){
                     database.users[i].stripe.customer_id = stripe_customer_id
                     Users.save(database)
-                    return true
+                    return
                 }
             }
-            return false
         } catch (error) {
             throw new Error("ERROR createStripeCustomer");
         }
     }
 
 
-  static createStripeCard(user_id, card_token_id, card_id){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].id === parseInt(user_id)){
-          database.users[i].stripe.card_token_id = card_token_id
-          database.users[i].stripe.card_id = card_id
-          Users.save(database, 'Error createStripeCard: ')
-          return true
+    static createStripeCard(user_id, card_token_id, cardObject){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].id === user_id){
+                    database.users[i].stripe.card_token_id = card_token_id
+                    database.users[i].stripe.card_id = cardObject.id
+                    database.users[i].stripe.card_brand = cardObject.brand
+                    database.users[i].stripe.card_last_4_digits = cardObject.last4
+                    database.users[i].stripe.card_exp_month = cardObject.exp_month
+                    database.users[i].stripe.card_exp_year = cardObject.exp_year
+                    Users.save(database)
+                    return true
+                }
+            }
+            return false
+        } catch (error) {
+            throw new Error(error);
         }
-      }
-      return false
-    } catch (error) {
-      return console.log("ERROR createStripeCard: ", error);
     }
-  }
 
-  static createStripeSubscription(user_id, subscriptionObject){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].id === parseInt(user_id)){
-          database.users[i].stripe.currently_subscription_id = subscriptionObject.id
-          database.users[i].stripe.currently_subscription_name = 'PREMIUM'
-          database.users[i].stripe.subscription_start = subscriptionObject.current_period_start
-          database.users[i].stripe.subscription_end = subscriptionObject.current_period_end
-          database.users[i].stripe.subscription_automatically_renew = true
-          Users.save(database, 'Error createStripeSubscription: ')
-          return true
+
+    static createStripeSubscription(user_id, plan_name, subscriptionObject){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].id === user_id){
+                    database.users[i].stripe.currently_subscription_id = subscriptionObject.id
+                    database.users[i].stripe.currently_subscription_name = plan_name
+                    database.users[i].stripe.subscription_start = subscriptionObject.current_period_start
+                    database.users[i].stripe.subscription_end = subscriptionObject.current_period_end
+                    database.users[i].stripe.cancel_at_period_end = subscriptionObject.cancel_at_period_end
+                    Users.save(database, 'Error createStripeSubscription: ')
+                    return true
+                }
+            }
+            return false
+        } catch (error) {
+            throw new Error("ERROR createStripeSubscription");
         }
-      }
-      return false
-    } catch (error) {
-      return console.log("ERROR createStripeSubscription: ", error);
     }
-  }
+
 
   static verifyLoginGitHub(github_id, email, avatar){
     try {

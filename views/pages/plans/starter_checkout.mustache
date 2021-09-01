@@ -25,7 +25,7 @@
                                 <h4 class="my-0 fw-normal">STARTER</h4>
                             </div>
                             <div class="card-body">
-                                <h1 class="card-title pricing-card-title">$0.99<small class="text-muted fw-light">/month</small></h1>
+                                <h1 class="card-title pricing-card-title">$1.99<small class="text-muted fw-light">/month</small></h1>
                                 <ul class="list-unstyled mt-3 mb-4">
                                     <li>✔️ Support via Telegram/WhatsApp</li>
                                     <li>❌ Ilimited Recomendations</li>
@@ -60,20 +60,16 @@
                                 <select name="customer_stripe_card_id" class="form-select" id="stripe_card_id">
                                     <option value="{{user.stripe.card_id}}" selected>{{user.stripe.card_id}}</option>
                                 </select>
-                                <label for="stripe_card_id">PAY WITH YOUR STRIPE CARD_ID</label>
+                                <label for="stripe_card_id">PAY_WITH_YOUR_REGISTRED_STRIPE CARD_ID</label>
                             </div>
 
-                            <div class="form-floating mb-3">
-                                  <input id="stripe_card_holder_id" name="stripe_card_holder_id" class="mb-2 form-control" type="text" value="{{user.stripe.card_holder_name}}" readonly>
-                                  <label for="stripe_card_holder_id">STRIPE_CARD_HOLDER_NAME</label>
-                            </div>
 
                             <div class="form-floating mb-3">
                                   <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_last_4_digits}}" readonly>
                                   <label for="stripe_card_last_4_digits">STRIPE_CARD_LAST_4_DIGITS</label>
                             </div>
 
-                            <div class="row g-2">
+                            <div class="row g-2 mb-2">
                               <div class="col-md">
                                 <div class="form-floating">
                                   <input type="text" class="form-control" name="card_exp_year" id="card_exp_month" value="{{stripe.card_exp_month}}" readonly>
@@ -135,7 +131,7 @@
                             
                             <div>
                                 <button type="submit" class="mt-1 mb-1 btn btn-outline-success btn-block shadow w-100">
-                                    <span>Pay $0.99/Month</span>
+                                    <span class="fw-bold">Pay $ 1.99/Month</span>
                                 </button>
                             </div>
 

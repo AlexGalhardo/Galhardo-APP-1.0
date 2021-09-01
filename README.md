@@ -232,9 +232,11 @@ Games.getRandom() // return a random game object
 
 
 ### Subscription
-![ga_plans](https://user-images.githubusercontent.com/19540357/128649491-ab2a9c36-e3bf-45cf-9768-6bd781e502e7.png)
-![ga_plan_checkout](https://user-images.githubusercontent.com/19540357/128649492-a9011598-f460-40f7-8289-513430228c9b.png)
-![ga_plan_log](https://user-images.githubusercontent.com/19540357/128649493-fb32d152-8f84-4a5b-84eb-74047b54b138.png)
+![ga_plans](https://user-images.githubusercontent.com/19540357/131592846-31e57139-6447-4634-8499-1c825a2dd44c.png)
+![ga_plan_checkout](https://user-images.githubusercontent.com/19540357/131592850-3f8ee4b4-7887-4c69-bd62-6736c7ad162b.png)
+![ga_subs_checkout_card_registred](https://user-images.githubusercontent.com/19540357/131592478-55d78666-00c2-4763-b697-dd204f3d183a.png)
+![ga_subs_paylog](https://user-images.githubusercontent.com/19540357/131592480-b7f402ab-83c8-4161-a9f4-10fa2495b013.png)
+![ga_subs_email](https://user-images.githubusercontent.com/19540357/131592487-849e67cf-780b-4905-9275-e8fa3cf60e0b.png)
 
 ## Contact
 ![ga_message](https://user-images.githubusercontent.com/19540357/131276369-c89ab35a-3408-42ec-9d38-c2d4997f3eca.png)
@@ -255,6 +257,11 @@ Games.getRandom() // return a random game object
 ![ga_blog_comment_1](https://user-images.githubusercontent.com/19540357/130067633-96702bac-a9b9-40a4-9af1-30d44da1c827.png)
 ![ga_blog_comment_2](https://user-images.githubusercontent.com/19540357/130067642-fb771181-f73e-47f8-93f4-7a64d51af7e4.png)
 ![ga_admin_update_blogpost](https://user-images.githubusercontent.com/19540357/129276418-4444a071-90fe-4f2b-9e74-6fc26d3aad0b.png)
+
+### TELEGRAM LOGS
+![ga_log_shop_telegram](https://user-images.githubusercontent.com/19540357/131592495-055c04d0-734a-43cb-b199-190bca0965a6.png)
+![ga_shop_log](https://user-images.githubusercontent.com/19540357/131592489-41e1a3d8-8b0c-4892-a048-64d5d93ae7f5.png)
+![ga_subs_log_telegram](https://user-images.githubusercontent.com/19540357/131592483-d0a03286-6444-448b-9def-27962978b56c.png)
 
 ### Profile
 ![ga_profile_1](https://user-images.githubusercontent.com/19540357/129701716-bd679910-e1ce-42e5-9cae-e39f3003da28.png)

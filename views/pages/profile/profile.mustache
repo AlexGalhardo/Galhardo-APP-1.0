@@ -128,33 +128,33 @@
                 <hr>
 
                 <div class="form-floating mb-3">
-                      <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.currently_subscription_name}}" readonly>
+                      <input class="mb-2 form-control" name="CURRENTLY_PLAN" type="text" value="{{stripe.currently_subscription_name}}" readonly>
                       <label for="name">CURRENTLY_PLAN</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                      <input placeholder="Digit your username" class="mb-2 form-control" name="admin" type="text" value="{{stripe.subscription_automatically_renew}}" readonly>
-                      <label for="name">AUTOMATICALLY_RENEW</label>
+                      <input class="mb-2 form-control" name="CANCEL_AT_PERIOD_END" type="text" value="{{stripe.cancel_at_period_end}}" readonly>
+                      <label for="name">CANCEL_AT_PERIOD_END</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" name="subs_end" type="text" value="{{stripe.subscription_start}}" readonly>
+                      <input class="mb-2 form-control" name="SUBSCRIPTION_START_DATE_TIME" type="text" value="{{stripe.subscription_start}}" readonly>
                       <label for="name">SUBSCRIPTION_START_DATE_TIME</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" name="subs_end" type="text" value="{{stripe.subscription_end}}" readonly>
+                      <input class="mb-2 form-control" name="SUBSCRIPTION_END_DATE_TIME" type="text" value="{{stripe.subscription_end}}" readonly>
                       <label for="name">SUBSCRIPTION_END_DATE_TIME</label>
                 </div>
 
-                {{#stripe.subscription_automatically_renew}}
+                {{#stripe.cancel_at_period_end}}
                     <div class="form-group row mb-3">
                         <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
                         <div class="col-lg-8">
                             <input type="submit" class="shadow w-100 btn btn-sm btn btn-outline-danger" value="Cancel Subscription Renew">
                         </div>
                     </div>
-                {{/stripe.subscription_automatically_renew}}
+                {{/stripe.cancel_at_period_end}}
 
             </div>
 

@@ -14,20 +14,19 @@
 
             	{{{divPlanBanner}}}
 
-                <br>
-
             </div>
 
 	        <div class="col-lg-6">
         		{{#subsTransactionObject}}
         			<ul class="list-group list-group-flush text-start">
-                        <li class="list-group-item"><b>SUBS_ID:</b> {{id}}</li>
-                        <li class="list-group-item"><b>SUBS_STATUS:</b> {{status}}</li>
-                        <li class="list-group-item"><b>CUSTOMER_ID:</b> {{customer}}</li>
+                        <li class="list-group-item"><b>TRANSACTION_ID:</b> {{transaction_id}}</li>
+                        <li class="list-group-item"><b>PAYMENT_METHOD:</b> {{payment_method}}</li>
+                        <li class="list-group-item"><b>SUBSCRIPTION_STATUS:</b> {{status}}</li>
+                        <li class="list-group-item"><b>CUSTOMER_STRIPE_ID:</b> {{customer.stripe_id}}</li>
                         <li class="list-group-item"><b>CUSTOMER_EMAIL:</b> {{user.email}}</li>
-                        <li class="list-group-item"><b>current_period_start:</b> {{current_period_start}}</li>
-                        <li class="list-group-item"><b>current_period_end:</b> {{current_period_end}}</li>
-                        <li class="list-group-item"><b>CREATED:</b> {{created}}</li>
+                        <li class="list-group-item"><b>CURRENT_PERIOD_START:</b> {{current_period_start}}</li>
+                        <li class="list-group-item"><b>CURRENT_PERIOD_END:</b> {{current_period_end}}</li>
+                        <li class="list-group-item"><b>CREATED:</b> {{created_at}}</li>
                     </ul>
         		{{/subsTransactionObject}}
 	        </div>

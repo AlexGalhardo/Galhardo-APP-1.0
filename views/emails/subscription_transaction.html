@@ -356,14 +356,14 @@
                                         <td>
                                             <p><b>TRANSACTION_ID:</b> {{transaction_id}}</p>
                                             <p><b>GATEWAY:</b> Stripe</p>
-                                            <p><b>PAYMENT_METHOD:</b> {{payment_method}}</p>
-                                            <p><b>PAID:</b> {{paid}}</p>
+                                            <p><b>STATUS:</b> {{status}}</p>
                                             <p><b>AMOUNT:</b> $ {{amount}}</p>
-                                            <p><b>PLAN_NAME:</b> {{products}}</p>
+                                            <p><b>PLAN_NAME:</b> {{plan_name}}</p>
+                                            <p><b>PAYMENT_METHOD:</b> {{payment_method}}</p>
                                             <p><b>SUBSCRIPTION:</b></p>
                                             <ul>
-                                                <li><b>START_DATE:</b> {{shipping.zipcode}}</li>
-                                                <li><b>END_DATE:</b> {{shipping.street}}</li>
+                                                <li><b>CURRENT_PERIOD_START:</b> {{current_period_start}}</li>
+                                                <li><b>CURRENT_PERIOD_END:</b> {{current_period_end}}</li>
                                             </ul>
                                             <p><b>CREATED_AT:</b> {{created_at}}</p>
                                         </td>
