@@ -260,7 +260,6 @@ Games.getRandom() // return a random game object
 
 ### TELEGRAM LOGS
 ![ga_log_shop_telegram](https://user-images.githubusercontent.com/19540357/131592495-055c04d0-734a-43cb-b199-190bca0965a6.png)
-![ga_shop_log](https://user-images.githubusercontent.com/19540357/131592489-41e1a3d8-8b0c-4892-a048-64d5d93ae7f5.png)
 ![ga_subs_log_telegram](https://user-images.githubusercontent.com/19540357/131592483-d0a03286-6444-448b-9def-27962978b56c.png)
 
 ### Profile
