@@ -240,10 +240,10 @@ class PlansController {
                 status: subscription.status,
                 payment_method: {
                     card_id: SESSION_USER.stripe.card_id,
-                    brand: SESSION_USER.stripe.card_brand,
-                    exp_month: SESSION_USER.stripe.card_exp_month,
-                    exp_year: SESSION_USER.stripe.card_exp_year,
-                    last4: SESSION_USER.stripe.card_last4
+                    card_brand: SESSION_USER.stripe.card_brand,
+                    card_exp_month: SESSION_USER.stripe.card_exp_month,
+                    card_exp_year: SESSION_USER.stripe.card_exp_year,
+                    card_last4: SESSION_USER.stripe.card_last4
                 },
                 plan: {
                     id: stripe_plan_id,

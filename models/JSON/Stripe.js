@@ -31,7 +31,7 @@ class Stripe {
     static async createShopTransaction(transactionObject){
         try {
             database.stripe.shop_transactions.push({
-                transaction_id: transactionObject.id,
+                transaction_id: transactionObject.transaction_id,
                 total_amount: transactionObject.total_amount,
                 payment_method: transactionObject.payment_method,
                 currency: transactionObject.currency,
@@ -53,7 +53,7 @@ class Stripe {
         try {
             const userShopTransactions = database.stripe.shop_transactions.filter(shopTransaction => shopTransaction.customer.id === user_id
             )
-            return userShopTransactions
+            return userShopTransactions.reverse()
         } catch (error) {
             throw new Error(error);
         }
@@ -90,7 +90,7 @@ class Stripe {
         try {
             const userSubsTransactions = database.stripe.subscriptions_transactions.filter(subsTransaction => subsTransaction.customer.id === user_id
             )
-            return userSubsTransactions
+            return userSubsTransactions.reverse()
         } catch (error) {
             throw new Error(error);
         }

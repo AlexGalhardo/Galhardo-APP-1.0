@@ -256,6 +256,7 @@ Games.getRandom() // return a random game object
 ![ga_blog_post](https://user-images.githubusercontent.com/19540357/129276447-239ae567-4c74-46c1-8c0d-fda16449456a.png)
 ![ga_blog_comment_1](https://user-images.githubusercontent.com/19540357/130067633-96702bac-a9b9-40a4-9af1-30d44da1c827.png)
 ![ga_blog_comment_2](https://user-images.githubusercontent.com/19540357/130067642-fb771181-f73e-47f8-93f4-7a64d51af7e4.png)
+![ga_blog_disqus](https://user-images.githubusercontent.com/19540357/131751707-33180158-b8e5-4ed6-a728-48ed7cefbeb8.png)
 ![ga_admin_update_blogpost](https://user-images.githubusercontent.com/19540357/129276418-4444a071-90fe-4f2b-9e74-6fc26d3aad0b.png)
 
 ### TELEGRAM LOGS
@@ -265,6 +266,10 @@ Games.getRandom() // return a random game object
 ### Profile
 ![ga_profile_1](https://user-images.githubusercontent.com/19540357/129701716-bd679910-e1ce-42e5-9cae-e39f3003da28.png)
 ![ga_profile_2](https://user-images.githubusercontent.com/19540357/129701714-92dc33ea-adcb-45e6-a9d0-a6f5054a999a.png)
+![ga_my_shop_transactions](https://user-images.githubusercontent.com/19540357/131751715-3278087b-2a83-4d17-b0f1-3e98ec708832.png)
+![ga_profile_shop_log](https://user-images.githubusercontent.com/19540357/131751719-4d3cf88f-1b87-4ba0-a72d-a307a2127fea.png)
+![ga_my_subs_transactions](https://user-images.githubusercontent.com/19540357/131751711-23d60fee-bd23-406c-a356-369d36b90f7f.png)
+![ga_my_sub_transaction](https://user-images.githubusercontent.com/19540357/131751738-9ff5a376-c267-4888-a951-717089a5511c.png)
 
 ### ADMIN VIEWs
 ![ga_stripe_customers](https://user-images.githubusercontent.com/19540357/129276423-53d02a50-b70b-47d1-b64c-a9c84d07a30c.png)

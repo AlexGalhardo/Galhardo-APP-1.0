@@ -65,7 +65,11 @@ class AuthController {
                     flash: {
                         type: "warning",
                         message: errors.array()[0].msg,
-                    }
+                    },
+                    FacebookLoginURL: facebookLoginURL,
+                    GitHubLoginURL: URL.getGitHubURL,
+                    GoogleLoginURL: URL.getGoogleURL,
+                    captcha: res.recaptcha
                 });
             }
         } else {
@@ -81,7 +85,11 @@ class AuthController {
                     flash: {
                         type: "warning",
                         message: "You need to confirm your email!"
-                    }
+                    },
+                    FacebookLoginURL: facebookLoginURL,
+                    GitHubLoginURL: URL.getGitHubURL,
+                    GoogleLoginURL: URL.getGoogleURL,
+                    captcha: res.recaptcha
                 });
             }
 
@@ -92,7 +100,11 @@ class AuthController {
                     flash: {
                         type: "warning",
                         message: "Email OR Password Inválid!"
-                    }
+                    },
+                    // FacebookLoginURL: facebookLoginURL,
+                    GitHubLoginURL: URL.getGitHubURL,
+                    GoogleLoginURL: URL.getGoogleURL,
+                    captcha: res.recaptcha
                 });
             }
 
@@ -101,12 +113,7 @@ class AuthController {
             return res.redirect('/');
         }
         catch (error) {
-            return res.render('pages/auth/login', {
-                flash: {
-                    type: "warning",
-                    message: `Error: ${error}`
-                }
-            });
+            throw new Error(error)
         }
     }
 
@@ -192,12 +199,7 @@ class AuthController {
             });
 
         } catch (error) {
-            return res.render("pages/auth/register", {
-                flash: {
-                    type: "danger",
-                    message: `Error: ${error}`
-                }
-            });
+            throw new Error(error)
         }
     }
 
@@ -297,12 +299,7 @@ class AuthController {
             return res.redirect('/login')
 
         } catch(error){
-            return res.render('pages/auth/login', {
-                flash: {
-                    type: "warning",
-                    message: `Error: ${error}`
-                }
-            });
+            throw new Error(error)
         }
     }
 
@@ -356,12 +353,7 @@ class AuthController {
             return res.redirect('/login')
         }
         catch (error) {
-            return res.render('pages/auth/login', {
-                flash: {
-                    type: "warning",
-                    message: `Error: ${error}`
-                }
-            });
+            throw new Error(error)
         }
     }
 
@@ -395,12 +387,7 @@ class AuthController {
             return res.redirect('/login')
 
         } catch(error){
-            return res.render('pages/auth/login', {
-                flash: {
-                    type: "warning",
-                    message: `Error: ${error}`
-                }
-            });
+            throw new Error(error)
         }
     }
 }

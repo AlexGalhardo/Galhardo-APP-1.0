@@ -48,7 +48,7 @@ class Header {
             <div class="progress-container">
                 <div class="progress-bar" id="myBar"></div>
             </div>`,
-            use_disqus: false,
+            use_disqus: true,
             disqus_comments: `<div id="disqus_thread"></div>
                 <script>
                     (function() { // DON'T EDIT BELOW THIS LINE

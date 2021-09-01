@@ -41,8 +41,7 @@ class URL {
             return facebookLoginURL
         }
         catch(error){
-            console.log(error)
-            return null
+            throw new Error(error)
         }
     }
 };
