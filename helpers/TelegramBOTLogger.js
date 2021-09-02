@@ -12,8 +12,11 @@
 
 
 const https = require('https')
+const DateTime = require('./DateTime')
 
-class TelegramLogger {
+
+
+class TelegramBOTLogger {
 
     constructor(token, channelName) {
         this.isThereToken(token)
@@ -40,16 +43,10 @@ class TelegramLogger {
         }
     }
 
-    getDate(){
-        let date = new Date().toLocaleDateString('pt-BR')
-        let time = new Date().toLocaleTimeString('pt-BR')
-        return `${date} ${time}`;
-    }
-
     sendMessage(level, type, message){
         let emoji = this.emojiMap()[level]
 
-        message = `${emoji} ${type} ${emoji}\n\n <b>CREATED_AT:</b> ${this.getDate()}\n ${message}`
+        message = `${emoji} ${type} ${emoji}\n\n <b>CREATED_AT:</b> ${DateTime.getNow()}\n ${message}`
 
         let urlParams = encodeURI(`chat_id=${this.channelName}&text=${message}&parse_mode=HTML`)
 
@@ -163,4 +160,4 @@ class TelegramLogger {
     }
 }
 
-module.exports = new TelegramLogger(process.env.TELEGRAM_BOT_HTTP_TOKEN, process.env.TELEGRAM_BOT_CHANNEL_ID)
+module.exports = new TelegramBOTLogger(process.env.TELEGRAM_BOT_HTTP_TOKEN, process.env.TELEGRAM_BOT_CHANNEL_ID)

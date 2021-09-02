@@ -10,11 +10,10 @@
 
 const bodyParser = require('body-parser')
 
-// Models
-// const Users = require('../../models/JSON/Users')
-// const Users = require('../../models/MySQL/Users')
-// const Users = require('../../models/POSTGRES/Users')
-const Users = require('../../models/MONGODB/Users')
+
+// MODEL
+const Users = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Users`)
+
 
 
 

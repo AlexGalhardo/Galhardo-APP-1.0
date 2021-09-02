@@ -160,3 +160,5 @@
 [35m[39m
 2021-09-02 17:16:52 [35mhttp[39m: [35mPATCH /api/admin/blog/patch/61313124647cd51109028d30 200 CONTENT-LENGTH=347 36.044 ms[39m
 [35m[39m
+2021-09-02 17:27:09 [35mhttp[39m: [35mPOST /api/profile/login 400 CONTENT-LENGTH=84 31.573 ms[39m
+[35m[39m

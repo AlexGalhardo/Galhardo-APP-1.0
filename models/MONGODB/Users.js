@@ -68,7 +68,7 @@ const UsersSchema = (connection && connection.models[modelName])
 
 class Users {
 
-	static async verifyLogin(email, password){
+	static async login(email, password){
 		let user = await UsersSchema.findOne({
 			email
 		})
@@ -81,7 +81,7 @@ class Users {
 		return null
 	}
 
-	static async updateProfile(userObject){
+	static async update(userObject){
 		let user = await UsersSchema.findOne({
 			email: userObject.email
 		})
@@ -113,7 +113,7 @@ class Users {
 		return null
 	}
 
-	static async deleteProfile(email, password){
+	static async delete(email, password){
 		let user = await UsersSchema.findOne({
 			email
 		})

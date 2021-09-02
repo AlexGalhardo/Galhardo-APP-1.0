@@ -93,7 +93,7 @@
    - MySQL using pure SQL
    - PostgresSQL using Sequelize ORM
    - MongoDB using Mongoose ORM
-- All Databases use the SAME Model and Methods NAMES.
+- <b>All Databases use the SAME Model and Methods NAMES</b>.
 - You can choose what DataBase you want to use like this example:
 ```js
 const Games = require('../models/JSON/Games');

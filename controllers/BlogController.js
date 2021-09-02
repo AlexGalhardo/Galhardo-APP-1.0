@@ -15,12 +15,8 @@ const pagination = require('pagination')
 const DateTime = require('../helpers/DateTime');
 const Header = require('../helpers/Header');
 
-// MODELS
-const Blog = require('../models/JSON/Blog');
-// const Blog = require('../models/MONGODB/Blog');
-// const Blog = require('../models/MYSQL/Blog');
-// const Blog = require('../models/POSTGRES/Blog');
-// const Blog = require('../models/SQLITE/Blog');
+// MODEL
+const Blog = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Blog`)
 
 
 

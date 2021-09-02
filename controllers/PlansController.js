@@ -16,17 +16,8 @@ const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
 const Header = require('../helpers/Header');
 
 // MODELS
-const Users = require('../models/JSON/Users');
-// const Users = require('../models/MONGODB/Users');
-// const Users = require('../models/MYSQL/Users');
-// const Users = require('../models/POSTGRES/Users');
-// const Users = require('../models/SQLITE/Users');
-
-const StripeModel = require('../models/JSON/Stripe');
-// const StripeModel = require('../models/MONGODB/Stripe');
-// const StripeModel = require('../models/MYSQL/Stripe');
-// const StripeModel = require('../models/POSTGRES/Stripe');
-// const StripeModel = require('../models/SQLITE/Stripe');
+const Users = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Users`)
+const StripeModel = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Stripe`)
 
 
 // STRIPE

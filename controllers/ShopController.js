@@ -17,11 +17,7 @@ const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
 const Header = require('../helpers/Header');
 
 // MODELS
-const StripeModel = require('../models/JSON/Stripe')
-// const StripeModel = require('../models/MONGODB/Stripe')
-// const StripeModel = require('../models/MYSQL/Stripe')
-// const StripeModel = require('../models/POSTGRES/Stripe')
-// const StripeModel = require('../models/SQLITE/Stripe')
+const StripeModel = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Stripe`)
 
 
 // Stripe

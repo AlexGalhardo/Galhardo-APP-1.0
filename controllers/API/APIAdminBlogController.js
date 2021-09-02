@@ -14,11 +14,7 @@ const DateTime = require('../../helpers/DateTime')
 
 
 // MODELS
-// const Blog = require('../../models/JSON/Blog')
-const Blog = require('../../models/MONGODB/Blog')
-// const Blog = require('../../models/MySQL/Blog')
-// const Blog = require('../../models/POSTGRES/Blog')
-// const Blog = require('../../models/SQLITE/Blog')
+const Blog = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Blog`)
 
 
 class APIAdminBlogController {

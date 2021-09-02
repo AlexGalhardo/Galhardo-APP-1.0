@@ -25,17 +25,15 @@ const fetch = require('node-fetch');
 const randomToken = require('rand-token');
 
 
+// HELPERS
 const DateTime = require('../helpers/DateTime');
 const Bcrypt = require('../helpers/Bcrypt');
 const NodeMailer = require('../helpers/NodeMailer');
 const URL = require('../helpers/URL');
 
 
-const Users = require('../models/JSON/Users');
-// const Users = require('../models/MONGODB/Users');
-// const Users = require('../models/MYSQL/Users');
-// const Users = require('../models/POSTGRES/Users');
-// const Users = require('../models/SQLITE/Users');
+// MODEL
+const Users = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Users`)
 
 
 

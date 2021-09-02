@@ -10,12 +10,12 @@
 
 const bodyParser = require('body-parser')
 
-// Helpers
+// HELPERS
 const Upload = require('../helpers/Upload')
 
-// Models
-const Users = require('../models/JSON/Users')
-const StripeModel = require('../models/JSON/Stripe')
+// MODELS
+const Users = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Users`)
+const StripeModel = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Stripe`)
 
 
 

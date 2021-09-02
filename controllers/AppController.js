@@ -17,18 +17,9 @@ const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
 const Header = require('../helpers/Header');
 
 
-const Games = require('../models/JSON/Games');
-// const Games = require('../models/MONGODB/Games');
-// const Games = require('../models/MYSQL/Games');
-// const Games = require('../models/POSTGRES/Games');
-// const Games = require('../models/SQLITE/Games');
-
-
-const Books = require('../models/JSON/Books');
-// const Books = require('../models/MONGODB/Books');
-// const Books = require('../models/MYSQL/Books');
-// const Books = require('../models/POSTGRES/Books');
-// const Books = require('../models/SQLITE/Books');
+// MODELS
+const Games = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Games`)
+const Books = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Books`)
 
 
 
