@@ -8,15 +8,17 @@
  *  http://localhost:3000/api/admin/blog
  */
 
-// models
-// const Blog = require('../../models/JSON/Blog')
-// const Blog = require('../../models/MySQL/Blog')
-// const Blog = require('../../models/POSTGRES/Blog')
-const Blog = require('../../models/MONGODB/Blog')
 
-// helpers
+// HELPERS
 const DateTime = require('../../helpers/DateTime')
 
+
+// MODELS
+// const Blog = require('../../models/JSON/Blog')
+const Blog = require('../../models/MONGODB/Blog')
+// const Blog = require('../../models/MySQL/Blog')
+// const Blog = require('../../models/POSTGRES/Blog')
+// const Blog = require('../../models/SQLITE/Blog')
 
 
 class APIAdminBlogController {
@@ -39,12 +41,12 @@ class APIAdminBlogController {
                 image,
                 category,
                 body,
-                comments: [],
                 created_at: DateTime.getNow(),
-                updated_at: DateTime.getNow()
+                updated_at: DateTime.getNow(),
+                comments: []
             }
             
-            const blogPostCreated = await Blog.createBlogPost(blogObject)
+            const blogPostCreated = await Blog.create(blogObject)
             
             return res.json({
                 blogPostCreated
@@ -80,7 +82,7 @@ class APIAdminBlogController {
                 updated_at: DateTime.getNow()
             }
             
-            const blogPostUpdated = await Blog.updateBlogPost(blogObject)
+            const blogPostUpdated = await Blog.update(blogObject)
             
             return res.json({
                 blogPostUpdated
@@ -100,7 +102,7 @@ class APIAdminBlogController {
         try {
             const blog_id = req.params.blog_id
             
-            await Blog.deleteBlogPostByID(blog_id)
+            await Blog.delete(blog_id)
             
             return res.json({
                 status: `Blog Post ID ${blog_id} DELETED!`

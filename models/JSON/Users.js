@@ -51,17 +51,17 @@ class Users {
     }
 
 
-  static getUserByEmail(email) {
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email == email) return database.users[i]
-      }
-      return null
-    } catch (error) {
-      console.log("ERROR getUsers: ", error);
-      return null
+    static getUserByEmail(email) {
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email == email) return database.users[i]
+            }
+            return null
+        } catch (error) {
+            console.log("ERROR getUsers: ", error);
+            return null
+        }
     }
-  }
 
 
   static verifyIfAdminByID(user_id) {
@@ -79,19 +79,19 @@ class Users {
 
 
 
-  static emailRegistred(email){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email === email){
-          return true
+    static emailRegistred(email){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email === email){
+                    return true
+                }
+            }
+            return false
+        } catch (error) {
+            console.log("ERROR emailRegistred: ", error);
+            return false
         }
-      }
-      return false
-    } catch (error) {
-      console.log("ERROR emailRegistred: ", error);
-      return false
     }
-  }
 
 
 

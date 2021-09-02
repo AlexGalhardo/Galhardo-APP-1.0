@@ -11,90 +11,94 @@
 const { validationResult } = require("express-validator");
 const jwt = require('jsonwebtoken');
 
-// models
-const Users = require('../../models/JSON/Users')
-
-// helpers
+// HELPERS
 const Bcrypt = require('../../helpers/Bcrypt')
 const DateTime = require('../../helpers/DateTime')
 
+
+// MODELS
+const Users = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Users`)
+
+
+
 class APIAdminController {
 
-	static async postAdminLogin(req, res, next) {
-		const errors = validationResult(req);
-		
-		if(!errors.isEmpty()){
-        	return res.status(422).json({ errors: errors.array() });
-    	}
+    static async postAdminLogin(req, res, next) {
 
-    	const { email, password } = req.body;
+        try {
+            const errors = validationResult(req);
 
-    	try {
+            if(!errors.isEmpty()){
+                return res.status(422).json({ errors: errors.array() });
+            }
 
-    		if(!Users.emailIsAlreadyRegistred(email)){
-    			return res.status(422).json({
-	                error: "Email inválid!",
-	            });
-    		}
+            const { email, password } = req.body;
 
-    		const admin = Users.getUserByEmail(email)
-	        
-	        const passwordIsValid = await Bcrypt.comparePassword(password, admin.password);
-	        
-	        if(!passwordIsValid){
-	            return res.status(422).json({
-	                error: "Incorrect password",
-	            });
-	        }
+            if(!Users.emailRegistred(email)){
+                return res.status(422).json({
+                    error: "Email inválid!",
+                });
+            }
 
-	        if(!admin.admin){
-	        	return res.status(422).json({
-	                error: "This user is NOT ADMIN!",
-	            });
-	        }
+            const admin = Users.getUserByEmail(email)
 
-	        const JWT_TOKEN = jwt.sign(
-						        	{admin_id:admin.id}, 
-						        	process.env.JWT_SECRET,
-						        	{ expiresIn: '1h' }
-						        );
+            const passwordIsValid = await Bcrypt.comparePassword(password, admin.password);
 
-	        return res.json({
-	            ADMIN_JWT_TOKEN: JWT_TOKEN
-	        });
+            if(!passwordIsValid){
+                return res.status(422).json({
+                    error: "Incorrect password",
+                });
+            }
 
-	    }
-	    catch(err){
-	        next(err);
-	    }
-	}
+            if(!admin.admin){
+                return res.status(422).json({
+                    error: "This user is NOT ADMIN!",
+                });
+            }
 
-	/**
-	 * POST /api/admin/test
-	 */
-	static postAdminTestJWT(req, res, next) {
-		try {
+            const JWT_TOKEN = jwt.sign(
+                                    {admin_id:admin.id},
+                                    process.env.JWT_SECRET,
+                                    { expiresIn: '1h' }
+                                );
 
-			const JWT_TOKEN = req.headers.authorization.split(' ')[1];
-        	const decoded = jwt.verify(JWT_TOKEN, process.env.JWT_SECRET);
-	        const admin = Users.getUserByID(decoded.admin_id)
+            return res.json({
+                ADMIN_JWT_TOKEN: JWT_TOKEN
+            });
+
+        }
+        catch(err){
+            next(err);
+        }
+    }
+
+
+    /**
+     * POST /api/admin/test
+     */
+    static postAdminTestJWT(req, res, next) {
+        try {
+
+            const JWT_TOKEN = req.headers.authorization.split(' ')[1];
+            const decoded = jwt.verify(JWT_TOKEN, process.env.JWT_SECRET);
+            const admin = Users.getUserByID(decoded.admin_id)
             
             return res.json({
                 admin: {
-                	name: admin.name,
-                	email: admin.email,
-                	JWT_created_at: DateTime.getDateTime(decoded.iat),
-                	JWT_expires_at: DateTime.getDateTime(decoded.exp)
+                    name: admin.name,
+                    email: admin.email,
+                    JWT_created_at: DateTime.getDateTime(decoded.iat),
+                    JWT_expires_at: DateTime.getDateTime(decoded.exp)
                 }
-            });	        
-	    }
-	    catch(err){
-	        next(err);
-	    }
-	}
+            });
+        }
+        catch(err){
+            next(err);
+        }
+    }
 
-	static verifyAdminAPIRequestUsingJWT(req){
-		if(
+    static verifyAdminAPIRequestUsingJWT(req){
+        if(
             !req.headers.authorization ||
             !req.headers.authorization.startsWith('Bearer') ||
             !req.headers.authorization.split(' ')[1]
@@ -108,14 +112,14 @@ class APIAdminController {
         const decoded = jwt.verify(JWT_TOKEN, process.env.JWT_SECRET);
 
         if(!Users.verifyIfAdminByID(decoded.admin_id)){
-        	return res.status(422).json({
+            return res.status(422).json({
                 message: "This JWT Token is Inválid!",
             });
         }
 
         const admin = Users.getUserByID(decoded.admin_id)
         return admin
-	}
+    }
 }
 
 module.exports = APIAdminController;

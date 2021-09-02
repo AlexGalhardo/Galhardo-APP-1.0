@@ -114,3 +114,49 @@
 [35m[39m
 2021-09-02 13:01:58 [31merror[39m: [31mThis is an error log[39m
 2021-09-02 13:01:58 [33mwarn[39m: [33mThis is a warn log[39m
+2021-09-02 17:03:51 [35mhttp[39m: [35mPOST /api/admin/books/create 200 CONTENT-LENGTH=1043 582.124 ms[39m
+[35m[39m
+2021-09-02 17:05:27 [35mhttp[39m: [35mPOST /api/admin/books/create 200 CONTENT-LENGTH=1043 30.486 ms[39m
+[35m[39m
+2021-09-02 17:07:39 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 72.307 ms[39m
+[35m[39m
+2021-09-02 17:07:39 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 31.653 ms[39m
+[35m[39m
+2021-09-02 17:07:49 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 7.438 ms[39m
+[35m[39m
+2021-09-02 17:07:49 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 6.017 ms[39m
+[35m[39m
+2021-09-02 17:07:49 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 4.430 ms[39m
+[35m[39m
+2021-09-02 17:07:49 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 3.399 ms[39m
+[35m[39m
+2021-09-02 17:07:50 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 5.260 ms[39m
+[35m[39m
+2021-09-02 17:08:59 [35mhttp[39m: [35mPOST /api/admin/books/create 200 CONTENT-LENGTH=1043 252.162 ms[39m
+[35m[39m
+2021-09-02 17:09:19 [35mhttp[39m: [35mPATCH /api/admin/books/patch/4 400 CONTENT-LENGTH=134 56.518 ms[39m
+[35m[39m
+2021-09-02 17:09:47 [35mhttp[39m: [35mPATCH /api/admin/books/patch/61312f5b647cd51109028d20 200 CONTENT-LENGTH=1058 95.513 ms[39m
+[35m[39m
+2021-09-02 17:09:53 [35mhttp[39m: [35mPATCH /api/admin/books/patch/61312f5b647cd51109028d20 200 CONTENT-LENGTH=1033 36.694 ms[39m
+[35m[39m
+2021-09-02 17:10:57 [35mhttp[39m: [35mPATCH /api/admin/books/patch/61312f5b647cd51109028d20 200 CONTENT-LENGTH=1033 40.448 ms[39m
+[35m[39m
+2021-09-02 17:11:13 [35mhttp[39m: [35mDELETE /api/admin/books/delete/61312f5b647cd51109028d20 200 CONTENT-LENGTH=54 55.988 ms[39m
+[35m[39m
+2021-09-02 17:11:22 [35mhttp[39m: [35mPOST /api/admin/books/create 200 CONTENT-LENGTH=1043 25.876 ms[39m
+[35m[39m
+2021-09-02 17:11:28 [35mhttp[39m: [35mDELETE /api/admin/books/delete/61312f5b647cd51109028d20 200 CONTENT-LENGTH=54 12.603 ms[39m
+[35m[39m
+2021-09-02 17:12:51 [35mhttp[39m: [35mDELETE /api/admin/books/delete/61312fea647cd51109028d29 200 CONTENT-LENGTH=54 18.462 ms[39m
+[35m[39m
+2021-09-02 17:15:37 [35mhttp[39m: [35mPOST /api/admin/blog/create 200 CONTENT-LENGTH=360 236.041 ms[39m
+[35m[39m
+2021-09-02 17:16:13 [35mhttp[39m: [35mDELETE /api/admin/blog/delete/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6IjdmOWMxYzIyLTk4ZjYtNDQ3Mi1hMDMxLWQwMjdiNzE5NmJhOSIsImlhdCI6MTYzMDYxMjgxMSwiZXhwIjoxNjMwNjE2NDExfQ.uvNhCLuId1B87wwMd6DXGezKcOEHfVu-qECb3OcX5SM 400 CONTENT-LENGTH=327 17.557 ms[39m
+[35m[39m
+2021-09-02 17:16:26 [35mhttp[39m: [35mDELETE /api/admin/blog/delete/613130e9647cd51109028d2d 200 CONTENT-LENGTH=59 13.775 ms[39m
+[35m[39m
+2021-09-02 17:16:36 [35mhttp[39m: [35mPOST /api/admin/blog/create 200 CONTENT-LENGTH=360 23.793 ms[39m
+[35m[39m
+2021-09-02 17:16:52 [35mhttp[39m: [35mPATCH /api/admin/blog/patch/61313124647cd51109028d30 200 CONTENT-LENGTH=347 36.044 ms[39m
+[35m[39m

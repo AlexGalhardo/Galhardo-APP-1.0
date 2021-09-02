@@ -102,6 +102,11 @@ const Games = require('../models/JSON/Games');
 // const Games = require('../models/POSTGRES/Games');
 // const Games = require('../models/SQLITE/Games');
 
+// OR
+const Games = require(`../models/${process.env.GALHARDO_APP_DATABASE}/Games`);
+// .env
+GALHARDO_APP_DATABASE=JSON
+
 // CRUD
 Games.create(gameObject)
 Games.update(gameObject)

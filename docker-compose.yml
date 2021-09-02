@@ -18,6 +18,8 @@
 # $ sudo docker-compose down
 # $ sudo docker rm -f CONTAINER_ID
 # $ sudo docker rmi -f IMAGE_ID
+# $ sudo docker-compose down
+# $ sudo docker-compose down -v
 # $ sudo docker-compose up -d --remove-orphans
 
 # $ sudo docker inspect CONTAINER_NAME_OR_ID | grep '"IPAddress"' | head -n 1
@@ -37,8 +39,8 @@ services:
           MYSQL_ROOT_PASSWORD: "root"
         ports:
           - "3306:3306"
-        #volumes:
-        #  - /home/alex/Desktop/galhardo-app/backups/backuos/mysql:/var/www/html
+        volumes:
+          - mysql-data:/var/lib/mysql
         networks:
           - galhardoapp_network
 
@@ -51,15 +53,15 @@ services:
             POSTGRES_PASSWORD: "root"
         ports:
             - "15432:5432"
-        #volumes:
-            #  - /home/alex/Desktop/galhardo-app:/var/lib/postgresql/data
+        volumes:
+            - postgres-data:/var/lib/postgresql
         networks:
             - galhardoapp_network
 
 
     # ADMINER GUI FOR MYSQL AND POSTGRES
-    # MYSQL username: root | server: galhardoapp_mysql
-    # POSTGRE username: postgres | server: galhardoapp_postgres
+    # MYSQL username: root | password: root | server: galhardoapp_mysql
+    # POSTGRE username: postgres | password: root |server: galhardoapp_postgres
     galhardoapp_adminer:
         image: adminer
         container_name: galhardoapp_adminer
@@ -70,21 +72,23 @@ services:
 
 
     galhardoapp_mongodb:
-        image: mongo:latest
+        image: mongo:4
         container_name: galhardoapp_mongodb
         restart: always
         environment:
-          MONGO_INITDB_ROOT_USERNAME: root
-          MONGO_INITDB_ROOT_PASSWORD: rootpassword
+          MONGO_INITDB_ROOT_USERNAME: admin
+          MONGO_INITDB_ROOT_PASSWORD: root
         ports:
           - 27017:27017
-        #volumes:
-        #  - mongo-data:/data/db
+        volumes:
+          - mongo-data:/data/db
 
 
 networks: 
   galhardoapp_network:
     driver: bridge
 
-#volumes:
-#  mongo-data:
+volumes:
+  mysql-data:
+  mongo-data:
+  postgres-data:

@@ -86,6 +86,7 @@ $ sudo docker exec -it galhardoapp_mongodb \
     mongo --host localhost -u admin -p root --authenticationDatabase admin \
     --eval "db.getSiblingDB('galhardoapp').createUser({user: 'alex', pwd: 'root', roles: [{role: 'readWrite', db: 'galhardoapp'}]})"
 ```
+- mongodb+srv://admin:root@172.19.0.2
 
 ## API HTTP Requests
 - You can use my INSOMNIA Configuration JSON with all HTTP Requests Ready to TRY

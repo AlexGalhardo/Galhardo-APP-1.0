@@ -9,7 +9,7 @@ const mongoConnect = async () => {
     console.log(`CONNECTED TO MONGODB URL: ${process.env.MONGO_LOCALHOST_URL}`)
   }
   catch(error){
-    console.log("MONGODB Connection ERROR!", error)
+    console.log(`MONGODB Connection ${process.env.MONGO_LOCALHOST_URL} ERROR!`, error)
   }
 }
 

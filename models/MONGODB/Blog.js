@@ -35,13 +35,13 @@ const BlogSchema = (connection && connection.models[modelName])
 
 class Blog {
 
-	static async createBlogPost(blogObject){
+	static async create(blogObject){
 		blogObject.slug = slugify(blogObject.title)
 		let newBlogPost = await BlogSchema.create(blogObject)
 		return newBlogPost
 	}
 
-	static async updateBlogPost(blogObject){
+	static async update(blogObject){
 		let blogPost = await BlogSchema.findOne({_id: blogObject.id})
 		
 		blogPost.title = blogObject.title
@@ -56,7 +56,7 @@ class Blog {
 		return blogPost
 	}
 
-	static async deleteBlogPostByID(blog_id){
+	static async delete(blog_id){
 		await BlogSchema.findOneAndDelete({"_id": blog_id})
 	}
 }

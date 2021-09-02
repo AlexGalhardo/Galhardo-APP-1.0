@@ -28,7 +28,7 @@ class APIAdminBookController {
      * GET http://localhost:3000/api/admin/books/listAll
      */
     static async getAllBooks(req, res){
-        let books = await Books.getAllBooks();
+        let books = await Books.getAll();
         res.json({
             books
         })
@@ -65,7 +65,7 @@ class APIAdminBookController {
             updated_at: DateTime.getNow()
         }
 
-        const bookCreated = await Books.createBook(bookObject)
+        const bookCreated = await Books.create(bookObject)
 
         if(bookCreated) return res.json(bookCreated)
 
@@ -105,7 +105,7 @@ class APIAdminBookController {
                 updated_at: DateTime.getNow()
             }
             
-            const bookUpdated = await Books.updateBookByID(bookObject)
+            const bookUpdated = await Books.update(bookObject)
 
             return res.json({
                 bookUpdated
@@ -125,7 +125,7 @@ class APIAdminBookController {
         try {
             const book_id = req.params.book_id
             
-            await Books.deleteBookByID(book_id)
+            await Books.delete(book_id)
 
             return res.json({
                 status: `Book ID ${book_id} DELETED!`
