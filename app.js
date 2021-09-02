@@ -27,8 +27,17 @@ global.APP_ROOT_PATH = path.resolve(__dirname);
 global.SESSION_USER = null;
 
 
-// MONGODB
-if(process.env.NODE_ENV === 'development') require('./config/mongodb')()
+// DATABASE
+if(process.env.GALHARDO_APP_DATABASE === 'MONGODB'){
+    console.log('USING DATABASE: MONGODB')
+    require('./config/mongodb')()
+}
+
+if(process.env.GALHARDO_APP_DATABASE === 'JSON') console.log('USING DATABASE: JSON')
+if(process.env.GALHARDO_APP_DATABASE === 'MYSQL') console.log('USING DATABASE: MYSQL')
+if(process.env.GALHARDO_APP_DATABASE === 'POSTGRES') console.log('USING DATABASE: POSTGRES')
+if(process.env.GALHARDO_APP_DATABASE === 'SQLITE') console.log('USING DATABASE: SQLITE')
+
 
 
 // ./config

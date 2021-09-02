@@ -22,7 +22,7 @@ btn.addEventListener('click', async (e) => {
     }
 
     // verify email
-    const response = await fetch(`https://galhardoapp.com/api/public/${email.value}`)
+    const response = await fetch(`https://galhardoapp.com/api/public/email/${email.value}`)
     const json = await response.json()
 
     if(email.value.length >= 8 && !json.emailRegistred){

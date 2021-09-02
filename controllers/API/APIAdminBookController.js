@@ -9,15 +9,11 @@
  */
 
 
-
-// models
-// const Books = require('../../models/JSON/Books');
-// const Books = require('../../models/MySQL/Books');
-const Books = require('../../models/MONGODB/Books');
-// const Books = require('../../models/POSTGRES/Books');
-
-// helpers
+// HELPERS
 const DateTime = require('../../helpers/DateTime')
+
+// MODEL
+const Books = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Books`);
 
 
 
@@ -79,7 +75,6 @@ class APIAdminBookController {
     static async patchBook(req, res, next){
         try {
             const book_id = req.params.book_id
-            console.log(book_id)
 
             const {
                 title,

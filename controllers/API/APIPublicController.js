@@ -10,14 +10,12 @@
 
 const bodyParser = require('body-parser')
 
-// JSON DATABASE
-const Users = require('../../models/JSON/Users');
-const Blog = require('../../models/JSON/Blog')
-const Games = require('../../models/JSON/Games')
-const Books = require('../../models/JSON/Books')
 
-// MYSQL DATABASE
-// const Books = require('../../models/MySQL/Books')
+// MODELS
+const Users = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Users`);
+const Blog = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Blog`);
+const Games = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Games`);
+const Books = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Books`);
 
 
 
@@ -149,9 +147,7 @@ class APIPublicController {
 
 	static async getPublicBookRandom(req, res, next){
 		try {
-			const totalBooks = await Books.getTotal()
-			const random_book_id = await Math.floor(Math.random() * totalBooks) + 1;
-	        let book = await Books.getByID(random_book_id)
+	        let book = await Books.getRandom()
             return res.json({
                 book
             });	        

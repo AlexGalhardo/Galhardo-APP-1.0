@@ -33,7 +33,7 @@ const URL = require('../helpers/URL');
 
 
 // MODEL
-const Users = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Users`)
+const Users = require(`../models/${process.env.GALHARDO_APP_DATABASE}/Users`)
 
 
 

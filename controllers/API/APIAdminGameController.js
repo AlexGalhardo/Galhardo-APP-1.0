@@ -9,14 +9,12 @@
  */
 
 
-// models
-// const Games = require('../../models/JSON/Games');
-// const Games = require('../../models/MySQL/Games');
-// const Games = require('../../models/POSTGRES/Games');
-const Games = require('../../models/MONGODB/Games');
-
 // helpers
 const DateTime = require('../../helpers/DateTime')
+
+// MODEL
+const Games = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Games`)
+
 
 
 
@@ -55,7 +53,7 @@ class APIAdminGameController {
             updated_at: DateTime.getNow()
         }
 
-        const gameCreated = await Games.createGame(gameObject)
+        const gameCreated = await Games.create(gameObject)
 
         gameObject.id = gameCreated.insertId
 
@@ -101,7 +99,7 @@ class APIAdminGameController {
                 updated_at: DateTime.getNow()
             }
             
-            const gameUpdated = await Games.updateGameByID(gameObject)
+            const gameUpdated = await Games.update(gameObject)
             
             return res.json({
                 gameUpdated
@@ -121,7 +119,7 @@ class APIAdminGameController {
         try {
             const game_id = req.params.game_id
             
-            const gameDeleted = await Games.deleteGameByID(game_id)
+            const gameDeleted = await Games.delete(game_id)
 
             return res.json({
                 status: gameDeleted

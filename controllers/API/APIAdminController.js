@@ -40,7 +40,8 @@ class APIAdminController {
                 });
             }
 
-            const admin = Users.getUserByEmail(email)
+            const admin = await Users.getUserByEmail(email)
+            console.log(admin)
 
             const passwordIsValid = await Bcrypt.comparePassword(password, admin.password);
 

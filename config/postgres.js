@@ -1,24 +1,30 @@
 const { Sequelize } = require('sequelize');
 
-// FOR LOCALL POSTGRESQL
-const sequelize = new Sequelize(
-	process.env.PG_DB,
-	process.env.PG_USER,
-	process.env.PG_PASSWORD,
-	{
-		host: process.env.PG_HOST, // localhost OR DOCKER IPv4_ADDRESS HERE
-		dialect: 'postgres',
-		port: parseInt(process.env.PG_PORT)
-	}
-);
+try {
 
-// FOR POSTGRE AS A SERVICE
-// const sequelize = new Sequelize(`${process.env.PG_URL}`)
+    if(process.env.GALHARDO_APP_DATABASE === 'POSTGRES'){
 
-const pg = require('knex')({
-  client: 'pg',
-  connection: process.env.PG_URL,
-  searchPath: ['knex', 'public'],
-});
+        // FOR POSTGRE AS A SERVICE
+        if(process.env.PG_URL) { const sequelize = new Sequelize(`${process.env.PG_URL}`) }
+
+        // USING LOCAL / DOCKER
+        else {
+            const sequelize = new Sequelize(
+                process.env.PG_DB,
+                process.env.PG_USER,
+                process.env.PG_PASSWORD,
+                {
+                    host: process.env.PG_HOST, // localhost OR DOCKER IPv4_ADDRESS HERE
+                    dialect: 'postgres',
+                    port: parseInt(process.env.PG_PORT)
+                }
+            );
+        }
+    }
+}
+catch(error){
+    return console.log(`POSTGRES CONNECTION ERROR: `, error)
+}
+
 
 module.exports = sequelize;

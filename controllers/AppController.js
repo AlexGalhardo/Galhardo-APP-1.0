@@ -18,8 +18,8 @@ const Header = require('../helpers/Header');
 
 
 // MODELS
-const Games = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Games`)
-const Books = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Books`)
+const Games = require(`../models/${process.env.GALHARDO_APP_DATABASE}/Games`)
+const Books = require(`../models/${process.env.GALHARDO_APP_DATABASE}/Books`)
 
 
 

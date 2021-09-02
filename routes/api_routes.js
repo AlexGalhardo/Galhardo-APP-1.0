@@ -75,10 +75,10 @@ router
     .get('/admin', APIController.getAdminEndpoints)
 
 //  ---------------- PUBLIC
-    .get('/public/:email', APIPublicController.getPublicEmailRegistred)
     .get('/public/blog', APIPublicController.getPublicBlog)
     .get('/public/blog/random', APIPublicController.getPublicBlogPostRandom)
     .get('/public/blog/:blog_id', APIPublicController.getPublicBlogPostByID)
+    .get('/public/email/:email', APIPublicController.getPublicEmailRegistred)
 
     .get('/public/games', APIPublicController.getPublicGames)
     .get('/public/games/random', APIPublicController.getPublicGameRandom)
