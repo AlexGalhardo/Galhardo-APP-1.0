@@ -13,7 +13,7 @@
 const DateTime = require('../helpers/DateTime');
 const NodeMailer = require('../helpers/NodeMailer');
 const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
-
+const Header = require('../helpers/Header');
 
 // MODELS
 const Users = require('../models/JSON/Users');
@@ -37,33 +37,41 @@ stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 class PlansController {
 
 	static getViewPlans (req, res) {
-		res.render('pages/plans/plans', {
+		return res.render('pages/plans/plans', {
+            flash_warning: req.flash('warning'),
 			user: SESSION_USER,
-			navbar_plans_active: true
+            header: Header.plans('Plans - Galhardo APP')
 		});
 	}
 
 
     static getViewPlanStarterCheckout (req, res) {
-        return res.render('pages/plans/starter_checkout', {
-            user: SESSION_USER,
-            navbar_plans_active: true
-        });
+        try {
+            return res.render('pages/plans/starter_checkout', {
+                flash_warning: req.flash('warning'),
+                user: SESSION_USER,
+                header: Header.plans('Plan STARTER - Galhardo APP')
+            });
+        } catch(error){
+            throw new Error(error)
+        }
     }
 
 
     static getViewPlanProCheckout (req, res) {
         return res.render('pages/plans/pro_checkout', {
+            flash_warning: req.flash('warning'),
             user: SESSION_USER,
-            navbar_plans_active: true
+            header: Header.plans('Plan PRO - Galhardo APP')
         });
     }
 
 
     static getViewPlanPremiumCheckout (req, res) {
         return res.render('pages/plans/premium_checkout', {
+            flash_warning: req.flash('warning'),
             user: SESSION_USER,
-            navbar_plans_active: true
+            header: Header.plans('Plan PREMIUM - Galhardo APP')
         });
     }
 
@@ -80,9 +88,9 @@ class PlansController {
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">$ 1.99<small class="text-muted fw-light">/month</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>✔️ Support via Telegram/WhatsApp</li>
-                            <li>❌ Ilimited Recomendations</li>
-                            <li>❌ Get news in email</li>
+                            <li>✔️ Site Ilimited Recomendations</li>
+                            <li>❌ Get Recommendations in Email</li>
+                            <li>❌ Get Recommendations in Telegram</li>
                         </ul>
                     </div>
 
@@ -98,9 +106,9 @@ class PlansController {
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">$ 2.99<small class="text-muted fw-light">/month</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>✔️ Support via Telegram/WhatsApp</li>
-                            <li>✔️ Ilimited Recomendations</li>
-                            <li>❌ Get news in email</li>
+                            <li>✔️ Site Ilimited Recomendations</li>
+                            <li>✔️ Get Recommendations in Email</li>
+                            <li>❌ Get Recommendations in Telegram</li>
                         </ul>
                     </div>
 
@@ -116,9 +124,9 @@ class PlansController {
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">$ 4.99<small class="text-muted fw-light">/month</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>✔️ Support via Telegram/WhatsApp</li>
-                            <li>✔️ Ilimited Recomendations</li>
-                            <li>✔️ Get news in email</li>
+                            <li>✔️ Site Ilimited Recomendations</li>
+                            <li>✔️ Get Recommendations in Email</li>
+                            <li>✔️ Get Recommendations in Telegram</li>
                         </ul>
                     </div>
 
@@ -130,14 +138,14 @@ class PlansController {
 
 
 
-    static async verifyIfUserIsAlreadyAStripeCustomer(customer_email){
+    static async verifyIfUserIsAlreadyAStripeCustomer(){
         if(!SESSION_USER.stripe.customer_id){
-            const customer = await stripe.customers.create({
+            const stripeCustomer = await stripe.customers.create({
                 description: 'Customer created in Subscription checkout!',
                 email: SESSION_USER.email
             });
-            await Users.createStripeCustomer(SESSION_USER.id, customer.id)
-            return customer
+            await Users.createStripeCustomer(SESSION_USER.id, stripeCustomer.id)
+            return stripeCustomer.id
         }
         return SESSION_USER.stripe.customer_id
     }
@@ -167,20 +175,30 @@ class PlansController {
             );
 
             await Users.createStripeCard(SESSION_USER.id, cardToken.id, card)
-
-            return card
+            return
         }
-
-        return SESSION_USER.stripe.card_id
+        return
     }
 
 
 
-    static getStripePlanID(){
+    static getStripePlan(){
         return {
-            STARTER: process.env.STRIPE_PLAN_STARTER_PRICE_ID,
-            PRO: process.env.STRIPE_PLAN_PRO_PRODUCT_ID,
-            PREMIUM:  process.env.STRIPE_PLAN_PREMIUM_PRODUCT_ID
+            STARTER: {
+                name: "STARTER",
+                id: process.env.STRIPE_PLAN_STARTER_PRICE_ID,
+                amount: process.env.STRIPE_PLAN_STARTER_AMOUNT,
+            },
+            PRO: {
+                name: "PRO",
+                id: process.env.STRIPE_PLAN_PRO_PRICE_ID,
+                amount: process.env.STRIPE_PLAN_PRO_AMOUNT,
+            },
+            PREMIUM:  {
+                name: "PREMIUM",
+                id: process.env.STRIPE_PLAN_PREMIUM_PRICE_ID,
+                amount: process.env.STRIPE_PLAN_PREMIUM_AMOUNT,
+            },
         }
     }
 
@@ -206,7 +224,7 @@ class PlansController {
 
     /**
      * POST /plan/<plan_name>/checkout
-     * Verify if user is a already a stripe customer
+     * Verify if user is already a stripe customer
      * verify if user already has a stripe credit card registred
      * Verify if user is not already registred in other plan
      */
@@ -222,7 +240,7 @@ class PlansController {
                         message: `Invalid Password!`
                     },
                     user: SESSION_USER,
-                    navbar_plans_active: true,
+                    header: Header.plans()
                 })
             }
 
@@ -230,9 +248,9 @@ class PlansController {
 
             await PlansController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
 
-            const stripe_plan_id = await PlansController.getStripePlanID()[plan_name];
+            const stripe_plan = await PlansController.getStripePlan()[plan_name];
 
-            const subscription = await PlansController.createStripeSubscription(stripe_customer_id, stripe_plan_id)
+            const subscription = await PlansController.createStripeSubscription(stripe_customer_id, stripe_plan.id)
 
             const subsTransactionObject = {
                 created_at: DateTime.getNow(),
@@ -246,9 +264,9 @@ class PlansController {
                     card_last4: SESSION_USER.stripe.card_last4
                 },
                 plan: {
-                    id: stripe_plan_id,
-                    name: plan_name,
-                    amount: 199,
+                    id: stripe_plan.id,
+                    name: stripe_plan.name,
+                    amount: stripe_plan.amount,
                     current_period_start: subscription.current_period_start,
                     current_period_end: subscription.current_period_end,
                     cancel_at_period_end: subscription.cancel_at_period_end
@@ -271,13 +289,10 @@ class PlansController {
             await TelegramBOTLogger.logSubscriptionTransaction(subsTransactionObject)
 
             res.render('pages/plans/planPayLog', {
-                flash: {
-                    type: 'success',
-                    message: 'Subscription Created with Success!'
-                },
+                flash_success: 'Subscription Created with Success!',
                 subsTransactionObject,
                 user: SESSION_USER,
-                navbar_plans_active: true,
+                header: Header.plans(),
                 divPlanBanner: PlansController.getSubscriptionBanner(plan_name)
             });
 

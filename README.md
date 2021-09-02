@@ -83,6 +83,8 @@
    - Brasil PagarME for BRL (R$) Credit Card, Bank Slip (Boleto Bancário) and PIX Transactions
 - MAIN and DEV branchs uses Stripe Payment API
 - PAGARME branch uses PagarME Payment API
+- To make things simpler, each user/customer can have 1 registred credit card max. User/customer need to update data in profile settings to change payments information.
+- If the user is not a registered customer in stripe/pagarme yet, checkouts will automatically register customer and payment data in their first transaction.
 
 ## DataBases
 - This project uses 5 DataBases <b>FOR LEARNING PURPORSES</b>:

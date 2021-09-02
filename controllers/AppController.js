@@ -38,6 +38,8 @@ class AppController {
         const game = await Games.getRandom()
 
         return res.render('pages/home', {
+            flash_success: req.flash('success'),
+            flash_warning: req.flash('warning'),
             game,
             user: SESSION_USER,
             header: Header.games()
@@ -56,6 +58,8 @@ class AppController {
 
     static getViewContact (req, res){
         res.render('pages/contact', {
+            flash_success: req.flash('success'),
+            flash_warning: req.flash('warning'),
             user: SESSION_USER,
             header: Header.contact()
         });
@@ -79,26 +83,15 @@ class AppController {
             await NodeMailer.sendContact(contactObject)
             await TelegramBOTLogger.logContact(contactObject)
 
-            return res.render('pages/contact', {
-                flash: {
-                    type: 'success',
-                    message: 'Message Send!'
-                },
-                user: SESSION_USER,
-                header: Header.contact()
-            });
+            req.flash('success', 'Message Send!')
+            return res.redirect('/contact')
         }
-        catch(err){
-            return res.render('pages/contact', {
-                flash: {
-                    type: 'danger',
-                    message: err
-                },
-                user: SESSION_USER,
-                header: Header.contact()
-            });
+        catch(error){
+            throw new Error(error)
         }
     }
+
+
 
     static getViewPrivacy (req, res){
         return res.render('pages/privacy', {

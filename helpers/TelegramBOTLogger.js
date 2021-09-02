@@ -121,9 +121,9 @@ class TelegramLogger {
         <b>TRANSACTION_ID:</b> ${subsTransactionObject.transaction_id}
         <b>STATUS: </b> ${subsTransactionObject.status}
         ---------------------------------------------
-        <b>CURRENT_PERIOD_START: </b> ${subsTransactionObject.current_period_start}
-        <b>CURRENT_PERIOD_END:</b> ${subsTransactionObject.current_period_end}
-        <b>CANCEL_AT_PERIOD_END:</b> ${subsTransactionObject.cancel_at_period_end}
+        <b>CURRENT_PERIOD_START: </b> ${subsTransactionObject.plan.current_period_start}
+        <b>CURRENT_PERIOD_END:</b> ${subsTransactionObject.plan.current_period_end}
+        <b>CANCEL_AT_PERIOD_END:</b> ${subsTransactionObject.plan.cancel_at_period_end}
         ---------------------------------------------
         <b>PLAN_ID:</b> ${subsTransactionObject.plan.id}
         <b>PLAN_NAME:</b> ${subsTransactionObject.plan.name}

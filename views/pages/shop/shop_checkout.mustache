@@ -67,7 +67,7 @@
                 <div class="col-lg-4">
 
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control" name="customer_name" id="customer_name" value="{{name}}" required>
+                      <input type="text" class="form-control" name="customer_name" id="customer_name" value="{{name}}" required onkeydown="return false;">
                       <label for="customer_name">NAME</label>
                     </div>
 
@@ -77,20 +77,15 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                      <input type="text" minlength="11" maxlength="11" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" class="form-control" id="document" name="document" value="{{document}}">
+                      <input type="text" minlength="11" maxlength="11" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" class="form-control" id="document" name="document" value="{{document}}" required onkeydown="return false;">
                       <label for="document">DOCUMENT</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" id="customer_phone" type="text" name="customer_phone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" value="{{phone}}" required>
+                      <input class="mb-2 form-control" id="customer_phone" type="text" name="customer_phone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" value="{{phone}}" required onkeydown="return false;">
                       <label for="customer_phone">PHONE</label>
                     </div>
 
-
-                    <div class="form-floating mb-3">
-                      <input class="form-control" type="date" name="birth_date" id="birth_date"  value="{{birth_date}}" required>
-                      <label for="document">BIRTH_DATE</label>
-                    </div>
 
                     <div class="form-floating mb-3">
                       <input type="password" class="form-control" id="confirm_password" name="confirm_password" required minlength="6">
@@ -169,7 +164,40 @@
 
                 <!-- PAYMENTS -->
                 <div class="col-lg-4">
+
+                    {{#user.stripe.card_id}}
+                        <div class="form-floating mb-3">
+                            <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_id}}" readonly>
+                            <label for="stripe_card_last_4_digits">REGISTRED_STRIPE CARD_ID</label>
+                        </div>
+
+
+                        <div class="form-floating mb-3">
+                              <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_last4}}" readonly>
+                              <label for="stripe_card_last_4_digits">STRIPE_CARD_LAST_4_DIGITS</label>
+                        </div>
+
+                        <div class="row g-2 mb-2">
+                          <div class="col-md">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" name="card_exp_year" id="card_exp_month" value="{{stripe.card_exp_month}}" readonly>
+                              <label for="card_exp_month">CARD_EXP_MONTH</label>
+                            </div>
+                          </div>
+                          <div class="col-md">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" name="card_exp_year" id="card_exp_year" value="{{stripe.card_exp_year}}" readonly>
+                              <label for="card_exp_year">CARD_EXP_YEAR</label>
+                            </div>
+                          </div>
+                        </div>
+                    {{/user.stripe.card_id}}
                             
+
+
+
+                    {{^user.stripe.card_id}}
+
                     <div id="div_credit_card"></div>
 
                     <div class="form-floating mb-3 mt-3">
@@ -207,6 +235,8 @@
                             </div>
                         </div>
                     </div>
+
+                    {{/user.stripe.card_id}}
             
                     <div>
                         <button type="submit" class="btn btn-outline-success btn-block shadow w-100">

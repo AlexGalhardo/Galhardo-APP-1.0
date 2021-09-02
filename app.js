@@ -15,10 +15,20 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const { flash } = require('express-flash-message');
+const flash = require('connect-flash');
 const compression = require('compression');
 const cors = require('cors');
 const { MulterError } = require('multer');
+
+
+// GLOBALS
+// const path = require('path');
+global.APP_ROOT_PATH = path.resolve(__dirname);
+global.SESSION_USER = null;
+
+
+// MONGODB
+if(process.env.NODE_ENV === 'development') require('./config/mongodb')()
 
 
 // ./config
@@ -55,7 +65,7 @@ app.use(cors())
 app.use(session({
     name: 'session',
     secret: `${process.env.SESSION_SECRET}`,
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     cookie: {
         maxAge: 3600 * 1000, // 1hr
@@ -64,7 +74,7 @@ app.use(session({
 
 
 // FLASH MESSAGES
-app.use(flash({ sessionKeyName: 'flashMessage' }));
+app.use(flash());
 
 
 // BODY PARSER

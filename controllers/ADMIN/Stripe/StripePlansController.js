@@ -5,7 +5,7 @@
  * https://github.com/AlexGalhardo
  * 
  * 
- * http://localhost:3000/stripe/plans
+ * http://localhost:3000/admin/stripe/plans
  */
 
 const bodyParser = require('body-parser');
@@ -23,10 +23,12 @@ const StripeModel = require('../../../models/JSON/Stripe');
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 
+
+
 class StripePlansController {
 	
 	static getViewCreate (req, res) {
-		res.render('pages/admin/stripe/plans/create', {
+		return res.render('pages/admin/stripe/plans/create', {
 			user: SESSION_USER
 		});
 	}
@@ -38,9 +40,9 @@ class StripePlansController {
 				product_id } = req.body
 		
 		const plan = await stripe.plans.create({
-			amount: amount,
-			currency: currency,
-		  	interval: interval,
+			amount,
+			currency,
+		  	interval,
 		  	product: product_id
 		});
 

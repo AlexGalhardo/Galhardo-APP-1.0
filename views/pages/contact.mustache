@@ -1,16 +1,22 @@
 {{>partials/header}}
 
-    <main class="container col-lg-5 mt-3">
+    <main class="container col-lg-5">
 
         <div class="row justify-content-center">
             
-            <form action="/contact" method="POST">
+            <form action="/contact" method="POST" class="mt-3">
 
-                {{#flash}}
-                    <div class="text-center alert alert-{{type}}" role="alert">
-                        <b>{{message}}</b>
+                {{#flash_success}}
+                    <div class="text-center alert alert-success" role="alert">
+                        <b>{{flash_success}}</b>
                     </div>
-                {{/flash}}
+                {{/flash_success}}
+
+                {{#flash_warning}}
+                    <div class="text-center alert alert-warning" role="alert">
+                        <b>{{flash_warning}}</b>
+                    </div>
+                {{/flash_warning}}
 
                 <div class="form-floating mb-3">
                     <input type="txt" class="mb-3 form-control" id="name" name="name" required autofocus>

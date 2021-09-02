@@ -6,11 +6,11 @@
 
         <div class="row">
 
-            {{#flash}}
-                <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
-                    <b class="fw-bold">{{message}}</b>
+            {{#flash_warning}}
+                <div class="text-center alert alert-warning" role="alert">
+                    <b>{{flash_warning}}</b>
                 </div>
-            {{/flash}}
+            {{/flash_warning}}
 
             <form id="formCreditCard" action="/plan/starter/checkout" method="POST">
 
@@ -57,12 +57,9 @@
 
                         {{#user.stripe.card_id}}
                             <div class="form-floating mb-3">
-                                <select name="customer_stripe_card_id" class="form-select" id="stripe_card_id">
-                                    <option value="{{user.stripe.card_id}}" selected>{{user.stripe.card_id}}</option>
-                                </select>
-                                <label for="stripe_card_id">PAY_WITH_YOUR_REGISTRED_STRIPE CARD_ID</label>
+                                <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_id}}" readonly>
+                                <label for="stripe_card_last_4_digits">REGISTRED_STRIPE CARD_ID</label>
                             </div>
-
 
                             <div class="form-floating mb-3">
                                   <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_last4}}" readonly>

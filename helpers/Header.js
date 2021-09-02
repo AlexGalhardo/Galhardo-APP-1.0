@@ -71,9 +71,9 @@ class Header {
         }
     }
 
-    static plans(){
+    static plans(head_title){
         return {
-            title: "Plans - Galhardo APP",
+            title: head_title,
             navbar_plans_active: true
         }
     }

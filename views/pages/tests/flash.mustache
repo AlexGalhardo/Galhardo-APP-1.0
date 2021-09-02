@@ -1,0 +1,19 @@
+{{>partials/header}}
+
+    <main class="container col-lg-5 mt-5">
+
+        {{#flash_success}}
+            <div class="text-center alert alert-success" role="alert">
+                <b>{{flash_success}}</b>
+            </div>
+        {{/flash_success}}
+
+        {{#flash_warning}}
+            <div class="text-center alert alert-warning" role="alert">
+                <b>{{flash_warning}}</b>
+            </div>
+        {{/flash_warning}}
+
+    </main>
+
+{{>partials/footer}}

@@ -21,18 +21,18 @@
   		
         		<form action="/admin/stripe/plans/create" method="POST" class="mb-3">
         			<div class="form-floating mb-3">
-                        <input type="number" step="1" min="100" class="form-control" id="plan_amount" name="plan_amount" value="100" required>
-                        <label for="plan_amount">PLAN_AMOUNT (100 = $1)</label>
+                        <input type="number" step="1" min="100" class="form-control" id="amount" name="amount" value="100" required>
+                        <label for="amount">PLAN_AMOUNT (100 = $1)</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="plan_currency" id="plan_currency" value="usd" required>
-                        <label for="plan_currency">PLAN_CURRENCY</label>
+                        <input type="text" class="form-control" name="currency" id="currency" value="usd" required>
+                        <label for="currency">PLAN_CURRENCY</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="plan_interval" id="plan_interval" value="month" required value="month">
-                        <label for="plan_interval">CHARGE_INTERVAL</label>
+                        <input type="text" class="form-control" name="interval" id="interval" value="month" required value="month">
+                        <label for="interval">CHARGE_INTERVAL</label>
                     </div>
         			
                     <div class="form-floating mb-3">

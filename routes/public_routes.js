@@ -39,14 +39,8 @@ const userIsNotLoggedIn = (req, res, next) => {
 
 const verifyIfUserHasActiveSubscription = (req, res, next) => {
     if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
-        return res.render('pages/plans/planPayLog', {
-            flash: {
-                type: "warning",
-                message: `You already have a currently plan ${SESSION_USER.stripe.currently_subscription_name} active! Wait until it ends to make a new subscription transaction!`
-            },
-            user: SESSION_USER,
-            navbar_plans_active: true,
-        })
+        req.flash('warning', `You already have a currently plan ${SESSION_USER.stripe.currently_subscription_name} active! Wait until it ends to make a new subscription transaction!`)
+        return res.redirect('/plans')
     }
     next()
 }

@@ -39,8 +39,52 @@ class ShopController {
 	}
 
 
+    static async verifyIfUserIsAlreadyAStripeCustomer(){
+        if(!SESSION_USER.stripe.customer_id){
+            const customer = await stripe.customers.create({
+                description: 'Customer created in Subscription checkout!',
+                email: SESSION_USER.email
+            });
+            await Users.createStripeCustomer(SESSION_USER.id, customer.id)
+            return customer
+        }
+        return SESSION_USER.stripe.customer_id
+    }
+
+
+    static async verifyIfUserAlreadyHasAStripeCardRegistred(req){
+        if(!SESSION_USER.stripe.card_id){
+            const { card_number,
+                    card_exp_year,
+                    card_exp_month,
+                    card_cvc } = req.body
+
+            const cardToken = await stripe.tokens.create({
+                 card: {
+                    number: card_number,
+                    exp_month: card_exp_month,
+                    exp_year: card_exp_year,
+                    cvc: card_cvc,
+                  },
+            });
+
+            const card = await stripe.customers.createSource(
+                SESSION_USER.stripe.customer_id,
+                {source: cardToken.id}
+            );
+
+            await Users.createStripeCard(SESSION_USER.id, cardToken.id, card)
+
+            return cardToken.id
+        }
+        return SESSION_USER.stripe.card_token_id
+    }
+
+
     /**
      * POST /shop/payLog
+     * Verify if user is already a stripe customer
+     * verify if user already has a stripe credit card registred
      */
 	static async postShopPayLog (req, res) {
 		
@@ -66,22 +110,40 @@ class ShopController {
                 card_exp_year,
                 card_cvc } = req.body;
 
+            const stripe_customer_id = await PlansController.verifyIfUserIsAlreadyAStripeCustomer()
 
-            const cardToken = await stripe.tokens.create({
-                 card: {
-                    number: card_number,
-                       exp_month: card_exp_month,
-                    exp_year: card_exp_year,
-                    cvc: card_cvc,
-                  },
-            });
+            const stripe_card_token_id = await PlansController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
 
+            const products = [
+                {
+                    quantity: quantityOranges,
+                    name: 'Oranges',
+                    total: parseFloat(quantityOranges * 0.49).toFixed(2)
+                },
+                {
+                    quantity: quantityGrapes,
+                    name: 'Grapes',
+                    total: parseFloat(quantityGrapes * 0.99).toFixed(2)
+                },
+                {
+                    quantity: quantityApples,
+                    name: 'Apples',
+                    total: parseFloat(quantityApples * 1.99).toFixed(2)
+                },
+                {
+                    quantity: quantityBananas,
+                    name: 'Bananas',
+                    total: parseFloat(quantityBananas * 2.99).toFixed(2)
+                },
+            ]
+
+            // create charge in stripe
             const shopCardCharge = await stripe.charges.create({
                 amount: parseInt(total_shop_amount * 100),
-                  currency: 'usd',
-                  source: cardToken.id,
-                  description: "Shop cart itens",
-                  receipt_email: customer_email
+                currency: 'usd',
+                source: stripe_card_token_id,
+                description: JSON.stringify(products),
+                receipt_email: customer_email
             });
 
             const shopTransactionObject = {
@@ -97,28 +159,7 @@ class ShopController {
                 currency: shopCardCharge.currency,
                 paid: shopCardCharge.paid,
                 products_amount: (parseFloat(total_shop_amount) - parseFloat(shipping_fee)).toFixed(2),
-                products: [
-                    {
-                        quantity: quantityOranges,
-                        name: 'Oranges',
-                        total: parseFloat(quantityOranges * 0.49).toFixed(2)
-                    },
-                    {
-                        quantity: quantityGrapes,
-                        name: 'Grapes',
-                        total: parseFloat(quantityGrapes * 0.99).toFixed(2)
-                    },
-                    {
-                        quantity: quantityApples,
-                        name: 'Apples',
-                        total: parseFloat(quantityApples * 1.99).toFixed(2)
-                    },
-                    {
-                        quantity: quantityBananas,
-                        name: 'Bananas',
-                        total: parseFloat(quantityBananas * 2.99).toFixed(2)
-                    },
-                ],
+                products: products,
                 customer: {
                     id: req.session.userID,
                     stripe_id: SESSION_USER.stripe.customer_id,
@@ -145,10 +186,7 @@ class ShopController {
             await TelegramBOTLogger.logShopTransaction(shopTransactionObject)
 
             return res.render('pages/shop/shopPayLog', {
-                flash: {
-                    type: 'success',
-                    message: 'Shop Transaction Created with Success!'
-                },
+                flash_success: 'Shop Transaction Created with Success!',
                 shopTransactionObject,
                 user: SESSION_USER,
                 header: Header.shop()

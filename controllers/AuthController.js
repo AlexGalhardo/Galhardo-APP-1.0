@@ -45,7 +45,10 @@ class AuthController {
 
     static async getViewLogin (req, res){
         const facebookLoginURL = await URL.getFacebookURL()
-        res.render('pages/auth/login', {
+
+        return res.render('pages/auth/login', {
+            flash_success: req.flash('success'),
+            flash_warning: req.flash('warning'),
             FacebookLoginURL: facebookLoginURL,
             GitHubLoginURL: URL.getGitHubURL,
             GoogleLoginURL: URL.getGoogleURL,
@@ -56,60 +59,38 @@ class AuthController {
 
     static async postLogin (req, res){
 
-        const errors = validationResult(req);
-        const { email, password } = req.body;
-
-        if (!req.recaptcha.error) {
-            if (!errors.isEmpty()) {
-                return res.render('pages/auth/login', {
-                    flash: {
-                        type: "warning",
-                        message: errors.array()[0].msg,
-                    },
-                    FacebookLoginURL: facebookLoginURL,
-                    GitHubLoginURL: URL.getGitHubURL,
-                    GoogleLoginURL: URL.getGoogleURL,
-                    captcha: res.recaptcha
-                });
-            }
-        } else {
-            console.log(req.recaptcha.error)
-            return res.redirect('/login')
-        }
-
         try {
 
+            const errors = validationResult(req);
+            const { email, password } = req.body;
+
+            if (!req.recaptcha.error) {
+                if (!errors.isEmpty()) {
+                    req.flash('warning', `${errors.array()[0].msg}`)
+                    return res.redirect('/login')
+                }
+            } else {
+                req.flash('warning', `${req.recaptcha.error}`)
+                return res.redirect('/login')
+            }
+
             const confirmedEmail = await Users.verifyIfEmailIsConfirmed(email)
+
             if(!confirmedEmail){
-                return res.render('pages/auth/login', {
-                    flash: {
-                        type: "warning",
-                        message: "You need to confirm your email!"
-                    },
-                    FacebookLoginURL: facebookLoginURL,
-                    GitHubLoginURL: URL.getGitHubURL,
-                    GoogleLoginURL: URL.getGoogleURL,
-                    captcha: res.recaptcha
-                });
+                req.flash('warning', `You need to confirm your email!`)
+                return res.redirect('/login')
             }
 
             const userObject = await Users.verifyLogin(email, password)
 
             if(!userObject){
-                return res.render('pages/auth/login', {
-                    flash: {
-                        type: "warning",
-                        message: "Email OR Password Inválid!"
-                    },
-                    // FacebookLoginURL: facebookLoginURL,
-                    GitHubLoginURL: URL.getGitHubURL,
-                    GoogleLoginURL: URL.getGoogleURL,
-                    captcha: res.recaptcha
-                });
+                req.flash('warning', `Email OR Password Inválid!`)
+                return res.redirect('/login')
             }
 
             req.session.userID = userObject.id
             global.SESSION_USER = userObject
+            req.flash('success', `Welcome back, ${global.SESSION_USER.name} :D`)
             return res.redirect('/');
         }
         catch (error) {

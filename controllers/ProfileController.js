@@ -27,12 +27,14 @@ class ProfileController {
     	});
 	}
 	
+
+
 	static getLogout (req, res) {
-		req.session.destroy((err) =>  {
-			console.log(err)
+		req.session.destroy((error) =>  {
+			if(error) throw new Error(error)
 	    });
 	    SESSION_USER = null;
-	    res.redirect('/login');
+	    return res.redirect('/login');
 	}
 
 
