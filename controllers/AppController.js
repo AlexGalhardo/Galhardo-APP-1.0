@@ -83,6 +83,13 @@ class AppController {
     }
 
 
+    static getViewCriptoBOT(req, res){
+        return res.render('pages/criptoBOT', {
+            user: SESSION_USER,
+            header: Header.criptoBOT()
+        });
+    }
+
 
     static getViewPrivacy (req, res){
         return res.render('pages/privacy', {

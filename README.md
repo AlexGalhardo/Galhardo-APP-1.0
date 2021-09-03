@@ -118,6 +118,83 @@ Games.getTotal() // return integer total games
 Games.getRandom() // return a random game object
 ```
 
+## CriptoBOT
+- This is a super simple bot to buy and sell bitcoin at binance to learn websockets and home broker things.
+- Use TradingView Chart: https://br.tradingview.com/
+- The Bitcoin Ticker 24h use WebSocket from: wss://stream.binance.com:9443/stream?streams=btcusdt@ticker
+- <b>All the transactions use SANDBOX Data from endpoint:<b> https://testnet.binance.vision/api/v3/order
+- Binance WebSocket documentation: https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md
+- Binance Bitcoin Transaction LOG Example:
+```
+{
+  symbol: 'BTCUSDT',
+  orderId: 65562,
+  orderListId: -1,
+  clientOrderId: 'fGmYbdryF4wvQY4Py67ycw',
+  transactTime: 1630700061708,
+  price: '0.00000000',
+  origQty: '0.01000000',
+  executedQty: '0.01000000',
+  cummulativeQuoteQty: '504.00000316',
+  status: 'FILLED',
+  timeInForce: 'GTC',
+  type: 'MARKET',
+  side: 'BUY',
+  fills: [
+    {
+      price: '50400.00000000',
+      qty: '0.00992100',
+      commission: '0.00000000',
+      commissionAsset: 'BTC',
+      tradeId: 12099
+    },
+    {
+      price: '50400.04000000',
+      qty: '0.00007900',
+      commission: '0.00000000',
+      commissionAsset: 'BTC',
+      tradeId: 12100
+    }
+  ]
+}
+
+03/09/2021 17:14:21 http: POST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6331.763 ms
+
+{
+  symbol: 'BTCUSDT',
+  orderId: 65567,
+  orderListId: -1,
+  clientOrderId: 'rAdNkWlLoXYpHqOQP5tqPa',
+  transactTime: 1630700063789,
+  price: '0.00000000',
+  origQty: '0.01000000',
+  executedQty: '0.01000000',
+  cummulativeQuoteQty: '503.99968782',
+  status: 'FILLED',
+  timeInForce: 'GTC',
+  type: 'MARKET',
+  side: 'SELL',
+  fills: [
+    {
+      price: '50399.98000000',
+      qty: '0.00992100',
+      commission: '0.00000000',
+      commissionAsset: 'USDT',
+      tradeId: 12101
+    },
+    {
+      price: '50398.56000000',
+      qty: '0.00007900',
+      commission: '0.00000000',
+      commissionAsset: 'USDT',
+      tradeId: 12102
+    }
+  ]
+}
+
+03/09/2021 17:14:23 http: POST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 392.945 ms
+```
+
 ## APIs
 - **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
 ### Public REST APIs Endpoints Examples
@@ -244,6 +321,11 @@ Games.getRandom() // return a random game object
 ![ga_subs_checkout_card_registred](https://user-images.githubusercontent.com/19540357/131592478-55d78666-00c2-4763-b697-dd204f3d183a.png)
 ![ga_subs_paylog](https://user-images.githubusercontent.com/19540357/131592480-b7f402ab-83c8-4161-a9f4-10fa2495b013.png)
 ![ga_subs_email](https://user-images.githubusercontent.com/19540357/131592487-849e67cf-780b-4905-9275-e8fa3cf60e0b.png)
+
+## Cripto BOT
+![ga_criptobot_view](https://user-images.githubusercontent.com/19540357/132063356-2f5d5d14-a2f3-498b-8932-52149dd5246e.png)
+![ga_criptobot](https://user-images.githubusercontent.com/19540357/132063355-a652194d-9fdb-4594-8e0d-07b128d40855.png)
+
 
 ## Contact
 ![ga_message](https://user-images.githubusercontent.com/19540357/131276369-c89ab35a-3408-42ec-9d38-c2d4997f3eca.png)

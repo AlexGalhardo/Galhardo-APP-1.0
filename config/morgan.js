@@ -1,5 +1,4 @@
 const morgan = require("morgan");
-
 const Logger = require("./winston");
 
 // Override the stream method by telling

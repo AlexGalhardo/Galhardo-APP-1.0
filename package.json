@@ -28,11 +28,12 @@
     "mysql2",
     "mongodb",
     "postgresql",
-    "sqlite3",
+    "sqlite",
     "api"
   ],
   "dependencies": {
     "aws-sdk": "^2.973.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
@@ -51,6 +52,7 @@
     "joi": "^17.4.2",
     "json-server": "^0.16.3",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.10",
     "mongoose": "^5.13.7",
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
@@ -69,14 +71,17 @@
     "pg-hstore": "^2.3.4",
     "pm2": "^5.1.0",
     "query-string": "^7.0.1",
+    "querystring": "^0.2.1",
     "rand-token": "^1.0.1",
     "redis": "^3.1.2",
     "sequelize": "^6.6.5",
     "sharp": "^0.29.0",
     "slugify": "^1.6.0",
+    "sqlite": "^4.0.23",
     "stripe": "^8.167.0",
     "uuid": "^8.3.2",
-    "winston": "^3.3.3"
+    "winston": "^3.3.3",
+    "ws": "^8.2.1"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
@@ -89,15 +94,11 @@
     "https-localhost": "^4.6.5",
     "insomnia-documenter": "^0.5.4",
     "jest": "^27.0.6",
-    "knex": "^0.95.10",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
     "sitemap": "^7.0.0",
-    "sqlite3": "^4.2.0",
     "superagent": "^6.1.0",
     "supertest": "^6.1.6"
   },
-  "optionalDependencies": {
-    "fsevents": "2.3"
-  }
+  "packageManager": "yarn@3.0.2"
 }

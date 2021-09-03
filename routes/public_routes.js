@@ -21,6 +21,7 @@ const router = require('express').Router()
 // VIEWS CONTROLLERS
 const AppController = require('../controllers/AppController');
 const BlogController = require('../controllers/BlogController');
+const CriptoBOTController = require('../controllers/CriptoBOTController');
 const ShopController = require('../controllers/ShopController');
 const PlansController = require('../controllers/PlansController');
 const AuthController = require('../controllers/AuthController');
@@ -55,6 +56,7 @@ router
     .post('/contact', AppController.postContact)
 
     .get('/privacy', AppController.getViewPrivacy)
+    .get('/criptoBOT', AppController.getViewCriptoBOT)
 
 
 
@@ -73,6 +75,11 @@ router
 // SHOP CONTROLLER
     .get('/shop', ShopController.getViewShop)
     .post('/shop', ShopController.postShopPayLog)
+
+
+
+// CRIPTO BOT CONTROLLER
+    .post('/criptoBOT/:side/:symbol/:quantity', CriptoBOTController.postBinance)
 
 
 

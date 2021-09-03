@@ -1,0 +1,61 @@
+{{>partials/header}}
+
+    <main class="container col-lg-12">
+
+        <div class="row">
+
+            <div class="col-lg-9">
+                <div class="tradingview-widget-container">
+                    <div id="tradingview_f0c02"></div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3">
+
+                <select class="form-select mb-2" onChange=()>
+                  <option selected>BTCUSDT</option>
+                </select>
+
+
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control" id="buy">
+                    <label for="buy_at">BUY_AT</label>
+                </div>
+
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control" id="sell">
+                    <label for="buy_at">SELL_AT</label>
+                </div>
+
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control" id="profit_value" readonly>
+                    <label for="buy_at">PROFIT_VALUE</label>
+                </div>
+
+                <div class="form-floating mb-2">
+                    <input type="number" class="form-control" id="profit_percentage" readonly>
+                    <label for="buy_at">PROFIT_PERCENTAGE</label>
+                </div>
+
+                <hr>
+
+                <div>
+                  <b class="text-success">Binance BITCOIN Ticker 24h:</b><br />
+                  <b>Open: $</b> <span id="ticker_o"></span><br/>
+                  <b>High: $</b> <span id="ticker_h"></span><br/>
+                  <b>Low: $</b> <span id="ticker_l"></span><br/>
+                  <b>Last: $</b> <span id="ticker_c"></span><br/>
+                  <b>Change %:</b> <span id="ticker_P"></span><br/>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script src="scripts/criptoBOT.js"></script>
+
+
+{{>partials/footer}}

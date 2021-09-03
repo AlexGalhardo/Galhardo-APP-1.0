@@ -624,3 +624,1379 @@
 [35m[39m
 2021-09-02 19:29:48 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 3.484 ms[39m
 [35m[39m
+2021-09-03 14:24:03 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 179.142 ms[39m
+[35m[39m
+2021-09-03 14:24:03 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 19.544 ms[39m
+[35m[39m
+2021-09-03 14:24:03 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 29.366 ms[39m
+[35m[39m
+2021-09-03 14:24:09 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 4.584 ms[39m
+[35m[39m
+2021-09-03 14:24:09 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 15.253 ms[39m
+[35m[39m
+2021-09-03 14:24:09 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 13.299 ms[39m
+[35m[39m
+2021-09-03 14:24:09 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 18.022 ms[39m
+[35m[39m
+2021-09-03 14:24:25 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 26.807 ms[39m
+[35m[39m
+2021-09-03 14:29:44 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 143.691 ms[39m
+[35m[39m
+2021-09-03 14:29:45 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 14.870 ms[39m
+[35m[39m
+2021-09-03 14:29:45 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 11.246 ms[39m
+[35m[39m
+2021-09-03 14:29:45 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 8.252 ms[39m
+[35m[39m
+2021-09-03 14:29:45 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 5.066 ms[39m
+[35m[39m
+2021-09-03 14:29:45 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 3.847 ms[39m
+[35m[39m
+2021-09-03 14:29:45 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 8.433 ms[39m
+[35m[39m
+2021-09-03 14:29:46 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 25.409 ms[39m
+[35m[39m
+2021-09-03 14:29:52 [35mhttp[39m: [35mGET /blog 200 CONTENT-LENGTH=- 33.609 ms[39m
+[35m[39m
+2021-09-03 14:29:53 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 5.133 ms[39m
+[35m[39m
+2021-09-03 14:29:53 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.159 ms[39m
+[35m[39m
+2021-09-03 14:29:53 [35mhttp[39m: [35mGET /scripts/scroll_bar.js 304 CONTENT-LENGTH=- 10.315 ms[39m
+[35m[39m
+2021-09-03 14:29:53 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 7.487 ms[39m
+[35m[39m
+2021-09-03 14:29:53 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 22.837 ms[39m
+[35m[39m
+2021-09-03 14:29:58 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 5.043 ms[39m
+[35m[39m
+2021-09-03 14:30:01 [35mhttp[39m: [35mGET /blog/blog-title-5 200 CONTENT-LENGTH=- 133.598 ms[39m
+[35m[39m
+2021-09-03 14:30:01 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 4.530 ms[39m
+[35m[39m
+2021-09-03 14:30:01 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 8.019 ms[39m
+[35m[39m
+2021-09-03 14:30:01 [35mhttp[39m: [35mGET /scripts/scroll_bar.js 304 CONTENT-LENGTH=- 12.086 ms[39m
+[35m[39m
+2021-09-03 14:30:02 [35mhttp[39m: [35mGET /blog/scripts/navbar_apis.js 200 CONTENT-LENGTH=- 236.785 ms[39m
+[35m[39m
+2021-09-03 14:30:02 [35mhttp[39m: [35mGET /blog/scripts/privacy.js 200 CONTENT-LENGTH=- 238.142 ms[39m
+[35m[39m
+2021-09-03 14:30:18 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 5.573 ms[39m
+[35m[39m
+2021-09-03 14:30:34 [35mhttp[39m: [35mGET /blog/images/favicon.png 200 CONTENT-LENGTH=- 12.636 ms[39m
+[35m[39m
+2021-09-03 14:31:52 [35mhttp[39m: [35mGET /blog/blog-title-5 200 CONTENT-LENGTH=- 141.806 ms[39m
+[35m[39m
+2021-09-03 14:31:52 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 17.690 ms[39m
+[35m[39m
+2021-09-03 14:31:52 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 25.282 ms[39m
+[35m[39m
+2021-09-03 14:31:52 [35mhttp[39m: [35mGET /scripts/scroll_bar.js 304 CONTENT-LENGTH=- 23.139 ms[39m
+[35m[39m
+2021-09-03 14:31:52 [35mhttp[39m: [35mGET /blog/scripts/navbar_apis.js 304 CONTENT-LENGTH=- 42.492 ms[39m
+[35m[39m
+2021-09-03 14:31:52 [35mhttp[39m: [35mGET /blog/scripts/privacy.js 304 CONTENT-LENGTH=- 50.337 ms[39m
+[35m[39m
+2021-09-03 14:32:12 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 22.128 ms[39m
+[35m[39m
+2021-09-03 14:32:12 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 4.391 ms[39m
+[35m[39m
+2021-09-03 14:32:12 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.544 ms[39m
+[35m[39m
+2021-09-03 14:32:22 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 6.789 ms[39m
+[35m[39m
+2021-09-03 14:32:22 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 3.918 ms[39m
+[35m[39m
+2021-09-03 14:32:22 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 4.583 ms[39m
+[35m[39m
+2021-09-03 14:32:22 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 3.297 ms[39m
+[35m[39m
+2021-09-03 14:32:22 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 4.158 ms[39m
+[35m[39m
+2021-09-03 14:32:25 [35mhttp[39m: [35mGET /blog 304 CONTENT-LENGTH=- 19.126 ms[39m
+[35m[39m
+2021-09-03 14:32:25 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 7.450 ms[39m
+[35m[39m
+2021-09-03 14:32:25 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 7.519 ms[39m
+[35m[39m
+2021-09-03 14:32:25 [35mhttp[39m: [35mGET /scripts/scroll_bar.js 304 CONTENT-LENGTH=- 7.196 ms[39m
+[35m[39m
+2021-09-03 14:32:25 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 3.811 ms[39m
+[35m[39m
+2021-09-03 14:32:25 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 4.444 ms[39m
+[35m[39m
+2021-09-03 14:32:26 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 4.750 ms[39m
+[35m[39m
+2021-09-03 14:32:27 [35mhttp[39m: [35mGET /blog/why-simpsons-is-so-succesfull 200 CONTENT-LENGTH=- 12.420 ms[39m
+[35m[39m
+2021-09-03 14:32:28 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 7.802 ms[39m
+[35m[39m
+2021-09-03 14:32:28 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 12.103 ms[39m
+[35m[39m
+2021-09-03 14:32:28 [35mhttp[39m: [35mGET /scripts/scroll_bar.js 304 CONTENT-LENGTH=- 5.104 ms[39m
+[35m[39m
+2021-09-03 14:32:28 [35mhttp[39m: [35mGET /blog/scripts/navbar_apis.js 304 CONTENT-LENGTH=- 9.166 ms[39m
+[35m[39m
+2021-09-03 14:32:28 [35mhttp[39m: [35mGET /blog/scripts/privacy.js 304 CONTENT-LENGTH=- 6.389 ms[39m
+[35m[39m
+2021-09-03 14:32:48 [35mhttp[39m: [35mGET /blog/images/favicon.png 304 CONTENT-LENGTH=- 9.404 ms[39m
+[35m[39m
+2021-09-03 14:33:08 [35mhttp[39m: [35mGET /blog/why-simpsons-is-so-succesfull 304 CONTENT-LENGTH=- 7.812 ms[39m
+[35m[39m
+2021-09-03 14:33:08 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 5.483 ms[39m
+[35m[39m
+2021-09-03 14:33:08 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 7.355 ms[39m
+[35m[39m
+2021-09-03 14:33:09 [35mhttp[39m: [35mGET /scripts/scroll_bar.js 304 CONTENT-LENGTH=- 3.207 ms[39m
+[35m[39m
+2021-09-03 14:33:09 [35mhttp[39m: [35mGET /blog/scripts/navbar_apis.js 304 CONTENT-LENGTH=- 6.934 ms[39m
+[35m[39m
+2021-09-03 14:33:09 [35mhttp[39m: [35mGET /blog/scripts/privacy.js 304 CONTENT-LENGTH=- 14.251 ms[39m
+[35m[39m
+2021-09-03 14:33:13 [35mhttp[39m: [35mGET /blog/images/favicon.png 200 CONTENT-LENGTH=- 6.214 ms[39m
+[35m[39m
+2021-09-03 14:33:31 [35mhttp[39m: [35mGET /login 200 CONTENT-LENGTH=- 55.724 ms[39m
+[35m[39m
+2021-09-03 14:33:31 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 10.839 ms[39m
+[35m[39m
+2021-09-03 14:33:31 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 11.649 ms[39m
+[35m[39m
+2021-09-03 14:33:31 [35mhttp[39m: [35mGET /scripts/login.js 304 CONTENT-LENGTH=- 3.574 ms[39m
+[35m[39m
+2021-09-03 14:33:35 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 3.886 ms[39m
+[35m[39m
+2021-09-03 14:33:37 [35mhttp[39m: [35mPOST /login 302 CONTENT-LENGTH=46 1367.623 ms[39m
+[35m[39m
+2021-09-03 14:33:38 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 9.335 ms[39m
+[35m[39m
+2021-09-03 14:33:38 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 3.739 ms[39m
+[35m[39m
+2021-09-03 14:33:38 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 7.377 ms[39m
+[35m[39m
+2021-09-03 14:33:38 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 3.016 ms[39m
+[35m[39m
+2021-09-03 14:33:38 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 4.111 ms[39m
+[35m[39m
+2021-09-03 14:33:38 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 14.578 ms[39m
+[35m[39m
+2021-09-03 14:33:38 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 16.225 ms[39m
+[35m[39m
+2021-09-03 14:33:38 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 6.698 ms[39m
+[35m[39m
+2021-09-03 14:33:41 [35mhttp[39m: [35mGET /profile 200 CONTENT-LENGTH=- 166.462 ms[39m
+[35m[39m
+2021-09-03 14:33:41 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 3.363 ms[39m
+[35m[39m
+2021-09-03 14:33:41 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 8.600 ms[39m
+[35m[39m
+2021-09-03 14:33:41 [35mhttp[39m: [35mGET /scripts/scroll_bar.js 304 CONTENT-LENGTH=- 4.514 ms[39m
+[35m[39m
+2021-09-03 14:33:41 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 8.207 ms[39m
+[35m[39m
+2021-09-03 14:33:41 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 8.556 ms[39m
+[35m[39m
+2021-09-03 14:33:41 [35mhttp[39m: [35mGET /scripts/jquery.min.js 200 CONTENT-LENGTH=- 26.852 ms[39m
+[35m[39m
+2021-09-03 14:33:41 [35mhttp[39m: [35mGET /scripts/profile.js 304 CONTENT-LENGTH=- 3.953 ms[39m
+[35m[39m
+2021-09-03 14:33:41 [35mhttp[39m: [35mGET /uploads/avatars/admin_avatar.png 304 CONTENT-LENGTH=- 2.592 ms[39m
+[35m[39m
+2021-09-03 14:33:42 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 3.396 ms[39m
+[35m[39m
+2021-09-03 14:33:49 [35mhttp[39m: [35mGET /shop 200 CONTENT-LENGTH=- 66.143 ms[39m
+[35m[39m
+2021-09-03 14:33:49 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 3.634 ms[39m
+[35m[39m
+2021-09-03 14:33:50 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.396 ms[39m
+[35m[39m
+2021-09-03 14:33:50 [35mhttp[39m: [35mGET /scripts/jquery.min.js 304 CONTENT-LENGTH=- 27.792 ms[39m
+[35m[39m
+2021-09-03 14:33:50 [35mhttp[39m: [35mGET /scripts/render_credit_card.js 304 CONTENT-LENGTH=- 29.654 ms[39m
+[35m[39m
+2021-09-03 14:33:50 [35mhttp[39m: [35mGET /scripts/shop.js 304 CONTENT-LENGTH=- 28.687 ms[39m
+[35m[39m
+2021-09-03 14:33:50 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 27.530 ms[39m
+[35m[39m
+2021-09-03 14:33:50 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 25.965 ms[39m
+[35m[39m
+2021-09-03 14:33:50 [35mhttp[39m: [35mGET /scripts/jquery.card.js 200 CONTENT-LENGTH=- 52.335 ms[39m
+[35m[39m
+2021-09-03 14:33:50 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 4.595 ms[39m
+[35m[39m
+2021-09-03 14:33:57 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 8.123 ms[39m
+[35m[39m
+2021-09-03 14:33:57 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 7.574 ms[39m
+[35m[39m
+2021-09-03 14:33:57 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 18.448 ms[39m
+[35m[39m
+2021-09-03 14:33:57 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 4.553 ms[39m
+[35m[39m
+2021-09-03 14:33:57 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 4.050 ms[39m
+[35m[39m
+2021-09-03 14:33:57 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 4.547 ms[39m
+[35m[39m
+2021-09-03 14:33:57 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 7.034 ms[39m
+[35m[39m
+2021-09-03 14:33:58 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 3.868 ms[39m
+[35m[39m
+2021-09-03 14:43:21 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 123.118 ms[39m
+[35m[39m
+2021-09-03 14:43:21 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 30.765 ms[39m
+[35m[39m
+2021-09-03 14:43:21 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 10.292 ms[39m
+[35m[39m
+2021-09-03 14:43:21 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 3.192 ms[39m
+[35m[39m
+2021-09-03 14:43:21 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 5.546 ms[39m
+[35m[39m
+2021-09-03 14:43:21 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 4.895 ms[39m
+[35m[39m
+2021-09-03 14:43:21 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 14.423 ms[39m
+[35m[39m
+2021-09-03 14:43:22 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 12.160 ms[39m
+[35m[39m
+2021-09-03 14:43:23 [35mhttp[39m: [35mGET /criptoBOT 400 CONTENT-LENGTH=79 36.397 ms[39m
+[35m[39m
+2021-09-03 14:43:24 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 13.538 ms[39m
+[35m[39m
+2021-09-03 14:44:10 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 126.101 ms[39m
+[35m[39m
+2021-09-03 14:44:10 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 14.356 ms[39m
+[35m[39m
+2021-09-03 14:44:10 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 27.909 ms[39m
+[35m[39m
+2021-09-03 14:44:10 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 27.749 ms[39m
+[35m[39m
+2021-09-03 14:44:10 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 11.212 ms[39m
+[35m[39m
+2021-09-03 14:44:18 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 17.195 ms[39m
+[35m[39m
+2021-09-03 14:44:37 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 121.945 ms[39m
+[35m[39m
+2021-09-03 14:44:37 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 25.115 ms[39m
+[35m[39m
+2021-09-03 14:44:37 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 33.622 ms[39m
+[35m[39m
+2021-09-03 14:44:37 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 24.315 ms[39m
+[35m[39m
+2021-09-03 14:44:37 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 15.592 ms[39m
+[35m[39m
+2021-09-03 14:44:41 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 14.448 ms[39m
+[35m[39m
+2021-09-03 14:45:46 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 120.730 ms[39m
+[35m[39m
+2021-09-03 14:45:46 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 9.278 ms[39m
+[35m[39m
+2021-09-03 14:45:46 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 13.857 ms[39m
+[35m[39m
+2021-09-03 14:45:46 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 32.889 ms[39m
+[35m[39m
+2021-09-03 14:45:46 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 23.180 ms[39m
+[35m[39m
+2021-09-03 14:45:46 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 9.488 ms[39m
+[35m[39m
+2021-09-03 14:45:46 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 4.605 ms[39m
+[35m[39m
+2021-09-03 14:45:46 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 10.168 ms[39m
+[35m[39m
+2021-09-03 14:45:46 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 22.238 ms[39m
+[35m[39m
+2021-09-03 14:45:46 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 16.767 ms[39m
+[35m[39m
+2021-09-03 14:45:53 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 19.805 ms[39m
+[35m[39m
+2021-09-03 14:47:49 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 126.718 ms[39m
+[35m[39m
+2021-09-03 14:47:49 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 24.778 ms[39m
+[35m[39m
+2021-09-03 14:47:49 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 22.007 ms[39m
+[35m[39m
+2021-09-03 14:47:49 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 13.992 ms[39m
+[35m[39m
+2021-09-03 14:47:49 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 12.962 ms[39m
+[35m[39m
+2021-09-03 14:47:56 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 32.618 ms[39m
+[35m[39m
+2021-09-03 14:48:44 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 127.580 ms[39m
+[35m[39m
+2021-09-03 14:48:44 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 13.328 ms[39m
+[35m[39m
+2021-09-03 14:48:44 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 19.228 ms[39m
+[35m[39m
+2021-09-03 14:48:44 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 6.637 ms[39m
+[35m[39m
+2021-09-03 14:48:44 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 6.692 ms[39m
+[35m[39m
+2021-09-03 14:48:50 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 14.958 ms[39m
+[35m[39m
+2021-09-03 14:49:51 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 137.168 ms[39m
+[35m[39m
+2021-09-03 14:49:52 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 17.146 ms[39m
+[35m[39m
+2021-09-03 14:49:52 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 10.032 ms[39m
+[35m[39m
+2021-09-03 14:49:52 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 12.983 ms[39m
+[35m[39m
+2021-09-03 14:49:52 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 7.060 ms[39m
+[35m[39m
+2021-09-03 14:49:58 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 25.881 ms[39m
+[35m[39m
+2021-09-03 14:50:52 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 113.161 ms[39m
+[35m[39m
+2021-09-03 14:50:52 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 9.592 ms[39m
+[35m[39m
+2021-09-03 14:50:52 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 9.103 ms[39m
+[35m[39m
+2021-09-03 14:50:52 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 11.177 ms[39m
+[35m[39m
+2021-09-03 14:50:52 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 28.744 ms[39m
+[35m[39m
+2021-09-03 14:50:59 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 22.960 ms[39m
+[35m[39m
+2021-09-03 14:51:18 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 124.601 ms[39m
+[35m[39m
+2021-09-03 14:51:18 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 11.154 ms[39m
+[35m[39m
+2021-09-03 14:51:18 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 24.739 ms[39m
+[35m[39m
+2021-09-03 14:51:18 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 4.576 ms[39m
+[35m[39m
+2021-09-03 14:51:18 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 9.160 ms[39m
+[35m[39m
+2021-09-03 14:51:22 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 9.089 ms[39m
+[35m[39m
+2021-09-03 14:52:06 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 141.670 ms[39m
+[35m[39m
+2021-09-03 14:52:06 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 8.045 ms[39m
+[35m[39m
+2021-09-03 14:52:06 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 17.424 ms[39m
+[35m[39m
+2021-09-03 14:52:06 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 24.191 ms[39m
+[35m[39m
+2021-09-03 14:52:06 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 21.347 ms[39m
+[35m[39m
+2021-09-03 14:52:13 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 14.692 ms[39m
+[35m[39m
+2021-09-03 14:52:28 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 123.609 ms[39m
+[35m[39m
+2021-09-03 14:52:28 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 13.568 ms[39m
+[35m[39m
+2021-09-03 14:52:28 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 49.685 ms[39m
+[35m[39m
+2021-09-03 14:52:28 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 49.544 ms[39m
+[35m[39m
+2021-09-03 14:52:28 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 22.196 ms[39m
+[35m[39m
+2021-09-03 14:52:34 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 11.952 ms[39m
+[35m[39m
+2021-09-03 14:54:17 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 180.432 ms[39m
+[35m[39m
+2021-09-03 14:54:18 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 10.671 ms[39m
+[35m[39m
+2021-09-03 14:54:18 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 23.208 ms[39m
+[35m[39m
+2021-09-03 14:54:18 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 21.335 ms[39m
+[35m[39m
+2021-09-03 14:54:18 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 4.212 ms[39m
+[35m[39m
+2021-09-03 14:54:26 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 27.157 ms[39m
+[35m[39m
+2021-09-03 14:54:57 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 112.052 ms[39m
+[35m[39m
+2021-09-03 14:54:57 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 8.519 ms[39m
+[35m[39m
+2021-09-03 14:54:57 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 14.163 ms[39m
+[35m[39m
+2021-09-03 14:54:57 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 13.696 ms[39m
+[35m[39m
+2021-09-03 14:54:57 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 19.728 ms[39m
+[35m[39m
+2021-09-03 14:55:05 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 24.819 ms[39m
+[35m[39m
+2021-09-03 14:55:18 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 127.037 ms[39m
+[35m[39m
+2021-09-03 14:55:18 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 20.117 ms[39m
+[35m[39m
+2021-09-03 14:55:18 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 17.430 ms[39m
+[35m[39m
+2021-09-03 14:55:18 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 30.406 ms[39m
+[35m[39m
+2021-09-03 14:55:18 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 27.015 ms[39m
+[35m[39m
+2021-09-03 14:55:27 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 33.943 ms[39m
+[35m[39m
+2021-09-03 15:12:36 [35mhttp[39m: [35mGET / 200 CONTENT-LENGTH=- 182.600 ms[39m
+[35m[39m
+2021-09-03 15:12:37 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 30.194 ms[39m
+[35m[39m
+2021-09-03 15:12:37 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 42.406 ms[39m
+[35m[39m
+2021-09-03 15:12:37 [35mhttp[39m: [35mGET /scripts/games.js 304 CONTENT-LENGTH=- 3.807 ms[39m
+[35m[39m
+2021-09-03 15:12:37 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 9.014 ms[39m
+[35m[39m
+2021-09-03 15:12:37 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 8.426 ms[39m
+[35m[39m
+2021-09-03 15:12:37 [35mhttp[39m: [35mGET /images/amazon-button.png 304 CONTENT-LENGTH=- 6.567 ms[39m
+[35m[39m
+2021-09-03 15:12:39 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 24.097 ms[39m
+[35m[39m
+2021-09-03 15:12:39 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 3.312 ms[39m
+[35m[39m
+2021-09-03 15:12:39 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.959 ms[39m
+[35m[39m
+2021-09-03 15:12:39 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 17.939 ms[39m
+[35m[39m
+2021-09-03 15:12:39 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 12.238 ms[39m
+[35m[39m
+2021-09-03 15:12:48 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 11.317 ms[39m
+[35m[39m
+2021-09-03 15:26:08 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 135.115 ms[39m
+[35m[39m
+2021-09-03 15:26:08 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 10.945 ms[39m
+[35m[39m
+2021-09-03 15:26:08 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 3.884 ms[39m
+[35m[39m
+2021-09-03 15:26:08 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 5.946 ms[39m
+[35m[39m
+2021-09-03 15:26:08 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 9.170 ms[39m
+[35m[39m
+2021-09-03 15:26:22 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 18.539 ms[39m
+[35m[39m
+2021-09-03 15:27:33 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 139.975 ms[39m
+[35m[39m
+2021-09-03 15:27:34 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 22.335 ms[39m
+[35m[39m
+2021-09-03 15:27:34 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 16.043 ms[39m
+[35m[39m
+2021-09-03 15:27:34 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 14.872 ms[39m
+[35m[39m
+2021-09-03 15:27:34 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 12.835 ms[39m
+[35m[39m
+2021-09-03 15:27:42 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 11.251 ms[39m
+[35m[39m
+2021-09-03 15:28:27 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 130.881 ms[39m
+[35m[39m
+2021-09-03 15:28:28 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 22.803 ms[39m
+[35m[39m
+2021-09-03 15:28:28 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 14.150 ms[39m
+[35m[39m
+2021-09-03 15:28:28 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 11.452 ms[39m
+[35m[39m
+2021-09-03 15:28:28 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 10.173 ms[39m
+[35m[39m
+2021-09-03 15:28:36 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 49.442 ms[39m
+[35m[39m
+2021-09-03 15:30:19 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 12.302 ms[39m
+[35m[39m
+2021-09-03 15:30:19 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 6.202 ms[39m
+[35m[39m
+2021-09-03 15:30:19 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 3.167 ms[39m
+[35m[39m
+2021-09-03 15:30:20 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 5.871 ms[39m
+[35m[39m
+2021-09-03 15:30:20 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 26.032 ms[39m
+[35m[39m
+2021-09-03 15:30:28 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 9.872 ms[39m
+[35m[39m
+2021-09-03 15:49:51 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 120.237 ms[39m
+[35m[39m
+2021-09-03 15:49:52 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 10.494 ms[39m
+[35m[39m
+2021-09-03 15:49:52 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.580 ms[39m
+[35m[39m
+2021-09-03 15:49:52 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 9.524 ms[39m
+[35m[39m
+2021-09-03 15:49:52 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 7.951 ms[39m
+[35m[39m
+2021-09-03 15:50:13 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 36.889 ms[39m
+[35m[39m
+2021-09-03 15:51:17 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 136.148 ms[39m
+[35m[39m
+2021-09-03 15:51:17 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 11.087 ms[39m
+[35m[39m
+2021-09-03 15:51:17 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.520 ms[39m
+[35m[39m
+2021-09-03 15:51:17 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 19.535 ms[39m
+[35m[39m
+2021-09-03 15:51:17 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 17.759 ms[39m
+[35m[39m
+2021-09-03 15:51:30 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 26.288 ms[39m
+[35m[39m
+2021-09-03 15:52:19 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 141.943 ms[39m
+[35m[39m
+2021-09-03 15:52:19 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 7.832 ms[39m
+[35m[39m
+2021-09-03 15:52:19 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 11.622 ms[39m
+[35m[39m
+2021-09-03 15:52:19 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 14.053 ms[39m
+[35m[39m
+2021-09-03 15:52:19 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 6.950 ms[39m
+[35m[39m
+2021-09-03 15:52:31 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 29.804 ms[39m
+[35m[39m
+2021-09-03 15:52:49 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 109.983 ms[39m
+[35m[39m
+2021-09-03 15:52:49 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 12.898 ms[39m
+[35m[39m
+2021-09-03 15:52:49 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 13.699 ms[39m
+[35m[39m
+2021-09-03 15:52:49 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 7.511 ms[39m
+[35m[39m
+2021-09-03 15:52:49 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 19.527 ms[39m
+[35m[39m
+2021-09-03 15:53:01 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 44.156 ms[39m
+[35m[39m
+2021-09-03 15:54:03 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 165.300 ms[39m
+[35m[39m
+2021-09-03 15:54:04 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 8.623 ms[39m
+[35m[39m
+2021-09-03 15:54:04 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.536 ms[39m
+[35m[39m
+2021-09-03 15:54:04 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 9.518 ms[39m
+[35m[39m
+2021-09-03 15:54:04 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 3.003 ms[39m
+[35m[39m
+2021-09-03 15:54:15 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 36.507 ms[39m
+[35m[39m
+2021-09-03 15:55:01 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 113.823 ms[39m
+[35m[39m
+2021-09-03 15:55:01 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 16.887 ms[39m
+[35m[39m
+2021-09-03 15:55:01 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 20.120 ms[39m
+[35m[39m
+2021-09-03 15:55:01 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 22.184 ms[39m
+[35m[39m
+2021-09-03 15:55:01 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 44.445 ms[39m
+[35m[39m
+2021-09-03 15:55:13 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 19.431 ms[39m
+[35m[39m
+2021-09-03 15:56:05 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 110.314 ms[39m
+[35m[39m
+2021-09-03 15:56:05 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 13.192 ms[39m
+[35m[39m
+2021-09-03 15:56:06 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 17.686 ms[39m
+[35m[39m
+2021-09-03 15:56:06 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 44.177 ms[39m
+[35m[39m
+2021-09-03 15:56:06 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 31.992 ms[39m
+[35m[39m
+2021-09-03 15:56:18 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 41.453 ms[39m
+[35m[39m
+2021-09-03 15:56:37 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 124.725 ms[39m
+[35m[39m
+2021-09-03 15:56:38 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 11.813 ms[39m
+[35m[39m
+2021-09-03 15:56:38 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 10.933 ms[39m
+[35m[39m
+2021-09-03 15:56:38 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 13.262 ms[39m
+[35m[39m
+2021-09-03 15:56:38 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 19.572 ms[39m
+[35m[39m
+2021-09-03 15:56:56 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 14.078 ms[39m
+[35m[39m
+2021-09-03 15:57:08 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 110.027 ms[39m
+[35m[39m
+2021-09-03 15:57:08 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 12.839 ms[39m
+[35m[39m
+2021-09-03 15:57:08 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 6.008 ms[39m
+[35m[39m
+2021-09-03 15:57:08 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 9.197 ms[39m
+[35m[39m
+2021-09-03 15:57:08 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 4.524 ms[39m
+[35m[39m
+2021-09-03 15:57:21 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 32.937 ms[39m
+[35m[39m
+2021-09-03 15:57:54 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 127.649 ms[39m
+[35m[39m
+2021-09-03 15:57:55 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 7.790 ms[39m
+[35m[39m
+2021-09-03 15:57:55 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 6.628 ms[39m
+[35m[39m
+2021-09-03 15:57:55 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 5.726 ms[39m
+[35m[39m
+2021-09-03 15:57:55 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 14.592 ms[39m
+[35m[39m
+2021-09-03 15:57:57 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 13.525 ms[39m
+[35m[39m
+2021-09-03 15:57:57 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 4.003 ms[39m
+[35m[39m
+2021-09-03 15:57:57 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 10.871 ms[39m
+[35m[39m
+2021-09-03 15:57:57 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 6.460 ms[39m
+[35m[39m
+2021-09-03 15:57:57 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 4.108 ms[39m
+[35m[39m
+2021-09-03 15:58:08 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 25.308 ms[39m
+[35m[39m
+2021-09-03 15:58:27 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 8.252 ms[39m
+[35m[39m
+2021-09-03 15:58:27 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 10.306 ms[39m
+[35m[39m
+2021-09-03 15:58:27 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 8.996 ms[39m
+[35m[39m
+2021-09-03 15:58:27 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 7.303 ms[39m
+[35m[39m
+2021-09-03 15:58:27 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 8.291 ms[39m
+[35m[39m
+2021-09-03 15:58:38 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 9.028 ms[39m
+[35m[39m
+2021-09-03 15:59:59 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 123.191 ms[39m
+[35m[39m
+2021-09-03 15:59:59 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 13.613 ms[39m
+[35m[39m
+2021-09-03 15:59:59 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.706 ms[39m
+[35m[39m
+2021-09-03 15:59:59 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 7.493 ms[39m
+[35m[39m
+2021-09-03 16:00:00 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 31.884 ms[39m
+[35m[39m
+2021-09-03 16:00:00 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 12.932 ms[39m
+[35m[39m
+2021-09-03 16:00:01 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 4.668 ms[39m
+[35m[39m
+2021-09-03 16:00:01 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.404 ms[39m
+[35m[39m
+2021-09-03 16:00:01 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 8.869 ms[39m
+[35m[39m
+2021-09-03 16:00:01 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 18.813 ms[39m
+[35m[39m
+2021-09-03 16:00:12 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 9.518 ms[39m
+[35m[39m
+2021-09-03 16:00:24 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 7.106 ms[39m
+[35m[39m
+2021-09-03 16:00:24 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 4.241 ms[39m
+[35m[39m
+2021-09-03 16:00:24 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 7.636 ms[39m
+[35m[39m
+2021-09-03 16:00:24 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 3.096 ms[39m
+[35m[39m
+2021-09-03 16:00:24 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 4.042 ms[39m
+[35m[39m
+2021-09-03 16:00:35 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 12.501 ms[39m
+[35m[39m
+2021-09-03 16:00:47 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 9.927 ms[39m
+[35m[39m
+2021-09-03 16:00:47 [35mhttp[39m: [35mGET /css/bounce.css 200 CONTENT-LENGTH=- 28.098 ms[39m
+[35m[39m
+2021-09-03 16:00:47 [35mhttp[39m: [35mGET /scripts/privacy.js 200 CONTENT-LENGTH=891 29.128 ms[39m
+[35m[39m
+2021-09-03 16:00:47 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 200 CONTENT-LENGTH=- 17.111 ms[39m
+[35m[39m
+2021-09-03 16:00:47 [35mhttp[39m: [35mGET /scripts/pace.min.js 200 CONTENT-LENGTH=- 33.100 ms[39m
+[35m[39m
+2021-09-03 16:01:01 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 148.285 ms[39m
+[35m[39m
+2021-09-03 16:01:02 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 10.200 ms[39m
+[35m[39m
+2021-09-03 16:01:02 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.396 ms[39m
+[35m[39m
+2021-09-03 16:01:02 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 10.727 ms[39m
+[35m[39m
+2021-09-03 16:01:02 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 8.743 ms[39m
+[35m[39m
+2021-09-03 16:01:12 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.300 ms[39m
+[35m[39m
+2021-09-03 16:01:17 [35mhttp[39m: [35mGET /images/favicon.png 304 CONTENT-LENGTH=- 4.878 ms[39m
+[35m[39m
+2021-09-03 16:02:09 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 169.410 ms[39m
+[35m[39m
+2021-09-03 16:02:10 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 8.713 ms[39m
+[35m[39m
+2021-09-03 16:02:10 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 5.055 ms[39m
+[35m[39m
+2021-09-03 16:02:10 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 4.578 ms[39m
+[35m[39m
+2021-09-03 16:02:10 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 25.716 ms[39m
+[35m[39m
+2021-09-03 16:02:21 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 36.595 ms[39m
+[35m[39m
+2021-09-03 16:02:58 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 109.763 ms[39m
+[35m[39m
+2021-09-03 16:02:58 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 12.154 ms[39m
+[35m[39m
+2021-09-03 16:02:58 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 8.229 ms[39m
+[35m[39m
+2021-09-03 16:02:59 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 14.816 ms[39m
+[35m[39m
+2021-09-03 16:02:59 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 16.221 ms[39m
+[35m[39m
+2021-09-03 16:03:11 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 10.224 ms[39m
+[35m[39m
+2021-09-03 16:03:27 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 141.277 ms[39m
+[35m[39m
+2021-09-03 16:03:28 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 19.560 ms[39m
+[35m[39m
+2021-09-03 16:03:28 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 34.317 ms[39m
+[35m[39m
+2021-09-03 16:03:28 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 32.929 ms[39m
+[35m[39m
+2021-09-03 16:03:28 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 18.628 ms[39m
+[35m[39m
+2021-09-03 16:03:36 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 15.238 ms[39m
+[35m[39m
+2021-09-03 16:04:35 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 264.475 ms[39m
+[35m[39m
+2021-09-03 16:04:36 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 15.064 ms[39m
+[35m[39m
+2021-09-03 16:04:36 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 5.074 ms[39m
+[35m[39m
+2021-09-03 16:04:36 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 6.716 ms[39m
+[35m[39m
+2021-09-03 16:04:36 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 26.287 ms[39m
+[35m[39m
+2021-09-03 16:04:44 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 11.446 ms[39m
+[35m[39m
+2021-09-03 16:05:38 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 114.533 ms[39m
+[35m[39m
+2021-09-03 16:05:38 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 18.417 ms[39m
+[35m[39m
+2021-09-03 16:05:38 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 10.610 ms[39m
+[35m[39m
+2021-09-03 16:05:38 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 24.018 ms[39m
+[35m[39m
+2021-09-03 16:05:38 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 17.850 ms[39m
+[35m[39m
+2021-09-03 16:05:54 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 13.464 ms[39m
+[35m[39m
+2021-09-03 16:08:21 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 213.909 ms[39m
+[35m[39m
+2021-09-03 16:08:22 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 15.035 ms[39m
+[35m[39m
+2021-09-03 16:08:22 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 10.756 ms[39m
+[35m[39m
+2021-09-03 16:08:22 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 10.338 ms[39m
+[35m[39m
+2021-09-03 16:08:22 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 7.709 ms[39m
+[35m[39m
+2021-09-03 16:08:33 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 17.022 ms[39m
+[35m[39m
+2021-09-03 16:10:53 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 114.632 ms[39m
+[35m[39m
+2021-09-03 16:10:53 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 19.529 ms[39m
+[35m[39m
+2021-09-03 16:10:53 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 3.614 ms[39m
+[35m[39m
+2021-09-03 16:10:53 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 9.352 ms[39m
+[35m[39m
+2021-09-03 16:10:53 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 16.186 ms[39m
+[35m[39m
+2021-09-03 16:10:55 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 11.662 ms[39m
+[35m[39m
+2021-09-03 16:10:57 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 17.473 ms[39m
+[35m[39m
+2021-09-03 16:10:59 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 2.979 ms[39m
+[35m[39m
+2021-09-03 16:11:00 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 7.529 ms[39m
+[35m[39m
+2021-09-03 16:11:03 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 6.528 ms[39m
+[35m[39m
+2021-09-03 16:11:21 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 121.474 ms[39m
+[35m[39m
+2021-09-03 16:11:21 [35mhttp[39m: [35mGET /favicon.ico 200 CONTENT-LENGTH=- 17.001 ms[39m
+[35m[39m
+2021-09-03 16:11:26 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 9.044 ms[39m
+[35m[39m
+2021-09-03 16:11:27 [35mhttp[39m: [35mGET /favicon.ico 304 CONTENT-LENGTH=- 15.615 ms[39m
+[35m[39m
+2021-09-03 16:11:31 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 5.316 ms[39m
+[35m[39m
+2021-09-03 16:11:31 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 7.541 ms[39m
+[35m[39m
+2021-09-03 16:11:31 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 14.516 ms[39m
+[35m[39m
+2021-09-03 16:11:31 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 304 CONTENT-LENGTH=- 6.606 ms[39m
+[35m[39m
+2021-09-03 16:11:31 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 17.380 ms[39m
+[35m[39m
+2021-09-03 16:11:31 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 20.921 ms[39m
+[35m[39m
+2021-09-03 16:11:36 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 8.748 ms[39m
+[35m[39m
+2021-09-03 16:13:53 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 118.740 ms[39m
+[35m[39m
+2021-09-03 16:13:53 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 24.938 ms[39m
+[35m[39m
+2021-09-03 16:13:53 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 13.773 ms[39m
+[35m[39m
+2021-09-03 16:13:53 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 20.099 ms[39m
+[35m[39m
+2021-09-03 16:13:53 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 13.063 ms[39m
+[35m[39m
+2021-09-03 16:13:53 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 43.008 ms[39m
+[35m[39m
+2021-09-03 16:14:01 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 10.243 ms[39m
+[35m[39m
+2021-09-03 16:14:28 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 136.488 ms[39m
+[35m[39m
+2021-09-03 16:14:28 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 10.966 ms[39m
+[35m[39m
+2021-09-03 16:14:28 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 3.721 ms[39m
+[35m[39m
+2021-09-03 16:14:29 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 304 CONTENT-LENGTH=- 4.711 ms[39m
+[35m[39m
+2021-09-03 16:14:29 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 4.438 ms[39m
+[35m[39m
+2021-09-03 16:14:29 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 14.179 ms[39m
+[35m[39m
+2021-09-03 16:15:12 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 123.377 ms[39m
+[35m[39m
+2021-09-03 16:15:12 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 24.339 ms[39m
+[35m[39m
+2021-09-03 16:15:12 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 31.882 ms[39m
+[35m[39m
+2021-09-03 16:15:12 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 304 CONTENT-LENGTH=- 5.515 ms[39m
+[35m[39m
+2021-09-03 16:15:12 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 18.410 ms[39m
+[35m[39m
+2021-09-03 16:15:12 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 11.579 ms[39m
+[35m[39m
+2021-09-03 16:15:18 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 19.880 ms[39m
+[35m[39m
+2021-09-03 16:15:31 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 132.916 ms[39m
+[35m[39m
+2021-09-03 16:15:31 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 8.825 ms[39m
+[35m[39m
+2021-09-03 16:15:31 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 12.633 ms[39m
+[35m[39m
+2021-09-03 16:15:31 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 304 CONTENT-LENGTH=- 6.744 ms[39m
+[35m[39m
+2021-09-03 16:15:32 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 13.556 ms[39m
+[35m[39m
+2021-09-03 16:15:32 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 18.951 ms[39m
+[35m[39m
+2021-09-03 16:15:41 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 16.615 ms[39m
+[35m[39m
+2021-09-03 16:16:00 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 103.438 ms[39m
+[35m[39m
+2021-09-03 16:16:00 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 7.585 ms[39m
+[35m[39m
+2021-09-03 16:16:00 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 30.647 ms[39m
+[35m[39m
+2021-09-03 16:16:00 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 22.302 ms[39m
+[35m[39m
+2021-09-03 16:16:00 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 12.819 ms[39m
+[35m[39m
+2021-09-03 16:16:00 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 12.031 ms[39m
+[35m[39m
+2021-09-03 16:16:09 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 7.121 ms[39m
+[35m[39m
+2021-09-03 16:16:18 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 8.955 ms[39m
+[35m[39m
+2021-09-03 16:16:18 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 5.144 ms[39m
+[35m[39m
+2021-09-03 16:16:18 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 5.631 ms[39m
+[35m[39m
+2021-09-03 16:16:18 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 17.508 ms[39m
+[35m[39m
+2021-09-03 16:16:19 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 22.512 ms[39m
+[35m[39m
+2021-09-03 16:16:19 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 17.939 ms[39m
+[35m[39m
+2021-09-03 16:16:30 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 132.046 ms[39m
+[35m[39m
+2021-09-03 16:16:30 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 9.647 ms[39m
+[35m[39m
+2021-09-03 16:16:30 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 15.447 ms[39m
+[35m[39m
+2021-09-03 16:16:30 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 304 CONTENT-LENGTH=- 38.047 ms[39m
+[35m[39m
+2021-09-03 16:16:30 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 26.153 ms[39m
+[35m[39m
+2021-09-03 16:16:30 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 16.183 ms[39m
+[35m[39m
+2021-09-03 16:16:40 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 17.795 ms[39m
+[35m[39m
+2021-09-03 16:33:11 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 128.269 ms[39m
+[35m[39m
+2021-09-03 16:33:11 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 11.374 ms[39m
+[35m[39m
+2021-09-03 16:33:11 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.415 ms[39m
+[35m[39m
+2021-09-03 16:33:11 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 26.042 ms[39m
+[35m[39m
+2021-09-03 16:33:11 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 43.435 ms[39m
+[35m[39m
+2021-09-03 16:33:11 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 84.724 ms[39m
+[35m[39m
+2021-09-03 16:33:29 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 6.932 ms[39m
+[35m[39m
+2021-09-03 16:33:32 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 3.712 ms[39m
+[35m[39m
+2021-09-03 16:37:13 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 138.625 ms[39m
+[35m[39m
+2021-09-03 16:37:14 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 14.234 ms[39m
+[35m[39m
+2021-09-03 16:37:14 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 13.409 ms[39m
+[35m[39m
+2021-09-03 16:37:14 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 20.849 ms[39m
+[35m[39m
+2021-09-03 16:37:14 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 21.124 ms[39m
+[35m[39m
+2021-09-03 16:37:14 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 60.226 ms[39m
+[35m[39m
+2021-09-03 16:37:24 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 6.392 ms[39m
+[35m[39m
+2021-09-03 16:39:49 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 117.735 ms[39m
+[35m[39m
+2021-09-03 16:39:50 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 19.250 ms[39m
+[35m[39m
+2021-09-03 16:39:50 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 9.227 ms[39m
+[35m[39m
+2021-09-03 16:39:50 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 65.719 ms[39m
+[35m[39m
+2021-09-03 16:39:50 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 34.567 ms[39m
+[35m[39m
+2021-09-03 16:39:50 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 33.578 ms[39m
+[35m[39m
+2021-09-03 16:40:01 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 10.496 ms[39m
+[35m[39m
+2021-09-03 16:44:44 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 173.616 ms[39m
+[35m[39m
+2021-09-03 16:44:44 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 14.437 ms[39m
+[35m[39m
+2021-09-03 16:44:44 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 39.167 ms[39m
+[35m[39m
+2021-09-03 16:44:44 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 22.927 ms[39m
+[35m[39m
+2021-09-03 16:44:44 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 22.681 ms[39m
+[35m[39m
+2021-09-03 16:44:44 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 55.698 ms[39m
+[35m[39m
+2021-09-03 16:45:00 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 4.531 ms[39m
+[35m[39m
+2021-09-03 16:46:59 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 134.873 ms[39m
+[35m[39m
+2021-09-03 16:46:59 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 37.326 ms[39m
+[35m[39m
+2021-09-03 16:46:59 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 15.778 ms[39m
+[35m[39m
+2021-09-03 16:46:59 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 19.895 ms[39m
+[35m[39m
+2021-09-03 16:46:59 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 18.111 ms[39m
+[35m[39m
+2021-09-03 16:46:59 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 62.794 ms[39m
+[35m[39m
+2021-09-03 16:47:05 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 15.892 ms[39m
+[35m[39m
+2021-09-03 16:47:05 [35mhttp[39m: [35mGET /scripts/pace.min.js 200 CONTENT-LENGTH=- 10.689 ms[39m
+[35m[39m
+2021-09-03 16:47:05 [35mhttp[39m: [35mGET /css/bounce.css 200 CONTENT-LENGTH=- 8.492 ms[39m
+[35m[39m
+2021-09-03 16:47:05 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 10.157 ms[39m
+[35m[39m
+2021-09-03 16:47:05 [35mhttp[39m: [35mGET /scripts/privacy.js 200 CONTENT-LENGTH=891 29.520 ms[39m
+[35m[39m
+2021-09-03 16:47:05 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 200 CONTENT-LENGTH=- 13.964 ms[39m
+[35m[39m
+2021-09-03 16:47:19 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 6.638 ms[39m
+[35m[39m
+2021-09-03 16:49:22 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 144.533 ms[39m
+[35m[39m
+2021-09-03 16:49:23 [35mhttp[39m: [35mGET /scripts/pace.min.js 200 CONTENT-LENGTH=- 24.738 ms[39m
+[35m[39m
+2021-09-03 16:49:23 [35mhttp[39m: [35mGET /css/bounce.css 200 CONTENT-LENGTH=- 35.523 ms[39m
+[35m[39m
+2021-09-03 16:49:23 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 29.839 ms[39m
+[35m[39m
+2021-09-03 16:49:23 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 200 CONTENT-LENGTH=- 49.137 ms[39m
+[35m[39m
+2021-09-03 16:49:23 [35mhttp[39m: [35mGET /scripts/privacy.js 200 CONTENT-LENGTH=891 42.913 ms[39m
+[35m[39m
+2021-09-03 16:49:37 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 5.420 ms[39m
+[35m[39m
+2021-09-03 16:51:22 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 13.258 ms[39m
+[35m[39m
+2021-09-03 16:51:22 [35mhttp[39m: [35mGET /scripts/pace.min.js 200 CONTENT-LENGTH=- 13.659 ms[39m
+[35m[39m
+2021-09-03 16:51:22 [35mhttp[39m: [35mGET /css/bounce.css 200 CONTENT-LENGTH=- 7.518 ms[39m
+[35m[39m
+2021-09-03 16:51:22 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 5.577 ms[39m
+[35m[39m
+2021-09-03 16:51:22 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 200 CONTENT-LENGTH=- 10.932 ms[39m
+[35m[39m
+2021-09-03 16:51:22 [35mhttp[39m: [35mGET /scripts/privacy.js 200 CONTENT-LENGTH=891 20.148 ms[39m
+[35m[39m
+2021-09-03 16:51:33 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 5.672 ms[39m
+[35m[39m
+2021-09-03 16:51:36 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 4.687 ms[39m
+[35m[39m
+2021-09-03 16:55:15 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 118.406 ms[39m
+[35m[39m
+2021-09-03 16:55:16 [35mhttp[39m: [35mGET /scripts/pace.min.js 200 CONTENT-LENGTH=- 18.505 ms[39m
+[35m[39m
+2021-09-03 16:55:16 [35mhttp[39m: [35mGET /css/bounce.css 200 CONTENT-LENGTH=- 25.636 ms[39m
+[35m[39m
+2021-09-03 16:55:16 [35mhttp[39m: [35mGET /scripts/privacy.js 200 CONTENT-LENGTH=891 28.436 ms[39m
+[35m[39m
+2021-09-03 16:55:16 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 200 CONTENT-LENGTH=- 28.385 ms[39m
+[35m[39m
+2021-09-03 16:55:16 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 43.775 ms[39m
+[35m[39m
+2021-09-03 16:55:26 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 16.060 ms[39m
+[35m[39m
+2021-09-03 16:55:34 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 20.157 ms[39m
+[35m[39m
+2021-09-03 16:55:34 [35mhttp[39m: [35mGET /scripts/pace.min.js 200 CONTENT-LENGTH=- 6.000 ms[39m
+[35m[39m
+2021-09-03 16:55:34 [35mhttp[39m: [35mGET /css/bounce.css 200 CONTENT-LENGTH=- 13.198 ms[39m
+[35m[39m
+2021-09-03 16:55:34 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 5.061 ms[39m
+[35m[39m
+2021-09-03 16:55:34 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 200 CONTENT-LENGTH=- 17.318 ms[39m
+[35m[39m
+2021-09-03 16:55:35 [35mhttp[39m: [35mGET /scripts/privacy.js 200 CONTENT-LENGTH=891 56.318 ms[39m
+[35m[39m
+2021-09-03 16:55:44 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 12.327 ms[39m
+[35m[39m
+2021-09-03 16:55:46 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 5.547 ms[39m
+[35m[39m
+2021-09-03 16:56:24 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 126.211 ms[39m
+[35m[39m
+2021-09-03 16:56:25 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 8.853 ms[39m
+[35m[39m
+2021-09-03 16:56:25 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 14.995 ms[39m
+[35m[39m
+2021-09-03 16:56:25 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 15.587 ms[39m
+[35m[39m
+2021-09-03 16:56:25 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 23.426 ms[39m
+[35m[39m
+2021-09-03 16:56:25 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 37.800 ms[39m
+[35m[39m
+2021-09-03 16:56:33 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 4.161 ms[39m
+[35m[39m
+2021-09-03 16:58:23 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 122.697 ms[39m
+[35m[39m
+2021-09-03 16:58:23 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 9.297 ms[39m
+[35m[39m
+2021-09-03 16:58:23 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 27.963 ms[39m
+[35m[39m
+2021-09-03 16:58:23 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 22.066 ms[39m
+[35m[39m
+2021-09-03 16:58:23 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 27.853 ms[39m
+[35m[39m
+2021-09-03 16:58:23 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 48.224 ms[39m
+[35m[39m
+2021-09-03 16:58:35 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 8.087 ms[39m
+[35m[39m
+2021-09-03 16:58:39 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 7.811 ms[39m
+[35m[39m
+2021-09-03 16:59:49 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 121.334 ms[39m
+[35m[39m
+2021-09-03 16:59:49 [35mhttp[39m: [35mGET /scripts/privacy.js 200 CONTENT-LENGTH=891 33.626 ms[39m
+[35m[39m
+2021-09-03 16:59:49 [35mhttp[39m: [35mGET /scripts/pace.min.js 200 CONTENT-LENGTH=- 74.396 ms[39m
+[35m[39m
+2021-09-03 16:59:49 [35mhttp[39m: [35mGET /css/bounce.css 200 CONTENT-LENGTH=- 35.741 ms[39m
+[35m[39m
+2021-09-03 16:59:49 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 35.924 ms[39m
+[35m[39m
+2021-09-03 16:59:49 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 200 CONTENT-LENGTH=- 35.791 ms[39m
+[35m[39m
+2021-09-03 17:00:04 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 11.646 ms[39m
+[35m[39m
+2021-09-03 17:00:22 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6320.197 ms[39m
+[35m[39m
+2021-09-03 17:01:52 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 121.403 ms[39m
+[35m[39m
+2021-09-03 17:01:52 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 10.619 ms[39m
+[35m[39m
+2021-09-03 17:01:52 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 27.416 ms[39m
+[35m[39m
+2021-09-03 17:01:52 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 22.649 ms[39m
+[35m[39m
+2021-09-03 17:01:52 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 30.944 ms[39m
+[35m[39m
+2021-09-03 17:01:52 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 79.005 ms[39m
+[35m[39m
+2021-09-03 17:02:00 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 14.263 ms[39m
+[35m[39m
+2021-09-03 17:02:57 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6289.250 ms[39m
+[35m[39m
+2021-09-03 17:03:25 [35mhttp[39m: [35mGET /criptoBOT 200 CONTENT-LENGTH=- 133.186 ms[39m
+[35m[39m
+2021-09-03 17:03:26 [35mhttp[39m: [35mGET /scripts/pace.min.js 200 CONTENT-LENGTH=- 36.252 ms[39m
+[35m[39m
+2021-09-03 17:03:26 [35mhttp[39m: [35mGET /css/bounce.css 200 CONTENT-LENGTH=- 19.025 ms[39m
+[35m[39m
+2021-09-03 17:03:26 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 25.996 ms[39m
+[35m[39m
+2021-09-03 17:03:26 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 200 CONTENT-LENGTH=- 10.986 ms[39m
+[35m[39m
+2021-09-03 17:03:26 [35mhttp[39m: [35mGET /scripts/privacy.js 200 CONTENT-LENGTH=891 16.578 ms[39m
+[35m[39m
+2021-09-03 17:03:39 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 5.308 ms[39m
+[35m[39m
+2021-09-03 17:03:44 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1235.014 ms[39m
+[35m[39m
+2021-09-03 17:04:23 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 6149.412 ms[39m
+[35m[39m
+2021-09-03 17:05:36 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6200.042 ms[39m
+[35m[39m
+2021-09-03 17:06:22 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1191.664 ms[39m
+[35m[39m
+2021-09-03 17:06:52 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1317.440 ms[39m
+[35m[39m
+2021-09-03 17:06:56 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 397.889 ms[39m
+[35m[39m
+2021-09-03 17:07:08 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1131.129 ms[39m
+[35m[39m
+2021-09-03 17:07:16 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1197.083 ms[39m
+[35m[39m
+2021-09-03 17:07:20 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1159.850 ms[39m
+[35m[39m
+2021-09-03 17:08:21 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1160.308 ms[39m
+[35m[39m
+2021-09-03 17:08:37 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 6.091 ms[39m
+[35m[39m
+2021-09-03 17:08:42 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1216.151 ms[39m
+[35m[39m
+2021-09-03 17:08:52 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1145.191 ms[39m
+[35m[39m
+2021-09-03 17:09:36 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1200.885 ms[39m
+[35m[39m
+2021-09-03 17:10:13 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1355.639 ms[39m
+[35m[39m
+2021-09-03 17:10:14 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1129.888 ms[39m
+[35m[39m
+2021-09-03 17:10:15 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 360.815 ms[39m
+[35m[39m
+2021-09-03 17:10:17 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1124.515 ms[39m
+[35m[39m
+2021-09-03 17:10:59 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 6285.221 ms[39m
+[35m[39m
+03-09-2021 17:12:01 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 150.470 ms[39m
+[35m[39m
+03-09-2021 17:12:01 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 18.620 ms[39m
+[35m[39m
+03-09-2021 17:12:01 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 12.025 ms[39m
+[35m[39m
+03-09-2021 17:12:01 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 24.037 ms[39m
+[35m[39m
+03-09-2021 17:12:01 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 37.722 ms[39m
+[35m[39m
+03-09-2021 17:12:01 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 65.651 ms[39m
+[35m[39m
+03-09-2021 17:12:12 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 13.209 ms[39m
+[35m[39m
+03-09-2021 17:12:29 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 2212.851 ms[39m
+[35m[39m
+03-09-2021 17:12:29 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6246.007 ms[39m
+[35m[39m
+03-09-2021 17:12:30 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1154.526 ms[39m
+[35m[39m
+03-09-2021 17:12:32 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1130.775 ms[39m
+[35m[39m
+03-09-2021 17:13:09 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1127.569 ms[39m
+[35m[39m
+03/09/2021 17:14:00 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 117.044 ms[39m
+[35m[39m
+03/09/2021 17:14:00 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 28.985 ms[39m
+[35m[39m
+03/09/2021 17:14:00 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 22.557 ms[39m
+[35m[39m
+03/09/2021 17:14:00 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 17.091 ms[39m
+[35m[39m
+03/09/2021 17:14:00 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 51.106 ms[39m
+[35m[39m
+03/09/2021 17:14:00 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 30.282 ms[39m
+[35m[39m
+03/09/2021 17:14:10 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 9.208 ms[39m
+[35m[39m
+03/09/2021 17:14:21 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6331.763 ms[39m
+[35m[39m
+03/09/2021 17:14:23 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 392.945 ms[39m
+[35m[39m
+03/09/2021 17:15:13 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1149.605 ms[39m
+[35m[39m
+03/09/2021 17:17:44 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 114.224 ms[39m
+[35m[39m
+03/09/2021 17:17:44 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 15.986 ms[39m
+[35m[39m
+03/09/2021 17:17:44 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 6.015 ms[39m
+[35m[39m
+03/09/2021 17:17:44 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 27.151 ms[39m
+[35m[39m
+03/09/2021 17:17:44 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 16.045 ms[39m
+[35m[39m
+03/09/2021 17:17:44 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 9.097 ms[39m
+[35m[39m
+03/09/2021 17:17:52 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 4.727 ms[39m
+[35m[39m
+03/09/2021 17:18:06 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6216.664 ms[39m
+[35m[39m
+03/09/2021 17:18:06 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 2229.068 ms[39m
+[35m[39m
+03/09/2021 17:18:18 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1232.805 ms[39m
+[35m[39m
+03/09/2021 17:18:31 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1131.580 ms[39m
+[35m[39m
+03/09/2021 17:19:34 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1136.633 ms[39m
+[35m[39m
+03/09/2021 17:19:35 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1113.914 ms[39m
+[35m[39m
+03/09/2021 17:20:28 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1150.634 ms[39m
+[35m[39m
+03/09/2021 17:20:45 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 6161.848 ms[39m
+[35m[39m
+03/09/2021 17:21:00 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1120.490 ms[39m
+[35m[39m
+03/09/2021 17:21:03 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1111.986 ms[39m
+[35m[39m
+03/09/2021 17:21:04 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 481.697 ms[39m
+[35m[39m
+03/09/2021 17:22:12 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1246.489 ms[39m
+[35m[39m
+03/09/2021 17:22:17 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1153.573 ms[39m
+[35m[39m
+03/09/2021 17:23:59 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 113.616 ms[39m
+[35m[39m
+03/09/2021 17:23:59 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 25.472 ms[39m
+[35m[39m
+03/09/2021 17:23:59 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 10.312 ms[39m
+[35m[39m
+03/09/2021 17:23:59 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 32.870 ms[39m
+[35m[39m
+03/09/2021 17:23:59 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 20.261 ms[39m
+[35m[39m
+03/09/2021 17:23:59 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 40.686 ms[39m
+[35m[39m
+03/09/2021 17:24:19 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 13.132 ms[39m
+[35m[39m
+03/09/2021 17:25:54 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6272.068 ms[39m
+[35m[39m
+03/09/2021 17:26:07 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1126.960 ms[39m
+[35m[39m
+03/09/2021 17:26:10 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1156.037 ms[39m
+[35m[39m
+03/09/2021 17:26:30 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 130.928 ms[39m
+[35m[39m
+03/09/2021 17:26:30 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 26.034 ms[39m
+[35m[39m
+03/09/2021 17:26:30 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 22.708 ms[39m
+[35m[39m
+03/09/2021 17:26:31 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 39.281 ms[39m
+[35m[39m
+03/09/2021 17:26:31 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 13.830 ms[39m
+[35m[39m
+03/09/2021 17:26:31 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 33.270 ms[39m
+[35m[39m
+03/09/2021 17:26:38 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 4.624 ms[39m
+[35m[39m
+03/09/2021 17:26:44 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1219.468 ms[39m
+[35m[39m
+03/09/2021 17:26:48 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=648 1122.555 ms[39m
+[35m[39m
+03/09/2021 17:27:32 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6314.433 ms[39m
+[35m[39m
+03/09/2021 17:28:10 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=761 1193.267 ms[39m
+[35m[39m
+03/09/2021 17:28:12 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1167.101 ms[39m
+[35m[39m
+03/09/2021 17:28:16 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 379.945 ms[39m
+[35m[39m
+03/09/2021 17:28:18 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 352.229 ms[39m
+[35m[39m
+03/09/2021 17:31:06 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 6166.172 ms[39m
+[35m[39m
+03/09/2021 17:31:11 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1140.143 ms[39m
+[35m[39m
+03/09/2021 17:32:15 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 116.043 ms[39m
+[35m[39m
+03/09/2021 17:32:15 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 18.183 ms[39m
+[35m[39m
+03/09/2021 17:32:15 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 8.884 ms[39m
+[35m[39m
+03/09/2021 17:32:15 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 13.670 ms[39m
+[35m[39m
+03/09/2021 17:32:15 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 45.341 ms[39m
+[35m[39m
+03/09/2021 17:32:15 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 4.382 ms[39m
+[35m[39m
+03/09/2021 17:32:27 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 6.050 ms[39m
+[35m[39m
+03/09/2021 17:32:33 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 11.045 ms[39m
+[35m[39m
+03/09/2021 17:32:46 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6272.052 ms[39m
+[35m[39m
+03/09/2021 17:33:14 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1199.963 ms[39m
+[35m[39m
+03/09/2021 17:33:23 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 1123.860 ms[39m
+[35m[39m
+03/09/2021 17:34:00 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 3083.381 ms[39m
+[35m[39m
+03/09/2021 17:34:00 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 6140.373 ms[39m
+[35m[39m
+03/09/2021 17:35:45 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 134.244 ms[39m
+[35m[39m
+03/09/2021 17:35:45 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 14.792 ms[39m
+[35m[39m
+03/09/2021 17:35:46 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 6.667 ms[39m
+[35m[39m
+03/09/2021 17:35:46 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 22.409 ms[39m
+[35m[39m
+03/09/2021 17:35:46 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 19.159 ms[39m
+[35m[39m
+03/09/2021 17:35:46 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 200 CONTENT-LENGTH=- 63.774 ms[39m
+[35m[39m
+03/09/2021 17:35:56 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 14.102 ms[39m
+[35m[39m
+03/09/2021 17:36:08 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=582 6283.899 ms[39m
+[35m[39m
+03/09/2021 17:36:21 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=585 1154.020 ms[39m
+[35m[39m
+03/09/2021 17:37:22 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 111.645 ms[39m
+[35m[39m
+03/09/2021 17:37:22 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 10.431 ms[39m
+[35m[39m
+03/09/2021 17:37:22 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 31.840 ms[39m
+[35m[39m
+03/09/2021 17:37:22 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 304 CONTENT-LENGTH=- 22.282 ms[39m
+[35m[39m
+03/09/2021 17:37:22 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 19.872 ms[39m
+[35m[39m
+03/09/2021 17:37:22 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 25.898 ms[39m
+[35m[39m
+03/09/2021 17:37:31 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 20.248 ms[39m
+[35m[39m
+03/09/2021 17:37:35 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 7.157 ms[39m
+[35m[39m
+03/09/2021 17:37:46 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=580 3564.770 ms[39m
+[35m[39m
+03/09/2021 17:37:46 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=577 6585.463 ms[39m
+[35m[39m
+03/09/2021 17:37:46 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=577 1115.069 ms[39m
+[35m[39m
+03/09/2021 17:39:11 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 128.015 ms[39m
+[35m[39m
+03/09/2021 17:39:11 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 18.196 ms[39m
+[35m[39m
+03/09/2021 17:39:11 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 8.046 ms[39m
+[35m[39m
+03/09/2021 17:39:11 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 304 CONTENT-LENGTH=- 18.012 ms[39m
+[35m[39m
+03/09/2021 17:39:11 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 18.081 ms[39m
+[35m[39m
+03/09/2021 17:39:11 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 25.138 ms[39m
+[35m[39m
+03/09/2021 17:39:22 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 20.811 ms[39m
+[35m[39m
+03/09/2021 17:39:35 [35mhttp[39m: [35mPOST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6267.966 ms[39m
+[35m[39m
+03/09/2021 17:39:56 [35mhttp[39m: [35mPOST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 1150.405 ms[39m
+[35m[39m
+03/09/2021 17:40:28 [35mhttp[39m: [35mGET /criptoBOT 304 CONTENT-LENGTH=- 10.830 ms[39m
+[35m[39m
+03/09/2021 17:40:28 [35mhttp[39m: [35mGET /scripts/pace.min.js 304 CONTENT-LENGTH=- 7.910 ms[39m
+[35m[39m
+03/09/2021 17:40:28 [35mhttp[39m: [35mGET /css/bounce.css 304 CONTENT-LENGTH=- 12.456 ms[39m
+[35m[39m
+03/09/2021 17:40:28 [35mhttp[39m: [35mGET /scripts/criptoBOT.js 304 CONTENT-LENGTH=- 29.169 ms[39m
+[35m[39m
+03/09/2021 17:40:28 [35mhttp[39m: [35mGET /scripts/navbar_apis.js 304 CONTENT-LENGTH=- 21.483 ms[39m
+[35m[39m
+03/09/2021 17:40:28 [35mhttp[39m: [35mGET /scripts/privacy.js 304 CONTENT-LENGTH=- 41.501 ms[39m
+[35m[39m
+03/09/2021 17:40:35 [35mhttp[39m: [35mGET /images/favicon.png 200 CONTENT-LENGTH=11214 8.461 ms[39m
+[35m[39m

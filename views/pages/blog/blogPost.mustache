@@ -92,6 +92,7 @@
 
     </main>
 
+    {{^header.use_disqus}}
     <script>
         var comment = document.getElementById('blog_comment');
         var length = comment.getAttribute("maxlength");
@@ -101,6 +102,7 @@
           document.getElementById('count').innerHTML = (length - this.value.length) + ' words left';
         };
     </script>
+    {{/header.use_disqus}}
 
     {{{header.share_buttons_script}}}
     {{{header.disqus_script}}}

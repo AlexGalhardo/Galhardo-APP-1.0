@@ -90,6 +90,13 @@ class Header {
             navbar_shop_active: true
         }
     }
+
+    static criptoBOT(){
+        return {
+            title: "Cripto BOT",
+            navbar_criptobot_active: true
+        }
+    }
 }
 
 module.exports = Header
