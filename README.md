@@ -122,7 +122,7 @@ Games.getRandom() // return a random game object
 - This is a super simple bot to buy and sell bitcoin at binance to learn websockets and home broker things.
 - Use TradingView Chart: https://br.tradingview.com/
 - The Bitcoin Ticker 24h use WebSocket from: wss://stream.binance.com:9443/stream?streams=btcusdt@ticker
-- <b>All the transactions use SANDBOX Data from endpoint:<b> https://testnet.binance.vision/api/v3/order
+- <b>All the transactions use SANDBOX Data from endpoint:</b> https://testnet.binance.vision/api/v3/order
 - Binance WebSocket documentation: https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md
 - Binance Bitcoin Transaction LOG Example:
 ```
@@ -323,7 +323,7 @@ Games.getRandom() // return a random game object
 ![ga_subs_email](https://user-images.githubusercontent.com/19540357/131592487-849e67cf-780b-4905-9275-e8fa3cf60e0b.png)
 
 ## Cripto BOT
-![ga_criptobot_view](https://user-images.githubusercontent.com/19540357/132063356-2f5d5d14-a2f3-498b-8932-52149dd5246e.png)
+![ga_criptobot_view](https://user-images.githubusercontent.com/19540357/132063993-50222a86-a312-4b84-9a75-cbe2de580bf7.png)
 ![ga_criptobot](https://user-images.githubusercontent.com/19540357/132063355-a652194d-9fdb-4594-8e0d-07b128d40855.png)
 
 
