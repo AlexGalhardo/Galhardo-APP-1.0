@@ -324,7 +324,7 @@ Games.getRandom() // return a random game object
 
 ## Cripto BOT
 ![ga_criptobot_view](https://user-images.githubusercontent.com/19540357/132063993-50222a86-a312-4b84-9a75-cbe2de580bf7.png)
-![ga_criptobot](https://user-images.githubusercontent.com/19540357/132063355-a652194d-9fdb-4594-8e0d-07b128d40855.png)
+![ga_cripto_bot](https://user-images.githubusercontent.com/19540357/132064282-1d45336f-c20b-44cd-aef5-b20abde224bc.png)
 
 
 ## Contact
