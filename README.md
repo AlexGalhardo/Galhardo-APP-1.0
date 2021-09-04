@@ -367,6 +367,10 @@ Games.getRandom() // return a random game object
 ![ga_stripe_customers](https://user-images.githubusercontent.com/19540357/129276423-53d02a50-b70b-47d1-b64c-a9c84d07a30c.png)
 ![ga_admin_update_game](https://user-images.githubusercontent.com/19540357/129276424-91aab56a-125d-43a8-985a-cd2bbf387e12.png)
 
+## Server Monitor
+![ga_monitor_status](https://user-images.githubusercontent.com/19540357/132106414-f70b0d30-bd2b-451e-9ac8-500192c29c19.png)
+![ga_monitor_status_2](https://user-images.githubusercontent.com/19540357/132106418-9cd403c6-3aab-4790-9499-a956a1b133a8.png)
+
 ### Simple REST APIs
 ![ga_insomnia_site](https://user-images.githubusercontent.com/19540357/129701712-422efd6b-2522-43af-b11f-7652126c834b.png)
 ![ga_api_public_games](https://user-images.githubusercontent.com/19540357/129276429-af7341c2-eabe-4c4a-85a2-d6546add0a54.png)
