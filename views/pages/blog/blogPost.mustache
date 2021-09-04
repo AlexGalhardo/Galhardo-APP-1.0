@@ -50,11 +50,17 @@
                 {{^header.use_disqus}}
 
                 <h5 class="text-muted">Comments</h5>
-                {{#flash}}
-                    <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
-                        <b>{{message}}</b>
+                {{#flash_success}}
+                    <div class="text-center alert alert-success" role="alert">
+                        <b>{{flash_success}}</b>
                     </div>
-                {{/flash}}
+                {{/flash_success}}
+
+                {{#flash_warning}}
+                    <div class="text-center alert alert-warning" role="alert">
+                        <b>{{flash_warning}}</b>
+                    </div>
+                {{/flash_warning}}
                 
                 <hr>
                 
@@ -93,20 +99,18 @@
     </main>
 
     {{^header.use_disqus}}
-    <script>
-        var comment = document.getElementById('blog_comment');
-        var length = comment.getAttribute("maxlength");
-        var count = document.getElementById('count');
-        count.innerHTML = length + ' words left';
-        comment.onkeyup = function () {
-          document.getElementById('count').innerHTML = (length - this.value.length) + ' words left';
-        };
-    </script>
+        <script>
+            var comment = document.getElementById('blog_comment');
+            var length = comment.getAttribute("maxlength");
+            var count = document.getElementById('count');
+            count.innerHTML = length + ' words left';
+            comment.onkeyup = function () {
+              document.getElementById('count').innerHTML = (length - this.value.length) + ' words left';
+            };
+        </script>
     {{/header.use_disqus}}
 
     {{{header.share_buttons_script}}}
     {{{header.disqus_script}}}
-
-    <script src="../scripts/scroll_bar.js"></script>
 
 {{>partials/footer}}

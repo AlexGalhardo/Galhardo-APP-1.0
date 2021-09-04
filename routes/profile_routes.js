@@ -71,5 +71,9 @@ router
 
     .get('/logout', userIsNotLoggedIn, ProfileController.getLogout)
 
+    .get('/delete/stripeCard/:stripe_card_id', userIsNotLoggedIn, ProfileController.deleteStripeCard)
+
+    .get('/cancel/subscription/:stripe_currently_subscription_id', userIsNotLoggedIn, ProfileController.cancelStripeSubscriptionRenewAtPeriodEnd)
+
 
 module.exports = router;

@@ -4,7 +4,7 @@
 - pm2 ls: mostra uma lista de todas as aplicações sendo executadas.
 - pm2 NomeDoApp scale N: escala o aplicativo que foi especificado para n números de instâncias.
 - pm2 show NomeDoApp: mostra informações sobre a aplicação.
-- pm2 kill all: mata todos os aplicativos em execução.
+- pm2 kill -all: mata todos os aplicativos em execução.
 - pm2 restart all: reinicia todos os aplicativos em execução.
 - pm2 reload all: recarrega a configuração do aplicativo, como as variáveis de ambiente.
 - pm2 startup: configura o pm2 para inicializar com o sistema operacional.

@@ -33,10 +33,11 @@ class Header {
         return {
             title: "Blog - Galhardo APP",
             navbar_blog_active: true,
-            scroll_bar: `
+            scroll_bar_div: `
             <div class="progress-container">
                 <div class="progress-bar" id="myBar"></div>
-            </div>`
+            </div>`,
+            scroll_bar_script: `<script src="scripts/scroll_bar.js"></script>`,
         }
     }
 
@@ -44,10 +45,11 @@ class Header {
         return {
             title: blogPostTitle,
             navbar_blog_active: true,
-            scroll_bar: `
+            scroll_bar_div: `
             <div class="progress-container">
                 <div class="progress-bar" id="myBar"></div>
             </div>`,
+            scroll_bar_script: `<script src="../scripts/scroll_bar.js"></script>`,
             use_disqus: true,
             disqus_comments: `<div id="disqus_thread"></div>
                 <script>
@@ -80,7 +82,12 @@ class Header {
 
     static profile(){
         return {
-            title: "Profile - Galhardo APP"
+            title: "Profile - Galhardo APP",
+            scroll_bar_div: `
+            <div class="progress-container">
+                <div class="progress-bar" id="myBar"></div>
+            </div>`,
+            scroll_bar_script: `<script src="scripts/scroll_bar.js"></script>`,
         }
     }
 

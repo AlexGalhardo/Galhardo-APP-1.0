@@ -8,7 +8,7 @@
       "confirm_email_token": null,
       "password": "$2b$12$qmFqKwOkAfdQLy04VBtOLObd6FUU7H2P3XKa1f95JbKlLgjyOy4kG",
       "reset_password_token": "123",
-      "admin": true,
+      "admin": false,
       "avatar": "alex.png",
       "document": "44557777777",
       "phone": "18999999999",
@@ -37,7 +37,7 @@
         "currently_subscription_name": null,
         "subscription_start": null,
         "subscription_end": null,
-        "subscription_automatically_renew": false
+        "cancel_at_period_end": null
       },
       "created_at": "09/08/2021 03:52:14",
       "updated_at": "11/08/2021 04:04:17"
@@ -48,7 +48,7 @@
       "email": "admin@gmail.com",
       "confirmed_email": true,
       "confirm_email_token": null,
-      "password": "$2b$12$qmFqKwOkAfdQLy04VBtOLObd6FUU7H2P3XKa1f95JbKlLgjyOy4kG",
+      "password": "$2a$12$0v0OSYD/CLAjRiYDc/9rIOFpA1BgHK83fGUEsOyld4O/uSv0pFYHq",
       "reset_password_token": null,
       "admin": true,
       "avatar": "admin_avatar.png",
@@ -69,20 +69,20 @@
       },
       "stripe": {
         "customer_id": "cus_K8y63RgFsRst7l",
-        "card_token_id": "tok_1JV0ZuHoneB4Zvrp8l5HTFNt",
-        "card_id": "card_1JV0ZtHoneB4Zvrp0ZVmggZ3",
-        "card_brand": "Visa",
-        "card_last4": "4242",
-        "card_exp_month": 8,
-        "card_exp_year": 2022,
+        "card_token_id": null,
+        "card_id": null,
+        "card_brand": null,
+        "card_last4": null,
+        "card_exp_month": null,
+        "card_exp_year": null,
         "currently_subscription_id": "sub_K9dTRyfii6mNKt",
         "currently_subscription_name": "PRO",
         "subscription_start": "02/09/2021 14:59:32",
         "subscription_end": "02/10/2021 14:59:32",
-        "cancel_at_period_end": false
+        "cancel_at_period_end": true
       },
       "created_at": "10/08/2021 02:25:35",
-      "updated_at": "15/08/2021 06:25:35"
+      "updated_at": "04/09/2021 18:45:39"
     }
   ],
   "blog": [

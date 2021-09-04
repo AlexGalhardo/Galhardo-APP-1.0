@@ -109,6 +109,56 @@ class Stripe {
             throw new Error(error);
         }
     }
+
+
+    static async deleteStripeCard(user_id, stripe_card_id){
+        try {
+
+            for(let i = 0; i < database.users.length; i++){
+
+                if(database.users[i].id === user_id){
+
+                    if(database.users[i].stripe.card_id === stripe_card_id){
+
+                        database.users[i].stripe.card_id = null
+                        database.users[i].stripe.card_token_id = null
+                        database.users[i].stripe.card_brand = null
+                        database.users[i].stripe.card_last4 = null
+                        database.users[i].stripe.card_exp_month = null
+                        database.users[i].stripe.card_exp_year = null
+
+                        Stripe.save(database)
+
+                        return
+                    }
+                }
+            }
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+
+    static async cancelStripeSubscriptionRenewAtPeriodEnd(user_id, subscription_id){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+
+                if(database.users[i].id === user_id){
+
+                    if(database.users[i].stripe.currently_subscription_id === subscription_id){
+
+                        database.users[i].stripe.cancel_at_period_end = true
+
+                        Stripe.save(database)
+
+                        return
+                    }
+                }
+            }
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
 }
 
 module.exports = Stripe;

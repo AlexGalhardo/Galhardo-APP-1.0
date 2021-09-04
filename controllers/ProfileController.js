@@ -12,6 +12,7 @@ const bodyParser = require('body-parser')
 
 // HELPERS
 const Upload = require('../helpers/Upload')
+const Header = require('../helpers/Header')
 
 // MODELS
 const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
@@ -21,9 +22,13 @@ const StripeModel = require(`../models/${process.env.APP_DATABASE}/Stripe`)
 
 class ProfileController {
 	
+
 	static async getViewProfile (req, res) {
     	return res.render('pages/profile/profile', {
-    		user: SESSION_USER
+    		user: SESSION_USER,
+            flash_success: req.flash('success'),
+            flash_warning: req.flash('warning'),
+            header: Header.profile()
     	});
 	}
 	
@@ -41,12 +46,14 @@ class ProfileController {
     /**
      * POST /profile
      */
-	static updateProfile (req, res) {
+	static async updateProfile (req, res) {
 		const { username, 
 				email, 
 				document, 
 				phone, 
 				birth_date, 
+                older_password,
+                new_password,
 				zipcode, 
 				street,
 				street_number, 
@@ -63,6 +70,8 @@ class ProfileController {
 			document,
 			phone,
 			birth_date,
+            older_password,
+            new_password,
 			zipcode,
 			street,
 			street_number,
@@ -72,27 +81,10 @@ class ProfileController {
 			country
 		};
 
-		let message = null;
-		let type = null;
+		await Users.update(userObject)
 
-		if(Users.emailIsAlreadyRegistred(email)){
-			type = "warning"
-			message = 'This email is already registred!'
-		}
-		else if(email === "test@gmail.com"){
-			type = "warning"
-			message = "You cant update test@gmail.com!"
-		} else {
-			if(!Users.updateProfile(userObject)) return console.log('NOT updated Profile In JSON')
-		}
-
-		return res.render('pages/profile/profile', {
-    		flash: {
-    			type: type,
-    			message: message
-    		},
-    		user: SESSION_USER
-    	});
+        req.flash('success', 'Profile Information Updated!')
+        return res.redirect('/profile')
 	}
 
 
@@ -160,6 +152,32 @@ class ProfileController {
             user: SESSION_USER,
             subsTransaction
         })
+    }
+
+
+    /**
+     * GET /profile/delete/stripeCard/:stripe_card_id
+     */
+    static async deleteStripeCard(req, res){
+        const { stripe_card_id } = req.params
+
+        await StripeModel.deleteStripeCard(SESSION_USER.id, stripe_card_id)
+
+        req.flash('success', 'Stripe Card Deleted!')
+        return res.redirect('/profile')
+    }
+
+
+    /**
+     * GET /profile/cancel/subscription/:stripe_currently_subscription_id
+     */
+    static async cancelStripeSubscriptionRenewAtPeriodEnd(req, res){
+        const { stripe_currently_subscription_id } = req.params
+
+        await StripeModel.cancelStripeSubscriptionRenewAtPeriodEnd(SESSION_USER.id, stripe_currently_subscription_id)
+
+        req.flash('success', 'Canceled Subscription Renew At Period End!')
+        return res.redirect('/profile')
     }
 }
 

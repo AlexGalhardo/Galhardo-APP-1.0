@@ -7,11 +7,17 @@
         <!-- ROW -->
         <div class="row">
 
-            {{#flash}}
-                <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
-                    <b>{{message}}</b>
+            {{#flash_success}}
+                <div class="text-center alert alert-success" role="alert">
+                    <b>{{flash_success}}</b>
                 </div>
-            {{/flash}}
+            {{/flash_success}}
+
+            {{#flash_warning}}
+                <div class="text-center alert alert-warning" role="alert">
+                    <b>{{flash_warning}}</b>
+                </div>
+            {{/flash_warning}}
 
             <!-- AVATAR -->
             <div class="col-sm-4">
@@ -120,7 +126,7 @@
                     <div class="mt-3 form-group row mb-3">
                         <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
                         <div class="col-lg-8">
-                            <input type="submit" class="shadow w-100 btn btn-sm btn btn-outline-danger" value="Delete Stripe Credit Card">
+                            <a href="/profile/delete/stripeCard/{{stripe.card_id}}" class="shadow w-100 btn btn-sm btn btn-outline-danger">Delete Stripe Credit Card</a>
                         </div>
                     </div>
                 {{/stripe.card_id}}
@@ -128,8 +134,13 @@
                 <hr>
 
                 <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" name="CURRENTLY_PLAN" type="text" value="{{stripe.currently_subscription_name}}" readonly>
+                      <input class="mb-2 form-control" type="text" value="{{stripe.currently_subscription_name}}" readonly>
                       <label for="name">CURRENTLY_PLAN</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                      <input class="mb-2 form-control" type="text" value="{{stripe.currently_subscription_id}}" readonly>
+                      <label for="name">CURRENTLY_SUBSCRIPTION_ID</label>
                 </div>
 
                 <div class="form-floating mb-3">
@@ -147,29 +158,35 @@
                       <label for="name">SUBSCRIPTION_END_DATE_TIME</label>
                 </div>
 
-                {{^stripe.cancel_at_period_end}}
-                    <div class="form-group row mb-3">
-                        <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
-                        <div class="col-lg-8">
-                            <input type="submit" class="shadow w-100 btn btn-sm btn btn-outline-danger" value="Cancel Renew At Period End">
+                {{#stripe.currently_subscription_id}}
+                    {{^stripe.cancel_at_period_end}}
+                        <div class="form-group row mb-3">
+                            <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
+                            <div class="col-lg-8">
+                                <a href="/profile/cancel/subscription/{{stripe.currently_subscription_id}}" class="shadow w-100 btn btn-sm btn btn-outline-danger">Cancel Renew At Period End</a>
+                            </div>
                         </div>
-                    </div>
-                {{/stripe.cancel_at_period_end}}
+                    {{/stripe.cancel_at_period_end}}
+                {{/stripe.currently_subscription_id}}
 
             </div>
 
 
             <div class="col-lg-4">
 
-                <form action="/profile" class="form" method="POST">
+                <form action="/profile" class="form" method="POST" id="form_update_profile">
+
+                    <small><span id="alert_name" class="fw-bold text-danger"></span></small>
 
                     <div class="form-floating mb-3">
-                      <input type="email" class="form-control" name="name" id="name" value="{{name}}">
+                      <input type="email" class="form-control" name="name" id="name" value="{{name}}" {{#user.admin}} disabled {{/user.admin}}>
                       <label for="name">NAME</label>
                     </div>
 
+                    <small><span id="alert_email" class="fw-bold text-danger"></span></small>
+
                     <div class="form-floating mb-3">
-                      <input type="email" class="form-control" name="email" id="email" value="{{email}}">
+                      <input type="email" class="form-control" name="email" id="email" value="{{email}}" {{#user.admin}} disabled {{/user.admin}}>
                       <label for="floatingInput">EMAIL</label>
                     </div>
 
@@ -196,6 +213,7 @@
                       <label for="older_password">OLDER_PASSWORD</label>
                     </div>
 
+                    <small><span id="alert_password" class="fw-bold text-danger"></span></small>
 
                     <div class="form-floating mb-3">
                       <input type="password" class="form-control" id="new_password" name="new_password">
@@ -486,7 +504,7 @@
                     <label for="country">COUNTRY</label>
                     </div>
 
-                    <input type="submit" class="mt-3 mb-3 shadow w-100 btn btn btn-outline-success" value="Update Profile">
+                    <input type="submit" id="button_update_profile" class="mt-3 mb-3 shadow w-100 btn btn btn-outline-success" value="Update Profile">
 
                 </form>
 
@@ -498,7 +516,7 @@
         {{/user}}
 
 
-            {{#user.admin}}
+            {{^user.admin}}
                 <form action="/deleteProfile" class="form mb-5" method="POST">
                     <button disabled type="submit"
                             class="btn btn btn-outline-danger float-right"
@@ -516,10 +534,6 @@
     </main>
 
 
-
-        <script src="scripts/jquery.min.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="scripts/profile.js"></script>
-        <script src="../scripts/scroll_bar.js"></script>
+    <script src="scripts/profile.js"></script>
 
 {{>partials/footer}}

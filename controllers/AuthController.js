@@ -68,7 +68,7 @@ class AuthController {
                     return res.redirect('/login')
                 }
             } else {
-                req.flash('warning', `${req.recaptcha.error}`)
+                req.flash('warning', `Invalid Recaptcha!`)
                 return res.redirect('/login')
             }
 
@@ -99,23 +99,21 @@ class AuthController {
 
     static getViewRegister (req, res){
         return res.render('pages/auth/register', {
-            captcha: res.recaptcha
+            captcha: res.recaptcha,
+            flash_success: req.flash('success'),
+            flash_warning: req.flash('warning')
         });
     }
 
 
-    static verifyIfConfirmEmailURLIsValid (req, res){
+    static async verifyIfConfirmEmailURLIsValid (req, res){
         const { email, token } = req.params;
 
-        const confirmEmailValid = Users.verifyConfirmEmailToken(email, token)
+        const confirmEmailValid = await Users.verifyConfirmEmailToken(email, token)
 
         if(confirmEmailValid){
-            return res.render('pages/auth/login', {
-                flash: {
-                    type: 'Success',
-                    message: 'Email Confirmed!'
-                }
-            })
+            req.flash('success', 'Email confirmed!')
+            return res.redirect('/login')
         }
 
         return res.redirect('/login')
@@ -129,23 +127,19 @@ class AuthController {
      */
     static async postRegister (req, res, next){
 
-        if (!req.recaptcha.error) {
-            const errors = validationResult(req);
-
-            if (!errors.isEmpty()) {
-                return res.render('pages/auth/register', {
-                    flash: {
-                        type: "warning",
-                        message: errors.array()[0].msg
-                    }
-                });
-            }
-        } else {
-            console.log(req.recaptcha.error)
-            return res.redirect('/register')
-        }
-
         try {
+
+            if (!req.recaptcha.error) {
+                const errors = validationResult(req);
+
+                if (!errors.isEmpty()) {
+                    req.flash('warning', errors.array()[0].msg)
+                    return res.redirect('/register')
+                }
+            } else {
+                req.flash('warning', 'Invalid Recaptcha!')
+                return res.redirect('/register')
+            }
 
             const { username,
                 email,
@@ -170,12 +164,8 @@ class AuthController {
             await Users.create(userObject)
             await NodeMailer.sendConfirmEmailToken(email, confirm_email_token)
 
-            return res.render("pages/auth/register", {
-                flash: {
-                    type: "success",
-                    message: 'Account Created! Confirm your email by clicking the link send to your email inbox!'
-                }
-            });
+            req.flash('success', 'Account Created! Confirm your email by clicking the link send to your email inbox!')
+            return res.redirect('/register')
 
         } catch (error) {
             throw new Error(error)
@@ -196,12 +186,8 @@ class AuthController {
         await Users.createResetPasswordToken(email, reset_password_token);
         await NodeMailer.sendForgetPassword(email, reset_password_token);
 
-        return res.render('pages/auth/forgetPassword', {
-            flash: {
-                type: "success",
-                message: `If this email exists, we'll send a link to this email to recover password!`
-            }
-        });
+        req.flash('success', `If this email exists, we'll send a link to this email to recover password!`)
+        return res.redirect('/forgetPassword')
     }
 
 
@@ -229,20 +215,17 @@ class AuthController {
             return res.redirect('/forgetPassword')
         }
 
-        return res.render('pages/auth/login', {
-            flash: {
-                type: "success",
-                message: "You updated your password!"
-            }
-        });
+        req.flash('success', 'You updated your password!')
+        return res.redirect('/login')
     }
 
 
 
     static async loginFacebook (req, res, next){
-        const url_query_code = req.query.code;
 
         try {
+            const url_query_code = req.query.code;
+
             const token = await facebookLogin.getAccessToken({
               code: `${url_query_code}`,
               fbAppID: process.env.FACEBOOK_CLIENT_ID,
@@ -258,16 +241,8 @@ class AuthController {
             const userRegistred = await Users.verifyLoginFacebook(facebookUser.id, facebookUser.email)
 
             if(!userRegistred){
-                return res.render('pages/auth/register', {
-                    flash: {
-                        type: "warning",
-                        message: "Create Your account Linked to Your Facebook Account"
-                    },
-                    name: facebookUser.name,
-                    email: facebookUser.email,
-                    email_readonly: true,
-                    facebook_id: facebookUser.id
-                });
+                req.flash('warning', 'Create Your account Linked to Your Facebook Account')
+                return res.redirect('/register')
             }
             else {
                 req.session.userID = userRegistred.id
@@ -314,16 +289,8 @@ class AuthController {
             const user = await Users.verifyLoginGitHub(response.data.id, response.data.email, response.data.avatar_url)
 
             if(!user){
-                return res.render('pages/auth/register', {
-                    flash: {
-                        type: "warning",
-                        message: "Create Your account Linked to Your GitHub"
-                    },
-                    name: response.data.name,
-                    email: response.data.email,
-                    email_readonly: true,
-                    github_id: response.data.id
-                });
+                req.flash('warning', 'Create Your account Linked to Your GitHub Account')
+                return res.redirect('/register')
             } else {
                 req.session.userID = user.id
                 global.SESSION_USER = user
@@ -346,16 +313,8 @@ class AuthController {
             const userRegistred = await Users.verifyLoginGoogle(user.sub, user.email, user.picture)
 
             if(!userRegistred){
-                return res.render('pages/auth/register', {
-                    flash: {
-                        type: "warning",
-                        message: "Create Your account Linked to Your Google Account"
-                    },
-                    name: user.name,
-                    email: user.email,
-                    email_readonly: true,
-                    google_id: user.id
-                });
+                req.flash('warning', 'Create Your account Linked to Your Google Account')
+                return res.redirect('/register')
             }
             else {
                 req.session.userID = userRegistred.id

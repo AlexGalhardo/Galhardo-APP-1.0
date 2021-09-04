@@ -28,7 +28,7 @@ btn.addEventListener('click', async (e) => {
     if(email.value.length >= 8 && !json.emailRegistred){
         document.querySelector("#alert_email").innerHTML = ""
         validEmail = true
-    } else if(json.emailRegistred || email.value.length < 8){
+    } else {
         document.querySelector("#alert_email").innerHTML = "Invalid email!"
         validEmail = false
     }

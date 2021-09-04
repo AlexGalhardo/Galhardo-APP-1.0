@@ -7,7 +7,6 @@
  * http://localhost:3000/blog
  */
 
-// MODULES
 const bodyParser = require('body-parser');
 const pagination = require('pagination')
 
@@ -21,6 +20,7 @@ const Blog = require(`../models/${process.env.APP_DATABASE}/Blog`)
 
 
 class BlogController {
+
 
 	static async getViewBlog(req, res){
 		const totalBlogPosts = await Blog.getTotalBlogPosts();
@@ -42,6 +42,7 @@ class BlogController {
             header: Header.blog()
 		});
 	}
+
 
 	static getSearchBlogTitle (req, res){
 		const blogPosts = Blog.getAllBlogPosts();
@@ -144,7 +145,8 @@ class BlogController {
 		}).render();
 	}
 
-	static postBlogComment (req, res){
+
+	static async postBlogComment (req, res){
 		const slug = req.params.slug;
 		const { blog_comment } = req.body;
 
@@ -157,48 +159,32 @@ class BlogController {
 	        "created_at": DateTime.getNow()
 		}
 
-		// return blog post if success, null if not success
-		let blogPost = Blog.createBlogComment(slug, blogComment)
+		const blogPost = await Blog.createBlogComment(slug, blogComment)
 
 		if(!blogPost){
-			console.log('blog comment não foi criado no json database!')
 			return res.redirect('/blog')
 		}
 
-		blogPost = BlogController.fixComments(blogPost)
+		blogPost = await BlogController.fixComments(blogPost)
 
-		return res.render('pages/blog/blogPost', {
-			flash: {
-				type: "success",
-				message: "Comment Created!"
-			},
-			blogPost,
-			user: SESSION_USER,
-			blog_active: true,
-		})
+        req.flash('success', 'Comment Created!')
+        return res.redirect(`/blog/${slug}`)
 	}
 
-	static getDeleteBlogCommentByCommentID (req, res){
+
+	static async getDeleteBlogCommentByCommentID (req, res){
 		const { slug, comment_id } = req.params;
-		
-		// return blog post if success, null if not success
-		let blogPost = Blog.deleteCommentByCommentID(slug, comment_id)
+
+		let blogPost = await Blog.deleteCommentByCommentID(slug, comment_id)
 
 		if(!blogPost){
 			return res.redirect(`/blog/${slug}`)
 		}
 
-		blogPost = BlogController.fixComments(blogPost)
-	
-		return res.render('pages/blog/blogPost', {
-			flash: {
-				type: "success",
-				message: "Comment Deleted!"
-			},
-			blogPost,
-			user: SESSION_USER,
-			blog_active: true,
-		})
+		blogPost = await BlogController.fixComments(blogPost)
+
+        req.flash('success', 'Comment Deleted!')
+        return res.redirect(`/blog/${slug}`)
 	}
 }
 
