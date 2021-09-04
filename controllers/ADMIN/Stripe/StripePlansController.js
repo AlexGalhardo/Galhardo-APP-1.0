@@ -8,18 +8,14 @@
  * http://localhost:3000/admin/stripe/plans
  */
 
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 
-
-// helpers
+// HELPERS
 const DateTime = require('../../../helpers/DateTime')
 
-// models
-const StripeModel = require('../../../models/JSON/Stripe');
-// const StripeModel = require('../../models/MYSQL/Stripe');
-// const StripeModel = require('../../models/MONGODB/Stripe');
-// const StripeMySQLModel = require('../../models/MySQL/Stripe');
-// const StripeMongoDBModel = require('../../models/MONGODB/Stripe');
+// MODELS
+const StripeModel = require(`../../../models/${process.env.APP_DATABASE}/Stripe`)
+
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 

@@ -17,7 +17,7 @@ const DateTime = require('../../helpers/DateTime')
 
 
 // MODELS
-const Users = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Users`)
+const Users = require(`../../models/${process.env.APP_DATABASE}/Users`)
 
 
 

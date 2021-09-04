@@ -9,20 +9,22 @@
 
 
 // MODULES
+require('express-async-errors');
 require('dotenv').config();
-const mustache = require('mustache-express');
 const express = require('express');
+const mustache = require('mustache-express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
 const compression = require('compression');
 const cors = require('cors');
+const helmet = require('helmet');
 const { MulterError } = require('multer');
 
 
+
 // GLOBALS
-// const path = require('path');
 global.APP_ROOT_PATH = path.resolve(__dirname);
 global.SESSION_USER = null;
 
@@ -33,16 +35,10 @@ if(process.env.GALHARDO_APP_DATABASE === 'MONGODB'){
     require('./config/mongodb')()
 }
 
-if(process.env.GALHARDO_APP_DATABASE === 'JSON') console.log('USING DATABASE: JSON')
-if(process.env.GALHARDO_APP_DATABASE === 'MYSQL') console.log('USING DATABASE: MYSQL')
-if(process.env.GALHARDO_APP_DATABASE === 'POSTGRES') console.log('USING DATABASE: POSTGRES')
-if(process.env.GALHARDO_APP_DATABASE === 'SQLITE') console.log('USING DATABASE: SQLITE')
-
-
-
-// ./config
-const morgan = require('./config/morgan');
-const Logger = require('./config/winston');
+if(process.env.APP_DATABASE === 'JSON') console.log('USING DATABASE: JSON')
+if(process.env.APP_DATABASE === 'MYSQL') console.log('USING DATABASE: MYSQL')
+if(process.env.APP_DATABASE === 'POSTGRES') console.log('USING DATABASE: POSTGRES')
+if(process.env.APP_DATABASE === 'SQLITE') console.log('USING DATABASE: SQLITE')
 
 
 
@@ -55,15 +51,33 @@ const app = require('express')()
 
 
 // LOGS 
-app.use(morgan)
+const PinoLog = require('./config/pino')
+const pinoHttp = require('pino-http')({logger:PinoLog})
+// app.use(pinoHttp) // for complete http log
+// pino log is used in API routes
+
+const morgan = require('./config/morgan');
+const Logger = require('./config/winston');
+app.use(morgan) // 04/09/2021 16:25:57 http: GET /favicon.ico 200 CONTENT-LENGTH=- 151.767 ms
 
 
-// COMPRESS RESPONSES
+
+
+// Secure HTTP Headers Responses & Requests
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
+
+
+// COMPRESS HTTP RESPONSES
 app.use(compression())
 
 
-// Desativa o X-Powered-By: Express
-app.disable('x-powered-by')
+// STATUS MONITOR
+// http://localhost:3000/status
+app.use(require('express-status-monitor')());
 
 
 // CORS
@@ -111,8 +125,9 @@ const apiRoutes = require('./routes/api_routes');
 const adminRoutes = require('./routes/admin_routes');
 const testRoutes = require('./routes/test_routes');
 
+app.use('/api', pinoHttp, apiRoutes);
+
 app.use('/profile', profileRoutes);
-app.use('/api', apiRoutes);
 app.use('/admin', adminRoutes);
 app.use('/test', testRoutes);
 app.use(publicRoutes);
@@ -127,21 +142,20 @@ app.use((req, res) => {
 });
   
 
-// Handling Errors
-const errorHandler= (err, req, res, next) => {
-    res.status(400); // BAD REQUEST
+// HANDLING SERVER ERRORS
+app.use((err, req, res, next) => {
+    res.status(500); // INTERNAL SERVER ERROR
 
     if(err instanceof MulterError){
-        res.json({error: err.code })
+        return res.json({error: err.code })
     } else {
         console.log(err)
-        res.json({
-            error_name: err.name,
-            error_message: err.message
+        return res.json({
+            name: err.name,
+            message: err.message
         })
     }
-}
-app.use(errorHandler);
+});
 
 
 /*

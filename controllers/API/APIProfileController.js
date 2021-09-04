@@ -12,7 +12,7 @@ const bodyParser = require('body-parser')
 
 
 // MODEL
-const Users = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Users`)
+const Users = require(`../../models/${process.env.APP_DATABASE}/Users`)
 
 
 

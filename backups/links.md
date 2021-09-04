@@ -39,3 +39,6 @@
 - https://fabiojanio.medium.com/editorconfig-padronizando-caracter%C3%ADsticas-essenciais-768a806ad33c
 - https://editorconfig.org/
 - https://www.npmjs.com/package/eslint
+
+## JavaScript
+- https://github.com/phuoc-ng/1loc

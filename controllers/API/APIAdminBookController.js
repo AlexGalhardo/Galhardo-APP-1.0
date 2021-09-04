@@ -13,7 +13,7 @@
 const DateTime = require('../../helpers/DateTime')
 
 // MODEL
-const Books = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Books`);
+const Books = require(`../../models/${process.env.APP_DATABASE}/Books`);
 
 
 

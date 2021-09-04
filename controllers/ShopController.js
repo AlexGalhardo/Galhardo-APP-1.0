@@ -17,7 +17,7 @@ const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
 const Header = require('../helpers/Header');
 
 // MODELS
-const StripeModel = require(`../models/${process.env.GALHARDO_APP_DATABASE}/Stripe`)
+const StripeModel = require(`../models/${process.env.APP_DATABASE}/Stripe`)
 
 
 // Stripe

@@ -13,7 +13,7 @@
 const DateTime = require('../../helpers/DateTime')
 
 // MODEL
-const Games = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Games`)
+const Games = require(`../../models/${process.env.APP_DATABASE}/Games`)
 
 
 

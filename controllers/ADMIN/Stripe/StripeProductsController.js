@@ -5,19 +5,18 @@
  * https://github.com/AlexGalhardo
  * 
  * 
- * http://localhost:3000/stripe/products
+ * http://localhost:3000/admin/stripe/products
  */
 
 
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 
-// helpers
+// HELPERS
 const DateTime = require('../../../helpers/DateTime')
 
-// models
-// const StripeModel = require('../../models/JSON/Stripe');
-// const StripeModel = require('../../models/MySQL/Stripe');
-// const StripeModel = require('../../models/MONGODB/Stripe');
+// MODELS
+const StripeModel = require(`../../../models/${process.env.APP_DATABASE}/Stripe`)
+
 
 const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
 

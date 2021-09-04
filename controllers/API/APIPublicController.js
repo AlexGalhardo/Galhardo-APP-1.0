@@ -12,10 +12,10 @@ const bodyParser = require('body-parser')
 
 
 // MODELS
-const Users = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Users`);
-const Blog = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Blog`);
-const Games = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Games`);
-const Books = require(`../../models/${process.env.GALHARDO_APP_DATABASE}/Books`);
+const Users = require(`../../models/${process.env.APP_DATABASE}/Users`);
+const Blog = require(`../../models/${process.env.APP_DATABASE}/Blog`);
+const Games = require(`../../models/${process.env.APP_DATABASE}/Games`);
+const Books = require(`../../models/${process.env.APP_DATABASE}/Books`);
 
 
 

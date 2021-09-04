@@ -12,10 +12,9 @@
  */
 
 
-
-const Blog = require('../../models/JSON/Blog');
-const Games = require('../../models/JSON/Games');
-const Books = require('../../models/JSON/Books');
+const Blog = require(`../../models/${process.env.APP_DATABASE}/Blog`)
+const Games = require(`../../models/${process.env.APP_DATABASE}/Games`)
+const Books = require(`../../models/${process.env.APP_DATABASE}/Books`)
 
 
 

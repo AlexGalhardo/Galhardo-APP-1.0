@@ -16,7 +16,7 @@ const DateTime = require('../helpers/DateTime');
 const Header = require('../helpers/Header');
 
 // MODEL
-const Blog = require(`../models/${process.env.GALHARDO_APP_DATABASE}/Blog`)
+const Blog = require(`../models/${process.env.APP_DATABASE}/Blog`)
 
 
 

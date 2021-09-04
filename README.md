@@ -53,11 +53,11 @@
 - Logs
    - Console, files, telegram, etc
 - Security
-   - OWASP, CSRF, XSS, Injection, CORS, Google Recaptcha, etc
+   - OWASP, CSRF, XSS, Injection, CORS, HTTP Headers, Google Recaptcha, etc
 - API RESTs
    - JWT, Oauth2, AJAX, Bearer Token, HTML Documentation, etc
 - Others usefull things
-   - Mobile First, WebHooks, Regex, Charts, SMTP, Flash Messages, Pagination, Slug, UUID, Searchs, etc
+   - Mobile First, WebHooks, WebSockets, Regex, Charts, SMTP, Flash Messages, Pagination, Slug, UUID, Searchs, etc
 - Deploys
    - CI, CD, Heroku, Git Workflows, etc
 - <b>I will be refactoring it over the years during my professional career as I develop my programming skills.</b>
@@ -103,9 +103,9 @@ const Games = require('../models/JSON/Games');
 // const Games = require('../models/SQLITE/Games');
 
 // OR
-const Games = require(`../models/${process.env.GALHARDO_APP_DATABASE}/Games`);
+const Games = require(`../models/${process.env.APP_DATABASE}/Games`);
 // .env
-GALHARDO_APP_DATABASE=JSON
+APP_DATABASE=JSON
 
 // CRUD
 Games.create(gameObject)
@@ -120,7 +120,7 @@ Games.getRandom() // return a random game object
 
 ## CriptoBOT
 - This is a super simple bot to buy and sell bitcoin at binance to learn websockets and home broker things.
-- Use TradingView Chart: https://br.tradingview.com/
+- Using TradingView Chart: https://br.tradingview.com/
 - The Bitcoin Ticker 24h use WebSocket from: wss://stream.binance.com:9443/stream?streams=btcusdt@ticker
 - <b>All the transactions use SANDBOX Data from endpoint:</b> https://testnet.binance.vision/api/v3/order
 - Binance WebSocket documentation: https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md
@@ -195,8 +195,11 @@ Games.getRandom() // return a random game object
 03/09/2021 17:14:23 http: POST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 392.945 ms
 ```
 
+## Server Monitor
+- You can see: https://galhardoapp.com/status for Server Monitor
+
 ## APIs
-- **IMPORTANT: You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
+- You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
 ### Public REST APIs Endpoints Examples
 - BlogPosts
    - GET https://galhardoapp.com/api/public/blog
