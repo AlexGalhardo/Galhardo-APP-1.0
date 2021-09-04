@@ -2,8 +2,9 @@
 # public/uploads/avatars/*
 
 # logs/
-logs/all-logs.log
-logs/error.log
+# logs/all-logs.log
+# logs/error.log
+logs/*
 
 package-lock.json
 
