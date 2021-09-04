@@ -67,7 +67,7 @@ class TelegramBOTLogger {
         <b>MESSAGE:</b> ${contactObject.message}
                     `
 
-        let message = `${emoji} CONTACT ${emoji}\n\n <b>CREATED_AT:</b> ${this.getDate()}\n ${log}`
+        let message = `${emoji} CONTACT ${emoji}\n\n <b>CREATED_AT:</b> ${DateTime.getNow()}\n ${log}`
 
         let urlParams = encodeURI(`chat_id=${this.channelName}&text=${message}&parse_mode=HTML`)
 
@@ -100,7 +100,7 @@ class TelegramBOTLogger {
         <b>SHIPPING_COUNTRY:</b> BRAZIL
         `
 
-        let message = `${emoji} SHOP TRANSACTION ${emoji}\n\n <b>CREATED_AT:</b> ${this.getDate()}\n ${log}`
+        let message = `${emoji} SHOP TRANSACTION ${emoji}\n\n <b>CREATED_AT:</b> ${DateTime.getNow()}\n ${log}`
 
         let urlParams = encodeURI(`chat_id=${this.channelName}&text=${message}&parse_mode=HTML`)
 
@@ -132,7 +132,7 @@ class TelegramBOTLogger {
         <b>CUSTOMER_NAME:</b> ${subsTransactionObject.customer.name}
         `
 
-        let message = `${emoji} SUBSCRIPTION TRANSACTION ${emoji}\n\n <b>CREATED_AT:</b> ${this.getDate()}\n ${log}`
+        let message = `${emoji} SUBSCRIPTION TRANSACTION ${emoji}\n\n <b>CREATED_AT:</b> ${DateTime.getNow()}\n ${log}`
 
         let urlParams = encodeURI(`chat_id=${this.channelName}&text=${message}&parse_mode=HTML`)
 

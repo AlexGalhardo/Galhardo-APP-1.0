@@ -121,7 +121,6 @@ class Stripe {
                     if(database.users[i].stripe.card_id === stripe_card_id){
 
                         database.users[i].stripe.card_id = null
-                        database.users[i].stripe.card_token_id = null
                         database.users[i].stripe.card_brand = null
                         database.users[i].stripe.card_last4 = null
                         database.users[i].stripe.card_exp_month = null

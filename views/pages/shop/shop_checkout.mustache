@@ -66,6 +66,12 @@
                 <!-- START COL-LG-4 -->
                 <div class="col-lg-4">
 
+                    {{#flash_warning}}
+                        <div class="text-center alert alert-warning" role="alert">
+                            <b>{{flash_warning}}</b>
+                        </div>
+                    {{/flash_warning}}
+
                     <div class="form-floating mb-3">
                       <input type="text" class="form-control" name="customer_name" id="customer_name" value="{{name}}" required onkeydown="return false;">
                       <label for="customer_name">NAME</label>
@@ -165,7 +171,7 @@
                 <!-- PAYMENTS -->
                 <div class="col-lg-4">
 
-                    {{#user.stripe.card_id}}
+                    {{#user.stripe.card_token_id}}
                         <div class="form-floating mb-3">
                             <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_id}}" readonly>
                             <label for="stripe_card_last_4_digits">REGISTRED_STRIPE CARD_ID</label>
@@ -191,12 +197,12 @@
                             </div>
                           </div>
                         </div>
-                    {{/user.stripe.card_id}}
+                    {{/user.stripe.card_token_id}}
                             
 
 
 
-                    {{^user.stripe.card_id}}
+                    {{^user.stripe.card_token_id}}
 
                     <div id="div_credit_card"></div>
 
@@ -236,7 +242,7 @@
                         </div>
                     </div>
 
-                    {{/user.stripe.card_id}}
+                    {{/user.stripe.card_token_id}}
             
                     <div>
                         <button type="submit" class="btn btn-outline-success btn-block shadow w-100">

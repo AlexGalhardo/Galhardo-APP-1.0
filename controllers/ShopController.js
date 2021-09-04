@@ -16,8 +16,10 @@ const NodeMailer = require('../helpers/NodeMailer');
 const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
 const Header = require('../helpers/Header');
 
+
 // MODELS
 const StripeModel = require(`../models/${process.env.APP_DATABASE}/Stripe`)
+const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
 
 
 // Stripe
@@ -30,6 +32,7 @@ class ShopController {
 	static getViewShop (req, res)  {
 	    return res.render('pages/shop/shop_checkout', {
 	        user: SESSION_USER,
+            flash_warning: req.flash('warning'),
 	        header: Header.shop()
 	    });
 	}
@@ -42,26 +45,27 @@ class ShopController {
                 email: SESSION_USER.email
             });
             await Users.createStripeCustomer(SESSION_USER.id, customer.id)
-            return customer
+            return
         }
-        return SESSION_USER.stripe.customer_id
+        return
     }
 
 
     static async verifyIfUserAlreadyHasAStripeCardRegistred(req){
+        const { card_number,
+                card_exp_year,
+                card_exp_month,
+                card_cvc } = req.body
+
         if(!SESSION_USER.stripe.card_id){
-            const { card_number,
-                    card_exp_year,
-                    card_exp_month,
-                    card_cvc } = req.body
 
             const cardToken = await stripe.tokens.create({
-                 card: {
+                card: {
                     number: card_number,
                     exp_month: card_exp_month,
                     exp_year: card_exp_year,
                     cvc: card_cvc,
-                  },
+                }
             });
 
             const card = await stripe.customers.createSource(
@@ -73,7 +77,17 @@ class ShopController {
 
             return cardToken.id
         }
-        return SESSION_USER.stripe.card_token_id
+
+        const cardToken = await stripe.tokens.create({
+            card: {
+                number: card_number,
+                exp_month: card_exp_month,
+                exp_year: card_exp_year,
+                cvc: card_cvc,
+            }
+        });
+
+        return cardToken.id
     }
 
 
@@ -85,13 +99,15 @@ class ShopController {
 	static async postShopPayLog (req, res) {
 		
         try {
-            const { quantityOranges,
+            const {
+                quantityOranges,
                 quantityGrapes,
                 quantityApples,
                 quantityBananas,
                 customer_email,
                 customer_name,
                 customer_phone,
+                confirm_password,
                 zipcode,
                 customer_street,
                 customer_neighborhood,
@@ -106,9 +122,17 @@ class ShopController {
                 card_exp_year,
                 card_cvc } = req.body;
 
-            const stripe_customer_id = await PlansController.verifyIfUserIsAlreadyAStripeCustomer()
 
-            const stripe_card_token_id = await PlansController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
+            const validPassword = await Users.verifyPassword(SESSION_USER.id, confirm_password)
+
+            if(!validPassword){
+                req.flash('warning', 'Invalid Password!')
+                return res.redirect(`/shop`)
+            }
+
+            await ShopController.verifyIfUserIsAlreadyAStripeCustomer()
+
+            const stripeCardTokenID = await ShopController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
 
             const products = [
                 {
@@ -133,11 +157,10 @@ class ShopController {
                 },
             ]
 
-            // create charge in stripe
             const shopCardCharge = await stripe.charges.create({
                 amount: parseInt(total_shop_amount * 100),
                 currency: 'usd',
-                source: stripe_card_token_id,
+                source: stripeCardTokenID,
                 description: JSON.stringify(products),
                 receipt_email: customer_email
             });

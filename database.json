@@ -26,18 +26,17 @@
         "country": "BRAZIL"
       },
       "stripe": {
-        "customer_id": null,
-        "card_token_id": null,
-        "card_id": null,
-        "card_holder_name": null,
-        "card_last_4_digits": null,
-        "card_exp_month": null,
-        "card_exp_year": null,
-        "currently_subscription_id": null,
-        "currently_subscription_name": null,
-        "subscription_start": null,
-        "subscription_end": null,
-        "cancel_at_period_end": null
+        "customer_id": "cus_KARqXVbwHvPZyS",
+        "card_id": "card_1JW7O3HoneB4ZvrpwgYbhFYC",
+        "card_brand": "Visa",
+        "card_last4": "4242",
+        "card_exp_month": 8,
+        "card_exp_year": 2022,
+        "currently_subscription_id": "sub_KASPZ9F5iNXsBG",
+        "currently_subscription_name": "STARTER",
+        "subscription_start": "04/09/2021 19:37:40",
+        "subscription_end": "04/10/2021 19:37:40",
+        "cancel_at_period_end": false
       },
       "created_at": "09/08/2021 03:52:14",
       "updated_at": "11/08/2021 04:04:17"
@@ -69,7 +68,6 @@
       },
       "stripe": {
         "customer_id": "cus_K8y63RgFsRst7l",
-        "card_token_id": null,
         "card_id": null,
         "card_brand": null,
         "card_last4": null,
@@ -484,10 +482,10 @@
   "stripe": {
     "shop_transactions": [
       {
-        "transaction_id": "ch_3JV1I2HoneB4Zvrp1cpsmGHx",
-        "total_amount": "91.60",
+        "transaction_id": "ch_3JW8A0HoneB4Zvrp1IZCNdbE",
+        "total_amount": "33.46",
         "payment_method": {
-          "card_id": "card_1JV1I1HoneB4ZvrpKMQihuuV",
+          "card_id": "card_1JW8A0HoneB4ZvrpAE6vcaDK",
           "brand": "Visa",
           "exp_month": 8,
           "exp_year": 2022,
@@ -495,35 +493,35 @@
         },
         "currency": "usd",
         "paid": true,
-        "products_amount": "64.60",
+        "products_amount": "6.46",
         "products": [
           {
-            "quantity": "10",
+            "quantity": "1",
             "name": "Oranges",
-            "total": "4.90"
+            "total": "0.49"
           },
           {
-            "quantity": "10",
+            "quantity": "1",
             "name": "Grapes",
-            "total": "9.90"
+            "total": "0.99"
           },
           {
-            "quantity": "10",
+            "quantity": "1",
             "name": "Apples",
-            "total": "19.90"
+            "total": "1.99"
           },
           {
-            "quantity": "10",
+            "quantity": "1",
             "name": "Bananas",
-            "total": "29.90"
+            "total": "2.99"
           }
         ],
         "customer": {
-          "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-          "stripe_id": "cus_K8y63RgFsRst7l",
-          "email": "admin@gmail.com",
+          "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+          "stripe_id": "cus_KARqXVbwHvPZyS",
+          "email": "test@gmail.com",
           "phone": "18999999999",
-          "name": "ADMIN Alex"
+          "name": "Test Jack"
         },
         "shipping": {
           "address_zipcode": "13560290",
@@ -536,20 +534,75 @@
           "carrier": "Correios",
           "fee": "27.00"
         },
-        "created_at": "01/09/2021 18:48:15"
+        "created_at": "04/09/2021 20:20:33"
       },
       {
-        "transaction_id": "ch_3JV1MXHoneB4Zvrp0bPvDT3g",
-        "total_amount": "55.37",
+        "transaction_id": "ch_3JW8BtHoneB4Zvrp1i37fotT",
+        "total_amount": "33.46",
         "payment_method": {
-          "card_id": "card_1JV1MWHoneB4Zvrpo1KMyE2d",
+          "card_id": "card_1JW8BtHoneB4ZvrpA00R2Vnn",
           "brand": "Visa",
           "exp_month": 8,
           "exp_year": 2022,
           "last4": "4242"
         },
         "currency": "usd",
-        "paid": false,
+        "paid": true,
+        "products_amount": "6.46",
+        "products": [
+          {
+            "quantity": "1",
+            "name": "Oranges",
+            "total": "0.49"
+          },
+          {
+            "quantity": "1",
+            "name": "Grapes",
+            "total": "0.99"
+          },
+          {
+            "quantity": "1",
+            "name": "Apples",
+            "total": "1.99"
+          },
+          {
+            "quantity": "1",
+            "name": "Bananas",
+            "total": "2.99"
+          }
+        ],
+        "customer": {
+          "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+          "stripe_id": "cus_KARqXVbwHvPZyS",
+          "email": "test@gmail.com",
+          "phone": "18999999999",
+          "name": "Test Jack"
+        },
+        "shipping": {
+          "address_zipcode": "13560290",
+          "address_street": "Rua Dona Alexandrina",
+          "address_street_number": 42,
+          "address_neighborhood": "Vila Monteiro (Gleba I)",
+          "address_city": "São Carlos",
+          "address_state": "SP",
+          "address_country": "Brazil",
+          "carrier": "Correios",
+          "fee": "27.00"
+        },
+        "created_at": "04/09/2021 20:22:30"
+      },
+      {
+        "transaction_id": "ch_3JW8DOHoneB4Zvrp0W0S0Sr7",
+        "total_amount": "60.37",
+        "payment_method": {
+          "card_id": "card_1JW8DOHoneB4ZvrpQxAMSmiY",
+          "brand": "Visa",
+          "exp_month": 8,
+          "exp_year": 2022,
+          "last4": "4242"
+        },
+        "currency": "usd",
+        "paid": true,
         "products_amount": "33.37",
         "products": [
           {
@@ -574,133 +627,26 @@
           }
         ],
         "customer": {
-          "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-          "stripe_id": "cus_K8y63RgFsRst7l",
-          "email": "admin@gmail.com",
+          "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+          "stripe_id": "cus_KARqXVbwHvPZyS",
+          "email": "test@gmail.com",
           "phone": "18999999999",
-          "name": "ADMIN Alex"
+          "name": "Test Jack"
         },
         "shipping": {
-          "address_zipcode": "16050590",
-          "address_street": "Rua Anselmo Manarelli",
+          "address_zipcode": "13560290",
+          "address_street": "Rua Dona Alexandrina",
           "address_street_number": 42,
-          "address_neighborhood": "Santana",
-          "address_city": "Araçatuba",
+          "address_neighborhood": "Vila Monteiro (Gleba I)",
+          "address_city": "São Carlos",
           "address_state": "SP",
           "address_country": "Brazil",
           "carrier": "Correios",
-          "fee": "22.00"
+          "fee": "27.00"
         },
-        "created_at": "01/09/2021 18:52:53"
+        "created_at": "04/09/2021 20:24:03"
       }
     ],
-    "subscriptions_transactions": [
-      {
-        "created_at": "02/09/2021 14:50:59",
-        "transaction_id": "sub_K9dKyNcDo7NpQ1",
-        "status": "active",
-        "payment_method": {
-          "card_id": "card_1JV0ZtHoneB4Zvrp0ZVmggZ3",
-          "card_brand": "Visa",
-          "card_exp_month": 8,
-          "card_exp_year": 2022,
-          "card_last4": "4242"
-        },
-        "plan": {
-          "id": "price_1JVJmfHoneB4Zvrpakj6CE0i",
-          "name": "PRO",
-          "current_period_start": "02/09/2021 14:50:57",
-          "current_period_end": "02/10/2021 14:50:57",
-          "cancel_at_period_end": false
-        },
-        "customer": {
-          "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-          "stripe_id": "cus_K8y63RgFsRst7l",
-          "email": "admin@gmail.com",
-          "name": "ADMIN Alex"
-        },
-        "stripe_request_response": "{\"id\":\"sub_K9dKyNcDo7NpQ1\",\"object\":\"subscription\",\"application_fee_percent\":null,\"automatic_tax\":{\"enabled\":false},\"billing_cycle_anchor\":1630605057,\"billing_thresholds\":null,\"cancel_at\":null,\"cancel_at_period_end\":false,\"canceled_at\":null,\"collection_method\":\"charge_automatically\",\"created\":\"02/09/2021 14:50:57\",\"current_period_end\":\"02/10/2021 14:50:57\",\"current_period_start\":\"02/09/2021 14:50:57\",\"customer\":\"cus_K8y63RgFsRst7l\",\"days_until_due\":null,\"default_payment_method\":null,\"default_source\":null,\"default_tax_rates\":[],\"discount\":null,\"ended_at\":null,\"items\":{\"object\":\"list\",\"data\":[{\"id\":\"si_K9dKU2qAOUDp8v\",\"object\":\"subscription_item\",\"billing_thresholds\":null,\"created\":1630605058,\"metadata\":{},\"plan\":{\"id\":\"price_1JVJmfHoneB4Zvrpakj6CE0i\",\"object\":\"plan\",\"active\":true,\"aggregate_usage\":null,\"amount\":299,\"amount_decimal\":\"299\",\"billing_scheme\":\"per_unit\",\"created\":1630603985,\"currency\":\"usd\",\"interval\":\"month\",\"interval_count\":1,\"livemode\":false,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9d2vcxb47hJlv\",\"tiers\":null,\"tiers_mode\":null,\"transform_usage\":null,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"price\":{\"id\":\"price_1JVJmfHoneB4Zvrpakj6CE0i\",\"object\":\"price\",\"active\":true,\"billing_scheme\":\"per_unit\",\"created\":1630603985,\"currency\":\"usd\",\"livemode\":false,\"lookup_key\":null,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9d2vcxb47hJlv\",\"recurring\":{\"aggregate_usage\":null,\"interval\":\"month\",\"interval_count\":1,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"tax_behavior\":\"unspecified\",\"tiers_mode\":null,\"transform_quantity\":null,\"type\":\"recurring\",\"unit_amount\":299,\"unit_amount_decimal\":\"299\"},\"quantity\":1,\"subscription\":\"sub_K9dKyNcDo7NpQ1\",\"tax_rates\":[]}],\"has_more\":false,\"total_count\":1,\"url\":\"/v1/subscription_items?subscription=sub_K9dKyNcDo7NpQ1\"},\"latest_invoice\":\"in_1JVK3xHoneB4Zvrp2TWbPXAw\",\"livemode\":false,\"metadata\":{},\"next_pending_invoice_item_invoice\":null,\"pause_collection\":null,\"payment_settings\":{\"payment_method_options\":null,\"payment_method_types\":null},\"pending_invoice_item_interval\":null,\"pending_setup_intent\":null,\"pending_update\":null,\"plan\":{\"id\":\"price_1JVJmfHoneB4Zvrpakj6CE0i\",\"object\":\"plan\",\"active\":true,\"aggregate_usage\":null,\"amount\":299,\"amount_decimal\":\"299\",\"billing_scheme\":\"per_unit\",\"created\":1630603985,\"currency\":\"usd\",\"interval\":\"month\",\"interval_count\":1,\"livemode\":false,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9d2vcxb47hJlv\",\"tiers\":null,\"tiers_mode\":null,\"transform_usage\":null,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"quantity\":1,\"schedule\":null,\"start_date\":1630605057,\"status\":\"active\",\"tax_percent\":null,\"transfer_data\":null,\"trial_end\":null,\"trial_start\":null}"
-      },
-      {
-        "created_at": "02/09/2021 14:53:27",
-        "transaction_id": "sub_K9dN8xiYqBWtFg",
-        "status": "active",
-        "payment_method": {
-          "card_id": "card_1JV0ZtHoneB4Zvrp0ZVmggZ3",
-          "card_brand": "Visa",
-          "card_exp_month": 8,
-          "card_exp_year": 2022,
-          "card_last4": "4242"
-        },
-        "plan": {
-          "id": "price_1JVJvdHoneB4ZvrpRKGYNKvl",
-          "name": "PREMIUM",
-          "amount": "499",
-          "current_period_start": "02/09/2021 14:53:24",
-          "current_period_end": "02/10/2021 14:53:24",
-          "cancel_at_period_end": false
-        },
-        "customer": {
-          "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-          "stripe_id": "cus_K8y63RgFsRst7l",
-          "email": "admin@gmail.com",
-          "name": "ADMIN Alex"
-        },
-        "stripe_request_response": "{\"id\":\"sub_K9dN8xiYqBWtFg\",\"object\":\"subscription\",\"application_fee_percent\":null,\"automatic_tax\":{\"enabled\":false},\"billing_cycle_anchor\":1630605204,\"billing_thresholds\":null,\"cancel_at\":null,\"cancel_at_period_end\":false,\"canceled_at\":null,\"collection_method\":\"charge_automatically\",\"created\":\"02/09/2021 14:53:24\",\"current_period_end\":\"02/10/2021 14:53:24\",\"current_period_start\":\"02/09/2021 14:53:24\",\"customer\":\"cus_K8y63RgFsRst7l\",\"days_until_due\":null,\"default_payment_method\":null,\"default_source\":null,\"default_tax_rates\":[],\"discount\":null,\"ended_at\":null,\"items\":{\"object\":\"list\",\"data\":[{\"id\":\"si_K9dNarku3hTNsM\",\"object\":\"subscription_item\",\"billing_thresholds\":null,\"created\":1630605205,\"metadata\":{},\"plan\":{\"id\":\"price_1JVJvdHoneB4ZvrpRKGYNKvl\",\"object\":\"plan\",\"active\":true,\"aggregate_usage\":null,\"amount\":499,\"amount_decimal\":\"499\",\"billing_scheme\":\"per_unit\",\"created\":1630604541,\"currency\":\"usd\",\"interval\":\"month\",\"interval_count\":1,\"livemode\":false,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9dBeyovNJWi3B\",\"tiers\":null,\"tiers_mode\":null,\"transform_usage\":null,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"price\":{\"id\":\"price_1JVJvdHoneB4ZvrpRKGYNKvl\",\"object\":\"price\",\"active\":true,\"billing_scheme\":\"per_unit\",\"created\":1630604541,\"currency\":\"usd\",\"livemode\":false,\"lookup_key\":null,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9dBeyovNJWi3B\",\"recurring\":{\"aggregate_usage\":null,\"interval\":\"month\",\"interval_count\":1,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"tax_behavior\":\"unspecified\",\"tiers_mode\":null,\"transform_quantity\":null,\"type\":\"recurring\",\"unit_amount\":499,\"unit_amount_decimal\":\"499\"},\"quantity\":1,\"subscription\":\"sub_K9dN8xiYqBWtFg\",\"tax_rates\":[]}],\"has_more\":false,\"total_count\":1,\"url\":\"/v1/subscription_items?subscription=sub_K9dN8xiYqBWtFg\"},\"latest_invoice\":\"in_1JVK6LHoneB4ZvrpwdHE8gHR\",\"livemode\":false,\"metadata\":{},\"next_pending_invoice_item_invoice\":null,\"pause_collection\":null,\"payment_settings\":{\"payment_method_options\":null,\"payment_method_types\":null},\"pending_invoice_item_interval\":null,\"pending_setup_intent\":null,\"pending_update\":null,\"plan\":{\"id\":\"price_1JVJvdHoneB4ZvrpRKGYNKvl\",\"object\":\"plan\",\"active\":true,\"aggregate_usage\":null,\"amount\":499,\"amount_decimal\":\"499\",\"billing_scheme\":\"per_unit\",\"created\":1630604541,\"currency\":\"usd\",\"interval\":\"month\",\"interval_count\":1,\"livemode\":false,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9dBeyovNJWi3B\",\"tiers\":null,\"tiers_mode\":null,\"transform_usage\":null,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"quantity\":1,\"schedule\":null,\"start_date\":1630605204,\"status\":\"active\",\"tax_percent\":null,\"transfer_data\":null,\"trial_end\":null,\"trial_start\":null}"
-      },
-      {
-        "created_at": "02/09/2021 14:56:00",
-        "transaction_id": "sub_K9dPilIo169Xp1",
-        "status": "active",
-        "payment_method": {
-          "card_id": "card_1JV0ZtHoneB4Zvrp0ZVmggZ3",
-          "card_brand": "Visa",
-          "card_exp_month": 8,
-          "card_exp_year": 2022,
-          "card_last4": "4242"
-        },
-        "plan": {
-          "id": "price_1JVJvdHoneB4ZvrpRKGYNKvl",
-          "name": "PREMIUM",
-          "amount": "499",
-          "current_period_start": "02/09/2021 14:55:58",
-          "current_period_end": "02/10/2021 14:55:58",
-          "cancel_at_period_end": false
-        },
-        "customer": {
-          "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-          "stripe_id": "cus_K8y63RgFsRst7l",
-          "email": "admin@gmail.com",
-          "name": "ADMIN Alex"
-        },
-        "stripe_request_response": "{\"id\":\"sub_K9dPilIo169Xp1\",\"object\":\"subscription\",\"application_fee_percent\":null,\"automatic_tax\":{\"enabled\":false},\"billing_cycle_anchor\":1630605358,\"billing_thresholds\":null,\"cancel_at\":null,\"cancel_at_period_end\":false,\"canceled_at\":null,\"collection_method\":\"charge_automatically\",\"created\":\"02/09/2021 14:55:58\",\"current_period_end\":\"02/10/2021 14:55:58\",\"current_period_start\":\"02/09/2021 14:55:58\",\"customer\":\"cus_K8y63RgFsRst7l\",\"days_until_due\":null,\"default_payment_method\":null,\"default_source\":null,\"default_tax_rates\":[],\"discount\":null,\"ended_at\":null,\"items\":{\"object\":\"list\",\"data\":[{\"id\":\"si_K9dPLZWlhEs2uv\",\"object\":\"subscription_item\",\"billing_thresholds\":null,\"created\":1630605358,\"metadata\":{},\"plan\":{\"id\":\"price_1JVJvdHoneB4ZvrpRKGYNKvl\",\"object\":\"plan\",\"active\":true,\"aggregate_usage\":null,\"amount\":499,\"amount_decimal\":\"499\",\"billing_scheme\":\"per_unit\",\"created\":1630604541,\"currency\":\"usd\",\"interval\":\"month\",\"interval_count\":1,\"livemode\":false,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9dBeyovNJWi3B\",\"tiers\":null,\"tiers_mode\":null,\"transform_usage\":null,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"price\":{\"id\":\"price_1JVJvdHoneB4ZvrpRKGYNKvl\",\"object\":\"price\",\"active\":true,\"billing_scheme\":\"per_unit\",\"created\":1630604541,\"currency\":\"usd\",\"livemode\":false,\"lookup_key\":null,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9dBeyovNJWi3B\",\"recurring\":{\"aggregate_usage\":null,\"interval\":\"month\",\"interval_count\":1,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"tax_behavior\":\"unspecified\",\"tiers_mode\":null,\"transform_quantity\":null,\"type\":\"recurring\",\"unit_amount\":499,\"unit_amount_decimal\":\"499\"},\"quantity\":1,\"subscription\":\"sub_K9dPilIo169Xp1\",\"tax_rates\":[]}],\"has_more\":false,\"total_count\":1,\"url\":\"/v1/subscription_items?subscription=sub_K9dPilIo169Xp1\"},\"latest_invoice\":\"in_1JVK8oHoneB4Zvrp1OnnxSWo\",\"livemode\":false,\"metadata\":{},\"next_pending_invoice_item_invoice\":null,\"pause_collection\":null,\"payment_settings\":{\"payment_method_options\":null,\"payment_method_types\":null},\"pending_invoice_item_interval\":null,\"pending_setup_intent\":null,\"pending_update\":null,\"plan\":{\"id\":\"price_1JVJvdHoneB4ZvrpRKGYNKvl\",\"object\":\"plan\",\"active\":true,\"aggregate_usage\":null,\"amount\":499,\"amount_decimal\":\"499\",\"billing_scheme\":\"per_unit\",\"created\":1630604541,\"currency\":\"usd\",\"interval\":\"month\",\"interval_count\":1,\"livemode\":false,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9dBeyovNJWi3B\",\"tiers\":null,\"tiers_mode\":null,\"transform_usage\":null,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"quantity\":1,\"schedule\":null,\"start_date\":1630605358,\"status\":\"active\",\"tax_percent\":null,\"transfer_data\":null,\"trial_end\":null,\"trial_start\":null}"
-      },
-      {
-        "created_at": "02/09/2021 14:59:35",
-        "transaction_id": "sub_K9dTRyfii6mNKt",
-        "status": "active",
-        "payment_method": {
-          "card_id": "card_1JV0ZtHoneB4Zvrp0ZVmggZ3",
-          "card_brand": "Visa",
-          "card_exp_month": 8,
-          "card_exp_year": 2022,
-          "card_last4": "4242"
-        },
-        "plan": {
-          "id": "price_1JVJmfHoneB4Zvrpakj6CE0i",
-          "name": "PRO",
-          "current_period_start": "02/09/2021 14:59:32",
-          "current_period_end": "02/10/2021 14:59:32",
-          "cancel_at_period_end": false
-        },
-        "customer": {
-          "id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-          "stripe_id": "cus_K8y63RgFsRst7l",
-          "email": "admin@gmail.com",
-          "name": "ADMIN Alex"
-        },
-        "stripe_request_response": "{\"id\":\"sub_K9dTRyfii6mNKt\",\"object\":\"subscription\",\"application_fee_percent\":null,\"automatic_tax\":{\"enabled\":false},\"billing_cycle_anchor\":1630605572,\"billing_thresholds\":null,\"cancel_at\":null,\"cancel_at_period_end\":false,\"canceled_at\":null,\"collection_method\":\"charge_automatically\",\"created\":\"02/09/2021 14:59:32\",\"current_period_end\":\"02/10/2021 14:59:32\",\"current_period_start\":\"02/09/2021 14:59:32\",\"customer\":\"cus_K8y63RgFsRst7l\",\"days_until_due\":null,\"default_payment_method\":null,\"default_source\":null,\"default_tax_rates\":[],\"discount\":null,\"ended_at\":null,\"items\":{\"object\":\"list\",\"data\":[{\"id\":\"si_K9dTyyrtvGWRy9\",\"object\":\"subscription_item\",\"billing_thresholds\":null,\"created\":1630605573,\"metadata\":{},\"plan\":{\"id\":\"price_1JVJmfHoneB4Zvrpakj6CE0i\",\"object\":\"plan\",\"active\":true,\"aggregate_usage\":null,\"amount\":299,\"amount_decimal\":\"299\",\"billing_scheme\":\"per_unit\",\"created\":1630603985,\"currency\":\"usd\",\"interval\":\"month\",\"interval_count\":1,\"livemode\":false,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9d2vcxb47hJlv\",\"tiers\":null,\"tiers_mode\":null,\"transform_usage\":null,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"price\":{\"id\":\"price_1JVJmfHoneB4Zvrpakj6CE0i\",\"object\":\"price\",\"active\":true,\"billing_scheme\":\"per_unit\",\"created\":1630603985,\"currency\":\"usd\",\"livemode\":false,\"lookup_key\":null,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9d2vcxb47hJlv\",\"recurring\":{\"aggregate_usage\":null,\"interval\":\"month\",\"interval_count\":1,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"tax_behavior\":\"unspecified\",\"tiers_mode\":null,\"transform_quantity\":null,\"type\":\"recurring\",\"unit_amount\":299,\"unit_amount_decimal\":\"299\"},\"quantity\":1,\"subscription\":\"sub_K9dTRyfii6mNKt\",\"tax_rates\":[]}],\"has_more\":false,\"total_count\":1,\"url\":\"/v1/subscription_items?subscription=sub_K9dTRyfii6mNKt\"},\"latest_invoice\":\"in_1JVKCHHoneB4Zvrpk3ATIQqA\",\"livemode\":false,\"metadata\":{},\"next_pending_invoice_item_invoice\":null,\"pause_collection\":null,\"payment_settings\":{\"payment_method_options\":null,\"payment_method_types\":null},\"pending_invoice_item_interval\":null,\"pending_setup_intent\":null,\"pending_update\":null,\"plan\":{\"id\":\"price_1JVJmfHoneB4Zvrpakj6CE0i\",\"object\":\"plan\",\"active\":true,\"aggregate_usage\":null,\"amount\":299,\"amount_decimal\":\"299\",\"billing_scheme\":\"per_unit\",\"created\":1630603985,\"currency\":\"usd\",\"interval\":\"month\",\"interval_count\":1,\"livemode\":false,\"metadata\":{},\"nickname\":null,\"product\":\"prod_K9d2vcxb47hJlv\",\"tiers\":null,\"tiers_mode\":null,\"transform_usage\":null,\"trial_period_days\":null,\"usage_type\":\"licensed\"},\"quantity\":1,\"schedule\":null,\"start_date\":1630605572,\"status\":\"active\",\"tax_percent\":null,\"transfer_data\":null,\"trial_end\":null,\"trial_start\":null}"
-      }
-    ]
+    "subscriptions_transactions": []
   }
 }

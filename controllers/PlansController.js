@@ -37,15 +37,11 @@ class PlansController {
 
 
     static getViewPlanStarterCheckout (req, res) {
-        try {
-            return res.render('pages/plans/starter_checkout', {
-                flash_warning: req.flash('warning'),
-                user: SESSION_USER,
-                header: Header.plans('Plan STARTER - Galhardo APP')
-            });
-        } catch(error){
-            throw new Error(error)
-        }
+        return res.render('pages/plans/starter_checkout', {
+            flash_warning: req.flash('warning'),
+            user: SESSION_USER,
+            header: Header.plans('Plan STARTER - Galhardo APP')
+        });
     }
 
 
@@ -165,10 +161,18 @@ class PlansController {
                 {source: cardToken.id}
             );
 
-            await Users.createStripeCard(SESSION_USER.id, cardToken.id, card)
-            return
+            const stripeCard = await Users.createStripeCard(SESSION_USER.id, cardToken.id, card)
+            return stripeCard
         }
-        return
+
+        return {
+            card_token_id: SESSION_USER.stripe.card_token_id,
+            card_id: SESSION_USER.stripe.card_id,
+            card_brand: SESSION_USER.stripe.card_brand,
+            card_last4: SESSION_USER.stripe.card_last4,
+            card_exp_month: SESSION_USER.stripe.card_exp_month,
+            card_exp_year: SESSION_USER.stripe.card_exp_year
+        }
     }
 
 
@@ -222,42 +226,38 @@ class PlansController {
     static async postSubscription (req, res) {
 
         try {
-            const { plan_name, customer_password } = req.body
+            const { plan_name, confirm_password } = req.body
 
-            if(!Users.verifyPassword(SESSION_USER.id, customer_password)){
-                return res.render('pages/plans/plans', {
-                    flash: {
-                        type: "warning",
-                        message: `Invalid Password!`
-                    },
-                    user: SESSION_USER,
-                    header: Header.plans()
-                })
+            const validPassword = await Users.verifyPassword(SESSION_USER.id, confirm_password)
+
+            if(!validPassword){
+                req.flash('warning', 'Invalid Password!')
+                return res.redirect(`/plan/${plan_name.toLowerCase()}/checkout`)
             }
 
-            const stripe_customer_id = await PlansController.verifyIfUserIsAlreadyAStripeCustomer()
+            const stripeCustomerID = await PlansController.verifyIfUserIsAlreadyAStripeCustomer()
 
-            await PlansController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
+            const stripeCard = await PlansController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
 
-            const stripe_plan = await PlansController.getStripePlan()[plan_name];
+            const stripePlan = await PlansController.getStripePlan()[plan_name];
 
-            const subscription = await PlansController.createStripeSubscription(stripe_customer_id, stripe_plan.id)
+            const subscription = await PlansController.createStripeSubscription(stripeCustomerID, stripePlan.id)
 
             const subsTransactionObject = {
                 created_at: DateTime.getNow(),
                 transaction_id: subscription.id,
                 status: subscription.status,
                 payment_method: {
-                    card_id: SESSION_USER.stripe.card_id,
-                    card_brand: SESSION_USER.stripe.card_brand,
-                    card_exp_month: SESSION_USER.stripe.card_exp_month,
-                    card_exp_year: SESSION_USER.stripe.card_exp_year,
-                    card_last4: SESSION_USER.stripe.card_last4
+                    card_id: stripeCard.card_id,
+                    card_brand: stripeCard.card_brand,
+                    card_exp_month: stripeCard.card_exp_month,
+                    card_exp_year: stripeCard.card_exp_year,
+                    card_last4: stripeCard.card_last4
                 },
                 plan: {
-                    id: stripe_plan.id,
-                    name: stripe_plan.name,
-                    amount: stripe_plan.amount,
+                    id: stripePlan.id,
+                    name: stripePlan.name,
+                    amount: stripePlan.amount,
                     current_period_start: subscription.current_period_start,
                     current_period_end: subscription.current_period_end,
                     cancel_at_period_end: subscription.cancel_at_period_end
@@ -283,12 +283,12 @@ class PlansController {
                 flash_success: 'Subscription Created with Success!',
                 subsTransactionObject,
                 user: SESSION_USER,
-                header: Header.plans(),
+                header: Header.plans('Plan Pay Status - Galhardo APP'),
                 divPlanBanner: PlansController.getSubscriptionBanner(plan_name)
             });
 
-        } catch(err){
-            throw new Error(err)
+        } catch(error){
+            throw new Error(error)
         }
 	}
 };

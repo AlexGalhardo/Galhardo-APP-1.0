@@ -73,7 +73,7 @@ class Users {
             }
             return false
         } catch (error) {
-            return console.log("ERROR verifyIfAdminByID: ",error);
+            throw new Error(error)
         }
     }
 
@@ -88,51 +88,48 @@ class Users {
             }
             return false
         } catch (error) {
-            console.log("ERROR emailRegistred: ", error);
+            throw new Error(error)
+        }
+    }
+
+
+
+    static verifyConfirmEmailToken (email, token) {
+        try {
+
+            for(let i = 0; i < database.users.length; i++){
+                if(
+                  database.users[i].email === email
+                  &&
+                  database.users[i].confirm_email_token === token){
+                    console.log('entrou')
+                    database.users[i].confirmed_email = true
+                    database.users[i].confirm_email_token = null
+                    Users.save(database)
+                    return true
+                }
+            }
             return false
         }
-    }
-
-
-
-  static verifyConfirmEmailToken (email, token) {
-    try {
-      
-      for(let i = 0; i < database.users.length; i++){
-        console.log(database.users[i].email, database.users[i].confirm_email_token)
-        if(
-          database.users[i].email === email 
-          && 
-          database.users[i].confirm_email_token === token)
-        {
-          console.log('entrou')
-          database.users[i].confirmed_email = true
-          database.users[i].confirm_email_token = null
-          Users.save(database, 'ERROR verifyConfirmEmailToken: ')
-          return true
+        catch (error) {
+            throw new Error(error)
         }
-      }
-      return false
-    } 
-    catch (error) {
-      return console.log("ERROR verifyConfirmEmailToken: ", error);
     }
-  }
 
 
 
-  static verifyIfEmailIsConfirmed (email) {
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email == email && database.users[i].confirmed_email){
-          return true
+    static verifyIfEmailIsConfirmed (email) {
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email == email && database.users[i].confirmed_email){
+                    return true
+                }
+            }
+          return false
+        } catch (error) {
+            throw new Error(error)
         }
-      }
-      return false
-    } catch (error) {
-      return console.log("ERROR emailIsAlreadyRegistred: ", error);
     }
-  }
 
 
 
@@ -161,8 +158,6 @@ class Users {
                     const passwordValid = await Bcrypt.comparePassword(password, database.users[i].password)
                     if(passwordValid){
                         return true
-                    } else {
-                        return false
                     }
                 }
             }
@@ -204,13 +199,13 @@ class Users {
                     neighborhood: null,
                     city: null,
                     state: null,
-                    country: "BRAZIL"
+                    country: null
                 },
                   stripe: {
                     customer_id: null,
                     card_id: null,
                     card_brand: null,
-                    card_last_4_digits: null,
+                    card_last4: null,
                     card_exp_month: null,
                     card_exp_year: null,
                     currently_subscription_id: null,
@@ -380,14 +375,22 @@ class Users {
                     database.users[i].stripe.card_token_id = card_token_id
                     database.users[i].stripe.card_id = cardObject.id
                     database.users[i].stripe.card_brand = cardObject.brand
-                    database.users[i].stripe.card_last_4_digits = cardObject.last4
+                    database.users[i].stripe.card_last4 = cardObject.last4
                     database.users[i].stripe.card_exp_month = cardObject.exp_month
                     database.users[i].stripe.card_exp_year = cardObject.exp_year
                     Users.save(database)
-                    return true
+
+                    return {
+                        card_token_id: card_token_id,
+                        card_id: cardObject.id,
+                        card_brand: cardObject.brand,
+                        card_last4: cardObject.last4,
+                        card_exp_month: cardObject.exp_month,
+                        card_exp_year: cardObject.exp_year
+                    }
                 }
             }
-            return false
+            return null
         } catch (error) {
             throw new Error(error);
         }
