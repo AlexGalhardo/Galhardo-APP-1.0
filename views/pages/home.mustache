@@ -4,100 +4,251 @@
 
       	<div class="row">
 
-            {{^game}}
-                <div class="text-center alert alert-warning" role="alert" class="mb-3">
-                    <b class="fw-bold">No games found!</b>
+            {{^games}}
+                {{^game}}
+                    <div class="text-center alert alert-warning" role="alert" class="mb-3">
+                        <b class="fw-bold">No games found!</b>
+                    </div>
+                {{/game}}
+            {{/games}}
+
+
+            {{#flash_success}}
+                <div class="text-center alert alert-success" role="alert">
+                    <b>{{flash_success}}</b>
                 </div>
-            {{/game}}
+            {{/flash_success}}
+
+            {{#flash_warning}}
+                <div class="text-center alert alert-warning" role="alert">
+                    <b>{{flash_warning}}</b>
+                </div>
+            {{/flash_warning}}
+
 
 
             {{#game}}
+                <input id="game_id" name="game_id" type="hidden" value="{{game.id}}">
 
-            <div class="col-lg-3 text-center">
-                <img id="game_image" src="{{image}}" class="shadow-sm mx-auto d-block w-75 image-fluid mb-3" alt="game_image">
+                <div class="col-lg-3 text-center">
 
-                <a id="game_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="image-fluid mb-3"></a>
+                    <img id="game_image" src="{{image}}" class="shadow-sm mx-auto d-block w-75 image-fluid mb-3" alt="game_image">
 
-                <button class="w-75 btn btn-primary shadow mb-3" type="submit" onclick="recommendOtherGame()">
-                        <i class="bi bi-play-fill"></i> 
-                        Recommend Other
-                </button>
+                    <a id="game_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="image-fluid mb-3"></a>
 
-                {{#user.admin}}
-                    <a href="/admin/update/game/{{id}}" class="w-75 shadow mb-2 btn btn-warning shadow-sm">
-                    <i class="bi bi-unlock-fill"></i>
-                    Edit This Game</a>
-                {{/user.admin}}
-            </div>
-            
+                    <button class="w-75 btn btn-outline-danger shadow mb-3" type="submit" onclick="recommendOtherGame()">
+                            <i class="bi bi-play-fill"></i>
+                            Recommend Other
+                    </button>
 
+                    {{#user.admin}}
+                        <a href="/admin/update/game/{{id}}" class="w-75 shadow mb-2 btn btn-warning shadow-sm">
+                        <i class="bi bi-unlock-fill"></i>
+                        Edit This Game</a>
+                    {{/user.admin}}
 
-            <div class="col-lg-7">
-
-                {{#flash_success}}
-                    <div class="text-center alert alert-success" role="alert">
-                        <b>{{flash_success}}</b>
-                    </div>
-                {{/flash_success}}
-
-                {{#flash_warning}}
-                    <div class="text-center alert alert-warning" role="alert">
-                        <b>{{flash_warning}}</b>
-                    </div>
-                {{/flash_warning}}
-
-                <div class="card-body">
-                    
-                    <div class="d-flex justify-content-between alert alert-warning pd-2">
-                        <h4 class="card-title">
-                            <a target="_blank" id="game_igdb_link" style="text-decoration:none;" href="{{igdb_link}}" class="card-link">
-                                <span id="game_title">{{title}}</span>
-                                (<span id="game_year_release" class="text-muted">
-                                    {{year_release}}
-                                </span>) 
-                            </a>
-                        </h4>
-                        
-                        <h4>⭐ 
-                            <span id="game_igdb_rating">
-                                {{igdb_rating}}
-                            </span>
-                        </h4>
-                    </div>
-
-                    
-                    <input id="game_id" name="game_id" type="hidden" value="<?= $game->id; ?>">
-                    
-                    <p class="card-text" id="game_resume">{{resume}}</p>
-                    
-                    <ul class="list-group list-group-flush">
-                        
-                        <li class="list-group-item"><b>Genres:</b> <small id="game_genres">{{genres}}</small></li>
-                        
-                        <li class="list-group-item"><b>Platforms:</b> <small id="game_platforms">{{platforms}}</small></li>
-
-                        <li class="list-group-item"><b>Developer:</b> <small id="game_developer">{{developer}}</small></li>
-                    </ul>
                 </div>
-            </div>
-            <!-- END GAME POST -->
 
+                <div class="col-lg-6">
+
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between alert alert-warning pd-2">
+                            <h4 class="card-title">
+                                <a target="_blank" id="game_igdb_link" style="text-decoration:none;" href="{{igdb_link}}" class="card-link">
+                                    <span id="game_title" class="fw-bold text-primary">{{title}}</span>
+                                    (<span id="game_year_release" class="text-muted">
+                                        {{year_release}}
+                                    </span>)
+                                </a>
+                            </h4>
+
+                            <h4>⭐
+                                <span id="game_igdb_rating">
+                                    {{igdb_rating}}
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button disabled class="w-25 btn btn-sm btn-outline-success mb-3 me-5" type="submit" onclick="recommendThisGame()" title="12392 People Recommend this Game!">
+                                    <i class="bi bi-hand-thumbs-up"></i>
+                                    12392
+                            </button>
+
+                            <button disabled class="w-25 btn btn-sm btn-outline-danger mb-3" type="submit" onclick="dontRecommendThisGame()" title="122 People Dont Recommend this Game!">
+                                    <i class="bi bi-hand-thumbs-down"></i>
+                                    122
+                            </button>
+                        </div>
+
+                        <p class="card-text" id="game_resume">{{resume}}</p>
+
+                        <ul class="list-group list-group-flush bg-light">
+
+                            <li class="list-group-item"><b>Genres:</b> <small id="game_genres">{{genres}}</small></li>
+
+                            <li class="list-group-item"><b>Platforms:</b> <small id="game_platforms">{{platforms}}</small></li>
+
+                            <li class="list-group-item"><b>Developer:</b> <small id="game_developer">{{developer}}</small></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END GAME POST -->
+
+                <div class="col-lg-3 mb-3">
+
+                    <form class="mb-3" action="/searchGame" method="GET">
+                        <input class="form-control" type="search" placeholder="Search Game Title..." aria-label="Search" name="title">
+                    </form>
+
+                    <div class="list-group">
+                        <a href="/" class="list-group-item list-group-item-action  bg-dark text-white" aria-current="true">
+                            <i class="bi bi-controller"></i>
+                            Games
+                        </a>
+
+                        <a href="/books" class="list-group-item list-group-item-action">
+                            <i class="bi bi-book"></i>
+                            Books
+                        </a>
+                    </div>
+
+                    {{^user}}
+                        <div class="card mt-3">
+                            <div class="card-body text-center">
+                                <form method="POST" action="/">
+                                    <h5 class="card-title fw-bold text-success">Newsletter</h5>
+                                    <small>Get the best news about games and books once a week!</small>
+                                    <input class="form-control mt-2" type="text" placeholder="Enter your email" aria-label="Search">
+                                    <div class="form-check mt-2 text-start">
+                                        <input type="checkbox" class="form-check-input" id="checkbox_policy">
+                                        <label class="form-check-label" for="checkbox_policy">
+                                            <small>
+                                                You agree with our
+                                                <a href="/privacy">Privacy and Terms of Use Policy</a> and accept to receive offers and advertisements.
+                                            </small>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="mt-3 w-100 btn btn-sm btn-outline-success">Subscribe to newsletter</button>
+                                </form>
+                            </div>
+                        </div>
+                    {{/user}}
+
+                </div>
             {{/game}}
 
-            <!-- COL-LG-2 -->
-            <div class="col-lg-2 mb-3">
-                <div class="list-group">
-                    <a href="/" class="list-group-item list-group-item-action  bg-dark text-white" aria-current="true">
-                        <i class="bi bi-controller"></i> 
-                        Games
-                    </a>
-                      
-                    <a href="/books" class="list-group-item list-group-item-action">
-                        <i class="bi bi-book"></i> 
-                        Books
-                    </a>
+
+
+
+
+
+            {{#games}}
+
+                <div class="col-lg-3 text-center">
+
+                    <img id="game_image" src="{{image}}" class="shadow-sm mx-auto d-block w-75 image-fluid mb-3" alt="game_image">
+
+                    <a id="game_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="image-fluid mb-3"></a>
+
                 </div>
-            </div>
+
+                <div class="col-lg-6">
+
+
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between alert alert-warning pd-2">
+                            <h4 class="card-title">
+                                <a target="_blank" id="game_igdb_link" style="text-decoration:none;" href="{{igdb_link}}" class="card-link">
+                                    <span id="game_title" class="fw-bold text-primary">{{title}}</span>
+                                    (<span id="game_year_release" class="text-muted">
+                                        {{year_release}}
+                                    </span>)
+                                </a>
+                            </h4>
+
+                            <h4>⭐
+                                <span id="game_igdb_rating">
+                                    {{igdb_rating}}
+                                </span>
+                            </h4>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button disabled class="w-50 btn btn-sm btn-outline-success mb-3 me-5" type="submit" onclick="recommendOtherGame()">
+                                    <i class="bi bi-hand-thumbs-up"></i>
+                                    12392 Recommend
+                            </button>
+
+                            <button disabled class="w-50 btn btn-sm btn-outline-danger mb-3" type="submit" onclick="recommendOtherGame()">
+                                    <i class="bi bi-hand-thumbs-down"></i>
+                                    122 Dont Recommend
+                            </button>
+                        </div>
+
+                        <p class="card-text" id="game_resume">{{resume}}</p>
+
+                        <ul class="list-group list-group-flush bg-light">
+
+                            <li class="list-group-item"><b>Genres:</b> <small id="game_genres">{{genres}}</small></li>
+
+                            <li class="list-group-item"><b>Platforms:</b> <small id="game_platforms">{{platforms}}</small></li>
+
+                            <li class="list-group-item"><b>Developer:</b> <small id="game_developer">{{developer}}</small></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END GAME POST -->
+
+                {{#firstGame}}
+                    <div class="col-lg-3 mb-3">
+
+                        <form class="mb-3" action="/searchGame" method="GET">
+                            <input class="form-control" type="search" placeholder="Search game title" aria-label="Search" name="title">
+                        </form>
+
+                        <div class="list-group">
+                            <a href="/" class="list-group-item list-group-item-action  bg-dark text-white" aria-current="true">
+                                <i class="bi bi-controller"></i>
+                                Games
+                            </a>
+
+                            <a href="/books" class="list-group-item list-group-item-action">
+                                <i class="bi bi-book"></i>
+                                Books
+                            </a>
+                        </div>
+
+                        {{^user}}
+                            <div class="card mt-3">
+                                <div class="card-body text-center">
+                                    <form method="POST" action="/">
+                                        <h5 class="card-title fw-bold text-success">Newsletter</h5>
+                                        <small>Get the best news about games and books once a week!</small>
+                                        <input class="form-control mt-2" type="text" placeholder="Enter your email" aria-label="Search">
+                                        <div class="form-check mt-2 text-start">
+                                            <input type="checkbox" class="form-check-input" id="checkbox_policy">
+                                            <label class="form-check-label" for="checkbox_policy">
+                                                <small>
+                                                    You agree with our
+                                                    <a href="/privacy">Privacy and Terms of Use Policy</a> and accept to receive offers and advertisements.
+                                                </small>
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="mt-3 w-100 btn btn-sm btn-outline-success">Subscribe to newsletter</button>
+                                    </form>
+                                </div>
+                            </div>
+                        {{/user}}
+
+                    </div>
+                {{/firstGame}}
+
+                {{^firstGame}}<div class="col-lg-3"></div>{{/firstGame}}
+            {{/games}}
+
 
         </div>
 	

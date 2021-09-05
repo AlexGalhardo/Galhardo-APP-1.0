@@ -58,6 +58,9 @@ router
     .get('/privacy', AppController.getViewPrivacy)
     .get('/criptoBOT', AppController.getViewCriptoBOT)
 
+    .get('/searchGame', AppController.getSearchGameTitle)
+    .get('/searchBook', AppController.getSearchBookTitle)
+
 
 
 // BLOG VIEWS CONTROLLER

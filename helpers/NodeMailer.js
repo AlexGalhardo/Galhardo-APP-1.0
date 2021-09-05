@@ -50,7 +50,7 @@ class NodeMailer {
 
         await SendGrid.sendMail({
             from: contactObject.email,
-            to: process.env.GALHARDO_APP_EMAIL,
+            to: process.env.APP_EMAIL,
             subject: `Galhardo APP Contact: ${contactObject.subject} from ${contactObject.name}`,
             text: contactObject.subject,
             html: htmlBody
@@ -90,7 +90,7 @@ class NodeMailer {
         const htmlBody = template(replacements);
 
         await SendGrid.sendMail({
-            from: process.env.GALHARDO_APP_EMAIL,
+            from: process.env.APP_EMAIL,
             to: "aleexgvieira@gmail.com", //shopTransactionObject.customer.email,
             subject: `Galhardo APP: Shop Transaction Success!`,
             html: htmlBody
@@ -124,7 +124,7 @@ class NodeMailer {
         const htmlBody = template(replacements);
 
         let emailSend = await SendGrid.sendMail({
-            from: process.env.GALHARDO_APP_EMAIL,
+            from: process.env.APP_EMAIL,
             to: 'aleexgvieira@gmail.com', // subsTransactionObject.customer.email,
             subject: `Galhardo APP: Subscription Transaction Success!`,
             html: htmlBody
@@ -151,7 +151,7 @@ class NodeMailer {
         const htmlBody = template(replacements);
 
         await SendGrid.sendMail({
-            from: process.env.GALHARDO_APP_EMAIL,
+            from: process.env.APP_EMAIL,
             to: email,
             subject: `GALHARDO APP: Confirm Your Email!`,
             html: htmlBody
@@ -177,7 +177,7 @@ class NodeMailer {
         const htmlBody = template(replacements);
 
         await SendGrid.sendMail({
-            from: process.env.GALHARDO_APP_EMAIL,
+            from: process.env.APP_EMAIL,
             to: email,
             subject: `GALHARDO APP: Recover Your Password!`,
             html: htmlBody

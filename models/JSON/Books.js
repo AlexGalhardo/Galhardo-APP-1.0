@@ -133,6 +133,19 @@ class Books {
       		throw new Error(error);
     	}
 	}
+
+
+    static searchTitle(book_title){
+        try {
+
+            const searchedBooks = database.books.filter(book => book.title.toLowerCase().indexOf(book_title.toLowerCase()) > -1);
+
+            return searchedBooks
+
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
 }
 
 module.exports = Books;

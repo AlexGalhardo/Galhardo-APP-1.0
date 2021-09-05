@@ -52,8 +52,6 @@ class BlogController {
 			return res.redirect('/blog')
 		}
 		
-		console.log(blogPosts, searchBlogTitle);
-
 		const blogTitlesSearched = blogPosts.filter(blogPost => blogPost.title.toLowerCase().indexOf(searchBlogTitle.toLowerCase()) > -1);
 
 		const totalBlogPostsFoundFromSearch = blogTitlesSearched.length;

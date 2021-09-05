@@ -28,7 +28,7 @@ class ProfileController {
     		user: SESSION_USER,
             flash_success: req.flash('success'),
             flash_warning: req.flash('warning'),
-            header: Header.profile()
+            header: Header.profile('My Profile - Galhardo APP')
     	});
 	}
 	
@@ -105,7 +105,8 @@ class ProfileController {
 
         return res.render('pages/profile/my_shop_transactions', {
             user: SESSION_USER,
-            shopTransactions
+            shopTransactions,
+            header: Header.profile('My Shop Transactions - Galhardo APP')
         })
     }
 
@@ -120,7 +121,8 @@ class ProfileController {
 
         return res.render('pages/profile/shop_transaction', {
             user: SESSION_USER,
-            shopTransaction
+            shopTransaction,
+            header: Header.profile('Shop Transaction - Galhardo APP')
         })
     }
 
@@ -134,7 +136,8 @@ class ProfileController {
 
         return res.render('pages/profile/my_subs_transactions', {
             user: SESSION_USER,
-            subsTransactions
+            subsTransactions,
+            header: Header.profile('My Subscriptions Transactions - Galhardo APP')
         })
     }
 
@@ -150,7 +153,8 @@ class ProfileController {
 
         return res.render('pages/profile/sub_transaction', {
             user: SESSION_USER,
-            subsTransaction
+            subsTransaction,
+            header: Header.profile('Subs Transaction - Galhardo APP')
         })
     }
 

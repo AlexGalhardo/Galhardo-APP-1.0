@@ -30,6 +30,8 @@
 
 ## DIGITAL MARKETING 
 - https://neilpatel.com/br/blog/robots-txt/
+- https://developers.facebook.com/docs/sharing/webmasters?locale=pt_BR
+- https://css-tricks.com/essential-meta-tags-social-media/
 
 ## TESTS
 - https://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/

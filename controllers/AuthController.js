@@ -32,7 +32,7 @@ const NodeMailer = require('../helpers/NodeMailer');
 const URL = require('../helpers/URL');
 
 
-// MODEL
+// MODELS
 const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
 
 

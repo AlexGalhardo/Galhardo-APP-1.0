@@ -80,9 +80,9 @@ class Header {
         }
     }
 
-    static profile(){
+    static profile(head_title){
         return {
-            title: "Profile - Galhardo APP",
+            title: head_title,
             scroll_bar_div: `
             <div class="progress-container">
                 <div class="progress-bar" id="myBar"></div>

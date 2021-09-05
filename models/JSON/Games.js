@@ -14,36 +14,36 @@ const database = require('../../config/json_database');
 
 class Games {
 
-	static save(database, error_message){
+	static save(database){
 		for(let i = 0; i < database.games.length; i++){
 			database.games[i].id = i+1
 		}
 
 	    fs.writeFileSync(process.env.JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
-	      if (error) {
-	        console.log(`Error writing file in ${process.env.JSON_DATABASE_FILE}: `, error);
-	        return false
-	      }
+	        if (error) {
+	            throw new Error(error)
+	        }
 	    });
-	    return true
 	}
+
 
 	static getAll()  {
 		try {
-	      return database.games
+	        return database.games
 	    } catch (error) {
-	      return console.log("ERROR getAllGames: ", error);
+	        throw new Error(error)
 	    };
 	}
 
+
 	static getTotal()  {
 		try {
-	      return database.games.length
+	        return database.games.length
 	    } catch (error) {
-	      console.log("ERROR getTotalGames: ", error);
-	      return 0
+	        throw new Error(error)
 	    };
 	}
+
 
 	static getRandom()  {
 		try {
@@ -53,9 +53,10 @@ class Games {
 
 	      	return database.games[random_game_index-1]
 	    } catch (error) {
-	      	return console.log("ERROR getRandomGame: ", error);
+	      	throw new Error(error)
 	    };
 	}
+
 
 	static getByID(game_id) {
 		try {
@@ -66,7 +67,7 @@ class Games {
       		}
       		return null
     	} catch (error) {
-      		return console.log("ERROR getGameByTitle: ", error);
+      		throw new Error(error)
     	}
 	}
 
@@ -77,10 +78,10 @@ class Games {
 			gameObject.updated_at = DateTime.getNow()
 			gameObject.created_at = DateTime.getNow()
 			database.games.push(gameObject)
-			Games.save(database, "Error createGame: ")
+			Games.save(database)
 			return gameObject
     	} catch (error) {
-      		return console.log("ERROR createGame: ", error);
+      		throw new Error(error)
     	}
 	}
 
@@ -107,14 +108,14 @@ class Games {
         			
         			database.games[i].updated_at = DateTime.getNow()
         			
-        			Games.save(database, "Error updateGameByID: ")
+        			Games.save(database)
         			
         			return database.games[i]
         		}
       		}
-      		return "Game NOT Updated!"
+      		return null
     	} catch (error) {
-      		return console.log("ERROR updateGameByID: ", error);
+            throw new Error(error)
     	}
 	}
 
@@ -133,9 +134,22 @@ class Games {
       		}
       		return `Game ID ${game_id} NOT Deleted!`
     	} catch (error) {
-      		return console.log("ERROR deleteGameByID: ", error);
+      		throw new Error(error)
     	}
 	}
+
+
+    static searchTitle(game_title){
+        try {
+
+            const searchedGames = database.games.filter(game => game.title.toLowerCase().indexOf(game_title.toLowerCase()) > -1);
+
+            return searchedGames
+
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
 }
 
 module.exports = Games;

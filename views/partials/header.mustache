@@ -3,14 +3,38 @@
 
 <head>
 
+    <!-- TITLE -->
     <title>{{header.title}}</title>
 
+    <!-- CHARSET -->
     <meta charset="utf-8">
+
+    <!-- RESPONSIVE -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- SITE FAVICON -->
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <!-- DESCRIPTION -->
+    <meta name="description" content="The best books and games recommendations on internet!">.
 
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="images/favicon.png"/>
+
+    <!-- ESSENCIAL SOCIAL MEDIA METATAGS -->
+    <meta property="og:url"                content="https://galhardoapp.com"/>
+    <meta property="og:title"              content="Galhardo APP"/>
+    <meta property="og:description"        content="The best books and games recommendations on internet!" />
+    <meta property="og:image"              content="images/favicon.png"/>
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!--  Non-Essential, But Recommended -->
+    <meta property="og:site_name" content="Galhardo APP">
+    <meta name="twitter:image:alt" content="Alt text for image">
+
+    <!--  Non-Essential, But Required for Analytics -->
+    <meta property="fb:app_id" content="your_app_id" />
+    <meta name="twitter:site" content="@website-username">
+
+    <!-- STYLES CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
 
     <!-- LOADING PAGE JS -->
     <script src="/scripts/pace.min.js"></script>
@@ -18,24 +42,22 @@
     <!-- LOADING PAGE CSS -->
     <link rel="stylesheet" href="/css/bounce.css">
 
-    <!-- BODY.CSS -->
-    <link rel="stylesheet" href="https://galhardoapp.com/css/body.css">
-
     <!-- SCROLLBAR CSS -->
-    <link rel="stylesheet" href="https://galhardoapp.com/css/scroll_bar.css">
+    <link rel="stylesheet" href="/css/scroll_bar.css">
 
-    <!-- BOOTSTRAP5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- BOOTSTRAP 5 CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- BOOTSTRAP5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- BOOTSTRAP 5 JS -->
+    <script src="/scripts/bootstrap.bundle.min.js"></script>
 
-    <!-- BOOTSTRAP5 ICONS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- BOOTSTRAP 5 ICONS -->
+    <link rel="stylesheet" href="/css/bootstrap-icons.css">
 
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKZ0EYZ31J"></script>
+    <!-- GOOGLE TAG MANAGER -->
+    <script async src="/scripts/google_tag_manager.js"></script>
+    <!-- https://www.googletagmanager.com/gtag/js?id=G-TKZ0EYZ31J -->
 
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -47,9 +69,10 @@
 
 </head>
 
-<body class="bg-light" onload=displayCurrentlyDateTime(); style="margin-top: 70px;">
 
-    {{{header.scroll_bar_div}}}
+
+
+<body onload=displayCurrentlyDateTime(); id="tag_body">
 
     <div class="fixed-top bg-dark">
 
@@ -93,10 +116,6 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{#header.navbar_privacy_active}}fw-bold text-white{{/header.navbar_privacy_active}}" aria-current="page" href="/privacy"> Privacy</a>
-                        </li>
-
-                        <li class="nav-item">
                             <a class="nav-link {{#header.navbar_criptobot_active}}fw-bold text-white{{/header.navbar_criptobot_active}}" aria-current="page" href="/criptoBOT"> CriptoBOT</a>
                         </li>
 
@@ -122,8 +141,6 @@
                                 </li>
                              </ul>
                         </li>
-
-                        <li class="nav-item dropdown">
 
                         {{#user.admin}}
 
@@ -180,6 +197,7 @@
                             </ul>
                         </li>
                         {{/user.admin}}
+
 
                         </ul>
 
@@ -260,4 +278,6 @@
         </nav>
 
     </div>
+
+    {{{header.scroll_bar_div}}}
 

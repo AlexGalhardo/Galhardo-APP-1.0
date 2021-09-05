@@ -97,6 +97,75 @@ class AppController {
             header: Header.privacy()
         });
     }
+
+
+    static async getSearchGameTitle(req, res){
+        const searchGameTitle = req.query.title;
+
+        if(!searchGameTitle){
+            return res.redirect('/')
+        }
+
+        const searchedGames  = await Games.searchTitle(searchGameTitle)
+
+        if(!searchedGames.length){
+            req.flash('warning', 'No games found with this game title')
+            return res.redirect('/')
+        }
+
+        if(searchedGames.length > 1){
+            searchedGames[0].firstGame = true
+            return res.render('pages/home', {
+                flash_success: `${searchedGames.length} Games Found For Search Title: ${searchGameTitle.toUpperCase()}`,
+                games: searchedGames,
+                user: SESSION_USER,
+                header: Header.games()
+            });
+        }
+
+        return res.render('pages/home', {
+            flash_success: `1 Game Found For Search Title: ${searchGameTitle.toUpperCase()}`,
+            game: searchedGames[0],
+            user: SESSION_USER,
+            header: Header.games()
+        });
+    }
+
+
+
+    static async getSearchBookTitle(req, res){
+        const searchBookTitle = req.query.title;
+
+        if(!searchBookTitle){
+            return res.redirect('/books')
+        }
+
+        const searchedBooks  = await Books.searchTitle(searchBookTitle)
+
+        if(!searchedBooks){
+            req.flash('warning', 'No books found with this game title')
+            return res.redirect('/books')
+        }
+
+        if(searchedBooks.length > 1){
+            searchedBooks[0].firstBook = true
+            return res.render('pages/books', {
+                flash_success: `${searchedBooks.length} Books Found For Search Title: ${searchBookTitle.toUpperCase()}`,
+                books: searchedBooks,
+                user: SESSION_USER,
+                header: Header.books()
+            });
+        }
+
+        console.log(searchedBooks[0])
+
+        return res.render('pages/books', {
+            flash_success: `1 Book Found For Search Title: ${searchBookTitle.toUpperCase()}`,
+            book: searchedBooks[0],
+            user: SESSION_USER,
+            header: Header.books()
+        });
+    }
 };
 
 module.exports = AppController;
