@@ -264,30 +264,36 @@ Games.getRandom() // return a random game object
 - [ ] In Code Cache Most used data (Redis and In-Memory)
 - [ ] Google Tools (SEO, Search Console, Analytics, Sitemap, Robots.txt, etc)
 - [x] CDN (Cloudflare)
+- [ ] Newsletter
 - [x] API HTML Documentation Using Insomnia Documenter
 - Using JSON DataBase 
    - [x] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [x] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
+   - [ ] CRUD Games & Books Recommends
    - [x] CRUD Profile
    - [x] CRUD APIs
 - Using MySQL DataBase with Docker and pure SQL
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
+   - [ ] CRUD Games & Books Recommends
    - [ ] CRUD Profile
    - [ ] CRUD APIs
 - Using PostgreSQL DataBase with Docker and Sequelize ORM
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
+   - [ ] CRUD Games & Books Recommends
    - [ ] CRUD Profile
    - [ ] CRUD APIs
 - Using SQLite DataBase with Knex Query Builder
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
+   - [ ] CRUD Games & Books Recommends
    - [ ] CRUD Profile
    - [ ] CRUD APIs
 - Using MongoDB DataBase with Docker and Mongoose ORM
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
+   - [ ] CRUD Games & Books Recommends
    - [ ] CRUD Profile
    - [ ] CRUD APIs
 - Deploy on a VPS (AWS or DigitalOcean)

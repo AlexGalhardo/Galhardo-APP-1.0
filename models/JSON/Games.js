@@ -150,6 +150,76 @@ class Games {
             throw new Error(error)
         }
     }
+
+
+
+    static userRecommend(user_id, game_id){
+        try {
+
+            for(let i=0; i < database.games_recommendations.length; i++){
+
+                if(database.games_recommendations[i].user_id === user_id
+                    &&
+                    database.games_recommendations[i].game_id === game_id){
+
+                    if(database.games_recommendations[i].user_not_recommend) database.games_recommendations[i].user_not_recommend = false
+
+                    database.games_recommendations[i].user_recommend = true
+
+                    Games.save(database)
+                    return
+                }
+            }
+
+            userGameRecommendationObj = {
+                user_id: user_id,
+                game_id: game_id,
+                user_recommend: true,
+                user_not_recommend: false
+            }
+
+            database.games_recommendations.push(userGameRecommendationObj)
+            Games.save(database)
+
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+
+
+    static userDontRecommend(user_id, game_id){
+        try {
+
+            for(let i=0; i < database.games_recommendations.length; i++){
+
+                if(database.games_recommendations[i].user_id === user_id
+                    &&
+                    database.games_recommendations[i].game_id === game_id){
+
+                    if(database.games_recommendations[i].user_recommend) database.games_recommendations[i].user_recommend = false
+
+                    database.games_recommendations[i].user_not_recommend = true
+
+                    Games.save(database)
+                    return
+                }
+            }
+
+            userGameRecommendationObj = {
+                user_id: user_id,
+                game_id: game_id,
+                user_recommend: false,
+                user_not_recommend: true
+            }
+
+            database.games_recommendations.push(userGameRecommendationObj)
+            Games.save(database)
+
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
 }
 
 module.exports = Games;

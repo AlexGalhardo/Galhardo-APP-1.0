@@ -361,6 +361,7 @@
       "created_at": "17/08/2021 05:28:54"
     }
   ],
+  "games_recommendations": [],
   "books": [
     {
       "id": 1,
@@ -372,6 +373,8 @@
       "pages": 464,
       "genres": "Historic",
       "author": "Yuval Noah Harari ",
+      "recommend": 0,
+      "dont_recommend": 0,
       "updated_at": "11/08/2021 20:36:33",
       "created_at": "11/08/2021 20:36:33"
     },
@@ -385,6 +388,8 @@
       "pages": "355",
       "genres": "Historic",
       "author": "Yuval Harari",
+      "recommend": 0,
+      "dont_recommend": 0,
       "updated_at": "11/08/2021 20:32:39",
       "created_at": "11/08/2021 20:32:39"
     },
@@ -397,10 +402,13 @@
       "resume": "Neste Homo Deus: uma breve história do amanhã, Yuval Noah Harari, autor do estrondoso best-seller Sapiens: uma breve história da humanidade, volta a combinar ciência, história e filosofia, desta vez para entender quem somos e descobrir para onde vamos. Sempre com um olhar no passado e nas nossas origens, Harari investiga o futuro da humanidade em busca de uma resposta tão difícil quanto essencial: depois de séculos de guerras, fome e pobreza, qual será nosso destino na Terra? ",
       "pages": "464",
       "genres": "Historic",
+      "recommend": 0,
+      "dont_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
     {
+      "id": 4,
       "title": "HARRY POTTER E A PEDRA FILOSOFAL",
       "year_release": "2020",
       "image": "https://images-na.ssl-images-amazon.com/images/I/51C5FSmGlqL._SX331_BO1,204,203,200_.jpg",
@@ -409,7 +417,8 @@
       "pages": "256",
       "genres": "Fiction",
       "author": "J.K. Rowling",
-      "id": 4,
+      "recommend": 0,
+      "dont_recommend": 0,
       "updated_at": "17/08/2021 05:49:19",
       "created_at": "17/08/2021 05:49:19"
     },
@@ -423,6 +432,8 @@
       "genres": "Software",
       "author": "Robert C. Martin",
       "id": 5,
+      "recommend": 0,
+      "dont_recommend": 0,
       "updated_at": "19/08/2021 03:34:40",
       "created_at": "19/08/2021 03:34:40"
     },
@@ -436,6 +447,8 @@
       "genres": "Software",
       "author": "Eric Evans",
       "id": 6,
+      "recommend": 0,
+      "dont_recommend": 0,
       "updated_at": "19/08/2021 03:35:50",
       "created_at": "19/08/2021 03:35:50"
     },
@@ -449,6 +462,8 @@
       "genres": "Personal Development",
       "author": "Dale Carnegie",
       "id": 7,
+      "recommend": 0,
+      "dont_recommend": 0,
       "updated_at": "19/08/2021 04:48:10",
       "created_at": "19/08/2021 04:48:10"
     },
@@ -461,22 +476,44 @@
       "pages": "160",
       "genres": "Strategic",
       "author": "Sun Tzu",
-      "id": 8,
-      "updated_at": "19/08/2021 04:51:03",
-      "created_at": "19/08/2021 04:51:03"
-    },
-    {
-      "title": "A Arte da Guerra",
-      "year_release": "2021",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/41Ma2ZRlN1L._SX341_BO1,204,203,200_.jpg",
-      "amazon_link": "https://www.amazon.com.br/arte-guerra-Sun-Tzu/dp/6589678189/ref=sr_1_4?__mk_pt_BR=ÅMÅŽÕÑ&crid=1E7JQNRYKSKAX&dchild=1&keywords=a+arte+da+guerra&qid=1629353095&s=books&sprefix=a+arte+da+guerra,stripbooks,309&sr=1-4&ufe=app_do:amzn1.fos.25548f35-0de7-44b3-b28e-0f56f3f96147",
-      "resume": "O sucesso das estratégias de Sun Tzu foi um grande responsável para criação de um tratado militar de treze capítulos, o Arte da Guerra, que traz ensinamentos e diretrizes para persuadir e vencer o adversário. Para alguns historiadores, além de Sun Tzu, o tratado conta com ensinamentos de outros filósofos militares. Hoje, a obra não desperta interesse apenas de militares e combatentes, pois a aplicação dos ensinamentos de Sun Tzu abrange os campos político, administrativo e empresarial.",
-      "pages": "160",
-      "genres": "Strategic",
-      "author": "Sun Tzu",
+      "recommend": 0,
+      "not_recommend": 0,
       "created_at": "19/08/2021 06:46:13",
       "updated_at": "19/08/2021 06:46:13",
-      "id": 9
+      "id": 8
+    }
+  ],
+  "books_recommendations": [
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": "1",
+      "user_recommend": true,
+      "user_not_recommend": false,
+      "user_dont_recommend": true
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": "5",
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": "4",
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": "6",
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": "8",
+      "user_recommend": false,
+      "user_not_recommend": true
     }
   ],
   "stripe": {

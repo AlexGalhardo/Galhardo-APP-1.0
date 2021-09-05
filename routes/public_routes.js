@@ -29,12 +29,18 @@ const AuthController = require('../controllers/AuthController');
 
 // ---------------------- MIDDLEWARES 
 const userIsAlreadyLoggedIn = (req, res, next) => {
-	if(req.session.userID) return res.redirect('/');
+	if(req.session.userID) {
+        req.flash('warning', 'You need to logout to make this action')
+        return res.redirect('/');
+    }
 	next()
 }
 
 const userIsNotLoggedIn = (req, res, next) => {
-    if(!req.session.userID) return res.redirect('/login');
+    if(!req.session.userID) {
+        req.flash('warning', 'You need to login first')
+        return res.redirect('/login');
+    }
     next()
 }
 
@@ -60,6 +66,9 @@ router
 
     .get('/searchGame', AppController.getSearchGameTitle)
     .get('/searchBook', AppController.getSearchBookTitle)
+
+    .get('/recommend/book/:book_id/:user_id', AppController.recommendBook)
+    .get('/dontRecommend/book/:book_id/:user_id', AppController.dontRecommendBook)
 
 
 

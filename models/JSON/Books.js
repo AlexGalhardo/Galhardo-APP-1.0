@@ -139,8 +139,194 @@ class Books {
         try {
 
             const searchedBooks = database.books.filter(book => book.title.toLowerCase().indexOf(book_title.toLowerCase()) > -1);
-
             return searchedBooks
+
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+    static plusRecommend(book_id){
+        try {
+            for(let i=0; i < database.books.length; i++){
+                if(database.books[i].id === book_id){
+                    database.books[i].recommend++
+                    Books.save(database)
+                    return
+                }
+            }
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+
+    static minusRecommend(book_id){
+        try {
+            for(let i=0; i < database.books.length; i++){
+                if(database.books[i].id === book_id){
+                    database.books[i].recommend--
+                    Books.save(database)
+                    return
+                }
+            }
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+
+    static plusDontRecommend(book_id){
+        try {
+            for(let i=0; i < database.books.length; i++){
+                if(database.books[i].id === book_id){
+                    database.books[i].dont_recommend++
+                    Books.save(database)
+                    return
+                }
+            }
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+
+    static minusDontRecommend(book_id){
+        try {
+            for(let i=0; i < database.books.length; i++){
+                if(database.books[i].id === book_id){
+                    database.books[i].dont_recommend--
+                    Books.save(database)
+                    return
+                }
+            }
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+    static getTotalRecommend(book_id){
+        try {
+            for(let i=0; i < database.books.length; i++){
+                if(database.books[i].id === book_id){
+                    console.log('total recommend', database.books[i].recommend)
+                    return database.books[i].recommend
+                }
+            }
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+    static getTotalNotRecommend(book_id){
+        try {
+            for(let i=0; i < database.books.length; i++){
+                if(database.books[i].id === book_id){
+                    console.log('total dont recommend', database.books[i].not_recommend)
+                    return database.books[i].not_recommend
+                }
+            }
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+    static async userRecommend(user_id, book_id){
+        try {
+
+            let bookRecommendationObj = {
+                user_id,
+                book_id,
+                user_recommend: true,
+                user_not_recommend: false,
+                total_recommend: 123,
+                total_dont_recommend: 321
+            }
+
+            for(let i=0; i < database.books_recommendations.length; i++){
+
+                if(database.books_recommendations[i].user_id === user_id
+                    &&
+                    database.books_recommendations[i].book_id === book_id){
+
+                    if(database.books_recommendations[i].user_not_recommend) {
+                        database.books_recommendations[i].user_not_recommend = false
+                        bookRecommendationObj.user_not_recommend = false
+                        await Books.minusDontRecommend(book_id)
+                    }
+
+                    if(database.books_recommendations[i].user_recommend) {
+                        database.books_recommendations[i].user_recommend = false
+                        bookRecommendationObj.user_recommend = false
+                        await Books.minusRecommend(book_id)
+                    }
+
+                    database.books_recommendations[i].user_recommend = true
+                    bookRecommendationObj.user_recommend = true
+                    await Books.plusRecommend(book_id)
+
+                    await Books.save(database)
+                    return bookRecommendationObj
+                }
+            }
+
+            database.books_recommendations.push(bookRecommendationObj)
+
+            await Books.save(database)
+
+            return bookRecommendationObj
+
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+
+
+    static async userDontRecommend(user_id, book_id){
+        try {
+
+            const bookRecommendationObj = {
+                user_id,
+                book_id,
+                user_recommend: true,
+                user_not_recommend: false,
+                total_recommend: await Books.getTotalRecommend(book_id),
+                total_dont_recommend: await Books.getTotalNotRecommend(book_id)
+            }
+
+            for(let i=0; i < database.books_recommendations.length; i++){
+
+                if(database.books_recommendations[i].user_id === user_id
+                    &&
+                    database.books_recommendations[i].book_id === book_id){
+
+                    if(database.books_recommendations[i].user_not_recommend) {
+                        database.books_recommendations[i].user_not_recommend = false
+                        bookRecommendationObj.user_not_recommend = false
+                        await Books.minusDontRecommend(book_id)
+                    }
+
+                    if(database.books_recommendations[i].user_recommend) {
+                        database.books_recommendations[i].user_recommend = false
+                        bookRecommendationObj.user_recommend = false
+                        await Books.minusRecommend(book_id)
+                    }
+
+                    database.books_recommendations[i].user_not_recommend = true
+                    bookRecommendationObj.user_not_recommend = true
+                    await Books.plusDontRecommend(book_id)
+
+                    Books.save(database)
+                    return bookRecommendationObj
+                }
+            }
+
+            database.books_recommendations.push(bookRecommendationObj)
+
+            await Books.save(database)
+
+            return bookRecommendationObj
 
         } catch (error) {
             throw new Error(error)

@@ -41,6 +41,8 @@ class AppController {
         const book = await Books.getRandom()
 
         return res.render('pages/books', {
+            flash_success: req.flash('success'),
+            flash_warning: req.flash('warning'),
             book,
             user: SESSION_USER,
             header: Header.books()
@@ -109,7 +111,7 @@ class AppController {
         const searchedGames  = await Games.searchTitle(searchGameTitle)
 
         if(!searchedGames.length){
-            req.flash('warning', 'No games found with this game title')
+            req.flash('warning', 'No games found from this game title search! Recommending a random game...')
             return res.redirect('/')
         }
 
@@ -124,7 +126,7 @@ class AppController {
         }
 
         return res.render('pages/home', {
-            flash_success: `1 Game Found For Search Title: ${searchGameTitle.toUpperCase()}`,
+            flash_success: `1 Game Found From Search Title: ${searchGameTitle.toUpperCase()}`,
             game: searchedGames[0],
             user: SESSION_USER,
             header: Header.games()
@@ -142,8 +144,8 @@ class AppController {
 
         const searchedBooks  = await Books.searchTitle(searchBookTitle)
 
-        if(!searchedBooks){
-            req.flash('warning', 'No books found with this game title')
+        if(!searchedBooks.length){
+            req.flash('warning', 'No books found from this book title search! Recommending a random book...')
             return res.redirect('/books')
         }
 
@@ -157,14 +159,27 @@ class AppController {
             });
         }
 
-        console.log(searchedBooks[0])
-
         return res.render('pages/books', {
-            flash_success: `1 Book Found For Search Title: ${searchBookTitle.toUpperCase()}`,
+            flash_success: `1 Book Found From Search Title: ${searchBookTitle.toUpperCase()}`,
             book: searchedBooks[0],
             user: SESSION_USER,
             header: Header.books()
         });
+    }
+
+
+    static async recommendBook(req, res){
+        const { book_id, user_id } = req.params
+        const response = await Books.userRecommend(user_id, book_id)
+        console.log(response)
+        return res.json(response)
+    }
+
+
+    static async dontRecommendBook(req, res){
+        const { book_id, user_id } = req.params
+        const response = await Books.userDontRecommend(user_id, book_id)
+        return res.json(response)
     }
 };
 
