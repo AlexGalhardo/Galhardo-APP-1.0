@@ -44,6 +44,7 @@ class AppController {
             flash_warning: req.flash('warning'),
             book,
             user: SESSION_USER,
+            app_url: process.env.APP_URL,
             header: Header.books()
         });
     }
@@ -184,7 +185,7 @@ class AppController {
 
     static async recommendBook(req, res){
         const { book_id, user_id } = req.params
-        const response = await Books.userRecommend(user_id, book_id)
+        const response = await Books.userRecommend(user_id, parseInt(book_id))
         console.log(response)
         return res.json(response)
     }
@@ -192,7 +193,8 @@ class AppController {
 
     static async dontRecommendBook(req, res){
         const { book_id, user_id } = req.params
-        const response = await Books.userDontRecommend(user_id, book_id)
+        const response = await Books.userDontRecommend(user_id, parseInt(book_id))
+        console.log(response)
         return res.json(response)
     }
 };

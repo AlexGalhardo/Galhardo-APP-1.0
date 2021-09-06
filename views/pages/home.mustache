@@ -36,7 +36,7 @@
 
                     <a id="game_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="image-fluid mb-3"></a>
 
-                    <button class="w-75 btn btn-outline-danger shadow mb-3" type="submit" onclick="recommendOtherGame()">
+                    <button class="w-75 btn btn-outline-dark shadow mb-3" type="submit" onclick="recommendOtherGame()">
                             <i class="bi bi-play-fill"></i>
                             Recommend Other
                     </button>
@@ -53,17 +53,15 @@
 
                     <div class="card-body">
 
-                        <div class="d-flex justify-content-between alert alert-warning pd-2">
+                        <div class="d-flex justify-content-between mb-3">
                             <h4 class="card-title">
                                 <a target="_blank" id="game_igdb_link" style="text-decoration:none;" href="{{igdb_link}}" class="card-link">
                                     <span id="game_title" class="fw-bold text-primary">{{title}}</span>
-                                    (<span id="game_year_release" class="text-muted">
-                                        {{year_release}}
-                                    </span>)
+                                    (<span id="game_year_release" class="text-muted">{{year_release}}</span>)
                                 </a>
                             </h4>
 
-                            <h4>⭐
+                            <h4 class="fw-bold text-warning">⭐
                                 <span id="game_igdb_rating">
                                     {{igdb_rating}}
                                 </span>
@@ -71,30 +69,32 @@
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <button disabled class="w-25 btn btn-sm btn-outline-success mb-3 me-5" type="submit" onclick="recommendThisGame()" title="12392 People Recommend this Game!">
+                            <button disabled class="w-50 btn btn-sm btn-outline-success mb-3 me-5" type="submit" onclick="recommendThisGame()" title="12392 People Recommend this Game!">
                                     <i class="bi bi-hand-thumbs-up"></i>
-                                    12392
+                                    12392 Recommend
                             </button>
 
-                            <button disabled class="w-25 btn btn-sm btn-outline-danger mb-3" type="submit" onclick="dontRecommendThisGame()" title="122 People Dont Recommend this Game!">
+                            <button disabled class="w-50 btn btn-sm btn-outline-danger mb-3" type="submit" onclick="dontRecommendThisGame()" title="122 People Dont Recommend this Game!">
                                     <i class="bi bi-hand-thumbs-down"></i>
-                                    122
+                                    122 Not Recommend
                             </button>
                         </div>
 
                         <small class="card-text" id="game_resume">{{resume}}</small>
 
-                        <ul class="list-group list-group-flush mt-3">
+                        <ul class="mt-3 bg-light">
 
-                            <li class="list-group-item"><b>Genres:</b> <small id="game_genres">{{genres}}</small></li>
+                            <li class=""><small><b>Genres:</b></small> <small id="game_genres">{{genres}}</small></li>
 
-                            <li class="list-group-item"><b>Platforms:</b> <small id="game_platforms">{{platforms}}</small></li>
+                            <li class=""><small><b>Platforms:</b></small> <small id="game_platforms">{{platforms}}</small></li>
 
-                            <li class="list-group-item"><b>Developer:</b> <small id="game_developer">{{developer}}</small></li>
+                            <li class=""><small><b>Developer:</b></small> <small id="game_developer">{{developer}}</small></li>
                         </ul>
                     </div>
+
                 </div>
                 <!-- END GAME POST -->
+
 
                 <div class="col-lg-3 mb-3">
 
@@ -154,12 +154,12 @@
 
                 </div>
 
-                <div class="col-lg-6">
 
+                <div class="col-lg-6">
 
                     <div class="card-body">
 
-                        <div class="d-flex justify-content-between alert alert-warning pd-2">
+                        <div class="d-flex justify-content-between mb-3">
                             <h4 class="card-title">
                                 <a target="_blank" id="game_igdb_link" style="text-decoration:none;" href="{{igdb_link}}" class="card-link">
                                     <span id="game_title" class="fw-bold text-primary">{{title}}</span>
@@ -169,7 +169,7 @@
                                 </a>
                             </h4>
 
-                            <h4>⭐
+                            <h4 class="fw-bold text-warning">⭐
                                 <span id="game_igdb_rating">
                                     {{igdb_rating}}
                                 </span>
@@ -177,28 +177,29 @@
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <button disabled class="w-25 btn btn-sm btn-outline-success mb-3 me-5" type="submit" onclick="recommendThisGame()">
+                            <button disabled class="w-50 btn btn-sm btn-outline-success mb-3 me-5" type="submit" onclick="recommendThisGame()" title="12392 People Recommend this Game!">
                                     <i class="bi bi-hand-thumbs-up"></i>
-                                    12392
+                                    12392 Recommend
                             </button>
 
-                            <button disabled class="w-25 btn btn-sm btn-outline-danger mb-3" type="submit" onclick="dontRecommendThisGame()">
+                            <button disabled class="w-50 btn btn-sm btn-outline-danger mb-3" type="submit" onclick="dontRecommendThisGame()" title="122 People Dont Recommend this Game!">
                                     <i class="bi bi-hand-thumbs-down"></i>
-                                    122
+                                    122 Not Recommend
                             </button>
                         </div>
 
-                        <p class="card-text" id="game_resume">{{resume}}</p>
+                        <small class="card-text" id="game_resume">{{resume}}</small>
 
-                        <ul class="list-group list-group-flush bg-light">
+                        <ul class="mt-3">
 
-                            <li class="list-group-item"><b>Genres:</b> <small id="game_genres">{{genres}}</small></li>
+                            <li><small><b>Genres:</b></small> <small id="game_genres">{{genres}}</small></li>
 
-                            <li class="list-group-item"><b>Platforms:</b> <small id="game_platforms">{{platforms}}</small></li>
+                            <li><small><b>Platforms:</b></small> <small id="game_platforms">{{platforms}}</small></li>
 
-                            <li class="list-group-item"><b>Developer:</b> <small id="game_developer">{{developer}}</small></li>
+                            <li><small><b>Developer:</b></small> <small id="game_developer">{{developer}}</small></li>
                         </ul>
                     </div>
+
                 </div>
                 <!-- END GAME POST -->
 

@@ -72,14 +72,19 @@ class Games {
 	}
 
 
-	static create(gameObject) {
+	static async create(gameObject) {
 		try {
 			gameObject.id = database.games.length + 1
+            bookObject.recommend = 0
+            bookObject.not_recommend = 0
 			gameObject.updated_at = DateTime.getNow()
 			gameObject.created_at = DateTime.getNow()
-			database.games.push(gameObject)
-			Games.save(database)
-			return gameObject
+
+            database.games.push(gameObject)
+
+            await Games.save(database)
+
+            return gameObject
     	} catch (error) {
       		throw new Error(error)
     	}

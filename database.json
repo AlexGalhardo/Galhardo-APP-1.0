@@ -207,6 +207,8 @@
       "developer": "Santa Mônica Studios",
       "genres": "Action, Third Person, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+      "recommend": 0,
+      "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
@@ -222,6 +224,8 @@
       "developer": "Sucker Punch Productions",
       "genres": "Action, Third Person, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+      "recommend": 0,
+      "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
@@ -237,6 +241,8 @@
       "developer": "Insomniac Games",
       "genres": "Action, Third Person, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+      "recommend": 0,
+      "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
@@ -252,6 +258,8 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Action, Drama, Stealth, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+      "recommend": 0,
+      "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
@@ -267,6 +275,8 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Third Person, Action, Drama, Stealth, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+      "recommend": 0,
+      "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
@@ -282,6 +292,8 @@
       "developer": "FromSoftware",
       "genres": "SinglePlayer, Third Person, RPG, Action, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+      "recommend": 0,
+      "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
@@ -297,6 +309,8 @@
       "developer": "Atlus",
       "genres": "SinglePlayer, Third Person, RPG, Turn-Based, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+      "recommend": 0,
+      "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
@@ -312,6 +326,8 @@
       "developer": "Santa Mônica Studios",
       "genres": "SinglePlayer, Third Person, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+      "recommend": 0,
+      "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
@@ -327,6 +343,8 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Third Person, Shooter, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+      "recommend": 0,
+      "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
@@ -342,6 +360,8 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Third Person, Shooter, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
+      "recommend": 0,
+      "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
@@ -357,6 +377,8 @@
       "genres": "Adventure, Hack and slash/Beat 'em up, Indie, Role-playing (RPG)",
       "amazon_link": "amazon link",
       "id": 11,
+      "recommend": 0,
+      "not_recommend": 0,
       "updated_at": "17/08/2021 05:28:54",
       "created_at": "17/08/2021 05:28:54"
     }
@@ -374,7 +396,7 @@
       "genres": "Historic",
       "author": "Yuval Noah Harari ",
       "recommend": 0,
-      "dont_recommend": 0,
+      "not_recommend": 0,
       "updated_at": "11/08/2021 20:36:33",
       "created_at": "11/08/2021 20:36:33"
     },
@@ -389,7 +411,7 @@
       "genres": "Historic",
       "author": "Yuval Harari",
       "recommend": 0,
-      "dont_recommend": 0,
+      "not_recommend": 0,
       "updated_at": "11/08/2021 20:32:39",
       "created_at": "11/08/2021 20:32:39"
     },
@@ -403,7 +425,7 @@
       "pages": "464",
       "genres": "Historic",
       "recommend": 0,
-      "dont_recommend": 0,
+      "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16"
     },
@@ -418,7 +440,7 @@
       "genres": "Fiction",
       "author": "J.K. Rowling",
       "recommend": 0,
-      "dont_recommend": 0,
+      "not_recommend": 0,
       "updated_at": "17/08/2021 05:49:19",
       "created_at": "17/08/2021 05:49:19"
     },
@@ -433,7 +455,7 @@
       "author": "Robert C. Martin",
       "id": 5,
       "recommend": 0,
-      "dont_recommend": 0,
+      "not_recommend": 0,
       "updated_at": "19/08/2021 03:34:40",
       "created_at": "19/08/2021 03:34:40"
     },
@@ -447,10 +469,11 @@
       "genres": "Software",
       "author": "Eric Evans",
       "id": 6,
-      "recommend": 0,
-      "dont_recommend": 0,
+      "recommend": -1,
+      "not_recommend": 0,
       "updated_at": "19/08/2021 03:35:50",
-      "created_at": "19/08/2021 03:35:50"
+      "created_at": "19/08/2021 03:35:50",
+      "dont_recommend": null
     },
     {
       "title": "Como Fazer Amigos e Influenciar Pessoas",
@@ -463,7 +486,7 @@
       "author": "Dale Carnegie",
       "id": 7,
       "recommend": 0,
-      "dont_recommend": 0,
+      "not_recommend": 0,
       "updated_at": "19/08/2021 04:48:10",
       "created_at": "19/08/2021 04:48:10"
     },
@@ -481,39 +504,29 @@
       "created_at": "19/08/2021 06:46:13",
       "updated_at": "19/08/2021 06:46:13",
       "id": 8
+    },
+    {
+      "id": 9,
+      "title": "HARRY POTTER E A CAMERA SECRETA",
+      "year_release": "2020",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/51C5FSmGlqL._SX331_BO1,204,203,200_.jpg",
+      "amazon_link": "https://www.amazon.com.br/dp/8532531768/ref=s9_acsd_al_bw_c2_x_1_t?pf_rd_m=A3RN7G7QC5MWSZ&pf_rd_s=merchandised-search-4&pf_rd_r=94401YP4EFQBKS2C6QK8&pf_rd_t=101&pf_rd_p=bed818b6-7184-4c08-8637-f6cb1f410f34&pf_rd_i=13348890011",
+      "resume": "Há 20 anos a magia aterrissou no Brasil com a chegada de Harry Potter e a Pedra Filosofal. Para comemorar este aniversário tão especial de um dos livros mais vendidos da história, a Rocco lançou esta coleção de luxo em edição limitada com os sete livros em capa dura, com ilustrações de Brian Selznick (vencedor da Medalha Caldecott) e Mary GrandPré. Uma novidade que irá encantar novos leitores e fãs que acompanham a série por todos esses anos",
+      "pages": "256",
+      "genres": "Fiction",
+      "author": "J.K. Rowling",
+      "recommend": 0,
+      "not_recommend": 0,
+      "updated_at": "17/08/2021 05:49:19",
+      "created_at": "17/08/2021 05:49:19"
     }
   ],
   "books_recommendations": [
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": "1",
-      "user_recommend": true,
-      "user_not_recommend": false,
-      "user_dont_recommend": true
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": "5",
-      "user_recommend": true,
+      "book_id": 1,
+      "user_recommend": false,
       "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": "4",
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": "6",
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": "8",
-      "user_recommend": false,
-      "user_not_recommend": true
     }
   ],
   "stripe": {

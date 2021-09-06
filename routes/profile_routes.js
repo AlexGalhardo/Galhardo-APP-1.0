@@ -9,9 +9,13 @@
  */
 
 
-// INIT EXPRESS
-const router = require('express').Router()
 const multer = require('multer')
+const csrf = require('csurf')
+const csrfProtection = csrf({ cookie: true })
+
+
+// INIT ROUTER
+const router = require('express').Router()
 
 
 // CONTROLLER
@@ -20,10 +24,12 @@ const ProfileController = require('../controllers/ProfileController');
 
 // ------- MIDDLEWARES
 const userIsNotLoggedIn = (req, res, next) => {
-    if(!req.session.userID) return res.redirect('/login');
+    if(!req.session.userID) {
+        req.flash('warning', 'You need to login first')
+        return res.redirect('/login');
+    }
     next()
 }
-
 
 
 const storageConfig = multer.diskStorage({
@@ -55,9 +61,9 @@ const upload = multer({
 
 
 router
-    .get('/', userIsNotLoggedIn, ProfileController.getViewProfile)
+    .get('/', userIsNotLoggedIn, csrfProtection, ProfileController.getViewProfile)
 
-    .post('/', userIsNotLoggedIn, ProfileController.updateProfile)
+    .post('/', userIsNotLoggedIn, csrfProtection, ProfileController.updateProfile)
 
     .post('/avatar', userIsNotLoggedIn, upload.single('avatar'), ProfileController.updateProfileAvatar)
 

@@ -61,17 +61,18 @@ class AuthController {
         try {
 
             const errors = validationResult(req);
-            const { email, password } = req.body;
 
             if (!req.recaptcha.error) {
                 if (!errors.isEmpty()) {
-                    req.flash('warning', `${errors.array()[0].msg}`)
+                    req.flash('warning', `${errors.array()}`)
                     return res.redirect('/login')
                 }
             } else {
                 req.flash('warning', `Invalid Recaptcha!`)
                 return res.redirect('/login')
             }
+
+            const { email, password } = req.body;
 
             const confirmedEmail = await Users.verifyIfEmailIsConfirmed(email)
 

@@ -28,7 +28,8 @@ class ProfileController {
     		user: SESSION_USER,
             flash_success: req.flash('success'),
             flash_warning: req.flash('warning'),
-            header: Header.profile('My Profile - Galhardo APP')
+            header: Header.profile('My Profile - Galhardo APP'),
+            csrfToken: req.csrfToken()
     	});
 	}
 	
