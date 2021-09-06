@@ -27,7 +27,7 @@ async function recommendThisBook(book_id){
 
     const buttonRecommendEl = document.querySelector(`#button_recommend_book_${book_id}`)
 
-    const buttonDontRecommendEl = document.querySelector(`#button_dont_recommend_book_${book_id}`)
+    const buttonNotRecommendEl = document.querySelector(`#button_not_recommend_bookid_${book_id}`)
 
     if(buttonRecommendEl.classList.contains('btn-success')){
         buttonRecommendEl.classList.remove('btn-success')
@@ -35,8 +35,8 @@ async function recommendThisBook(book_id){
     } else {
         buttonRecommendEl.classList.remove('btn-outline-success')
         buttonRecommendEl.classList.add('btn-success')
-        buttonDontRecommendEl.classList.remove('btn-danger')
-        buttonDontRecommendEl.classList.add('btn-outline-danger')
+        buttonNotRecommendEl.classList.remove('btn-danger')
+        buttonNotRecommendEl.classList.add('btn-outline-danger')
     }
 
     document.querySelector(`#total_recommend_bookid_${book_id}`).innerHTML = json.total_recommend
@@ -46,19 +46,19 @@ async function recommendThisBook(book_id){
 
 
 async function dontRecommendThisBook(book_id){
-    const response = await fetch(`${app_url}/dontRecommend/book/${parseInt(book_id)}/${user_id}`)
+    const response = await fetch(`${app_url}/notRecommend/book/${parseInt(book_id)}/${user_id}`)
     const json = await response.json()
 
     const buttonRecommendEl = document.querySelector(`#button_recommend_book_${parseInt(book_id)}`)
 
-    const buttonDontRecommendEl = document.querySelector(`#button_dont_recommend_book_${parseInt(book_id)}`)
+    const buttonNotRecommendEl = document.querySelector(`#button_not_recommend_bookid_${parseInt(book_id)}`)
 
-    if(buttonDontRecommendEl.classList.contains('btn-danger')){
-        buttonDontRecommendEl.classList.remove('btn-danger')
-        buttonDontRecommendEl.classList.add('btn-outline-danger')
+    if(buttonNotRecommendEl.classList.contains('btn-danger')){
+        buttonNotRecommendEl.classList.remove('btn-danger')
+        buttonNotRecommendEl.classList.add('btn-outline-danger')
     } else {
-        buttonDontRecommendEl.classList.remove('btn-outline-danger')
-        buttonDontRecommendEl.classList.add('btn-danger')
+        buttonNotRecommendEl.classList.remove('btn-outline-danger')
+        buttonNotRecommendEl.classList.add('btn-danger')
         buttonRecommendEl.classList.remove('btn-success')
         buttonRecommendEl.classList.add('btn-outline-success')
     }

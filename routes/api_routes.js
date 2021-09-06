@@ -80,12 +80,12 @@ router
     .get('/public/email/:email', APIPublicController.getPublicEmailRegistred)
 
     .get('/public/games', APIPublicController.getPublicGames)
-    .get('/public/games/random', APIPublicController.getPublicGameRandom)
+    .get('/public/games/random', APIPublicController.getPublicRandomGame)
     .get('/public/games/:game_id', APIPublicController.getPublicGameByID)
 
 
     .get('/public/books', APIPublicController.getPublicBooks)
-    .get('/public/books/random', APIPublicController.getPublicBookRandom)
+    .get('/public/books/random', APIPublicController.getPublicRandomBook)
     .get('/public/books/:book_id', APIPublicController.getPublicBookByID)
 
 

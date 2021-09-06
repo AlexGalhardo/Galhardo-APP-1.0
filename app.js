@@ -131,7 +131,7 @@ const adminRoutes = require('./routes/admin_routes');
 const testRoutes = require('./routes/test_routes');
 
 // app.use('/api', pinoHttp, apiRoutes);
-
+app.use('/api', apiRoutes);
 app.use('/profile', profileRoutes);
 app.use('/admin', adminRoutes);
 app.use('/test', testRoutes);

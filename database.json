@@ -398,7 +398,9 @@
       "recommend": 0,
       "not_recommend": 0,
       "updated_at": "11/08/2021 20:36:33",
-      "created_at": "11/08/2021 20:36:33"
+      "created_at": "11/08/2021 20:36:33",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 2,
@@ -410,10 +412,12 @@
       "pages": "355",
       "genres": "Historic",
       "author": "Yuval Harari",
-      "recommend": 0,
+      "recommend": 1,
       "not_recommend": 0,
       "updated_at": "11/08/2021 20:32:39",
-      "created_at": "11/08/2021 20:32:39"
+      "created_at": "11/08/2021 20:32:39",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 3,
@@ -424,10 +428,12 @@
       "resume": "Neste Homo Deus: uma breve história do amanhã, Yuval Noah Harari, autor do estrondoso best-seller Sapiens: uma breve história da humanidade, volta a combinar ciência, história e filosofia, desta vez para entender quem somos e descobrir para onde vamos. Sempre com um olhar no passado e nas nossas origens, Harari investiga o futuro da humanidade em busca de uma resposta tão difícil quanto essencial: depois de séculos de guerras, fome e pobreza, qual será nosso destino na Terra? ",
       "pages": "464",
       "genres": "Historic",
-      "recommend": 0,
+      "recommend": 1,
       "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16"
+      "updated_at": "04/08/2021 18:55:16",
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 4,
@@ -442,7 +448,9 @@
       "recommend": 0,
       "not_recommend": 0,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19"
+      "created_at": "17/08/2021 05:49:19",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "title": "Código limpo: Habilidades práticas do Agile Software",
@@ -457,7 +465,9 @@
       "recommend": 0,
       "not_recommend": 0,
       "updated_at": "19/08/2021 03:34:40",
-      "created_at": "19/08/2021 03:34:40"
+      "created_at": "19/08/2021 03:34:40",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "title": "Domain-Driven Design: Atacando as complexidades no coração do software",
@@ -469,11 +479,12 @@
       "genres": "Software",
       "author": "Eric Evans",
       "id": 6,
-      "recommend": -1,
+      "recommend": 1,
       "not_recommend": 0,
       "updated_at": "19/08/2021 03:35:50",
       "created_at": "19/08/2021 03:35:50",
-      "dont_recommend": null
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "title": "Como Fazer Amigos e Influenciar Pessoas",
@@ -488,7 +499,9 @@
       "recommend": 0,
       "not_recommend": 0,
       "updated_at": "19/08/2021 04:48:10",
-      "created_at": "19/08/2021 04:48:10"
+      "created_at": "19/08/2021 04:48:10",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "title": "A Arte da Guerra",
@@ -503,7 +516,9 @@
       "not_recommend": 0,
       "created_at": "19/08/2021 06:46:13",
       "updated_at": "19/08/2021 06:46:13",
-      "id": 8
+      "id": 8,
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 9,
@@ -518,14 +533,28 @@
       "recommend": 0,
       "not_recommend": 0,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19"
+      "created_at": "17/08/2021 05:49:19",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     }
   ],
   "books_recommendations": [
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": 3,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "book_id": 2,
-      "user_recommend": false,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": 6,
+      "user_recommend": true,
       "user_not_recommend": false
     }
   ],

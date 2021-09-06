@@ -104,11 +104,9 @@ class APIPublicController {
 	}
 
 
-	static async getPublicGameRandom(req, res, next){
+	static async getPublicRandomGame(req, res, next){
 		try {
-			const totalGames = await Games.getTotal()
-			const random_game_id = await Math.floor(Math.random() * totalGames) + 1;
-	        let game = await Games.getByID(random_game_id)
+			const totalGames = await Games.getRandom()
             return res.json({
                 game
             });	        
@@ -145,9 +143,10 @@ class APIPublicController {
 	    }
 	}
 
-	static async getPublicBookRandom(req, res, next){
+	static async getPublicRandomBook(req, res, next){
 		try {
 	        let book = await Books.getRandom()
+            console.log(book)
             return res.json({
                 book
             });	        

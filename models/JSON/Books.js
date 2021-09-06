@@ -47,15 +47,65 @@ class Books {
 	}
 
 
-	static getRandom()  {
+	static async getRandom()  {
 		try {
 			const totalBooks = Books.getTotal()
-			const random_book_index = Math.floor(Math.random() * totalBooks) + 1
-	      	return database.books[random_book_index-1]
-	    } catch (error) {
+
+            const random_book_index = (Math.floor(Math.random() * totalBooks) + 1) -1
+
+            if(SESSION_USER){
+                database.books[random_book_index].userLoggedRecommend = await Books.verifyIfLoggedUserRecommendThisBook(SESSION_USER.id, random_book_index)
+
+                database.books[random_book_index].userLoggedNotRecommend = await Books.verifyIfLoggedUserNotRecommendThisBook(SESSION_USER.id, random_book_index)
+            }
+            else {
+                database.books[random_book_index].userLoggedRecommend = "btn-outline-success"
+                database.books[random_book_index].userLoggedNotRecommend = "btn-outline-danger"
+            }
+
+            return database.books[random_book_index]
+        } catch (error) {
 	      	throw new Error(error);
 	    };
 	}
+
+
+    static verifyIfLoggedUserRecommendThisBook(user_id, book_id){
+        try {
+            for(let i=0; i < database.books_recommendations.length; i++){
+                if(
+                    database.books_recommendations[i].user_id === user_id
+                    &&
+                    database.books_recommendations[i].book_id === parseInt(book_id)
+                    )
+                {
+                    if(database.books_recommendations[i].user_recommend) return "btn-success"
+                }
+            }
+            return "btn-outline-success"
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+
+    static verifyIfLoggedUserNotRecommendThisBook(user_id, book_id){
+        try {
+            for(let i=0; i < database.books_recommendations.length; i++){
+                if(
+                    database.books_recommendations[i].user_id === user_id
+                    &&
+                    database.books_recommendations[i].book_id === parseInt(book_id)
+                    )
+                {
+                    if(database.books_recommendations[i].user_not_recommend) return "btn-danger"
+                }
+            }
+            return "btn-outline-danger"
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
 
 
 	static getByID(book_id) {
