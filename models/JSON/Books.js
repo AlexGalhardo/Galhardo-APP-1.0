@@ -22,18 +22,18 @@ class Books {
 		}
 
 	    fs.writeFileSync(process.env.JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
-	      if (error) {
-	        throw new Error(error);
-	      }
+	        if (error) {
+	            throw new Error(error);
+	        }
 	    });
 	}
 
 
 	static getAll()  {
 		try {
-	      return database.books
+	        return database.books
 	    } catch (error) {
-	      throw new Error(error);
+	        throw new Error(error);
 	    };
 	}
 
@@ -80,7 +80,7 @@ class Books {
 			
 			database.books.push(bookObject)
 			
-			Books.save(database, "Error createBook: ")
+			Books.save(database)
 			
 			return bookObject
     	} catch (error) {
@@ -107,7 +107,7 @@ class Books {
 
         			database.books[i].updated_at = DateTime.getNow()
         			
-        			Books.save(database, "Error updateBookByID: ")
+        			Books.save(database)
         			
         			return database.books[i]
         		}
@@ -222,7 +222,6 @@ class Books {
         try {
             for(let i=0; i < database.books.length; i++){
                 if(database.books[i].id === book_id){
-                    console.log('total dont recommend', database.books[i].not_recommend)
                     return database.books[i].not_recommend
                 }
             }

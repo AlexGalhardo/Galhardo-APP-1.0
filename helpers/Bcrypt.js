@@ -9,6 +9,8 @@
 
 const bcrypt = require('bcryptjs');
 
+
+
 class Bcrypt {
     
     static cryptPassword (password) {

@@ -20,11 +20,8 @@ const randomToken = require('rand-token');
 const SendGrid = require('../config/SendGrid');
 
 
-const Users = require('../models/JSON/Users');
-// const Users = require('../models/MONGODB/Users');
-// const Users = require('../models/MYSQL/Users');
-// const Users = require('../models/POSTGRES/Users');
-// const Users = require('../models/SQLITE/Users');
+const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
+
 
 
 
@@ -78,11 +75,11 @@ class NodeMailer {
             shipping_fee: shopTransactionObject.shipping.fee,
             amount: shopTransactionObject.total_amount,
             shipping: {
-                zipcode:shopTransactionObject.shipping.address_zipcode,
-                street:shopTransactionObject.shipping.address_street,
+                zipcode: shopTransactionObject.shipping.address_zipcode,
+                street: shopTransactionObject.shipping.address_street,
                 neighborhood: shopTransactionObject.shipping.address_neighborhood,
-                city:shopTransactionObject.shipping.address_city,
-                state:shopTransactionObject.shipping.address_state
+                city: shopTransactionObject.shipping.address_city,
+                state: shopTransactionObject.shipping.address_state
             },
             created_at: shopTransactionObject.created_at
         };

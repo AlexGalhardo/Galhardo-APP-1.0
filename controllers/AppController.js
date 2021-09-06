@@ -8,8 +8,7 @@
  * http://localhost:3000/
  */
 
-const bodyParser = require('body-parser');
-
+const { validationResult } = require("express-validator");
 
 // HELPERS
 const NodeMailer = require('../helpers/NodeMailer');
@@ -54,13 +53,28 @@ class AppController {
             flash_success: req.flash('success'),
             flash_warning: req.flash('warning'),
             user: SESSION_USER,
-            header: Header.contact()
+            header: Header.contact(),
+            captcha: res.recaptcha,
+            csrfToken: req.csrfToken()
         });
     }
 
 
     static async postContact (req, res){
         try {
+
+            const errors = validationResult(req);
+
+            if (!req.recaptcha.error) {
+                if (!errors.isEmpty()) {
+                    req.flash('warning', `${errors.array()[0].msg}`)
+                    return res.redirect('/contact')
+                }
+            } else {
+                req.flash('warning', `Invalid Recaptcha!`)
+                return res.redirect('/contact')
+            }
+
             const { name,
                     email,
                     subject,

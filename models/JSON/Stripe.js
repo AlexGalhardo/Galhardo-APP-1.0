@@ -43,8 +43,8 @@ class Stripe {
                 created_at: transactionObject.created_at
             })
             Stripe.save(database)
-        } catch(err){
-            throw new Error('Shop Transaction not created in database!')
+        } catch(error){
+            throw new Error(error)
         }
     }
 

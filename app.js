@@ -21,6 +21,7 @@ const compression = require('compression');
 const cors = require('cors');
 const helmet = require('helmet');
 const { MulterError } = require('multer');
+const cookieParser = require('cookie-parser')
 
 
 
@@ -48,6 +49,10 @@ if(process.env.APP_DATABASE === 'SQLITE') console.log('USING DATABASE: SQLITE')
 
 // LocalHost HTTP
 const app = require('express')()
+
+
+// CSRF
+app.use(cookieParser())
 
 
 // LOGS 
@@ -146,15 +151,16 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
     res.status(500); // INTERNAL SERVER ERROR
 
-    if(err instanceof MulterError){
-        return res.json({error: err.code })
-    } else {
-        console.log(err)
-        return res.json({
-            name: err.name,
-            message: err.message
-        })
-    }
+    if(err.code === 'EBADCSRFTOKEN') return res.json({error: "Invalid CSRF Token!"})
+
+    if(err instanceof MulterError) return res.json({error: err.code })
+
+    console.log(err)
+
+    return res.json({
+        name: err.name,
+        message: err.message
+    })
 });
 
 

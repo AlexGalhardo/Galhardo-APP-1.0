@@ -15,18 +15,12 @@ const sharp = require('sharp')
 const multer = require("multer");
 const multerConfig = require("../config/multer");
 
-const Users = require('../models/JSON/Users')
-// const Users = require('../models/MONGODB/Users')
-// const Users = require('../models/MYSQL/Users')
-// const Users = require('../models/POSTGRES/Users')
-// const Users = require('../models/SQLITE/Users')
+const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
 
 
 class Upload {
 
 	static async profileAvatar(req){
-        console.log(req.body, req.body.avatar, req.body.file)
-
         if(req.file){
             const filename = `${req.file.filename}.jpg`;
 
@@ -37,11 +31,9 @@ class Upload {
 
             await unlink(req.file.path);
 
-            console.log(`${req.file.filename}.jpg`)
-            Users.updateAvatarName(`${req.file.filename}.jpg`, req.session.userID)
+            await Users.updateAvatarName(`${req.file.filename}.jpg`, req.session.userID)
         } else {
-            res.status(400);
-            return res.json({error: 'Arquivo inválido.'})
+            return res.status(400).json({error: 'Invalid file type.'})
         }
 	}
 

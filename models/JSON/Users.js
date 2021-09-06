@@ -30,10 +30,9 @@ class Users {
 
     static getAll() {
         try {
-          return database.users
+            return database.users
         } catch (error) {
-          console.log("ERROR getAll: ", error);
-          return null
+            throw new Error(error)
         };
     }
 
@@ -45,8 +44,7 @@ class Users {
               }
             return null
         } catch (error) {
-            console.log("ERROR getByID: ", error);
-            return null
+            throw new Error(error)
         }
     }
 
@@ -58,8 +56,7 @@ class Users {
             }
             return null
         } catch (error) {
-            console.log("ERROR getUsers: ", error);
-            return null
+            throw new Error(error)
         }
     }
 
@@ -146,7 +143,7 @@ class Users {
             }
             return null
         } catch (error) {
-            return console.log("ERROR verifyLogin: ", error);
+            throw new Error(error)
         }
     }
 
@@ -236,8 +233,7 @@ class Users {
             }
             return false
         } catch (error) {
-            console.log("ERROR createResetPasswordToken: ", error);
-            return false
+            throw new Error(error)
         }
     }
 
@@ -254,7 +250,7 @@ class Users {
             }
             return false
         } catch (error) {
-            return console.log("ERROR passwordResetTokenIsValid: ", error);
+            throw new Error(error)
         }
     }
 
@@ -272,8 +268,7 @@ class Users {
             }
             return false
         } catch (error) {
-            console.log("ERROR passwordResetTokenIsValid: ", error);
-            return false
+            throw new Error(error)
         }
     }
 
@@ -348,7 +343,7 @@ class Users {
                 }
             }
         } catch (error) {
-            throw new Error("ERROR delete");
+            throw new Error(error)
         }
     }
 
@@ -363,7 +358,7 @@ class Users {
                 }
             }
         } catch (error) {
-            throw new Error("ERROR createStripeCustomer");
+            throw new Error(error)
         }
     }
 
@@ -412,58 +407,59 @@ class Users {
             }
             return false
         } catch (error) {
-            throw new Error("ERROR createStripeSubscription");
+            throw new Error(error)
         }
     }
 
 
-  static verifyLoginGitHub(github_id, email, avatar){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email == email){
-          database.users[i].github_id = github_id
-          database.users[i].avatar = avatar
-          Users.save(database, "ERROR verifyLoginGitHub: ")
-          return database.users[i]
+    static verifyLoginGitHub(github_id, email, avatar){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email == email){
+                    database.users[i].github_id = github_id
+                    database.users[i].avatar = avatar
+                    Users.save(database)
+                    return database.users[i]
+                }
+            }
+              return null
+        } catch (error) {
+            throw new Error(error)
         }
-      }
-      return null
-    } catch (error) {
-      console.log("ERROR verifyLoginGitHub: ", error);
     }
-  }
-
-  static verifyLoginGoogle(google_id, email, avatar){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email == email){
-          database.users[i].google_id = google_id
-          database.users[i].avatar = avatar
-          Users.save(database, "ERROR verifyLoginGoogle: ")
-          return database.users[i]
-        }
-      }
-      return null
-    } catch (error) {
-      console.log("ERROR verifyLoginGoogle: ", error);
-    }
-  }
 
 
-  static verifyLoginFacebook(facebook_id, email){
-    try {
-      for(let i = 0; i < database.users.length; i++){
-        if(database.users[i].email == email){
-          database.users[i].facebook_id = facebook_id
-          Users.save(database, "ERROR verifyLoginFacebook: ")
-          return database.users[i]
+    static verifyLoginGoogle(google_id, email, avatar){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email == email){
+                    database.users[i].google_id = google_id
+                    database.users[i].avatar = avatar
+                    Users.save(database)
+                    return database.users[i]
+                }
+            }
+            return null
+        } catch (error) {
+            throw new Error(error)
         }
-      }
-      return null
-    } catch (error) {
-      console.log("ERROR verifyLoginFacebook: ", error);
     }
-  }
+
+
+    static verifyLoginFacebook(facebook_id, email){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email == email){
+                    database.users[i].facebook_id = facebook_id
+                    Users.save(database)
+                    return database.users[i]
+                }
+            }
+            return null
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
 }
 
 module.exports = Users;

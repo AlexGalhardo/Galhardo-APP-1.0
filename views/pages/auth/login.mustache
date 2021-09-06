@@ -2,7 +2,7 @@
 
 <head>
 
-    <title>Login Account</title>
+    <title>Login - Galhardo APP</title>
 
     <meta charset="utf-8">
 
@@ -10,11 +10,17 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <!-- DESCRIPTION -->
+    <meta name="description" content="Login into your Galhardo APP account.">.
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- BOOTSTRAP 5 CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- BOOTSTRAP 5 JS -->
+    <script src="/scripts/bootstrap.bundle.min.js"></script>
+
+    <!-- BOOTSTRAP 5 ICONS -->
+    <link rel="stylesheet" href="/css/bootstrap-icons.css">
 
     <!-- LOADING PAGE JS -->
     <script src="/scripts/pace.min.js"></script>
@@ -49,9 +55,15 @@
             </div>
         {{/flash_warning}}
 
+
+
         {{{captcha}}}
 
+
+
         <form action="/login" method="POST">
+
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
             <div class="social-btn">
                 <a href="{{FacebookLoginURL}}" class="shadow-sm mb-2 w-100 btn btn-primary btn-block">

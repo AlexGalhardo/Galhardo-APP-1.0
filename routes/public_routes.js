@@ -12,8 +12,11 @@
 const Recaptcha = require('express-recaptcha').RecaptchaV3;
 const recaptcha = new Recaptcha(process.env.RECAPTCHA_ID, process.env.RECAPTCHA_SECRET ,{callback:'cb'});
 
+const csrf = require('csurf')
+const csrfProtection = csrf({ cookie: true })
 
-// INIT EXPRESS 
+
+// INIT ROUTER
 const router = require('express').Router()
 
 
@@ -30,7 +33,7 @@ const AuthController = require('../controllers/AuthController');
 // ---------------------- MIDDLEWARES 
 const userIsAlreadyLoggedIn = (req, res, next) => {
 	if(req.session.userID) {
-        req.flash('warning', 'You need to logout to make this action')
+        req.flash('warning', 'You need to logout first')
         return res.redirect('/');
     }
 	next()
@@ -58,8 +61,8 @@ router
     .get('/', AppController.getViewHome)
     .get('/books', AppController.getViewBooks)
 
-    .get('/contact', AppController.getViewContact)
-    .post('/contact', AppController.postContact)
+    .get('/contact', recaptcha.middleware.render, csrfProtection, AppController.getViewContact)
+    .post('/contact', recaptcha.middleware.verify, csrfProtection, AppController.postContact)
 
     .get('/privacy', AppController.getViewPrivacy)
     .get('/criptoBOT', AppController.getViewCriptoBOT)
@@ -110,11 +113,11 @@ router
 
 
 // AUTH VIEWS CONTROLLER
-    .get('/login', userIsAlreadyLoggedIn, recaptcha.middleware.render, AuthController.getViewLogin)
-    .post('/login', userIsAlreadyLoggedIn, recaptcha.middleware.verify, AuthController.postLogin)
+    .get('/login', userIsAlreadyLoggedIn, recaptcha.middleware.render, csrfProtection, AuthController.getViewLogin)
+    .post('/login', userIsAlreadyLoggedIn, recaptcha.middleware.verify, csrfProtection, AuthController.postLogin)
 
-    .get('/register', userIsAlreadyLoggedIn, recaptcha.middleware.render, AuthController.getViewRegister)
-    .post('/register', userIsAlreadyLoggedIn, recaptcha.middleware.verify, AuthController.postRegister)
+    .get('/register', userIsAlreadyLoggedIn, recaptcha.middleware.render, csrfProtection, AuthController.getViewRegister)
+    .post('/register', userIsAlreadyLoggedIn, recaptcha.middleware.verify, csrfProtection, AuthController.postRegister)
 
     .get('/forgetPassword', userIsAlreadyLoggedIn, AuthController.getViewForgetPassword)
     .post('/forgetPassword', userIsAlreadyLoggedIn, AuthController.postForgetPassword)

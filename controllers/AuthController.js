@@ -50,7 +50,8 @@ class AuthController {
             FacebookLoginURL: facebookLoginURL,
             GitHubLoginURL: URL.getGitHubURL,
             GoogleLoginURL: URL.getGoogleURL,
-            captcha: res.recaptcha
+            captcha: res.recaptcha,
+            csrfToken: req.csrfToken()
         });
     }
 
@@ -101,7 +102,8 @@ class AuthController {
         return res.render('pages/auth/register', {
             captcha: res.recaptcha,
             flash_success: req.flash('success'),
-            flash_warning: req.flash('warning')
+            flash_warning: req.flash('warning'),
+            csrfToken: req.csrfToken()
         });
     }
 
