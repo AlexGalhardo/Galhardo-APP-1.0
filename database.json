@@ -524,7 +524,7 @@
   "books_recommendations": [
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": 1,
+      "book_id": 2,
       "user_recommend": false,
       "user_not_recommend": false
     }

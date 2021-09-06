@@ -71,7 +71,7 @@ router
     .get('/searchBook', AppController.getSearchBookTitle)
 
     .get('/recommend/book/:book_id/:user_id', AppController.recommendBook)
-    .get('/dontRecommend/book/:book_id/:user_id', AppController.dontRecommendBook)
+    .get('/notRecommend/book/:book_id/:user_id', AppController.dontRecommendBook)
 
 
 

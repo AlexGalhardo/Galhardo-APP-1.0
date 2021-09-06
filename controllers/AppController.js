@@ -193,7 +193,7 @@ class AppController {
 
     static async dontRecommendBook(req, res){
         const { book_id, user_id } = req.params
-        const response = await Books.userDontRecommend(user_id, parseInt(book_id))
+        const response = await Books.userNotRecommend(user_id, parseInt(book_id))
         console.log(response)
         return res.json(response)
     }

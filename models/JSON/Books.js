@@ -237,6 +237,8 @@ class Books {
         }
     }
 
+
+
     static async userRecommend(user_id, book_id){
         try {
 
@@ -259,22 +261,19 @@ class Books {
 
                     if(database.books_recommendations[i].user_not_recommend){
                         database.books_recommendations[i].user_not_recommend = false
-
                         response.user_not_recommend = false
-
                         await Books.minusNotRecommend(book_id)
+                        response.total_not_recommend-=1
                     }
 
                     if(!database.books_recommendations[i].user_recommend){
                         database.books_recommendations[i].user_recommend = true
                         response.user_recommend = true
-
                         await Books.plusRecommend(book_id)
                         response.total_recommend+=1
                     } else {
                         database.books_recommendations[i].user_recommend = false
                         response.user_recommend = false
-
                         await Books.minusRecommend(book_id)
                         response.total_recommend-=1
                     }
@@ -305,10 +304,10 @@ class Books {
 
 
 
-    static async userDontRecommend(user_id, book_id){
+    static async userNotRecommend(user_id, book_id){
         try {
 
-            const bookRecommendationObj = {
+            const response = {
                 user_id,
                 book_id,
                 user_recommend: false,
@@ -319,36 +318,49 @@ class Books {
 
             for(let i=0; i < database.books_recommendations.length; i++){
 
-                if(database.books_recommendations[i].user_id === user_id
+                if(
+                    database.books_recommendations[i].user_id === user_id
                     &&
-                    database.books_recommendations[i].book_id === book_id){
+                    database.books_recommendations[i].book_id === book_id
+                ){
 
-                    if(database.books_recommendations[i].user_not_recommend) {
-                        database.books_recommendations[i].user_not_recommend = false
-                        bookRecommendationObj.user_not_recommend = false
-                        await Books.minusDontRecommend(book_id)
-                    }
-
-                    if(database.books_recommendations[i].user_recommend) {
+                    if(database.books_recommendations[i].user_recommend){
                         database.books_recommendations[i].user_recommend = false
-                        bookRecommendationObj.user_recommend = false
+                        response.user_recommend = false
                         await Books.minusRecommend(book_id)
+                        response.total_recommend-=1
                     }
 
-                    database.books_recommendations[i].user_not_recommend = true
-                    bookRecommendationObj.user_not_recommend = true
-                    await Books.plusDontRecommend(book_id)
+                    if(!database.books_recommendations[i].user_not_recommend){
+                        database.books_recommendations[i].user_not_recommend = true
+                        response.user_not_recommend = true
+                        await Books.plusNotRecommend(book_id)
+                        response.total_not_recommend+=1
+                    } else {
+                        database.books_recommendations[i].user_not_recommend = false
+                        response.user_not_recommend = false
+                        await Books.minusNotRecommend(book_id)
+                        response.total_not_recommend-=1
+                    }
 
-                    Books.save(database)
-                    return bookRecommendationObj
+                    await Books.save(database)
+                    return response
                 }
             }
 
-            database.books_recommendations.push(bookRecommendationObj)
+            database.books_recommendations.push({
+                user_id,
+                book_id,
+                user_recommend: false,
+                user_not_recommend: true,
+            })
 
+            await Books.plusNotRecommend(book_id)
             await Books.save(database)
 
-            return bookRecommendationObj
+            response.total_not_recommend+=1
+
+            return response
 
         } catch (error) {
             throw new Error(error)
