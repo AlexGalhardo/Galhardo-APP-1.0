@@ -258,7 +258,7 @@ Games.getRandom() // return a random game object
 ## Some APP Images
 
 ### Games
-![ga_home](https://user-images.githubusercontent.com/19540357/132408594-c2fa76ba-0c64-4725-96a3-fb8d1b9e66f1.png)
+![ga_home](https://user-images.githubusercontent.com/19540357/132409025-ddf7aff6-9bb6-45c6-842a-060092c9c833.png)
 
 
 ### Books
