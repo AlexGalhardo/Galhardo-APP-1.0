@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./galhardoapp.db"
+}
+
+/* datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRE_URL")
+} */
+
+
+/* datasource db {
+  provider = "mysql"
+  url      = env("MYSQL_URL")
+} */
+
+
+/* datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URL")
+} */
+
+
+generator client {
+  provider = "prisma-client-js"
+}

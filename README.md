@@ -117,6 +117,7 @@ Games.getByID(parseInt(game_id)) // return game object
 Games.getTotal() // return integer total games
 Games.getRandom() // return a random game object
 ```
+- <b>This project will use PRISMA ORM (https://www.prisma.io/) for TypeScript, ES6+ and Production Version.</b>
 
 ## CriptoBOT
 - This is a super simple bot to buy and sell bitcoin at binance to learn websockets and home broker things.
