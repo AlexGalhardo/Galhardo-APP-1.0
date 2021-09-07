@@ -95,7 +95,7 @@
       "comments": [
         {
           "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-          "user_logged_can_delete": true,
+          "user_logged_can_delete": false,
           "user_name": "ADMIN Alex",
           "user_avatar": "admin_avatar.png",
           "comment": "NEW ADMIN COMMENT",
@@ -228,7 +228,7 @@
       "genres": "Action, Third Person, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
       "recommend": 19827,
-      "not_recommend": 8761,
+      "not_recommend": 8762,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-success",
@@ -251,7 +251,7 @@
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "id": 4,
@@ -269,7 +269,7 @@
       "not_recommend": 91298,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
+      "userLoggedRecommend": "btn-outline-success",
       "userLoggedNotRecommend": "btn-outline-danger",
       "firstGame": true
     },
@@ -308,7 +308,7 @@
       "not_recommend": 9872,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedRecommend": "btn-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
@@ -365,7 +365,7 @@
       "not_recommend": 123445,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
+      "userLoggedRecommend": "btn-outline-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
@@ -442,7 +442,7 @@
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "game_id": 2,
       "user_recommend": false,
-      "user_not_recommend": false
+      "user_not_recommend": true
     },
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
@@ -523,7 +523,7 @@
       "not_recommend": 0,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
+      "userLoggedRecommend": "btn-outline-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
@@ -540,7 +540,7 @@
       "not_recommend": 0,
       "updated_at": "17/08/2021 05:49:19",
       "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-success",
+      "userLoggedRecommend": "btn-outline-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
@@ -553,7 +553,7 @@
       "genres": "Software",
       "author": "Robert C. Martin",
       "id": 5,
-      "recommend": 0,
+      "recommend": 1,
       "not_recommend": 0,
       "updated_at": "19/08/2021 03:34:40",
       "created_at": "19/08/2021 03:34:40",
@@ -651,6 +651,12 @@
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "book_id": 9,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "book_id": 5,
       "user_recommend": true,
       "user_not_recommend": false
     }

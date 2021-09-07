@@ -2,9 +2,12 @@ const checkbox = document.querySelector('#checkbox_policy');
 const btn = document.querySelector('#button_register');
 const password = document.querySelector("#password")
 const confirm_password = document.querySelector("#confirm_password")
-const name = document.querySelector('#username');
-const email = document.querySelector("#email")
+const name = document.querySelector('#username').value
+const email = document.querySelector("#email").value
 const form = document.querySelector("#form_register")
+const app_url = document.querySelector("#app_url").value
+
+
 
 let validPassword = false
 let validEmail = false
@@ -13,8 +16,8 @@ let validName = true
 btn.addEventListener('click', async (e) => {
     e.preventDefault()
 
-    if(name.value.length < 4){
-        document.querySelector("#alert_name").innerHTML = "Invalid name"
+    if(name.length < 4){
+        document.querySelector("#alert_name").innerHTML = "Invalid name!"
         validName = false
     } else {
         document.querySelector("#alert_name").innerHTML = ""
@@ -22,12 +25,17 @@ btn.addEventListener('click', async (e) => {
     }
 
     // verify email
-    const response = await fetch(`https://galhardoapp.com/api/public/email/${email.value}`)
-    const json = await response.json()
+    if(email){
+        const response = await fetch(`${app_url}/api/public/email/${email}`)
+        const json = await response.json()
 
-    if(email.value.length >= 8 && !json.emailRegistred){
-        document.querySelector("#alert_email").innerHTML = ""
-        validEmail = true
+        if(email.length >= 8 && !json.emailRegistred){
+            document.querySelector("#alert_email").innerHTML = ""
+            validEmail = true
+        } else {
+            document.querySelector("#alert_email").innerHTML = "Invalid email!"
+            validEmail = false
+        }
     } else {
         document.querySelector("#alert_email").innerHTML = "Invalid email!"
         validEmail = false

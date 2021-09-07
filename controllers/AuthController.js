@@ -104,7 +104,8 @@ class AuthController {
             captcha: res.recaptcha,
             flash_success: req.flash('success'),
             flash_warning: req.flash('warning'),
-            csrfToken: req.csrfToken()
+            csrfToken: req.csrfToken(),
+            app_url: process.env.APP_URL
         });
     }
 

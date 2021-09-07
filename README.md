@@ -258,10 +258,12 @@ Games.getRandom() // return a random game object
 ## Some APP Images
 
 ### Games
-![ga_home](https://user-images.githubusercontent.com/19540357/129276444-830fa647-5414-44ef-bf34-2a3bb24b3ccd.png)
+![ga_home](https://user-images.githubusercontent.com/19540357/132408594-c2fa76ba-0c64-4725-96a3-fb8d1b9e66f1.png)
+
 
 ### Books
-![ga_books](https://user-images.githubusercontent.com/19540357/129276417-8b22e199-fa74-4c8d-86a9-ba9870971b22.png)
+![ga_books](https://user-images.githubusercontent.com/19540357/132408602-0f7c547a-25ea-45cc-8239-fb3d24dc54fc.png)
+
 
 ### SHOP
 ![ga_shop_1](https://user-images.githubusercontent.com/19540357/131276355-3d687e16-fa43-457b-8c42-55ad04514196.png)
@@ -287,10 +289,10 @@ Games.getRandom() // return a random game object
 ![ga_message_log](https://user-images.githubusercontent.com/19540357/131276348-baf084e6-23d7-48d5-9fa6-0ff2bdd30236.png)
 
 ### AuthController
-![ga_login](https://user-images.githubusercontent.com/19540357/131276346-5fa17a75-a768-459e-9ca2-5e1cf912dbd2.png)
+![ga_login](https://user-images.githubusercontent.com/19540357/132408604-2e1d9c75-aa97-453f-a855-22d1444dbf52.png)
 ![ga_google](https://user-images.githubusercontent.com/19540357/130067660-c50adabf-7b75-4f4f-a871-4532294ace4b.png)
 ![ga_register_github](https://user-images.githubusercontent.com/19540357/130067666-04018b3f-e900-4b69-be2c-bb6bc7768416.png)
-![ga_verify_register](https://user-images.githubusercontent.com/19540357/131276351-32fe3746-1dd0-4108-9f99-d1961ba65cdb.png)
+![ga_register](https://user-images.githubusercontent.com/19540357/132408607-4e868c73-622f-4812-a62a-89fb7a78f4ea.png)
 ![ga_account_created](https://user-images.githubusercontent.com/19540357/131276342-7ecd924c-a877-4c6a-9e51-6c4a11f7335e.png)
 ![ga_recoverpassword_view](https://user-images.githubusercontent.com/19540357/131276368-780e8880-ad49-479c-85ec-ecf4dde06d94.png)
 ![ga_recover_password](https://user-images.githubusercontent.com/19540357/131276363-a56ab9fd-7ac1-491a-985f-9684c5fdc5bf.png)

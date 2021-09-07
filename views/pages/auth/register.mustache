@@ -62,6 +62,7 @@
 
         <form action="/register" method="POST" id="form_register">
 
+            <input type="text" id="app_url" hidden value="{{app_url}}" readonly>
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
             {{#github_id}}
@@ -86,7 +87,7 @@
             <small><span id="alert_email" class="fw-bold text-danger"></span></small>
 
             <div class="form-floating mb-3">
-                <input type="text" class="form-control mb-3" name="email" id="email" placeholder="Enter your email" required value="{{email}}" {{#email_readonly}}onkeydown="return false;"{{/email_readonly}}>
+                <input type="email" class="form-control mb-3" name="email" id="email" required value="{{email}}" {{#email_readonly}}onkeydown="return false;"{{/email_readonly}}>
                 <label for="email">Email</label>
             </div>
 
