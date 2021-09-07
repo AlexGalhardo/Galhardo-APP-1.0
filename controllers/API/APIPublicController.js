@@ -106,7 +106,7 @@ class APIPublicController {
 
 	static async getPublicRandomGame(req, res, next){
 		try {
-			const totalGames = await Games.getRandom()
+			const game = await Games.getRandom()
             return res.json({
                 game
             });	        

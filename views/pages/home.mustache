@@ -4,6 +4,9 @@
 
       	<div class="row">
 
+            <input type="text" id="user_id" hidden value="{{user.id}}" readonly>
+            <input type="text" id="app_url" hidden value="{{app_url}}" readonly>
+
             {{^games}}
                 {{^game}}
                     <div class="text-center alert alert-warning" role="alert" class="mb-3">
