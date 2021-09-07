@@ -15,6 +15,7 @@ const recaptcha = new Recaptcha(process.env.RECAPTCHA_ID, process.env.RECAPTCHA_
 const csrf = require('csurf')
 const csrfProtection = csrf({ cookie: true })
 
+const RouterCache = require('../helpers/RouterCache')
 
 // INIT ROUTER
 const router = require('express').Router()
@@ -58,8 +59,8 @@ const verifyIfUserHasActiveSubscription = (req, res, next) => {
 
 router
 // APP VIEWS CONTROLLER
-    .get('/', AppController.getViewHome)
-    .get('/books', AppController.getViewBooks)
+    .get('/', RouterCache(300), AppController.getViewHome)
+    .get('/books', RouterCache(300), AppController.getViewBooks)
 
     .get('/contact', recaptcha.middleware.render, csrfProtection, AppController.getViewContact)
     .post('/contact', recaptcha.middleware.verify, csrfProtection, AppController.postContact)

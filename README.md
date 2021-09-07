@@ -124,76 +124,6 @@ Games.getRandom() // return a random game object
 - The Bitcoin Ticker 24h use WebSocket from: wss://stream.binance.com:9443/stream?streams=btcusdt@ticker
 - <b>All the transactions use SANDBOX Data from endpoint:</b> https://testnet.binance.vision/api/v3/order
 - Binance WebSocket documentation: https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md
-- Binance Bitcoin Transaction LOG Example:
-```
-{
-  symbol: 'BTCUSDT',
-  orderId: 65562,
-  orderListId: -1,
-  clientOrderId: 'fGmYbdryF4wvQY4Py67ycw',
-  transactTime: 1630700061708,
-  price: '0.00000000',
-  origQty: '0.01000000',
-  executedQty: '0.01000000',
-  cummulativeQuoteQty: '504.00000316',
-  status: 'FILLED',
-  timeInForce: 'GTC',
-  type: 'MARKET',
-  side: 'BUY',
-  fills: [
-    {
-      price: '50400.00000000',
-      qty: '0.00992100',
-      commission: '0.00000000',
-      commissionAsset: 'BTC',
-      tradeId: 12099
-    },
-    {
-      price: '50400.04000000',
-      qty: '0.00007900',
-      commission: '0.00000000',
-      commissionAsset: 'BTC',
-      tradeId: 12100
-    }
-  ]
-}
-
-03/09/2021 17:14:21 http: POST /criptoBOT/BUY/BTCUSDT/0.01 200 CONTENT-LENGTH=532 6331.763 ms
-
-{
-  symbol: 'BTCUSDT',
-  orderId: 65567,
-  orderListId: -1,
-  clientOrderId: 'rAdNkWlLoXYpHqOQP5tqPa',
-  transactTime: 1630700063789,
-  price: '0.00000000',
-  origQty: '0.01000000',
-  executedQty: '0.01000000',
-  cummulativeQuoteQty: '503.99968782',
-  status: 'FILLED',
-  timeInForce: 'GTC',
-  type: 'MARKET',
-  side: 'SELL',
-  fills: [
-    {
-      price: '50399.98000000',
-      qty: '0.00992100',
-      commission: '0.00000000',
-      commissionAsset: 'USDT',
-      tradeId: 12101
-    },
-    {
-      price: '50398.56000000',
-      qty: '0.00007900',
-      commission: '0.00000000',
-      commissionAsset: 'USDT',
-      tradeId: 12102
-    }
-  ]
-}
-
-03/09/2021 17:14:23 http: POST /criptoBOT/SELL/BTCUSDT/0.01 200 CONTENT-LENGTH=535 392.945 ms
-```
 
 ## Server Monitor
 - You can see: https://galhardoapp.com/status for Server Monitor
@@ -232,16 +162,25 @@ Games.getRandom() // return a random game object
 
 
 ## RoadMap
-- Logs using Winston and Morgan
-   - [ ] Telegram
-   - [ ] Files txt
-   - [ ] Console
+- Logs using Winston, Pino and Morgan
+   - [x] Telegram
+   - [x] Files txt
+   - [x] Console
 - SMTP using HTML Templates
-   - [ ] Contact
-   - [ ] Shop Transactions
-   - [ ] Subscriptions Transactions
-   - [ ] Confirm Email
-   - [ ] Reset Password 
+   - [x] Contact
+   - [x] Shop Transactions
+   - [x] Subscriptions Transactions
+   - [x] Confirm Email
+   - [x] Reset Password
+- SEO & Marketing Digital
+   - [ ] Newsletter
+   - [ ] Google PageSpeed Insights
+   - [ ] LightHouse
+   - [x] Google Search Console
+   - [x] Google Analytics
+   - [x] Sitemap & Robots.txt
+- [x] CDN (Cloudflare)
+- [x] API HTML Documentation Using Insomnia Documenter
 - Payments
    - SHOP (Ecommerce Checkout)
       - Stripe
@@ -252,7 +191,7 @@ Games.getRandom() // return a random game object
             - [ ] Credit card
             - [ ] Bank Slip (Boleto Bancário)
          - [ ] PagarME Lib Checkout
-      - [ ] PIX
+         - [ ] PIX
    - Plans (Subscriptions)
       - Stripe
          - [ ] Transparent Checkout
@@ -260,16 +199,15 @@ Games.getRandom() // return a random game object
       - PagarME Credit Card
          - [ ] Transparent Checkout
          - [ ] PagarME Lib Checkout
-- [ ] In Code Compression Responses (HTML, JS, CSS)
-- [ ] In Code Cache Most used data (Redis and In-Memory)
-- [ ] Google Tools (SEO, Search Console, Analytics, Sitemap, Robots.txt, etc)
-- [x] CDN (Cloudflare)
-- [ ] Newsletter
-- [x] API HTML Documentation Using Insomnia Documenter
+- Cache
+   - [x] Compress Request Responses
+   - [x] Cache GET Requests In Memory
+   - [ ] Cache GET Requests in Redis
+
 - Using JSON DataBase 
    - [x] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [x] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe
-   - [ ] CRUD Games & Books Recommends
+   - [x] CRUD Games & Books Recommends
    - [x] CRUD Profile
    - [x] CRUD APIs
 - Using MySQL DataBase with Docker and pure SQL
