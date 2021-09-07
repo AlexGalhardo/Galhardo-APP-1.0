@@ -164,7 +164,7 @@ class Books {
         			return database.books[i]
         		}
       		}
-      		return "Book NOT Updated!"
+      		return null
     	} catch (error) {
       		throw new Error(error);
     	}

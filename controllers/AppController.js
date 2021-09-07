@@ -32,6 +32,7 @@ class AppController {
             flash_warning: req.flash('warning'),
             game,
             user: SESSION_USER,
+            app_url: process.env.APP_URL,
             header: Header.games()
         });
     }
@@ -180,6 +181,22 @@ class AppController {
             user: SESSION_USER,
             header: Header.books()
         });
+    }
+
+
+    static async recommendGame(req, res){
+        const { game_id, user_id } = req.params
+        const response = await Games.userRecommend(user_id, parseInt(game_id))
+        console.log(response)
+        return res.json(response)
+    }
+
+
+    static async dontRecommendGame(req, res){
+        const { game_id, user_id } = req.params
+        const response = await Games.userNotRecommend(user_id, parseInt(game_id))
+        console.log(response)
+        return res.json(response)
     }
 
 

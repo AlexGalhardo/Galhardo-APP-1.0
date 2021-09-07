@@ -27,16 +27,16 @@
       },
       "stripe": {
         "customer_id": "cus_KARqXVbwHvPZyS",
-        "card_id": "card_1JW7O3HoneB4ZvrpwgYbhFYC",
-        "card_brand": "Visa",
-        "card_last4": "4242",
-        "card_exp_month": 8,
-        "card_exp_year": 2022,
+        "card_id": null,
+        "card_brand": null,
+        "card_last4": null,
+        "card_exp_month": null,
+        "card_exp_year": null,
         "currently_subscription_id": "sub_KASPZ9F5iNXsBG",
         "currently_subscription_name": "STARTER",
         "subscription_start": "04/09/2021 19:37:40",
         "subscription_end": "04/10/2021 19:37:40",
-        "cancel_at_period_end": false
+        "cancel_at_period_end": true
       },
       "created_at": "09/08/2021 03:52:14",
       "updated_at": "11/08/2021 04:04:17"
@@ -207,10 +207,13 @@
       "developer": "Santa Mônica Studios",
       "genres": "Action, Third Person, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 901282,
+      "not_recommend": 9827,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16"
+      "updated_at": "04/08/2021 18:55:16",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "firstGame": true
     },
     {
       "id": 2,
@@ -224,10 +227,12 @@
       "developer": "Sucker Punch Productions",
       "genres": "Action, Third Person, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 19827,
+      "not_recommend": 8761,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16"
+      "updated_at": "04/08/2021 18:55:16",
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 3,
@@ -241,10 +246,12 @@
       "developer": "Insomniac Games",
       "genres": "Action, Third Person, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 124,
+      "not_recommend": 55,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16"
+      "updated_at": "04/08/2021 18:55:16",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 4,
@@ -258,10 +265,13 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Action, Drama, Stealth, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 1287,
+      "not_recommend": 91298,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16"
+      "updated_at": "04/08/2021 18:55:16",
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "firstGame": true
     },
     {
       "id": 5,
@@ -275,10 +285,12 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Third Person, Action, Drama, Stealth, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 913,
+      "not_recommend": 3452,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16"
+      "updated_at": "04/08/2021 18:55:16",
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 6,
@@ -292,10 +304,12 @@
       "developer": "FromSoftware",
       "genres": "SinglePlayer, Third Person, RPG, Action, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 7263,
+      "not_recommend": 9872,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16"
+      "updated_at": "04/08/2021 18:55:16",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 7,
@@ -309,10 +323,12 @@
       "developer": "Atlus",
       "genres": "SinglePlayer, Third Person, RPG, Turn-Based, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 92737,
+      "not_recommend": 10289,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16"
+      "updated_at": "04/08/2021 18:55:16",
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 8,
@@ -326,10 +342,12 @@
       "developer": "Santa Mônica Studios",
       "genres": "SinglePlayer, Third Person, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 19280912,
+      "not_recommend": 8889,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16"
+      "updated_at": "04/08/2021 18:55:16",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 9,
@@ -343,10 +361,12 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Third Person, Shooter, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 873646,
+      "not_recommend": 123445,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16"
+      "updated_at": "04/08/2021 18:55:16",
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 10,
@@ -360,10 +380,12 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Third Person, Shooter, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 9999,
+      "not_recommend": 8888,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16"
+      "updated_at": "04/08/2021 18:55:16",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "title": "Hades",
@@ -377,13 +399,82 @@
       "genres": "Adventure, Hack and slash/Beat 'em up, Indie, Role-playing (RPG)",
       "amazon_link": "amazon link",
       "id": 11,
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 6666,
+      "not_recommend": 7777,
       "updated_at": "17/08/2021 05:28:54",
-      "created_at": "17/08/2021 05:28:54"
+      "created_at": "17/08/2021 05:28:54",
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     }
   ],
-  "games_recommendations": [],
+  "games_recommendations": [
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 4,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 9,
+      "user_recommend": false,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 7,
+      "user_recommend": false,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 8,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 3,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 2,
+      "user_recommend": false,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 6,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 11,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 1,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 10,
+      "user_recommend": false,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 5,
+      "user_recommend": true,
+      "user_not_recommend": false
+    }
+  ],
   "books": [
     {
       "id": 1,
@@ -449,7 +540,7 @@
       "not_recommend": 0,
       "updated_at": "17/08/2021 05:49:19",
       "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedRecommend": "btn-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
@@ -500,7 +591,7 @@
       "not_recommend": 0,
       "updated_at": "19/08/2021 04:48:10",
       "created_at": "19/08/2021 04:48:10",
-      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedRecommend": "btn-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
@@ -530,7 +621,7 @@
       "pages": "256",
       "genres": "Fiction",
       "author": "J.K. Rowling",
-      "recommend": 0,
+      "recommend": 1,
       "not_recommend": 0,
       "updated_at": "17/08/2021 05:49:19",
       "created_at": "17/08/2021 05:49:19",
@@ -554,6 +645,12 @@
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "book_id": 6,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": 9,
       "user_recommend": true,
       "user_not_recommend": false
     }
