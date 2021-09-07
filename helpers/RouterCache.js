@@ -6,7 +6,6 @@ module.exports = duration => (req, res, next) => {
 
     // if not, call next
     if(req.method !== 'GET'){
-        console.log('Canoot cache non-GET methods')
         return next();
     }
 
@@ -16,11 +15,9 @@ module.exports = duration => (req, res, next) => {
 
     // if it exists, send cache result
     if(cachedResponse){
-        console.log(`Cache hit for ${key}`)
         res.send(cachedResponse);
     } else {
          // if not, replace .send with method to set response to cache
-        console.log(`Cache miss for ${key}`)
         res.originalSend = res.send
         res.send = body => {
             res.originalSend(body);

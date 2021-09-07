@@ -126,14 +126,14 @@ class AppController {
         const searchedGames  = await Games.searchTitle(searchGameTitle)
 
         if(!searchedGames.length){
-            req.flash('warning', 'No games found from this game title search! Recommending a random game...')
+            req.flash('warning', `No games found from search: ${searchGameTitle}! Recommending a Random Game`)
             return res.redirect('/')
         }
 
         if(searchedGames.length > 1){
             searchedGames[0].firstGame = true
             return res.render('pages/home', {
-                flash_success: `${searchedGames.length} Games Found For Search Title: ${searchGameTitle.toUpperCase()}`,
+                flash_success: `${searchedGames.length} Games Found From Search Title: ${searchGameTitle.toUpperCase()}`,
                 games: searchedGames,
                 user: SESSION_USER,
                 header: Header.games()
@@ -160,7 +160,7 @@ class AppController {
         const searchedBooks  = await Books.searchTitle(searchBookTitle)
 
         if(!searchedBooks.length){
-            req.flash('warning', 'No books found from this book title search! Recommending a random book...')
+            req.flash('warning', `No books found from search: ${searchBookTitle}! Recommending a Random Book`)
             return res.redirect('/books')
         }
 

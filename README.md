@@ -172,6 +172,13 @@ Games.getRandom() // return a random game object
    - [x] Subscriptions Transactions
    - [x] Confirm Email
    - [x] Reset Password
+- Security
+   - [x] Headers HTTP
+   - [x] CSRF
+   - [x] Google Recaptcha
+   - [x] Routes/Endpoints Access
+   - [x] CORS
+   - [ ] Validation Requests Data
 - SEO & Marketing Digital
    - [ ] Newsletter
    - [ ] Google PageSpeed Insights
@@ -179,6 +186,7 @@ Games.getRandom() // return a random game object
    - [x] Google Search Console
    - [x] Google Analytics
    - [x] Sitemap & Robots.txt
+   - [x] SocialMedia MetaTags
 - [x] CDN (Cloudflare)
 - [x] API HTML Documentation Using Insomnia Documenter
 - Payments

@@ -59,13 +59,13 @@ const verifyIfUserHasActiveSubscription = (req, res, next) => {
 
 router
 // APP VIEWS CONTROLLER
-    .get('/', RouterCache(300), AppController.getViewHome)
-    .get('/books', RouterCache(300), AppController.getViewBooks)
+    .get('/', /*RouterCache(300),*/ AppController.getViewHome)
+    .get('/books', /*RouterCache(300),*/ AppController.getViewBooks)
 
     .get('/contact', recaptcha.middleware.render, csrfProtection, AppController.getViewContact)
     .post('/contact', recaptcha.middleware.verify, csrfProtection, AppController.postContact)
 
-    .get('/privacy', RouterCache(300), AppController.getViewPrivacy)
+    .get('/privacy', /*RouterCache(300),*/ AppController.getViewPrivacy)
     .get('/criptoBOT', AppController.getViewCriptoBOT)
 
     .get('/searchGame', AppController.getSearchGameTitle)
@@ -77,11 +77,11 @@ router
 
 
 // BLOG VIEWS CONTROLLER
-    .get('/blog', RouterCache(300), BlogController.getViewBlog)
+    .get('/blog', /*RouterCache(300),*/ BlogController.getViewBlog)
     .get('/blog/search', BlogController.getSearchBlogTitle)
     .get('/blog/page/:page', BlogController.getViewBlog)
 
-    .get('/blog/:slug', RouterCache(300), BlogController.getViewBlogPost)
+    .get('/blog/:slug', /*RouterCache(300),*/ BlogController.getViewBlogPost)
     .post('/blog/:slug', BlogController.postBlogComment)
 
     .get('/blog/:slug/deleteComment/:comment_id', BlogController.getDeleteBlogCommentByCommentID)
