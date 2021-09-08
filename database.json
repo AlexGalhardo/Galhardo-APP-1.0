@@ -48,7 +48,7 @@
       "confirmed_email": true,
       "confirm_email_token": null,
       "password": "$2a$12$0v0OSYD/CLAjRiYDc/9rIOFpA1BgHK83fGUEsOyld4O/uSv0pFYHq",
-      "reset_password_token": null,
+      "reset_password_token": "I3wVSlYIPHVHX3GY2Q7xlsPu",
       "admin": true,
       "avatar": "admin_avatar.png",
       "document": "44557777777",

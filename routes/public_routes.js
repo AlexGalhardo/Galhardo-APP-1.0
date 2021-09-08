@@ -17,6 +17,10 @@ const csrfProtection = csrf({ cookie: true })
 
 const RouterCache = require('../helpers/RouterCache')
 
+const Users = require(`../models/${process.env.APP_DATABASE}/Users`);
+
+
+
 // INIT ROUTER
 const router = require('express').Router()
 
@@ -47,6 +51,7 @@ const userIsNotLoggedIn = (req, res, next) => {
     }
     next()
 }
+
 
 const verifyIfUserHasActiveSubscription = (req, res, next) => {
     if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
@@ -127,6 +132,9 @@ router
     .post('/forgetPassword', userIsAlreadyLoggedIn, AuthController.postForgetPassword)
 
     .get('/confirmEmail/:email/:token', AuthController.verifyIfConfirmEmailURLIsValid)
+
+    .get('/confirmEmail', AuthController.getViewResendConfirmEmailLink)
+    .post('/confirmEmail', AuthController.postSendConfirmEmailLink)
 
     .get('/resetPassword/:email/:token', userIsAlreadyLoggedIn, AuthController.getViewResetPassword)
     .post('/resetPassword', userIsAlreadyLoggedIn, AuthController.postResetPassword)

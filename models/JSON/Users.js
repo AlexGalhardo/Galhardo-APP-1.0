@@ -9,6 +9,7 @@
 
 const fs = require('fs-extra')
 const uuid = require('uuid');
+const randomToken = require('rand-token');
 
 const Bcrypt = require('../../helpers/Bcrypt');
 const DateTime = require('../../helpers/DateTime');
@@ -122,12 +123,11 @@ class Users {
                     return true
                 }
             }
-          return false
+            return false
         } catch (error) {
             throw new Error(error)
         }
     }
-
 
 
     static async verifyLogin(email, password){
@@ -222,16 +222,17 @@ class Users {
 
 
 
-    static createResetPasswordToken(email, reset_password_token){
+    static createResetPasswordToken(email){
         try {
+            const reset_password_token = randomToken.generate(24);
+
             for(let i = 0; i < database.users.length; i++){
                 if(database.users[i].email === email){
                     database.users[i].reset_password_token = reset_password_token
-                    Users.save(database, 'error createResetPasswordToken: ')
-                    return true
+                    Users.save(database)
+                    return
                 }
             }
-            return false
         } catch (error) {
             throw new Error(error)
         }

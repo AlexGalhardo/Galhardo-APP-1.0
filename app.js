@@ -63,7 +63,7 @@ const pinoHttp = require('pino-http')({logger:PinoLog})
 
 const morgan = require('./config/morgan');
 const Logger = require('./config/winston');
-app.use(morgan) // 04/09/2021 16:25:57 http: GET /favicon.ico 200 CONTENT-LENGTH=- 151.767 ms
+app.use(morgan) // 08/09/2021 19:37:50 http: GET / 200  162.571 ms
 
 
 

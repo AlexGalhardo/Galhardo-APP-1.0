@@ -77,6 +77,33 @@
    - day/month/year hours:minutes:seconds
    - 23/08/2021 15:52:36
 
+## Folders
+- syntax, backups, api-docs
+   - These folders dont need to go in production (add in .gitignore for production)
+   - api-docs: Insomnia API HTML documentation from insomnia.json
+   - backups: some importantes notes, links, configurations etc, while I develop the project
+   - syntax: fast references while I learn JavaScript, TypeScript and SQL/MongoDB syntax
+- views
+   - emails: SMTP Emails requests
+   - partials: used in pages
+   - pages: main html pages responses
+- tests
+   - unit and integration automatic tests using jest
+- routes
+   - all routes/endpoints used in app
+- public
+   - css, scripts, images, uploads, robots.txt, sitemap.xml public access
+- models
+   - all models from databases
+- logs
+   - logs file.txt
+- helpers
+   - usefull code snippets, functions, classes used in app
+- controllers
+   - all the controllers used in app
+- config
+   - important app configs
+
 ## Payments
 - This project uses 2 APIs for Payments:
    - USA Stripe for USD ($) Credit Card Transactions
@@ -174,12 +201,14 @@ Games.getRandom() // return a random game object
    - [x] Confirm Email
    - [x] Reset Password
 - Security
-   - [x] Headers HTTP
-   - [x] CSRF
-   - [x] Google Recaptcha
-   - [x] Routes/Endpoints Access
-   - [x] CORS
-   - [ ] Validation Requests Data
+   - [ ] OWASP Top Ten (https://owasp.org/www-project-top-ten/)
+   - [ ] Headers HTTP (https://helmetjs.github.io/)
+   - [x] CSRF (https://owasp.org/www-community/attacks/csrf)
+   - [x] Google Recaptcha (https://www.google.com/recaptcha/about/)
+   - [x] CORS (https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+   - [ ] CSP(https://content-security-policy.com/)
+   - [ ] Verify All Routes/Endpoints Access
+   - [ ] Validation All Requests Data
 - SEO & Marketing Digital
    - [ ] Newsletter
    - [ ] Google PageSpeed Insights

@@ -17,8 +17,7 @@ const randomToken = require('rand-token');
 
 
 // Config
-const SendGrid = require('../config/SendGrid');
-
+const { SendGrid, MailTrap, Ethereal } = require('../config/MailSMTP');
 
 const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
 
@@ -45,7 +44,7 @@ class NodeMailer {
         
         const htmlBody = template(replacements);
 
-        await SendGrid.sendMail({
+        await MailTrap.sendMail({
             from: contactObject.email,
             to: process.env.APP_EMAIL,
             subject: `Galhardo APP Contact: ${contactObject.subject} from ${contactObject.name}`,
@@ -53,7 +52,7 @@ class NodeMailer {
             html: htmlBody
         });
         
-        SendGrid.close();
+        MailTrap.close();
     }
 
 
@@ -86,14 +85,14 @@ class NodeMailer {
         
         const htmlBody = template(replacements);
 
-        await SendGrid.sendMail({
+        await MailTrap.sendMail({
             from: process.env.APP_EMAIL,
             to: "aleexgvieira@gmail.com", //shopTransactionObject.customer.email,
             subject: `Galhardo APP: Shop Transaction Success!`,
             html: htmlBody
         });
         
-        SendGrid.close();
+        MailTrap.close();
     }
 
 
@@ -120,19 +119,21 @@ class NodeMailer {
         
         const htmlBody = template(replacements);
 
-        let emailSend = await SendGrid.sendMail({
+        let emailSend = await MailTrap.sendMail({
             from: process.env.APP_EMAIL,
             to: 'aleexgvieira@gmail.com', // subsTransactionObject.customer.email,
             subject: `Galhardo APP: Subscription Transaction Success!`,
             html: htmlBody
         });
         
-        SendGrid.close();
+        MailTrap.close();
     }
 
 
 
-    static async sendConfirmEmailToken (email, confirm_email_token) {
+    static async sendConfirmEmailLink(email) {
+        const confirm_email_token = randomToken.generate(24)
+
         let confirmEmailLinkURL = `${process.env.APP_URL}/confirmEmail/${email}/${confirm_email_token}`;
 
         const filePath = path.join(__dirname, '../views/emails/confirm_email.html');
@@ -147,18 +148,18 @@ class NodeMailer {
 
         const htmlBody = template(replacements);
 
-        await SendGrid.sendMail({
+        await MailTrap.sendMail({
             from: process.env.APP_EMAIL,
             to: email,
             subject: `GALHARDO APP: Confirm Your Email!`,
             html: htmlBody
         });
         
-        SendGrid.close();
+        MailTrap.close();
     }
 
 
-    static async sendForgetPassword (email, reset_password_token) {
+    static async sendForgetPasswordLink(email, reset_password_token) {
         const resetPasswordLinkURL = `${process.env.APP_URL}/resetPassword/${email}/${reset_password_token}`;
 
         const filePath = path.join(__dirname, '../views/emails/forget_password.html');
@@ -173,14 +174,14 @@ class NodeMailer {
 
         const htmlBody = template(replacements);
 
-        await SendGrid.sendMail({
+        await MailTrap.sendMail({
             from: process.env.APP_EMAIL,
             to: email,
             subject: `GALHARDO APP: Recover Your Password!`,
             html: htmlBody
         });
 
-        SendGrid.close();
+        MailTrap.close();
     }
 };
 

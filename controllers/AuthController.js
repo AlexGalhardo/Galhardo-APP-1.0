@@ -22,7 +22,6 @@ const { validationResult } = require("express-validator");
 const queryString = require('query-string');
 const axios = require('axios');
 const fetch = require('node-fetch');
-const randomToken = require('rand-token');
 
 
 // HELPERS
@@ -153,8 +152,6 @@ class AuthController {
                 facebook_id,
                 google_id } = req.body;
 
-            const confirm_email_token = randomToken.generate(24)
-
             const userObject = {
                 username,
                 email,
@@ -166,7 +163,7 @@ class AuthController {
             };
 
             await Users.create(userObject)
-            await NodeMailer.sendConfirmEmailToken(email, confirm_email_token)
+            await NodeMailer.sendConfirmEmailLink(email)
 
             req.flash('success', 'Account Created! Confirm your email by clicking the link send to your email inbox!')
             return res.redirect('/register')
@@ -185,10 +182,8 @@ class AuthController {
     static async postForgetPassword (req, res){
         const { email } = req.body;
 
-        const reset_password_token = randomToken.generate(24);
-
-        await Users.createResetPasswordToken(email, reset_password_token);
-        await NodeMailer.sendForgetPassword(email, reset_password_token);
+        await Users.createResetPasswordToken(email);
+        await NodeMailer.sendForgetPasswordLink(email);
 
         req.flash('success', `If this email exists, we'll send a link to this email to recover password!`)
         return res.redirect('/forgetPassword')
@@ -223,6 +218,26 @@ class AuthController {
         return res.redirect('/login')
     }
 
+
+    static getViewResendConfirmEmailLink(req, res){
+        return res.render('pages/auth/confirmEmail', {
+            flash_success: req.flash('success')
+        });
+    }
+
+
+    static async postSendConfirmEmailLink(req, res){
+        const { email } = req.body
+
+        const emailConfirmed = await Users.verifyIfEmailIsConfirmed(email)
+
+        if(!emailConfirmed){
+            await NodeMailer.sendConfirmEmailLink(email)
+        }
+
+        req.flash('success', "If this email is registred and not confirmed yet, we'll send a link to confirm this email!")
+        return res.redirect('/confirmEmail')
+    }
 
 
     static async loginFacebook (req, res, next){
