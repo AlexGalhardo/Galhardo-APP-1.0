@@ -106,7 +106,7 @@
 - <b>pagarme</b> = Version with pagarme (BRL transactions)
 - <b>api</b> = Galhardo app api microservice (https://api.galhardoapp.com)
 - <b>api-docs</b> = Api html documentation (https://api-docs.galhardoapp.com)
-- <b>correios</b> = Microservice for ecommerce checkout (shipping zipcode, deadline, fee)
+- <b>correios</b> = Microservice for ecommerce checkout shipping zipcode, deadline, fee (https://correios.galhardoapp.com)
 - <b>typescript</b> = Typescript version using ES6+ and Prisma ORM
 
 ## Payments
