@@ -1,3 +1,1 @@
-### Galhardo APP TypeScript Version
-
-### IN DEVELOPMENT
+#### Galhardo APP - TypeScript Version
