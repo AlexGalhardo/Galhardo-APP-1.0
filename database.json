@@ -211,8 +211,8 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-danger",
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
       "firstGame": true
     },
     {
@@ -250,8 +250,8 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-danger"
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 4,
@@ -269,8 +269,8 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-danger",
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
       "firstGame": true
     },
     {
@@ -327,8 +327,8 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-danger"
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 8,
@@ -365,8 +365,8 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-danger"
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "id": 10,
@@ -384,7 +384,7 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedRecommend": "btn-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     },
     {

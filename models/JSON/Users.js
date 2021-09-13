@@ -92,7 +92,7 @@ class Users {
 
 
 
-    static verifyConfirmEmailToken (email, token) {
+    static async verifyConfirmEmailToken (email, token) {
         try {
 
             for(let i = 0; i < database.users.length; i++){
@@ -100,10 +100,9 @@ class Users {
                   database.users[i].email === email
                   &&
                   database.users[i].confirm_email_token === token){
-                    console.log('entrou')
                     database.users[i].confirmed_email = true
                     database.users[i].confirm_email_token = null
-                    Users.save(database)
+                    await Users.save(database)
                     return true
                 }
             }
@@ -114,6 +113,22 @@ class Users {
         }
     }
 
+
+    static async createConfirmEmailToken(email, confirmEmailToken){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email === email){
+                    database.users[i].confirm_email_token = confirmEmailToken
+                    await Users.save(database)
+                    return
+                }
+            }
+            return
+        }
+        catch (error) {
+            throw new Error(error)
+        }
+    }
 
 
     static verifyIfEmailIsConfirmed (email) {

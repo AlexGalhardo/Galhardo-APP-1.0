@@ -73,16 +73,18 @@ class AuthController {
 
             const { email, password } = req.body;
 
-            const confirmedEmail = await Users.verifyIfEmailIsConfirmed(email)
-
-            if(!confirmedEmail){
-                req.flash('warning', `You need to confirm your email!`)
-                return res.redirect('/login')
-            }
-
             const userObject = await Users.verifyLogin(email, password)
 
-            if(!userObject){
+            if(userObject){
+
+                const confirmedEmail = await Users.verifyIfEmailIsConfirmed(email)
+
+                if(!confirmedEmail){
+                    req.flash('warning', `You need to confirm your email!`)
+                    return res.redirect('/login')
+                }
+
+            } else {
                 req.flash('warning', `Email OR Password Inválid!`)
                 return res.redirect('/login')
             }

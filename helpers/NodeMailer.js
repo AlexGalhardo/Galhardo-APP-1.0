@@ -148,6 +148,7 @@ class NodeMailer {
 
         const htmlBody = template(replacements);
 
+        await Users.createConfirmEmailToken(email, confirm_email_token)
         await MailTrap.sendMail({
             from: process.env.APP_EMAIL,
             to: email,
