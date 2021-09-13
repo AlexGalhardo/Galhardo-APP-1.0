@@ -17,7 +17,7 @@ const randomToken = require('rand-token');
 
 
 // Config
-const { SendGrid, MailTrap, Ethereal } = require('../config/MailSMTP');
+const { SendGrid, MailTrap, Ethereal } = require('../config/smtp');
 
 const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
 
