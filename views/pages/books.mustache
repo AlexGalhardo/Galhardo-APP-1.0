@@ -31,6 +31,7 @@
 
 
             {{#book}}
+                <input id="book_id" name="book_id" type="hidden" value="{{id}}">
 
                 <div class="col-lg-3 text-center">
                     <img id="book_image" src="{{image}}" class="shadow mx-auto d-block w-75 image-fluid mb-3" alt="book_image">
@@ -72,9 +73,8 @@
                                     class="w-50 btn btn-sm mb-3 me-5
                                     {{userLoggedRecommend}}"
                                     type="submit"
-                                    id="button_recommend_book_{{id}}"
-                                    onclick="recommendThisBook({{id}})"
-                                    title="{{recommend}} People Recommend this Book!">
+                                    id="button_recommend_bookid_{{id}}"
+                                    onclick="recommendThisBook()">
                                     <i class="bi bi-hand-thumbs-up"></i>
                                     <small id="total_recommend_bookid_{{id}}">
                                         {{recommend}}
@@ -87,8 +87,7 @@
                                     class="w-50 btn btn-sm mb-3
                                     {{userLoggedNotRecommend}}"
                                     type="submit" id="button_not_recommend_bookid_{{id}}"
-                                    onclick="dontRecommendThisBook({{id}})"
-                                    title="{{not_recommend}} People Dont Recommend this Book!">
+                                    onclick="dontRecommendThisBook()">
                                     <i class="bi bi-hand-thumbs-down"></i>
                                     <small id="total_not_recommend_bookid_{{id}}">
                                         {{not_recommend}}
@@ -166,11 +165,6 @@
                     <img id="book_image" src="{{image}}" class="shadow mx-auto d-block w-75 image-fluid mb-3" alt="book_image">
 
                     <a id="book_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="image-fluid mb-3"></a>
-
-                    <button class="w-75 btn btn-outline-danger shadow mb-3" type="submit" onclick="recommendOtherBook()">
-                            <i class="bi bi-play-fill"></i>
-                            Recommend Other
-                    </button>
                 </div>
 
 
@@ -188,18 +182,6 @@
                                     (<span id="book_year_release" class="text-muted">{{year_release}}</span>)
                                 </a>
                             </h5>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                            <button {{^user}}disabled{{/user}} class="w-50 btn btn-sm btn-outline-success mb-3 me-5" type="submit" id="button_recommend_book_{{id}}" onclick="recommendThisBook({{id}})" title="{{recommend}} People Recommend this Book!">
-                                    <i class="bi bi-hand-thumbs-up"></i>
-                                    {{recommend}} Recommend
-                            </button>
-
-                            <button {{^user}}disabled{{/user}} class="w-50 btn btn-sm btn-outline-danger mb-3" type="submit" id="button_not_recommend_bookid_{{id}}" onclick="dontRecommendThisBook({{id}})" title="{{not_recommend}} People Dont Recommend this Books!">
-                                    <i class="bi bi-hand-thumbs-down"></i>
-                                    {{not_recommend}} Not Recommend
-                            </button>
                         </div>
 
                         <small class="card-text" id="book_resume">{{resume}}</small>

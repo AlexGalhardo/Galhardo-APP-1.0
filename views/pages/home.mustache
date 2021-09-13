@@ -79,7 +79,7 @@
                                     type="submit"
                                     id="button_recommend_gameid_{{id}}"
                                     onclick="recommendThisGame()"
-                                    title="{{recommend}} People Recommend this Game!">
+                                    >
                                     <i class="bi bi-hand-thumbs-up"></i>
                                     <small id="total_recommend_gameid_{{id}}">
                                         {{recommend}}
@@ -94,7 +94,7 @@
                                     type="submit"
                                     id="button_not_recommend_gameid_{{id}}"
                                     onclick="dontRecommendThisGame()"
-                                    title="{{not_recommend}} People Dont Recommend this Game!">
+                                    >
                                     <i class="bi bi-hand-thumbs-down"></i>
                                     <small id="total_not_recommend_gameid_{{id}}">
                                         {{not_recommend}}
@@ -198,18 +198,6 @@
                                     {{igdb_rating}}
                                 </span>
                             </h4>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                            <button disabled class="w-50 btn btn-sm btn-outline-success mb-3 me-5" type="submit" onclick="recommendThisGame()" title="12392 People Recommend this Game!">
-                                    <i class="bi bi-hand-thumbs-up"></i>
-                                    12392 Recommend
-                            </button>
-
-                            <button disabled class="w-50 btn btn-sm btn-outline-danger mb-3" type="submit" onclick="dontRecommendThisGame()" title="122 People Dont Recommend this Game!">
-                                    <i class="bi bi-hand-thumbs-down"></i>
-                                    122 Not Recommend
-                            </button>
                         </div>
 
                         <small class="card-text" id="game_resume">{{resume}}</small>

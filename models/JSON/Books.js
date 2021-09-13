@@ -51,12 +51,12 @@ class Books {
 		try {
 			const totalBooks = Books.getTotal()
 
-            const random_book_index = (Math.floor(Math.random() * totalBooks) + 1) -1
+            const random_book_index = Math.floor(Math.random() * totalBooks)
 
             if(SESSION_USER){
-                database.books[random_book_index].userLoggedRecommend = await Books.verifyIfLoggedUserRecommendThisBook(SESSION_USER.id, random_book_index)
+                database.books[random_book_index].userLoggedRecommend = await Books.verifyIfLoggedUserRecommendThisBook(SESSION_USER.id, random_book_index+1)
 
-                database.books[random_book_index].userLoggedNotRecommend = await Books.verifyIfLoggedUserNotRecommendThisBook(SESSION_USER.id, random_book_index)
+                database.books[random_book_index].userLoggedNotRecommend = await Books.verifyIfLoggedUserNotRecommendThisBook(SESSION_USER.id, random_book_index+1)
             }
             else {
                 database.books[random_book_index].userLoggedRecommend = "btn-outline-success"

@@ -49,14 +49,14 @@ class Games {
 
 	static async getRandom()  {
 		try {
-			const totalGames = Games.getTotal()
+			const totalGames = await Games.getTotal()
 
-            const random_game_index = (Math.floor(Math.random() * totalGames) + 1) -1
+            const random_game_index = Math.floor(Math.random() * totalGames)
 
             if(SESSION_USER){
-                database.games[random_game_index].userLoggedRecommend = await Games.verifyIfLoggedUserRecommendThisGame(SESSION_USER.id, random_game_index)
+                database.games[random_game_index].userLoggedRecommend = await Games.verifyIfLoggedUserRecommendThisGame(SESSION_USER.id, random_game_index+1)
 
-                database.games[random_game_index].userLoggedNotRecommend = await Games.verifyIfLoggedUserNotRecommendThisGame(SESSION_USER.id, random_game_index)
+                database.games[random_game_index].userLoggedNotRecommend = await Games.verifyIfLoggedUserNotRecommendThisGame(SESSION_USER.id, random_game_index+1)
             }
             else {
                 database.games[random_game_index].userLoggedRecommend = "btn-outline-success"
@@ -200,7 +200,6 @@ class Games {
             const searchedGames = database.games.filter(game => game.title.toLowerCase().indexOf(game_title.toLowerCase()) > -1);
 
             return searchedGames
-
         } catch (error) {
             throw new Error(error)
         }

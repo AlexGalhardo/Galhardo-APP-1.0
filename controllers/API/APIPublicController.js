@@ -146,7 +146,6 @@ class APIPublicController {
 	static async getPublicRandomBook(req, res, next){
 		try {
 	        let book = await Books.getRandom()
-            console.log(book)
             return res.json({
                 book
             });	        

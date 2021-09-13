@@ -37,18 +37,22 @@ async function recommendOtherGame(){
     if(object.game.userLoggedRecommend === 'btn-success') {
         buttonRecommendEl.classList.remove('btn-outline-success')
         buttonRecommendEl.classList.add('btn-success')
+        buttonNotRecommendEl.classList.remove('btn-danger')
+        buttonNotRecommendEl.classList.add('btn-outline-danger')
     } else {
-        buttonRecommendEl.classList.add('btn-outline-success')
         buttonRecommendEl.classList.remove('btn-success')
+        buttonRecommendEl.classList.add('btn-outline-success')
     }
 
 
     if(object.game.userLoggedNotRecommend === 'btn-danger') {
         buttonNotRecommendEl.classList.remove('btn-outline-danger')
         buttonNotRecommendEl.classList.add('btn-danger')
+        buttonRecommendEl.classList.remove('btn-success')
+        buttonRecommendEl.classList.add('btn-outline-success')
     } else {
-        buttonNotRecommendEl.classList.add('btn-outline-danger')
         buttonNotRecommendEl.classList.remove('btn-danger')
+        buttonNotRecommendEl.classList.add('btn-outline-danger')
     }
 
     document.querySelector(`#total_recommend_gameid_${object.game.id}`).innerHTML = object.game.recommend
@@ -105,18 +109,22 @@ async function dontRecommendThisGame(){
     if(json.user_recommend) {
         buttonRecommendEl.classList.remove('btn-outline-success')
         buttonRecommendEl.classList.add('btn-success')
+        buttonNotRecommendEl.classList.remove('btn-danger')
+        buttonNotRecommendEl.classList.add('btn-outline-danger')
     } else {
-        buttonRecommendEl.classList.add('btn-outline-success')
         buttonRecommendEl.classList.remove('btn-success')
+        buttonRecommendEl.classList.add('btn-outline-success')
     }
 
 
     if(json.user_not_recommend) {
         buttonNotRecommendEl.classList.remove('btn-outline-danger')
         buttonNotRecommendEl.classList.add('btn-danger')
+        buttonRecommendEl.classList.remove('btn-success')
+        buttonRecommendEl.classList.add('btn-outline-success')
     } else {
-        buttonNotRecommendEl.classList.add('btn-outline-danger')
         buttonNotRecommendEl.classList.remove('btn-danger')
+        buttonNotRecommendEl.classList.add('btn-outline-danger')
     }
 
     document.querySelector(`#total_recommend_gameid_${game_id}`).innerHTML = json.total_recommend

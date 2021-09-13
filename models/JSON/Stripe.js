@@ -37,12 +37,12 @@ class Stripe {
                 currency: transactionObject.currency,
                 paid: transactionObject.paid,
                 products_amount: transactionObject.products_amount,
-                products: transactionObject.products,
+                products: JSON.stringify(transactionObject.products),
                 customer: transactionObject.customer,
                 shipping: transactionObject.shipping,
                 created_at: transactionObject.created_at
             })
-            Stripe.save(database)
+            await Stripe.save(database)
         } catch(error){
             throw new Error(error)
         }

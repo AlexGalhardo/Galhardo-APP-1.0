@@ -207,12 +207,12 @@
       "developer": "Santa Mônica Studios",
       "genres": "Action, Third Person, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 901282,
-      "not_recommend": 9827,
+      "recommend": 1,
+      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedNotRecommend": "btn-danger",
       "firstGame": true
     },
     {
@@ -227,12 +227,12 @@
       "developer": "Sucker Punch Productions",
       "genres": "Action, Third Person, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 19827,
-      "not_recommend": 8762,
+      "recommend": 1,
+      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "id": 3,
@@ -246,8 +246,8 @@
       "developer": "Insomniac Games",
       "genres": "Action, Third Person, Drama, Open world, Stealth, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 124,
-      "not_recommend": 55,
+      "recommend": 1,
+      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-outline-success",
@@ -265,12 +265,12 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Action, Drama, Stealth, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 1287,
-      "not_recommend": 91298,
+      "recommend": 1,
+      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedNotRecommend": "btn-danger",
       "firstGame": true
     },
     {
@@ -285,12 +285,12 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Third Person, Action, Drama, Stealth, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 913,
-      "not_recommend": 3452,
+      "recommend": 1,
+      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "id": 6,
@@ -304,8 +304,8 @@
       "developer": "FromSoftware",
       "genres": "SinglePlayer, Third Person, RPG, Action, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 7263,
-      "not_recommend": 9872,
+      "recommend": 1,
+      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-success",
@@ -323,12 +323,12 @@
       "developer": "Atlus",
       "genres": "SinglePlayer, Third Person, RPG, Turn-Based, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 92737,
-      "not_recommend": 10289,
+      "recommend": 1,
+      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "id": 8,
@@ -342,12 +342,12 @@
       "developer": "Santa Mônica Studios",
       "genres": "SinglePlayer, Third Person, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 19280912,
-      "not_recommend": 8889,
+      "recommend": 1,
+      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "id": 9,
@@ -361,12 +361,12 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Third Person, Shooter, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 873646,
-      "not_recommend": 123445,
+      "recommend": 1,
+      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "id": 10,
@@ -380,8 +380,8 @@
       "developer": "Naughty Dog",
       "genres": "SinglePlayer, Third Person, Shooter, Adventure",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 9999,
-      "not_recommend": 8888,
+      "recommend": 1,
+      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-outline-success",
@@ -399,54 +399,66 @@
       "genres": "Adventure, Hack and slash/Beat 'em up, Indie, Role-playing (RPG)",
       "amazon_link": "amazon link",
       "id": 11,
-      "recommend": 6666,
-      "not_recommend": 7777,
+      "recommend": 1,
+      "not_recommend": 1,
       "updated_at": "17/08/2021 05:28:54",
       "created_at": "17/08/2021 05:28:54",
-      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedRecommend": "btn-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     }
   ],
   "games_recommendations": [
     {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 4,
-      "user_recommend": true,
-      "user_not_recommend": false
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "game_id": 10,
+      "user_recommend": false,
+      "user_not_recommend": true
     },
     {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "game_id": 5,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "game_id": 6,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "game_id": 2,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
       "game_id": 9,
       "user_recommend": false,
-      "user_not_recommend": false
+      "user_not_recommend": true
     },
     {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 7,
-      "user_recommend": false,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
       "game_id": 8,
       "user_recommend": false,
       "user_not_recommend": true
     },
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 3,
+      "game_id": 8,
       "user_recommend": true,
       "user_not_recommend": false
     },
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 2,
-      "user_recommend": false,
-      "user_not_recommend": true
+      "game_id": 9,
+      "user_recommend": true,
+      "user_not_recommend": false
     },
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 6,
+      "game_id": 3,
       "user_recommend": true,
       "user_not_recommend": false
     },
@@ -458,14 +470,20 @@
     },
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 1,
+      "game_id": 7,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 4,
       "user_recommend": true,
       "user_not_recommend": false
     },
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "game_id": 10,
-      "user_recommend": false,
+      "user_recommend": true,
       "user_not_recommend": false
     },
     {
@@ -473,6 +491,54 @@
       "game_id": 5,
       "user_recommend": true,
       "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 6,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 1,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 2,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "game_id": 11,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "game_id": 4,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "game_id": 7,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "game_id": 1,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "game_id": 3,
+      "user_recommend": false,
+      "user_not_recommend": true
     }
   ],
   "books": [
@@ -486,8 +552,8 @@
       "pages": 464,
       "genres": "Historic",
       "author": "Yuval Noah Harari ",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 1,
+      "not_recommend": 1,
       "updated_at": "11/08/2021 20:36:33",
       "created_at": "11/08/2021 20:36:33",
       "userLoggedRecommend": "btn-outline-success",
@@ -504,7 +570,7 @@
       "genres": "Historic",
       "author": "Yuval Harari",
       "recommend": 1,
-      "not_recommend": 0,
+      "not_recommend": 1,
       "updated_at": "11/08/2021 20:32:39",
       "created_at": "11/08/2021 20:32:39",
       "userLoggedRecommend": "btn-outline-success",
@@ -520,11 +586,11 @@
       "pages": "464",
       "genres": "Historic",
       "recommend": 1,
-      "not_recommend": 0,
+      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "id": 4,
@@ -536,12 +602,12 @@
       "pages": "256",
       "genres": "Fiction",
       "author": "J.K. Rowling",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 1,
+      "not_recommend": 1,
       "updated_at": "17/08/2021 05:49:19",
       "created_at": "17/08/2021 05:49:19",
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "title": "Código limpo: Habilidades práticas do Agile Software",
@@ -554,11 +620,11 @@
       "author": "Robert C. Martin",
       "id": 5,
       "recommend": 1,
-      "not_recommend": 0,
+      "not_recommend": 1,
       "updated_at": "19/08/2021 03:34:40",
       "created_at": "19/08/2021 03:34:40",
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "title": "Domain-Driven Design: Atacando as complexidades no coração do software",
@@ -571,11 +637,11 @@
       "author": "Eric Evans",
       "id": 6,
       "recommend": 1,
-      "not_recommend": 0,
+      "not_recommend": 1,
       "updated_at": "19/08/2021 03:35:50",
       "created_at": "19/08/2021 03:35:50",
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "title": "Como Fazer Amigos e Influenciar Pessoas",
@@ -587,12 +653,12 @@
       "genres": "Personal Development",
       "author": "Dale Carnegie",
       "id": 7,
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 1,
+      "not_recommend": 1,
       "updated_at": "19/08/2021 04:48:10",
       "created_at": "19/08/2021 04:48:10",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "title": "A Arte da Guerra",
@@ -603,13 +669,13 @@
       "pages": "160",
       "genres": "Strategic",
       "author": "Sun Tzu",
-      "recommend": 0,
-      "not_recommend": 0,
+      "recommend": 1,
+      "not_recommend": 1,
       "created_at": "19/08/2021 06:46:13",
       "updated_at": "19/08/2021 06:46:13",
       "id": 8,
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "id": 9,
@@ -622,7 +688,7 @@
       "genres": "Fiction",
       "author": "J.K. Rowling",
       "recommend": 1,
-      "not_recommend": 0,
+      "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
       "created_at": "17/08/2021 05:49:19",
       "userLoggedRecommend": "btn-outline-success",
@@ -633,6 +699,42 @@
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "book_id": 3,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": 8,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": 9,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": 1,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": 5,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": 4,
+      "user_recommend": true,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": 7,
       "user_recommend": true,
       "user_not_recommend": false
     },
@@ -649,16 +751,58 @@
       "user_not_recommend": false
     },
     {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "book_id": 3,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "book_id": 1,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "book_id": 6,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "book_id": 2,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "book_id": 7,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "book_id": 8,
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
       "book_id": 9,
-      "user_recommend": true,
-      "user_not_recommend": false
+      "user_recommend": false,
+      "user_not_recommend": true
     },
     {
       "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
       "book_id": 5,
-      "user_recommend": true,
-      "user_not_recommend": false
+      "user_recommend": false,
+      "user_not_recommend": true
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "book_id": 4,
+      "user_recommend": false,
+      "user_not_recommend": true
     }
   ],
   "stripe": {

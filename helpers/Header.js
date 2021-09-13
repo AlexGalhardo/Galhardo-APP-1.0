@@ -7,18 +7,28 @@
  * ./helpers/Header.js
  */
 
+const scroll_bar_div = `
+            <div class="progress-container">
+                <div class="progress-bar" id="myBar"></div>
+            </div>`
+
+const scroll_bar_script = `<script src="scripts/scroll_bar.js"></script>`
 
 
 class Header {
     static games(){
         return {
-            title: "Games - Galhardo APP"
+            title: "Games - Galhardo APP",
+            scroll_bar_div,
+            scroll_bar_script
         }
     }
 
     static books(){
         return {
             title: "Books - Galhardo APP",
+            scroll_bar_div,
+            scroll_bar_script
         }
     }
 
@@ -33,11 +43,8 @@ class Header {
         return {
             title: "Blog - Galhardo APP",
             navbar_blog_active: true,
-            scroll_bar_div: `
-            <div class="progress-container">
-                <div class="progress-bar" id="myBar"></div>
-            </div>`,
-            scroll_bar_script: `<script src="scripts/scroll_bar.js"></script>`,
+            scroll_bar_div,
+            scroll_bar_script
         }
     }
 
@@ -45,11 +52,8 @@ class Header {
         return {
             title: blogPostTitle,
             navbar_blog_active: true,
-            scroll_bar_div: `
-            <div class="progress-container">
-                <div class="progress-bar" id="myBar"></div>
-            </div>`,
-            scroll_bar_script: `<script src="../scripts/scroll_bar.js"></script>`,
+            scroll_bar_div,
+            scroll_bar_script,
             use_disqus: true,
             disqus_comments: `<div id="disqus_thread"></div>
                 <script>
@@ -83,11 +87,8 @@ class Header {
     static profile(head_title){
         return {
             title: head_title,
-            scroll_bar_div: `
-            <div class="progress-container">
-                <div class="progress-bar" id="myBar"></div>
-            </div>`,
-            scroll_bar_script: `<script src="scripts/scroll_bar.js"></script>`,
+            scroll_bar_div,
+            scroll_bar_script
         }
     }
 
