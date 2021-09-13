@@ -78,17 +78,13 @@
    - 23/08/2021 15:52:36
 
 ## Folders
-- syntax, backups, api-docs
-   - These folders dont need to go in production (add in .gitignore for production)
-   - api-docs: Insomnia API HTML documentation from insomnia.json
-   - backups: some important notes, links, configurations etc, while I develop the project
-   - syntax: fast references while I learn JavaScript, TypeScript and SQL/MongoDB syntax
 - views
    - emails: SMTP Emails requests
    - partials: used in pages
    - pages: main html pages responses
 - tests
    - unit and integration automatic tests using jest
+   - this folder don't need to go to production, used in development
 - routes
    - all routes/endpoints used in app
 - public
@@ -103,6 +99,15 @@
    - all the controllers used in app
 - config
    - important app configs
+
+## GIT Branchs
+- <b>main</b> = version to deploy in production (Use Stripe USD transactions)
+- <b>dev</b> = used for development/add new features (Use Stripe USD transactions)
+- <b>pagarme</b> = version with pagarme (BRL transactions)
+- <b>api = api</b> microservice (https://api.galhardoapp.com)
+- <b>api-docs</b> = api html documentation (https://api-docs.galhardoapp.com)
+- <b>correios</b> = microservices for ecommerce checkout (shipping zipcode, deadline, fee)
+- <b>typescript</b> = typescript version using ES6+ and Prisma ORM
 
 ## Payments
 - This project uses 2 APIs for Payments:

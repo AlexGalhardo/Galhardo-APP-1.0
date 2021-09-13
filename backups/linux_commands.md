@@ -1,2 +1,0 @@
-- To kill any process listening to the port 3000:
-   - kill $(lsof -t -i:3000)
