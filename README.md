@@ -72,7 +72,7 @@
    - To GET Shipping Deadline and Fee (Correios BRAZIL)
 
 ## DateTime
-- This project uses <b>"BRASIL Brasília LocaleDateTime (BRT – Brasília Time em UTC -03:00)</b>
+- This project uses <b>"BRASIL Brasília LocaleDateTime (BRT – Brasília Time | UTC -03:00)</b>
 - Example:
    - day/month/year hours:minutes:seconds
    - 23/08/2021 15:52:36
@@ -103,9 +103,9 @@
 ## GIT Branchs
 - <b>main</b> = Version to deploy in production (Use Stripe USD transactions)
 - <b>dev</b> = Used for development/add new features (Use Stripe USD transactions)
-- <b>pagarme</b> = Version with pagarme (BRL transactions)
-- <b>api</b> = Galhardo app api microservice (https://api.galhardoapp.com)
-- <b>api-docs</b> = Api html documentation (https://api-docs.galhardoapp.com)
+- <b>pagarme</b> = Version with PagarME Payment API (BRL transactions)
+- <b>api</b> = Galhardo APP API Microservice (https://api.galhardoapp.com)
+- <b>api-docs</b> = API HTML Documentation (https://api-docs.galhardoapp.com)
 - <b>correios</b> = Microservice for ecommerce checkout shipping zipcode, deadline, fee (https://correios.galhardoapp.com)
 - <b>typescript</b> = Typescript version using ES6+ and Prisma ORM
 
