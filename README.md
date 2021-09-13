@@ -8,7 +8,7 @@
    - First Commit: August 01, 2021
 
 ## Live Demo
-- **Currently Version: ALPHA - NOT STABLE**
+- **Currently Version: BETA - ALMOST STABLE**
 - You can access: https://galhardoapp.com/
 - This live demo use "MAIN" branch
 - Last updates and development are made in "DEV" branch
