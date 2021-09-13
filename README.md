@@ -101,13 +101,13 @@
    - important app configs
 
 ## GIT Branchs
-- <b>main</b> = version to deploy in production (Use Stripe USD transactions)
-- <b>dev</b> = used for development/add new features (Use Stripe USD transactions)
-- <b>pagarme</b> = version with pagarme (BRL transactions)
-- <b>api = api</b> microservice (https://api.galhardoapp.com)
-- <b>api-docs</b> = api html documentation (https://api-docs.galhardoapp.com)
-- <b>correios</b> = microservices for ecommerce checkout (shipping zipcode, deadline, fee)
-- <b>typescript</b> = typescript version using ES6+ and Prisma ORM
+- <b>main</b> = Version to deploy in production (Use Stripe USD transactions)
+- <b>dev</b> = Used for development/add new features (Use Stripe USD transactions)
+- <b>pagarme</b> = Version with pagarme (BRL transactions)
+- <b>api</b> = Galhardo app api microservice (https://api.galhardoapp.com)
+- <b>api-docs</b> = Api html documentation (https://api-docs.galhardoapp.com)
+- <b>correios</b> = Microservice for ecommerce checkout (shipping zipcode, deadline, fee)
+- <b>typescript</b> = Typescript version using ES6+ and Prisma ORM
 
 ## Payments
 - This project uses 2 APIs for Payments:
