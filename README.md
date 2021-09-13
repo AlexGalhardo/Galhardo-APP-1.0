@@ -1,3 +1,1 @@
-### Galhardo APP API MicroService
-
-- In Development
+#### GALHARDO APP API - https://api.galhardoapp.com
