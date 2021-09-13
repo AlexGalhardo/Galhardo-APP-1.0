@@ -81,7 +81,7 @@
 - syntax, backups, api-docs
    - These folders dont need to go in production (add in .gitignore for production)
    - api-docs: Insomnia API HTML documentation from insomnia.json
-   - backups: some importantes notes, links, configurations etc, while I develop the project
+   - backups: some important notes, links, configurations etc, while I develop the project
    - syntax: fast references while I learn JavaScript, TypeScript and SQL/MongoDB syntax
 - views
    - emails: SMTP Emails requests

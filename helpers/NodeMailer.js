@@ -119,7 +119,7 @@ class NodeMailer {
         
         const htmlBody = template(replacements);
 
-        let emailSend = await MailTrap.sendMail({
+        await MailTrap.sendMail({
             from: process.env.APP_EMAIL,
             to: 'aleexgvieira@gmail.com', // subsTransactionObject.customer.email,
             subject: `Galhardo APP: Subscription Transaction Success!`,

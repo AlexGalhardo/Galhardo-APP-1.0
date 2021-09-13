@@ -1,5 +1,3 @@
-const DateTime = require('../helpers/DateTime')
-
 // https://github.com/pinojs/pino-pretty
 
 const PinoLog = require('pino')({

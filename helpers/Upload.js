@@ -36,7 +36,6 @@ class Upload {
             return res.status(400).json({error: 'Invalid file type.'})
         }
 	}
-
 }
 
 module.exports = Upload;
