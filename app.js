@@ -68,16 +68,6 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 
-app.use((req, res, next) => {
-    if (req.secure) {
-        next();
-    }
-    else {
-        res.redirect(`https://${req.hostname}${req.url}`);
-    }
-});
-
-
 // CSRF
 app.use(cookieParser())
 
@@ -189,20 +179,6 @@ app.use((err, req, res, next) => {
         message: err.message
     })
 });
-
-
-/*
- * THIS CODE FORCE REQUESTS FROM HTTP TO HTTPS IN PRODUCTION
-if(process.env.NODE_ENV === 'development') {
-  app.use((req, res, next) => {
-    if (req.header('x-forwarded-proto') !== 'https') {
-      res.redirect(`https://${req.header('host')}${req.url}`)
-    } else {
-      next();
-    }
-  });
-} */
-
 
 
 module.exports = app;
