@@ -22,7 +22,7 @@
    - **All CRUDs in this Live Demo are made in JSON DataBase, for obvious reasons.**
 
 ## Introduction
-### I created this project to LEARN and PRATICE in my spare time:
+### I created this project to LEARN and PRACTICE in my spare time:
 - JavaScript, JSON, NodeJS, Express, NPM, TypeScript, DOM, Git, Bootstrap5
 - How to document a software
 - Cookies Privacy
@@ -64,6 +64,16 @@
 
 
 ## [Install Locally](https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INSTALL_LOCALLY.md)
+- The fastest way to install locally is using JSON DataBase
+   - $ git clone https://github.com/AlexGalhardo/Galhardo-APP.git
+   - $ cd Galhardo-APP
+   - $ npm install OR yarn install
+   - $ cp .env-example .env
+   - Edit the .env file with your SECRET crendentials
+   - set APP_DATABASE in .env file with JSON (APP_DATABASE=JSON)
+   - $ npm run dev
+- To use with DataBases and to deploy in Production, read: https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INSTALL_LOCALLY.md
+- <b>Install and deploy with DataBases and NGINX is in development</b>
 
 ## MicroServices
 - https://correios.galhardoapp.com/cep/13560290 (zipcode here)
@@ -257,6 +267,9 @@ Games.getRandom() // return a random game object
    - [x] CRUD Games & Books Recommends
    - [x] CRUD Profile
    - [x] CRUD APIs
+- WebHooks
+   - [ ] Stripe
+   - [ ] PagarME
 - Using MySQL DataBase with Docker and pure SQL
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe

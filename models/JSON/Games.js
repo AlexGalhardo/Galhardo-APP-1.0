@@ -28,6 +28,11 @@ class Games {
 	    });
 	}
 
+    static getStripePriceID(game_id){
+        const arrayGamesPriceIDs = ['price_1JZklOHoneB4ZvrpPyYSucdx', 'price_1JZkqGHoneB4Zvrp4snvuFTb', 'price_1JZkvHHoneB4ZvrpdheMheEq', 'price_1JZkk4HoneB4ZvrpYI0ZB2qp', 'price_1JZkjGHoneB4ZvrpL87M48FC', 'price_1JZkrbHoneB4ZvrpecsIBSU2', 'price_1JZkquHoneB4ZvrpW0hit0Pw', 'price_1JZkseHoneB4ZvrpQJITiBkz', 'price_1JZkpPHoneB4Zvrpx2xALFfi', 'price_1JZkmuHoneB4ZvrpcLw7HdWd', 'price_1JZktsHoneB4ZvrpxL7yf7sm']
+
+        return arrayGamesPriceIDs[game_id-1]
+    }
 
 	static getAll()  {
 		try {

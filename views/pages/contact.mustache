@@ -1,58 +1,95 @@
 {{>partials/header}}
 
-    <main class="container col-lg-5">
+    <main class="container col-lg-10">
 
-        <div class="row justify-content-center">
+        <div class="row">
 
             {{{captcha}}}
+
+            <div class="col-lg-6">
             
-            <form action="/contact" method="POST" class="mt-3">
+                <form action="/contact" method="POST" class="mt-1">
 
-                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
-                {{#flash_success}}
-                    <div class="text-center alert alert-success" role="alert">
-                        <b>{{flash_success}}</b>
+                    {{#flash_success}}
+                        <div class="text-center alert alert-success" role="alert">
+                            <b>{{flash_success}}</b>
+                        </div>
+                    {{/flash_success}}
+
+                    {{#flash_warning}}
+                        <div class="text-center alert alert-warning" role="alert">
+                            <b>{{flash_warning}}</b>
+                        </div>
+                    {{/flash_warning}}
+
+                    <div class="form-floating mb-3">
+                        <input type="txt" class="mb-3 form-control" id="name" name="name" required autofocus>
+                        <label for="name">Your Name</label>
                     </div>
-                {{/flash_success}}
 
-                {{#flash_warning}}
-                    <div class="text-center alert alert-warning" role="alert">
-                        <b>{{flash_warning}}</b>
+                    <div class="form-floating mb-3">
+                        <input type="email" id="email" name="email" class="form-control" required>
+                        <label for="email">Your Email</label>
                     </div>
-                {{/flash_warning}}
 
-                <div class="form-floating mb-3">
-                    <input type="txt" class="mb-3 form-control" id="name" name="name" required autofocus>
-                    <label for="name">Your Name</label>
+                    <select class="form-select mb-3" name="subject" required>
+                        <option value="Feedback">Feedback</option>
+                        <option value="Bug/Error">Bug/Error</option>
+                        <option value="Privacy Policy">Privacy and Terms of Use Policy</option>
+                        <option value="Others">Others</option>
+                    </select>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Digit your message</label>
+                        <small id="count" class="text-muted"></small>
+                        <textarea id="message" maxlength="1024" class="form-control" name="message" rows="7" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-success shadow">Send Mensage</button>
+
+                </form>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="mt-1">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14628.792553375451!2d-46.665241976563294!3d-23.561326286015184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m5!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP!3m2!1d-23.5613462!2d-46.6564872!4m0!5e0!3m2!1spt-BR!2sbr!4v1631651190143!5m2!1spt-BR!2sbr" width="500" height="230" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
-                
-                <div class="form-floating mb-3">
-                    <input type="email" id="email" name="email" class="form-control" required>
-                    <label for="email">Your Email</label>
-                </div>
 
-                <select class="form-select mb-3" name="subject" required>
-                    <option value="Feedback">Feedback</option>
-                    <option value="Bug/Error">Bug/Error</option>
-                    <option value="Privacy Policy">Privacy and Terms of Use Policy</option>
-                    <option value="Others">Others</option>
-                </select>
+                <br>
 
-                <div class="mb-3">
-                    <label for="message" class="form-label">Digit your message</label>
-                    <small id="count" class="text-muted"></small>
-                    <textarea id="message" maxlength="1024" class="form-control" name="message" rows="5" required></textarea>
-                </div>
+                <a target="_blank" href="https://api.whatsapp.com/send?phone=5516999999999&text=Sua%20mensagem%20vai%20aqui."><p><b><i class="bi bi-whatsapp"></i> WahtsApp:</b> +55 (18) 9999-8888</p></a>
+                <a target="_blank" href="https://telegram.me/GalhardoAPP_BOT"><p><b><i class="bi bi-telegram"></i> Telegram:</b> +55 (18) 9999-8888</p></a>
+                <a href="mailto:contact@galhardoapp.com"><p><b><i class="bi bi-envelope"></i> Email:</b> contact@galhardoapp.com</p></a>
+                <p><b><i class="bi bi-receipt"></i> CNPJ:</b> 424242-424242</p>
+                <p><b><i class="bi bi-pin-map"></i> Address:</b> Avenida Paulista, 42, Jardim Mariana, São Paulo - SP</p>
+                <p><b><i class="bi bi-map"></i> CEP:</b> 12345-123</p>
 
-                <button type="submit" class="btn btn-outline-success shadow">Send Mensage</button>
 
-            </form>
+
+            </div>
 
         </div>
 
     </main>
 
     <script src="scripts/contact.js"></script>
+
+    <script type="module">
+    const { Loader } = require('https://cdn.pika.dev/google-maps');
+    const options: LoaderOptions = {version:weekly};
+const loader = new Loader('AIzaSyA0uUCAiw0_aRzVuexzz2Sgl-FsVQiQVBw', options);
+
+const google = await loader.load();
+const map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8,
+});
+</script>
+
+
 
 {{>partials/footer}}

@@ -21,6 +21,10 @@ const Games = require(`../models/${process.env.APP_DATABASE}/Games`)
 const Books = require(`../models/${process.env.APP_DATABASE}/Books`)
 
 
+// STRIPE
+const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
+
+
 
 class AppController {
 
@@ -209,6 +213,35 @@ class AppController {
         const { book_id, user_id } = req.params
         const response = await Books.userNotRecommend(user_id, parseInt(book_id))
         return res.json(response)
+    }
+
+
+    static async postStripeCheckoutGameID(req, res){
+        try {
+            const { game_id } = req.params
+            const gameStripePriceID = await Games.getStripePriceID(game_id)
+
+            const session = await stripe.checkout.sessions.create({
+                // customer_email: 'aleexgalhardoo@example.com',
+                submit_type: 'pay',
+                billing_address_collection: 'auto',
+                // locale: 'pt-BR',
+                shipping_address_collection: {
+                  allowed_countries: ['BR'],
+                },
+                line_items: [{price: gameStripePriceID, quantity: 1}],
+                payment_method_types: [
+                  'card'
+                ],
+                mode: 'payment',
+                success_url: `${process.env.APP_URL}`,
+                cancel_url: `${process.env.APP_URL}`,
+            });
+
+            return res.redirect(303, session.url)
+        } catch(error){
+            throw new Error(error)
+        }
     }
 };
 

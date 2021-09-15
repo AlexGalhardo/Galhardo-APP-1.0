@@ -106,6 +106,10 @@ router
     .post('/criptoBOT/:side/:symbol/:quantity', CriptoBOTController.postBinance)
 
 
+// STRIPE CHECKOUT
+    // .get('/stripe-checkout/status', AppController.get)
+    .post('/stripe-checkout/game/:game_id', AppController.postStripeCheckoutGameID)
+
 
 // PLANS VIEWS CONTROLLER
     .get('/plans', /*RouterCache(300),*/ PlansController.getViewPlans)

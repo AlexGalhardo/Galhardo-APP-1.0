@@ -1,8 +1,9 @@
 ## Installs and Usefull Tools
 - NodeJS
    - https://snapcraft.io/node
-- LINUX MINT XFCE 20.2 (Ubuntu 20.04)
-   - https://www.linuxmint.com/edition.php?id=290
+- Linux Distros I Use
+   - https://linuxmint.com/edition.php?id=290
+   - https://xubuntu.org/release/20-04/
 - SETUP UBUNTU 20.04 SERVER
    - https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04-pt
 - REDIS
@@ -32,62 +33,52 @@
    - https://webhook.site/
 - SMTP
    - https://ethereal.email/
+   - https://mailtrap.io/
+   - https://sendgrid.com/
+- NGROK
+   - https://ngrok.com/
 - HTTP REQUESTS
    - https://www.postman.com/
    - https://insomnia.rest/download
    - https://hoppscotch.io/
+   - API HTTP Requests
+      - You can use my INSOMNIA Configuration JSON with all HTTP Requests Ready to TRY
+      - INSOMNIA_GALHARDOAPP_API_REQUESTS.json
 
 
-## How To Use Locally with JSON DataBase
-- $ git clone https://github.com/alexgalhardo/galhardo-app
-- $ cd galhardo-app/
-- Edit .env-example to .env and edit it with you credentials
-- $ npm install
-- $ npm start
-   - http://localhost:3000
-
-## How To Use Locally with SQLite and Docker
+## How To Install Locally with SQLite and Docker
 - In development
 
-## How To Use Locally with MySQL and Docker
+## How To Install Locally with MySQL and Docker
 - In Development
+- $ sudo docker-compose up -d
+- Go to: http://localhost:8080
+   - Select MySQL
+   - server: galhardoapp_postgres
+   - username: root
+   - password: root
 
-- username: root
-- server: galhardoapp_mysql
 
-## How To Use Locally with PostgreSQL and Docker
+## How To Install Locally with PostgreSQL and Docker
 - In Development
-
 - $ sudo docker-compose up -d
 - Go to: http://localhost:8080
    - Select PostgreSQL
-   - username: postgres 
    - server: galhardoapp_postgres
+   - username: postgres
+   - password: root
 
-## How To Use Locally with MongoDB and Docker
+
+## How To Install Locally with MongoDB and Docker
 - In Development
+- $ sudo docker-compose up -d
+- $ sudo docker inspect galhardoapp_mongodb
+- Get Docker MongoDB IPv4 Address number (like: 172.19.0.2)
 ```
-$ sudo docker run \
-    --name galhardoapp_mongodb \
-    -p 27017:27017 \
-    -e MONGO_INITDB_ROOT_USERNAME=admin \
-    -e MONGO_INITDB_ROOT_PASSWORD=root \
-    -d \
-    mongo:4
-
-$ sudo docker run \
-    --name galhardoapp_mongoclient \
-    -p 4000:3000 \
-    --link galhardoapp_mongodb:galhardoapp_mongodb \
-    -d \
-    mongoclient/mongoclient
-
 $ sudo docker exec -it galhardoapp_mongodb \
     mongo --host localhost -u admin -p root --authenticationDatabase admin \
     --eval "db.getSiblingDB('galhardoapp').createUser({user: 'alex', pwd: 'root', roles: [{role: 'readWrite', db: 'galhardoapp'}]})"
 ```
+- Open your MongoDB GUI to connect
 - mongodb+srv://admin:root@172.19.0.2
 
-## API HTTP Requests
-- You can use my INSOMNIA Configuration JSON with all HTTP Requests Ready to TRY
-   - INSOMNIA_GALHARDOAPP_API_REQUESTS.json

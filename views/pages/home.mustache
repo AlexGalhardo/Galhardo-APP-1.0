@@ -39,7 +39,16 @@
 
                     <a id="game_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="shadow image-fluid mb-3"></a>
 
-                    <button class="w-75 btn btn-outline-dark shadow mb-3" type="submit" onclick="recommendOtherGame()">
+                    <form id="form_stripe_checkout" action="/stripe-checkout/game/{{id}}" method="POST">
+                        <button type="submit" id="stripe_checkout_button" class="w-75 btn btn-outline-success shadow mb-3">
+                            <i class="bi bi-cash"></i>
+                            Stripe Checkout
+                        </button>
+                    </form>
+
+
+
+                    <button class="w-75 btn btn-outline-dark shadow mb-3" onclick="recommendOtherGame()">
                             <i class="bi bi-play-fill"></i>
                             Recommend Other
                     </button>

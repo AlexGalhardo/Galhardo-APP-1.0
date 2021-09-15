@@ -51,6 +51,33 @@ if(process.env.APP_DATABASE === 'SQLITE') console.log('USING DATABASE: SQLITE')
 const app = require('express')()
 
 
+/* FORCE HTTP TO HTTPS */
+// this code will not work with https-localhost module
+// use this code in production without port defined in url (localhost:3000)
+// and using a reverse-proxy like nginx
+// need to defined this middleware before any routes
+if(process.env.NODE_ENV === 'production') {
+    app.use((req, res, next) => {
+        if ((req.headers["x-forwarded-proto"] || "").endsWith("http")){
+            res.redirect(`https://${req.hostname}${req.url}`);
+        }
+        else {
+            next();
+        }
+    });
+}
+
+
+app.use((req, res, next) => {
+    if (req.secure) {
+        next();
+    }
+    else {
+        res.redirect(`https://${req.hostname}${req.url}`);
+    }
+});
+
+
 // CSRF
 app.use(cookieParser())
 
@@ -166,7 +193,7 @@ app.use((err, req, res, next) => {
 
 /*
  * THIS CODE FORCE REQUESTS FROM HTTP TO HTTPS IN PRODUCTION
-if(process.env.NODE_ENV === 'production') {
+if(process.env.NODE_ENV === 'development') {
   app.use((req, res, next) => {
     if (req.header('x-forwarded-proto') !== 'https') {
       res.redirect(`https://${req.header('host')}${req.url}`)
@@ -174,6 +201,8 @@ if(process.env.NODE_ENV === 'production') {
       next();
     }
   });
-}*/
+} */
+
+
 
 module.exports = app;
