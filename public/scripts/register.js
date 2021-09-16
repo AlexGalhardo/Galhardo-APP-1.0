@@ -3,15 +3,15 @@ const btn = document.querySelector('#button_register');
 const password = document.querySelector("#password")
 const confirm_password = document.querySelector("#confirm_password")
 const name = document.querySelector('#username').value
-const email = document.querySelector("#email").value
+const emailValue = document.querySelector("#email").value
 const form = document.querySelector("#form_register")
 const app_url = document.querySelector("#app_url").value
-
 
 
 let validPassword = false
 let validEmail = false
 let validName = true
+
 
 btn.addEventListener('click', async (e) => {
     e.preventDefault()
@@ -25,11 +25,13 @@ btn.addEventListener('click', async (e) => {
     }
 
     // verify email
-    if(email){
-        const response = await fetch(`${app_url}/api/public/email/${email}`)
+    if(emailValue){
+        const response = await fetch(`${app_url}/api/public/email/${emailValue}`)
         const json = await response.json()
 
-        if(email.length >= 8 && !json.emailRegistred){
+        const validEmailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+        if(emailValue.match(validEmailRegex) && !json.emailRegistred){
             document.querySelector("#alert_email").innerHTML = ""
             validEmail = true
         } else {
@@ -54,7 +56,6 @@ btn.addEventListener('click', async (e) => {
 
     // verify checkbox policy
     if(!checkbox.checked){
-        alert('You need to agree with our Policy!')
         document.querySelector("#alert_checkbox").innerHTML = "You need to agree with our Policy!"
     } else {
         document.querySelector("#alert_checkbox").innerHTML = ""

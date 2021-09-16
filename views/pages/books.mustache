@@ -130,24 +130,8 @@
                     </div>
 
                     {{^user}}
-                        <div class="card mt-3">
-                            <div class="card-body text-center">
-                                <form method="POST" action="/">
-                                    <h5 class="card-title fw-bold text-success">Newsletter</h5>
-                                    <small>Get the best news about games and books once a week!</small>
-                                    <input class="form-control mt-2" type="text" placeholder="Enter your email" aria-label="Search">
-                                    <div class="form-check mt-2 text-start">
-                                        <input type="checkbox" class="form-check-input" id="checkbox_policy">
-                                        <label class="form-check-label" for="checkbox_policy">
-                                            <small>
-                                                You agree with our
-                                                <a target="_blank" href="/privacy">Privacy and Terms of Use Policy</a> and accept to receive offers and advertisements.
-                                            </small>
-                                        </label>
-                                    </div>
-                                    <button disabled type="submit" class="mt-3 w-100 btn btn-sm btn-outline-success">Subscribe to newsletter</button>
-                                </form>
-                            </div>
+                        <div id="newsletter_card">
+
                         </div>
                     {{/user}}
                 </div>
@@ -220,26 +204,11 @@
                         </div>
 
                         {{^user}}
-                            <div class="card mt-3">
-                                <div class="card-body text-center">
-                                    <form method="POST" action="/">
-                                        <h5 class="card-title fw-bold text-success">Newsletter</h5>
-                                        <small>Get the best news about games and books once a week!</small>
-                                        <input class="form-control mt-2" type="text" placeholder="Enter your email" aria-label="Search">
-                                        <div class="form-check mt-2 text-start">
-                                            <input type="checkbox" class="form-check-input" id="checkbox_policy">
-                                            <label class="form-check-label" for="checkbox_policy">
-                                                <small>
-                                                    You agree with our
-                                                    <a target="_blank" href="/privacy">Privacy and Terms of Use Policy</a> and accept to receive offers and advertisements.
-                                                </small>
-                                            </label>
-                                        </div>
-                                        <button disabled type="submit" class="mt-3 w-100 btn btn-sm btn-outline-success">Subscribe to newsletter</button>
-                                    </form>
-                                </div>
+                            <div id="newsletter_card">
+
                             </div>
                         {{/user}}
+
                     </div>
                 {{/firstBook}}
 
@@ -255,5 +224,8 @@
     <!-- END CONTAINER -->
 
     <script src="scripts/books.js"></script>
+
+    <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+    <script src="scripts/newsletter.js"></script>
 
 {{>partials/footer}}

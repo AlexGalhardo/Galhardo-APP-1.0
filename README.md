@@ -230,13 +230,14 @@ Games.getRandom() // return a random game object
    - [ ] Verify All Routes/Endpoints Access
    - [ ] Validation All Requests Data
 - SEO & DIGITAL MARKETING
-   - [ ] Newsletter
+   - [x] Newsletter
    - [ ] Google PageSpeed Insights
    - [ ] LightHouse
    - [x] Google Search Console
    - [x] Google Analytics
    - [x] Sitemap & Robots.txt
    - [x] SocialMedia MetaTags
+   - [ ] SEO Links Working Correctly
 - [x] CDN (Cloudflare)
 - [x] API HTML Documentation Using Insomnia Documenter
 - PAYMENTS
@@ -312,6 +313,8 @@ Games.getRandom() // return a random game object
 
 ## Some APP Images
 
+
+
 ### Games
 ![ga_home](https://user-images.githubusercontent.com/19540357/132409025-ddf7aff6-9bb6-45c6-842a-060092c9c833.png)
 
@@ -322,16 +325,17 @@ Games.getRandom() // return a random game object
 
 ### SHOP
 ![ga_shop_1](https://user-images.githubusercontent.com/19540357/131276355-3d687e16-fa43-457b-8c42-55ad04514196.png)
+![ga_shop_1_cardRegistred](https://user-images.githubusercontent.com/19540357/133533018-66b543e9-2884-4fec-991a-50a79e7d3473.png)
 ![ga_shop_2](https://user-images.githubusercontent.com/19540357/131276356-c5d3733e-8d62-46d7-a6d7-9fc14e368350.png)
 ![ga_shop_3](https://user-images.githubusercontent.com/19540357/131276360-477d23c2-4f3f-4c9c-abab-a8e58ed0d9b8.png)
 ![ga_shop_4](https://user-images.githubusercontent.com/19540357/131276370-52cb4ef6-3f8c-402d-a6e8-ebe16850ad0a.png)
 
 
 ### Subscription
-![ga_plans](https://user-images.githubusercontent.com/19540357/131592846-31e57139-6447-4634-8499-1c825a2dd44c.png)
+![ga_plans](https://user-images.githubusercontent.com/19540357/133533001-b016b8ba-baa6-41f6-8b1a-86d22a046770.png)
 ![ga_plan_checkout](https://user-images.githubusercontent.com/19540357/131592850-3f8ee4b4-7887-4c69-bd62-6736c7ad162b.png)
 ![ga_subs_checkout_card_registred](https://user-images.githubusercontent.com/19540357/131592478-55d78666-00c2-4763-b697-dd204f3d183a.png)
-![ga_subs_paylog](https://user-images.githubusercontent.com/19540357/131592480-b7f402ab-83c8-4161-a9f4-10fa2495b013.png)
+![ga_subscription_log](https://user-images.githubusercontent.com/19540357/133533167-12f42c63-8acd-4dee-a8c9-64448fc41729.png)
 ![ga_subs_email](https://user-images.githubusercontent.com/19540357/131592487-849e67cf-780b-4905-9275-e8fa3cf60e0b.png)
 
 ## Cripto BOT
@@ -340,7 +344,7 @@ Games.getRandom() // return a random game object
 
 
 ## Contact
-![ga_message](https://user-images.githubusercontent.com/19540357/131276369-c89ab35a-3408-42ec-9d38-c2d4997f3eca.png)
+![ga_contact_1](https://user-images.githubusercontent.com/19540357/133533006-013e0853-4062-4379-af88-b005556b99ae.png)
 ![ga_message_log](https://user-images.githubusercontent.com/19540357/131276348-baf084e6-23d7-48d5-9fa6-0ff2bdd30236.png)
 
 ### AuthController
@@ -365,7 +369,7 @@ Games.getRandom() // return a random game object
 ![ga_subs_log_telegram](https://user-images.githubusercontent.com/19540357/131592483-d0a03286-6444-448b-9def-27962978b56c.png)
 
 ### Profile
-![ga_profile_1](https://user-images.githubusercontent.com/19540357/129701716-bd679910-e1ce-42e5-9cae-e39f3003da28.png)
+![ga_profile_1](https://user-images.githubusercontent.com/19540357/133532979-f33f57f4-77b5-49cf-9167-5fa4ae821d82.png)
 ![ga_profile_2](https://user-images.githubusercontent.com/19540357/129701714-92dc33ea-adcb-45e6-a9d0-a6f5054a999a.png)
 ![ga_my_shop_transactions](https://user-images.githubusercontent.com/19540357/131751715-3278087b-2a83-4d17-b0f1-3e98ec708832.png)
 ![ga_profile_shop_log](https://user-images.githubusercontent.com/19540357/131751719-4d3cf88f-1b87-4ba0-a72d-a307a2127fea.png)
