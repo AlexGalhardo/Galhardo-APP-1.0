@@ -95,6 +95,16 @@ router
     .get('/blog/:slug/deleteComment/:comment_id', BlogController.getDeleteBlogCommentByCommentID)
 
 
+// NEWSLETTER
+    .get('/newsletter-confirm-email', (req, res) => {
+        req.flash('success', 'Confirm your newsletter subscription by clicking in the link send to your email inbox!')
+        return res.redirect('/')
+    })
+    .get('/newsletter-email-confirmed', (req, res) => {
+        req.flash('success', 'Your newsletter subscription was confirmed! Welcome aboard :D')
+        return res.redirect('/')
+    })
+
 
 // SHOP CONTROLLER
     .get('/shop', ShopController.getViewShop)
