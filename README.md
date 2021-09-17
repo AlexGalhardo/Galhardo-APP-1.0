@@ -123,6 +123,9 @@
 - The software throw new Error() most of the time, to catch simple/easy errors and fix them
 - Promise and Async errors are handled too, to prevent Unhandled Promise Rejects and Thread Pool Errors
 
+## HTML Templates
+- <b>I like a lot to study all things about design and UX, but Front End development IS NOT my speciality
+- I'm horrible programming in CSS</b>
 
 ## Payments
 - This project uses 2 APIs for Payments:
