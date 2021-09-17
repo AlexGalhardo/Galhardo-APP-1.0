@@ -9,6 +9,9 @@
     <!-- CHARSET -->
     <meta charset="utf-8">
 
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://galhardoapp.com">
+
     <!-- RESPONSIVE -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -35,6 +38,9 @@
 
     <!-- STYLES CSS -->
     <link rel="stylesheet" href="/css/styles.css">
+    {{{header.weather_css}}}
+    {{{header.app_money_css}}}
+    {{{header.todo_css}}}
 
     <!-- LOADING PAGE JS -->
     <script src="/scripts/pace.min.js"></script>
@@ -77,7 +83,7 @@
 
 
 
-<body onload=displayCurrentlyDateTime(); id="tag_body">
+<body id="tag_body">
 
     <div class="fixed-top bg-dark">
 
@@ -124,27 +130,12 @@
                             <a class="nav-link {{#header.navbar_criptobot_active}}fw-bold text-white{{/header.navbar_criptobot_active}}" aria-current="page" href="/criptoBOT"> CriptoBOT</a>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item">
+                            <a class="nav-link {{#header.navbar_projects_active}}fw-bold text-white{{/header.navbar_projects_active}}" aria-current="page" href="/projects"> Projects</a>
+                        </li>
 
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                APIs
-                            </a>
-
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li class="dropdown-item" id="dolar"></li>
-                                <li class="dropdown-item" id="euro"></li>
-                                <li class="dropdown-item" id="bitcoin"></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li>
-                                    <small class="dropdown-item" id="today"></small>
-                                </li>
-                                <li>
-                                    <small class="dropdown-item" id="realTime"></small>
-                                </li>
-                                <li>
-                                    <small class="dropdown-item" id="dateTimeFormat"><b>DateTime Format:</b> pt-BR</small>
-                                </li>
-                             </ul>
+                        <li class="nav-item">
+                            <a class="nav-link {{#header.navbar_toDo_active}}fw-bold text-white{{/header.navbar_toDo_active}}" aria-current="page" href="/toDo"> ToDo</a>
                         </li>
 
                         {{#user.admin}}
@@ -206,75 +197,76 @@
 
                         </ul>
 
-                            {{#user}}
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-person-circle"></i>
-                                        {{user.name}}
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li>
-                                            <a class="dropdown-item fw-bold" href="/profile">
-                                                <i class="bi bi-pencil-square"></i>
-                                                My Profile
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item fw-bold" href="/profile/shop/transactions">
-                                                <i class="bi bi-cart"></i>
-                                                My Shop Transactions
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item fw-bold" href="/profile/subscriptions/transactions">
-                                                <i class="bi bi-award"></i>
-                                                My Plans Transactions
-                                            </a>
-                                        </li>
-                                        {{#user.admin}}
-                                            <li><hr class="dropdown-divider"></li>
-                                            <li>
-                                                <a class="dropdown-item fw-bold" href="/admin/create/blogPost">
-                                                    <i class="bi bi-plus"></i>
-                                                    Create Blog Post
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item fw-bold" href="/admin/create/game">
-                                                    <i class="bi bi-plus"></i>
-                                                    Create Game
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item fw-bold" href="/admin/create/book">
-                                                    <i class="bi bi-plus"></i>
-                                                    Create Book
-                                                </a>
-                                            </li>
-                                        {{/user.admin}}
+                        {{#user}}
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle"></i>
+                                    {{user.name}}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item fw-bold" href="/profile">
+                                            <i class="bi bi-pencil-square"></i>
+                                            My Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item fw-bold" href="/profile/shop/transactions">
+                                            <i class="bi bi-cart"></i>
+                                            My Shop Transactions
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item fw-bold" href="/profile/subscriptions/transactions">
+                                            <i class="bi bi-award"></i>
+                                            My Plans Transactions
+                                        </a>
+                                    </li>
+                                    {{#user.admin}}
                                         <li><hr class="dropdown-divider"></li>
                                         <li>
-                                            <a class="dropdown-item fw-bold" href="/profile/logout">
-                                                <i class="bi bi-x-lg"></i>
-                                                Logout
+                                            <a class="dropdown-item fw-bold" href="/admin/create/blogPost">
+                                                <i class="bi bi-plus"></i>
+                                                Create Blog Post
                                             </a>
                                         </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            {{/user}}
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="/admin/create/game">
+                                                <i class="bi bi-plus"></i>
+                                                Create Game
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="/admin/create/book">
+                                                <i class="bi bi-plus"></i>
+                                                Create Book
+                                            </a>
+                                        </li>
+                                    {{/user.admin}}
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item fw-bold" href="/profile/logout">
+                                            <i class="bi bi-x-lg"></i>
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        {{/user}}
 
 
                         {{^user}}
-                        <div class="pull-right">
+                            <div class="pull-right">
 
-                            <a href="/login" class="btn shadow btn-success" type="submit">Login</a>
+                                <a href="/login" class="btn shadow btn-success" type="submit">Login</a>
 
-                            <a href="/register" class="ms-2 btn shadow btn-primary" type="submit">Register</a>
-                        </div>
-
+                                <a href="/register" class="ms-2 btn shadow btn-primary" type="submit">Register</a>
+                            </div>
                         {{/user}}
+
+                        <iframe class="ms-3" src="https://ghbtns.com/github-btn.html?user=alexgalhardo&repo=galhardo-app&type=star&count=true&size=large" frameborder="0" scrolling="0" width="150" height="30" title="GitHub"></iframe>
 
                 </div>
 

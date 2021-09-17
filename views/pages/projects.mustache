@@ -1,0 +1,128 @@
+{{>partials/header}}
+
+    <div class="container col-lg-12">
+
+        <div class="row">
+
+            <h4 class="mt-3 mb-3 fw-bold text-center" id="welcome_api_phrase"></h4>
+
+            <div class="col-lg-4 mt-3">
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" id="today"></li>
+                        <li class="list-group-item" id="realTime"></li>
+                        <li class="list-group-item" class="fw-bold">Brazil Brasília UTC -3:00</li>
+                        <li class="list-group-item" id="dolar"></li>
+                        <li class="list-group-item" id="euro"></li>
+                        <li class="list-group-item" id="bitcoin"></li>
+                    </ul>
+
+                    <div data-js="currencies-container" class="mt-3 row justify-content-center mb-3">
+
+                    <div class="col-sm-6 col-lg-6">
+                        <select data-js="currency-one" class="form-select"></select>
+                      </div>
+
+                      <div class="col-sm-6 col-lg-6">
+                        <select data-js="currency-two" class="form-select"></select>
+                      </div>
+                    </div>
+
+                    <div class="row justify-content-center align-items-center mb-3">
+                      <div class="col-sm-6 col-lg-6">
+                        <input data-js="currency-one-times" type="number" min="1" class="form-control form-control-lg" value="1">
+                      </div>
+
+                      <div class="col-sm-6 col-lg-6">
+                        <p data-js="converted-value" class="converted-value fs-1 text-center mb-0"></p>
+                      </div>
+
+                      <p data-js="conversion-precision" class="conversion-precision text-center m-4"></p>
+                    </div>
+
+                    <form id="form_search_city">
+                        <input class="form-control" id="search_city" type="search" placeholder="City name"/>
+                        <button class="mt-2 w-100 btn btn-outline-primary pull-right">Search City</button>
+                    </form>
+
+
+                    <div id="city_name_weather">
+                        <div class="titulo">--</div>
+
+                        <div class="info">
+                            <div class="temp">
+                                <div class="tempTitulo">Temperature</div>
+                                <div class="tempInfo">-- <sup>ºC</sup></div>
+                                <img src="http://openweathermap.org/img/wn/10d@2x.png" />
+                            </div>
+                            <div class="vento">
+                                <div class="ventoTitulo">Wind</div>
+                                <div class="ventoInfo">-- <span>km/h</span></div>
+                                <div class="ventoArea">
+                                    <div class="ventoPonto" style="transform: rotate(0deg)"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="alert_city_name"></div>
+
+            </div>
+
+            <div class="col-lg-4 text-center mt-3">
+                <div class="card p-2">
+                    <h4 id="balance" class="balance fw-bold mt-3">R$ 0.00</h4>
+
+                    <hr>
+
+                    <div class="inc-exp-container">
+                        <div>
+                            <h4>Deposits</h4>
+                            <p id="money-plus" class="fw-bold money plus">+ R$0.00</p>
+                        </div>
+
+                        <hr>
+                        <div>
+                            <h4>Withdraws</h4>
+                            <p id="money-minus" class="fw-bold money minus">- R$0.00</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <form id="form">
+                        <div class="mt-3">
+                            <input class="form-control" autofocus type="text" id="text" placeholder="Transaction Name" />
+                        </div>
+
+                        <div class="mt-3">
+                            <input class="form-control" type="number" id="amount" placeholder="Transaction Amount" />
+                            <small>(positive = deposit, negative = withdraw)</small>
+                        </div>
+
+                        <button class="mt-3 btn btn-outline-success w-100">Add Transaction</button>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4 text-center mt-3">
+                <div class="card p-2">
+                    <h3>Transactions</h3>
+                    <ul id="transactions" class="transactions"></ul>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script src="../scripts/apis.js"></script>
+    <script src="../scripts/weather.js"></script>
+
+    <script src="../scripts/twriter.js"></script>
+    <script src="../scripts/exchange.js"></script>
+    <script src="../scripts/app_money.js"></script>
+
+{{>partials/footer}}

@@ -1,0 +1,32 @@
+.money.plus {
+  color: #2ecc71;
+}
+
+.money.minus {
+  color: #c0392b;
+}
+
+.transactions {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.transactions li {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.transactions li.plus {
+  border-right: 5px solid #2ecc71;
+}
+
+.transactions li.minus {
+  border-right: 5px solid #c0392b;
+}

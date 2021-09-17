@@ -65,6 +65,8 @@ const verifyIfUserHasActiveSubscription = (req, res, next) => {
 router
 // APP VIEWS CONTROLLER
     .get('/', /*RouterCache(300),*/ AppController.getViewHome)
+    .get('/projects', AppController.getViewProjects)
+    .get('/toDo', AppController.getViewToDo)
     .get('/books', /*RouterCache(300),*/ AppController.getViewBooks)
 
     .get('/contact', recaptcha.middleware.render, csrfProtection, AppController.getViewContact)

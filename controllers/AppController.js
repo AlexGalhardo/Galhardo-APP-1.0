@@ -54,6 +54,27 @@ class AppController {
         });
     }
 
+
+    static getViewProjects(req, res){
+        res.render('pages/projects', {
+            flash_success: req.flash('success'),
+            flash_warning: req.flash('warning'),
+            user: SESSION_USER,
+            header: Header.projects()
+        });
+    }
+
+
+    static getViewToDo(req, res){
+        res.render('pages/toDo', {
+            flash_success: req.flash('success'),
+            flash_warning: req.flash('warning'),
+            user: SESSION_USER,
+            header: Header.toDo()
+        });
+    }
+
+
     static getViewContact (req, res){
         res.render('pages/contact', {
             flash_success: req.flash('success'),

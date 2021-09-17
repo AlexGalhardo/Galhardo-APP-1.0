@@ -17,6 +17,8 @@ async function displayCurrentlyDateTime() {
 
 (async function(){
 
+    displayCurrentlyDateTime()
+
     const res = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL');
     const money = await res.json();
     document.getElementById("dolar").innerHTML = `<b>USD: R$</b> ${parseFloat(money.USDBRL.high).toFixed(2)}`

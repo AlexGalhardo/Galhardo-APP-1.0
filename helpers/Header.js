@@ -39,6 +39,27 @@ class Header {
         }
     }
 
+    static projects(){
+        return {
+            title: "Projects - Galhardo APP",
+            navbar_projects_active: true,
+            weather_css: `<link rel="stylesheet" href="/css/weather.css">`,
+            app_money_css: `<link rel="stylesheet" href="/css/app_money.css">`,
+            scroll_bar_div,
+            scroll_bar_script
+        }
+    }
+
+    static toDo(){
+        return {
+            title: "To Do - Galhardo APP",
+            navbar_toDo_active: true,
+            todo_css: `<link rel="stylesheet" href="/css/todo.css">`,
+            scroll_bar_div,
+            scroll_bar_script
+        }
+    }
+
     static blog(){
         return {
             title: "Blog - Galhardo APP",

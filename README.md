@@ -356,6 +356,13 @@ Games.getRandom() // return a random game object
 ![ga_recoverpassword_view](https://user-images.githubusercontent.com/19540357/131276368-780e8880-ad49-479c-85ec-ecf4dde06d94.png)
 ![ga_recover_password](https://user-images.githubusercontent.com/19540357/131276363-a56ab9fd-7ac1-491a-985f-9684c5fdc5bf.png)
 
+## Projects
+![ga_projects](https://user-images.githubusercontent.com/19540357/133855577-9c5ae72a-8368-4c16-8429-0ddc61a62d45.png)
+![ga_projects_2](https://user-images.githubusercontent.com/19540357/133855582-30363d20-0f11-489c-a640-1f1f4728955a.png)
+
+## ToDo
+![ga_todo](https://user-images.githubusercontent.com/19540357/133855592-64439960-83bb-4627-9cd9-99ca72580cd5.png)
+
 ### Blog
 ![ga_blog](https://user-images.githubusercontent.com/19540357/129276413-93b7a40c-f8f5-4bb9-b1cc-df5df78b73da.png)
 ![ga_blog_post](https://user-images.githubusercontent.com/19540357/129276447-239ae567-4c74-46c1-8c0d-fda16449456a.png)
