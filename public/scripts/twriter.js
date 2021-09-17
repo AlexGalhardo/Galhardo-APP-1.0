@@ -543,7 +543,7 @@ writer
   .type('You can give me feedbacks sending pull requests, email contact or giving a star :)')
   .rest(800)
   .clear()
-  .type('This API page shows some simple projects using JavaScript')
+  .type('This Projects page shows some simple projects using JavaScript')
   .rest(800)
   .clear()
   .start()

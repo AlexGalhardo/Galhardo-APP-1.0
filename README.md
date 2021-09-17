@@ -126,6 +126,8 @@
 ## HTML Templates
 - <b>I like a lot to study all things about design and UX, but Front End development IS NOT my speciality
 - I'm horrible programming in CSS</b>
+- I'm not using Jquery, VueJS, ReactJS, Angular etc in this project
+- The goal is to use vanilla/pure JavaScript as much as possible to manipulate DOM
 
 ## Payments
 - This project uses 2 APIs for Payments:
