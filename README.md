@@ -357,7 +357,7 @@ Games.getRandom() // return a random game object
 ![ga_recover_password](https://user-images.githubusercontent.com/19540357/131276363-a56ab9fd-7ac1-491a-985f-9684c5fdc5bf.png)
 
 ## Projects
-![ga_projects](https://user-images.githubusercontent.com/19540357/133855577-9c5ae72a-8368-4c16-8429-0ddc61a62d45.png)
+![ga_projects](https://user-images.githubusercontent.com/19540357/133856092-720dfbf9-56fb-4812-b9af-48ed80ef725e.png)
 ![ga_projects_2](https://user-images.githubusercontent.com/19540357/133855582-30363d20-0f11-489c-a640-1f1f4728955a.png)
 
 ## ToDo
