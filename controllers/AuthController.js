@@ -67,7 +67,7 @@ class AuthController {
                     return res.redirect('/login')
                 }
             } else {
-                req.flash('warning', `Invalid Recaptcha!`)
+                req.flash('warning', `Recaptcha inválido!`)
                 return res.redirect('/login')
             }
 
@@ -80,18 +80,18 @@ class AuthController {
                 const confirmedEmail = await Users.verifyIfEmailIsConfirmed(email)
 
                 if(!confirmedEmail){
-                    req.flash('warning', `You need to confirm your email!`)
+                    req.flash('warning', `Você precisa confirmar seu email!`)
                     return res.redirect('/login')
                 }
 
             } else {
-                req.flash('warning', `Email OR Password Inválid!`)
+                req.flash('warning', `Email ou senha inválidos!`)
                 return res.redirect('/login')
             }
 
             req.session.userID = userObject.id
             global.SESSION_USER = userObject
-            req.flash('success', `Welcome back, ${global.SESSION_USER.name} :D`)
+            req.flash('success', `Bem vindo de volta, ${global.SESSION_USER.name} :D`)
             return res.redirect('/');
         }
         catch (error) {
@@ -117,7 +117,7 @@ class AuthController {
         const confirmEmailValid = await Users.verifyConfirmEmailToken(email, token)
 
         if(confirmEmailValid){
-            req.flash('success', 'Email confirmed!')
+            req.flash('success', 'Email confirmado!')
             return res.redirect('/login')
         }
 
@@ -142,7 +142,7 @@ class AuthController {
                     return res.redirect('/register')
                 }
             } else {
-                req.flash('warning', 'Invalid Recaptcha!')
+                req.flash('warning', 'Recaptcha inválido!')
                 return res.redirect('/register')
             }
 
@@ -167,7 +167,7 @@ class AuthController {
             await Users.create(userObject)
             await NodeMailer.sendConfirmEmailLink(email)
 
-            req.flash('success', 'Account Created! Confirm your email by clicking the link send to your email inbox!')
+            req.flash('success', 'Conta criada! Confirme seu email clicando no link enviado para o seu inbox!')
             return res.redirect('/register')
 
         } catch (error) {
@@ -187,7 +187,7 @@ class AuthController {
         await Users.createResetPasswordToken(email);
         await NodeMailer.sendForgetPasswordLink(email);
 
-        req.flash('success', `If this email exists, we'll send a link to this email to recover password!`)
+        req.flash('success', `Se esse email existe, vamos enviar um link no seu inbox para você recuperar sua senha!`)
         return res.redirect('/forgetPassword')
     }
 
@@ -216,7 +216,7 @@ class AuthController {
             return res.redirect('/forgetPassword')
         }
 
-        req.flash('success', 'You updated your password!')
+        req.flash('success', 'Você atualizou sua senha!')
         return res.redirect('/login')
     }
 
@@ -237,7 +237,7 @@ class AuthController {
             await NodeMailer.sendConfirmEmailLink(email)
         }
 
-        req.flash('success', "If this email is registred and not confirmed yet, we'll send a link to confirm this email!")
+        req.flash('success', "Se esse email esta registrado e não confirmado ainda, enviaremos um link no seu inbox para confirmar seu email!")
         return res.redirect('/confirmEmail')
     }
 
