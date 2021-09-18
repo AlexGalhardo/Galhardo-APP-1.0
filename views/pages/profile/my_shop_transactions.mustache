@@ -1,0 +1,41 @@
+{{>partials/header}}
+
+    <div class="container col-lg-12 text-center mt-3">
+
+        <div class="row">
+
+            <h3 class="fw-bold text-primary mt-5">
+                <i class="bi bi-cart"></i>
+                My Shop Transactions
+            </h3>
+
+            <table class="table table-hover mt-5">
+                <thead>
+                    <tr>
+                        <th scope="col">VIEW</th>
+                        <th scope="col">PAID</th>
+                        <th scope="col">TRANSACTION_ID</th>
+                        <th scope="col">AMOUNT</th>
+                        <th scope="col">PAYMENT_METHOD</th>
+                        <th scope="col">CREATED AT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#shopTransactions}}
+                        <tr>
+                            <th><a href="/profile/shop/transaction/{{transaction_id}}" target="_blank" class="btn btn-outline-success">VIEW</a></th>
+                            <td class="fw-bold text-white bg-{{#paid}}success{{/paid}}{{^paid}}danger{{/paid}}">{{paid}}</td>
+                            <td>{{transaction_id}}</td>
+                            <td>$ {{total_amount}}</td>
+                            <td>{{payment_method.card_id}}</td>
+                            <td>{{created_at}}</td>
+                        </tr>
+                    {{/shopTransactions}}
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+{{>partials/footer}}

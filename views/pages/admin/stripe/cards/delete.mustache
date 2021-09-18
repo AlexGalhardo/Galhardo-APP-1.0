@@ -1,0 +1,58 @@
+{{>partials/header}}
+
+	<div class="container col-lg-8 text-center mt-3 mb-3">
+
+        <div class="mb-3">
+            <a href="/admin/stripe/cards/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            <a href="/admin/stripe/cards/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
+            <a href="/admin/stripe/cards/delete" class="btn shadow-sm ms-1 me-1 btn-danger">Delete</a>
+            <a href="/admin/stripe/cards/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
+            <a href="/admin/stripe/cards/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
+        </div>
+
+        <div class="row">
+
+            <h3 class="fw-bold text-danger mb-3">
+                <i class="bi bi-trash"></i> DELETE Card
+            </h3>
+
+            <a class="mb-5" target="_blank" href="https://stripe.com/docs/api/cards/delete">https://stripe.com/docs/api/cards/delete</a>
+
+            <div class="col-lg-5">
+  		
+    		    <form action="/admin/stripe/cards/delete" method="POST" class="mb-3">
+    		       <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="customer_id" id="customer_id" placeholder="Customer Name" required autofocus value="cus_Jy49RB199LvElV">
+                        <label for="customer_id">CUSTOMER_ID</label>
+            		</div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="card_id" id="card_id" placeholder="Customer Name" required autofocus value="card_1JK82WBD6lhzYmkOTexAPcYA">
+                        <label for="card_id">CARD_ID</label>
+                    </div>
+
+            		<button type="submit" class="btn btn-outline-danger w-100 shadow">Delete Card</button>
+    		    </form>
+
+            </div>
+
+
+            <div class="col-lg-7">
+        		{{#flash}}
+        			<div class="alert alert-{{type}}" role="alert" class="mb-3">
+        				{{message}}
+        			</div>
+        		{{/flash}}
+
+        		{{#card}}
+        			<ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>CARD_ID:</b> {{id}}</li>
+              </ul>
+        		{{/card}}
+            </div>
+
+        </div>
+
+	</div>
+
+{{>partials/footer}}

@@ -1,0 +1,56 @@
+{{>partials/header}}
+
+	<div class="container col-lg-8 text-center mt-3">
+
+        <div class="mb-3">
+            <a href="/admin/stripe/products/create" class="btn shadow-sm ms-1 me-1 btn-success">Create</a>
+            <a href="/admin/stripe/products/update" class="btn shadow-sm ms-1 me-1 btn-outline-warning">Update</a>
+            <a href="/admin/stripe/products/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            <a href="/admin/stripe/products/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
+            <a href="/admin/stripe/products/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">ListAll</a>
+        </div>
+
+        <div class="row">
+
+            <h3 class="fw-bold text-success mb-3">
+                <i class="bi bi-plus"></i> CREATE Product
+            </h3>
+
+            <a class="mb-5" target="_blank" href="https://stripe.com/docs/api/products/create">https://stripe.com/docs/api/products/create</a>
+
+            <div class="col-lg-5">
+  		
+        		<form action="/admin/stripe/products/create" method="POST" class="mb-3">
+        			<div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="product_name" name="product_name" value="" required>
+                        <label for="product_name">PRODUCT_NAME</label>
+                    </div>
+
+        			<button type="submit" class="btn btn-outline-success w-100 shadow">Create Product</button>
+        		</form>
+
+            </div>
+
+
+            <div class="col-lg-7">
+        		{{#flash}}
+        			<div class="alert alert-{{type}}" role="alert" class="mb-3">
+        				{{message}}
+        			</div>
+        		{{/flash}}
+
+        		{{#product}}
+        			<ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>ID:</b> {{id}}</li>
+                        <li class="list-group-item"><b>NAME:</b> {{name}}</li>
+                        <li class="list-group-item"><b>ACTIVE:</b> {{active}}</li>
+                        <li class="list-group-item"><b>CREATED:</b> {{created}}</li>
+                    </ul>
+        		{{/product}}
+            </div>
+
+        </div>
+
+	</div>
+
+{{>partials/footer}}

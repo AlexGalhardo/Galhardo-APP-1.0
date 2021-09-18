@@ -1,0 +1,252 @@
+{{>partials/header}}
+
+	<div class="container col-lg-12">
+
+      	<div class="row">
+
+            <input type="text" id="user_id" hidden value="{{user.id}}" readonly>
+            <input type="text" id="app_url" hidden value="{{app_url}}" readonly>
+
+            {{^games}}
+                {{^game}}
+                    <div class="text-center alert alert-warning" role="alert" class="mb-3">
+                        <b class="fw-bold">No games found!</b>
+                    </div>
+                {{/game}}
+            {{/games}}
+
+
+            {{#flash_success}}
+                <div class="text-center alert alert-success" role="alert">
+                    <b>{{flash_success}}</b>
+                </div>
+            {{/flash_success}}
+
+            {{#flash_warning}}
+                <div class="text-center alert alert-warning" role="alert">
+                    <b>{{flash_warning}}</b>
+                </div>
+            {{/flash_warning}}
+
+
+
+            {{#game}}
+                <input id="game_id" name="game_id" type="hidden" value="{{id}}">
+
+                <div class="col-lg-3 text-center">
+
+                    <img id="game_image" src="{{image}}" class="shadow mx-auto d-block w-75 image-fluid mb-3" alt="game_image">
+
+                    <a id="game_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="shadow image-fluid mb-3"></a>
+
+                    <form id="form_stripe_checkout" action="/stripe-checkout/game/{{id}}" method="POST">
+                        <button type="submit" id="stripe_checkout_button" class="w-75 btn btn-outline-success shadow mb-3">
+                            <i class="bi bi-cart"></i>
+                            Quero Comprar
+                        </button>
+                    </form>
+
+
+
+                    <button class="w-75 btn btn-outline-dark shadow mb-3" onclick="recommendOtherGame()">
+                            <i class="bi bi-play-fill"></i>
+                            RecomendaÊ
+                    </button>
+
+                    {{#user.admin}}
+                        <a href="/admin/update/game/{{id}}" class="w-75 shadow mb-2 btn btn-warning shadow-sm">
+                        <i class="bi bi-unlock-fill"></i>
+                        Edit This Game</a>
+                    {{/user.admin}}
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <h3 class="card-title">
+                                <a target="_blank" id="game_igdb_link" style="text-decoration:none;" href="{{igdb_link}}" class="card-link">
+                                    <span id="game_title" class="fw-bold text-primary">{{title}}</span>
+                                    (<span id="game_year_release" class="text-muted">{{year_release}}</span>)
+                                </a>
+                            </h3>
+
+                            <h3 class="fw-bold text-warning">⭐
+                                <span id="game_igdb_rating">
+                                    {{igdb_rating}}
+                                </span>
+                            </h3>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button
+                                    {{^user}}disabled{{/user}}
+                                    class="w-50 btn btn-sm mb-3 me-5
+                                    {{userLoggedRecommend}}"
+                                    type="submit"
+                                    id="button_recommend_gameid_{{id}}"
+                                    onclick="recommendThisGame()"
+                                    >
+                                    <i class="bi bi-hand-thumbs-up"></i>
+                                    <small id="total_recommend_gameid_{{id}}">
+                                        {{recommend}}
+                                    </small>
+                                    Recomenda
+                            </button>
+
+                            <button
+                                    {{^user}}disabled{{/user}}
+                                    class="w-50 btn btn-sm mb-3
+                                    {{userLoggedNotRecommend}}"
+                                    type="submit"
+                                    id="button_not_recommend_gameid_{{id}}"
+                                    onclick="dontRecommendThisGame()"
+                                    >
+                                    <i class="bi bi-hand-thumbs-down"></i>
+                                    <small id="total_not_recommend_gameid_{{id}}">
+                                        {{not_recommend}}
+                                    </small>
+                                    Não Recomenda
+                            </button>
+                        </div>
+
+                        <small class="card-text" id="game_resume">{{resume}}</small>
+
+                        <ul class="mt-3 bg-light">
+
+                            <li class=""><small><b>Gêneros:</b></small> <small id="game_genres">{{genres}}</small></li>
+
+                            <li class=""><small><b>Plataformas:</b></small> <small id="game_platforms">{{platforms}}</small></li>
+
+                            <li class=""><small><b>Desenvolvedores:</b></small> <small id="game_developer">{{developer}}</small></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- END GAME POST -->
+
+
+
+                <div class="col-lg-3 mb-3">
+
+                    <form class="mb-3" action="/searchGame" method="GET">
+                        <input class="form-control" type="search" placeholder="Buscar título de jogo..." aria-label="Search" name="title">
+                    </form>
+
+                    <div class="list-group">
+                        <a href="/" class="list-group-item list-group-item-action  bg-dark text-white" aria-current="true">
+                            <i class="bi bi-controller"></i>
+                            Jogos
+                        </a>
+
+                        <a href="/books" class="list-group-item list-group-item-action">
+                            <i class="bi bi-book"></i>
+                            Livros
+                        </a>
+                    </div>
+
+                    {{^user}}
+                        <div id="newsletter_card">
+
+                        </div>
+                    {{/user}}
+
+                </div>
+            {{/game}}
+
+
+
+
+
+
+            {{#games}}
+
+                <div class="col-lg-3 text-center">
+
+                    <img id="game_image" src="{{image}}" class="shadow mx-auto d-block w-75 image-fluid mb-3" alt="game_image">
+
+                    <a id="game_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="image-fluid mb-3 shadow"></a>
+
+                </div>
+
+
+                <div class="col-lg-6">
+
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <h4 class="card-title">
+                                <a target="_blank" id="game_igdb_link" style="text-decoration:none;" href="{{igdb_link}}" class="card-link">
+                                    <span id="game_title" class="fw-bold text-primary">{{title}}</span>
+                                    (<span id="game_year_release" class="text-muted">
+                                        {{year_release}}
+                                    </span>)
+                                </a>
+                            </h4>
+
+                            <h4 class="fw-bold text-warning">⭐
+                                <span id="game_igdb_rating">
+                                    {{igdb_rating}}
+                                </span>
+                            </h4>
+                        </div>
+
+                        <small class="card-text" id="game_resume">{{resume}}</small>
+
+                        <ul class="mt-3">
+
+                            <li><small><b>Genres:</b></small> <small id="game_genres">{{genres}}</small></li>
+
+                            <li><small><b>Platforms:</b></small> <small id="game_platforms">{{platforms}}</small></li>
+
+                            <li><small><b>Developer:</b></small> <small id="game_developer">{{developer}}</small></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- END GAME POST -->
+
+                {{#firstGame}}
+                    <div class="col-lg-3 mb-3">
+
+                        <form class="mb-3" action="/searchGame" method="GET">
+                            <input class="form-control" type="search" placeholder="Search game title" aria-label="Search" name="title">
+                        </form>
+
+                        <div class="list-group">
+                            <a href="/" class="list-group-item list-group-item-action  bg-dark text-white" aria-current="true">
+                                <i class="bi bi-controller"></i>
+                                Games
+                            </a>
+
+                            <a href="/books" class="list-group-item list-group-item-action">
+                                <i class="bi bi-book"></i>
+                                Books
+                            </a>
+                        </div>
+
+                        {{^user}}
+                            <div id="newsletter_card">
+
+                            </div>
+                        {{/user}}
+
+                    </div>
+                {{/firstGame}}
+
+                {{^firstGame}}<div class="col-lg-3"></div>{{/firstGame}}
+            {{/games}}
+
+
+        </div>
+	
+    </div>
+
+    <script src="scripts/games.js"></script>
+
+    <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+    <script src="scripts/newsletter.js"></script>
+
+{{>partials/footer}}

@@ -1,0 +1,60 @@
+{{>partials/header}}
+
+  <div class="container col-lg-8 text-center mt-3">
+
+        <div class="mb-3">
+            {{#user.admin}}
+                <a href="/admin/stripe/plans/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+                <a href="/admin/stripe/plans/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            {{/user.admin}}
+            <a href="/admin/stripe/plans/retrieve" class="btn shadow-sm ms-1 me-1 btn-primary">Retrieve</a>
+            <a href="/admin/stripe/plans/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
+        </div>
+
+        <div class="row">
+
+            <h3 class="fw-bold text-primary mb-3">
+                <i class="bi bi-person"></i> RETRIEVE Plan
+            </h3>
+
+            <a class="mb-5" target="_blank" href="https://stripe.com/docs/api/plans/retrieve">https://stripe.com/docs/api/plans/retrieve</a>
+
+            <div class="col-lg-5">
+  		
+        		<form action="/admin/stripe/plans/retrieve" method="POST" class="mb-3">
+        			<div class="form-floating mb-3">
+        			  	<input type="text" class="form-control" name="plan_id" id="plan_id" placeholder="Customer Name" required autofocus>
+        			  	<label for="plan_id">PLAN_ID</label>
+        			</div>
+
+        			<button type="submit" class="btn btn-outline-primary w-100 shadow">Retrieve Plan</button>
+        		</form>
+
+            </div>
+
+
+            <div class="col-lg-7">
+        		{{#flash}}
+        			<div class="alert alert-{{type}}" role="alert" class="mb-3">
+        				{{message}}
+        			</div>
+        		{{/flash}}
+
+        		{{#plan}}
+        			<ul class="list-group list-group-flush text-start">
+                        <li class="list-group-item"><b>PLAN_ID:</b> {{id}}</li>
+                        <li class="list-group-item"><b>PRODUCT_ID:</b> {{product}}</li>
+                        <li class="list-group-item"><b>ACTIVE:</b> {{active}}</li>
+                        <li class="list-group-item"><b>AMOUNT:</b> {{amount}}</li>
+                        <li class="list-group-item"><b>CURRENCY:</b> {{currency}}</li>
+                        <li class="list-group-item"><b>INTERVAL:</b> {{interval}}</li>
+                        <li class="list-group-item"><b>CREATED:</b> {{created}}</li>
+                    </ul>
+        		{{/plan}}
+            </div>
+
+        </div>
+
+	</div>
+
+{{>partials/footer}}

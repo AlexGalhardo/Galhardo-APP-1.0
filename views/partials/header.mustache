@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- TITLE -->
+    <title>{{header.title}}</title>
+
+    <!-- CHARSET -->
+    <meta charset="utf-8">
+
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://galhardoapp.com">
+
+    <!-- RESPONSIVE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- DESCRIPTION -->
+    <meta name="description" content="The best books and games recommendations on internet!">.
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="images/logo.png">
+
+    <!-- ESSENCIAL SOCIAL MEDIA METATAGS -->
+    <meta property="og:url"                content="https://galhardoapp.com"/>
+    <meta property="og:title"              content="Galhardo APP"/>
+    <meta property="og:description"        content="The best books and games recommendations on internet!" />
+    <meta property="og:image"              content="images/favicon.png"/>
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!--  Non-Essential, But Recommended -->
+    <meta property="og:site_name" content="Galhardo APP">
+    <meta name="twitter:image:alt" content="Alt text for image">
+
+    <!--  Non-Essential, But Required for Analytics -->
+    <meta property="fb:app_id" content="your_app_id" />
+    <meta name="twitter:site" content="@website-username">
+
+    <!-- STYLES CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    {{{header.weather_css}}}
+    {{{header.app_money_css}}}
+    {{{header.todo_css}}}
+
+    <!-- LOADING PAGE JS -->
+    <script src="/scripts/pace.min.js"></script>
+
+    <!-- LOADING PAGE CSS -->
+    <link rel="stylesheet" href="/css/minimal.css">
+
+    <!-- SCROLLBAR CSS -->
+    <link rel="stylesheet" href="/css/scroll_bar.css">
+
+    <!-- BOOTSTRAP 5 CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- BOOTSTRAP 5 JS -->
+    <script src="/scripts/bootstrap.bundle.min.js"></script>
+
+    <!-- BOOTSTRAP 5 ICONS -->
+    <link rel="stylesheet" href="/css/bootstrap-icons.css">
+
+    <!-- COOKIES CSS -->
+    <link rel="stylesheet" href="/css/cookies.css">
+
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/de70268f9b096066f9f1d80a7/352086b85423ab9fa98cb4837.js");</script>
+
+
+    <!-- GOOGLE TAG MANAGER -->
+    <script async src="/scripts/google_tag_manager.js"></script>
+    <!-- https://www.googletagmanager.com/gtag/js?id=G-TKZ0EYZ31J -->
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TKZ0EYZ31J');
+    </script>
+
+</head>
+
+
+
+
+<body id="tag_body">
+
+    <div class="fixed-top bg-dark">
+
+        <nav class="container col-lg-12 navbar navbar-expand-lg fixed navbar-dark bg-dark">
+
+            <div class="container-fluid">
+
+                <a class="navbar-brand fw-bold" href="/">
+                    <i class="bi bi-cup-straw"></i>
+                    RecomendaÊ
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link {{#header.navbar_blog_active}}fw-bold text-white{{/header.navbar_blog_active}}" aria-current="page" href="/blog">
+                            <i class="bi bi-pencil"></i>    Blog
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {{#header.navbar_contact_active}}fw-bold text-white{{/header.navbar_contact_active}}" aria-current="page" href="/contact">
+                            <i class="bi bi-envelope"></i>    Contato
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {{#header.navbar_plans_active}}fw-bold text-white{{/header.navbar_plans_active}}" aria-current="page" href="/plans"> <i class="bi bi-award"></i> Premium</a>
+                        </li>
+
+                        {{#user.admin}}
+
+                        <li class="nav-item dropdown">
+
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-unlock-fill"></i>
+                                PagarME
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item fw-bold" href="/admin/pagarme/customers/listAll">
+                                        <i class="bi bi-person"></i>
+                                        Customers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item fw-bold" href="/admin/pagarme/cards/listAll">
+                                        <i class="bi bi-credit-card"></i>
+                                        Cards
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item fw-bold" href="/admin/pagarme/charges/listAll">
+                                        <i class="bi bi-cash"></i>
+                                        Charges
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item fw-bold" href="/admin/pagarme/plans/listAll">
+                                        <i class="bi bi-award"></i>
+                                        Plans
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item fw-bold" href="/admin/pagarme/subscriptions/listAll">
+                                        <i class="bi bi-check-circle"></i>
+                                        Subscriptions
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        {{/user.admin}}
+
+
+                        </ul>
+
+                        {{#user}}
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle"></i>
+                                    {{user.name}}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item fw-bold" href="/profile">
+                                            <i class="bi bi-pencil-square"></i>
+                                            Meu Perfil
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item fw-bold" href="/profile/shop/transactions">
+                                            <i class="bi bi-cart"></i>
+                                            Minhas Transações
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item fw-bold" href="/profile/subscriptions/transactions">
+                                            <i class="bi bi-award"></i>
+                                            Minhas Assinaturas
+                                        </a>
+                                    </li>
+                                    {{#user.admin}}
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="/admin/create/blogPost">
+                                                <i class="bi bi-plus"></i>
+                                                Create Blog Post
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="/admin/create/game">
+                                                <i class="bi bi-plus"></i>
+                                                Create Game
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item fw-bold" href="/admin/create/book">
+                                                <i class="bi bi-plus"></i>
+                                                Create Book
+                                            </a>
+                                        </li>
+                                    {{/user.admin}}
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item fw-bold" href="/profile/logout">
+                                            <i class="bi bi-x-lg"></i>
+                                            Deslogar
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        {{/user}}
+
+
+                        {{^user}}
+                            <div class="pull-right">
+
+                                <a href="/login" class="btn shadow btn-success" type="submit">Login</a>
+
+                                <a href="/register" class="ms-2 btn shadow btn-primary" type="submit">Registrar</a>
+                        {{/user}}
+                                <a href="/register" class="ms-2 btn shadow btn-light" type="submit">
+                                    <i class="bi bi-cart"></i>
+                                    2 Itens
+                                </a>
+                            </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+    {{{header.scroll_bar_div}}}
+

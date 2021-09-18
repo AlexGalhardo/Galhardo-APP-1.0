@@ -1,0 +1,81 @@
+{{>partials/header}}
+	
+	{{#user.admin}}
+
+	<main class="container col-lg-10 mt-3 text-center">
+
+        <div class="row" class="text-end d-flex justify-content-between">
+
+        	<form action="/admin/create/book" method="POST">
+
+	        	<div class="mb-3 row">
+
+	        		{{#flash}}
+			            <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+			                <b>{{message}}</b>
+			            </div>
+			        {{/flash}}
+
+			        <div class="col-lg-6">
+					    
+					    <div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="book_title" id="book_title" value="" required>
+						  	<label for="book_title">BOOK_TITLE</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="number" min="1990" step="1" max="2021" class="form-control" id="book_year_release" name="book_year_release" value="" required>
+						  	<label for="book_year_release">BOOK_YEAR_RELEASE</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="book_image" id="book_image" value="" required>
+						  	<label for="book_image">BOOK_IMAGE_LINK</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="book_amazon_link" id="book_amazon_link" value="" required>
+						  	<label for="book_amazon_link">BOOK_AMAZON_LINK</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="number" min="20" step="1" class="form-control" name="book_pages" id="book_pages" value="{{pages}}" required onkeydown="return false;">
+						  	<label for="book_pages">BOOK_PAGES</label>
+						</div>
+
+					</div>
+
+
+
+					<div class="col-lg-6">
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="book_genres" id="book_genres" value="{{image}}" required>
+						  	<label for="book_genres">BOOK_GENRES</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="book_author" id="book_author" value="{{image}}" required>
+						  	<label for="book_author">BOOK_AUTHOR</label>
+						</div>
+						
+						<div class="form-floating">
+						  	<textarea style="height: 200px" class="form-control" name="book_resume" id="book_resume" required></textarea>
+						  	<label for="book_resume">BOOK_RESUME</label>
+						</div>
+					</div>
+					
+				</div>
+
+				<button type="submit" class="mb-5 w-25 btn btn-outline-success shadow">
+	        		Create Book
+	        	</button>
+
+			</form>
+
+        </div>
+
+    </main>
+
+    {{/user.admin}}
+
+{{>partials/footer}}

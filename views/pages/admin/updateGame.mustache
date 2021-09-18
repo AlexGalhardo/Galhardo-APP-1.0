@@ -1,0 +1,111 @@
+{{>partials/header}}
+	
+	{{#user.admin}}
+
+	{{#game}}
+
+	<main class="container col-lg-10 mt-3 text-center">
+
+        <div class="row" class="text-end d-flex justify-content-between">
+
+        	<form action="/admin/update/game/{{id}}" method="POST">
+
+	        	<div class="mb-3 row">
+
+	        		{{#flash}}
+			            <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+			                <b>{{message}}</b>
+			            </div>
+			        {{/flash}}
+
+			        <div class="col-lg-6">
+
+			        	<div class="form-floating mb-3">
+						  	<input type="number" min="1" class="form-control" name="game_id" id="game_id" value="{{id}}" required onkeydown="return false;">
+						  	<label for="game_id">GAME_ID</label>
+						</div>
+
+					    <div class="form-floating mb-3">
+						  	<input type="text" class="form-control" id="updated_at" value="{{updated_at}}" readonly>
+						  	<label for="updated_at">GAME_UPDATED_AT</label>
+						</div>
+					    
+					    <div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="game_title" id="game_title" value="{{title}}" required>
+						  	<label for="game_title">GAME_TITLE</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="number" max="2021" class="form-control" id="game_year_release" name="game_year_release" value="{{year_release}}" required>
+						  	<label for="game_year_release">GAME_YEAR_RELEASE</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="game_platforms" id="game_platforms" value="{{platforms}}" required>
+						  	<label for="game_platforms">GAME_PLATFORMS</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="game_genres" id="game_genres" value="{{genres}}" required>
+						  	<label for="game_genres">GAME_GENRES</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="game_developer" id="game_developer" value="{{developer}}" required>
+						  	<label for="game_developer">GAME_DEVELOPER</label>
+						</div>
+
+					</div>
+
+
+
+					<div class="col-lg-6">
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="game_image" id="game_image" value="{{image}}" required>
+						  	<label for="game_image">GAME_IMAGE</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="game_igdb_link" id="game_igdb_link" value="{{igdb_link}}" required>
+						  	<label for="game_igdb_link">GAME_IGDB_LINK</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="game_igdb_rating" id="game_igdb_rating" value="{{igdb_rating}}" required>
+						  	<label for="game_igdb_rating">GAME_IGDB_RATING</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="game_amazon_link" id="game_amazon_link" value="{{amazon_link}}" required>
+						  	<label for="game_amazon_link">GAME_AMAZON_LINK</label>
+						</div>
+
+						<div class="form-floating">
+						  	<textarea style="height: 200px" class="form-control" name="game_resume" id="game_resume" required>{{resume}}</textarea>
+						  	<label for="game_resume">GAME_RESUME</label>
+						</div>
+					</div>
+					
+				</div>
+
+				<button type="submit" class="mb-5 w-25 btn btn-outline-primary shadow">
+	        		Update Game
+	        	</button>
+
+			</form>
+
+			<form action="/admin/delete/game/{{id}}" method="POST">
+				<button type="submit" class="mb-3 w-25 btn btn-sm btn-outline-danger shadow">
+	        		Delete Game
+	        	</button>
+			</form>
+
+        </div>
+
+    </main>
+
+    {{/game}}
+
+    {{/user.admin}}
+
+{{>partials/footer}}

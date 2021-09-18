@@ -1,0 +1,47 @@
+{{>partials/header}}
+
+	<main class="container col-lg-12">
+
+        <div class="row">
+
+        	<div class="container col-md-10 d-flex justify-content-between mb-3">
+        		{{{boostrapPaginator}}}
+
+        		<form action="/blog/search" method="GET" class="d-flex">
+			        <input class="form-control me-2" type="search" placeholder="Procurar título de postagem..." name="blogTitle" value="{{searchBlogTitle}}" required>
+			        <button class="btn btn-outline-success" type="submit">Procurar</button>
+			    </form>
+
+			    {{#totalBlogPostsFoundFromSearch}}
+ 					<h6 class="alert alert-success fw-bold text-success">Total postagens encontradas:  {{totalBlogPostsFoundFromSearch}}</h6>
+ 				{{/totalBlogPostsFoundFromSearch}}
+        	</div>
+			    
+			{{#blog}}
+			    <div class="container col-md-10">
+			      	<a class="text-dark text-decoration-none" href="/blog/{{slug}}">
+			      		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+			      		<div class="col-auto d-none d-lg-block">
+			          		<img src="{{image}}">
+			        	</div>
+			        	<div class="col p-4 d-flex flex-column position-static">
+			          		<strong class="d-inline-block mb-2 text-primary">{{category}}</strong>
+			          		<h5 class="mb-0">{{title}}</h5>
+			          		<div class="mb-1 text-muted"><small>{{created_at}}</small></div>
+			          		<br>
+			          		<p class="card-text mb-auto">{{resume}}</p>
+			        	</div>
+			        	
+			      		</div>
+			      	</a>
+			    </div>
+			{{/blog}}
+
+			<div class="container col-md-10">{{{boostrapPaginator}}}</div>
+			
+		</div>
+
+	</main>
+
+
+{{>partials/footer}}

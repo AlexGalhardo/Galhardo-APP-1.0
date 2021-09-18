@@ -1,0 +1,72 @@
+{{>partials/header}}
+
+	<div class="container col-lg-8 text-center mt-3">
+
+        <div class="mb-3">
+            <a href="/admin/stripe/plans/create" class="btn shadow-sm ms-1 me-1 btn-success">Create</a>
+            <a href="/admin/stripe/plans/delete" class="btn shadow-sm ms-1 me-1 btn-outline-danger">Delete</a>
+            <a href="/admin/stripe/plans/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
+            <a href="/admin/stripe/plans/listAll" class="btn shadow-sm ms-1 me-1 btn-outline-info">List All</a>
+        </div>
+
+        <div class="row">
+
+            <h3 class="fw-bold text-success mb-3">
+                <i class="bi bi-plus"></i> CREATE Plan
+            </h3>
+
+            <a class="mb-5" target="_blank" href="https://stripe.com/docs/api/plans/create">https://stripe.com/docs/api/plans/create</a>
+
+            <div class="col-lg-5">
+  		
+        		<form action="/admin/stripe/plans/create" method="POST" class="mb-3">
+        			<div class="form-floating mb-3">
+                        <input type="number" step="1" min="100" class="form-control" id="amount" name="amount" value="100" required>
+                        <label for="amount">PLAN_AMOUNT (100 = $1)</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="currency" id="currency" value="usd" required>
+                        <label for="currency">PLAN_CURRENCY</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="interval" id="interval" value="month" required value="month">
+                        <label for="interval">CHARGE_INTERVAL</label>
+                    </div>
+        			
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="product_id" id="product_id" required>
+                        <label for="product_id">PRODUCT_ID</label>
+                    </div>
+
+        			<button type="submit" class="btn btn-outline-success w-100 shadow">Create Plan</button>
+        		</form>
+
+            </div>
+
+
+            <div class="col-lg-7">
+        		{{#flash}}
+        			<div class="alert alert-{{type}}" role="alert" class="mb-3">
+        				{{message}}
+        			</div>
+        		{{/flash}}
+
+        		{{#plan}}
+        			<ul class="list-group list-group-flush text-start bg-warning">
+                        <li class="list-group-item"><b>PLAN_ID:</b> {{id}}</li>
+                        <li class="list-group-item"><b>PLAN_NAME:</b> {{plan_name}}</li>
+                        <li class="list-group-item"><b>ACTIVE:</b> {{active}}</li>
+                        <li class="list-group-item"><b>AMOUNT:</b> $ {{amount}}</li>
+                        <li class="list-group-item"><b>PRODUCT:</b> {{product}}</li>
+                        <li class="list-group-item"><b>CREATED:</b> {{created}}</li>
+                    </ul>
+        		{{/plan}}
+            </div>
+
+        </div>
+
+	</div>
+
+{{>partials/footer}}

@@ -1,0 +1,48 @@
+{{>partials/header}}
+
+	<div class="container col-lg-12 text-center mt-3">
+
+        <div class="mb-3">
+            {{#user.admin}}
+                <a href="/admin/stripe/prices/create" class="btn shadow-sm ms-1 me-1 btn-outline-success">Create</a>
+            {{/user.admin}}
+            <a href="/admin/stripe/prices/retrieve" class="btn shadow-sm ms-1 me-1 btn-outline-primary">Retrieve</a>
+            <a href="/admin/stripe/prices/listAll" class="btn shadow-sm ms-1 me-1 btn-info">List All</a>
+        </div>
+
+        <div class="row">
+
+            <h3 class="fw-bold text-info mb-3">
+              <i class="bi bi-list-ul"></i> LIST Last {{lastPricesCreated}} Prices Created
+            </h3>
+
+            <a target="_blank" href="https://stripe.com/docs/api/prices/list?lang=node">https://stripe.com/docs/api/prices/list?lang=node</a>
+
+            <table class="table table-over mt-5">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">ACTIVE</th>
+                        <th scope="col">CURRENCY</th>
+                        <th scope="col">PRODUCT</th>
+                        <th scope="col">CREATED AT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#prices}}
+                        <tr>
+                            <th>{{id}}</th>
+                            <td>{{active}}</td>
+                            <td>{{currency}}</td>
+                            <td>{{product}}</td>
+                            <td>{{created}}</td>
+                        </tr>
+                    {{/prices}}
+                </tbody>
+            </table>
+
+        </div>
+
+	</div>
+
+{{>partials/footer}}

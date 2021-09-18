@@ -1,0 +1,116 @@
+{{>partials/header}}
+	
+	<main class="container col-lg-6">
+
+        <div class="row mb-5">
+
+        	{{#blogPost}}
+        		
+                <div class="text-center mb-5">
+            		<h3 class="fw-bold text-primary">{{title}}</h3>
+            		<small class="mb-5">{{updated_at}}</small>
+                    <br><br>
+                    {{#user.admin}}
+                        <a href="/admin/update/blogPost/{{blogPost.id}}" class="w-50 shadow mb-2 btn btn-warning shadow-sm">
+                        <i class="bi bi-unlock-fill"></i>
+                        Edit This Blog Post</a>
+                    {{/user.admin}}
+                </div>
+
+                <div id="blog_body" class="mb-5">
+        		  {{{body}}}
+                </div>
+
+
+                <div class="text-center mb-3">{{{header.share_buttons_inline}}}</div>
+
+
+                {{#user}}
+                    {{^header.use_disqus}}
+                        <form class="mt-3" action="/blog/{{slug}}" method="POST">
+                            <div class="mb-5">
+                                <small id="count" class="text-muted"></small>
+                                <textarea id="blog_comment" name="blog_comment" maxlength="256" class="form-control" rows="3"></textarea>
+                                <br>
+                                <button class="btn shadow-sm btn-outline-primary" type="submit">
+                                    Post Comment
+                                </button>
+                            </div>
+                        </form>
+                    {{/header.use_disqus}}
+                {{/user}}
+                
+
+                {{#header.use_disqus}}
+                    {{{header.disqus_comments}}}
+                {{/header.use_disqus}}
+
+
+
+                {{^header.use_disqus}}
+
+                <h5 class="text-muted">Comments</h5>
+                {{#flash_success}}
+                    <div class="text-center alert alert-success" role="alert">
+                        <b>{{flash_success}}</b>
+                    </div>
+                {{/flash_success}}
+
+                {{#flash_warning}}
+                    <div class="text-center alert alert-warning" role="alert">
+                        <b>{{flash_warning}}</b>
+                    </div>
+                {{/flash_warning}}
+                
+                <hr>
+                
+                {{#blogPost.comments}}
+                    <div class="card mb-3 p-1">
+                        <div class="row g-0">
+                            <div class="col-md-2 text-center">
+                                <img src="/uploads/avatars/{{user_avatar}}" class="img-fluid rounded-circle mt-2 ms-2" alt="...">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">{{user_name}}</h5>
+                                        {{#user}}
+                                            {{#user_logged_can_delete}}
+                                                <a href="/blog/{{slug}}/deleteComment/{{comment_id}}" class="w-25 btn btn-sm btn-outline-danger">Delete Comment</a>
+                                            {{/user_logged_can_delete}}
+                                        {{/user}}
+                                    </div>
+                                    <p class="card-text"><small class="text-muted">{{created_at}}</small></p>
+                                    <p class="card-text">{{comment}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                {{/blogPost.comments}}
+
+                {{/header.use_disqus}}
+
+        	{{/blogPost}}
+
+        </div>
+
+    </main>
+
+    {{^header.use_disqus}}
+        <script>
+            var comment = document.getElementById('blog_comment');
+            var length = comment.getAttribute("maxlength");
+            var count = document.getElementById('count');
+            count.innerHTML = length + ' words left';
+            comment.onkeyup = function () {
+              document.getElementById('count').innerHTML = (length - this.value.length) + ' words left';
+            };
+        </script>
+    {{/header.use_disqus}}
+
+    {{{header.share_buttons_script}}}
+    {{{header.disqus_script}}}
+
+{{>partials/footer}}

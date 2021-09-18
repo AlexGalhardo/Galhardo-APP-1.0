@@ -1,0 +1,231 @@
+{{>partials/header}}
+
+	<div class="container col-lg-12">
+
+      	<div class="row">
+
+            <input type="text" id="user_id" hidden value="{{user.id}}" readonly>
+            <input type="text" id="app_url" hidden value="{{app_url}}" readonly>
+
+            {{^books}}
+                {{^book}}
+                    <div class="text-center alert alert-warning" role="alert" class="mb-3">
+                        <b class="fw-bold">No books found!</b>
+                    </div>
+                {{/book}}
+            {{/books}}
+
+
+            {{#flash_success}}
+                <div class="text-center alert alert-success" role="alert">
+                    <b>{{flash_success}}</b>
+                </div>
+            {{/flash_success}}
+
+            {{#flash_warning}}
+                <div class="text-center alert alert-warning" role="alert">
+                    <b>{{flash_warning}}</b>
+                </div>
+            {{/flash_warning}}
+
+
+
+            {{#book}}
+                <input id="book_id" name="book_id" type="hidden" value="{{id}}">
+
+                <div class="col-lg-3 text-center">
+                    <img id="book_image" src="{{image}}" class="shadow mx-auto d-block w-75 image-fluid mb-3" alt="book_image">
+
+                    <a id="book_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="shadow image-fluid mb-3"></a>
+
+                    <button class="w-75 btn btn-outline-dark shadow mb-3" type="submit" onclick="recommendOtherBook()">
+                            <i class="bi bi-play-fill"></i>
+                            Recommend Other
+                    </button>
+
+                    {{#user.admin}}
+                        <a href="/admin/update/book/{{id}}" class="w-75 shadow mb-2 btn btn-warning shadow">
+                        <i class="bi bi-unlock-fill"></i>
+                        Edit This Book</a>
+                    {{/user.admin}}
+                </div>
+
+
+
+                <div class="col-lg-6">
+
+                    <div class="card-body">
+
+                        <input id="book_id" name="book_id" type="hidden" value="{{id}}">
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <h3 class="card-title">
+                                <a target="_blank" id="amazon_link" style="text-decoration:none;" href="{{amazon_link}}" class="card-link">
+                                    <span id="book_title" class="fw-bold text-primary">{{title}}</span>
+                                    (<span id="book_year_release" class="text-muted">{{year_release}}</span>)
+                                </a>
+                            </h3>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button
+                                    {{^user}}disabled{{/user}}
+                                    class="w-50 btn btn-sm mb-3 me-5
+                                    {{userLoggedRecommend}}"
+                                    type="submit"
+                                    id="button_recommend_bookid_{{id}}"
+                                    onclick="recommendThisBook()">
+                                    <i class="bi bi-hand-thumbs-up"></i>
+                                    <small id="total_recommend_bookid_{{id}}">
+                                        {{recommend}}
+                                    </small>
+                                    Recommend
+                            </button>
+
+                            <button
+                                    {{^user}}disabled{{/user}}
+                                    class="w-50 btn btn-sm mb-3
+                                    {{userLoggedNotRecommend}}"
+                                    type="submit" id="button_not_recommend_bookid_{{id}}"
+                                    onclick="dontRecommendThisBook()">
+                                    <i class="bi bi-hand-thumbs-down"></i>
+                                    <small id="total_not_recommend_bookid_{{id}}">
+                                        {{not_recommend}}
+                                    </small>
+                                    Not Recommend
+                            </button>
+                        </div>
+
+                        <small class="card-text" id="book_resume">{{resume}}</small>
+
+                        <ul class="mt-3">
+
+                            <li><small><b>Author:</b></small> <small id="book_author">{{author}}</small></li>
+
+                            <li><small><b>Genres:</b></small> <small id="book_genres">{{genres}}</small></li>
+
+                            <li><small><b>Pages:</b></small> <small id="book_pages">{{pages}}</small></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END BOOK POST -->
+
+
+                <div class="col-lg-3 mb-3">
+
+                    <form class="mb-3" action="/searchBook" method="GET">
+                        <input class="form-control" type="search" placeholder="Search Book Title..." aria-label="Search" name="title">
+                    </form>
+
+                    <div class="list-group">
+                        <a href="/" class="list-group-item list-group-item-action" aria-current="true">
+                            <i class="bi bi-controller"></i>
+                            Games
+                        </a>
+
+                        <a href="/books" class="list-group-item list-group-item-action bg-dark text-white">
+                            <i class="bi bi-book"></i>
+                            Books
+                        </a>
+                    </div>
+
+                    {{^user}}
+                        <div id="newsletter_card">
+
+                        </div>
+                    {{/user}}
+                </div>
+            {{/book}}
+
+
+
+
+
+
+
+            {{#books}}
+
+                <div class="col-lg-3 text-center">
+                    <img id="book_image" src="{{image}}" class="shadow mx-auto d-block w-75 image-fluid mb-3" alt="book_image">
+
+                    <a id="book_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="image-fluid mb-3"></a>
+                </div>
+
+
+
+                <div class="col-lg-6">
+
+                    <div class="card-body">
+
+                        <input id="book_id" name="book_id" type="hidden" value="{{id}}">
+
+                        <div class="d-flex justify-content-between mb-3">
+                            <h5 class="card-title">
+                                <a target="_blank" id="amazon_link" style="text-decoration:none;" href="{{amazon_link}}" class="card-link">
+                                    <span id="book_title" class="fw-bold text-primary">{{title}}</span>
+                                    (<span id="book_year_release" class="text-muted">{{year_release}}</span>)
+                                </a>
+                            </h5>
+                        </div>
+
+                        <small class="card-text" id="book_resume">{{resume}}</small>
+
+                        <ul class="mt-3">
+
+                            <li><small><b>Author:</b></small> <small id="book_author">{{author}}</small></li>
+
+                            <li><small><b>Genres:</b></small> <small id="book_genres">{{genres}}</small></li>
+
+                            <li><small><b>Pages:</b></small> <small id="book_pages">{{pages}}</small></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END BOOK POST -->
+
+
+
+                {{#firstBook}}
+                    <div class="col-lg-3 mb-3">
+
+                        <form class="mb-3" action="/searchBook" method="GET">
+                            <input class="form-control" type="search" placeholder="Search Book Title..." aria-label="Search" name="title">
+                        </form>
+
+                        <div class="list-group">
+                            <a href="/" class="list-group-item list-group-item-action" aria-current="true">
+                                <i class="bi bi-controller"></i>
+                                Games
+                            </a>
+
+                            <a href="/books" class="list-group-item list-group-item-action bg-dark text-white">
+                                <i class="bi bi-book"></i>
+                                Books
+                            </a>
+                        </div>
+
+                        {{^user}}
+                            <div id="newsletter_card">
+
+                            </div>
+                        {{/user}}
+
+                    </div>
+                {{/firstBook}}
+
+                {{^firstBook}}<div class="col-lg-3"></div>{{/firstBook}}
+
+            {{/books}}
+
+
+        </div>
+        <!-- END ROW -->
+	
+    </div>
+    <!-- END CONTAINER -->
+
+    <script src="scripts/books.js"></script>
+
+    <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+    <script src="scripts/newsletter.js"></script>
+
+{{>partials/footer}}

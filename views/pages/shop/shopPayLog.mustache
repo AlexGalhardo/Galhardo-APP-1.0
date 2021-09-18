@@ -1,0 +1,83 @@
+{{>partials/header}}
+
+	<div class="container col-lg-12 mt-3 mx-auto">
+
+		{{#flash_success}}
+			<div class="text-center alert alert-success" role="alert">
+				<b>{{flash_success}}</b>
+			</div>
+		{{/flash_success}}
+
+		<div class="row">
+
+			<div class="col-lg-4 mb-3">
+	                    
+	            <ul class="list-group text-center">
+	                
+	                {{#shopTransactionObject.products}}
+		                
+		                <li class="list-group-item d-flex justify-content-between align-items-center">
+		                    
+		                    <input name="quantityOranges" class="form-control w-25" type="number" min="1" step="1" 
+		                    	value="{{quantity}}" id="quantityOranges" readonly>
+		                    
+		                    {{name}}
+		                    
+		                    <b>
+		                    	$
+		                    	<span id="priceOranges">
+		                    		{{total}}
+		                    	</span>
+		                   	</b>
+		                </li>
+
+	                {{/shopTransactionObject.products}}  
+
+	                <li class="list-group-item d-flex justify-content-between align-items-center">
+	                    Shipping Fee  
+	                    <b>$ <span>{{shopTransactionObject.shipping.fee}}</span></b>
+	                </li>
+
+	                <li class="list-group-item d-flex justify-content-between align-items-center bg-warning">
+	                    <b>TOTAL</b>  
+	                    <b>$ <span>{{shopTransactionObject.total_amount}}</span></b>
+	                </li>
+	            
+	            </ul>
+
+	        </div>
+
+
+
+			<div class="col-lg-4">
+    			<ul class="list-group list-group-flush text-start">
+                    <li class="list-group-item"><b>CHARGE_ID:</b> {{shopTransactionObject.transaction_id}}</li>
+                    <li class="list-group-item"><b>CURRENCY:</b> {{shopTransactionObject.currency}}</li>
+                    <li class="list-group-item"><b>AMOUNT:</b> {{shopTransactionObject.total_amount}}</li>
+                    <li class="list-group-item"><b>PAID:</b> {{shopTransactionObject.paid}}</li>
+                    <li class="list-group-item"><b>PAYMENT_METHOD:</b> {{shopTransactionObject.payment_method.card_id}}</li>
+                    <li class="list-group-item"><b>CREATED_AT:</b> {{shopTransactionObject.created_at}}</li>
+                </ul>
+	        </div>
+
+
+	        <div class="col-lg-4">
+    			<ul class="list-group list-group-flush text-start">
+                    <li class="list-group-item"><b>Customer:</b> {{shopTransactionObject.customer.name}}</li>
+                    <li class="list-group-item"><b>Phone:</b> {{shopTransactionObject.customer.phone}}</li>
+                    <li class="list-group-item"><b>Email:</b> {{shopTransactionObject.customer.email}}</li>
+                    <li class="list-group-item"><b>Shipping ZipCode:</b> {{shopTransactionObject.shipping.address_zipcode}}</li>
+                    <li class="list-group-item"><b>Shipping Street:</b> {{shopTransactionObject.shipping.address_street}}</li>
+                    <li class="list-group-item"><b>Shipping Neighborhood:</b> {{shopTransactionObject.shipping.address_neighborhood}}</li>
+                    <li class="list-group-item"><b>Shipping City:</b> {{shopTransactionObject.shipping.address_city}}</li>
+                    <li class="list-group-item"><b>Shipping State:</b> {{shopTransactionObject.shipping.address_state}}</li>
+                    <li class="list-group-item"><b>Shipping Country:</b> {{shopTransactionObject.shipping.address_country}}</li>
+                    <li class="list-group-item"><b>Shipping Carrier:</b> {{shopTransactionObject.shipping.carrier}}</li>
+                </ul>
+	        </div>
+
+	    </div>
+
+	</div>
+
+{{>partials/footer}}

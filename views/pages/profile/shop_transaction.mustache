@@ -1,0 +1,88 @@
+{{>partials/header}}
+
+    <div class="container col-lg-12 text-center mt-3">
+
+        <div class="row">
+
+            <h4 class="mt-3 mb-5">
+                <span class="fw-bold text-primary"><i class="bi bi-cart"></i>
+                SHOP_TRANSACITON_ID:</span> <span class="fw-bold text-success">{{shopTransaction.transaction_id}}</span>
+            </h4>
+
+            <div class="col-lg-4 mb-3">
+
+                <ul class="list-group text-center">
+
+                    {{#shopTransaction.products}}
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                            <input name="quantityOranges" class="form-control w-25" type="number" min="1" step="1"
+                                value="{{quantity}}" id="quantityOranges" readonly>
+
+                            {{name}}
+
+                            <b>
+                                $
+                                <span id="priceOranges">
+                                    {{total}}
+                                </span>
+                            </b>
+                        </li>
+
+                    {{/shopTransaction.products}}
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Shipping Fee
+                        <b>$ <span>{{shopTransaction.shipping.fee}}</span></b>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center bg-warning">
+                        <b>TOTAL</b>
+                        <b>$ <span>{{shopTransaction.total_amount}}</span></b>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="col-lg-4">
+                {{#shopTransaction}}
+                    <ul class="list-group list-group-flush text-start">
+                        <li class="list-group-item text-white bg-{{#paid}}success{{/paid}}{{^paid}}danger{{/paid}}"><b>PAID:</b> {{paid}}</li>
+                        <li class="list-group-item"><b>CURRENCY:</b> {{currency}}</li>
+                        <li class="list-group-item"><b>AMOUNT:</b> {{total_amount}}</li>
+                        <li class="list-group-item"><b>PAYMENT_METHOD:</b> {{payment_method.card_id}}</li>
+                        <li class="list-group-item"><b>CARD_BRAND:</b> {{payment_method.brand}}</li>
+                        <li class="list-group-item"><b>CARD_EXP_MONTH:</b> {{payment_method.exp_month}}</li>
+                        <li class="list-group-item"><b>CARD_EXP_YEAR:</b> {{payment_method.exp_year}}</li>
+                        <li class="list-group-item"><b>CARD_LAST4:</b> {{payment_method.last4}}</li>
+                        <li class="list-group-item"><b>CREATED_AT:</b> {{shopTransaction.created_at}}</li>
+                    </ul>
+                {{/shopTransaction}}
+            </div>
+
+
+            <div class="col-lg-4">
+                {{#shopTransaction}}
+                    <ul class="list-group list-group-flush text-start">
+                        <li class="list-group-item"><b>Customer:</b> {{customer.name}}</li>
+                        <li class="list-group-item"><b>Phone:</b> {{customer.phone}}</li>
+                        <li class="list-group-item"><b>Email:</b> {{customer.email}}</li>
+                        <li class="list-group-item"><b>Shipping ZipCode:</b> {{shipping.address_zipcode}}</li>
+                        <li class="list-group-item"><b>Shipping Street:</b> {{shipping.address_street}}</li>
+                        <li class="list-group-item"><b>Shipping City:</b> {{shipping.address_city}}</li>
+                        <li class="list-group-item"><b>Shipping State:</b> {{shipping.address_state}}</li>
+                        <li class="list-group-item"><b>Shipping Country:</b> {{shipping.address_country}}</li>
+                        <li class="list-group-item"><b>Shipping Carrier:</b> {{shipping.carrier}}</li>
+                    </ul>
+                {{/shopTransaction}}
+            </div>
+
+        </div>
+
+    </div>
+
+{{>partials/footer}}

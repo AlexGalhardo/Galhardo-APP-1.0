@@ -1,0 +1,101 @@
+{{>partials/header}}
+	
+	{{#user.admin}}
+
+	{{#book}}
+
+	<main class="container col-lg-10 mt-3 text-center">
+
+        <div class="row" class="text-end d-flex justify-content-between">
+
+        	<form action="/admin/update/book/{{book.id}}" method="POST">
+
+	        	<div class="mb-3 row">
+
+	        		{{#flash}}
+			            <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+			                <b>{{message}}</b>
+			            </div>
+			        {{/flash}}
+
+			        <div class="col-lg-6">
+
+			        	<div class="form-floating mb-3">
+						  	<input type="number" min="1" class="form-control" name="book_id" id="book_id" value="{{book.id}}" required onkeydown="return false;">
+						  	<label for="book_id">BOOK_ID</label>
+						</div>
+
+					    <div class="form-floating mb-3">
+						  	<input type="text" class="form-control" id="updated_at" value="{{updated_at}}" readonly>
+						  	<label for="updated_at">BOOK_UPDATED_AT</label>
+						</div>
+					    
+					    <div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="book_title" id="book_title" value="{{title}}" required>
+						  	<label for="book_title">BOOK_TITLE</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="number" min="1990" step="1" max="2021" class="form-control" id="book_year_release" name="book_year_release" value="{{year_release}}" required>
+						  	<label for="book_year_release">BOOK_YEAR_RELEASE</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="book_image" id="book_image" value="{{image}}" required>
+						  	<label for="book_image">BOOK_IMAGE_LINK</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="number" min="20" step="1" class="form-control" name="book_pages" id="book_pages" value="{{pages}}" required onkeydown="return false;">
+						  	<label for="book_pages">BOOK_PAGES</label>
+						</div>
+
+					</div>
+
+
+
+					<div class="col-lg-6">
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="book_genres" id="book_genres" value="{{genres}}" required>
+						  	<label for="book_genres">BOOK_GENRES</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="book_author" id="book_author" value="{{author}}" required>
+						  	<label for="book_author">BOOK_AUTHOR</label>
+						</div>
+
+						<div class="form-floating mb-3">
+						  	<input type="text" class="form-control" name="book_amazon_link" id="book_amazon_link" value="{{amazon_link}}" required>
+						  	<label for="book_amazon_link">BOOK_AMAZON_LINK</label>
+						</div>
+
+						<div class="form-floating">
+						  	<textarea style="height: 300px" class="form-control" name="book_resume" id="book_resume" required>{{resume}}</textarea>
+						  	<label for="book_resume">BOOK_RESUME</label>
+						</div>
+					</div>
+					
+				</div>
+
+				<button type="submit" class="mb-5 w-25 btn btn-outline-primary shadow">
+	        		Update Book
+	        	</button>
+
+			</form>
+
+			<form action="/admin/delete/book/{{id}}" method="POST">
+				<button type="submit" class="mb-3 w-25 btn btn-sm btn-outline-danger shadow">
+	        		Delete Book
+	        	</button>
+			</form>
+
+        </div>
+
+    </main>
+
+    {{/book}}
+
+    {{/user.admin}}
+
+{{>partials/footer}}

@@ -1,0 +1,270 @@
+{{>partials/header}}
+
+	<div class="container col-lg-12 mt-3 mb-3 mx-auto">
+
+        {{^user}}
+            <div class="text-center alert alert-warning mb-5" role="alert" class="mb-3">
+                <h2 class="fw-bold">You must be loged in to use shop!</h2>
+            </div>
+        {{/user}}
+        
+
+        {{#user}}
+
+        <form id="formCreditCard" action="/shop" method="POST">
+
+            <input type="text" value="6.46" id="total_shop_amount" name="total_shop_amount" hidden onkeydown="return false;">
+
+          	<div class="row">
+
+                {{#flash}}
+                    <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
+                        <b class="fw-bold">{{message}}</b>
+                    </div>
+                {{/flash}}
+
+                <!-- START COL-LG-3 -->
+                <div class="col-lg-3 mb-3">
+                    
+                    <ul class="list-group text-center">
+                        
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <input name="quantityOranges" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityOranges">
+                            Oranges  
+                            <b>$<span id="priceOranges">0.49</span></b>
+                        </li>
+                          
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <input name="quantityGrapes" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityGrapes">
+                            Grapes  
+                            <b>$<span id="priceGrapes">0.99</span></b>
+                        </li>
+                          
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <input name="quantityApples" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityApples">
+                            Apples  
+                            <b>$<span id="priceApples">1.99</span></b>
+                        </li>
+                          
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <input name="quantityBananas" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityBananas">
+                            Bananas
+                            <b>$<span id="priceBananas">2.99</span></b>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-warning">
+                            <b>TOTAL</b>  
+                            <b>$ <span id="total_shop_cart">6.46</span></b>
+                        </li>
+                    
+                    </ul>
+
+                </div>
+                <!-- END COL-LG-3 -->  
+
+
+                <!-- START COL-LG-4 -->
+                <div class="col-lg-4">
+
+                    {{#flash_warning}}
+                        <div class="text-center alert alert-warning" role="alert">
+                            <b>{{flash_warning}}</b>
+                        </div>
+                    {{/flash_warning}}
+
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" name="customer_name" id="customer_name" value="{{name}}" required onkeydown="return false;">
+                      <label for="customer_name">NAME</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" name="customer_email" id="customer_email" value="{{email}}" required onkeydown="return false;">
+                      <label for="customer_email">EMAIL</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                      <input type="text" minlength="11" maxlength="11" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" class="form-control" id="document" name="document" value="{{document}}" required onkeydown="return false;">
+                      <label for="document">DOCUMENT</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                      <input class="mb-2 form-control" id="customer_phone" type="text" name="customer_phone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" value="{{phone}}" required onkeydown="return false;">
+                      <label for="customer_phone">TELEGRAM_NUMBER</label>
+                    </div>
+
+
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control" id="confirm_password" name="confirm_password" required minlength="6">
+                      <label for="confirm_password">CONFIRM_PASSWORD</label>
+                    </div>
+
+
+                    <br>
+
+                    <div class="form-floating mb-3">
+                          <input class="mb-2 form-control" id="zipcode" type="text" name="zipcode" pattern= "\d{5}-?\d{3}"  value="" required>
+                          <label for="zipcode">ZIPCODE</label>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- STREET -->
+                        <div class="col-sm-12 mb-2">
+                          <input type="text" class="form-control" id="customer_street" name="customer_street" placeholder="Street" value="" required onkeydown="return false;">
+                        </div>
+
+                        <!-- NEIGHBORHOOD -->
+                        <div class="col-sm-12 mb-2">
+                          <input type="text" class="form-control" id="customer_neighborhood" name="customer_neighborhood" placeholder="Neighborhood" value="" required onkeydown="return false;">
+                        </div>
+
+                        <!-- CITY -->
+                        <div class="col-sm-12 mb-2">
+                          <input type="text" class="form-control" id="customer_city" name="customer_city" placeholder="City" value="" required onkeydown="return false;">
+                        </div>
+
+                        <!-- STATE -->
+                        <div class="col-sm-12 mb-2">
+                          <input type="text" class="form-control" id="customer_state" name="customer_state" placeholder="State" value="" required onkeydown="return false;">
+                        </div>
+
+                        <!-- COUNTRY -->
+                        <div class="col-sm-12 mb-2">
+                          <input type="text" class="form-control" id="customer_country" name="customer_country" placeholder="Country" value="" required onkeydown="return false;">
+                        </div>
+
+
+                        <!-- SHIPPING CARRIER -->
+                        <label for="shipping_fee" class="col-sm-5 col-form-label">Shipping Carrier</label>
+                        <div class="col-sm-7 mb-3">
+                            <!-- SHIPMENT_PRICE -->
+                            <input type="text" class="form-control" value="" name="shipping_carrier" id="shipping_carrier" required onkeydown="return false;">
+                        </div>
+
+
+                        <!-- SHIPPING FEE -->
+                        <label for="shipping_fee" class="col-sm-5 col-form-label">Shipping Fee R$</label>
+                        <div class="col-sm-7 mb-3">
+                            <!-- SHIPMENT_PRICE -->
+                            <input type="text" class="form-control" value="0" name="shipping_fee" id="shipping_fee" required onkeydown="return false;">
+                        </div>
+                        
+                        <!-- SHIPPING DEADLINE -->
+                        <label for="shipping_deadline" class="col-sm-5 col-form-label">Deadline (days)</label>
+                        <div class="col-sm-7">
+                            <!-- SHIPMENT__TIME -->
+                            <input type="text" class="form-control" value="" name="shipping_deadline" id="shipping_deadline" required onkeydown="return false;">
+                        </div>
+
+                    </div>
+                    <!-- END FORM-GROUP-ROW -->
+
+                    <br>
+
+                </div>
+                <!-- END SHIPPING ADDRESS -->
+
+
+
+
+
+                <!-- PAYMENTS -->
+                <div class="col-lg-4">
+
+                    {{#user.stripe.card_token_id}}
+                        <div class="form-floating mb-3">
+                            <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_id}}" readonly>
+                            <label for="stripe_card_last_4_digits">REGISTRED_STRIPE CARD_ID</label>
+                        </div>
+
+
+                        <div class="form-floating mb-3">
+                              <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_last4}}" readonly>
+                              <label for="stripe_card_last_4_digits">STRIPE_CARD_LAST_4_DIGITS</label>
+                        </div>
+
+                        <div class="row g-2 mb-2">
+                          <div class="col-md">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" name="card_exp_year" id="card_exp_month" value="{{stripe.card_exp_month}}" readonly>
+                              <label for="card_exp_month">CARD_EXP_MONTH</label>
+                            </div>
+                          </div>
+                          <div class="col-md">
+                            <div class="form-floating">
+                              <input type="text" class="form-control" name="card_exp_year" id="card_exp_year" value="{{stripe.card_exp_year}}" readonly>
+                              <label for="card_exp_year">CARD_EXP_YEAR</label>
+                            </div>
+                          </div>
+                        </div>
+                    {{/user.stripe.card_token_id}}
+                            
+
+
+
+                    {{^user.stripe.card_token_id}}
+
+                    <div id="div_credit_card"></div>
+
+                    <div class="form-floating mb-3 mt-3">
+                        <input type="text" class="form-control" name="holder_name" id="holder_name" value="{{stripe.card_holder_name}}">
+                        <label for="holder_name">CARD_HOLDER_NAME</label>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <div class="input-group">
+                            <input type="text" name="card_number" placeholder="Credit Card Number" class="form-control" value="4242424242424242" required>
+                            <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="bi bi-credit-card h-100"></i> </span> </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <span class="hidden-xs">
+                                    <h6 class="text-muted small">Expiration Date</h6>
+                                </span>
+                                <div class="input-group">
+                                    <input type="number" placeholder="Month" name="card_exp_month" min="1" max="12" step="1" class="form-control" value="08" required>
+                                    <input type="number" placeholder="Year" name="card_exp_year" min="2021" step="1" class="form-control" required value="2022"> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group mb-4">
+                                <label data-toggle="tooltip" title="Digite os 3 dígitos de segurança atrás do Credit Card.">
+                                <h6 class="text-muted small">CVV
+                                    <i class="fa fa-question-circle d-inline"></i>
+                                </h6>
+                                <input type="text" name="card_cvc" required class="form-control" placeholder="Code CVV" value="314"> 
+                            </div>
+                        </div>
+                    </div>
+
+                    {{/user.stripe.card_token_id}}
+            
+                    <div>
+                        <button type="submit" class="fw-bold btn btn-outline-success btn-block shadow w-100">
+                            Pay $ <span id="button_pay">6.46</span>
+                        </button>
+                    </div>
+
+                </div>
+                <!-- END PAYMENTS -->
+
+            </div>
+            <!-- END ROW -->
+		
+        </form>
+
+    </div>
+
+	<script src="scripts/jquery.min.js"></script>
+    <script src="scripts/jquery.card.js"></script>
+    <script src="scripts/render_credit_card.js"></script>
+    <script src="scripts/shop.js"></script>
+
+    {{/user}}
+
+{{>partials/footer}}

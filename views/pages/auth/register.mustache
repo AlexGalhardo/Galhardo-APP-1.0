@@ -1,0 +1,134 @@
+<html lang="en-US">
+
+<head>
+
+    <title>Registrar Conta RecomendaÊ</title>
+
+    <meta charset="utf-8">
+
+    <link rel="shortcut icon" href="images/favicon.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- DESCRIPTION -->
+    <meta name="description" content="Register Account in Galhardo APP.">.
+
+    <!-- BOOTSTRAP 5 CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- BOOTSTRAP 5 JS -->
+    <script src="/scripts/bootstrap.bundle.min.js"></script>
+
+    <!-- BOOTSTRAP 5 ICONS -->
+    <link rel="stylesheet" href="/css/bootstrap-icons.css">
+
+    <!-- LOADING PAGE JS -->
+    <script src="/scripts/pace.min.js"></script>
+
+    <!-- LOADING PAGE CSS -->
+    <link rel="stylesheet" href="/css/minimal.css">
+
+</head>
+
+
+<body style="background-color: #F8F9FA;">
+
+    <div class="container col-lg-3 mt-3">
+
+        <h2 class="text-center text-muted mb-4">
+            <a class="text-decoration-none" href="/">
+                <b>
+                    <i class="bi bi-cup-straw"></i>
+                    RecomendaÊ
+                </b>
+            </a>
+        </h2>
+
+        {{#flash_success}}
+            <div class="text-center alert alert-success" role="alert">
+                <b>{{flash_success}}</b>
+            </div>
+        {{/flash_success}}
+
+        {{#flash_warning}}
+            <div class="text-center alert alert-warning" role="alert">
+                <b>{{flash_warning}}</b>
+            </div>
+        {{/flash_warning}}
+
+        {{{captcha}}}
+
+
+
+        <form action="/register" method="POST" id="form_register">
+
+            <input type="text" id="app_url" hidden value="{{app_url}}" readonly>
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+            {{#github_id}}
+                <input value="{{github_id}}" name="github_id" hidden onkeydown="return false;">
+            {{/github_id}}
+
+            {{#google_id}}
+                <input value="{{google_id}}" name="google_id" hidden onkeydown="return false;">
+            {{/google_id}}
+
+            {{#facebook_id}}
+                <input value="{{facebook_id}}" name="facebook_id" hidden onkeydown="return false;">
+            {{/facebook_id}}
+
+            <small><span id="alert_name" class="fw-bold text-danger"></span></small>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control mb-3" id="username" name="username" required autofocus value="{{name}}" minlength="4" maxlength="32">
+                <label for="username">Seu Nome</label>
+            </div>
+
+            <small><span id="alert_email" class="fw-bold text-danger"></span></small>
+
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control mb-3" name="email" id="email" required value="{{email}}" {{#email_readonly}}onkeydown="return false;"{{/email_readonly}} required minlength="8">
+                <label for="email">Seu Email</label>
+            </div>
+
+            <small><span id="alert_password" class="fw-bold text-danger"></span></small>
+
+            <div class="form-floating mb-3">
+                <input type="password" class="mb-3 form-control" id="password" name="password" placeholder="Enter your password" minlength="6" required>
+                <label for="password">Sua Senha</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" class="mb-3 form-control" id="confirm_password" name="confirm_password" placeholder="Confirm your password" minlength="6" required>
+                <label for="confirm_password">Confirme sua senha</label>
+            </div>
+
+            <div class="mb-3 form-check">
+                <small><span id="alert_checkbox" class="fw-bold text-danger"></span></small>
+                <input type="checkbox" class="form-check-input" id="checkbox_policy">
+                <label class="form-check-label" for="checkbox_policy">
+                    <small>
+                        Criando sua conta, você concorda com nossos
+                        <a target="_blank" href="/privacy">Termos de uso e Política de Privacidade</a> e aceita receber promoções e ofertas por email.
+                    </small>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="shadow mb-3 w-100 btn btn-primary btn-block login-btn" id="button_register">Registrar Conta</button>
+            </div>
+
+        </form>
+
+        <div class="text-center">
+            Já possui conta?
+            <a href="/login" class="text-success"><b>Fazer Login!</b></a>
+        </div>
+
+    </div>
+
+    <script src="scripts/register.js"></script>
+
+</body>
+
+</html>
