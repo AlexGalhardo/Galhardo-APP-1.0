@@ -17,9 +17,24 @@
    - email: test@gmail.com
    - password: test123
 - **IMPORTANT:**
+   - **This version is FOR LEARNING, PRACTICE and TESTS PURPOSES**
    - **All transactions in this live demo are made in a SANDBOX Environment**
    - **NO REAL Money Transactions will be made**
    - **All CRUDs in this Live Demo are made in JSON DataBase, for obvious reasons.**
+
+## PagarME Version
+- **Currently Version: ALPHA - NOT STABLE**
+- You can access: https://pagarme.galhardoapp.com/
+- Transactions: BRL using BRAZIL PagarME Payment API
+- Template Language: PT-BR Portuguese
+- DataBase: MySQL using PURE SQL
+
+## TypeScript Version
+- **Currently Version: ALPHA - NOT STABLE**
+- You can access: https://typescript.galhardoapp.com/
+- Transactions: USD using USA Stripe Payment API
+- Template Language: English
+- DataBase: Postgres using PRISMA ORM
 
 ## Introduction
 ### I created this project to LEARN and PRACTICE in my spare time:
