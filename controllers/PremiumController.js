@@ -26,11 +26,11 @@ const PagarMEModel = require(`../models/${process.env.APP_DATABASE}/PagarME`)
 
 class PremiumController {
 
-	static getViewPlans (req, res) {
+	static getViewPremium(req, res) {
 		return res.render('pages/plans/plans', {
             flash_warning: req.flash('warning'),
 			user: SESSION_USER,
-            header: Header.plans('Plano Premium RecomendaÊ')
+            header: Header.premium('Plano Premium RecomendaÊ')
 		});
 	}
 

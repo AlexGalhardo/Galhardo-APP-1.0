@@ -77,10 +77,10 @@ class Header {
         }
     }
 
-    static plans(head_title){
+    static premium(head_title){
         return {
             title: head_title,
-            navbar_plans_active: true
+            navbar_premium_active: true
         }
     }
 

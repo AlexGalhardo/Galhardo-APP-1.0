@@ -55,8 +55,8 @@ const userIsNotLoggedIn = (req, res, next) => {
 
 const verifyIfUserHasActiveSubscription = (req, res, next) => {
     if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
-        req.flash('warning', `You already have a currently plan ${SESSION_USER.stripe.currently_subscription_name} active! Wait until it ends to make a new subscription transaction!`)
-        return res.redirect('/plans')
+        req.flash('warning', `You already have a currently subscription active! Wait until it ends to make a new subscription transaction!`)
+        return res.redirect('/premium')
     }
     next()
 }
@@ -117,10 +117,10 @@ router
 
 
 // PLANS VIEWS CONTROLLER
-    .get('/plans', /*RouterCache(300),*/ PremiumController.getViewPlans)
+    .get('/premium', /*RouterCache(300),*/ PremiumController.getViewPremium)
 
-    .get('/plan/premium/checkout', userIsNotLoggedIn, verifyIfUserHasActiveSubscription, PremiumController.getViewPlanPremiumCheckout)
-    .post('/plan/premium/checkout', userIsNotLoggedIn, PremiumController.postSubscription)
+    .get('/premium/checkout', userIsNotLoggedIn, verifyIfUserHasActiveSubscription, PremiumController.getViewPlanPremiumCheckout)
+    .post('/premium/checkout', userIsNotLoggedIn, PremiumController.postSubscription)
 
 
 
