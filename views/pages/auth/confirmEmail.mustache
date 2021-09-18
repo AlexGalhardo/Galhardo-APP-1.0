@@ -2,7 +2,7 @@
 
 <head>
 
-    <title>Confirm Email Link</title>
+    <title>Reenviar Confirmação de Email</title>
 
     <meta charset="utf-8">
 
@@ -23,8 +23,8 @@
         <h2 class="text-center text-muted mb-4">
             <a class="text-decoration-none" href="/">
                 <b>
-                    <i class="bi bi-star"></i>
-                    Galhardo APP
+                    <i class="bi bi-cup-straw"></i>
+                    RecomendaÊ
                 </b>
             </a>
         </h2>
@@ -35,7 +35,7 @@
             </div>
         {{/flash_success}}
 
-        <form action="/confirmEmail" method="POST">
+        <form action="/confirmar-email" method="POST">
 
             <div class="form-floating mb-3">
                 <input value=""
@@ -46,12 +46,12 @@
                         placeholder="Enter your email"
                         autofocus
                         required>
-                <label for="email">Email address to receive confirm link</label>
+                <label for="email">Email para receber link de confirmação</label>
             </div>
 
             <div class="form-group">
                 <button type="submit" class="shadow mb-3 w-100 btn btn-info btn-block login-btn">
-                    Send Confirm Email Link
+                    Enviar confirmação de email
                 </button>
             </div>
 

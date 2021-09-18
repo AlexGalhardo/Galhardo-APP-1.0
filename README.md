@@ -4,7 +4,7 @@
 </div>
 
 ## Live Demo
-- **Currently Version: BETA - ALMOST STABLE**
+- **Currently Version: ALPHA - NOT STABLE**
 - You can access: https://pagarme.galhardoapp.com/
 
 ## Feedbacks

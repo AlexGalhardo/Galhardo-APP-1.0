@@ -67,8 +67,8 @@ router
     .get('/', /*RouterCache(300),*/ AppController.getViewHome)
     .get('/books', /*RouterCache(300),*/ AppController.getViewBooks)
 
-    .get('/contact', recaptcha.middleware.render, csrfProtection, AppController.getViewContact)
-    .post('/contact', recaptcha.middleware.verify, csrfProtection, AppController.postContact)
+    .get('/contato', recaptcha.middleware.render, csrfProtection, AppController.getViewContact)
+    .post('/contato', recaptcha.middleware.verify, csrfProtection, AppController.postContact)
 
     .get('/privacy', /*RouterCache(300),*/ AppController.getViewPrivacy)
 
@@ -128,19 +128,19 @@ router
     .get('/login', userIsAlreadyLoggedIn, recaptcha.middleware.render, csrfProtection, AuthController.getViewLogin)
     .post('/login', userIsAlreadyLoggedIn, recaptcha.middleware.verify, csrfProtection, AuthController.postLogin)
 
-    .get('/register', userIsAlreadyLoggedIn, recaptcha.middleware.render, csrfProtection, AuthController.getViewRegister)
-    .post('/register', userIsAlreadyLoggedIn, recaptcha.middleware.verify, csrfProtection, AuthController.postRegister)
+    .get('/registrar', userIsAlreadyLoggedIn, recaptcha.middleware.render, csrfProtection, AuthController.getViewRegister)
+    .post('/registrar', userIsAlreadyLoggedIn, recaptcha.middleware.verify, csrfProtection, AuthController.postRegister)
 
-    .get('/forgetPassword', userIsAlreadyLoggedIn, AuthController.getViewForgetPassword)
-    .post('/forgetPassword', userIsAlreadyLoggedIn, AuthController.postForgetPassword)
+    .get('/esqueci-senha', userIsAlreadyLoggedIn, AuthController.getViewForgetPassword)
+    .post('/esqueci-senha', userIsAlreadyLoggedIn, AuthController.postForgetPassword)
 
-    .get('/confirmEmail/:email/:token', AuthController.verifyIfConfirmEmailURLIsValid)
+    .get('/confirmar-email/:email/:token', AuthController.verifyIfConfirmEmailURLIsValid)
 
-    .get('/confirmEmail', AuthController.getViewResendConfirmEmailLink)
-    .post('/confirmEmail', AuthController.postSendConfirmEmailLink)
+    .get('/confirmar-email', AuthController.getViewResendConfirmEmailLink)
+    .post('/confirmar-email', AuthController.postSendConfirmEmailLink)
 
-    .get('/resetPassword/:email/:token', userIsAlreadyLoggedIn, AuthController.getViewResetPassword)
-    .post('/resetPassword', userIsAlreadyLoggedIn, AuthController.postResetPassword)
+    .get('/resetar-senha/:email/:token', userIsAlreadyLoggedIn, AuthController.getViewResetPassword)
+    .post('/resetar-senha', userIsAlreadyLoggedIn, AuthController.postResetPassword)
 
     .get('/github/callback', userIsAlreadyLoggedIn, AuthController.loginGitHub)
     .get('/facebook/callback', userIsAlreadyLoggedIn, AuthController.loginFacebook)
