@@ -21,9 +21,8 @@ const Games = require(`../models/${process.env.APP_DATABASE}/Games`)
 const Books = require(`../models/${process.env.APP_DATABASE}/Books`)
 
 
-// STRIPE
-const stripe = require('stripe')(`${process.env.STRIPE_SK_TEST}`);
-
+// PAGARME
+const pagarme = require('pagarme')
 
 
 class AppController {
