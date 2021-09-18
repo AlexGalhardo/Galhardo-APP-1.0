@@ -73,7 +73,7 @@
    - set APP_DATABASE in .env file with JSON (APP_DATABASE=JSON)
    - $ npm run dev
 - To use with DataBases and to deploy in Production, read: https://github.com/AlexGalhardo/Galhardo-APP/blob/master/INSTALL_LOCALLY.md
-- <b>Install and deploy with DataBases and NGINX is in development</b>
+- <b>Install and deploy with DataBases/NGINX is in development</b>
 
 ## MicroServices
 - https://correios.galhardoapp.com/cep/13560290 (zipcode here)

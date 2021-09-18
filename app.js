@@ -137,8 +137,8 @@ app.engine('mustache', mustache());
 
 
 // PUBLIC STATIC FILES
-// app.use(express.static('public'));
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static('public'));
+// app.use(express.static(path.join(__dirname, './public')));
 
 
 // ROUTES
