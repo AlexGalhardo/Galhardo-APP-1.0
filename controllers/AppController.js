@@ -123,14 +123,14 @@ class AppController {
         const searchedGames  = await Games.searchTitle(searchGameTitle)
 
         if(!searchedGames.length){
-            req.flash('warning', `No games found from search: ${searchGameTitle}! Recommending a Random Game`)
+            req.flash('warning', `Nenhum jogo encontrado pela pesquisa: ${searchGameTitle}! Recomendando um jogo aleatório`)
             return res.redirect('/')
         }
 
         if(searchedGames.length > 1){
             searchedGames[0].firstGame = true
             return res.render('pages/home', {
-                flash_success: `${searchedGames.length} Games Found From Search Title: ${searchGameTitle.toUpperCase()}`,
+                flash_success: `${searchedGames.length} Jogos encontrados na pesquisa: ${searchGameTitle.toUpperCase()}`,
                 games: searchedGames,
                 user: SESSION_USER,
                 header: Header.games()
@@ -138,7 +138,7 @@ class AppController {
         }
 
         return res.render('pages/home', {
-            flash_success: `1 Game Found From Search Title: ${searchGameTitle.toUpperCase()}`,
+            flash_success: `1 Jogo encontrado na pesquisa: ${searchGameTitle.toUpperCase()}`,
             game: searchedGames[0],
             user: SESSION_USER,
             header: Header.games()

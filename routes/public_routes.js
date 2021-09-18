@@ -38,7 +38,7 @@ const AuthController = require('../controllers/AuthController');
 // ---------------------- MIDDLEWARES 
 const userIsAlreadyLoggedIn = (req, res, next) => {
 	if(req.session.userID) {
-        req.flash('warning', 'You need to logout first')
+        req.flash('warning', 'Você precisa se deslogar primeiro')
         return res.redirect('/');
     }
 	next()
@@ -46,7 +46,7 @@ const userIsAlreadyLoggedIn = (req, res, next) => {
 
 const userIsNotLoggedIn = (req, res, next) => {
     if(!req.session.userID) {
-        req.flash('warning', 'You need to login first')
+        req.flash('warning', 'Você precisa se logar primeiro')
         return res.redirect('/login');
     }
     next()
@@ -55,7 +55,7 @@ const userIsNotLoggedIn = (req, res, next) => {
 
 const verifyIfUserHasActiveSubscription = (req, res, next) => {
     if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
-        req.flash('warning', `You already have a currently subscription active! Wait until it ends to make a new subscription transaction!`)
+        req.flash('warning', `Você já possui uma assinatura ativa! Por favor, espere até sua assinatura terminar para fazer uma nova transação!`)
         return res.redirect('/premium')
     }
     next()
@@ -64,13 +64,13 @@ const verifyIfUserHasActiveSubscription = (req, res, next) => {
 
 router
 // APP VIEWS CONTROLLER
-    .get('/', /*RouterCache(300),*/ AppController.getViewHome)
-    .get('/books', /*RouterCache(300),*/ AppController.getViewBooks)
+    .get('/', AppController.getViewHome)
+    .get('/books', AppController.getViewBooks)
 
     .get('/contato', recaptcha.middleware.render, csrfProtection, AppController.getViewContact)
     .post('/contato', recaptcha.middleware.verify, csrfProtection, AppController.postContact)
 
-    .get('/privacy', /*RouterCache(300),*/ AppController.getViewPrivacy)
+    .get('/privacidade', AppController.getViewPrivacy)
 
     .get('/searchGame', AppController.getSearchGameTitle)
     .get('/searchBook', AppController.getSearchBookTitle)

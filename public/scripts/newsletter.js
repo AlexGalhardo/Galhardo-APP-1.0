@@ -26,7 +26,7 @@ window.onload = function(){
                                         <label class="form-check-label" for="checkbox_policy">
                                             <small>
                                                 You agree with our
-                                                <a target="_blank" href="/privacy">Privacy and Terms of Use Policy</a> and accept to receive offers and advertisements.
+                                                <a target="_blank" href="/privacidade">Privacy and Terms of Use Policy</a> and accept to receive offers and advertisements.
                                             </small>
                                         </label>
 

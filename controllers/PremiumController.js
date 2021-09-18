@@ -27,7 +27,7 @@ const PagarMEModel = require(`../models/${process.env.APP_DATABASE}/PagarME`)
 class PremiumController {
 
 	static getViewPremium(req, res) {
-		return res.render('pages/plans/plans', {
+		return res.render('pages/premium/premium', {
             flash_warning: req.flash('warning'),
 			user: SESSION_USER,
             header: Header.premium('Plano Premium RecomendaÊ')
@@ -36,7 +36,7 @@ class PremiumController {
 
 
     static getViewPlanPremiumCheckout (req, res) {
-        return res.render('pages/plans/premium_checkout', {
+        return res.render('pages/premium/premium_checkout', {
             flash_warning: req.flash('warning'),
             user: SESSION_USER,
             header: Header.plans('Plan PREMIUM - Galhardo APP')
@@ -222,7 +222,7 @@ class PremiumController {
 
             await TelegramBOTLogger.logSubscriptionTransaction(subsTransactionObject)
 
-            res.render('pages/plans/planPayLog', {
+            res.render('pages/premium/premium_log', {
                 flash_success: 'Subscription Created with Success!',
                 subsTransactionObject,
                 user: SESSION_USER,
