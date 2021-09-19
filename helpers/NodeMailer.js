@@ -9,17 +9,17 @@
  */
 
 
-const nodemailer = require("nodemailer");
-const handlebars = require("handlebars");
-const fs = require("fs-extra");
-const path = require("path");
-const randomToken = require('rand-token');
+import nodemailer from "nodemailer"
+import handlebars from "handlebars"
+import fs from "fs-extra"
+import path from "path"
+import randomToken from 'rand-token'
 
 
 // Config
-const { SendGrid, MailTrap, Ethereal } = require('../config/smtp');
+import { MailTrap } from '../config/smtp.js'
 
-const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
+import Users from '../models/JSON/Users.js'
 
 
 
@@ -186,4 +186,4 @@ class NodeMailer {
     }
 };
 
-module.exports = NodeMailer
+export default NodeMailer

@@ -10,11 +10,11 @@
 
 
 // HELPERS
-const DateTime = require('../../helpers/DateTime')
+import DateTime from '../../helpers/DateTime.js'
 
 
 // MODELS
-const Blog = require(`../../models/${process.env.APP_DATABASE}/Blog`)
+import Blog from '../../models/JSON/Blog.js'
 
 
 class APIAdminBlogController {
@@ -110,4 +110,4 @@ class APIAdminBlogController {
     }
 }
 
-module.exports = APIAdminBlogController;
+export default APIAdminBlogController;

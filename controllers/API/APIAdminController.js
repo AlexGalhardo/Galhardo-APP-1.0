@@ -8,16 +8,16 @@
  *  http://localhost:3000/api/admin
  */
 
-const { validationResult } = require("express-validator");
-const jwt = require('jsonwebtoken');
+import { validationResult } from "express-validator"
+import jwt from 'jsonwebtoken'
 
 // HELPERS
-const Bcrypt = require('../../helpers/Bcrypt')
-const DateTime = require('../../helpers/DateTime')
+import Bcrypt from '../../helpers/Bcrypt.js'
+import DateTime from '../../helpers/DateTime.js'
 
 
 // MODELS
-const Users = require(`../../models/${process.env.APP_DATABASE}/Users`)
+import Users from '../../models/JSON/Users.js'
 
 
 
@@ -26,7 +26,7 @@ class APIAdminController {
     static async postAdminLogin(req, res, next) {
 
         try {
-            const errors = validationResult(req);
+            const errors = validationResult(req)
 
             if(!errors.isEmpty()){
                 return res.status(422).json({ errors: errors.array() });
@@ -123,4 +123,4 @@ class APIAdminController {
     }
 }
 
-module.exports = APIAdminController;
+export default APIAdminController;

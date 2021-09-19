@@ -9,9 +9,9 @@
  */
 
 
-const queryString = require('query-string');
-const googleLogin = require('./GoogleLogin');
-const facebookLogin = require('node-fb-login');
+import queryString from 'query-string'
+import googleLogin from './GoogleLogin.js'
+import facebookLogin from 'node-fb-login'
 
 
 
@@ -48,4 +48,4 @@ class URL {
     }
 };
 
-module.exports = URL;
+export default URL;

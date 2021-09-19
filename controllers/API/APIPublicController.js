@@ -8,14 +8,13 @@
  *  http://localhost:3000/api/public
  */
 
-const bodyParser = require('body-parser')
-
+import bodyParser from 'body-parser'
 
 // MODELS
-const Users = require(`../../models/${process.env.APP_DATABASE}/Users`);
-const Blog = require(`../../models/${process.env.APP_DATABASE}/Blog`);
-const Games = require(`../../models/${process.env.APP_DATABASE}/Games`);
-const Books = require(`../../models/${process.env.APP_DATABASE}/Books`);
+import Users from '../../models/JSON/Users.js'
+import Blog from '../../models/JSON/Blog.js'
+import Games from '../../models/JSON/Games.js'
+import Books from '../../models/JSON/Books.js'
 
 
 
@@ -156,4 +155,4 @@ class APIPublicController {
 	}
 }
 
-module.exports = APIPublicController;
+export default APIPublicController;

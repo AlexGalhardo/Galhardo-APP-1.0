@@ -10,11 +10,12 @@
 
 
 // INIT EXPRESS 
-const router = require('express').Router()
+import express from 'express'
+const router = express.Router()
 
 
 // ADMIN CONTROLLER
-const AdminController = require('../controllers/ADMIN/AdminController');
+import AdminController from '../controllers/ADMIN/AdminController.js'
 
 
 

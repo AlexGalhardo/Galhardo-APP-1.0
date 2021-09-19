@@ -9,11 +9,11 @@
  */
 
 // INIT EXPRESS 
-const express = require('express')
+import express from 'express'
 const router = express.Router()
 
 
-const Logger = require('../config/winston');
+import Logger from '../config/winston.js'
 
 
 // Test Logger

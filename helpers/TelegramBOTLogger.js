@@ -11,9 +11,11 @@
  */
 
 
-const https = require('https')
-const DateTime = require('./DateTime')
+import https from 'https'
+import DateTime from './DateTime.js'
 
+import dotenv from 'dotenv'
+dotenv.config()
 
 
 class TelegramBOTLogger {
@@ -160,4 +162,5 @@ class TelegramBOTLogger {
     }
 }
 
-module.exports = new TelegramBOTLogger(process.env.TELEGRAM_BOT_HTTP_TOKEN, process.env.TELEGRAM_BOT_CHANNEL_ID)
+
+export default new TelegramBOTLogger(process.env.TELEGRAM_BOT_HTTP_TOKEN, process.env.TELEGRAM_BOT_CHANNEL_ID)

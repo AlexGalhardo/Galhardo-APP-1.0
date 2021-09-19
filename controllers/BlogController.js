@@ -7,15 +7,15 @@
  * http://localhost:3000/blog
  */
 
-const bodyParser = require('body-parser');
-const pagination = require('pagination')
+import bodyParser from 'body-parser'
+import pagination from 'pagination'
 
 // HELPERS
-const DateTime = require('../helpers/DateTime');
-const Header = require('../helpers/Header');
+import DateTime from '../helpers/DateTime.js'
+import Header from '../helpers/Header.js'
 
 // MODEL
-const Blog = require(`../models/${process.env.APP_DATABASE}/Blog`)
+import Blog from '../models/JSON/Blog.js'
 
 
 
@@ -23,7 +23,7 @@ class BlogController {
 
 
 	static async getViewBlog(req, res){
-		const totalBlogPosts = await Blog.getTotalBlogPosts();
+		const totalBlogPosts = await Blog.getTotalBlogPosts()
 		const blogPostsPerPage = 4;
 		
 		let page = req.params.page;

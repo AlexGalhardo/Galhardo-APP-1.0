@@ -42,4 +42,4 @@ class APIController {
 	}
 };
 
-module.exports = APIController;
+export default APIController;

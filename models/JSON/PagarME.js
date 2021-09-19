@@ -7,12 +7,12 @@
  * ./models/JSON/Stripe.js
  */
 
-const fs = require('fs-extra')
-const database = require('../../config/json_database');
+import fs from 'fs-extra'
+import database from '../../config/json_database.js'
 
 
 // Helpers
-const DateTime = require('../../helpers/DateTime');
+import DateTime from '../../helpers/DateTime.js'
 
 
 

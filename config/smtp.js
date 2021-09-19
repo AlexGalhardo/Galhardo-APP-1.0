@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer')
+import nodemailer from 'nodemailer'
 
 const SendGrid = nodemailer.createTransport({
     host: 'smtp.sendgrid.net',
@@ -28,4 +28,4 @@ const Ethereal = nodemailer.createTransport({
     }
 });
 
-module.exports = { SendGrid, MailTrap, Ethereal };
+export { SendGrid, MailTrap, Ethereal }

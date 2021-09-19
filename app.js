@@ -1,5 +1,6 @@
 /**
  * GALHARDO APP
+ * PAGARME VERSION
  * Created By © Alex Galhardo  | August 2021-Present
  * aleexgvieira@gmail.com
  * https://github.com/AlexGalhardo
@@ -9,9 +10,8 @@
 
 
 // MODULES
-import 'express-async-errors';
-import dotenv from 'dotenv';
-dotenv.config()
+import 'express-async-errors'
+import dotenv from 'dotenv'; dotenv.config();
 import express from 'express'
 import mustache from 'mustache-express'
 import path from 'path'
@@ -23,12 +23,15 @@ import cors from 'cors'
 import helmet from 'helmet'
 import { MulterError } from 'multer'
 import cookieParser from 'cookie-parser'
-import { dirname } from 'path';
+import { dirname } from 'path'
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));;
 
 
 
 // GLOBALS
-global.APP_ROOT_PATH = dirname
+global.APP_ROOT_PATH = __dirname
 global.SESSION_USER = null;
 
 
@@ -137,7 +140,7 @@ app.use(express.json());
 
 // TEMPLATE ENGINE
 app.set('view engine', 'mustache');
-app.set('views', dirname, 'views');
+app.set('views', `${__dirname}/views`);
 app.engine('mustache', mustache());
 
 

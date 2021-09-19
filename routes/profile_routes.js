@@ -9,17 +9,17 @@
  */
 
 
-const multer = require('multer')
-const csrf = require('csurf')
+import multer from 'multer'
+import csrf from 'csurf'
 const csrfProtection = csrf({ cookie: true })
 
 
 // INIT ROUTER
-const router = require('express').Router()
-
+import express from 'express'
+const router = express.Router()
 
 // CONTROLLER
-const ProfileController = require('../controllers/ProfileController');
+import ProfileController from '../controllers/ProfileController.js'
 
 
 // ------- MIDDLEWARES

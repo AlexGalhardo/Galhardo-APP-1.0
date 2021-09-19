@@ -9,33 +9,31 @@
  */
 
 // MODULES
-const jwt = require('jsonwebtoken')
+import jwt from 'jsonwebtoken'
 
 
 // INIT EXPRESS 
-const router = require('express').Router()
+import express from 'express'
+const router = express.Router()
 
 
 // MODELS
-const Users = require('../models/JSON/Users')
-// const Users = require('../models/MYSQL/Users')
-// const Users = require('../models/POSTGRES/Users')
-// const Users = require('../models/SQLITE/Users')
-// const Users = require('../models/MONGODB/Users')
+import Users from '../models/JSON/Users.js'
+
 
 
 // API CONTROLLERS
-const APIController = require('../controllers/API/APIController')
+import APIController from '../controllers/API/APIController.js'
 
-const APIProfileController = require('../controllers/API/APIProfileController')
+import APIProfileController from '../controllers/API/APIProfileController.js'
 
-const APIPublicController = require('../controllers/API/APIPublicController')
+import APIPublicController from '../controllers/API/APIPublicController.js'
 
-const APIAdminController = require('../controllers/API/APIAdminController')
+import APIAdminController from '../controllers/API/APIAdminController.js'
 
-const APIAdminBlogController = require('../controllers/API/APIAdminBlogController')
-const APIAdminGameController = require('../controllers/API/APIAdminGameController')
-const APIAdminBookController = require('../controllers/API/APIAdminBookController')
+import APIAdminBlogController from '../controllers/API/APIAdminBlogController.js'
+import APIAdminGameController from '../controllers/API/APIAdminGameController.js'
+import APIAdminBookController from '../controllers/API/APIAdminBookController.js'
 
 
 

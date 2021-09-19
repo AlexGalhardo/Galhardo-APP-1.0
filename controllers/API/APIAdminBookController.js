@@ -10,10 +10,10 @@
 
 
 // HELPERS
-const DateTime = require('../../helpers/DateTime')
+import DateTime from '../../helpers/DateTime.js'
 
 // MODEL
-const Books = require(`../../models/${process.env.APP_DATABASE}/Books`);
+import Books from '../../models/JSON/Books.js'
 
 
 
@@ -133,4 +133,4 @@ class APIAdminBookController {
 
 }
 
-module.exports = APIAdminBookController;
+export default APIAdminBookController;

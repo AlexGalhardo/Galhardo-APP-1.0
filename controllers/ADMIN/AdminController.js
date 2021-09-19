@@ -12,9 +12,9 @@
  */
 
 
-const Blog = require(`../../models/${process.env.APP_DATABASE}/Blog`)
-const Games = require(`../../models/${process.env.APP_DATABASE}/Games`)
-const Books = require(`../../models/${process.env.APP_DATABASE}/Books`)
+import Blog from '../../models/JSON/Blog.js'
+import Games from '../../models/JSON/Games.js'
+import Books from '../../models/JSON/Books.js'
 
 
 
@@ -404,4 +404,4 @@ class AdminController {
 	}
 }
 
-module.exports = AdminController;
+export default AdminController;

@@ -10,10 +10,10 @@
 
 
 // helpers
-const DateTime = require('../../helpers/DateTime')
+import DateTime from '../../helpers/DateTime.js'
 
 // MODEL
-const Games = require(`../../models/${process.env.APP_DATABASE}/Games`)
+import Games from '../../models/JSON/Games.js'
 
 
 
@@ -132,4 +132,4 @@ class APIAdminGameController {
 
 }
 
-module.exports = APIAdminGameController;
+export default APIAdminGameController;

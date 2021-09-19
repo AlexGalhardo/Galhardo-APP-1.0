@@ -9,13 +9,13 @@
  */
 
 
-const { unlink } = require('fs/promises');
-const sharp = require('sharp')
+import { unlink } from 'fs/promises'
+import sharp from 'sharp'
 
-const multer = require("multer");
-const multerConfig = require("../config/multer");
+import multer from "multer"
+import multerConfig from "../config/multer.js"
 
-const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
+import Users from '../models/JSON/Users.js'
 
 
 class Upload {
@@ -38,4 +38,4 @@ class Upload {
 	}
 }
 
-module.exports = Upload;
+export default Upload;

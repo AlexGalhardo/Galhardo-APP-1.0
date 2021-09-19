@@ -1,8 +1,9 @@
-const multer = require("multer");
-const path = require("path");
-const crypto = require("crypto");
-const aws = require("aws-sdk");
-const multerS3 = require("multer-s3");
+import multer from "multer"
+import path from "path"
+import crypto from "crypto"
+import aws from "aws-sdk"
+import multerS3 from "multer-s3"
+import { dirname } from 'path';
 
 const storageTypes = {
   local: multer.diskStorage({
@@ -38,8 +39,8 @@ const storageTypes = {
   */
 };
 
-module.exports = {
-  dest: path.resolve(__dirname, "..", "public", "uploads"),
+export default {
+  dest: path.resolve('/home/alex/Desktop/galhardoapp', "..", "public", "uploads"),
   storage: storageTypes[process.env.STORAGE_TYPE],
   limits: {
     fileSize: 2 * 1024 * 1024
@@ -47,7 +48,7 @@ module.exports = {
   fileFilter: (req, file, cb) => {
     const allowedMimes = [
       "image/jpeg",
-      "image/pjpeg",
+      "image/jpg",
       "image/png",
       "image/gif"
     ];

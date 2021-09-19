@@ -8,12 +8,14 @@
  * http://localhost:3000/
  */
 
+import dotenv from 'dotenv'
+dotenv.config()
 
 // const Recaptcha = require('express-recaptcha').RecaptchaV3;
 import { RecaptchaV3 } from 'express-recaptcha'
 // const recaptchaV3 = Recaptcha.RecaptchaV3
 
-// const recaptcha = new RecaptchaV3(process.env.RECAPTCHA_ID, process.env.RECAPTCHA_SECRET );
+const recaptcha = new RecaptchaV3(process.env.RECAPTCHA_ID, process.env.RECAPTCHA_SECRET, {callback:'cb'});
 
 import csrf from 'csurf'
 const csrfProtection = csrf({ cookie: true })

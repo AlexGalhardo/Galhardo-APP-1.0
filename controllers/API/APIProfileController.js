@@ -8,11 +8,11 @@
  *  http://localhost:3000/api/profile
  */
 
-const bodyParser = require('body-parser')
+import bodyParser from 'body-parser'
 
 
 // MODEL
-const Users = require(`../../models/${process.env.APP_DATABASE}/Users`)
+import Users from '../../models/JSON/Users.js'
 
 
 
@@ -107,4 +107,4 @@ class APIProfileController {
 	}
 }
 
-module.exports = APIProfileController;
+export default APIProfileController;

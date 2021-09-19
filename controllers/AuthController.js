@@ -17,22 +17,22 @@
 
 
 
-const bodyParser = require('body-parser');
-const { validationResult } = require("express-validator");
-const queryString = require('query-string');
-const axios = require('axios');
-const fetch = require('node-fetch');
+import bodyParser from 'body-parser'
+import { validationResult } from "express-validator"
+import queryString from 'query-string'
+import axios from 'axios'
+import fetch from 'node-fetch'
 
 
 // HELPERS
-const DateTime = require('../helpers/DateTime');
-const Bcrypt = require('../helpers/Bcrypt');
-const NodeMailer = require('../helpers/NodeMailer');
-const URL = require('../helpers/URL');
+import DateTime from '../helpers/DateTime.js'
+import Bcrypt from '../helpers/Bcrypt.js'
+import NodeMailer from '../helpers/NodeMailer.js'
+import URL from '../helpers/URL.js'
 
 
 // MODELS
-const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
+import Users from '../models/JSON/Users.js'
 
 
 

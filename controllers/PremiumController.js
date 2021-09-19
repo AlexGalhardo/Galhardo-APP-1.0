@@ -10,18 +10,18 @@
 
 
 // HELPERS
-const DateTime = require('../helpers/DateTime');
-const NodeMailer = require('../helpers/NodeMailer');
-const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
-const Header = require('../helpers/Header');
+import DateTime from '../helpers/DateTime.js'
+import NodeMailer from '../helpers/NodeMailer.js'
+import TelegramBOTLogger from '../helpers/TelegramBOTLogger.js'
+import Header from '../helpers/Header.js'
 
 // MODELS
-const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
-const PagarMEModel = require(`../models/${process.env.APP_DATABASE}/PagarME`)
+import Users from '../models/JSON/Users.js'
+import PagarMEModel from '../models/JSON/PagarME.js'
 
 
 // PagarME
-
+import PagarME from '../helpers/PagarME.js'
 
 
 class PremiumController {

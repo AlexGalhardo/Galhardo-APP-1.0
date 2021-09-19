@@ -8,15 +8,15 @@
  * http://localhost:3000/profile
  */
 
-const bodyParser = require('body-parser')
+import bodyParser from 'body-parser'
 
 // HELPERS
-const Upload = require('../helpers/Upload')
-const Header = require('../helpers/Header')
+import Upload from '../helpers/Upload.js'
+import Header from '../helpers/Header.js'
 
 // MODELS
-const Users = require(`../models/${process.env.APP_DATABASE}/Users`)
-const PagarMEModel = require(`../models/${process.env.APP_DATABASE}/PagarME`)
+import Users from '../models/JSON/Users.js'
+import PagarMEModel from '../models/JSON/PagarME.js'
 
 
 
