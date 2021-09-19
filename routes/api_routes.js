@@ -121,4 +121,4 @@ router
 
 
 
-module.exports = router;
+export { router as apiRoutes };

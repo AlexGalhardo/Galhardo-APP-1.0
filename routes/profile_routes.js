@@ -82,4 +82,4 @@ router
     .get('/cancel/subscription/:stripe_currently_subscription_id', userIsNotLoggedIn, ProfileController.cancelStripeSubscriptionRenewAtPeriodEnd)
 
 
-module.exports = router;
+export { router as profileRoutes };

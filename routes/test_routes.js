@@ -28,4 +28,4 @@ router
         return res.send("Logger tested");
     })
 
-module.exports = router;
+export { router as testRoutes };

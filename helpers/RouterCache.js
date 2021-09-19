@@ -1,7 +1,9 @@
-const NodeCache = require('node-cache');
+import NodeCache from 'node-cache';
 const cache = new NodeCache()
 
-module.exports = duration => (req, res, next) => {
+let RouterCache
+
+export default RouterCache = duration => (req, res, next) => {
     // is request a GET?
 
     // if not, call next

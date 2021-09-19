@@ -160,4 +160,4 @@ class PagarME {
     }
 }
 
-module.exports = PagarME;
+export default PagarME;

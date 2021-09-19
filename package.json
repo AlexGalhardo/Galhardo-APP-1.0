@@ -6,6 +6,7 @@
   "author": "Alex Galhardo <aleexgvieira@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/AlexGalhardo/Galhardo-APP",
+  "type": "module",
   "engines": {
     "node": "14.17.5",
     "npm": "7.21.1"

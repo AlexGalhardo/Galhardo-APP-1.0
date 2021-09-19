@@ -7,7 +7,7 @@
  * ./helpers/Bcrypt.js
  */
 
-const bcrypt = require('bcryptjs');
+import bcrypt from 'bcryptjs';
 
 
 
@@ -25,4 +25,4 @@ class Bcrypt {
     }
 };
 
-module.exports = Bcrypt;
+export default Bcrypt;

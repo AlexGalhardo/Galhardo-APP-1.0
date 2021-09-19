@@ -1,13 +1,13 @@
-const morgan = require("morgan");
-const Logger = require("./winston");
+import Morgan from "morgan"
+import Logger from "./winston.js"
 
-const stream = morgan.StreamOptions = {
+const stream = Morgan.StreamOptions = {
     write: (message) => Logger.http(message),
 };
 
-const morganMiddleware = morgan(
+const morgan = Morgan(
     ":method :url :status  :response-time ms",
     { stream }
 );
 
-module.exports = morganMiddleware;
+export default morgan;

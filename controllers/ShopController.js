@@ -217,4 +217,4 @@ class ShopController {
 	}
 };
 
-module.exports = ShopController;
+export default ShopController;

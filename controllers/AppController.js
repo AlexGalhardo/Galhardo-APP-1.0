@@ -8,21 +8,21 @@
  * http://localhost:3000/
  */
 
-const { validationResult } = require("express-validator");
+import { validationResult } from "express-validator"
 
 // HELPERS
-const NodeMailer = require('../helpers/NodeMailer');
-const TelegramBOTLogger = require('../helpers/TelegramBOTLogger');
-const Header = require('../helpers/Header');
+import NodeMailer from '../helpers/NodeMailer.js'
+import TelegramBOTLogger from '../helpers/TelegramBOTLogger.js'
+import Header from '../helpers/Header.js'
 
 
 // MODELS
-const Games = require(`../models/${process.env.APP_DATABASE}/Games`)
-const Books = require(`../models/${process.env.APP_DATABASE}/Books`)
+import Games from '../models/JSON/Games.js'
+import Books from '../models/JSON/Books.js'
 
 
 // PAGARME
-const pagarme = require('pagarme')
+import PagarME from '../helpers/PagarME.js'
 
 
 class AppController {
@@ -208,33 +208,16 @@ class AppController {
     }
 
 
-    static async postStripeCheckoutGameID(req, res){
+    static async getPagarMECheckoutByGameID(req, res){
         try {
             const { game_id } = req.params
-            const gameStripePriceID = await Games.getStripePriceID(game_id)
+            const pagarMECheckoutURL = await PagarME.getCheckoutLinkByGameID(game_id)
 
-            const session = await stripe.checkout.sessions.create({
-                // customer_email: 'aleexgalhardoo@example.com',
-                submit_type: 'pay',
-                billing_address_collection: 'auto',
-                // locale: 'pt-BR',
-                shipping_address_collection: {
-                  allowed_countries: ['BR'],
-                },
-                line_items: [{price: gameStripePriceID, quantity: 1}],
-                payment_method_types: [
-                  'card'
-                ],
-                mode: 'payment',
-                success_url: `${process.env.APP_URL}`,
-                cancel_url: `${process.env.APP_URL}`,
-            });
-
-            return res.redirect(303, session.url)
+            return res.redirect(303, pagarMECheckoutURL)
         } catch(error){
             throw new Error(error)
         }
     }
 };
 
-module.exports = AppController;
+export default AppController;

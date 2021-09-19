@@ -9,30 +9,33 @@
  */
 
 
-const Recaptcha = require('express-recaptcha').RecaptchaV3;
-const recaptcha = new Recaptcha(process.env.RECAPTCHA_ID, process.env.RECAPTCHA_SECRET ,{callback:'cb'});
+// const Recaptcha = require('express-recaptcha').RecaptchaV3;
+import { RecaptchaV3 } from 'express-recaptcha'
+// const recaptchaV3 = Recaptcha.RecaptchaV3
 
-const csrf = require('csurf')
+// const recaptcha = new RecaptchaV3(process.env.RECAPTCHA_ID, process.env.RECAPTCHA_SECRET );
+
+import csrf from 'csurf'
 const csrfProtection = csrf({ cookie: true })
 
-const RouterCache = require('../helpers/RouterCache')
+import RouterCache from '../helpers/RouterCache.js'
 
-const Users = require(`../models/${process.env.APP_DATABASE}/Users`);
+import Users from '../models/JSON/Users.js'
 
 
 
 // INIT ROUTER
-const router = require('express').Router()
+import express from 'express'
+const router = express.Router()
 
 
 
 // VIEWS CONTROLLERS
-const AppController = require('../controllers/AppController');
-const BlogController = require('../controllers/BlogController');
-const CriptoBOTController = require('../controllers/CriptoBOTController');
-const ShopController = require('../controllers/ShopController');
-const PremiumController = require('../controllers/PremiumController');
-const AuthController = require('../controllers/AuthController');
+import AppController from '../controllers/AppController.js'
+import BlogController from '../controllers/BlogController.js'
+import ShopController from '../controllers/ShopController.js'
+import PremiumController from '../controllers/PremiumController.js'
+import AuthController from '../controllers/AuthController.js'
 
 
 // ---------------------- MIDDLEWARES 
@@ -111,9 +114,8 @@ router
 
 
 
-// STRIPE CHECKOUT
-    // .get('/stripe-checkout/status', AppController.get)
-    .post('/stripe-checkout/game/:game_id', AppController.postStripeCheckoutGameID)
+// PAGARME CHECKOUT
+    .get('/pagarme/checkout/game/:game_id', AppController.getPagarMECheckoutByGameID)
 
 
 // PLANS VIEWS CONTROLLER
@@ -148,4 +150,4 @@ router
 
 
 
-module.exports = router;
+export { router as publicRoutes };

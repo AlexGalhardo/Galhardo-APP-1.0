@@ -9,7 +9,7 @@
 
 
 // START HTTP SERVER 
-const app = require("./app");
+import app from "./app.js"
 
 app.listen(process.env.PORT || 3000, (error) => {
     if(error) throw new Error(error)

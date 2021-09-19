@@ -1,4 +1,4 @@
-const winston = require('winston');
+import winston from 'winston';
 
 // Define your severity levels. 
 // With them, You can create log files, 
@@ -76,4 +76,4 @@ const Logger = winston.createLogger({
 })
 
 
-module.exports = Logger;
+export default Logger;

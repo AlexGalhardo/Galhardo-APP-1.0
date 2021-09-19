@@ -7,12 +7,12 @@
  * ./models/JSON/Blog.js
  */
 
-const fs = require('fs-extra')
-const DateTime = require('../../helpers/DateTime');
+import fs from 'fs-extra'
+import DateTime from '../../helpers/DateTime.js'
 
-var slugify = require('slugify')
+import slugify from 'slugify'
 
-const database = require('../../config/json_database');
+import database from '../../config/json_database.js'
 
 
 
@@ -209,4 +209,4 @@ class Blog {
 	}
 }
 
-module.exports = Blog;
+export default Blog;

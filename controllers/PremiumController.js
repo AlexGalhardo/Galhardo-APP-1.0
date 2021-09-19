@@ -236,4 +236,4 @@ class PremiumController {
 	}
 };
 
-module.exports = PremiumController;
+export default PremiumController;

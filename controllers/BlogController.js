@@ -186,4 +186,4 @@ class BlogController {
 	}
 }
 
-module.exports = BlogController;
+export default BlogController;

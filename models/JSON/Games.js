@@ -7,10 +7,10 @@
  * ./models/JSON/Games.js
  */
 
-const fs = require('fs-extra')
-const DateTime = require('../../helpers/DateTime');
+import fs from 'fs-extra'
+import DateTime from '../../helpers/DateTime.js'
 
-const database = require('../../config/json_database');
+import database from '../../config/json_database.js'
 
 
 
@@ -431,4 +431,4 @@ class Games {
     }
 }
 
-module.exports = Games;
+export default Games;

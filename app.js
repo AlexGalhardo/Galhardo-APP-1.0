@@ -9,24 +9,26 @@
 
 
 // MODULES
-require('express-async-errors');
-require('dotenv').config();
-const express = require('express');
-const mustache = require('mustache-express');
-const path = require('path');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const flash = require('connect-flash');
-const compression = require('compression');
-const cors = require('cors');
-const helmet = require('helmet');
-const { MulterError } = require('multer');
-const cookieParser = require('cookie-parser')
+import 'express-async-errors';
+import dotenv from 'dotenv';
+dotenv.config()
+import express from 'express'
+import mustache from 'mustache-express'
+import path from 'path'
+import bodyParser from 'body-parser'
+import session from 'express-session'
+import flash from 'connect-flash'
+import compression from 'compression'
+import cors from 'cors'
+import helmet from 'helmet'
+import { MulterError } from 'multer'
+import cookieParser from 'cookie-parser'
+import { dirname } from 'path';
 
 
 
 // GLOBALS
-global.APP_ROOT_PATH = path.resolve(__dirname);
+global.APP_ROOT_PATH = dirname
 global.SESSION_USER = null;
 
 
@@ -48,7 +50,7 @@ if(process.env.APP_DATABASE === 'SQLITE') console.log('USING DATABASE: SQLITE')
 
 
 // LocalHost HTTP
-const app = require('express')()
+const app = express()
 
 
 /* FORCE HTTP TO HTTPS */
@@ -73,13 +75,15 @@ app.use(cookieParser())
 
 
 // LOGS 
-const PinoLog = require('./config/pino')
-const pinoHttp = require('pino-http')({logger:PinoLog})
-// app.use(pinoHttp) // for complete http log
+import PinoLog from './config/pino.js'
+import pinoHttp from 'pino-http'
+const PinoHTTP = pinoHttp({logger:PinoLog})
+
+// app.use(PinoHTTP) // for complete http log
 // pino log is used in API routes
 
-const morgan = require('./config/morgan');
-const Logger = require('./config/winston');
+import morgan from './config/morgan.js';
+import Logger from './config/winston.js';
 app.use(morgan) // 08/09/2021 19:37:50 http: GET / 200  162.571 ms
 
 
@@ -99,7 +103,8 @@ app.use(compression())
 
 // STATUS MONITOR
 // http://localhost:3000/status
-app.use(require('express-status-monitor')());
+import expressStatusMonitor from 'express-status-monitor'
+app.use(expressStatusMonitor());
 
 
 // CORS
@@ -132,7 +137,7 @@ app.use(express.json());
 
 // TEMPLATE ENGINE
 app.set('view engine', 'mustache');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', dirname, 'views');
 app.engine('mustache', mustache());
 
 
@@ -142,11 +147,11 @@ app.use(express.static('public'));
 
 
 // ROUTES
-const publicRoutes = require('./routes/public_routes');
-const profileRoutes = require('./routes/profile_routes');
-const apiRoutes = require('./routes/api_routes');
-const adminRoutes = require('./routes/admin_routes');
-const testRoutes = require('./routes/test_routes');
+import { publicRoutes } from './routes/public_routes.js'
+import { profileRoutes } from './routes/profile_routes.js'
+import { apiRoutes } from './routes/api_routes.js'
+import { adminRoutes } from './routes/admin_routes.js'
+import { testRoutes } from './routes/test_routes.js'
 
 // app.use('/api', pinoHttp, apiRoutes);
 app.use('/api', apiRoutes);
@@ -182,4 +187,4 @@ app.use((err, req, res, next) => {
 });
 
 
-module.exports = app;
+export default app;

@@ -54,4 +54,4 @@ router
 
 
 
-module.exports = router;
+export { router as adminRoutes };

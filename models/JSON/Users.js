@@ -7,14 +7,14 @@
  * ./models/JSON/Users.js
  */
 
-const fs = require('fs-extra')
-const uuid = require('uuid');
-const randomToken = require('rand-token');
+import fs from 'fs-extra'
+import { v4 as uuid } from 'uuid';
+import randomToken from 'rand-token';
 
-const Bcrypt = require('../../helpers/Bcrypt');
-const DateTime = require('../../helpers/DateTime');
+import Bcrypt from '../../helpers/Bcrypt.js';
+import DateTime from '../../helpers/DateTime.js';
 
-const database = require('../../config/json_database');
+import database from '../../config/json_database.js';
 
 
 
@@ -478,4 +478,4 @@ class Users {
     }
 }
 
-module.exports = Users;
+export default Users;

@@ -23,4 +23,4 @@ class DateTime  {
 	}	
 }
 
-module.exports = DateTime;
+export default DateTime;

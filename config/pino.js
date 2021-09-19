@@ -1,6 +1,7 @@
 // https://github.com/pinojs/pino-pretty
+import pino from 'pino'
 
-const PinoLog = require('pino')({
+const PinoLog = pino({
     level: 'debug',
     prettyPrint: {
         levelFirst: true,
@@ -8,4 +9,4 @@ const PinoLog = require('pino')({
     }
 })
 
-module.exports = PinoLog;
+export default PinoLog
