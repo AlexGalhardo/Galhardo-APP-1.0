@@ -21,6 +21,7 @@
 
 # $ sudo docker inspect CONTAINER_NAME_OR_ID
 
+# sudo kill -9 $(sudo lsof -t -i:3000)
 
 version: '3'
 

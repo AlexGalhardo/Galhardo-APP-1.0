@@ -21,7 +21,7 @@ import PagarMEModel from '../models/JSON/PagarME.js'
 
 
 // PagarME
-import PagarME from '../helpers/PagarME.js'
+import { PagarME } from '../helpers/PagarME.js'
 
 
 class PremiumController {
@@ -39,7 +39,7 @@ class PremiumController {
         return res.render('pages/premium/premium_checkout', {
             flash_warning: req.flash('warning'),
             user: SESSION_USER,
-            header: Header.plans('Plan PREMIUM - Galhardo APP')
+            header: Header.plans('Premium Checkout - RecomendaÊ')
         });
     }
 
@@ -53,11 +53,14 @@ class PremiumController {
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$ 4.99<small class="text-muted fw-light">/month</small></h1>
+                    <h1 class="card-title pricing-card-title">R$ 4.99<small class="text-muted fw-light">/month</small></h1>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>✔️ Site Ilimited Recomendations</li>
-                        <li>✔️ Get Recommendations in Email</li>
-                        <li>✔️ Get Recommendations in Telegram</li>
+                        <li>✔️ Acesso a nossa API</li>
+                        <li>✔️ Sem propagandas no site</li>
+                        <li>✔️ Cancele quando quiser</li>
+                        <li>✔️ Recomendações ilimitadas</li>
+                        <li>✔️ Receba recomendações via email</li>
+                        <li>✔️ Receba recomendações via telegram</li>
                     </ul>
                 </div>
 
@@ -71,7 +74,7 @@ class PremiumController {
     static async verifyIfUserIsAlreadyAStripeCustomer(){
         if(!SESSION_USER.stripe.customer_id){
             const stripeCustomer = await stripe.customers.create({
-                description: 'Customer created in Subscription checkout!',
+                description: 'Cliente criado no checkout premium',
                 email: SESSION_USER.email
             });
             await Users.createStripeCustomer(SESSION_USER.id, stripeCustomer.id)
@@ -119,29 +122,6 @@ class PremiumController {
     }
 
 
-
-    static getStripePlan(){
-        return {
-            STARTER: {
-                name: "STARTER",
-                id: process.env.STRIPE_PLAN_STARTER_PRICE_ID,
-                amount: process.env.STRIPE_PLAN_STARTER_AMOUNT,
-            },
-            PRO: {
-                name: "PRO",
-                id: process.env.STRIPE_PLAN_PRO_PRICE_ID,
-                amount: process.env.STRIPE_PLAN_PRO_AMOUNT,
-            },
-            PREMIUM:  {
-                name: "PREMIUM",
-                id: process.env.STRIPE_PLAN_PREMIUM_PRICE_ID,
-                amount: process.env.STRIPE_PLAN_PREMIUM_AMOUNT,
-            },
-        }
-    }
-
-
-
     static async createStripeSubscription(stripe_customer_id, plan_id) {
         const subscription = await stripe.subscriptions.create({
             customer: stripe_customer_id,
@@ -169,20 +149,18 @@ class PremiumController {
     static async postSubscription (req, res) {
 
         try {
-            const { plan_name, confirm_password } = req.body
+            const { confirm_password } = req.body
 
             const validPassword = await Users.verifyPassword(SESSION_USER.id, confirm_password)
 
             if(!validPassword){
-                req.flash('warning', 'Invalid Password!')
-                return res.redirect(`/plan/${plan_name.toLowerCase()}/checkout`)
+                req.flash('warning', 'Senha inválida!')
+                return res.redirect(`/premium/checkout`)
             }
 
             const stripeCustomerID = await PremiumController.verifyIfUserIsAlreadyAStripeCustomer()
 
             const stripeCard = await PremiumController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
-
-            const stripePlan = await PremiumController.getStripePlan()[plan_name];
 
             const subscription = await PremiumController.createStripeSubscription(stripeCustomerID, stripePlan.id)
 
@@ -198,35 +176,35 @@ class PremiumController {
                     card_last4: stripeCard.card_last4
                 },
                 plan: {
-                    id: stripePlan.id,
-                    name: stripePlan.name,
-                    amount: stripePlan.amount,
+                    id: process.env.PAGARME_PLAN_PREMIUM_ID,
+                    name: process.env.PAGARME_PLAN_PREMIUM_NAME,
+                    amount: process.env.PAGARME_PLAN_PREMIUM_AMOUNT,
                     current_period_start: subscription.current_period_start,
                     current_period_end: subscription.current_period_end,
                     cancel_at_period_end: subscription.cancel_at_period_end
                 },
                 customer: {
                     id: SESSION_USER.id,
-                    stripe_id: SESSION_USER.stripe.customer_id,
+                    stripe_id: SESSION_USER.pagarme.customer_id,
                     email: SESSION_USER.email,
                     name: SESSION_USER.name
                 },
                 stripe_request_response: JSON.stringify(subscription),
             }
 
-            await Users.createStripeSubscription(SESSION_USER.id, plan_name, subscription)
+            await Users.createPagarMESubscription(SESSION_USER.id, plan_name, subscription)
 
-            await StripeModel.createSubscriptionTransaction(subsTransactionObject)
+            await PagarMEModel.createSubscriptionTransaction(subsTransactionObject)
 
             await NodeMailer.sendSubscriptionTransaction(subsTransactionObject)
 
             await TelegramBOTLogger.logSubscriptionTransaction(subsTransactionObject)
 
             res.render('pages/premium/premium_log', {
-                flash_success: 'Subscription Created with Success!',
+                flash_success: 'Assinatura criada com sucesso!',
                 subsTransactionObject,
                 user: SESSION_USER,
-                header: Header.plans('Plan Pay Status - Galhardo APP'),
+                header: Header.plans('Premium Checkout Status - RecomendaÊ'),
                 divPlanBanner: PremiumController.getSubscriptionBanner(plan_name)
             });
 

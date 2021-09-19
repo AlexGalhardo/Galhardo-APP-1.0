@@ -48,7 +48,7 @@
                         </button>
                     </form>
 
-                    <a href="/pagarme/checkout/game/{{id}}" id="pagarme_checkout_button" class="w-75 btn btn-outline-danger shadow mb-3 disabled">
+                    <a href="/pagarme/checkout/game/{{id}}" id="pagarme_checkout_button" class="w-75 btn btn-outline-danger shadow mb-3 {{^user}}disabled{{/user}}">
                         <i class="bi bi-cart"></i>
                         PagarME Checkout
                     </a>

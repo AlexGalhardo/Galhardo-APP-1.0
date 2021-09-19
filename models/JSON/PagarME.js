@@ -26,11 +26,9 @@ class PagarME {
         });
     }
 
-
-
     static async createShopTransaction(transactionObject){
         try {
-            database.stripe.shop_transactions.push({
+            database.pagarme.shop_transactions.push({
                 transaction_id: transactionObject.transaction_id,
                 total_amount: transactionObject.total_amount,
                 payment_method: transactionObject.payment_method,
@@ -51,7 +49,7 @@ class PagarME {
 
     static async getShopTransactionsByUserID(user_id){
         try {
-            const userShopTransactions = database.stripe.shop_transactions.filter(shopTransaction => shopTransaction.customer.id === user_id
+            const userShopTransactions = database.pagarme.shop_transactions.filter(shopTransaction => shopTransaction.customer.id === user_id
             )
             return userShopTransactions.reverse()
         } catch (error) {
@@ -63,9 +61,9 @@ class PagarME {
 
     static async getShopTransactionByID(transaction_id){
         try {
-            for(let i = 0; i < database.stripe.shop_transactions.length; i++){
-                if(database.stripe.shop_transactions[i].transaction_id === transaction_id){
-                    return database.stripe.shop_transactions[i]
+            for(let i = 0; i < database.pagarme.shop_transactions.length; i++){
+                if(database.pagarme.shop_transactions[i].transaction_id === transaction_id){
+                    return database.pagarme.shop_transactions[i]
                 }
             }
         } catch (error) {
@@ -77,7 +75,7 @@ class PagarME {
 
 	static async createSubscriptionTransaction(SubsTransactionObject){
         try {
-            database.stripe.subscriptions_transactions.push(SubsTransactionObject)
+            database.pagarme.subscriptions_transactions.push(SubsTransactionObject)
             await Stripe.save(database)
         } catch(error){
             throw new Error(error)
@@ -88,7 +86,7 @@ class PagarME {
 
     static async getSubsTransactionsByUserID(user_id){
         try {
-            const userSubsTransactions = database.stripe.subscriptions_transactions.filter(subsTransaction => subsTransaction.customer.id === user_id
+            const userSubsTransactions = database.pagarme.subscriptions_transactions.filter(subsTransaction => subsTransaction.customer.id === user_id
             )
             return userSubsTransactions.reverse()
         } catch (error) {
@@ -100,9 +98,9 @@ class PagarME {
 
     static async getSubsTransactionByID(transaction_id){
         try {
-            for(let i = 0; i < database.stripe.subscriptions_transactions.length; i++){
-                if(database.stripe.subscriptions_transactions[i].transaction_id === transaction_id){
-                    return database.stripe.subscriptions_transactions[i]
+            for(let i = 0; i < database.pagarme.subscriptions_transactions.length; i++){
+                if(database.pagarme.subscriptions_transactions[i].transaction_id === transaction_id){
+                    return database.pagarme.subscriptions_transactions[i]
                 }
             }
         } catch (error) {
@@ -118,13 +116,13 @@ class PagarME {
 
                 if(database.users[i].id === user_id){
 
-                    if(database.users[i].stripe.card_id === stripe_card_id){
+                    if(database.users[i].pagarme.card_id === stripe_card_id){
 
-                        database.users[i].stripe.card_id = null
-                        database.users[i].stripe.card_brand = null
-                        database.users[i].stripe.card_last4 = null
-                        database.users[i].stripe.card_exp_month = null
-                        database.users[i].stripe.card_exp_year = null
+                        database.users[i].pagarme.card_id = null
+                        database.users[i].pagarme.card_brand = null
+                        database.users[i].pagarme.card_last4 = null
+                        database.users[i].pagarme.card_exp_month = null
+                        database.users[i].pagarme.card_exp_year = null
 
                         Stripe.save(database)
 
@@ -144,9 +142,9 @@ class PagarME {
 
                 if(database.users[i].id === user_id){
 
-                    if(database.users[i].stripe.currently_subscription_id === subscription_id){
+                    if(database.users[i].pagarme.currently_subscription_id === subscription_id){
 
-                        database.users[i].stripe.cancel_at_period_end = true
+                        database.users[i].pagarme.cancel_at_period_end = true
 
                         Stripe.save(database)
 

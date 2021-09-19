@@ -22,7 +22,7 @@ import Books from '../models/JSON/Books.js'
 
 
 // PAGARME
-import PagarME from '../helpers/PagarME.js'
+import { PagarME } from '../helpers/PagarME.js'
 
 
 class AppController {

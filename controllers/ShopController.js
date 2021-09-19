@@ -23,7 +23,7 @@ import Users from '../models/JSON/Users.js'
 
 
 // PagarME
-import Stripe from '../helpers/PagarME.js'
+import { PagarME } from '../helpers/PagarME.js'
 
 
 

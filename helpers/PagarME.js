@@ -8,6 +8,7 @@
  */
 
 import Pagarme from 'pagarme'
+import Games from '../models/JSON/Games.js'
 
 
 class PagarME {
@@ -140,14 +141,15 @@ class PagarME {
         }
     }
 
-    async createPaymentLink(game_id){
+    async getCheckoutLinkByGameID(game_id){
         try {
             const game = await Games.getByID(parseInt(game_id))
-            const pagarMECheckoutLink = await this.pagarme.paymentLinks.create({
+
+            const pagarMECheckoutObject = await this.pagarme.paymentLinks.create({
                 "amount": game.price,
                 "items": [
                     {
-                        "id": game.id,
+                        "id": game.id.toString(),
                         "title": game.title,
                         "unit_price": game.price,
                         "quantity": 1,
@@ -155,6 +157,7 @@ class PagarME {
                     },
                 ],
                 "payment_config": {
+                    "default_payment_method": "credit_card",
                     "boleto": {
                         "enabled": true,
                         "expires_in": 7
@@ -165,68 +168,71 @@ class PagarME {
                         // "interest_rate": 1,
                         "max_installments": 1
                     },
-                    "default_payment_method": "credit_card"
+                },
+                /* "postback_config": {
+                    "orders": "http://postback.url/orders",
+                    "transactions": "http://postback.url/transactions"
+                }, */
+                /* "customer_config": {
+                    "customer":{
+                        "external_id": SESSION_USER.id,
+                        "name": SESSION_USER.name,
+                        "type":"individual",
+                        "country":"br",
+                        "email": SESSION_USER.email,
+                        "documents":[
+                            {
+                               "type":"cpf",
+                               "number": SESSION_USER.document
+                            }
+                        ],
+                        "phone_numbers":[
+                            "+5511999998888",
+                            "+5511888889999"
+                        ],
+                        "birthday":"1985-01-01"
                     },
-                    /* "postback_config": {
-                        "orders": "http://postback.url/orders",
-                        "transactions": "http://postback.url/transactions"
-                    }, */
-                    "customer_config": {
-                        "customer":{
-                            "external_id": SESSION_USER.id,
-                            "name": SESSION_USER.name,
-                            "type":"individual",
+                    "billing":{
+                        "name":"Ciclano de Tal",
+                        "address":{
                             "country":"br",
-                            "email": SESSION_USER.email,
-                            "documents":[
-                                {
-                                   "type":"cpf",
-                                   "number": SESSION_USER.document
-                                }
-                            ],
-                            "phone_numbers":[
-                                "+5511999998888",
-                                "+5511888889999"
-                            ],
-                            "birthday":"1985-01-01"
-                        },
-                        "billing":{
-                            "name":"Ciclano de Tal",
-                            "address":{
-                                "country":"br",
-                                "state":"SP",
-                                "city":"São Paulo",
-                                "neighborhood":"Fulanos bairro",
-                                "street":"Rua dos fulanos",
-                                "street_number":"123",
-                                "zipcode":"05170060"
-                            }
-                        },
-                        "shipping":{
-                            "name": SESSION_USER.name,
-                            "fee":12345,
-                            "delivery_date": "2017-12-25",
-                            "expedited":true,
-                            "address":{
-                                "country":"br",
-                                "state":"SP",
-                                "city":"São Paulo",
-                                "neighborhood":"Fulanos bairro",
-                                "street":"Rua dos fulanos",
-                                "street_number":"123",
-                                "zipcode":"05170060"
-                            }
+                            "state":"SP",
+                            "city":"São Paulo",
+                            "neighborhood":"Fulanos bairro",
+                            "street":"Rua dos fulanos",
+                            "street_number":"123",
+                            "zipcode":"05170060"
                         }
                     },
-                    "max_orders": 1,
-                    "expires_in": 7
-                })
-            return pagarMECheckoutLink
+                    "shipping":{
+                        "name": SESSION_USER.name,
+                        "fee":12345,
+                        "delivery_date": "2017-12-25",
+                        "expedited":true,
+                        "address":{
+                            "country":"br",
+                            "state":"SP",
+                            "city":"São Paulo",
+                            "neighborhood":"Fulanos bairro",
+                            "street":"Rua dos fulanos",
+                            "street_number":"123",
+                            "zipcode":"05170060"
+                        }
+                    }
+                }, */
+                "max_orders": 1,
+                "expires_in": 60
+            })
+            .catch(error => console.log(error.response.errors))
+
+            return pagarMECheckoutObject.url
         } catch(error){
             throw new Error(error)
         }
     }
 }
 
+const pagarme = new PagarME()
+await pagarme.init()
 
-export default PagarME
+export { pagarme as PagarME }
