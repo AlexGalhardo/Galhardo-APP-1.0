@@ -71,66 +71,54 @@ class PremiumController {
 
 
 
-    static async verifyIfUserIsAlreadyAStripeCustomer(){
-        if(!SESSION_USER.stripe.customer_id){
-            const stripeCustomer = await stripe.customers.create({
+    static async verifyIfUserIsAlreadyAPagarMECustomer(){
+        if(!SESSION_USER.pagarme.customer_id){
+            const stripeCustomer = await pagarme.customers.create({
                 description: 'Cliente criado no checkout premium',
                 email: SESSION_USER.email
             });
             await Users.createStripeCustomer(SESSION_USER.id, stripeCustomer.id)
             return stripeCustomer.id
         }
-        return SESSION_USER.stripe.customer_id
+        return SESSION_USER.pagarme.customer_id
     }
 
 
 
 
-    static async verifyIfUserAlreadyHasAStripeCardRegistred(req){
-        if(!SESSION_USER.stripe.card_id){
-            const { card_number,
-                card_exp_year,
-                card_exp_month,
-                card_cvc } = req.body
+    static async verifyIfUserAlreadyHasAPagarMECardRegistred(req){
+        if(!SESSION_USER.pagarme.card_id){
+            const { holder_name,
+                    card_number,
+                    card_exp_year,
+                    card_exp_month,
+                    card_cvc } = req.body
 
-            const cardToken = await stripe.tokens.create({
-                 card: {
-                    number: card_number,
-                    exp_month: card_exp_month,
-                    exp_year: card_exp_year,
-                    cvc: card_cvc,
-                  },
-            });
+            const cardObject = {
+                card_number,
+                card_holder_name: holder_name,
+                card_expiration_date: `${card_exp_month}${card_exp_year}`,
+                card_cvv: card_cvc
+            }
 
-            const card = await stripe.customers.createSource(
-                SESSION_USER.stripe.customer_id,
-                {source: cardToken.id}
-            );
-
-            const stripeCard = await Users.createStripeCard(SESSION_USER.id, cardToken.id, card)
-            return stripeCard
+            const pagarMeCardCreated = await PagarME.createCreditCard(cardObject)
+            await Users.createPagarMECard(SESSION_USER.id, pagarMeCardCreated)
+            return pagarMeCardCreated
         }
 
         return {
-            card_token_id: SESSION_USER.stripe.card_token_id,
-            card_id: SESSION_USER.stripe.card_id,
-            card_brand: SESSION_USER.stripe.card_brand,
-            card_last4: SESSION_USER.stripe.card_last4,
-            card_exp_month: SESSION_USER.stripe.card_exp_month,
-            card_exp_year: SESSION_USER.stripe.card_exp_year
+            card_id: SESSION_USER.pagarme.card_id,
+            card_brand: SESSION_USER.pagarme.card_brand,
+            card_last_digits: SESSION_USER.pagarme.card_last_digits,
+            card_expiration_date: SESSION_USER.pagarme.card_expiration_date
         }
     }
 
 
-    static async createStripeSubscription(stripe_customer_id, plan_id) {
-        const subscription = await stripe.subscriptions.create({
-            customer: stripe_customer_id,
-            items: [
-                {price: plan_id},
-            ],
-        });
+    static async createPagarMESubscription() {
+        const subscription = await PagarME.createSubscription(SESSION_USER)
 
-        subscription.created = DateTime.getDateTime(subscription.created);
+        subscription.date_created = DateTime.getDateTime(subscription.date_created);
         subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
         subscription.current_period_start = DateTime.getDateTime(subscription.current_period_start);
 
@@ -141,7 +129,6 @@ class PremiumController {
 
 
     /**
-     * POST /plan/<plan_name>/checkout
      * Verify if user is already a stripe customer
      * verify if user already has a stripe credit card registred
      * Verify if user is not already registred in other plan
@@ -158,22 +145,22 @@ class PremiumController {
                 return res.redirect(`/premium/checkout`)
             }
 
-            const stripeCustomerID = await PremiumController.verifyIfUserIsAlreadyAStripeCustomer()
+            const pagarMECustomerID = await PremiumController.verifyIfUserIsAlreadyAPagarMECustomer()
 
-            const stripeCard = await PremiumController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
+            const pagarMECard = await PremiumController.verifyIfUserAlreadyHasAPagarMECardRegistred(req)
 
-            const subscription = await PremiumController.createStripeSubscription(stripeCustomerID, stripePlan.id)
+            const subscription = await PremiumController.createPagarMESubscription()
 
             const subsTransactionObject = {
                 created_at: DateTime.getNow(),
                 transaction_id: subscription.id,
                 status: subscription.status,
                 payment_method: {
-                    card_id: stripeCard.card_id,
-                    card_brand: stripeCard.card_brand,
-                    card_exp_month: stripeCard.card_exp_month,
-                    card_exp_year: stripeCard.card_exp_year,
-                    card_last4: stripeCard.card_last4
+                    card_id: pagarMECard.card_id,
+                    card_brand: pagarMECard.card_brand,
+                    card_exp_month: pagarMECard.card_exp_month,
+                    card_exp_year: pagarMECard.card_exp_year,
+                    card_last4: pagarMECard.card_last4
                 },
                 plan: {
                     id: process.env.PAGARME_PLAN_PREMIUM_ID,
@@ -185,11 +172,10 @@ class PremiumController {
                 },
                 customer: {
                     id: SESSION_USER.id,
-                    stripe_id: SESSION_USER.pagarme.customer_id,
+                    pagarme_id: SESSION_USER.pagarme.customer_id,
                     email: SESSION_USER.email,
                     name: SESSION_USER.name
-                },
-                stripe_request_response: JSON.stringify(subscription),
+                }
             }
 
             await Users.createPagarMESubscription(SESSION_USER.id, plan_name, subscription)

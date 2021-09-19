@@ -11,7 +11,7 @@
       "admin": false,
       "avatar": "alex.png",
       "document": "44557777777",
-      "phone": "18999999999",
+      "phone": "999999999",
       "birth_date": "2021-08-05",
       "google_id": null,
       "github_id": null,
@@ -29,14 +29,13 @@
         "customer_id": "cus_KARqXVbwHvPZyS",
         "card_id": null,
         "card_brand": null,
-        "card_last4": null,
-        "card_exp_month": null,
-        "card_exp_year": null,
+        "card_first_digits": null,
+        "card_last_digits": null,
+        "card_expiration_date": null,
         "currently_subscription_id": null,
         "currently_subscription_name": "FREE",
         "subscription_start": null,
-        "subscription_end": null,
-        "cancel_at_period_end": null
+        "subscription_end": null
       },
       "created_at": "09/08/2021 03:52:14",
       "updated_at": "11/08/2021 04:04:17"

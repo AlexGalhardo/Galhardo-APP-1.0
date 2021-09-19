@@ -94,7 +94,6 @@ class Users {
 
     static async verifyConfirmEmailToken (email, token) {
         try {
-
             for(let i = 0; i < database.users.length; i++){
                 if(
                   database.users[i].email === email
@@ -205,7 +204,7 @@ class Users {
                 github_id: parseInt(userObject.github_id),
                 facebook_id: parseInt(userObject.facebook_id),
                 address: {
-                  zipcode: null,
+                    zipcode: null,
                     street: null,
                     street_number: null,
                     neighborhood: null,
@@ -213,18 +212,17 @@ class Users {
                     state: null,
                     country: null
                 },
-                  stripe: {
+                pagarme: {
                     customer_id: null,
                     card_id: null,
                     card_brand: null,
-                    card_last4: null,
-                    card_exp_month: null,
-                    card_exp_year: null,
+                    card_first_digits: null,
+                    card_last_digits: null,
+                    card_expiration_date: null,
                     currently_subscription_id: null,
                     currently_subscription_name: "FREE",
                     subscription_start: null,
-                    subscription_end: null,
-                    cancel_at_period_end: null
+                    subscription_end: null
                 },
                 created_at: DateTime.getNow(),
                 updated_at: DateTime.getNow()
@@ -364,11 +362,11 @@ class Users {
     }
 
 
-    static createStripeCustomer(user_id, stripe_customer_id){
+    static createPagarMECustomer(user_id, pagarme_customer_id){
         try {
             for(let i = 0; i < database.users.length; i++){
                 if(database.users[i].id === user_id){
-                    database.users[i].stripe.customer_id = stripe_customer_id
+                    database.users[i].pagarme.customer_id = pagarme_customer_id
                     Users.save(database)
                     return
                 }
@@ -379,49 +377,40 @@ class Users {
     }
 
 
-    static createStripeCard(user_id, card_token_id, cardObject){
+    static createPagarMECard(user_id, cardObject){
         try {
             for(let i = 0; i < database.users.length; i++){
                 if(database.users[i].id === user_id){
-                    database.users[i].stripe.card_token_id = card_token_id
-                    database.users[i].stripe.card_id = cardObject.id
-                    database.users[i].stripe.card_brand = cardObject.brand
-                    database.users[i].stripe.card_last4 = cardObject.last4
-                    database.users[i].stripe.card_exp_month = cardObject.exp_month
-                    database.users[i].stripe.card_exp_year = cardObject.exp_year
+                    database.users[i].pagarme.card_id = cardObject.id
+                    database.users[i].pagarme.card_brand = cardObject.brand
+                    database.users[i].pagarme.card_first_digits = cardObject.first_digits
+                    database.users[i].pagarme.card_last_digits = cardObject.last_digits
+                    database.users[i].pagarme.card_expiration_date = cardObject.expiration_date
                     Users.save(database)
-
-                    return {
-                        card_token_id: card_token_id,
-                        card_id: cardObject.id,
-                        card_brand: cardObject.brand,
-                        card_last4: cardObject.last4,
-                        card_exp_month: cardObject.exp_month,
-                        card_exp_year: cardObject.exp_year
-                    }
+                    return
                 }
             }
-            return null
+            return
         } catch (error) {
             throw new Error(error);
         }
     }
 
 
-    static createStripeSubscription(user_id, plan_name, subscriptionObject){
+    static createPagarMESubscription(user_id, plan_name, subscriptionObject){
         try {
             for(let i = 0; i < database.users.length; i++){
                 if(database.users[i].id === user_id){
-                    database.users[i].stripe.currently_subscription_id = subscriptionObject.id
-                    database.users[i].stripe.currently_subscription_name = plan_name
-                    database.users[i].stripe.subscription_start = subscriptionObject.current_period_start
-                    database.users[i].stripe.subscription_end = subscriptionObject.current_period_end
-                    database.users[i].stripe.cancel_at_period_end = subscriptionObject.cancel_at_period_end
-                    Users.save(database, 'Error createStripeSubscription: ')
-                    return true
+                    database.users[i].pagarme.currently_subscription_id = subscriptionObject.id
+                    database.users[i].pagarme.currently_subscription_name = plan_name
+                    database.users[i].pagarme.subscription_start = subscriptionObject.current_period_start
+                    database.users[i].pagarme.subscription_end = subscriptionObject.current_period_end
+                    database.users[i].pagarme.cancel_at_period_end = subscriptionObject.cancel_at_period_end
+                    Users.save(database)
+                    return
                 }
             }
-            return false
+            return
         } catch (error) {
             throw new Error(error)
         }

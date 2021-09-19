@@ -4,7 +4,7 @@
  * aleexgvieira@gmail.com
  * https://github.com/AlexGalhardo
  *
- * ./models/JSON/Stripe.js
+ * ./models/JSON/PagarME.js
  */
 
 import fs from 'fs-extra'
@@ -40,7 +40,7 @@ class PagarME {
                 shipping: transactionObject.shipping,
                 created_at: transactionObject.created_at
             })
-            await Stripe.save(database)
+            await PagarME.save(database)
         } catch(error){
             throw new Error(error)
         }
@@ -76,7 +76,7 @@ class PagarME {
 	static async createSubscriptionTransaction(SubsTransactionObject){
         try {
             database.pagarme.subscriptions_transactions.push(SubsTransactionObject)
-            await Stripe.save(database)
+            await PagarME.save(database)
         } catch(error){
             throw new Error(error)
         }
@@ -124,7 +124,7 @@ class PagarME {
                         database.users[i].pagarme.card_exp_month = null
                         database.users[i].pagarme.card_exp_year = null
 
-                        Stripe.save(database)
+                        PagarME.save(database)
 
                         return
                     }
@@ -146,7 +146,7 @@ class PagarME {
 
                         database.users[i].pagarme.cancel_at_period_end = true
 
-                        Stripe.save(database)
+                        PagarME.save(database)
 
                         return
                     }

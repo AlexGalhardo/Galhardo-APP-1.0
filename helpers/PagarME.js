@@ -113,29 +113,29 @@ class PagarME {
         }
     }
 
-    async createSubscription(){
+    async createSubscription(userObject){
         try {
-            const pagarmePlan = await this.pagarme.subscriptions.create({
-                plan_id: 629720,
-                card_id: 'card_cktr41egb095g0p9tvviu6f3x',
-                payment_method:'credit_card',
+            const subscriptionCreated = await this.pagarme.subscriptions.create({
+                plan_id: process.env.PAGARME_PLAN_PREMIUM_ID,
+                card_id: userObject.pagarme.card_id,
+                payment_method: 'credit_card',
                 customer: {
-                    email: 'neo@gmail.com',
-                    name: 'Galhardo',
-                    document_number: '18152564000105',
+                    email: userObject.email,
+                    name: userObject.name,
+                    document_number: userObject.document,
                     address: {
-                        zipcode: '04571020',
-                        neighborhood: 'Dragon Village',
-                        street: 'Rua Drogon',
-                        street_number: '240'
+                        zipcode: userObject.address.zipcide,
+                        neighborhood: userObject.address.neighborhood,
+                        street: userObject.address.street,
+                        street_number: userObject.address.street_number
                     },
                     phone: {
-                        number: '987654321',
-                        ddd: '11'
+                        number: userObject.phone,
+                        ddd: '18'
                     }
                 }
             })
-            console.log(pagarmePlan)
+            return subscriptionCreated
         } catch(error){
             throw new Error(error)
         }
