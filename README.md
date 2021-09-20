@@ -23,18 +23,20 @@
    - **All CRUDs in this Live Demo are made in JSON DataBase, for obvious reasons.**
 
 ## PagarME Version
-- **Currently Version: ALPHA - NOT STABLE**
-- You can access: https://pagarme.galhardoapp.com/
-- Transactions: BRL using BRAZIL PagarME Payment API
+- **Currently Version: In Development**
+- You can access: In Development
+- Transactions: BRL using BRAZIL PagarME Payment API (Credit Card, Bank Slip, PIX, Checkout Transparent and using PagarME Checkout)
 - Template Language: PT-BR Portuguese
 - DataBase: MySQL using PURE SQL
+- JavaScript Module: ES6+
 
 ## TypeScript Version
-- **Currently Version: ALPHA - NOT STABLE**
-- You can access: https://typescript.galhardoapp.com/
-- Transactions: USD using USA Stripe Payment API
+- **Currently Version: In Development**
+- You can access: In Development
+- Transactions: USD using USA Stripe Payment API (Credit Card, Checkout Transparent and using Stripe Checkout)
 - Template Language: English
 - DataBase: Postgres using PRISMA ORM
+- JavaScript Module: ES6+
 
 ## Introduction
 ### I created this project to LEARN and PRACTICE in my spare time:
