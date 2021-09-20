@@ -20,14 +20,17 @@
 
                         <div class="card mb-4 rounded-3 shadow-sm text-center">
                             <div class="card-header py-3 bg-info">
-                                <h4 class="my-0 fw-normal">PREMIUM</h4>
+                                <h4><i class="bi bi-award"></i> Plano Premium</h4>
                             </div>
                             <div class="card-body">
-                                <h1 class="card-title pricing-card-title">$4.99<small class="text-muted fw-light">/month</small></h1>
+                                <h1 class="card-title pricing-card-title">R$ 4.99<small class="text-muted fw-light">/mês</small></h1>
                                 <ul class="list-unstyled mt-3 mb-4">
-                                    <li>✔️ Site Ilimited Recomendations</li>
-                                    <li>✔️ Get Recommendations in Email</li>
-                                    <li>✔️ Get Recommendations in Telegram</li>
+                                    <li>✔️ Acesso a nossa API</li>
+                                    <li>✔️ Sem propagandas no site</li>
+                                    <li>✔️ Cancele quando quiser</li>
+                                    <li>✔️ Recomendações ilimitadas</li>
+                                    <li>✔️ Receba recomendações via email</li>
+                                    <li>✔️ Receba recomendações via telegram</li>
                                 </ul>
                             </div>
                         </div>
@@ -40,7 +43,7 @@
                         <!-- CONFIRM PASSWORD -->
                         <div class="form-floating">
                             <input type="password" id="confirm_password" name="confirm_password" value="" class="form-control" required minlength="6">
-                            <label for="confirm_password">Confirm Password</label>
+                            <label for="confirm_password">Confirme sua senha</label>
                         </div>
 
 
@@ -53,47 +56,37 @@
 
                     <div class="col-lg-6">
 
-                        {{#user.stripe.card_id}}
+                        {{#user.pagarme.card_id}}
                             <div class="form-floating mb-3">
-                                <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_id}}" readonly>
+                                <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_id}}" readonly>
                                 <label for="stripe_card_last_4_digits">REGISTRED_STRIPE CARD_ID</label>
                             </div>
 
                             <div class="form-floating mb-3">
-                                  <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_last4}}" readonly>
-                                  <label for="stripe_card_last_4_digits">STRIPE_CARD_LAST_4_DIGITS</label>
+                                  <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_last4}}" readonly>
+                                  <label for="stripe_card_last_4_digits">PAGARME_CARD_LAST_4_DIGITS</label>
                             </div>
 
-                            <div class="row g-2 mb-2">
-                              <div class="col-md">
-                                <div class="form-floating">
-                                  <input type="text" class="form-control" name="card_exp_year" id="card_exp_month" value="{{stripe.card_exp_month}}" readonly>
-                                  <label for="card_exp_month">CARD_EXP_MONTH</label>
-                                </div>
-                              </div>
-                              <div class="col-md">
-                                <div class="form-floating">
-                                  <input type="text" class="form-control" name="card_exp_year" id="card_exp_year" value="{{stripe.card_exp_year}}" readonly>
-                                  <label for="card_exp_year">CARD_EXP_YEAR</label>
-                                </div>
-                              </div>
+                            <div class="form-floating mb-3">
+                                  <input id="pagarme_card_expiration_date" name="pagarme_card_expiration_date" class="mb-2 form-control" type="text" value="{{user.pagarme.card_expiration_date}}" readonly>
+                                  <label for="pagarme_card_expiration_date">PAGARME_CARD_EXPIRATION_DATE</label>
                             </div>
-                        {{/user.stripe.card_id}}
+                        {{/user.pagarme.card_id}}
 
 
-                        {{^user.stripe.card_id}}
+                        {{^user.pagarme.card_id}}
                         <div id="credit-card" class="tab-pane fade show active">
 
                             <div id="div_credit_card"></div>
 
                             <div class="form-floating mb-3 mt-3">
-                                <input type="text" class="form-control" name="holder_name" id="holder_name" value="{{stripe.card_holder_name}}">
+                                <input type="text" class="form-control" name="holder_name" id="holder_name" value="{{user.name}}">
                                 <label for="holder_name">CARD_HOLDER_NAME</label>
                             </div>
 
                             <div class="form-group mb-2">
                                 <div class="input-group">
-                                    <input type="text" name="card_number" placeholder="Credit Card Number" class="form-control" value="4242424242424242" required>
+                                    <input type="text" name="card_number" placeholder="Credit Card Number" class="form-control" value="4018720572598048" required>
                                     <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="bi bi-credit-card h-100"></i> </span> </div>
                                 </div>
                             </div>
@@ -103,11 +96,11 @@
                                 <div class="col-sm-8">
                                     <div class="form-group">
                                         <span class="hidden-xs">
-                                            <h6 class="text-muted small">Expiration Date</h6>
+                                            <h6 class="text-muted small">Data Expiração</h6>
                                         </span>
                                         <div class="input-group">
-                                            <input type="number" placeholder="Month" name="card_exp_month" min="1" max="12" step="1" class="form-control" value="08" required>
-                                            <input type="number" placeholder="Year" name="card_exp_year" min="2021" step="1" class="form-control" required value="2022">
+                                            <input type="number" placeholder="Month" name="card_exp_month" min="1" max="12" step="1" class="form-control" value="11" required>
+                                            <input type="number" placeholder="Year" name="card_exp_year" min="22" step="1" class="form-control" required value="22">
                                         </div>
                                     </div>
                                 </div>
@@ -117,16 +110,16 @@
                                         <h6 class="text-muted small">CVV
                                             <i class="fa fa-question-circle d-inline"></i>
                                         </h6>
-                                        <input type="text" name="card_cvc" required class="form-control" placeholder="Code CVV" value="314">
+                                        <input type="text" name="card_cvc" required class="form-control" placeholder="Code CVV" value="123">
                                     </div>
                                 </div>
                             </div>
 
-                            {{/user.stripe.card_id}}
+                            {{/user.pagarme.card_id}}
 
                             <div>
                                 <button type="submit" class="mt-1 mb-1 btn btn-outline-success btn-block shadow w-100">
-                                    <span class="fw-bold">Pay $ 4.99/Month</span>
+                                    <span class="fw-bold">Pagar R$ 4.99/mês</span>
                                 </button>
                             </div>
 

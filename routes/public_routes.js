@@ -11,9 +11,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
 
-// const Recaptcha = require('express-recaptcha').RecaptchaV3;
 import { RecaptchaV3 } from 'express-recaptcha'
-// const recaptchaV3 = Recaptcha.RecaptchaV3
 
 const recaptcha = new RecaptchaV3(process.env.RECAPTCHA_ID, process.env.RECAPTCHA_SECRET, {callback:'cb'});
 
@@ -59,7 +57,7 @@ const userIsNotLoggedIn = (req, res, next) => {
 
 
 const verifyIfUserHasActiveSubscription = (req, res, next) => {
-    if(SESSION_USER.stripe.currently_subscription_name !== "FREE"){
+    if(SESSION_USER.pagarme.currently_subscription_name !== "FREE"){
         req.flash('warning', `Você já possui uma assinatura ativa! Por favor, espere até sua assinatura terminar para fazer uma nova transação!`)
         return res.redirect('/premium')
     }

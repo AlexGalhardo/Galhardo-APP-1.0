@@ -90,83 +90,73 @@
             <div class="col-lg-4">
 
                 <div class="form-floating mb-3">
-                    <input class="mb-2 form-control" name="stripe_customer_id" type="text" value="{{stripe.customer_id}}" readonly>
-                    <label for="name">STRIPE_CUSTOMER_ID</label>
+                    <input class="mb-2 form-control" name="stripe_customer_id" type="text" value="{{pagarme.customer_id}}" readonly>
+                    <label for="name">PAGARME_CUSTOMER_ID</label>
                 </div>
 
                 <hr>
 
                 <div class="form-floating mb-3">
-                      <input id="stripe_card_id" name="stripe_card_id" class="mb-2 form-control" type="text" value="{{stripe.card_id}}" readonly>
-                      <label for="stripe_card_id">STRIPE_CARD_ID</label>
+                      <input id="stripe_card_id" name="stripe_card_id" class="mb-2 form-control" type="text" value="{{pagarme.card_id}}" readonly>
+                      <label for="stripe_card_id">PAGARME_CARD_ID</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                      <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{stripe.card_last4}}" readonly>
-                      <label for="stripe_card_last_4_digits">STRIPE_CARD_LAST_4_DIGITS</label>
+                      <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{pagarme.card_last_digits}}" readonly>
+                      <label for="stripe_card_last_4_digits">PAGARME_CARD_LAST_DIGITS</label>
                 </div>
 
-                <div class="row g-2 mb-2">
-                  <div class="col-md">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" name="card_exp_year" id="card_exp_month" value="{{stripe.card_exp_month}}" readonly>
-                      <label for="card_exp_month">CARD_EXP_MONTH</label>
-                    </div>
-                  </div>
-                  <div class="col-md">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" name="card_exp_year" id="card_exp_year" value="{{stripe.card_exp_year}}" readonly>
-                      <label for="card_exp_year">CARD_EXP_YEAR</label>
-                    </div>
-                  </div>
+                <div class="form-floating mb-3">
+                      <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{pagarme.card_expiration_date}}" readonly>
+                      <label for="stripe_card_last_4_digits">PAGARME_CARD_EXPIRATION_DATE</label>
                 </div>
 
-                {{#stripe.card_id}}
+                {{#pagarme.card_id}}
                     <div class="mt-3 form-group row mb-3">
                         <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
                         <div class="col-lg-8">
-                            <a href="/profile/delete/stripeCard/{{stripe.card_id}}" class="shadow w-100 btn btn-sm btn btn-outline-danger">Delete Stripe Credit Card</a>
+                            <a href="/profile/delete/stripeCard/{{pagarme.card_id}}" class="shadow w-100 btn btn-sm btn btn-outline-danger">Delete PagarME Credit Card</a>
                         </div>
                     </div>
-                {{/stripe.card_id}}
+                {{/pagarme.card_id}}
 
                 <hr>
 
                 <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" type="text" value="{{stripe.currently_subscription_name}}" readonly>
+                      <input class="mb-2 form-control" type="text" value="{{pagarme.currently_subscription_name}}" readonly>
                       <label for="name">CURRENTLY_PLAN</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" type="text" value="{{stripe.currently_subscription_id}}" readonly>
+                      <input class="mb-2 form-control" type="text" value="{{pagarme.currently_subscription_id}}" readonly>
                       <label for="name">CURRENTLY_SUBSCRIPTION_ID</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" name="CANCEL_AT_PERIOD_END" type="text" value="{{stripe.cancel_at_period_end}}" readonly>
+                      <input class="mb-2 form-control" name="CANCEL_AT_PERIOD_END" type="text" value="{{pagarme.cancel_at_period_end}}" readonly>
                       <label for="name">CANCEL_AT_PERIOD_END</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" name="SUBSCRIPTION_START_DATE_TIME" type="text" value="{{stripe.subscription_start}}" readonly>
+                      <input class="mb-2 form-control" name="SUBSCRIPTION_START_DATE_TIME" type="text" value="{{pagarme.subscription_start}}" readonly>
                       <label for="name">SUBSCRIPTION_START_DATE_TIME</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" name="SUBSCRIPTION_END_DATE_TIME" type="text" value="{{stripe.subscription_end}}" readonly>
+                      <input class="mb-2 form-control" name="SUBSCRIPTION_END_DATE_TIME" type="text" value="{{pagarme.subscription_end}}" readonly>
                       <label for="name">SUBSCRIPTION_END_DATE_TIME</label>
                 </div>
 
-                {{#stripe.currently_subscription_id}}
-                    {{^stripe.cancel_at_period_end}}
+                {{#pagarme.currently_subscription_id}}
+                    {{^pagarme.cancel_at_period_end}}
                         <div class="form-group row mb-3">
                             <label class="col-lg-4 col-form-label mb-2 form-control-label"></label>
                             <div class="col-lg-8">
-                                <a href="/profile/cancel/subscription/{{stripe.currently_subscription_id}}" class="shadow w-100 btn btn-sm btn btn-outline-danger">Cancel Renew At Period End</a>
+                                <a href="/profile/cancel/subscription/{{pagarme.currently_subscription_id}}" class="shadow w-100 btn btn-sm btn btn-outline-danger">Cancel Renew At Period End</a>
                             </div>
                         </div>
-                    {{/stripe.cancel_at_period_end}}
-                {{/stripe.currently_subscription_id}}
+                    {{/pagarme.cancel_at_period_end}}
+                {{/pagarme.currently_subscription_id}}
 
             </div>
 

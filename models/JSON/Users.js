@@ -362,7 +362,7 @@ class Users {
     }
 
 
-    static createPagarMECustomer(user_id, pagarme_customer_id){
+    static savePagarMECustomerID(user_id, pagarme_customer_id){
         try {
             for(let i = 0; i < database.users.length; i++){
                 if(database.users[i].id === user_id){
@@ -371,6 +371,7 @@ class Users {
                     return
                 }
             }
+            return
         } catch (error) {
             throw new Error(error)
         }

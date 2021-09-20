@@ -34,18 +34,17 @@ class PremiumController {
 		});
 	}
 
-
     static getViewPlanPremiumCheckout (req, res) {
         return res.render('pages/premium/premium_checkout', {
             flash_warning: req.flash('warning'),
             user: SESSION_USER,
-            header: Header.plans('Premium Checkout - RecomendaÊ')
+            header: Header.premium('Premium Checkout - RecomendaÊ')
         });
     }
 
 
 
-    static getSubscriptionBanner (plan_name){
+    static getSubscriptionBanner (){
         return `
             <div class="card mb-4 rounded-3 shadow-sm text-center">
                 <div class="card-header py-3 bg-info">
@@ -69,16 +68,32 @@ class PremiumController {
     }
 
 
-
-
     static async verifyIfUserIsAlreadyAPagarMECustomer(){
         if(!SESSION_USER.pagarme.customer_id){
-            const stripeCustomer = await pagarme.customers.create({
-                description: 'Cliente criado no checkout premium',
-                email: SESSION_USER.email
-            });
-            await Users.createStripeCustomer(SESSION_USER.id, stripeCustomer.id)
-            return stripeCustomer.id
+
+            const customerObject = {
+                "external_id": SESSION_USER.id,
+                "name": SESSION_USER.name,
+                "type": "individual",
+                "country": "br",
+                "email": SESSION_USER.email,
+                "documents": [
+                    {
+                        "type": "cpf",
+                        "number": SESSION_USER.document
+                    }
+                ],
+                "phone_numbers": [
+                    `+5511${SESSION_USER.phone}`
+                ],
+                "birthday": "1985-01-01"
+            }
+
+            const pagarmeCustomerCreated = await PagarME.createCustomer(customerObject)
+
+            await Users.savePagarMECustomerID(SESSION_USER.id, pagarmeCustomerCreated.id)
+
+            return pagarmeCustomerCreated.id
         }
         return SESSION_USER.pagarme.customer_id
     }
@@ -142,7 +157,7 @@ class PremiumController {
 
             if(!validPassword){
                 req.flash('warning', 'Senha inválida!')
-                return res.redirect(`/premium/checkout`)
+                return res.redirect('/premium/checkout')
             }
 
             const pagarMECustomerID = await PremiumController.verifyIfUserIsAlreadyAPagarMECustomer()
@@ -178,7 +193,7 @@ class PremiumController {
                 }
             }
 
-            await Users.createPagarMESubscription(SESSION_USER.id, plan_name, subscription)
+            await Users.createPagarMESubscription(SESSION_USER.id)
 
             await PagarMEModel.createSubscriptionTransaction(subsTransactionObject)
 
@@ -186,12 +201,12 @@ class PremiumController {
 
             await TelegramBOTLogger.logSubscriptionTransaction(subsTransactionObject)
 
-            res.render('pages/premium/premium_log', {
+            return res.render('pages/premium/premium_log', {
                 flash_success: 'Assinatura criada com sucesso!',
                 subsTransactionObject,
                 user: SESSION_USER,
                 header: Header.plans('Premium Checkout Status - RecomendaÊ'),
-                divPlanBanner: PremiumController.getSubscriptionBanner(plan_name)
+                divPlanBanner: PremiumController.getSubscriptionBanner()
             });
 
         } catch(error){

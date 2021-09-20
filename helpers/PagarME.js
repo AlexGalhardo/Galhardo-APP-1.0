@@ -27,7 +27,7 @@ class PagarME {
                 headers: { 'Content-Type': 'application/json' }
             })
             const json = await response.json()
-            console.log(json)
+            return json
         } catch(error){
             throw new Error(error)
         }
@@ -69,6 +69,7 @@ class PagarME {
         }
     }
 
+
     async getCreditCard(card_id){
         try {
             const pagarmeCreditCard = await this.pagarme.cards.find({id: card_id})
@@ -77,6 +78,7 @@ class PagarME {
             throw new Error(error)
         }
     }
+
 
     async createShopTransaction(transactionObject){
         const transaction = await this.pagarme.transactions
