@@ -1,11 +1,5 @@
-import express from 'express'
-import '@controllers/UsersController'
-
-const app = express()
-
-app.get('/', (request, response) => {
-  return response.json({ message: 'Galhardo APP TypeScript Version - In Development' })
-})
+import app from './app.js'
+// import dotenv from 'dotenv'; dotenv.config()
 
 app.listen(process.env.PORT || 3333, (error) => {
   if (error) throw new Error(error)
