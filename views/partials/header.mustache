@@ -227,16 +227,16 @@
                         {{/user}}
 
 
-                        {{^user}}
-                            <div class="pull-right">
-
+                        <div class="pull-right">
+                            {{^user}}
                                 <a href="/login" class="btn shadow btn-success" type="submit">Login</a>
 
-                                <a href="/register" class="ms-2 btn shadow btn-primary" type="submit">Registrar</a>
-                        {{/user}}
-                                <a href="/register" class="ms-2 btn shadow btn-light" type="submit">
+                                <a href="/criar-conta" class="ms-2 btn shadow btn-primary" type="submit">Criar Conta</a>
+                            {{/user}}
+                                <a href="/shop" class="{{^user}}disabled{{/user}} ms-2 btn shadow btn-light" type="submit">
                                     <i class="bi bi-cart"></i>
-                                    2 Itens
+                                    {{#user}}3 Itens{{/user}}
+                                    {{^user}}0 Itens{{/user}}
                                 </a>
                             </div>
 

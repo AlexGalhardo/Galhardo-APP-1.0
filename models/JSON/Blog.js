@@ -32,7 +32,7 @@ class Blog {
 	}
 
 
-	static async getBlogPostsByPageLimit(page, limit) {
+	static async getPostsByPageLimit(page, limit) {
 		let totalBlogPosts = database.blog.length
 		let totalPages = parseInt(totalBlogPosts/limit)
 		let totalBlogPostsLastPage = (totalBlogPosts%limit)

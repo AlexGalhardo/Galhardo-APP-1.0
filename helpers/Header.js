@@ -48,6 +48,15 @@ class Header {
         }
     }
 
+    static shop(){
+        return {
+            title: "Shop Cart",
+            navbar_shop_active: true,
+            scroll_bar_div,
+            scroll_bar_script
+        }
+    }
+
     static blogPost(blogPostTitle){
         return {
             title: blogPostTitle,

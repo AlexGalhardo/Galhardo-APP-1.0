@@ -23,7 +23,7 @@ class BlogController {
 
 
 	static async getViewBlog(req, res){
-		const totalBlogPosts = await Blog.getTotalBlogPosts()
+		const totalBlogPosts = await Blog.getTotal()
 		const blogPostsPerPage = 4;
 		
 		let page = req.params.page;
@@ -32,7 +32,7 @@ class BlogController {
 			page = 1;
 		}
 
-		const blog = await Blog.getBlogPostsByPageLimit(page, blogPostsPerPage);
+		const blog = await Blog.getPostsByPageLimit(page, blogPostsPerPage);
 
 		res.render('pages/blog/blog', {
 			blog,
@@ -44,8 +44,8 @@ class BlogController {
 	}
 
 
-	static getSearchBlogTitle (req, res){
-		const blogPosts = Blog.getAllBlogPosts();
+	static async getSearchBlogTitle (req, res){
+		const blogPosts = await Blog.getAll();
 		const searchBlogTitle = req.query.blogTitle;
 
 		if(!searchBlogTitle){
@@ -84,18 +84,18 @@ class BlogController {
 	}
 
 
-	static getViewBlogPost (req, res) {
+	static async getViewBlogPost (req, res) {
 		const slug = req.params.slug;
 
-		let blogPost = Blog.getBlogPostBySlug(slug)
+		let blogPost = await Blog.getBySlug(slug)
 
         if(blogPost.comments.length){
-            blogPost = BlogController.fixComments(blogPost)
+            blogPost = await BlogController.fixComments(blogPost)
 
             if(blogPost.comments[0].comment_id < blogPost.comments[1].comment_id) blogPost.comments.reverse()
         }
 
-		res.render('pages/blog/blogPost', {
+		return res.render('pages/blog/blogPost', {
 			user: SESSION_USER,
 			blogPost,
             header: Header.blogPost(blogPost.title)
@@ -157,7 +157,7 @@ class BlogController {
 	        "created_at": DateTime.getNow()
 		}
 
-		const blogPost = await Blog.createBlogComment(slug, blogComment)
+		const blogPost = await Blog.createComment(slug, blogComment)
 
 		if(!blogPost){
 			return res.redirect('/blog')

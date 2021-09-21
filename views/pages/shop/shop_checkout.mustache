@@ -24,39 +24,24 @@
                 {{/flash}}
 
                 <!-- START COL-LG-3 -->
-                <div class="col-lg-3 mb-3">
-                    
+                <div class="col-lg-4 mb-3">
+
                     <ul class="list-group text-center">
-                        
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <input name="quantityOranges" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityOranges">
-                            Oranges  
-                            <b>$<span id="priceOranges">0.49</span></b>
-                        </li>
-                          
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <input name="quantityGrapes" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityGrapes">
-                            Grapes  
-                            <b>$<span id="priceGrapes">0.99</span></b>
-                        </li>
-                          
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <input name="quantityApples" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityApples">
-                            Apples  
-                            <b>$<span id="priceApples">1.99</span></b>
-                        </li>
-                          
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <input name="quantityBananas" class="form-control w-25" type="number" min="1" max="10" step="1" value="1" id="quantityBananas">
-                            Bananas
-                            <b>$<span id="priceBananas">2.99</span></b>
-                        </li>
+
+                        {{#shopCart.itens}}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <img class="h-25 w-25" src="{{image}}">
+                                <small>{{title}}</small>
+                                <b>R$<span id="priceOranges"> {{price}}</span></b>
+                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                            </li>
+                        {{/shopCart.itens}}
 
                         <li class="list-group-item d-flex justify-content-between align-items-center bg-warning">
-                            <b>TOTAL</b>  
-                            <b>$ <span id="total_shop_cart">6.46</span></b>
+                            <b>TOTAL</b>
+                            <b>R$ <span id="total_shop_cart">{{shopCart.total}}</span></b>
                         </li>
-                    
+
                     </ul>
 
                 </div>
@@ -74,7 +59,7 @@
 
                     <div class="form-floating mb-3">
                       <input type="text" class="form-control" name="customer_name" id="customer_name" value="{{name}}" required onkeydown="return false;">
-                      <label for="customer_name">NAME</label>
+                      <label for="customer_name">NOME</label>
                     </div>
 
                     <div class="form-floating mb-3">
@@ -84,26 +69,26 @@
 
                     <div class="form-floating mb-3">
                       <input type="text" minlength="11" maxlength="11" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" class="form-control" id="document" name="document" value="{{document}}" required onkeydown="return false;">
-                      <label for="document">DOCUMENT</label>
+                      <label for="document">CPF</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" id="customer_phone" type="text" name="customer_phone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" value="{{phone}}" required onkeydown="return false;">
-                      <label for="customer_phone">TELEGRAM_NUMBER</label>
+                      <input class="mb-2 form-control" id="customer_phone" type="text" name="customer_phone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" value="{{phone}}" required>
+                      <label for="customer_phone">NÚMERO TELEGRAM</label>
                     </div>
 
 
                     <div class="form-floating mb-3">
                       <input type="password" class="form-control" id="confirm_password" name="confirm_password" required minlength="6">
-                      <label for="confirm_password">CONFIRM_PASSWORD</label>
+                      <label for="confirm_password">CONFIRMAR SENHA</label>
                     </div>
 
 
                     <br>
 
                     <div class="form-floating mb-3">
-                          <input class="mb-2 form-control" id="zipcode" type="text" name="zipcode" pattern= "\d{5}-?\d{3}"  value="" required>
-                          <label for="zipcode">ZIPCODE</label>
+                          <input class="mb-2 form-control" id="zipcode" type="text" name="zipcode" pattern= "\d{5}-?\d{3}" value="" required>
+                          <label for="zipcode">CEP</label>
                     </div>
 
                     <div class="row">
@@ -135,7 +120,7 @@
 
 
                         <!-- SHIPPING CARRIER -->
-                        <label for="shipping_fee" class="col-sm-5 col-form-label">Shipping Carrier</label>
+                        <label for="shipping_fee" class="col-sm-5 col-form-label">Transportadora</label>
                         <div class="col-sm-7 mb-3">
                             <!-- SHIPMENT_PRICE -->
                             <input type="text" class="form-control" value="" name="shipping_carrier" id="shipping_carrier" required onkeydown="return false;">
@@ -143,14 +128,14 @@
 
 
                         <!-- SHIPPING FEE -->
-                        <label for="shipping_fee" class="col-sm-5 col-form-label">Shipping Fee R$</label>
+                        <label for="shipping_fee" class="col-sm-5 col-form-label">Frete R$</label>
                         <div class="col-sm-7 mb-3">
                             <!-- SHIPMENT_PRICE -->
                             <input type="text" class="form-control" value="0" name="shipping_fee" id="shipping_fee" required onkeydown="return false;">
                         </div>
                         
                         <!-- SHIPPING DEADLINE -->
-                        <label for="shipping_deadline" class="col-sm-5 col-form-label">Deadline (days)</label>
+                        <label for="shipping_deadline" class="col-sm-5 col-form-label">Prazo de Entrega (dias)</label>
                         <div class="col-sm-7">
                             <!-- SHIPMENT__TIME -->
                             <input type="text" class="form-control" value="" name="shipping_deadline" id="shipping_deadline" required onkeydown="return false;">
@@ -223,7 +208,7 @@
                         <div class="col-sm-8">
                             <div class="form-group">
                                 <span class="hidden-xs">
-                                    <h6 class="text-muted small">Expiration Date</h6>
+                                    <h6 class="text-muted small">Data de Expiração</h6>
                                 </span>
                                 <div class="input-group">
                                     <input type="number" placeholder="Month" name="card_exp_month" min="1" max="12" step="1" class="form-control" value="08" required>
@@ -246,7 +231,7 @@
             
                     <div>
                         <button type="submit" class="fw-bold btn btn-outline-success btn-block shadow w-100">
-                            Pay $ <span id="button_pay">6.46</span>
+                            Pagar R$ <span id="button_pay">{{shopCart.total}}</span>
                         </button>
                     </div>
 

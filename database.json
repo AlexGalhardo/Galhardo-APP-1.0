@@ -816,6 +816,7 @@
       "user_not_recommend": true
     }
   ],
+  "shop_cart": [],
   "pagarme": {
     "shop_transactions": [
       {

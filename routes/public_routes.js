@@ -88,6 +88,10 @@ router
     .get('/recommend/book/:book_id/:user_id', AppController.recommendBook)
     .get('/notRecommend/book/:book_id/:user_id', AppController.dontRecommendBook)
 
+    .get('/shopCart/:user_id', AppController.getShopCart)
+    .post('/shopCart/:user_id/game/:game_id', AppController.postShopCartGame)
+    // .get('/shopCart/:user_id/book/:book_id')
+
 
 
 // BLOG VIEWS CONTROLLER
@@ -134,8 +138,8 @@ router
     .get('/login', userIsAlreadyLoggedIn, recaptcha.middleware.render, csrfProtection, AuthController.getViewLogin)
     .post('/login', userIsAlreadyLoggedIn, recaptcha.middleware.verify, csrfProtection, AuthController.postLogin)
 
-    .get('/registrar', userIsAlreadyLoggedIn, recaptcha.middleware.render, csrfProtection, AuthController.getViewRegister)
-    .post('/registrar', userIsAlreadyLoggedIn, recaptcha.middleware.verify, csrfProtection, AuthController.postRegister)
+    .get('/criar-conta', userIsAlreadyLoggedIn, recaptcha.middleware.render, csrfProtection, AuthController.getViewRegister)
+    .post('/criar-conta', userIsAlreadyLoggedIn, recaptcha.middleware.verify, csrfProtection, AuthController.postRegister)
 
     .get('/esqueci-senha', userIsAlreadyLoggedIn, AuthController.getViewForgetPassword)
     .post('/esqueci-senha', userIsAlreadyLoggedIn, AuthController.postForgetPassword)

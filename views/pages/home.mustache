@@ -41,12 +41,12 @@
 
                     <a id="book_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="shadow image-fluid mb-3"></a>
 
-                    <form id="form_stripe_checkout" action="#" method="POST">
-                        <button disabled type="submit" id="stripe_checkout_button" class="w-75 btn btn-outline-success shadow mb-3">
+                    <!-- <form id="form_stripe_checkout" action="#" method="POST">
+                        <button disabled type="submit" id="pagarme_shopcart_button" class="w-75 btn btn-outline-success shadow mb-3">
                             <i class="bi bi-cart"></i>
                             Quero Comprar
                         </button>
-                    </form>
+                    </form> -->
 
                     <a href="/pagarme/checkout/game/{{id}}" id="pagarme_checkout_button" class="w-75 btn btn-outline-danger shadow mb-3 {{^user}}disabled{{/user}}">
                         <i class="bi bi-cart"></i>
