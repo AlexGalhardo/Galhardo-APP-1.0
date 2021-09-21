@@ -13,6 +13,7 @@
 - This live demo use "MAIN" branch
 - Last updates and development are made in "DEV" branch
 - You can use default TEST inputs already in forms to try 
+- Dev and Main Branch are using CommonJS Module
 - Test User
    - email: test@gmail.com
    - password: test123
@@ -199,36 +200,42 @@ Games.getRandom() // return a random game object
 - You can see: https://galhardoapp.com/status for Server Monitor
 
 ## APIs
-- You can see: https://api-docs.galhardoapp.com/ for API HTML Documentation**
-### Public REST APIs Endpoints Examples
-- BlogPosts
-   - GET https://galhardoapp.com/api/public/blog
-   - GET https://galhardoapp.com/api/public/blog/random
-   - GET https://galhardoapp.com/api/public/blog/:blog_id
-- Games
-   - GET https://galhardoapp.com/api/public/games
-   - GET https://galhardoapp.com/api/public/games/random
-   - GET https://galhardoapp.com/api/public/games/:game_id
-- Books
-   - GET https://galhardoapp.com/api/public/books
-   - GET https://galhardoapp.com/api/public/books/random
-   - GET https://galhardoapp.com/api/public/books/:book_id
-
-### Profile REST API Endpoints Examples
-- Each user registred can use this endpoint to update or delete his account
-- POST https://galhardoapp.com/api/profile/login
-- PATCH https://galhardoapp.com/api/profile/patch
-- DELETE https://galhardoapp.com/api/profile/delete
-
-### ADMIN REST APIs Endpoints Examples
-- Need JWT Token in header authorization bearer token to access all endpoints
-- Examples:
-   - POST https://galhardoapp.com/api/admin/login
-   - POST https://galhardoapp.com/api/admin/test
-   - GET https://galhardoapp.com/api/admin/users
-- You can use ADMIN API to 
-   - Manage your Stripe Account (Transactions, Subscriptions, Create Plans, Update, etc)
-   - CRUD Blog Posts, Games and Books
+- Using RESTFull Pattern
+- All Responses return JSON (I Hate XML)
+- <b>Documentation</b>
+   - You can see: https://api-docs.galhardoapp.com/ for INSOMNIA API HTML Documentation
+   - You can see: https://galhardoapp.com/api-docs for SWAGGER API HTML Documentation
+- <b>Requests</b>
+   - You can import: INSOMNIA_GALHARDOAPP_API_REQUESTS.json into your Insomnia to make requests
+   - You can import: POSTMAN_GALHARDOAPP_API_REQUESTS.json into your Postman to make requests
+- <b>Public Endpoints Example</b>
+   - BlogPosts
+      - GET https://galhardoapp.com/api/public/blog
+      - GET https://galhardoapp.com/api/public/blog/:blog_id
+   - Games
+      - GET https://galhardoapp.com/api/public/games
+      - GET https://galhardoapp.com/api/public/games/random
+      - GET https://galhardoapp.com/api/public/games/:game_id
+   - Books
+      - GET https://galhardoapp.com/api/public/books
+      - GET https://galhardoapp.com/api/public/books/random
+      - GET https://galhardoapp.com/api/public/books/:book_id
+- <b>Profile Endpoints Example</b>
+   - Each user registred can use this endpoint to update or delete his account
+   - POST https://galhardoapp.com/api/profile/login
+   - PATCH https://galhardoapp.com/api/profile/patch
+   - DELETE https://galhardoapp.com/api/profile/delete
+- <b>ADMIN Endpoints</b>
+   - Need JWT Token in header authorization bearer token to access all api admin endpoints
+   - ADMIN JWT Tokens expiration time: 1 hour
+   - Examples:
+      - POST https://galhardoapp.com/api/admin/login
+         - Login into admin account to get JWT Token
+      - GET https://galhardoapp.com/api/admin/stripe/subscriptions
+         - Return array with all stripe subscriptions objects transactions made
+   - You can use ADMIN API to
+      - Manage your Stripe or PagarME Account (Transactions, Subscriptions, Create Plans, Update, etc)
+      - CRUD Blog Posts, Games and Books
 
 
 ## RoadMap
@@ -293,6 +300,9 @@ Games.getRandom() // return a random game object
 - WebHooks
    - [ ] Stripe
    - [ ] PagarME
+- API HTML Documentation
+   - [ ] INSOMNIA
+   - [ ] SWAGGER
 - Using MySQL DataBase with Docker and pure SQL
    - [ ] Authentication (Login, Register, Reset Password, Confirm Email, SocialLogin)
    - [ ] ADMIN ACL CRUD for Blog Posts, Games, Books and Stripe

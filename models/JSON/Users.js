@@ -289,12 +289,33 @@ class Users {
     }
 
 
+    static getUserIDByEmail(email){
+        try {
+            for(let i = 0; i < database.users.length; i++){
+                if(database.users[i].email === email){
+                    return database.users[i].id
+                }
+            }
+            return null
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
+
     static async update(userObject){
         try {
 
             for(let i = 0; i < database.users.length; i++){
+
+                if(SESSION_USER) {
+                    userObject.id = SESSION_USER.id
+                }
+                else {
+                    userObject.id = await Users.getUserIDByEmail(userObject.email)
+                }
         
-                if(database.users[i].id === SESSION_USER.id){
+                if(database.users[i].email === userObject.email){
 
                     const olderPasswordValid = await Bcrypt.comparePassword(userObject.older_password, database.users[i].password)
 

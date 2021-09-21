@@ -82,7 +82,7 @@ class APIAdminController {
 
             const JWT_TOKEN = req.headers.authorization.split(' ')[1];
             const decoded = jwt.verify(JWT_TOKEN, process.env.JWT_SECRET);
-            const admin = Users.getUserByID(decoded.admin_id)
+            const admin = Users.getByID(decoded.admin_id)
             
             return res.json({
                 admin: {

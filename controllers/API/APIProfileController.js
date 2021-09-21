@@ -70,7 +70,7 @@ class APIProfileController {
 				country
 			}
 	        
-	        let user = await Users.updateProfile(userObject)
+	        let user = await Users.update(userObject)
 	        if(user){
 	        	return res.json({
 	                user
@@ -89,7 +89,7 @@ class APIProfileController {
 		try {
 			const { email, password } = req.body
 
-	        let profileDeleted = await Users.deleteProfile(email, password)
+	        let profileDeleted = await Users.delete(email, password)
 	        
 	        if(profileDeleted){
 	        	return res.json({

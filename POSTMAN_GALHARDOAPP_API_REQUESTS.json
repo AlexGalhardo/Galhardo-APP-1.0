@@ -1,0 +1,241 @@
+{
+  "info": {
+    "_postman_id": "2ded736b-e565-48a6-a78f-9bc74a1978d3",
+    "name": "Galhardo APP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "PUBLIC",
+      "item": [
+        {
+          "name": "GAMES",
+          "id": "609d4f40-20be-4aad-b425-51ab21cf8f34",
+          "request": {
+            "method": "GET",
+            "header": [
+
+            ],
+            "url": "http://localhost:3000/api/public/games"
+          },
+          "response": [
+
+          ]
+        },
+        {
+          "name": "BOOKS",
+          "id": "6908b3d0-fdc9-40fd-ba9f-c525a8466c38",
+          "request": {
+            "method": "GET",
+            "header": [
+
+            ],
+            "url": "http://localhost:3000/api/public/books"
+          },
+          "response": [
+
+          ]
+        },
+        {
+          "name": "BLOG",
+          "id": "25d6ca9a-3985-41c8-a664-fbf09fa56010",
+          "request": {
+            "method": "GET",
+            "header": [
+
+            ],
+            "url": "http://localhost:3000/api/public/blog"
+          },
+          "response": [
+
+          ]
+        }
+      ],
+      "id": "1543e68d-e95c-456f-9d6d-f5b15086b9c2"
+    },
+    {
+      "name": "ADMIN",
+      "item": [
+        {
+          "name": "LOGIN",
+          "id": "d82f2433-3af4-4d26-86af-83a083f78b8a",
+          "request": {
+            "method": "POST",
+            "header": [
+
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "admin@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "test159",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "http://localhost:3000/api/admin/login"
+          },
+          "response": [
+
+          ]
+        },
+        {
+          "name": "TEST",
+          "id": "58c9007f-5dee-4355-ac6c-2b2120f30e64",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6IjdmOWMxYzIyLTk4ZjYtNDQ3Mi1hMDMxLWQwMjdiNzE5NmJhOSIsImlhdCI6MTYzMjI1Njc2NiwiZXhwIjoxNjMyMjYwMzY2fQ.yoIdOMruIUKJ6xAe2rsnpRnu3p0ahqxAcqqjlSb81WU"
+              }
+            },
+            "method": "POST",
+            "header": [
+
+            ],
+            "url": "http://localhost:3000/api/admin/test"
+          },
+          "response": [
+
+          ]
+        }
+      ],
+      "id": "79c005f0-b6e1-443e-8533-a93dd11c1034"
+    },
+    {
+      "name": "PROFILE",
+      "item": [
+        {
+          "name": "LOGIN",
+          "id": "9af5d2dd-175d-48e0-8829-b9360ebdd50c",
+          "request": {
+            "method": "POST",
+            "header": [
+
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "test@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "test123",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "http://localhost:3000/api/profile/login"
+          },
+          "response": [
+
+          ]
+        },
+        {
+          "name": "PATCH PROFILE",
+          "id": "c1e9a007-15ed-44c0-bad6-0357da161da2",
+          "request": {
+            "method": "PATCH",
+            "header": [
+
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "test@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "test123",
+                  "type": "text"
+                },
+                {
+                  "key": "name",
+                  "value": "Test Edited",
+                  "type": "text"
+                },
+                {
+                  "key": "new_email",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "new_password",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "key": "document",
+                  "value": "42424242424",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "189999999",
+                  "type": "text"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "23/09/1997",
+                  "type": "text"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "13560290",
+                  "type": "text"
+                },
+                {
+                  "key": "street",
+                  "value": "Avenida Paulista",
+                  "type": "text"
+                },
+                {
+                  "key": "street_number",
+                  "value": "42",
+                  "type": "text"
+                },
+                {
+                  "key": "neighborhood",
+                  "value": "Bairro Ali",
+                  "type": "text"
+                },
+                {
+                  "key": "city",
+                  "value": "São Paulo",
+                  "type": "text"
+                },
+                {
+                  "key": "state",
+                  "value": "São Paulo",
+                  "type": "text"
+                },
+                {
+                  "key": "country",
+                  "value": "Brazil",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "http://localhost:3000/api/profile/patch"
+          },
+          "response": [
+
+          ]
+        }
+      ],
+      "id": "8c83bee3-abb2-46c4-b4a4-2d7be60dd0ff"
+    }
+  ]
+}

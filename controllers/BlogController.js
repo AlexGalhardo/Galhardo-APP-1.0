@@ -23,7 +23,7 @@ class BlogController {
 
 
 	static async getViewBlog(req, res){
-		const totalBlogPosts = await Blog.getTotalBlogPosts();
+		const totalBlogPosts = await Blog.getTotal();
 		const blogPostsPerPage = 4;
 		
 		let page = req.params.page;
@@ -32,7 +32,7 @@ class BlogController {
 			page = 1;
 		}
 
-		const blog = await Blog.getBlogPostsByPageLimit(page, blogPostsPerPage);
+		const blog = await Blog.getPostsByPageLimit(page, blogPostsPerPage);
 
 		res.render('pages/blog/blog', {
 			blog,
@@ -45,7 +45,7 @@ class BlogController {
 
 
 	static getSearchBlogTitle (req, res){
-		const blogPosts = Blog.getAllBlogPosts();
+		const blogPosts = Blog.getAll();
 		const searchBlogTitle = req.query.blogTitle;
 
 		if(!searchBlogTitle){
@@ -87,7 +87,7 @@ class BlogController {
 	static getViewBlogPost (req, res) {
 		const slug = req.params.slug;
 
-		let blogPost = Blog.getBlogPostBySlug(slug)
+		let blogPost = Blog.getBySlug(slug)
 
         if(blogPost.comments.length){
             blogPost = BlogController.fixComments(blogPost)
@@ -157,7 +157,7 @@ class BlogController {
 	        "created_at": DateTime.getNow()
 		}
 
-		const blogPost = await Blog.createBlogComment(slug, blogComment)
+		const blogPost = await Blog.createComment(slug, blogComment)
 
 		if(!blogPost){
 			return res.redirect('/blog')
@@ -173,7 +173,7 @@ class BlogController {
 	static async getDeleteBlogCommentByCommentID (req, res){
 		const { slug, comment_id } = req.params;
 
-		let blogPost = await Blog.deleteCommentByCommentID(slug, comment_id)
+		let blogPost = await Blog.deleteCommentByID(slug, comment_id)
 
 		if(!blogPost){
 			return res.redirect(`/blog/${slug}`)
