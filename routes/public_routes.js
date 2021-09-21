@@ -61,6 +61,11 @@ const verifyIfUserHasActiveSubscription = (req, res, next) => {
     next()
 }
 
+const swaggerUI = require('swagger-ui-express')
+const docs = require('../docs/index')
+
+router.use('/api-docs', swaggerUI.serve, swaggerUI.setup(docs, {explorer: true}));
+
 
 router
 // APP VIEWS CONTROLLER
