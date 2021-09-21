@@ -57,7 +57,7 @@ class Blog {
 
 
 
-	static getAllBlogPosts() {
+	static getAll() {
 		try {
 	        return database.blog
 	    } catch (error) {
@@ -67,7 +67,7 @@ class Blog {
 
 
 
-	static async getTotalBlogPosts() {
+	static async getTotal() {
 		try {
       		return database.blog.length
     	} catch (error) {
@@ -77,7 +77,7 @@ class Blog {
 
 
 
-	static getBlogPostBySlug (slug) {
+	static getBySlug (slug) {
 		try {
       		for(let i=0; i < database.blog.length; i++){
         		if(database.blog[i].slug === slug){
@@ -92,7 +92,7 @@ class Blog {
 
 
 
-	static getBlogPostByID (blog_id) {
+	static getByID(blog_id) {
 		try {
       		for(let i=0; i < database.blog.length; i++){
         		if(database.blog[i].id === parseInt(blog_id)){
@@ -107,7 +107,7 @@ class Blog {
 
 
 
-	static createBlogComment (slug, commentObject) {
+	static createComment (slug, commentObject) {
 		try {
       		for(let i=0; i < database.blog.length; i++){
         		if(database.blog[i].slug === slug){
@@ -125,7 +125,7 @@ class Blog {
 
 
 
-	static deleteCommentByCommentID(slug, comment_id) {
+	static deleteCommentByID(slug, comment_id) {
 		try {
       		
       		for(let i=0; i < database.blog.length; i++){
@@ -154,7 +154,7 @@ class Blog {
 
 
 
-	static createBlogPost (blogPostObject) {
+	static create(blogPostObject) {
 		blogPostObject.slug = slugify(blogPostObject.title)
 
 		try {
@@ -169,7 +169,7 @@ class Blog {
 
 
 
-	static updateBlogPost (blogPostObject) {
+	static update(blogPostObject) {
 		try {
 			for(let i = 0; i < database.blog.length; i++){
 
@@ -193,7 +193,7 @@ class Blog {
 
 
 
-	static deleteBlogPostByID(blog_id){
+	static deleteByID(blog_id){
 		try {
       		for(let i=0; i < database.blog.length; i++){
         		if(database.blog[i].id === parseInt(blog_id)){

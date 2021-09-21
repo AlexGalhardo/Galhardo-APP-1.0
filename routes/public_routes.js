@@ -23,7 +23,6 @@ import RouterCache from '../helpers/RouterCache.js'
 import Users from '../models/JSON/Users.js'
 
 
-
 // INIT ROUTER
 import express from 'express'
 const router = express.Router()
@@ -64,6 +63,11 @@ const verifyIfUserHasActiveSubscription = (req, res, next) => {
     next()
 }
 
+
+import swaggerUI from 'swagger-ui-express'
+import docs from '../docs/index.js'
+
+router.use('/api-docs', swaggerUI.serve, swaggerUI.setup(docs, {explorer: true}));
 
 router
 // APP VIEWS CONTROLLER
