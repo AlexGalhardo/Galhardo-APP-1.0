@@ -123,6 +123,8 @@
    - logs file.txt
 - helpers
    - usefull code snippets, functions, classes used in app
+- docs
+   - swagger api html documentation config (/api-docs)
 - controllers
    - all the controllers used in app
 - config
@@ -268,7 +270,6 @@ Games.getRandom() // return a random game object
    - [x] SocialMedia MetaTags
    - [ ] SEO Links Working Correctly
 - [x] CDN (Cloudflare)
-- [x] API HTML Documentation Using Insomnia Documenter
 - PAYMENTS
    - Shop (Ecommerce Checkout)
       - Stripe
