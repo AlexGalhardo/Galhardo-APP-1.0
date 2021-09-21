@@ -32,7 +32,6 @@
     "api"
   ],
   "dependencies": {
-    "@prisma/client": "^3.0.1",
     "aws-sdk": "^2.973.0",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
@@ -78,7 +77,6 @@
     "pino-http": "^5.7.0",
     "pino-pretty": "^6.0.0",
     "pm2": "^5.1.0",
-    "prisma": "^3.0.1",
     "query-string": "^7.0.1",
     "querystring": "^0.2.1",
     "rand-token": "^1.0.1",
@@ -88,6 +86,7 @@
     "slugify": "^1.6.0",
     "sqlite": "^4.0.23",
     "stripe": "^8.167.0",
+    "swagger-ui-express": "^4.1.6",
     "uuid": "^8.3.2",
     "winston": "^3.3.3",
     "ws": "^8.2.1"

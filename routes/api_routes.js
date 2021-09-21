@@ -18,10 +18,7 @@ const router = require('express').Router()
 
 // MODELS
 const Users = require('../models/JSON/Users')
-// const Users = require('../models/MYSQL/Users')
-// const Users = require('../models/POSTGRES/Users')
-// const Users = require('../models/SQLITE/Users')
-// const Users = require('../models/MONGODB/Users')
+
 
 
 // API CONTROLLERS
