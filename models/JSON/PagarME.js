@@ -33,7 +33,7 @@ class PagarME {
                 total_amount: transactionObject.total_amount,
                 payment_method: transactionObject.payment_method,
                 currency: transactionObject.currency,
-                paid: transactionObject.paid,
+                status: transactionObject.status,
                 products_amount: transactionObject.products_amount,
                 products: JSON.stringify(transactionObject.products),
                 customer: transactionObject.customer,

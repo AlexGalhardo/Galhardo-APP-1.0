@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" id="customer_phone" type="text" name="customer_phone" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" minlength="11" maxlength="11" value="{{phone}}" required>
+                      <input class="mb-2 form-control" id="customer_phone" type="text" name="customer_phone" minlength="11" maxlength="11" value="{{phone}}" required>
                       <label for="customer_phone">NÚMERO TELEGRAM</label>
                     </div>
 
@@ -156,49 +156,40 @@
                 <!-- PAYMENTS -->
                 <div class="col-lg-4">
 
-                    {{#user.stripe.card_token_id}}
+                    {{#user.pagarme.card_id}}
                         <div class="form-floating mb-3">
-                            <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_id}}" readonly>
-                            <label for="stripe_card_last_4_digits">REGISTRED_STRIPE CARD_ID</label>
+                            <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_id}}" readonly>
+                            <label for="stripe_card_last_4_digits">REGISTRED_PAGARME_CARD_ID</label>
                         </div>
 
 
                         <div class="form-floating mb-3">
-                              <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.stripe.card_last4}}" readonly>
-                              <label for="stripe_card_last_4_digits">STRIPE_CARD_LAST_4_DIGITS</label>
+                              <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_last_digits}}" readonly>
+                              <label for="stripe_card_last_4_digits">STRIPE_CARD_LAST_DIGITS</label>
                         </div>
 
-                        <div class="row g-2 mb-2">
-                          <div class="col-md">
-                            <div class="form-floating">
-                              <input type="text" class="form-control" name="card_exp_year" id="card_exp_month" value="{{stripe.card_exp_month}}" readonly>
-                              <label for="card_exp_month">CARD_EXP_MONTH</label>
-                            </div>
-                          </div>
-                          <div class="col-md">
-                            <div class="form-floating">
-                              <input type="text" class="form-control" name="card_exp_year" id="card_exp_year" value="{{stripe.card_exp_year}}" readonly>
-                              <label for="card_exp_year">CARD_EXP_YEAR</label>
-                            </div>
-                          </div>
+                        <div class="form-floating mb-3">
+                              <input id="pagarme_card_expiration_date" name="pagarme_card_expiration_date" class="mb-2 form-control" type="text" value="{{user.pagarme.card_expiration_date}}" readonly>
+                              <label for="pagarme_card_expiration_date">PAGARME_CARD_EXPIRATION_DATE</label>
                         </div>
-                    {{/user.stripe.card_token_id}}
+
+                    {{/user.pagarme.card_id}}
                             
 
 
 
-                    {{^user.stripe.card_token_id}}
+                    {{^user.pagarme.card_id}}
 
                     <div id="div_credit_card"></div>
 
                     <div class="form-floating mb-3 mt-3">
-                        <input type="text" class="form-control" name="holder_name" id="holder_name" value="{{stripe.card_holder_name}}">
-                        <label for="holder_name">CARD_HOLDER_NAME</label>
+                        <input type="text" class="form-control" name="card_holder_name" id="card_holder_name" value="{{user.name}}">
+                        <label for="card_holder_name">CARD_HOLDER_NAME</label>
                     </div>
 
                     <div class="form-group mb-2">
                         <div class="input-group">
-                            <input type="text" name="card_number" placeholder="Credit Card Number" class="form-control" value="4242424242424242" required>
+                            <input type="text" name="card_number" placeholder="Credit Card Number" class="form-control" value="4018720572598048" required>
                             <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="bi bi-credit-card h-100"></i> </span> </div>
                         </div>
                     </div>
@@ -211,8 +202,8 @@
                                     <h6 class="text-muted small">Data de Expiração</h6>
                                 </span>
                                 <div class="input-group">
-                                    <input type="number" placeholder="Month" name="card_exp_month" min="1" max="12" step="1" class="form-control" value="08" required>
-                                    <input type="number" placeholder="Year" name="card_exp_year" min="2021" step="1" class="form-control" required value="2022"> 
+                                    <input type="number" placeholder="Month" name="card_exp_month" min="1" max="12" step="1" class="form-control" value="11" required>
+                                    <input type="number" placeholder="Year" name="card_exp_year" min="22" step="1" class="form-control" required value="22">
                                 </div>
                             </div>
                         </div>
@@ -222,12 +213,12 @@
                                 <h6 class="text-muted small">CVV
                                     <i class="fa fa-question-circle d-inline"></i>
                                 </h6>
-                                <input type="text" name="card_cvc" required class="form-control" placeholder="Code CVV" value="314"> 
+                                <input type="text" name="card_cvv" required class="form-control" placeholder="Code CVV" value="123">
                             </div>
                         </div>
                     </div>
 
-                    {{/user.stripe.card_token_id}}
+                    {{/user.pagarme.card_id}}
             
                     <div>
                         <button type="submit" class="fw-bold btn btn-outline-success btn-block shadow w-100">

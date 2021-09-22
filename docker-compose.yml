@@ -22,6 +22,7 @@
 # $ sudo docker inspect CONTAINER_NAME_OR_ID
 
 # sudo kill -9 $(sudo lsof -t -i:3000)
+# pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
 
 version: '3'
 

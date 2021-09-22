@@ -63,7 +63,7 @@ class PagarME {
         try {
             const pagarmeCreditCard = await this.pagarme.cards.create(cardObject)
             const cardHash = await this.pagarme.security.encrypt(cardObject)
-            console.log(pagarmeCreditCard, cardHash)
+            return [pagarmeCreditCard, cardHash]
         } catch(error){
             throw new Error(error)
         }
@@ -73,7 +73,7 @@ class PagarME {
     async getCreditCard(card_id){
         try {
             const pagarmeCreditCard = await this.pagarme.cards.find({id: card_id})
-            console.log(pagarmeCreditCard)
+            return pagarmeCreditCard
         } catch(error){
             throw new Error(error)
         }
@@ -88,6 +88,7 @@ class PagarME {
             })
 
         console.log(transaction)
+        return transaction
     }
 
     async sendEmailBankSlipToCustomerEmail(transaction_id, customer_email){

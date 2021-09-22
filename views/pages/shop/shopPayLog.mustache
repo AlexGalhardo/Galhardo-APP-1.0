@@ -14,24 +14,14 @@
 	                    
 	            <ul class="list-group text-center">
 	                
-	                {{#shopTransactionObject.products}}
-		                
-		                <li class="list-group-item d-flex justify-content-between align-items-center">
-		                    
-		                    <input name="quantityOranges" class="form-control w-25" type="number" min="1" step="1" 
-		                    	value="{{quantity}}" id="quantityOranges" readonly>
-		                    
-		                    {{name}}
-		                    
-		                    <b>
-		                    	$
-		                    	<span id="priceOranges">
-		                    		{{total}}
-		                    	</span>
-		                   	</b>
-		                </li>
-
-	                {{/shopTransactionObject.products}}  
+                    {{#shopTransactionObject.products}}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <img class="h-25 w-25" src="{{image}}">
+                                <small>{{title}}</small>
+                                <b>R$<span id="priceOranges"> {{price}}</span></b>
+                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                            </li>
+                    {{/shopTransactionObject.products}}
 
 	                <li class="list-group-item d-flex justify-content-between align-items-center">
 	                    Shipping Fee  

@@ -65,72 +65,63 @@ class ShopController {
 	}
 
 
-    static async verifyIfUserIsAlreadyAStripeCustomer(){
-        if(!SESSION_USER.stripe.customer_id){
-            const customer = await stripe.customers.create({
-                description: 'Customer created in Subscription checkout!',
-                email: SESSION_USER.email
-            });
-            await Users.createStripeCustomer(SESSION_USER.id, customer.id)
+    static async verifyIfUserIsAlreadyAPagarMECustomer(){
+        if(!SESSION_USER.pagarme.customer_id){
+            const customer = await PagarME.createCustomer({
+                "external_id": SESSION_USER.id,
+                "name": SESSION_USER.name,
+                "type": "individual",
+                "country": "br",
+                "email": SESSION_USER.email,
+                "documents": [
+                    {
+                        "type": "cpf",
+                        "number": SESSION_USER.document
+                    }
+                ],
+                "phone_numbers": [
+                    `+${SESSION_USER.phone}`
+                ],
+                "birthday": "1985-01-01"
+            })
+            await Users.savePagarMECustomerID(SESSION_USER.id, customer.id)
             return
         }
         return
     }
 
 
-    static async verifyIfUserAlreadyHasAStripeCardRegistred(req){
-        const { card_number,
+    static async verifyIfUserAlreadyHasAPagarMECardRegistred(req){
+        if(!SESSION_USER.pagarme.card_id){
+            const {
+                card_number,
+                card_holder_name,
                 card_exp_year,
                 card_exp_month,
-                card_cvc } = req.body
+                card_cvv
+            } = req.body
 
-        if(!SESSION_USER.stripe.card_id){
+            const [pagarmeCreditCard, cardHash] = await PagarME.createCreditCard({
+                card_number,
+                card_holder_name,
+                card_expiration_date: `${card_exp_month}${card_exp_year}`,
+                card_cvv
+            })
 
-            const cardToken = await stripe.tokens.create({
-                card: {
-                    number: card_number,
-                    exp_month: card_exp_month,
-                    exp_year: card_exp_year,
-                    cvc: card_cvc,
-                }
-            });
+            console.log(pagarmeCreditCard, cardHash)
 
-            const card = await stripe.customers.createSource(
-                SESSION_USER.stripe.customer_id,
-                {source: cardToken.id}
-            );
-
-            await Users.createStripeCard(SESSION_USER.id, cardToken.id, card)
-
-            return cardToken.id
+            await Users.createPagarMECard(SESSION_USER.id, pagarmeCreditCard)
+            return
         }
-
-        const cardToken = await stripe.tokens.create({
-            card: {
-                number: card_number,
-                exp_month: card_exp_month,
-                exp_year: card_exp_year,
-                cvc: card_cvc,
-            }
-        });
-
-        return cardToken.id
+        return
     }
 
 
-    /**
-     * POST /shop/payLog
-     * Verify if user is already a stripe customer
-     * verify if user already has a stripe credit card registred
-     */
+
 	static async postShopPayLog (req, res) {
 		
         try {
             const {
-                quantityOranges,
-                quantityGrapes,
-                quantityApples,
-                quantityBananas,
                 customer_email,
                 customer_name,
                 customer_phone,
@@ -157,58 +148,76 @@ class ShopController {
                 return res.redirect(`/shop`)
             }
 
-            await ShopController.verifyIfUserIsAlreadyAStripeCustomer()
+            await ShopController.verifyIfUserIsAlreadyAPagarMECustomer()
 
-            const stripeCardTokenID = await ShopController.verifyIfUserAlreadyHasAStripeCardRegistred(req)
+            await ShopController.verifyIfUserAlreadyHasAPagarMECardRegistred(req)
 
             const products = [
                 {
-                    quantity: quantityOranges,
-                    name: 'Oranges',
-                    total: parseFloat(quantityOranges * 0.49).toFixed(2)
+                    title: 'SpiderMan',
+                    price: 9.90.toFixed(2)
                 },
                 {
-                    quantity: quantityGrapes,
-                    name: 'Grapes',
-                    total: parseFloat(quantityGrapes * 0.99).toFixed(2)
+                    title: 'Ghost Of Tsushima',
+                    price: 19.90.toFixed(2)
                 },
                 {
-                    quantity: quantityApples,
-                    name: 'Apples',
-                    total: parseFloat(quantityApples * 1.99).toFixed(2)
-                },
-                {
-                    quantity: quantityBananas,
-                    name: 'Bananas',
-                    total: parseFloat(quantityBananas * 2.99).toFixed(2)
-                },
+                    title: 'The Last Of Us',
+                    price: 29.90.toFixed(2)
+                }
             ]
 
-            const shopCardCharge = await stripe.charges.create({
-                amount: parseInt(total_shop_amount * 100),
-                currency: 'usd',
-                source: stripeCardTokenID,
-                description: JSON.stringify(products),
-                receipt_email: customer_email
-            });
+            console.log(JSON.stringify(products))
+
+            const transaction = await PagarME.createShopTransaction({
+                "amount": "3000",
+                "card_id": SESSION_USER.pagarme.card_id,
+                "payment_method": "credit_card", //"boleto"
+                // "postback_url": "",
+                "async": false,
+                "installments": '3',
+                "customer": {
+                    "name": SESSION_USER.name,
+                    "external_id": SESSION_USER.id,
+                    "email": SESSION_USER.email,
+                    "type": "individual",
+                    "country": "br",
+                    "phone_numbers": [SESSION_USER.phone],
+                    "documents": [{ "type" : "cpf", "number": SESSION_USER.document }]
+                },
+                "billing" : {
+                    "name": SESSION_USER.name,
+                    "address" : {
+                        "country": "br",
+                        "state": customer_state,
+                        "city": customer_city,
+                        "neighborhood" : customer_neighborhood,
+                        "street": customer_street,
+                        "street_number": "42",
+                        "zipcode": zipcode
+                    }
+                },
+                "items": JSON.stringify(products)
+            })
+
+            console.log('TRANSACTION É: ', transaction)
 
             const shopTransactionObject = {
-                transaction_id: shopCardCharge.id,
-                total_amount: parseFloat(total_shop_amount).toFixed(2),
+                transaction_id: transaction.id,
+                total_amount: parseFloat(transaction.amount).toFixed(2),
                 payment_method: {
-                    card_id: shopCardCharge.source.id,
-                    brand: shopCardCharge.source.brand,
-                    exp_month: shopCardCharge.source.exp_month,
-                    exp_year: shopCardCharge.source.exp_year,
-                    last4: shopCardCharge.source.last4
+                    card_id: transaction.card.id,
+                    brand: transaction.card.brand,
+                    expiration_date: transaction.card.expiration_date,
+                    last_digits: transaction.card.last_digits
                 },
-                currency: shopCardCharge.currency,
-                paid: shopCardCharge.paid,
+                currency: 'BRL',
+                status: shopCardCharge.status,
                 products_amount: (parseFloat(total_shop_amount) - parseFloat(shipping_fee)).toFixed(2),
-                products: products,
+                products: JSON.stringify(products),
                 customer: {
                     id: req.session.userID,
-                    stripe_id: SESSION_USER.stripe.customer_id,
+                    pagarme_id: SESSION_USER.pagarme.customer_id,
                     email: customer_email,
                     phone: customer_phone,
                     name: customer_name
@@ -227,7 +236,7 @@ class ShopController {
                 created_at: DateTime.getNow()
             }
 
-            await StripeModel.createShopTransaction(shopTransactionObject)
+            await PagarMEModel.createShopTransaction(shopTransactionObject)
             await NodeMailer.sendShopTransaction(shopTransactionObject)
             await TelegramBOTLogger.logShopTransaction(shopTransactionObject)
 
