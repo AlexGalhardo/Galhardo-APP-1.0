@@ -260,6 +260,10 @@ Games.getRandom() // return a random game object
    - [ ] CSP(https://content-security-policy.com/)
    - [ ] Verify All Routes/Endpoints Access
    - [ ] Validation All Requests Data
+   - Two Factor Authentication
+      - [ ] Email
+      - [ ] SMS
+      - [ ] Authenticador Code
 - SEO & DIGITAL MARKETING
    - [x] Newsletter
    - [ ] Google PageSpeed Insights
