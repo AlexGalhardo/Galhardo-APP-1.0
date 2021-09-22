@@ -83,14 +83,14 @@ class TelegramBOTLogger {
 
         const log = `
         <b>TRANSACTION_ID:</b> ${shopTransactionObject.transaction_id}
-        <b>PAID: </b> ${shopTransactionObject.paid}
+        <b>STATUS: </b> ${shopTransactionObject.status}
         <b>AMOUNT: $</b> ${shopTransactionObject.total_amount}
-        <b>GATEWAY: </b> Stripe
+        <b>GATEWAY: </b> PagarME
         <b>PAYMENT_METHOD: </b> ${shopTransactionObject.payment_method.card_id}
         ---------------------------------------
         <b>CUSTOMER_EMAIL:</b> ${shopTransactionObject.customer.email}
         <b>CUSTOMER_ID:</b> ${shopTransactionObject.customer.id}
-        <b>CUSTOMER_STRIPE_ID:</b> ${shopTransactionObject.customer.stripe_id}
+        <b>CUSTOMER_PAGARME_ID:</b> ${shopTransactionObject.customer.pagarme_id}
         ---------------------------------------
         <b>PRODUCTS:</b> ${JSON.stringify(shopTransactionObject.products)}
         ---------------------------------------
@@ -122,14 +122,13 @@ class TelegramBOTLogger {
         ---------------------------------------------
         <b>CURRENT_PERIOD_START: </b> ${subsTransactionObject.plan.current_period_start}
         <b>CURRENT_PERIOD_END:</b> ${subsTransactionObject.plan.current_period_end}
-        <b>CANCEL_AT_PERIOD_END:</b> ${subsTransactionObject.plan.cancel_at_period_end}
         ---------------------------------------------
         <b>PLAN_ID:</b> ${subsTransactionObject.plan.id}
         <b>PLAN_NAME:</b> ${subsTransactionObject.plan.name}
         <b>PLAN_AMOUNT:</b> ${subsTransactionObject.plan.amount}
         ---------------------------------------------
         <b>CUSTOMER_ID:</b> ${subsTransactionObject.customer.id}
-        <b>CUSTOMER_STRIPE_ID:</b> ${subsTransactionObject.customer.stripe_id}
+        <b>CUSTOMER_PAGARME_ID:</b> ${subsTransactionObject.customer.pagarme_id}
         <b>CUSTOMER_EMAIL:</b> ${subsTransactionObject.customer.email}
         <b>CUSTOMER_NAME:</b> ${subsTransactionObject.customer.name}
         `

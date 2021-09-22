@@ -20,7 +20,24 @@ class DateTime  {
 		let date = new Date().toLocaleDateString(process.env.LOCALE_DATE_TIME)
 		let time = new Date().toLocaleTimeString(process.env.LOCALE_DATE_TIME)
 		return `${date} ${time}`;
-	}	
+	}
+
+    static convertSubscriptionPeriondEnd(inputDate){
+        let substring = inputDate.substring(0, 10)
+
+        let myDate = substring.split("-");
+
+        let newDate = new Date(myDate[0], myDate[1] - 1, myDate[2]);
+
+        let futureDate = newDate.getTime()
+
+        let futureTimestamp = futureDate.setDate(futureDate.getDate() + 30);
+
+        let date = new Date(futureTimestamp*1000).toLocaleDateString(process.env.LOCALE_DATE_TIME)
+        let time = new Date(futureTimestamp*1000).toLocaleTimeString(process.env.LOCALE_DATE_TIME)
+
+        return `${date} ${time}`;
+    }
 }
 
 export default DateTime;

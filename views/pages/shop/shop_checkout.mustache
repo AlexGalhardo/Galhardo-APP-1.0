@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                      <input class="mb-2 form-control" id="customer_phone" type="text" name="customer_phone" minlength="11" maxlength="11" value="{{phone}}" required>
+                      <input class="mb-2 form-control" id="customer_phone" type="text" name="customer_phone" minlength="11" maxlength="11" value="{{phone.country}}{{phone.ddd}}{{phone.number}}" required>
                       <label for="customer_phone">NÚMERO TELEGRAM</label>
                     </div>
 
@@ -158,14 +158,14 @@
 
                     {{#user.pagarme.card_id}}
                         <div class="form-floating mb-3">
-                            <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_id}}" readonly>
-                            <label for="stripe_card_last_4_digits">REGISTRED_PAGARME_CARD_ID</label>
+                            <input id="pagarme_card_id" name="pagarme_card_id" class="mb-2 form-control" type="text" value="{{user.pagarme.card_id}}" readonly>
+                            <label for="pagarme_card_id">REGISTRED_PAGARME_CARD_ID</label>
                         </div>
 
 
                         <div class="form-floating mb-3">
-                              <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_last_digits}}" readonly>
-                              <label for="stripe_card_last_4_digits">STRIPE_CARD_LAST_DIGITS</label>
+                              <input id="pagarme_card_last_digits" name="pagarme_card_last_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_last_digits}}" readonly>
+                              <label for="pagarme_card_last_digits">PAGARME_CARD_LAST_DIGITS</label>
                         </div>
 
                         <div class="form-floating mb-3">

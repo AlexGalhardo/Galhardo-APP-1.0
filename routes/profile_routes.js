@@ -77,9 +77,9 @@ router
 
     .get('/logout', userIsNotLoggedIn, ProfileController.getLogout)
 
-    .get('/delete/stripeCard/:stripe_card_id', userIsNotLoggedIn, ProfileController.deleteStripeCard)
+    .get('/delete/pagarMECard/:pagarme_card_id', userIsNotLoggedIn, ProfileController.deletePagarMECard)
 
-    .get('/cancel/subscription/:stripe_currently_subscription_id', userIsNotLoggedIn, ProfileController.cancelStripeSubscriptionRenewAtPeriodEnd)
+    .get('/cancel/subscription/:stripe_currently_subscription_id', userIsNotLoggedIn, ProfileController.cancelPagarMESubscriptionRenewAtPeriodEnd)
 
 
 export { router as profileRoutes };

@@ -198,11 +198,15 @@ class Users {
                 admin: false,
                 avatar: "avatar.png",
                 document: null,
-                phone: null,
-                birth_date: null,
+                birthday: null,
                 google_id: parseInt(userObject.google_id),
                 github_id: parseInt(userObject.github_id),
                 facebook_id: parseInt(userObject.facebook_id),
+                phone: {
+                    number: null,
+                    ddd: null,
+                    country: null
+                },
                 address: {
                     zipcode: null,
                     street: null,
@@ -306,7 +310,7 @@ class Users {
                     if(userObject.new_email) database.users[i].email = userObject.new_email
                     if(userObject.document) database.users[i].document = userObject.document
                     if(userObject.phone) database.users[i].phone = userObject.phone
-                    if(userObject.birth_date) database.users[i].birth_date = userObject.birth_date
+                    if(userObject.birthday) database.users[i].birthday = userObject.birthday
                     if(userObject.zipcode) database.users[i].address.zipcode = userObject.zipcode
                     if(userObject.street) database.users[i].address.street = userObject.street
                     if(userObject.street_number) database.users[i].address.street_number = userObject.street_number
@@ -398,15 +402,14 @@ class Users {
     }
 
 
-    static createPagarMESubscription(user_id, plan_name, subscriptionObject){
+    static createPagarMESubscription(user_id, subscriptionObject){
         try {
             for(let i = 0; i < database.users.length; i++){
                 if(database.users[i].id === user_id){
-                    database.users[i].pagarme.currently_subscription_id = subscriptionObject.id
-                    database.users[i].pagarme.currently_subscription_name = plan_name
-                    database.users[i].pagarme.subscription_start = subscriptionObject.current_period_start
-                    database.users[i].pagarme.subscription_end = subscriptionObject.current_period_end
-                    database.users[i].pagarme.cancel_at_period_end = subscriptionObject.cancel_at_period_end
+                    database.users[i].pagarme.currently_subscription_id = subscriptionObject.transaction_id
+                    database.users[i].pagarme.currently_subscription_name = subscriptionObject.plan.name
+                    database.users[i].pagarme.subscription_start = subscriptionObject.plan.current_period_start
+                    database.users[i].pagarme.subscription_end = subscriptionObject.plan.current_period_end
                     Users.save(database)
                     return
                 }

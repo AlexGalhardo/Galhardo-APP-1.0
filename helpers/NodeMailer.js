@@ -29,7 +29,7 @@ class NodeMailer {
 
     static async sendContact (contactObject) {
         
-        const filePath = path.join(__dirname, '../views/emails/contact.html');
+        const filePath = path.join(__dirname, '/views/emails/contact.html');
         
         const source = fs.readFileSync(filePath, 'utf-8').toString();
         
@@ -59,7 +59,7 @@ class NodeMailer {
 
     static async sendShopTransaction(shopTransactionObject) {
         
-        const filePath = path.join(__dirname, '../views/emails/shop_transaction.html');
+        const filePath = path.join(__dirname, '/views/emails/shop_transaction.html');
         
         const source = fs.readFileSync(filePath, 'utf-8').toString();
         
@@ -99,7 +99,7 @@ class NodeMailer {
 
     static async sendSubscriptionTransaction (subsTransactionObject) {
         
-        const filePath = path.join(__dirname, '../views/emails/subscription_transaction.html');
+        const filePath = path.join(__dirname, '/views/emails/subscription_transaction.html');
         
         const source = fs.readFileSync(filePath, 'utf-8').toString();
         
@@ -136,7 +136,7 @@ class NodeMailer {
 
         let confirmEmailLinkURL = `${process.env.APP_URL}/confirmEmail/${email}/${confirm_email_token}`;
 
-        const filePath = path.join(__dirname, '../views/emails/confirm_email.html');
+        const filePath = path.join(__dirname, '/views/emails/confirm_email.html');
 
         const source = fs.readFileSync(filePath, 'utf-8').toString();
 
@@ -163,7 +163,7 @@ class NodeMailer {
     static async sendForgetPasswordLink(email, reset_password_token) {
         const resetPasswordLinkURL = `${process.env.APP_URL}/resetPassword/${email}/${reset_password_token}`;
 
-        const filePath = path.join(__dirname, '../views/emails/forget_password.html');
+        const filePath = path.join(__dirname, '/views/emails/forget_password.html');
 
         const source = fs.readFileSync(filePath, 'utf-8').toString();
 

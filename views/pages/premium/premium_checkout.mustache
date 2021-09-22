@@ -59,12 +59,12 @@
                         {{#user.pagarme.card_id}}
                             <div class="form-floating mb-3">
                                 <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_id}}" readonly>
-                                <label for="stripe_card_last_4_digits">REGISTRED_STRIPE CARD_ID</label>
+                                <label for="stripe_card_last_4_digits">REGISTRED_PAGARME_CARD_ID</label>
                             </div>
 
                             <div class="form-floating mb-3">
-                                  <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_last4}}" readonly>
-                                  <label for="stripe_card_last_4_digits">PAGARME_CARD_LAST_4_DIGITS</label>
+                                  <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_last_digits}}" readonly>
+                                  <label for="stripe_card_last_4_digits">PAGARME_CARD_LAST_DIGITS</label>
                             </div>
 
                             <div class="form-floating mb-3">

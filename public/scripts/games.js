@@ -1,6 +1,6 @@
 const user_id = document.querySelector("#user_id").value || null
 const app_url = document.querySelector("#app_url").value
-const formStripeCheckoutEl = document.querySelector("#form_stripe_checkout")
+const pagarmeCheckoutButtonEl = document.querySelector("#pagarme_checkout_button")
 
 
 async function recommendOtherGame(){
@@ -18,7 +18,7 @@ async function recommendOtherGame(){
 
         document.querySelector(`#total_not_recommend_gameid_${previousGameID}`).id = `total_not_recommend_gameid_${object.game.id}`
 
-        formStripeCheckoutEl.action = `/stripe-checkout/game/${object.game.id}`
+        pagarmeCheckoutButtonEl.href = `/pagarme/checkout/game/${object.game.id}`
 
         document.getElementById("game_id").value = object.game.id;
         document.getElementById("game_image").src = object.game.image;

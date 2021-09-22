@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer'
+import dotenv from 'dotenv'; dotenv.config()
 
 const SendGrid = nodemailer.createTransport({
     host: 'smtp.sendgrid.net',
@@ -28,4 +29,4 @@ const Ethereal = nodemailer.createTransport({
     }
 });
 
-export { SendGrid, MailTrap, Ethereal }
+export { MailTrap }

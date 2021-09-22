@@ -26,13 +26,12 @@ import cookieParser from 'cookie-parser'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));;
-
 
 
 // GLOBALS
-global.APP_ROOT_PATH = __dirname
 global.SESSION_USER = null;
+global.__dirname = dirname(fileURLToPath(import.meta.url));
+global.APP_ROOT_PATH = __dirname
 
 
 // DATABASE

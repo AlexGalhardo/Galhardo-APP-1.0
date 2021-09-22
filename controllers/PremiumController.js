@@ -8,6 +8,7 @@
  * http://localhost:3000/plans
  */
 
+import dotenv from 'dotenv'; dotenv.config()
 
 // HELPERS
 import DateTime from '../helpers/DateTime.js'
@@ -22,6 +23,7 @@ import PagarMEModel from '../models/JSON/PagarME.js'
 
 // PagarME
 import { PagarME } from '../helpers/PagarME.js'
+
 
 
 class PremiumController {
@@ -48,11 +50,11 @@ class PremiumController {
         return `
             <div class="card mb-4 rounded-3 shadow-sm text-center">
                 <div class="card-header py-3 bg-info">
-                    <h4 class="my-0 fw-normal">You Are PREMIUM!</h4>
+                    <h4 class="my-0 fw-normal">Você É PREMIUM!</h4>
                 </div>
 
                 <div class="card-body">
-                    <h1 class="card-title pricing-card-title">R$ 4.99<small class="text-muted fw-light">/month</small></h1>
+                    <h1 class="card-title pricing-card-title">R$ 4.99<small class="text-muted fw-light">/mês</small></h1>
                     <ul class="list-unstyled mt-3 mb-4">
                         <li>✔️ Acesso a nossa API</li>
                         <li>✔️ Sem propagandas no site</li>
@@ -70,8 +72,7 @@ class PremiumController {
 
     static async verifyIfUserIsAlreadyAPagarMECustomer(){
         if(!SESSION_USER.pagarme.customer_id){
-
-            const customerObject = {
+            const customer = await PagarME.createCustomer({
                 "external_id": SESSION_USER.id,
                 "name": SESSION_USER.name,
                 "type": "individual",
@@ -84,70 +85,44 @@ class PremiumController {
                     }
                 ],
                 "phone_numbers": [
-                    `+5511${SESSION_USER.phone}`
+                    `+${SESSION_USER.phone}`
                 ],
                 "birthday": "1985-01-01"
-            }
-
-            const pagarmeCustomerCreated = await PagarME.createCustomer(customerObject)
-
-            await Users.savePagarMECustomerID(SESSION_USER.id, pagarmeCustomerCreated.id)
-
-            return pagarmeCustomerCreated.id
+            })
+            await Users.savePagarMECustomerID(SESSION_USER.id, customer.id)
+            return
         }
-        return SESSION_USER.pagarme.customer_id
+        return
     }
-
-
 
 
     static async verifyIfUserAlreadyHasAPagarMECardRegistred(req){
         if(!SESSION_USER.pagarme.card_id){
-            const { holder_name,
-                    card_number,
-                    card_exp_year,
-                    card_exp_month,
-                    card_cvc } = req.body
-
-            const cardObject = {
+            const {
                 card_number,
-                card_holder_name: holder_name,
+                card_holder_name,
+                card_exp_year,
+                card_exp_month,
+                card_cvv
+            } = req.body
+
+            const [pagarmeCreditCard, cardHash] = await PagarME.createCreditCard({
+                card_number,
+                card_holder_name,
                 card_expiration_date: `${card_exp_month}${card_exp_year}`,
-                card_cvv: card_cvc
-            }
+                card_cvv
+            })
 
-            const pagarMeCardCreated = await PagarME.createCreditCard(cardObject)
-            await Users.createPagarMECard(SESSION_USER.id, pagarMeCardCreated)
-            return pagarMeCardCreated
+            console.log(pagarmeCreditCard, cardHash)
+
+            await Users.createPagarMECard(SESSION_USER.id, pagarmeCreditCard)
+            return
         }
-
-        return {
-            card_id: SESSION_USER.pagarme.card_id,
-            card_brand: SESSION_USER.pagarme.card_brand,
-            card_last_digits: SESSION_USER.pagarme.card_last_digits,
-            card_expiration_date: SESSION_USER.pagarme.card_expiration_date
-        }
-    }
-
-
-    static async createPagarMESubscription() {
-        const subscription = await PagarME.createSubscription(SESSION_USER)
-
-        subscription.date_created = DateTime.getDateTime(subscription.date_created);
-        subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
-        subscription.current_period_start = DateTime.getDateTime(subscription.current_period_start);
-
-        return subscription
+        return
     }
 
 
 
-
-    /**
-     * Verify if user is already a stripe customer
-     * verify if user already has a stripe credit card registred
-     * Verify if user is not already registred in other plan
-     */
     static async postSubscription (req, res) {
 
         try {
@@ -160,30 +135,33 @@ class PremiumController {
                 return res.redirect('/premium/checkout')
             }
 
-            const pagarMECustomerID = await PremiumController.verifyIfUserIsAlreadyAPagarMECustomer()
+            await PremiumController.verifyIfUserIsAlreadyAPagarMECustomer()
 
-            const pagarMECard = await PremiumController.verifyIfUserAlreadyHasAPagarMECardRegistred(req)
+            await PremiumController.verifyIfUserAlreadyHasAPagarMECardRegistred(req)
 
-            const subscription = await PremiumController.createPagarMESubscription()
+            const subscription = await PagarME.createPremiumSubscription()
 
-            const subsTransactionObject = {
+            // subscription.date_created = DateTime.getDateTime(subscription.date_created);
+            // subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
+            // subscription.current_period_start = DateTime.getDateTime(subscription.current_period_start);
+
+            const subscriptionTransactionObject = {
                 created_at: DateTime.getNow(),
                 transaction_id: subscription.id,
                 status: subscription.status,
                 payment_method: {
-                    card_id: pagarMECard.card_id,
-                    card_brand: pagarMECard.card_brand,
-                    card_exp_month: pagarMECard.card_exp_month,
-                    card_exp_year: pagarMECard.card_exp_year,
-                    card_last4: pagarMECard.card_last4
+                    card_id: SESSION_USER.pagarme.card_id,
+                    card_brand: SESSION_USER.pagarme.card_brand,
+                    card_expiration_date: SESSION_USER.pagarme.card_expiration_date,
+                    card_last_digits: SESSION_USER.pagarme.card_last_digits
                 },
                 plan: {
                     id: process.env.PAGARME_PLAN_PREMIUM_ID,
                     name: process.env.PAGARME_PLAN_PREMIUM_NAME,
                     amount: process.env.PAGARME_PLAN_PREMIUM_AMOUNT,
-                    current_period_start: subscription.current_period_start,
-                    current_period_end: subscription.current_period_end,
-                    cancel_at_period_end: subscription.cancel_at_period_end
+                    current_period_start: DateTime.getNow(),
+                    current_period_end: subscription.current_period_end.substring(0, 10)
+                    // current_period_end: DateTime.convertSubscriptionPeriondEnd(subscription.current_period_end)
                 },
                 customer: {
                     id: SESSION_USER.id,
@@ -193,19 +171,19 @@ class PremiumController {
                 }
             }
 
-            await Users.createPagarMESubscription(SESSION_USER.id)
+            await Users.createPagarMESubscription(SESSION_USER.id, subscriptionTransactionObject)
 
-            await PagarMEModel.createSubscriptionTransaction(subsTransactionObject)
+            await PagarMEModel.createSubscriptionTransaction(subscriptionTransactionObject)
 
-            await NodeMailer.sendSubscriptionTransaction(subsTransactionObject)
+            await NodeMailer.sendSubscriptionTransaction(subscriptionTransactionObject)
 
-            await TelegramBOTLogger.logSubscriptionTransaction(subsTransactionObject)
+            await TelegramBOTLogger.logSubscriptionTransaction(subscriptionTransactionObject)
 
             return res.render('pages/premium/premium_log', {
                 flash_success: 'Assinatura criada com sucesso!',
-                subsTransactionObject,
+                subscriptionTransactionObject,
                 user: SESSION_USER,
-                header: Header.plans('Premium Checkout Status - RecomendaÊ'),
+                header: Header.premium('Premium Checkout Status'),
                 divPlanBanner: PremiumController.getSubscriptionBanner()
             });
 

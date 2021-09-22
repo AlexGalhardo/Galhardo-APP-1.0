@@ -9,6 +9,7 @@
 
 import Pagarme from 'pagarme'
 import Games from '../models/JSON/Games.js'
+import dotenv from 'dotenv'; dotenv.config()
 
 
 class PagarME {
@@ -18,6 +19,7 @@ class PagarME {
             api_key: process.env.PAGARME_AK_TEST
         });
     }
+
 
     async createCustomer(customerObject){
         try {
@@ -33,6 +35,7 @@ class PagarME {
         }
     }
 
+
     async getCustomer(customer_id){
         try {
             const pagarmeCustomer = await this.pagarme.customers.find({ id: customer_id })
@@ -41,6 +44,7 @@ class PagarME {
             throw new Error(error)
         }
     }
+
 
     async updateCustomer(customer_id, customer_name, customer_email){
         try {
@@ -81,15 +85,17 @@ class PagarME {
 
 
     async createShopTransaction(transactionObject){
+        console.log('transactionObject é', transactionObject)
         const transaction = await this.pagarme.transactions
             .create(transactionObject)
             .catch(function(e){
                 console.log(e.response.errors)
             })
 
-        console.log(transaction)
+        console.log('pagarme transaction criado é: ', transaction)
         return transaction
     }
+
 
     async sendEmailBankSlipToCustomerEmail(transaction_id, customer_email){
         try {
@@ -101,6 +107,7 @@ class PagarME {
             throw new Error(error)
         }
     }
+
 
     async createPlan(){
         try {
@@ -116,33 +123,41 @@ class PagarME {
         }
     }
 
-    async createSubscription(userObject){
+
+    async createPremiumSubscription(){
         try {
-            const subscriptionCreated = await this.pagarme.subscriptions.create({
+            const subscription = await this.pagarme.subscriptions
+            .create({
                 plan_id: process.env.PAGARME_PLAN_PREMIUM_ID,
-                card_id: userObject.pagarme.card_id,
+                card_id: SESSION_USER.pagarme.card_id,
                 payment_method: 'credit_card',
                 customer: {
-                    email: userObject.email,
-                    name: userObject.name,
-                    document_number: userObject.document,
+                    email: SESSION_USER.email,
+                    name: SESSION_USER.name,
+                    document_number: SESSION_USER.document,
                     address: {
-                        zipcode: userObject.address.zipcide,
-                        neighborhood: userObject.address.neighborhood,
-                        street: userObject.address.street,
-                        street_number: userObject.address.street_number
+                        zipcode: SESSION_USER.address.zipcode,
+                        neighborhood: SESSION_USER.address.neighborhood,
+                        street: SESSION_USER.address.street,
+                        street_number: SESSION_USER.address.street_number
                     },
                     phone: {
-                        number: userObject.phone,
-                        ddd: '18'
+                        number: SESSION_USER.phone.number,
+                        ddd: SESSION_USER.phone.ddd
                     }
                 }
             })
-            return subscriptionCreated
+            .catch(function(e){
+                console.log(e.response.errors)
+            })
+
+            return subscription
+
         } catch(error){
             throw new Error(error)
         }
     }
+
 
     async getCheckoutLinkByGameID(game_id){
         try {

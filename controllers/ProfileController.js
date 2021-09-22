@@ -102,7 +102,7 @@ class ProfileController {
      * GET /profile/shop/transactions
      */
     static async getViewMyShopTransactions(req, res){
-        const shopTransactions = await StripeModel.getShopTransactionsByUserID(req.session.userID)
+        const shopTransactions = await PagarMEModel.getShopTransactionsByUserID(req.session.userID)
 
         return res.render('pages/profile/my_shop_transactions', {
             user: SESSION_USER,
@@ -118,7 +118,7 @@ class ProfileController {
     static async getViewShopTransactionByID(req, res){
         const { shop_transaction_id } = req.params
 
-        const shopTransaction = await StripeModel.getShopTransactionByID(shop_transaction_id)
+        const shopTransaction = await PagarMEModel.getShopTransactionByID(shop_transaction_id)
 
         return res.render('pages/profile/shop_transaction', {
             user: SESSION_USER,
@@ -133,7 +133,7 @@ class ProfileController {
      * GET /profile/subscriptions/transactions
      */
     static async getViewMySubscriptionsTransactions(req, res){
-        const subsTransactions = await StripeModel.getSubsTransactionsByUserID(req.session.userID)
+        const subsTransactions = await PagarMEModel.getSubsTransactionsByUserID(req.session.userID)
 
         return res.render('pages/profile/my_subs_transactions', {
             user: SESSION_USER,
@@ -150,7 +150,7 @@ class ProfileController {
     static async getViewSubscriptionTransactionByID(req, res){
         const { subs_transaction_id } = req.params
 
-        const subsTransaction = await StripeModel.getSubsTransactionByID(subs_transaction_id)
+        const subsTransaction = await PagarMEModel.getSubsTransactionByID(subs_transaction_id)
 
         return res.render('pages/profile/sub_transaction', {
             user: SESSION_USER,
@@ -161,14 +161,14 @@ class ProfileController {
 
 
     /**
-     * GET /profile/delete/stripeCard/:stripe_card_id
+     * GET /profile/delete/pagarMECard/:pagarme_card_id
      */
-    static async deleteStripeCard(req, res){
-        const { stripe_card_id } = req.params
+    static async deletePagarMECard(req, res){
+        const { pagarme_card_id } = req.params
 
-        await StripeModel.deleteStripeCard(SESSION_USER.id, stripe_card_id)
+        await PagarMEModel.deleteStripeCard(SESSION_USER.id, pagarme_card_id)
 
-        req.flash('success', 'Stripe Card Deleted!')
+        req.flash('success', 'PagarME Card Deleted!')
         return res.redirect('/profile')
     }
 
@@ -176,10 +176,10 @@ class ProfileController {
     /**
      * GET /profile/cancel/subscription/:stripe_currently_subscription_id
      */
-    static async cancelStripeSubscriptionRenewAtPeriodEnd(req, res){
+    static async cancelPagarMESubscriptionRenewAtPeriodEnd(req, res){
         const { stripe_currently_subscription_id } = req.params
 
-        await StripeModel.cancelStripeSubscriptionRenewAtPeriodEnd(SESSION_USER.id, stripe_currently_subscription_id)
+        await PagarMEModel.cancelStripeSubscriptionRenewAtPeriodEnd(SESSION_USER.id, stripe_currently_subscription_id)
 
         req.flash('success', 'Canceled Subscription Renew At Period End!')
         return res.redirect('/profile')

@@ -108,11 +108,11 @@ class AppController {
             if (!req.recaptcha.error) {
                 if (!errors.isEmpty()) {
                     req.flash('warning', `${errors.array()[0].msg}`)
-                    return res.redirect('/contact')
+                    return res.redirect('/contato')
                 }
             } else {
                 req.flash('warning', `Invalid Recaptcha!`)
-                return res.redirect('/contact')
+                return res.redirect('/contato')
             }
 
             const { name,
@@ -131,7 +131,7 @@ class AppController {
             await TelegramBOTLogger.logContact(contactObject)
 
             req.flash('success', 'Message Send!')
-            return res.redirect('/contact')
+            return res.redirect('/contato')
         }
         catch(error){
             throw new Error(error)
@@ -140,7 +140,7 @@ class AppController {
 
 
     static getViewPrivacy (req, res){
-        return res.render('pages/privacy', {
+        return res.render('pages/privacidade', {
             user: SESSION_USER,
             header: Header.privacy()
         });

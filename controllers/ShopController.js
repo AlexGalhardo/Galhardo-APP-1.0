@@ -80,7 +80,7 @@ class ShopController {
                     }
                 ],
                 "phone_numbers": [
-                    `+${SESSION_USER.phone}`
+                    `${SESSION_USER.phone.country}${SESSION_USER.phone.ddd}${SESSION_USER.phone.number}`
                 ],
                 "birthday": "1985-01-01"
             })
@@ -134,6 +134,7 @@ class ShopController {
                 shipping_country,
                 shipping_carrier,
                 shipping_fee,
+                shipping_deadline,
                 total_shop_amount,
                 card_number,
                 card_exp_month,
@@ -144,7 +145,7 @@ class ShopController {
             const validPassword = await Users.verifyPassword(SESSION_USER.id, confirm_password)
 
             if(!validPassword){
-                req.flash('warning', 'Invalid Password!')
+                req.flash('warning', 'Senha Inválida!')
                 return res.redirect(`/shop`)
             }
 
@@ -152,38 +153,50 @@ class ShopController {
 
             await ShopController.verifyIfUserAlreadyHasAPagarMECardRegistred(req)
 
-            const products = [
-                {
-                    title: 'SpiderMan',
-                    price: 9.90.toFixed(2)
-                },
-                {
-                    title: 'Ghost Of Tsushima',
-                    price: 19.90.toFixed(2)
-                },
-                {
-                    title: 'The Last Of Us',
-                    price: 29.90.toFixed(2)
-                }
-            ]
-
-            console.log(JSON.stringify(products))
+            const shopCartProducts = [
+                    {
+                        "id": '3',
+                        "title": 'SpiderMan',
+                        "unit_price": '990',
+                        "quantity": 1,
+                        "tangible": true
+                    },
+                    {
+                        "id": '2',
+                        "title": 'Ghost Of Tsushima',
+                        "unit_price": '1990',
+                        "quantity": 1,
+                        "tangible": true
+                    },
+                    {
+                        "id": '10',
+                        "title": 'The Last Of Us',
+                        "unit_price": '2990',
+                        "quantity": 1,
+                        "tangible": true
+                    }
+                ]
 
             const transaction = await PagarME.createShopTransaction({
                 "amount": "3000",
                 "card_id": SESSION_USER.pagarme.card_id,
                 "payment_method": "credit_card", //"boleto"
                 // "postback_url": "",
-                "async": false,
-                "installments": '3',
+                // "async": false,
+                // "installments": '3',
                 "customer": {
                     "name": SESSION_USER.name,
                     "external_id": SESSION_USER.id,
                     "email": SESSION_USER.email,
                     "type": "individual",
                     "country": "br",
-                    "phone_numbers": [SESSION_USER.phone],
-                    "documents": [{ "type" : "cpf", "number": SESSION_USER.document }]
+                    "phone_numbers": [`${SESSION_USER.phone}`],
+                    "documents": [
+                        {
+                          "type": "cpf",
+                          "number": "30621143049"
+                        }
+                    ],
                 },
                 "billing" : {
                     "name": SESSION_USER.name,
@@ -197,14 +210,29 @@ class ShopController {
                         "zipcode": zipcode
                     }
                 },
-                "items": JSON.stringify(products)
+                "shipping": {
+                    "name": SESSION_USER.name,
+                    "fee": shipping_fee,
+                    "delivery_date": "2000-12-21",
+                    "expedited": true,
+                    "address": {
+                        "country": "br",
+                        "state": 'sp',
+                        "city": customer_city,
+                        "neighborhood": customer_neighborhood,
+                        "street": customer_street,
+                        "street_number": "42",
+                        "zipcode": zipcode
+                    }
+                },
+                "items": shopCartProducts
             })
 
-            console.log('TRANSACTION É: ', transaction)
+            shopCartProducts.forEach(product => product.unit_price = parseFloat((product.unit_price)/100).toFixed(2))
 
             const shopTransactionObject = {
                 transaction_id: transaction.id,
-                total_amount: parseFloat(transaction.amount).toFixed(2),
+                total_amount: parseFloat(total_shop_amount).toFixed(2),
                 payment_method: {
                     card_id: transaction.card.id,
                     brand: transaction.card.brand,
@@ -212,9 +240,9 @@ class ShopController {
                     last_digits: transaction.card.last_digits
                 },
                 currency: 'BRL',
-                status: shopCardCharge.status,
+                status: transaction.status,
                 products_amount: (parseFloat(total_shop_amount) - parseFloat(shipping_fee)).toFixed(2),
-                products: JSON.stringify(products),
+                products: shopCartProducts,
                 customer: {
                     id: req.session.userID,
                     pagarme_id: SESSION_USER.pagarme.customer_id,
@@ -231,7 +259,8 @@ class ShopController {
                     address_state: customer_state,
                     address_country: "Brazil",
                     carrier: "Correios",
-                    fee: parseFloat(shipping_fee).toFixed(2)
+                    fee: parseFloat(shipping_fee).toFixed(2),
+                    deadline: parseInt(shipping_deadline) + 2
                 },
                 created_at: DateTime.getNow()
             }
@@ -241,7 +270,7 @@ class ShopController {
             await TelegramBOTLogger.logShopTransaction(shopTransactionObject)
 
             return res.render('pages/shop/shopPayLog', {
-                flash_success: 'Shop Transaction Created with Success!',
+                flash_success: 'TRANSAÇÃO COM CARTÃO DE CRÉDITO REALIZADA COM SUCESSO!',
                 shopTransactionObject,
                 user: SESSION_USER,
                 header: Header.shop()
