@@ -37,8 +37,6 @@
 
                     <img id="game_image" src="{{image}}" class="shadow mx-auto d-block w-75 image-fluid mb-3" alt="game_image">
 
-                    <h4 class="fw-bold">R$ 59.90</h4>
-
                     <a id="book_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="shadow image-fluid mb-3"></a>
 
                     <!-- <form id="form_stripe_checkout" action="#" method="POST">
@@ -49,8 +47,8 @@
                     </form> -->
 
                     <a href="/pagarme/checkout/game/{{id}}" id="pagarme_checkout_button" class="w-75 btn btn-outline-danger shadow mb-3 {{^user}}disabled{{/user}}">
-                        <i class="bi bi-cart"></i>
-                        PagarME Checkout
+                        <b><i class="bi bi-cart"></i>
+                        Comprar R$ <span id="game_price">{{price}}</span></b>
                     </a>
 
 
@@ -117,14 +115,14 @@
 
                         <ul class="mt-3 bg-light">
 
-                            <li class=""><b>Estoque:</b> <span id="">12</span> unidades</li>
+                            <li><small><b>Estoque:</b> <span id="">{{units}}</span> unidades</small></li>
 
 
-                            <li class=""><b>Gêneros:</b> <span id="game_genres">{{genres}}</span></li>
+                            <li><small><b>Gêneros:</b> <span id="game_genres">{{genres}}</span></small></li>
 
-                            <li class=""><b>Plataformas:</b> <span id="game_platforms">{{platforms}}</span></li>
+                            <li><small><b>Plataformas:</b> <span id="game_platforms">{{platforms}}</span></small></li>
 
-                            <li class=""><b>Desenvolvedores:</b> <span id="game_developer">{{developer}}</span></li>
+                            <li><small><b>Desenvolvedores:</b> <span id="game_developer">{{developer}}</span></small></li>
                         </ul>
                     </div>
 
@@ -148,13 +146,13 @@
                         <a href="/" class="d-flex justify-content-between list-group-item list-group-item-action bg-dark text-white" aria-current="true">
                             <i class="bi bi-controller"></i>
                             <span>Jogos</span>
-                            <span>472</span>
+                            <span>{{totalGames}}</span>
                         </a>
 
                         <a href="/books" class="d-flex justify-content-between list-group-item list-group-item-action">
                             <i class="bi bi-book"></i>
                             <span>Livros</span>
-                            <span>172</span>
+                            <span>{{totalBooks}}</span>
                         </a>
                     </div>
 
@@ -179,6 +177,11 @@
                     <img id="game_image" src="{{image}}" class="shadow mx-auto d-block w-75 image-fluid mb-3" alt="game_image">
 
                     <a id="game_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="image-fluid mb-3 shadow"></a>
+
+                    <a href="/pagarme/checkout/game/{{id}}" id="pagarme_checkout_button" class="w-75 btn btn-outline-danger shadow mb-3 {{^user}}disabled{{/user}}">
+                        <b><i class="bi bi-cart"></i>
+                        Comprar R$ <span id="game_price">{{price}}</span></b>
+                    </a>
 
                 </div>
 
@@ -208,11 +211,14 @@
 
                         <ul class="mt-3">
 
-                            <li><small><b>Genres:</b></small> <small id="game_genres">{{genres}}</small></li>
+                            <li><small><b>Estoque:</b> <span id="">{{units}}</span> unidades</small></li>
 
-                            <li><small><b>Platforms:</b></small> <small id="game_platforms">{{platforms}}</small></li>
 
-                            <li><small><b>Developer:</b></small> <small id="game_developer">{{developer}}</small></li>
+                            <li><small><b>Gêneros:</b> <span id="game_genres">{{genres}}</span></small></li>
+
+                            <li><small><b>Plataformas:</b> <span id="game_platforms">{{platforms}}</span></small></li>
+
+                            <li><small><b>Desenvolvedores:</b> <span id="game_developer">{{developer}}</span></small></li>
                         </ul>
                     </div>
 
@@ -223,18 +229,20 @@
                     <div class="col-lg-3 mb-3">
 
                         <form class="mb-3" action="/searchGame" method="GET">
-                            <input class="form-control" type="search" placeholder="Search game title" aria-label="Search" name="title">
+                            <input class="form-control" type="search" placeholder="Buscar título de jogo..." aria-label="Search" name="title">
                         </form>
 
                         <div class="list-group">
-                            <a href="/" class="list-group-item list-group-item-action  bg-dark text-white" aria-current="true">
+                            <a href="/" class="d-flex justify-content-between list-group-item list-group-item-action bg-dark text-white" aria-current="true">
                                 <i class="bi bi-controller"></i>
-                                Games
+                                <span>Jogos</span>
+                                <span>{{totalGames}}</span>
                             </a>
 
-                            <a href="/books" class="list-group-item list-group-item-action">
+                            <a href="/books" class="d-flex justify-content-between list-group-item list-group-item-action">
                                 <i class="bi bi-book"></i>
-                                Books
+                                <span>Livros</span>
+                                <span>{{totalBooks}}</span>
                             </a>
                         </div>
 

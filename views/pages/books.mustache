@@ -38,11 +38,6 @@
 
                     <a id="book_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="shadow image-fluid mb-3"></a>
 
-                    <button class="w-75 btn btn-outline-dark shadow mb-3" type="submit" onclick="recommendOtherBook()">
-                            <i class="bi bi-play-fill"></i>
-                            Recommend Other
-                    </button>
-
                     {{#user.admin}}
                         <a href="/admin/update/book/{{id}}" class="w-75 shadow mb-2 btn btn-warning shadow">
                         <i class="bi bi-unlock-fill"></i>
@@ -113,19 +108,26 @@
 
                 <div class="col-lg-3 mb-3">
 
+                    <button class="w-100 btn btn-outline-dark shadow mb-3" onclick="recommendOtherBook()">
+                        <i class="bi bi-play-fill"></i>
+                        RecomendaÊ
+                    </button>
+
                     <form class="mb-3" action="/searchBook" method="GET">
                         <input class="form-control" type="search" placeholder="Search Book Title..." aria-label="Search" name="title">
                     </form>
 
                     <div class="list-group">
-                        <a href="/" class="list-group-item list-group-item-action" aria-current="true">
+                        <a href="/" class="d-flex justify-content-between list-group-item list-group-item-action" aria-current="true">
                             <i class="bi bi-controller"></i>
-                            Games
+                            <span>Jogos</span>
+                            <span>{{totalGames}}</span>
                         </a>
 
-                        <a href="/books" class="list-group-item list-group-item-action bg-dark text-white">
+                        <a href="/books" class="d-flex justify-content-between list-group-item list-group-item-action bg-dark text-white">
                             <i class="bi bi-book"></i>
-                            Books
+                            <span>Livros</span>
+                            <span>{{totalBooks}}</span>
                         </a>
                     </div>
 
@@ -187,19 +189,26 @@
                 {{#firstBook}}
                     <div class="col-lg-3 mb-3">
 
+                        <button class="w-100 btn btn-outline-dark shadow mb-3" onclick="recommendOtherBook()">
+                            <i class="bi bi-play-fill"></i>
+                            RecomendaÊ
+                        </button>
+
                         <form class="mb-3" action="/searchBook" method="GET">
                             <input class="form-control" type="search" placeholder="Search Book Title..." aria-label="Search" name="title">
                         </form>
 
                         <div class="list-group">
-                            <a href="/" class="list-group-item list-group-item-action" aria-current="true">
+                            <a href="/" class="d-flex justify-content-between list-group-item list-group-item-action" aria-current="true">
                                 <i class="bi bi-controller"></i>
-                                Games
+                                <span>Jogos</span>
+                                <span>{{totalGames}}</span>
                             </a>
 
-                            <a href="/books" class="list-group-item list-group-item-action bg-dark text-white">
+                            <a href="/books" class="d-flex justify-content-between list-group-item list-group-item-action bg-dark text-white">
                                 <i class="bi bi-book"></i>
-                                Books
+                                <span>Livros</span>
+                                <span>{{totalBooks}}</span>
                             </a>
                         </div>
 

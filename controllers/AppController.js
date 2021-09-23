@@ -63,11 +63,16 @@ class AppController {
 
     static async getViewHome (req, res) {
         const game = await Games.getRandom()
+        game.price = game.price.toFixed(2)
+        const totalGames = await Games.getTotal()
+        const totalBooks = await Books.getTotal()
 
         return res.render('pages/home', {
             flash_success: req.flash('success'),
             flash_warning: req.flash('warning'),
             game,
+            totalGames,
+            totalBooks,
             user: SESSION_USER,
             app_url: process.env.APP_URL,
             header: Header.games()
@@ -76,11 +81,15 @@ class AppController {
 
     static async getViewBooks (req, res){
         const book = await Books.getRandom()
+        const totalGames = await Games.getTotal()
+        const totalBooks = await Books.getTotal()
 
         return res.render('pages/books', {
             flash_success: req.flash('success'),
             flash_warning: req.flash('warning'),
             book,
+            totalGames,
+            totalBooks,
             user: SESSION_USER,
             app_url: process.env.APP_URL,
             header: Header.books()

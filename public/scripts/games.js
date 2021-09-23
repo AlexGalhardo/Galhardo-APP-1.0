@@ -18,19 +18,23 @@ async function recommendOtherGame(){
 
         document.querySelector(`#total_not_recommend_gameid_${previousGameID}`).id = `total_not_recommend_gameid_${object.game.id}`
 
+        object.game.price = object.game.price.toFixed(2)
+
+        document.querySelector(`#game_price`).innerHTML = `${object.game.price}`
+
         pagarmeCheckoutButtonEl.href = `/pagarme/checkout/game/${object.game.id}`
 
-        document.getElementById("game_id").value = object.game.id;
-        document.getElementById("game_image").src = object.game.image;
-        document.getElementById("game_title").innerHTML = object.game.title;
-        document.getElementById("game_year_release").innerHTML = object.game.year_release;
-        document.getElementById("game_resume").innerHTML = object.game.resume;
-        document.getElementById("game_genres").innerHTML = object.game.genres;
-        document.getElementById("game_platforms").innerHTML = object.game.platforms;
-        document.getElementById("game_developer").innerHTML = object.game.developer;
-        document.getElementById("game_igdb_link").href = object.game.igdb_link;
-        document.getElementById("game_igdb_rating").innerHTML = object.game.igdb_rating;
-        document.getElementById("game_amazon_link").href = object.game.amazon_link;
+        document.querySelector("#game_id").value = object.game.id;
+        document.querySelector("#game_image").src = object.game.image;
+        document.querySelector("#game_title").innerHTML = object.game.title;
+        document.querySelector("#game_year_release").innerHTML = object.game.year_release;
+        document.querySelector("#game_resume").innerHTML = object.game.resume;
+        document.querySelector("#game_genres").innerHTML = object.game.genres;
+        document.querySelector("#game_platforms").innerHTML = object.game.platforms;
+        document.querySelector("#game_developer").innerHTML = object.game.developer;
+        document.querySelector("#game_igdb_link").href = object.game.igdb_link;
+        document.querySelector("#game_igdb_rating").innerHTML = object.game.igdb_rating;
+        document.querySelector("#game_amazon_link").href = object.game.amazon_link;
     });
 
     const buttonRecommendEl = document.querySelector(`#button_recommend_gameid_${object.game.id}`)

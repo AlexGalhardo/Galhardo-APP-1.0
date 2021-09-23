@@ -164,12 +164,12 @@ class PagarME {
             const game = await Games.getByID(parseInt(game_id))
 
             const pagarMECheckoutObject = await this.pagarme.paymentLinks.create({
-                "amount": game.price,
+                "amount": game.price * 100,
                 "items": [
                     {
                         "id": game.id.toString(),
                         "title": game.title,
-                        "unit_price": game.price,
+                        "unit_price": game.price * 100,
                         "quantity": 1,
                         "tangible": true
                     },
