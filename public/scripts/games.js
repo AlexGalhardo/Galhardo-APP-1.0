@@ -1,6 +1,6 @@
 const user_id = document.querySelector("#user_id").value || null
 const app_url = document.querySelector("#app_url").value
-const pagarmeCheckoutButtonEl = document.querySelector("#pagarme_checkout_button")
+const formStripeCheckoutEl = document.querySelector("#form_stripe_checkout")
 
 
 async function recommendOtherGame(){
@@ -22,7 +22,7 @@ async function recommendOtherGame(){
 
         document.querySelector(`#game_price`).innerHTML = `${object.game.price}`
 
-        pagarmeCheckoutButtonEl.href = `/pagarme/checkout/game/${object.game.id}`
+        formStripeCheckoutEl.action = `/stripe/checkout/game/${object.game.id}`
 
         document.querySelector("#game_id").value = object.game.id;
         document.querySelector("#game_image").src = object.game.image;

@@ -118,15 +118,15 @@
                     </form>
 
                     <div class="list-group">
-                        <a href="/" class="d-flex justify-content-between list-group-item list-group-item-action bg-dark text-white" aria-current="true">
+                        <a href="/" class="d-flex justify-content-between list-group-item list-group-item-action" aria-current="true">
                             <i class="bi bi-controller"></i>
-                            <span>Jogos</span>
+                            <span>Games</span>
                             <span>{{totalGames}}</span>
                         </a>
 
-                        <a href="/books" class="d-flex justify-content-between list-group-item list-group-item-action">
+                        <a href="/books" class="d-flex justify-content-between list-group-item list-group-item-action bg-dark text-white">
                             <i class="bi bi-book"></i>
-                            <span>Livros</span>
+                            <span>Books</span>
                             <span>{{totalBooks}}</span>
                         </a>
                     </div>
@@ -194,14 +194,16 @@
                         </form>
 
                         <div class="list-group">
-                            <a href="/" class="list-group-item list-group-item-action" aria-current="true">
+                            <a href="/" class="d-flex justify-content-between list-group-item list-group-item-action" aria-current="true">
                                 <i class="bi bi-controller"></i>
-                                Games
+                                <span>Games</span>
+                                <span>{{totalGames}}</span>
                             </a>
 
-                            <a href="/books" class="list-group-item list-group-item-action bg-dark text-white">
+                            <a href="/books" class="d-flex justify-content-between list-group-item list-group-item-action bg-dark text-white">
                                 <i class="bi bi-book"></i>
-                                Books
+                                <span>Books</span>
+                                <span>{{totalBooks}}</span>
                             </a>
                         </div>
 

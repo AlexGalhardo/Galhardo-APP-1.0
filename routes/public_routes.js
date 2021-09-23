@@ -124,8 +124,7 @@ router
 
 
 // STRIPE CHECKOUT
-    // .get('/stripe-checkout/status', AppController.get)
-    .post('/stripe-checkout/game/:game_id', AppController.postStripeCheckoutGameID)
+    .post('/stripe/checkout/game/:game_id', AppController.postStripeCheckoutGameID)
 
 
 // PLANS VIEWS CONTROLLER

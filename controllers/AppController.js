@@ -248,7 +248,11 @@ class AppController {
     static async postStripeCheckoutGameID(req, res){
         try {
             const { game_id } = req.params
-            const gameStripePriceID = await Games.getStripePriceID(game_id)
+            let gameStripePriceID = await Games.getStripePriceID(game_id)
+
+            if(!gameStripePriceID){
+                gameStripePriceID = 'price_1JZklOHoneB4ZvrpPyYSucdx'
+            }
 
             const session = await stripe.checkout.sessions.create({
                 // customer_email: 'aleexgalhardoo@example.com',
