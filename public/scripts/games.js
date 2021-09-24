@@ -1,6 +1,34 @@
 const user_id = document.querySelector("#user_id").value || null
 const app_url = document.querySelector("#app_url").value
 const pagarmeCheckoutButtonEl = document.querySelector("#pagarme_checkout_button")
+const smallShopCartAddButtonEl = document.querySelector("#small_shop_cart_add_button")
+const shopCartTotalItensEl = document.querySelector("#shop_cart_total_itens")
+
+
+async function addThisGameToShopCart(){
+
+    let game_id = document.querySelector("#game_id").value
+
+    const response = await fetch(`${app_url}/shopCart/game/${game_id}/user/${user_id}`);
+    const json = await response.json();
+
+    const addShopCartButtonEl = document.querySelector(`#add_shop_cart_button`)
+
+    if(json.added_to_shop_cart){
+        addShopCartButtonEl.classList.remove('btn-outline-success')
+        addShopCartButtonEl.classList.add('btn-warning')
+        smallShopCartAddButtonEl.innerHTML = "Adicionado"
+
+        shopCartTotalItensEl.innerHTML = json.shop_cart_itens_length
+    } else {
+        addShopCartButtonEl.classList.remove('btn-warning')
+        addShopCartButtonEl.classList.add('btn-outline-success')
+
+        smallShopCartAddButtonEl.innerHTML = "Adicionar Carrinho"
+
+        shopCartTotalItensEl.innerHTML = json.shop_cart_itens_length
+    }
+}
 
 
 async function recommendOtherGame(){
@@ -59,6 +87,18 @@ async function recommendOtherGame(){
     } else {
         buttonNotRecommendEl.classList.remove('btn-danger')
         buttonNotRecommendEl.classList.add('btn-outline-danger')
+    }
+
+    const addShopCartButtonEl = document.querySelector(`#add_shop_cart_button`)
+
+    if(object.game.userLoggedAddedToShopCart === 'btn-warning'){
+        addShopCartButtonEl.classList.remove('btn-outline-success')
+        addShopCartButtonEl.classList.add('btn-warning')
+        smallShopCartAddButtonEl.innerHTML = "Adicionado"
+    } else {
+        addShopCartButtonEl.classList.remove('btn-warning')
+        addShopCartButtonEl.classList.add('btn-outline-success')
+        smallShopCartAddButtonEl.innerHTML = "Adicionar Carrinho"
     }
 
     document.querySelector(`#total_recommend_gameid_${object.game.id}`).innerHTML = object.game.recommend

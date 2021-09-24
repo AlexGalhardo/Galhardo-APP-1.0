@@ -39,7 +39,23 @@
         "currently_subscription_id": 761529,
         "currently_subscription_name": "Plano PREMIUM",
         "subscription_start": "22/09/2021 19:47:40",
-        "subscription_end": "2021-10-22"
+        "subscription_end": "2021-10-22",
+        "cancel_at_period_end": false,
+        "card_last4": null,
+        "card_exp_month": null,
+        "card_exp_year": null
+      },
+      "shopCart": {
+        "amount": "59.90",
+        "length": 1,
+        "itens": [
+          {
+            "game_id": 4,
+            "title": "Uncharted 4: A Thief's End",
+            "price": 59.9,
+            "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7h.jpg"
+          }
+        ]
       },
       "created_at": "09/08/2021 03:52:14",
       "updated_at": "11/08/2021 04:04:17"
@@ -99,7 +115,6 @@
       "image": "https://picsum.photos/id/1/230/230",
       "category": "software",
       "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n\r\n<img src='https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/05/Os-Simpsons.jpg' class='w-100 image-fluid'>\r\n\r\n<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>",
-      "updated_at": "12/08/2021 18:49:33",
       "comments": [
         {
           "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
@@ -112,7 +127,7 @@
         },
         {
           "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "user_logged_can_delete": false,
+          "user_logged_can_delete": true,
           "user_name": "Test Jack",
           "user_avatar": "alex.png",
           "comment": "when an unknown printer took a galley of type and scrambled it to make a type specimen book. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since ",
@@ -121,7 +136,7 @@
         },
         {
           "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "user_logged_can_delete": false,
+          "user_logged_can_delete": true,
           "user_name": "Test Jack",
           "user_avatar": "alex.png",
           "comment": "new comment 2",
@@ -130,7 +145,7 @@
         },
         {
           "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "user_logged_can_delete": false,
+          "user_logged_can_delete": true,
           "user_name": "Test Jack",
           "user_avatar": "alex.png",
           "comment": "new comment 1",
@@ -139,67 +154,68 @@
         }
       ],
       "slug": "why-simpsons-is-so-succesfull",
-      "created_at": "04/08/2021 18:35:09"
+      "created_at": "04/08/2021 18:35:09",
+      "updated_at": "12/08/2021 18:49:33"
     },
     {
+      "id": 2,
       "title": "Blog Title 2",
       "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "image": "https://picsum.photos/id/1/230/230",
+      "category": "software",
+      "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n\r\n<img src='https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/05/Os-Simpsons.jpg' class='w-100 image-fluid'>\r\n\r\n<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>",
+      "comments": [],
       "slug": "blog-title-2",
-      "category": "Bussiness",
-      "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>",
-      "image": "https://picsum.photos/id/2/230/230",
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "id": 2,
-      "comments": []
+      "updated_at": "12/08/2021 18:49:33"
     },
     {
+      "id": 3,
       "title": "Blog Title 3",
       "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "image": "https://picsum.photos/id/1/230/230",
+      "category": "software",
+      "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n\r\n<img src='https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/05/Os-Simpsons.jpg' class='w-100 image-fluid'>\r\n\r\n<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>",
+      "comments": [],
       "slug": "blog-title-3",
-      "category": "Software",
-      "body": "Blog Body 3",
-      "image": "https://picsum.photos/id/3/230/230",
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "id": 3,
-      "comments": []
+      "updated_at": "12/08/2021 18:49:33"
     },
     {
+      "id": 4,
       "title": "Blog Title 4",
       "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-      "slug": "blog-title-5",
+      "image": "https://picsum.photos/id/1/230/230",
       "category": "software",
-      "body": "Blog Body 5",
-      "image": "https://picsum.photos/id/5/230/230",
+      "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n\r\n<img src='https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/05/Os-Simpsons.jpg' class='w-100 image-fluid'>\r\n\r\n<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>",
+      "comments": [],
+      "slug": "blog-title-4",
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "id": 4,
-      "comments": []
+      "updated_at": "12/08/2021 18:49:33"
     },
     {
+      "id": 5,
       "title": "Blog Title 5",
       "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-      "slug": "blog-title-6",
+      "image": "https://picsum.photos/id/1/230/230",
       "category": "software",
-      "body": "Blog Body 6",
-      "image": "https://picsum.photos/id/6/230/230",
+      "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n\r\n<img src='https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/05/Os-Simpsons.jpg' class='w-100 image-fluid'>\r\n\r\n<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>",
+      "comments": [],
+      "slug": "blog-title-5",
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "id": 5,
-      "comments": []
+      "updated_at": "12/08/2021 18:49:33"
     },
     {
-      "title": "New blog title insomnia",
-      "resume": "New blog resume by insomnia",
-      "image": "https://picsum.photos/id/10/230/230",
-      "category": "Software",
-      "body": "new blog post body by insomnia",
+      "id": 6,
+      "title": "Blog Title 6",
+      "resume": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+      "image": "https://picsum.photos/id/1/230/230",
+      "category": "software",
+      "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n\r\n<img src='https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/05/Os-Simpsons.jpg' class='w-100 image-fluid'>\r\n\r\n<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>",
       "comments": [],
-      "created_at": "17/08/2021 04:48:46",
-      "updated_at": "17/08/2021 04:48:46",
-      "slug": "New-blog-title-insomnia",
-      "id": 6
+      "slug": "blog-title-6",
+      "created_at": "04/08/2021 18:35:09",
+      "updated_at": "12/08/2021 18:49:33"
     }
   ],
   "games": [
@@ -207,7 +223,7 @@
       "id": 1,
       "title": "God Of War",
       "year_release": 2018,
-      "price": 139.90,
+      "price": 139.9,
       "resume": "It is a new beginning for Kratos. Living as a man, outside the shadow of the gods, he seeks solitude in the unfamiliar lands of Norse mythology. With new purpose and his son at his side, Kratos must fight for survival as powerful forces threaten to disrupt the new life he has created...",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg",
       "igdb_link": "https://www.igdb.com/games/god-of-war--1",
@@ -222,13 +238,14 @@
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 2,
       "title": "Ghost Of Tsushima",
       "year_release": 2020,
-      "price": 199.90,
+      "price": 199.9,
       "resume": "The year is 1274. Samurai warriors are the legendary defenders of Japan — until the fearsome Mongol Empire invades the island of Tsushima, wreaking havoc and conquering the local population. As one of the last surviving samurai, you rise from the ashes to fight back. But, honorable tactics won’t lead you to victory. You must move beyond your samurai traditions to forge a new way of fighting — the way of the Ghost — as you wage an unconventional war for the freedom of Japan.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2crj.jpg",
       "igdb_link": "https://www.igdb.com/games/ghost-of-tsushima",
@@ -242,14 +259,15 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-danger"
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 3,
       "title": "Marvel's SpiderMan",
       "year_release": 2018,
-      "price": 129.90,
+      "price": 129.9,
       "resume": "Starring the world’s most iconic Super Hero, Spider-Man features the acrobatic abilities, improvisation and web-slinging that the wall-crawler is famous for, while also introducing elements never-before-seen in a Spider-Man game. From traversing with parkour and utilizing the environment, to new combat and blockbuster set pieces, it’s Spider-Man unlike any you’ve played before.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r77.jpg",
       "igdb_link": "https://www.igdb.com/games/marvels-spider-man",
@@ -264,13 +282,14 @@
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 4,
       "title": "Uncharted 4: A Thief's End",
       "year_release": 2016,
-      "price": 59.90,
+      "price": 59.9,
       "resume": "Several years after his last adventure, retired fortune hunter, Nathan Drake, is forced back into the world of thieves. With the stakes much more personal, Drake embarks on a globe-trotting journey in pursuit of a historical conspiracy behind a fabled pirate treasure. His greatest adventure will test his physical limits, his resolve, and ultimately what he's willing to sacrifice to save the ones he loves.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7h.jpg",
       "igdb_link": "https://www.igdb.com/games/uncharted-4-a-thief-s-end",
@@ -285,13 +304,14 @@
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 5,
       "title": "Uncharted: The Lost Legacy",
       "year_release": 2017,
-      "price": 89.90,
+      "price": 89.9,
       "resume": "From the critically acclaimed developer, Naughty Dog, comes the first standalone adventure in the Uncharted series. Fan-favorite character, Chloe Frazer, must enlist the aid of renowned mercenary Nadine Ross from Uncharted 4: A Thief’s End in order to recover a fabled ancient Indian artifact and keep it out of the hands of a ruthless war profiteer. Together, they’ll venture deep into the mountains of India in search of the legendary artifact. Along the way, they’ll learn to work together to unearth the mystery of the artifact, fight their way through fierce opposition, and prevent the region from falling into chaos.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tp9.jpg",
       "igdb_link": "https://www.igdb.com/games/uncharted-the-lost-legacy",
@@ -306,13 +326,14 @@
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 6,
       "title": "Bloodborne",
       "year_release": 2015,
-      "price": 29.90,
+      "price": 29.9,
       "resume": "An action RPG in which the player embodies a Hunter who, after being transfused with the mysterious blood local to the city of Yharnam, sets off into a 'night of the Hunt', an extended night in which Hunters may phase in and out of dream and reality in order to thin the outbreak of abominable beasts that plague the land and, for the more resilient and insightful Hunters, uncover the answers to the Hunt's many mysteries.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rba.jpg",
       "igdb_link": "https://www.igdb.com/games/bloodborne",
@@ -327,13 +348,14 @@
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-warning"
     },
     {
       "id": 7,
       "title": "Persona 5 Royal",
       "year_release": 2019,
-      "price": 39.90,
+      "price": 39.9,
       "resume": "An enhanced version of Persona 5 with some new characters and a third semester added to the game. Released Internationally in 2020.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1nic.jpg",
       "igdb_link": "https://www.igdb.com/games/persona-5-royal",
@@ -348,13 +370,14 @@
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 8,
       "title": "God of War III",
       "year_release": 2010,
-      "price": 9.90,
+      "price": 9.9,
       "resume": "Set in the realm of brutal Greek mythology, God of War III is a single-player game that allows players to take on the climatic role of the ex-Spartan warrior, Kratos, as he scales through the intimidating heights of Mt. Olympus and the dark depths of Hell to seek revenge on those who have betrayed him. Armed with double-chained blades, and an array of new weapons and magic for this iteration of the trilogy, Kratos must take on mythology's darkest creatures while solving intricate puzzles throughout his merciless quest to destroy Olympus.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co30a3.jpg",
       "igdb_link": "https://www.igdb.com/games/god-of-war-iii",
@@ -368,14 +391,15 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-danger"
+      "userLoggedRecommend": "btn-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 9,
       "title": "The Last of Us Part II",
       "year_release": 2020,
-      "price": 99.90,
+      "price": 99.9,
       "resume": "Set 5 years after the events of The Last of Us, we see the return of Joel and Ellie. Driven by hatred, Ellie sets out for Seattle to serve justice. However, she begins to wonder what justice really means.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r0o.jpg",
       "igdb_link": "https://www.igdb.com/games/the-last-of-us-part-ii",
@@ -390,13 +414,14 @@
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 10,
       "title": "The Last of Us",
       "year_release": 2013,
-      "price": 89.90,
+      "price": 89.9,
       "resume": "A third person shooter/stealth/survival hybrid, in which twenty years after the outbreak of a parasitic fungus which takes over the neural functions of humans, Joel, a Texan with a tragic familial past, finds himself responsible with smuggling a fourteen year old girl named Ellie to a militia group called the Fireflies, while avoiding strict and deadly authorities, infected fungal hosts and other violent survivors.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7f.jpg",
       "igdb_link": "https://www.igdb.com/games/the-last-of-us",
@@ -411,13 +436,14 @@
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-warning"
     },
     {
       "id": 11,
       "title": "Hades",
       "year_release": "2020",
-      "price": 79.90,
+      "price": 79.9,
       "resume": "A rogue-lite hack and slash dungeon crawler in which Zagreus, son of Hades the Greek god of the dead, attempts to escape his home and his oppressive father by fighting the souls of the dead through the various layers of the ever-shifting underworld, while getting to know and forging relationships with its inhabitants.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co39vc.jpg",
       "igdb_link": "https://www.igdb.com/games/hades--1",
@@ -432,13 +458,14 @@
       "updated_at": "17/08/2021 05:28:54",
       "created_at": "17/08/2021 05:28:54",
       "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 12,
       "title": "Detroit: Become Human",
       "year_release": 2018,
-      "price": 69.90,
+      "price": 69.9,
       "resume": "Detroit: Become Human is an neo-noir thriller. The plot revolves around three androids: Kara, who escapes the factory she was made in to explore her newfound sentience; Connor, whose job it is to hunt down deviant androids like Kara; and Markus, who devotes himself to releasing the androids from servitude. The characters may survive or perish depending on the choices that are made, which serve to shape the story as customised by the player.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2md2.png",
       "igdb_link": "https://www.igdb.com/games/detroit-become-human--1",
@@ -452,14 +479,15 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 13,
       "title": "Shadow of the Colossus",
       "year_release": 2018,
-      "price": 59.90,
+      "price": 59.9,
       "resume": "Tales speak of an ancient land where creatures the size of mountains, roam the majestic landscape. Bound to the land, these creatures hold a key to a mystical power of revival - a power you must obtain to waken a loved one. Shadow of the Colossus is a majestic journey through ancient lands to seek out and destroy gigantic mythical beasts. With your trusty horse at your side, explore the spacious lands and unearth each Colossi. Armed with your wits, a sword and a bow, use cunning and strategy to topple each behemoth. A remake of the critically-claimed game of the same title. Also from the minds that brought you The Last Guardian & ICO",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co272w.png",
       "igdb_link": "https://www.igdb.com/games/shadow-of-the-colossus--1",
@@ -473,14 +501,15 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 14,
       "title": "Gran Turismo Sport",
       "year_release": 2018,
-      "price": 49.90,
+      "price": 49.9,
       "resume": "Welcome to the future of motorsports – the definitive motor racing experience is back and better than ever only on PlayStation 4. Gran Turismo Sport is the world’s first racing experience to be built from the ground up to bring global, online competitions sanctioned by the highest governing body of international motorsports, the FIA (Federation International Automobile). Create your legacy as you represent and compete for your home country or favorite manufacturer.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1pd4.png",
       "igdb_link": "https://www.igdb.com/games/gran-turismo-sport",
@@ -494,14 +523,15 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 15,
       "title": "Horizon Zero Dawn",
       "year_release": 2018,
-      "price": 39.90,
+      "price": 39.9,
       "resume": "Horizon Zero Dawn, an exhilarating new action role playing game exclusively for the PlayStation 4 system, developed by the award winning Guerrilla Games, creatos of PlayStation's venerated Killzone franchise. As Horizon Zero Dawn's main protagonist Aloy, a skilled hunter, explore a vibrant and lush world inhabited by mysterious mechanized creatures.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2una.png",
       "igdb_link": "https://www.igdb.com/games/horizon-zero-dawn",
@@ -515,14 +545,15 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 16,
       "title": "Final Fantasy 7 Remake",
       "year_release": 2020,
-      "price": 29.90,
+      "price": 29.9,
       "resume": "A spectacular re-imagining of one of the most visionary games ever, FINAL FANTASY VII REMAKE rebuilds and expands the legendary RPG for today. The first game in this project is set in the eclectic city of Midgar and presents a fully standalone gaming experience.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1qxr.png",
       "igdb_link": "https://www.igdb.com/games/final-fantasy-vii-remake",
@@ -536,14 +567,15 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 17,
       "title": "Death Stranding",
       "year_release": 2019,
-      "price": 9.90,
+      "price": 9.9,
       "resume": "Action & exploration third person game set in a post-apocalyptic open world.Developed by Kojima Productions and published first on PS4 by Sony Interactive and later on PC by 505 Games.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co316v.png",
       "igdb_link": "https://www.igdb.com/games/death-stranding",
@@ -557,14 +589,15 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 18,
       "title": "Metal Gear Solid V",
       "year_release": 2015,
-      "price": 19.90,
+      "price": 19.9,
       "resume": "The 5th installment of the Metal Gear Solid saga, Metal Gear Solid V: The Phantom Pain continues the story of Big Boss (aka Naked Snake, aka David), connecting the story lines from Metal Gear Solid: Peace Walker, Metal Gear Solid: Ground Zeroes, and the rest of the Metal Gear Universe.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1v85.png",
       "igdb_link": "https://www.igdb.com/games/metal-gear-solid-v-the-phantom-pain",
@@ -578,14 +611,15 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     },
     {
       "id": 19,
       "title": "Uncharted: The Nathan Drake Collection",
       "year_release": 2015,
-      "price": 59.90,
+      "price": 59.9,
       "resume": "Uncharted: The Nathan Drake Collection is a remastered compilation of the action-adventure shooter platform video games Drake's Fortune, Among Thieves, and Drake's Deception. Ported by Bluepoint Games, the collection was released exclusively for the PlayStation 4 on October 7, 2015 in Europe and October 9th, 2015 in North America. The Nathan Drake Collection features the original three games in the Uncharted series with 1080p resolution, 60 frames per second, better lighting, textures and models. The collection also implements a photo mode, a mode where the player can freeze the game at any moment to take personalized screenshots, derived from Naughty Dog's other remastered entry, The Last of Us Remastered, as well as new trophies. The ported games only include their respective single-player modes.",
       "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tps.png",
       "igdb_link": "https://www.igdb.com/games/uncharted-the-nathan-drake-collection",
@@ -599,8 +633,9 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedNotRecommend": "btn-outline-danger",
+      "userLoggedAddedToShopCart": "btn-outline-success"
     }
   ],
   "games_recommendations": [
@@ -735,6 +770,12 @@
       "game_id": 3,
       "user_recommend": false,
       "user_not_recommend": true
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 15,
+      "user_recommend": false,
+      "user_not_recommend": false
     }
   ],
   "books": [
@@ -781,7 +822,7 @@
       "resume": "Yuval Noah Harari, author of the critically-acclaimed New York Times bestseller and international phenomenon Sapiens, returns with an equally original, compelling, and provocative book, turning his focus toward humanity’s future, and our quest to upgrade humans into gods. Over the past century humankind has managed to do the impossible and rein in famine, plague, and war. This may seem hard to accept, but, as Harari explains in his trademark style—thorough, yet riveting—famine, plague and war have been transformed from incomprehensible and uncontrollable forces of nature into manageable challenges. For the first time ever, more people die from eating too much than from eating too little; more people die from old age than from infectious diseases; and more people commit suicide than are killed by soldiers, terrorists and criminals put together. The average American is a thousand times more likely to die from binging at McDonalds than from being blown up by Al Qaeda.",
       "pages": "464",
       "genres": "Historic",
-      "recommend": 1,
+      "recommend": 0,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
@@ -798,7 +839,7 @@
       "pages": "256",
       "genres": "Biography",
       "author": "Walter Isaacson",
-      "recommend": 1,
+      "recommend": 0,
       "not_recommend": 1,
       "updated_at": "17/08/2021 05:49:19",
       "created_at": "17/08/2021 05:49:19",
@@ -815,7 +856,7 @@
       "genres": "Software",
       "author": "Robert C. Martin",
       "id": 5,
-      "recommend": 1,
+      "recommend": 0,
       "not_recommend": 1,
       "updated_at": "19/08/2021 03:34:40",
       "created_at": "19/08/2021 03:34:40",
@@ -837,7 +878,7 @@
       "updated_at": "19/08/2021 03:35:50",
       "created_at": "19/08/2021 03:35:50",
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-danger"
+      "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
       "title": "How To Win Friends and Influence People",
@@ -849,7 +890,7 @@
       "genres": "Personal Development",
       "author": "Dale Carnegie",
       "id": 7,
-      "recommend": 1,
+      "recommend": 0,
       "not_recommend": 1,
       "updated_at": "19/08/2021 04:48:10",
       "created_at": "19/08/2021 04:48:10",
@@ -883,7 +924,7 @@
       "pages": "256",
       "genres": "Biography",
       "author": "Walter Isaacson",
-      "recommend": 1,
+      "recommend": 0,
       "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
       "created_at": "17/08/2021 05:49:19",
@@ -1048,7 +1089,7 @@
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "book_id": 3,
-      "user_recommend": true,
+      "user_recommend": false,
       "user_not_recommend": false
     },
     {
@@ -1060,7 +1101,7 @@
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "book_id": 9,
-      "user_recommend": true,
+      "user_recommend": false,
       "user_not_recommend": false
     },
     {
@@ -1072,19 +1113,19 @@
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "book_id": 5,
-      "user_recommend": true,
+      "user_recommend": false,
       "user_not_recommend": false
     },
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "book_id": 4,
-      "user_recommend": true,
+      "user_recommend": false,
       "user_not_recommend": false
     },
     {
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "book_id": 7,
-      "user_recommend": true,
+      "user_recommend": false,
       "user_not_recommend": false
     },
     {
@@ -1152,83 +1193,16 @@
       "book_id": 4,
       "user_recommend": false,
       "user_not_recommend": true
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "book_id": 17,
+      "user_recommend": false,
+      "user_not_recommend": false
     }
   ],
-  "shop_cart": [],
   "pagarme": {
     "shop_transactions": [],
-    "subscriptions_transactions": [
-      {
-        "created_at": "22/09/2021 19:21:29",
-        "transaction_id": 761511,
-        "payment_method": {
-          "card_id": "card_cktvxnmd606dv0i9t1n7wf2it",
-          "card_brand": "visa",
-          "card_expiration_date": "1122",
-          "card_last_digits": "8048"
-        },
-        "plan": {
-          "id": "629720",
-          "name": "Plano PREMIUM",
-          "amount": "499",
-          "current_period_start": "2021-09-22T22:21:29.079Z",
-          "current_period_end": "2021-10-22T22:21:29.079Z"
-        },
-        "customer": {
-          "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "pagarme_id": 6951948,
-          "email": "test@gmail.com",
-          "name": "Test Jack"
-        }
-      },
-      {
-        "created_at": "22/09/2021 19:33:50",
-        "transaction_id": 761512,
-        "status": "paid",
-        "payment_method": {
-          "card_id": "card_cktvxnmd606dv0i9t1n7wf2it",
-          "card_brand": "visa",
-          "card_expiration_date": "1122",
-          "card_last_digits": "8048"
-        },
-        "plan": {
-          "id": "629720",
-          "name": "Plano PREMIUM",
-          "amount": "499",
-          "current_period_start": "22/09/2021 19:33:50",
-          "current_period_end": "2021-10-22"
-        },
-        "customer": {
-          "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "pagarme_id": 6951948,
-          "email": "test@gmail.com",
-          "name": "Test Jack"
-        }
-      },
-      {
-        "created_at": "22/09/2021 19:47:40",
-        "transaction_id": 761529,
-        "status": "paid",
-        "payment_method": {
-          "card_id": "card_cktvxnmd606dv0i9t1n7wf2it",
-          "card_brand": "visa",
-          "card_expiration_date": "1122",
-          "card_last_digits": "8048"
-        },
-        "plan": {
-          "id": "629720",
-          "name": "Plano PREMIUM",
-          "amount": "499",
-          "current_period_start": "22/09/2021 19:47:40",
-          "current_period_end": "2021-10-22"
-        },
-        "customer": {
-          "id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "pagarme_id": 6951948,
-          "email": "test@gmail.com",
-          "name": "Test Jack"
-        }
-      }
-    ]
+    "subscriptions_transactions": []
   }
 }

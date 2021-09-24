@@ -17,6 +17,7 @@ import Header from '../helpers/Header.js'
 
 
 // MODELS
+import Users from '../models/JSON/Users.js'
 import Games from '../models/JSON/Games.js'
 import Books from '../models/JSON/Books.js'
 
@@ -27,43 +28,8 @@ import { PagarME } from '../helpers/PagarME.js'
 
 class AppController {
 
-    static async getShopCart(req, res){
-        const {user_id} = req.params
-        // const validUserID = await Users.validUserID(user_id);
-        if(true){
-            // const shopCart = await ShopCart.getByUserID(user_id)
-            return res.json({
-                user_id: '12345',
-                games: [
-                    {
-                        id: 1,
-                        title: 'SpiderMan',
-                        price: 2990
-                    },
-                    {
-                        id: 2,
-                        title: 'Ghost Of Tsushima',
-                        price: 1990
-                    }
-                ],
-                books: []
-            })
-        }
-    }
-
-    static async postShopCartGame(req, res){
-        const {user_id, game_id} = req.params
-        // const validUserID = await Users.validUserID(user_id);
-        if(true){
-            // const shopCart = await ShopCart.getByUserID(user_id)
-            // return res.json(shopCart)
-            return res.json({msg: 'success'})
-        }
-    }
-
     static async getViewHome (req, res) {
         const game = await Games.getRandom()
-        game.price = game.price.toFixed(2)
         const totalGames = await Games.getTotal()
         const totalBooks = await Books.getTotal()
 
@@ -94,6 +60,12 @@ class AppController {
             app_url: process.env.APP_URL,
             header: Header.books()
         });
+    }
+
+    static async getAddGameToUserShopCart(req, res){
+        const { user_id, game_id } = req.params
+        const response = await Users.createGameIntoShopCart(user_id, parseInt(game_id))
+        return res.json(response)
     }
 
 

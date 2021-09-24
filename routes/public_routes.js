@@ -88,9 +88,9 @@ router
     .get('/recommend/book/:book_id/:user_id', AppController.recommendBook)
     .get('/notRecommend/book/:book_id/:user_id', AppController.dontRecommendBook)
 
-    .get('/shopCart/:user_id', AppController.getShopCart)
-    .post('/shopCart/:user_id/game/:game_id', AppController.postShopCartGame)
-    // .get('/shopCart/:user_id/book/:book_id')
+    .get('/shopCart/game/:game_id/user/:user_id', AppController.getAddGameToUserShopCart)
+
+    .post('/shopCart/delete/game/:game_id/user/:user_id', ShopController.postDeleteGameFromShopCart)
 
 
 

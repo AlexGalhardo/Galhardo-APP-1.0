@@ -41,6 +41,7 @@ class PagarME {
                 created_at: transactionObject.created_at
             })
             await PagarME.save(database)
+            return
         } catch(error){
             throw new Error(error)
         }
@@ -101,55 +102,6 @@ class PagarME {
             for(let i = 0; i < database.pagarme.subscriptions_transactions.length; i++){
                 if(database.pagarme.subscriptions_transactions[i].transaction_id === transaction_id){
                     return database.pagarme.subscriptions_transactions[i]
-                }
-            }
-        } catch (error) {
-            throw new Error(error);
-        }
-    }
-
-
-    static async deleteStripeCard(user_id, stripe_card_id){
-        try {
-
-            for(let i = 0; i < database.users.length; i++){
-
-                if(database.users[i].id === user_id){
-
-                    if(database.users[i].pagarme.card_id === stripe_card_id){
-
-                        database.users[i].pagarme.card_id = null
-                        database.users[i].pagarme.card_brand = null
-                        database.users[i].pagarme.card_last4 = null
-                        database.users[i].pagarme.card_exp_month = null
-                        database.users[i].pagarme.card_exp_year = null
-
-                        PagarME.save(database)
-
-                        return
-                    }
-                }
-            }
-        } catch (error) {
-            throw new Error(error);
-        }
-    }
-
-
-    static async cancelStripeSubscriptionRenewAtPeriodEnd(user_id, subscription_id){
-        try {
-            for(let i = 0; i < database.users.length; i++){
-
-                if(database.users[i].id === user_id){
-
-                    if(database.users[i].pagarme.currently_subscription_id === subscription_id){
-
-                        database.users[i].pagarme.cancel_at_period_end = true
-
-                        PagarME.save(database)
-
-                        return
-                    }
                 }
             }
         } catch (error) {

@@ -11,11 +11,12 @@
 
         {{#user}}
 
-        <form id="formCreditCard" action="/shop" method="POST">
+            <form id="formCreditCard" action="/shop" method="POST">
 
-            <input type="text" value="6.46" id="total_shop_amount" name="total_shop_amount" hidden onkeydown="return false;">
+                <input type="text" value="{{shopCart.amount}}" id="total_shop_amount" name="total_shop_amount" hidden onkeydown="return false;">
 
-          	<div class="row">
+
+                <div class="row">
 
                 {{#flash}}
                     <div class="text-center alert alert-{{type}}" role="alert" class="mb-3">
@@ -32,14 +33,17 @@
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <img class="h-25 w-25" src="{{image}}">
                                 <small>{{title}}</small>
-                                <b>R$<span id="priceOranges"> {{price}}</span></b>
-                                <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                <b>R$ <span>{{price}}</span></b>
+
+                                <form action="/shopCart/delete/game/{{game_id}}/user/{{user.id}}" method="POST">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                </form>
                             </li>
                         {{/shopCart.itens}}
 
                         <li class="list-group-item d-flex justify-content-between align-items-center bg-warning">
                             <b>TOTAL</b>
-                            <b>R$ <span id="total_shop_cart">{{shopCart.total}}</span></b>
+                            <b>R$ <span id="total_shop_cart">{{shopCart.amount}}</span></b>
                         </li>
 
                     </ul>
@@ -222,7 +226,7 @@
             
                     <div>
                         <button type="submit" class="fw-bold btn btn-outline-success btn-block shadow w-100">
-                            Pagar R$ <span id="button_pay">{{shopCart.total}}</span>
+                            Pagar R$ <span id="button_pay">{{shopCart.amount}}</span>
                         </button>
                     </div>
 

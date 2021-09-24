@@ -37,18 +37,16 @@
 
                     <img id="game_image" src="{{image}}" class="shadow mx-auto d-block w-75 image-fluid mb-3" alt="game_image">
 
-                    <a id="book_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="shadow image-fluid mb-3"></a>
+                    <a id="game_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="shadow image-fluid mb-3"></a>
 
-                    <!-- <form id="form_stripe_checkout" action="#" method="POST">
-                        <button disabled type="submit" id="pagarme_shopcart_button" class="w-75 btn btn-outline-success shadow mb-3">
-                            <i class="bi bi-cart"></i>
-                            Quero Comprar
-                        </button>
-                    </form> -->
+                    <button id="add_shop_cart_button" class="shadow mb-3 w-75 btn {{userLoggedAddedToShopCart}} {{^user}}disabled{{/user}}" onclick="addThisGameToShopCart()">
+                        <i class="bi bi-cart"></i>
+                        <b><small id="small_shop_cart_add_button">Adicionar Carrinho</small></b>
+                    </button>
 
-                    <a href="/pagarme/checkout/game/{{id}}" id="pagarme_checkout_button" class="w-75 btn btn-outline-danger shadow mb-3 {{^user}}disabled{{/user}}">
-                        <b><i class="bi bi-cart"></i>
-                        Comprar R$ <span id="game_price">{{price}}</span></b>
+                    <a href="/pagarme/checkout/game/{{id}}" id="pagarme_checkout_button" class="w-75 btn btn-outline-success shadow mb-3 {{^user}}disabled{{/user}}">
+                        <i class="bi bi-bag"></i>
+                        <b>Comprar R$ <span id="game_price">{{price}}</span></b>
                     </a>
 
 

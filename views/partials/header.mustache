@@ -235,7 +235,7 @@
                             {{/user}}
                                 <a href="/shop" class="{{^user}}disabled{{/user}} ms-2 btn shadow btn-light" type="submit">
                                     <i class="bi bi-cart"></i>
-                                    {{#user}}3 Itens{{/user}}
+                                    {{#user}}<span id="shop_cart_total_itens">{{shopCart.length}}</span> Itens{{/user}}
                                     {{^user}}0 Itens{{/user}}
                                 </a>
                             </div>

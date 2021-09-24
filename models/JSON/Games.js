@@ -62,10 +62,13 @@ class Games {
                 database.games[random_game_index].userLoggedRecommend = await Games.verifyIfLoggedUserRecommendThisGame(SESSION_USER.id, random_game_index+1)
 
                 database.games[random_game_index].userLoggedNotRecommend = await Games.verifyIfLoggedUserNotRecommendThisGame(SESSION_USER.id, random_game_index+1)
+
+                database.games[random_game_index].userLoggedAddedToShopCart = await Games.verifyIfLoggedUserAddedGameToShopCart(SESSION_USER.id, random_game_index+1)
             }
             else {
                 database.games[random_game_index].userLoggedRecommend = "btn-outline-success"
                 database.games[random_game_index].userLoggedNotRecommend = "btn-outline-danger"
+                database.games[random_game_index].userLoggedAddedToShopCart = "btn-outline-success"
             }
 
             return database.games[random_game_index]
@@ -73,6 +76,23 @@ class Games {
 	      	throw new Error(error)
 	    };
 	}
+
+    static verifyIfLoggedUserAddedGameToShopCart(user_id, game_id){
+        try {
+            for(let i=0; i < database.users.length; i++){
+                if(database.users[i].id === user_id){
+                    for(let index = 0; index < database.users[i].shopCart.itens.length; index++){
+                        if(database.users[i].shopCart.itens[index].game_id == game_id){
+                            return "btn-warning"
+                        }
+                    }
+                }
+            }
+            return "btn-outline-success"
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
 
 
     static verifyIfLoggedUserRecommendThisGame(user_id, game_id){

@@ -30,25 +30,7 @@ import { PagarME } from '../helpers/PagarME.js'
 class ShopController {
 
 	static getViewShop (req, res)  {
-        const itens = [
-            {
-                image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1r77.jpg',
-                title: 'SpiderMan',
-                price: 9.90.toFixed(2)
-            },
-            {
-                image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co2crj.jpg',
-                title: 'Ghost Of Tsushima',
-                price: 19.90.toFixed(2)
-            },
-            {
-                image: 'https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7f.jpg',
-                title: 'The Last Of Us',
-                price: 29.90.toFixed(2)
-            }
-        ]
-
-        if(itens.length < 1){
+        if(SESSION_USER && SESSION_USER.shopCart.length < 1){
             req.flash('warning', 'Você precisa adicionar pelo menos 1 produto no seu carrinho de compras!')
             return res.redirect('/')
         }
@@ -56,13 +38,15 @@ class ShopController {
 	    return res.render('pages/shop/shop_checkout', {
 	        user: SESSION_USER,
             flash_warning: req.flash('warning'),
-	        header: Header.shop(),
-            shopCart: {
-                itens,
-                total: itens.reduce(function(accumulator, item) { return parseFloat(accumulator) + parseFloat(item.price) }, 0).toFixed(2)
-            }
+	        header: Header.shop()
 	    });
 	}
+
+    static async postDeleteGameFromShopCart(req, res){
+        const { user_id, game_id } = req.params
+        await Users.createGameIntoShopCart(user_id, parseInt(game_id))
+        return res.redirect('/shop')
+    }
 
 
     static async verifyIfUserIsAlreadyAPagarMECustomer(){

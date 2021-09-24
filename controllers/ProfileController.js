@@ -166,7 +166,7 @@ class ProfileController {
     static async deletePagarMECard(req, res){
         const { pagarme_card_id } = req.params
 
-        await PagarMEModel.deleteStripeCard(SESSION_USER.id, pagarme_card_id)
+        await Users.deletePagarMECard(SESSION_USER.id, pagarme_card_id)
 
         req.flash('success', 'PagarME Card Deleted!')
         return res.redirect('/profile')
@@ -179,7 +179,7 @@ class ProfileController {
     static async cancelPagarMESubscriptionRenewAtPeriodEnd(req, res){
         const { stripe_currently_subscription_id } = req.params
 
-        await PagarMEModel.cancelStripeSubscriptionRenewAtPeriodEnd(SESSION_USER.id, stripe_currently_subscription_id)
+        await Users.cancelPagarMESubscriptionRenewAtPeriodEnd(SESSION_USER.id, stripe_currently_subscription_id)
 
         req.flash('success', 'Canceled Subscription Renew At Period End!')
         return res.redirect('/profile')
