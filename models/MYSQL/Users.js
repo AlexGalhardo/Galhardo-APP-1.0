@@ -12,7 +12,7 @@ import DateTime from '../../helpers/DateTime.js'
 import Bcrypt from '../../helpers/Bcrypt.js'
 
 // CONFIG
-import MYSQL from '../../config/mysql'
+import MYSQL from '../../config/mysql.js'
 
 
 class Users {
