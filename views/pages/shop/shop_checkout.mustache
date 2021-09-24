@@ -34,10 +34,6 @@
                                 <img class="h-25 w-25" src="{{image}}">
                                 <small>{{title}}</small>
                                 <b>R$ <span>{{price}}</span></b>
-
-                                <form action="/shopCart/delete/game/{{game_id}}/user/{{user.id}}" method="POST">
-                                    <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
-                                </form>
                             </li>
                         {{/shopCart.itens}}
 

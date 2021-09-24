@@ -40,22 +40,7 @@
         "currently_subscription_name": "Plano PREMIUM",
         "subscription_start": "22/09/2021 19:47:40",
         "subscription_end": "2021-10-22",
-        "cancel_at_period_end": false,
-        "card_last4": null,
-        "card_exp_month": null,
-        "card_exp_year": null
-      },
-      "shopCart": {
-        "amount": "59.90",
-        "length": 1,
-        "itens": [
-          {
-            "game_id": 4,
-            "title": "Uncharted 4: A Thief's End",
-            "price": 59.9,
-            "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r7h.jpg"
-          }
-        ]
+        "cancel_at_period_end": false
       },
       "created_at": "09/08/2021 03:52:14",
       "updated_at": "11/08/2021 04:04:17"
@@ -90,18 +75,17 @@
         "country": "Brazil"
       },
       "pagarme": {
-        "customer_id": "cus_K8y63RgFsRst7l",
-        "card_id": "card_1Ja8xcHoneB4ZvrppnvND5tf",
-        "card_brand": "Visa",
-        "card_last4": "4242",
-        "card_exp_month": 8,
-        "card_exp_year": 2022,
-        "currently_subscription_id": "sub_1Ja8xeHoneB4ZvrpJRRiccJY",
-        "currently_subscription_name": "FREE",
-        "subscription_start": "15/09/2021 22:00:22",
-        "subscription_end": "15/10/2021 22:00:22",
-        "cancel_at_period_end": false,
-        "card_token_id": "tok_1Ja8xcHoneB4ZvrpSWK9M4Xv"
+        "customer_id": null,
+        "card_id": null,
+        "card_brand": "visa",
+        "card_first_digits": "401872",
+        "card_last_digits": "8048",
+        "card_expiration_date": "1122",
+        "currently_subscription_id": 761529,
+        "currently_subscription_name": "Plano PREMIUM",
+        "subscription_start": "22/09/2021 19:47:40",
+        "subscription_end": "2021-10-22",
+        "cancel_at_period_end": false
       },
       "created_at": "10/08/2021 02:25:35",
       "updated_at": "04/09/2021 18:45:39"
@@ -115,44 +99,7 @@
       "image": "https://picsum.photos/id/1/230/230",
       "category": "software",
       "body": "<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n\r\n<img src='https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/05/Os-Simpsons.jpg' class='w-100 image-fluid'>\r\n\r\n<p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<p>",
-      "comments": [
-        {
-          "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-          "user_logged_can_delete": false,
-          "user_name": "ADMIN Alex",
-          "user_avatar": "admin_avatar.png",
-          "comment": "NEW ADMIN COMMENT",
-          "created_at": "19/08/2021 09:15:10",
-          "comment_id": 4
-        },
-        {
-          "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "user_logged_can_delete": true,
-          "user_name": "Test Jack",
-          "user_avatar": "alex.png",
-          "comment": "when an unknown printer took a galley of type and scrambled it to make a type specimen book. What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since ",
-          "created_at": "19/08/2021 08:33:35",
-          "comment_id": 3
-        },
-        {
-          "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "user_logged_can_delete": true,
-          "user_name": "Test Jack",
-          "user_avatar": "alex.png",
-          "comment": "new comment 2",
-          "created_at": "19/08/2021 08:33:29",
-          "comment_id": 2
-        },
-        {
-          "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-          "user_logged_can_delete": true,
-          "user_name": "Test Jack",
-          "user_avatar": "alex.png",
-          "comment": "new comment 1",
-          "created_at": "19/08/2021 08:33:23",
-          "comment_id": 1
-        }
-      ],
+      "comments": [],
       "slug": "why-simpsons-is-so-succesfull",
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "12/08/2021 18:49:33"
@@ -233,13 +180,8 @@
       "developer": "Santa Mônica Studios",
       "genres": "Action, Third Person, Adventure, Hack and slash/Beat 'em up",
       "amazon_link": "https://www.amazon.com.br/God-War-Padr%C3%A3o-PlayStation-4/dp/B079581SQQ",
-      "recommend": 1,
-      "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 2,
@@ -258,10 +200,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 3,
@@ -280,10 +219,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 4,
@@ -302,10 +238,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 5,
@@ -324,10 +257,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 6,
@@ -368,10 +298,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 8,
@@ -390,10 +317,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 9,
@@ -412,10 +336,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 10,
@@ -456,10 +377,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "updated_at": "17/08/2021 05:28:54",
-      "created_at": "17/08/2021 05:28:54",
-      "userLoggedRecommend": "btn-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "created_at": "17/08/2021 05:28:54"
     },
     {
       "id": 12,
@@ -478,10 +396,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 13,
@@ -500,10 +415,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 14,
@@ -522,10 +434,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 15,
@@ -544,10 +453,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 16,
@@ -566,10 +472,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 17,
@@ -588,10 +491,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 18,
@@ -610,10 +510,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 19,
@@ -632,150 +529,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger",
-      "userLoggedAddedToShopCart": "btn-outline-success"
-    }
-  ],
-  "games_recommendations": [
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "game_id": 10,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "game_id": 5,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "game_id": 6,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "game_id": 2,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "game_id": 9,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "game_id": 8,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 8,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 9,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 3,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 11,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 7,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 4,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 10,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 5,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 6,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 1,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 2,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "game_id": 11,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "game_id": 4,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "game_id": 7,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "game_id": 1,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "game_id": 3,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "game_id": 15,
-      "user_recommend": false,
-      "user_not_recommend": false
+      "updated_at": "04/08/2021 18:55:16"
     }
   ],
   "books": [
@@ -792,9 +546,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "updated_at": "11/08/2021 20:36:33",
-      "created_at": "11/08/2021 20:36:33",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "11/08/2021 20:36:33"
     },
     {
       "id": 2,
@@ -809,9 +561,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "updated_at": "11/08/2021 20:32:39",
-      "created_at": "11/08/2021 20:32:39",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "11/08/2021 20:32:39"
     },
     {
       "id": 3,
@@ -825,9 +575,7 @@
       "recommend": 0,
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
-      "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "updated_at": "04/08/2021 18:55:16"
     },
     {
       "id": 4,
@@ -842,9 +590,7 @@
       "recommend": 0,
       "not_recommend": 1,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "17/08/2021 05:49:19"
     },
     {
       "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
@@ -859,9 +605,7 @@
       "recommend": 0,
       "not_recommend": 1,
       "updated_at": "19/08/2021 03:34:40",
-      "created_at": "19/08/2021 03:34:40",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "19/08/2021 03:34:40"
     },
     {
       "title": "Domain-Driven Design: Tackling Complexity in the Heart of Software",
@@ -876,9 +620,7 @@
       "recommend": 1,
       "not_recommend": 1,
       "updated_at": "19/08/2021 03:35:50",
-      "created_at": "19/08/2021 03:35:50",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "19/08/2021 03:35:50"
     },
     {
       "title": "How To Win Friends and Influence People",
@@ -893,9 +635,7 @@
       "recommend": 0,
       "not_recommend": 1,
       "updated_at": "19/08/2021 04:48:10",
-      "created_at": "19/08/2021 04:48:10",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "19/08/2021 04:48:10"
     },
     {
       "title": "The Art Of War",
@@ -910,9 +650,7 @@
       "not_recommend": 1,
       "created_at": "19/08/2021 06:46:13",
       "updated_at": "19/08/2021 06:46:13",
-      "id": 8,
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "id": 8
     },
     {
       "id": 9,
@@ -927,9 +665,7 @@
       "recommend": 0,
       "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "17/08/2021 05:49:19"
     },
     {
       "id": 10,
@@ -941,12 +677,8 @@
       "pages": "256",
       "genres": "Biography",
       "author": "Walter Isaacson",
-      "recommend": 1,
-      "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "17/08/2021 05:49:19"
     },
     {
       "id": 11,
@@ -958,12 +690,8 @@
       "pages": "256",
       "genres": "Biography",
       "author": "Walter Isaacson",
-      "recommend": 1,
-      "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "17/08/2021 05:49:19"
     },
     {
       "id": 12,
@@ -975,12 +703,8 @@
       "pages": "705",
       "genres": "Biography",
       "author": "Walter Isaacson",
-      "recommend": 1,
-      "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "17/08/2021 05:49:19"
     },
     {
       "id": 13,
@@ -992,12 +716,8 @@
       "pages": "705",
       "genres": "Biography",
       "author": "Walter Isaacson",
-      "recommend": 1,
-      "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "17/08/2021 05:49:19"
     },
     {
       "id": 14,
@@ -1009,12 +729,8 @@
       "pages": "92",
       "genres": "Fantasy, Fiction",
       "author": "Lewis Carroll",
-      "recommend": 1,
-      "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "17/08/2021 05:49:19"
     },
     {
       "id": 15,
@@ -1026,12 +742,8 @@
       "pages": "92",
       "genres": "Bussiness",
       "author": "Eric Reis",
-      "recommend": 1,
-      "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "17/08/2021 05:49:19"
     },
     {
       "id": 16,
@@ -1043,12 +755,8 @@
       "pages": "92",
       "genres": "Science Fiction",
       "author": "Isaac Asimov",
-      "recommend": 1,
-      "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "17/08/2021 05:49:19"
     },
     {
       "id": 17,
@@ -1060,12 +768,8 @@
       "pages": "92",
       "genres": "Science Fiction",
       "author": "Douglas Adams",
-      "recommend": 1,
-      "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "created_at": "17/08/2021 05:49:19"
     },
     {
       "id": 18,
@@ -1077,128 +781,8 @@
       "pages": "255",
       "genres": "Science Fiction",
       "author": "Isaac Asimov",
-      "recommend": 1,
-      "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
-      "created_at": "17/08/2021 05:49:19",
-      "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
-    }
-  ],
-  "books_recommendations": [
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": 3,
-      "user_recommend": false,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": 8,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": 9,
-      "user_recommend": false,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": 1,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": 5,
-      "user_recommend": false,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": 4,
-      "user_recommend": false,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": 7,
-      "user_recommend": false,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": 2,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": 6,
-      "user_recommend": true,
-      "user_not_recommend": false
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "book_id": 3,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "book_id": 1,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "book_id": 6,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "book_id": 2,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "book_id": 7,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "book_id": 8,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "book_id": 9,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "book_id": 5,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
-      "book_id": 4,
-      "user_recommend": false,
-      "user_not_recommend": true
-    },
-    {
-      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
-      "book_id": 17,
-      "user_recommend": false,
-      "user_not_recommend": false
+      "created_at": "17/08/2021 05:49:19"
     }
   ],
   "pagarme": {

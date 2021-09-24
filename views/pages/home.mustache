@@ -39,16 +39,10 @@
 
                     <a id="game_amazon_link" href="{{amazon_link}}" target="_blank"><img src="/images/amazon-button.png" class="shadow image-fluid mb-3"></a>
 
-                    <button id="add_shop_cart_button" class="shadow mb-3 w-75 btn {{userLoggedAddedToShopCart}} {{^user}}disabled{{/user}}" onclick="addThisGameToShopCart()">
-                        <i class="bi bi-cart"></i>
-                        <b><small id="small_shop_cart_add_button">Adicionar Carrinho</small></b>
-                    </button>
-
                     <a href="/pagarme/checkout/game/{{id}}" id="pagarme_checkout_button" class="w-75 btn btn-outline-success shadow mb-3 {{^user}}disabled{{/user}}">
                         <i class="bi bi-bag"></i>
                         <b>Comprar R$ <span id="game_price">{{price}}</span></b>
                     </a>
-
 
                     {{#user.admin}}
                         <a href="/admin/update/game/{{id}}" class="w-75 shadow mb-2 btn btn-warning shadow-sm">
@@ -77,44 +71,10 @@
                             </h3>
                         </div>
 
-                        <div class="d-flex justify-content-between">
-                            <button
-                                    {{^user}}disabled{{/user}}
-                                    class="w-50 btn btn-sm mb-3 me-5
-                                    {{userLoggedRecommend}}"
-                                    type="submit"
-                                    id="button_recommend_gameid_{{id}}"
-                                    onclick="recommendThisGame()"
-                                    >
-                                    <i class="bi bi-hand-thumbs-up"></i>
-                                    <small id="total_recommend_gameid_{{id}}">
-                                        {{recommend}}
-                                    </small>
-                                    Recomenda
-                            </button>
-
-                            <button
-                                    {{^user}}disabled{{/user}}
-                                    class="w-50 btn btn-sm mb-3
-                                    {{userLoggedNotRecommend}}"
-                                    type="submit"
-                                    id="button_not_recommend_gameid_{{id}}"
-                                    onclick="dontRecommendThisGame()"
-                                    >
-                                    <i class="bi bi-hand-thumbs-down"></i>
-                                    <small id="total_not_recommend_gameid_{{id}}">
-                                        {{not_recommend}}
-                                    </small>
-                                    Não Recomenda
-                            </button>
-                        </div>
 
                         <small class="card-text" id="game_resume">{{resume}}</small>
 
                         <ul class="mt-3 bg-light">
-
-                            <li><small><b>Estoque:</b> <span id="">{{units}}</span> unidades</small></li>
-
 
                             <li><small><b>Gêneros:</b> <span id="game_genres">{{genres}}</span></small></li>
 
@@ -208,9 +168,6 @@
                         <small class="card-text" id="game_resume">{{resume}}</small>
 
                         <ul class="mt-3">
-
-                            <li><small><b>Estoque:</b> <span id="">{{units}}</span> unidades</small></li>
-
 
                             <li><small><b>Gêneros:</b> <span id="game_genres">{{genres}}</span></small></li>
 

@@ -82,16 +82,6 @@ router
     .get('/searchGame', AppController.getSearchGameTitle)
     .get('/searchBook', AppController.getSearchBookTitle)
 
-    .get('/recommend/game/:game_id/:user_id', AppController.recommendGame)
-    .get('/notRecommend/game/:game_id/:user_id', AppController.dontRecommendGame)
-
-    .get('/recommend/book/:book_id/:user_id', AppController.recommendBook)
-    .get('/notRecommend/book/:book_id/:user_id', AppController.dontRecommendBook)
-
-    .get('/shopCart/game/:game_id/user/:user_id', AppController.getAddGameToUserShopCart)
-
-    .post('/shopCart/delete/game/:game_id/user/:user_id', ShopController.postDeleteGameFromShopCart)
-
 
 
 // BLOG VIEWS CONTROLLER

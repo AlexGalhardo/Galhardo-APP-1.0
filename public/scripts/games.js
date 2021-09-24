@@ -1,34 +1,6 @@
 const user_id = document.querySelector("#user_id").value || null
 const app_url = document.querySelector("#app_url").value
 const pagarmeCheckoutButtonEl = document.querySelector("#pagarme_checkout_button")
-const smallShopCartAddButtonEl = document.querySelector("#small_shop_cart_add_button")
-const shopCartTotalItensEl = document.querySelector("#shop_cart_total_itens")
-
-
-async function addThisGameToShopCart(){
-
-    let game_id = document.querySelector("#game_id").value
-
-    const response = await fetch(`${app_url}/shopCart/game/${game_id}/user/${user_id}`);
-    const json = await response.json();
-
-    const addShopCartButtonEl = document.querySelector(`#add_shop_cart_button`)
-
-    if(json.added_to_shop_cart){
-        addShopCartButtonEl.classList.remove('btn-outline-success')
-        addShopCartButtonEl.classList.add('btn-warning')
-        smallShopCartAddButtonEl.innerHTML = "Adicionado"
-
-        shopCartTotalItensEl.innerHTML = json.shop_cart_itens_length
-    } else {
-        addShopCartButtonEl.classList.remove('btn-warning')
-        addShopCartButtonEl.classList.add('btn-outline-success')
-
-        smallShopCartAddButtonEl.innerHTML = "Adicionar Carrinho"
-
-        shopCartTotalItensEl.innerHTML = json.shop_cart_itens_length
-    }
-}
 
 
 async function recommendOtherGame(){
@@ -38,13 +10,6 @@ async function recommendOtherGame(){
     const object = await response.json();
 
     Object.entries(object).forEach(([key, value]) => {
-
-        document.querySelector(`#button_recommend_gameid_${previousGameID}`).id = `button_recommend_gameid_${object.game.id}`
-        document.querySelector(`#button_not_recommend_gameid_${previousGameID}`).id = `button_not_recommend_gameid_${object.game.id}`
-
-        document.querySelector(`#total_recommend_gameid_${previousGameID}`).id = `total_recommend_gameid_${object.game.id}`
-
-        document.querySelector(`#total_not_recommend_gameid_${previousGameID}`).id = `total_not_recommend_gameid_${object.game.id}`
 
         object.game.price = object.game.price.toFixed(2)
 
@@ -64,115 +29,4 @@ async function recommendOtherGame(){
         document.querySelector("#game_igdb_rating").innerHTML = object.game.igdb_rating;
         document.querySelector("#game_amazon_link").href = object.game.amazon_link;
     });
-
-    const buttonRecommendEl = document.querySelector(`#button_recommend_gameid_${object.game.id}`)
-    const buttonNotRecommendEl = document.querySelector(`#button_not_recommend_gameid_${object.game.id}`)
-
-    if(object.game.userLoggedRecommend === 'btn-success') {
-        buttonRecommendEl.classList.remove('btn-outline-success')
-        buttonRecommendEl.classList.add('btn-success')
-        buttonNotRecommendEl.classList.remove('btn-danger')
-        buttonNotRecommendEl.classList.add('btn-outline-danger')
-    } else {
-        buttonRecommendEl.classList.remove('btn-success')
-        buttonRecommendEl.classList.add('btn-outline-success')
-    }
-
-
-    if(object.game.userLoggedNotRecommend === 'btn-danger') {
-        buttonNotRecommendEl.classList.remove('btn-outline-danger')
-        buttonNotRecommendEl.classList.add('btn-danger')
-        buttonRecommendEl.classList.remove('btn-success')
-        buttonRecommendEl.classList.add('btn-outline-success')
-    } else {
-        buttonNotRecommendEl.classList.remove('btn-danger')
-        buttonNotRecommendEl.classList.add('btn-outline-danger')
-    }
-
-    const addShopCartButtonEl = document.querySelector(`#add_shop_cart_button`)
-
-    if(object.game.userLoggedAddedToShopCart === 'btn-warning'){
-        addShopCartButtonEl.classList.remove('btn-outline-success')
-        addShopCartButtonEl.classList.add('btn-warning')
-        smallShopCartAddButtonEl.innerHTML = "Adicionado"
-    } else {
-        addShopCartButtonEl.classList.remove('btn-warning')
-        addShopCartButtonEl.classList.add('btn-outline-success')
-        smallShopCartAddButtonEl.innerHTML = "Adicionar Carrinho"
-    }
-
-    document.querySelector(`#total_recommend_gameid_${object.game.id}`).innerHTML = object.game.recommend
-    document.querySelector(`#total_not_recommend_gameid_${object.game.id}`).innerHTML = object.game.not_recommend
-}
-
-
-
-
-async function recommendThisGame(){
-    const game_id = document.getElementById("game_id").value
-
-    const response = await fetch(`${app_url}/recommend/game/${parseInt(game_id)}/${user_id}`)
-    const json = await response.json()
-
-    const buttonRecommendEl = document.querySelector(`#button_recommend_gameid_${game_id}`)
-
-    const buttonNotRecommendEl = document.querySelector(`#button_not_recommend_gameid_${game_id}`)
-
-
-    if(json.user_recommend) {
-        buttonRecommendEl.classList.remove('btn-outline-success')
-        buttonRecommendEl.classList.add('btn-success')
-    } else {
-        buttonRecommendEl.classList.add('btn-outline-success')
-        buttonRecommendEl.classList.remove('btn-success')
-    }
-
-
-    if(json.user_not_recommend) {
-        buttonNotRecommendEl.classList.remove('btn-outline-danger')
-        buttonNotRecommendEl.classList.add('btn-danger')
-    } else {
-        buttonNotRecommendEl.classList.add('btn-outline-danger')
-        buttonNotRecommendEl.classList.remove('btn-danger')
-    }
-
-    document.querySelector(`#total_recommend_gameid_${game_id}`).innerHTML = json.total_recommend
-    document.querySelector(`#total_not_recommend_gameid_${game_id}`).innerHTML = json.total_not_recommend
-}
-
-
-
-async function dontRecommendThisGame(){
-    const game_id = document.getElementById("game_id").value
-
-    const response = await fetch(`${app_url}/notRecommend/game/${parseInt(game_id)}/${user_id}`)
-    const json = await response.json()
-
-    const buttonRecommendEl = document.querySelector(`#button_recommend_gameid_${parseInt(game_id)}`)
-
-    const buttonNotRecommendEl = document.querySelector(`#button_not_recommend_gameid_${parseInt(game_id)}`)
-
-    if(json.user_recommend) {
-        buttonRecommendEl.classList.remove('btn-outline-success')
-        buttonRecommendEl.classList.add('btn-success')
-        buttonNotRecommendEl.classList.remove('btn-danger')
-        buttonNotRecommendEl.classList.add('btn-outline-danger')
-    } else {
-        buttonRecommendEl.classList.remove('btn-success')
-        buttonRecommendEl.classList.add('btn-outline-success')
-    }
-
-
-    if(json.user_not_recommend) {
-        buttonNotRecommendEl.classList.remove('btn-outline-danger')
-        buttonNotRecommendEl.classList.add('btn-danger')
-        buttonRecommendEl.classList.remove('btn-success')
-        buttonRecommendEl.classList.add('btn-outline-success')
-    } else {
-        buttonNotRecommendEl.classList.remove('btn-danger')
-        buttonNotRecommendEl.classList.add('btn-outline-danger')
-    }
-
-    document.querySelector(`#total_recommend_gameid_${game_id}`).innerHTML = json.total_recommend
-    document.querySelector(`#total_not_recommend_gameid_${game_id}`).innerHTML = json.total_not_recommend
 }

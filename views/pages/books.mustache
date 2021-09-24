@@ -62,35 +62,6 @@
                             </h3>
                         </div>
 
-                        <div class="d-flex justify-content-between">
-                            <button
-                                    {{^user}}disabled{{/user}}
-                                    class="w-50 btn btn-sm mb-3 me-5
-                                    {{userLoggedRecommend}}"
-                                    type="submit"
-                                    id="button_recommend_bookid_{{id}}"
-                                    onclick="recommendThisBook()">
-                                    <i class="bi bi-hand-thumbs-up"></i>
-                                    <small id="total_recommend_bookid_{{id}}">
-                                        {{recommend}}
-                                    </small>
-                                    Recommend
-                            </button>
-
-                            <button
-                                    {{^user}}disabled{{/user}}
-                                    class="w-50 btn btn-sm mb-3
-                                    {{userLoggedNotRecommend}}"
-                                    type="submit" id="button_not_recommend_bookid_{{id}}"
-                                    onclick="dontRecommendThisBook()">
-                                    <i class="bi bi-hand-thumbs-down"></i>
-                                    <small id="total_not_recommend_bookid_{{id}}">
-                                        {{not_recommend}}
-                                    </small>
-                                    Not Recommend
-                            </button>
-                        </div>
-
                         <small class="card-text" id="book_resume">{{resume}}</small>
 
                         <ul class="mt-3">
