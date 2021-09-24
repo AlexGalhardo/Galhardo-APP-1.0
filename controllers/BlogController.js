@@ -14,9 +14,8 @@ import pagination from 'pagination'
 import DateTime from '../helpers/DateTime.js'
 import Header from '../helpers/Header.js'
 
-// MODEL
-import Blog from '../models/JSON/Blog.js'
-
+// MODELS
+import { Blog } from '../models/models.js'
 
 
 class BlogController {

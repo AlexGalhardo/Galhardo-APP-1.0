@@ -16,10 +16,8 @@ import NodeMailer from '../helpers/NodeMailer.js'
 import TelegramBOTLogger from '../helpers/TelegramBOTLogger.js'
 import Header from '../helpers/Header.js'
 
-
 // MODELS
-import PagarMEModel from '../models/JSON/PagarME.js'
-import Users from '../models/JSON/Users.js'
+import { Users, PagarmeModel } from '../models/models.js'
 
 
 // PagarME

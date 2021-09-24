@@ -15,15 +15,12 @@ import NodeMailer from '../helpers/NodeMailer.js'
 import TelegramBOTLogger from '../helpers/TelegramBOTLogger.js'
 import Header from '../helpers/Header.js'
 
-
 // MODELS
-import Users from '../models/JSON/Users.js'
-import Games from '../models/JSON/Games.js'
-import Books from '../models/JSON/Books.js'
-
+import { Users, Games, Books } from '../models/models.js'
 
 // PAGARME
 import { PagarME } from '../helpers/PagarME.js'
+
 
 
 class AppController {

@@ -7,8 +7,11 @@
  * ./models/MYSQL/Books.js
  */
 
-const DateTime = require('../../helpers/DateTime');
-const MYSQL = require('../../config/mysql')
+// HELPERS
+import DateTime from '../../helpers/DateTime.js'
+
+// CONFIG
+import MYSQL from '../../config/mysql.js'
 
 class Books {
 
@@ -113,4 +116,4 @@ class Books {
 	}
 }
 
-module.exports = Books;
+export default Books

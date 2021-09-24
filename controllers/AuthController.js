@@ -32,8 +32,7 @@ import URL from '../helpers/URL.js'
 
 
 // MODELS
-import Users from '../models/JSON/Users.js'
-
+import { Users } from '../models/models.js'
 
 
 

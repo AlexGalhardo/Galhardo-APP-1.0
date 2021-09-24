@@ -7,9 +7,12 @@
  * ./models/MYSQL/Users.js
  */
 
-const DateTime = require('../../helpers/DateTime');
-const Bcrypt = require('../../helpers/Bcrypt');
-const MYSQL = require('../../config/mysql')
+// HELPERS
+import DateTime from '../../helpers/DateTime.js'
+import Bcrypt from '../../helpers/Bcrypt.js'
+
+// CONFIG
+import MYSQL from '../../config/mysql'
 
 
 class Users {
@@ -18,7 +21,7 @@ class Users {
     static async getAllUsers () {
         let stmt = `SELECT * FROM users`;
 
-        const [ rows ] = await MYSQL.execute(stmt);
+        const [ rows ] = await MYSQL.execute(stmt)
 
         return rows ? rows : null
     }
@@ -113,4 +116,4 @@ class Users {
     static verifyLoginFacebook(facebook_id, email){}
 }
 
-module.exports = Users;
+export default Users;

@@ -8,8 +8,8 @@
  */
 
 
-const DateTime = require('../../helpers/DateTime');
-const MYSQL = require('../../config/mysql');
+import DateTime from '../../helpers/DateTime.js'
+import MYSQL from '../../config/mysql.js'
 
 
 class Games {
@@ -122,4 +122,4 @@ class Games {
     }
 }
 
-module.exports = Games;
+export default Games

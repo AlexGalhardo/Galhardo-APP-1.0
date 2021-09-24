@@ -16,7 +16,7 @@ import DateTime from '../../helpers/DateTime.js'
 
 
 
-class PagarME {
+class PagarmeModel {
 
     static save(database){
         fs.writeFileSync(process.env.JSON_DATABASE_FILE, JSON.stringify(database, null, 2), error => {
@@ -110,4 +110,4 @@ class PagarME {
     }
 }
 
-export default PagarME;
+export default PagarmeModel;

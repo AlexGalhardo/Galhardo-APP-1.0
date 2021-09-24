@@ -7,9 +7,9 @@
  * ./models/MYSQL/Stripe.js
  */
 
-const DateTime = require('../../helpers/DateTime');
+import DateTime from '../../helpers/DateTime.js'
 
-class Stripe {
+class PagarmeModel {
     static async createShopTransaction(userObject, transacionObject){}
     static async getUserShopTransactions(user_id){}
 
@@ -17,4 +17,4 @@ class Stripe {
     static async getUserSubscriptionsTransactions(user_id){}
 }
 
-module.exports = Stripe;
+export default PagarmeModel

@@ -7,7 +7,8 @@
  * ./models/MYSQL/BlogComments.js
  */
 
-const DateTime = require('../../helpers/DateTime');
+// HELPERS
+import DateTime from '../../helpers/DateTime.js'
 
 class BlogComments {
     static async getComments(blog_id){}
@@ -15,4 +16,4 @@ class BlogComments {
     static async deleteComment(blog_id, comment_id){}
 }
 
-module.exports = BlogComments;
+export default BlogComments;

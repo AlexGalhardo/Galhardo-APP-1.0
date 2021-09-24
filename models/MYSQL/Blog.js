@@ -7,9 +7,13 @@
  * ./models/MYSQL/Blog.js
  */
 
-const DateTime = require('../../helpers/DateTime');
-const slugify = require('slugify')
-const MYSQL = require('../../config/mysql')
+import slugify from 'slugify'
+
+// HELPERS
+import DateTime from '../../helpers/DateTime.js'
+
+// CONFIG
+import MYSQL from '../../config/mysql.js'
 
 
 
@@ -110,4 +114,4 @@ class Blog {
     }
 }
 
-module.exports = Blog;
+export default Blog
