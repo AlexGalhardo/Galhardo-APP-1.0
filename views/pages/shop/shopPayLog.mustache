@@ -45,7 +45,7 @@
                     <li class="list-group-item"><b>TOTAL:</b> {{shopTransactionObject.total_amount}}</li>
                     <li class="list-group-item"><b>STATUS:</b> {{shopTransactionObject.status}}</li>
                     <li class="list-group-item"><b>MÉTODO PAGAMENTO:</b> {{shopTransactionObject.payment_method.card_id}}</li>
-                    <li class="list-group-item"><b>Prazo de Entrega:</b> {{shopTransactionObject.shipping.deadline}} Dias</li>
+                    <li class="list-group-item"><b>PRAZO DE ENTREGA:</b> {{shopTransactionObject.shipping.deadline}} Dias ùteis</li>
                     <li class="list-group-item"><b>CRIADO EM:</b> {{shopTransactionObject.created_at}}</li>
                 </ul>
 	        </div>
@@ -54,7 +54,7 @@
 	        <div class="col-lg-4">
     			<ul class="list-group list-group-flush text-start">
                     <li class="list-group-item"><b>CLIENTE:</b> {{shopTransactionObject.customer.name}}</li>
-                    <li class="list-group-item"><b>TELEPHONE:</b> {{shopTransactionObject.customer.phone}}</li>
+                    <li class="list-group-item"><b>TELEFONE:</b> {{shopTransactionObject.customer.phone}}</li>
                     <li class="list-group-item"><b>EMAIL:</b> {{shopTransactionObject.customer.email}}</li>
                     <li class="list-group-item"><b>CEP:</b> {{shopTransactionObject.shipping.address_zipcode}}</li>
                     <li class="list-group-item"><b>ENDEREÇO:</b> {{shopTransactionObject.shipping.address_street}}</li>

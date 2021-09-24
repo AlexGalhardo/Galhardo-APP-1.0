@@ -189,23 +189,20 @@ class ShopController {
             const transaction = await PagarME.createShopTransaction({
                 "amount": "3000",
                 "card_id": SESSION_USER.pagarme.card_id,
-                "payment_method": "credit_card", //"boleto"
-                // "postback_url": "",
-                // "async": false,
-                // "installments": '3',
+                "payment_method": "credit_card",
                 "customer": {
                     "name": SESSION_USER.name,
                     "external_id": SESSION_USER.id,
                     "email": SESSION_USER.email,
                     "type": "individual",
                     "country": "br",
-                    "phone_numbers": [`${SESSION_USER.phone}`],
+                    "phone_numbers": [`${SESSION_USER.phone.country}${SESSION_USER.phone.ddd}${SESSION_USER.phone.number}`],
                     "documents": [
                         {
                           "type": "cpf",
                           "number": "30621143049"
                         }
-                    ],
+                    ]
                 },
                 "billing" : {
                     "name": SESSION_USER.name,
@@ -244,9 +241,10 @@ class ShopController {
                 total_amount: parseFloat(total_shop_amount).toFixed(2),
                 payment_method: {
                     card_id: transaction.card.id,
+                    first_digits: transaction.card.first_digits,
+                    last_digits: transaction.card.last_digits,
                     brand: transaction.card.brand,
-                    expiration_date: transaction.card.expiration_date,
-                    last_digits: transaction.card.last_digits
+                    expiration_date: transaction.card.expiration_date
                 },
                 currency: 'BRL',
                 status: transaction.status,

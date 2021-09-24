@@ -63,6 +63,11 @@
                             </div>
 
                             <div class="form-floating mb-3">
+                                  <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_first_digits}}" readonly>
+                                  <label for="stripe_card_last_4_digits">PAGARME_CARD_FIRST_DIGITS</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
                                   <input id="stripe_card_last_4_digits" name="stripe_card_last_4_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_last_digits}}" readonly>
                                   <label for="stripe_card_last_4_digits">PAGARME_CARD_LAST_DIGITS</label>
                             </div>

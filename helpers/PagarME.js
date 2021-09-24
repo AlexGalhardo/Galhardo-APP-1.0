@@ -85,14 +85,11 @@ class PagarME {
 
 
     async createShopTransaction(transactionObject){
-        console.log('transactionObject é', transactionObject)
         const transaction = await this.pagarme.transactions
             .create(transactionObject)
             .catch(function(e){
                 console.log(e.response.errors)
             })
-
-        console.log('pagarme transaction criado é: ', transaction)
         return transaction
     }
 

@@ -162,6 +162,11 @@
                             <label for="pagarme_card_id">REGISTRED_PAGARME_CARD_ID</label>
                         </div>
 
+                        <div class="form-floating mb-3">
+                              <input id="pagarme_card_last_digits" name="pagarme_card_last_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_first_digits}}" readonly>
+                              <label for="pagarme_card_last_digits">PAGARME_CARD_FIRST_DIGITS</label>
+                        </div>
+
 
                         <div class="form-floating mb-3">
                               <input id="pagarme_card_last_digits" name="pagarme_card_last_digits" class="mb-2 form-control" type="text" value="{{user.pagarme.card_last_digits}}" readonly>

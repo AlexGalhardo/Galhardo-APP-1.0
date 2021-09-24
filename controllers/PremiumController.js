@@ -141,19 +141,16 @@ class PremiumController {
 
             const subscription = await PagarME.createPremiumSubscription()
 
-            // subscription.date_created = DateTime.getDateTime(subscription.date_created);
-            // subscription.current_period_end = DateTime.getDateTime(subscription.current_period_end);
-            // subscription.current_period_start = DateTime.getDateTime(subscription.current_period_start);
-
             const subscriptionTransactionObject = {
                 created_at: DateTime.getNow(),
                 transaction_id: subscription.id,
                 status: subscription.status,
                 payment_method: {
                     card_id: SESSION_USER.pagarme.card_id,
+                    card_first_digits: SESSION_USER.pagarme.card_first_digits,
+                    card_last_digits: SESSION_USER.pagarme.card_last_digits,
                     card_brand: SESSION_USER.pagarme.card_brand,
-                    card_expiration_date: SESSION_USER.pagarme.card_expiration_date,
-                    card_last_digits: SESSION_USER.pagarme.card_last_digits
+                    card_expiration_date: SESSION_USER.pagarme.card_expiration_date
                 },
                 plan: {
                     id: process.env.PAGARME_PLAN_PREMIUM_ID,
@@ -161,13 +158,13 @@ class PremiumController {
                     amount: process.env.PAGARME_PLAN_PREMIUM_AMOUNT,
                     current_period_start: DateTime.getNow(),
                     current_period_end: subscription.current_period_end.substring(0, 10)
-                    // current_period_end: DateTime.convertSubscriptionPeriondEnd(subscription.current_period_end)
                 },
                 customer: {
                     id: SESSION_USER.id,
                     pagarme_id: SESSION_USER.pagarme.customer_id,
                     email: SESSION_USER.email,
-                    name: SESSION_USER.name
+                    name: SESSION_USER.name,
+                    phone: `${SESSION_USER.phone.country}${SESSION_USER.phone.ddd}${SESSION_USER.phone.number}`
                 }
             }
 
