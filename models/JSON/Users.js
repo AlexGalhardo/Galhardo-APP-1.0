@@ -16,7 +16,6 @@ import DateTime from '../../helpers/DateTime.js';
 
 import database from '../../config/json_database.js';
 
-import Games from './Games.js'
 
 
 
@@ -28,57 +27,6 @@ class Users {
                 throw new Error(error);
             }
         });
-    }
-
-    static async createGameIntoShopCart(user_id, game_id){
-        try {
-
-            for(let i = 0; i < database.users.length; i++){
-
-                if(database.users[i].id == user_id){
-
-                    for(let index = 0; index < database.users[i].shopCart.itens.length; index++){
-
-                        if(database.users[i].shopCart.itens[index].game_id === game_id){
-
-                            database.users[i].shopCart.itens.splice(index, 1)
-                            database.users[i].shopCart.length = database.users[i].shopCart.itens.length
-
-                            database.users[i].shopCart.amount = database.users[i].shopCart.itens.reduce(function(accumulator, item) { return accumulator + parseFloat(item.price) }, 0).toFixed(2)
-
-                            await Users.save(database)
-
-                            return {
-                                added_to_shop_cart: false,
-                                shop_cart_itens_length: database.users[i].shopCart.itens.length
-                            }
-                        }
-                    }
-
-                    let game = await Games.getByID(game_id)
-
-                    database.users[i].shopCart.itens.push({
-                        game_id,
-                        title: game.title,
-                        price: game.price,
-                        image: game.image
-                    })
-
-                    database.users[i].shopCart.length = database.users[i].shopCart.itens.length
-                    database.users[i].shopCart.amount = database.users[i].shopCart.itens.reduce(function(accumulator, item) { return accumulator + parseFloat(item.price) }, 0).toFixed(2)
-
-                    await Users.save(database)
-
-                    return {
-                        added_to_shop_cart: true,
-                        shop_cart_itens_length: database.users[i].shopCart.itens.length
-                    }
-                }
-            }
-            return null
-        } catch (error) {
-            throw new Error(error)
-        };
     }
 
 
@@ -120,6 +68,7 @@ class Users {
             for(let i = 0; i < database.users.length; i++){
                 if(database.users[i].id === user_id) {
                     if(database.users[i].admin) return true
+                    return false
                 }
             }
             return false
@@ -292,9 +241,9 @@ class Users {
 
 
 
-    static createResetPasswordToken(email){
+    static async createResetPasswordToken(email){
         try {
-            const reset_password_token = randomToken.generate(24);
+            const reset_password_token = await randomToken.generate(24);
 
             for(let i = 0; i < database.users.length; i++){
                 if(database.users[i].email === email){

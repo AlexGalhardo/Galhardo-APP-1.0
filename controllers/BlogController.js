@@ -15,7 +15,7 @@ import DateTime from '../helpers/DateTime.js'
 import Header from '../helpers/Header.js'
 
 // MODELS
-import { Blog } from '../models/models.js'
+import Blog from '../models/MYSQL/Blog.js'
 
 
 class BlogController {

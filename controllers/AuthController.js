@@ -32,7 +32,7 @@ import URL from '../helpers/URL.js'
 
 
 // MODELS
-import { Users } from '../models/models.js'
+import Users from '../models/MYSQL/Users.js'
 
 
 
@@ -138,17 +138,16 @@ class AuthController {
 
                 if (!errors.isEmpty()) {
                     req.flash('warning', errors.array()[0].msg)
-                    return res.redirect('/register')
+                    return res.redirect('/criar-conta')
                 }
             } else {
                 req.flash('warning', 'Recaptcha inválido!')
-                return res.redirect('/register')
+                return res.redirect('/criar-conta')
             }
 
             const { username,
                 email,
                 password,
-                confirm_password,
                 github_id,
                 facebook_id,
                 google_id } = req.body;
@@ -159,15 +158,14 @@ class AuthController {
                 password,
                 github_id,
                 facebook_id,
-                google_id,
-                confirm_email_token
+                google_id
             };
 
             await Users.create(userObject)
             await NodeMailer.sendConfirmEmailLink(email)
 
             req.flash('success', 'Conta criada! Confirme seu email clicando no link enviado para o seu inbox!')
-            return res.redirect('/register')
+            return res.redirect('/criar-conta')
 
         } catch (error) {
             throw new Error(error)
@@ -187,7 +185,7 @@ class AuthController {
         await NodeMailer.sendForgetPasswordLink(email);
 
         req.flash('success', `Se esse email existe, vamos enviar um link no seu inbox para você recuperar sua senha!`)
-        return res.redirect('/forgetPassword')
+        return res.redirect('/esqueci-senha')
     }
 
 
@@ -262,7 +260,7 @@ class AuthController {
 
             if(!userRegistred){
                 req.flash('warning', 'Create Your account Linked to Your Facebook Account')
-                return res.redirect('/register')
+                return res.redirect('/criar-conta')
             }
             else {
                 req.session.userID = userRegistred.id
@@ -310,7 +308,7 @@ class AuthController {
 
             if(!user){
                 req.flash('warning', 'Create Your account Linked to Your GitHub Account')
-                return res.redirect('/register')
+                return res.redirect('/criar-conta')
             } else {
                 req.session.userID = user.id
                 global.SESSION_USER = user
@@ -334,7 +332,7 @@ class AuthController {
 
             if(!userRegistred){
                 req.flash('warning', 'Create Your account Linked to Your Google Account')
-                return res.redirect('/register')
+                return res.redirect('/criar-conta')
             }
             else {
                 req.session.userID = userRegistred.id

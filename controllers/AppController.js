@@ -16,7 +16,10 @@ import TelegramBOTLogger from '../helpers/TelegramBOTLogger.js'
 import Header from '../helpers/Header.js'
 
 // MODELS
-import { Users, Games, Books } from '../models/models.js'
+import Users from '../models/MYSQL/Users.js'
+import Games from '../models/MYSQL/Games.js'
+import Books from '../models/MYSQL/Books.js'
+
 
 // PAGARME
 import { PagarME } from '../helpers/PagarME.js'
