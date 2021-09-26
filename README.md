@@ -5,7 +5,7 @@
 
 ## Why This Project ? 
    - <b>"Talk is cheap. Show me the code." - Linus Torvalds</b>
-   - First Commit: August 01, 2021
+   - First Commit: August 02, 2021
 
 ## Live Demo
 - **Currently Version: BETA - ALMOST STABLE**
