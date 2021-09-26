@@ -1,7 +1,7 @@
 const mysql2 = require('mysql2');
 
 try {
-    if(process.env.GALHARDO_APP_DATABASE === 'MYSQL'){
+    if(process.env.APP_DATABASE === 'MYSQL'){
         const connection = mysql2.createPool({
             host: process.env.MYSQL_HOST,
             user: process.env.MYSQL_USERNAME,
