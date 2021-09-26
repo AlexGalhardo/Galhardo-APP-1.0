@@ -17,7 +17,6 @@ import MYSQL from '../../config/mysql.js'
 
 
 
-// MODEL USERS
 class Blog {
 
 

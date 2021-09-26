@@ -5,7 +5,7 @@
 
 ## Live Demo
 - **Currently Version: ALPHA - NOT STABLE**
-- You can access: https://pagarme.galhardoapp.com/
+- You can access: In development
 
 ## Feedbacks
 - If you have any feedback or improvements tips about this project, send a pull request or send me a email at: aleexgvieira@gmail.com

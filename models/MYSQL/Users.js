@@ -18,6 +18,7 @@ import Bcrypt from '../../helpers/Bcrypt.js'
 import MYSQL from '../../config/mysql.js'
 
 
+
 class Users {
 
     static async selectAll() {
