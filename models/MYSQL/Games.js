@@ -21,9 +21,9 @@ class Games {
 
             const [ rows ] = await MYSQL.execute(stmt)
 
-            console.log('selectAll: ', rows ? rows : null)
+            // console.log('selectAll: ', rows ? rows : null)
 
-            // return rows ? rows : null
+            return rows ? rows : null
 
         } catch (error) {
             throw new Error(error);
@@ -37,9 +37,9 @@ class Games {
 
             const [ rows ] = await MYSQL.execute(stmt);
 
-            console.log('getTotal: ', rows ? rows[0].totalGames : false)
+            // console.log('getTotal: ', rows ? rows[0].totalGames : false)
 
-            // return rows ? rows[0].totalGames : false
+            return rows ? rows[0].totalGames : false
         } catch (error) {
             throw new Error(error);
         };
@@ -52,9 +52,9 @@ class Games {
 
             const [ rows ] = await MYSQL.execute(stmt);
 
-            console.log('getRandom: ', rows ? rows : false)
+            // console.log('getRandom: ', rows ? rows : false)
 
-            // return rows ? rows : false
+            return rows[0] ? rows[0] : null
         } catch (error) {
             throw new Error(error);
         };
@@ -69,7 +69,7 @@ class Games {
 
             console.log('selectByID: ', rows ? rows : false)
 
-            // return rows ? rows : false
+            return rows ? rows : false
         } catch (error) {
             throw new Error(error);
         }
@@ -114,7 +114,7 @@ class Games {
 
             rows.affectedRows ?  console.log(`GAME: ${gameObject.title} CREATED!`) : console.log(`GAME: ${gameObject.title} NOT CREATED!`)
 
-            // return rows ? rows : false
+            return rows ? rows : false
         } catch (error) {
             throw new Error(error);
         }
@@ -144,7 +144,7 @@ class Games {
 
             rows.affectedRows ? console.log(`GAME ID: ${gameObject.id} UPDATED!`) : console.log(`GAME ID: ${gameObject.id} NOT UPDATED!`)
 
-            // return rows ? rows : false
+            return rows ? rows : false
         } catch (error) {
             throw new Error(error);
         }
@@ -173,7 +173,7 @@ class Games {
 
             console.log('searchTitle: ', rows ? rows : false)
 
-            // return rows ? rows : false
+            return rows ? rows : false
         } catch (error) {
             throw new Error(error)
         }

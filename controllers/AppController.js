@@ -28,10 +28,12 @@ import { PagarME } from '../helpers/PagarME.js'
 
 class AppController {
 
-    static async getViewHome (req, res) {
+    static async getViewHome(req, res) {
         const game = await Games.getRandom()
         const totalGames = await Games.getTotal()
         const totalBooks = await Books.getTotal()
+
+        game.igdb_rating = game.igdb_rating / 10
 
         return res.render('pages/home', {
             flash_success: req.flash('success'),

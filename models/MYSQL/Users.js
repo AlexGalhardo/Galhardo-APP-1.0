@@ -94,7 +94,7 @@ class Users {
 
             const [ rows ] = await MYSQL.execute(stmt);
 
-            console.log('emailAlreadyRegistred: ', rows[0] ? true : false)
+            // console.log('emailAlreadyRegistred: ', rows[0] ? true : false)
 
             return rows[0] ? true : false
         } catch(error){
@@ -419,7 +419,7 @@ class Users {
 
             const emailAlreadyRegisted = await Users.emailAlreadyRegistred(userObject.email)
 
-            if(emailAlreadyRegisted) return console.log('Email already Registred!')
+            if(emailAlreadyRegisted) return false
 
             let stmt = `INSERT INTO users
                                 (id,
@@ -504,13 +504,13 @@ class Users {
 
             let data = [
                 uuid(), // id
-                userObject.name, // name
+                userObject.username, // name
                 userObject.email, // email
                 0, // confirmed_email
                 confirm_email_token, // confirm_email_token
                 passwordHash, // password
                 null, // reset_password_token
-                userObject.admin, // admin
+                0, // admin
                 "avatar.png", // avatar
                 null, // document
                 null, // phone_country
@@ -543,9 +543,7 @@ class Users {
 
             const [ rows ]  = await MYSQL.execute(stmt, data);
 
-            rows.affectedRows ? console.log(`USER: ${userObject.email} CREATED!`) : console.log('USER NOT CREATED!')
-
-            return
+            rows.affectedRows ? true : false
 
         } catch(error){
             throw new Error(error)

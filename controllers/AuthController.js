@@ -161,11 +161,19 @@ class AuthController {
                 google_id
             };
 
-            await Users.create(userObject)
-            await NodeMailer.sendConfirmEmailLink(email)
+            const userCreated = await Users.create(userObject)
 
-            req.flash('success', 'Conta criada! Confirme seu email clicando no link enviado para o seu inbox!')
+            if(userCreated){
+                console.log('entrou user created', userCreated)
+                await NodeMailer.sendConfirmEmailLink(email)
+
+                req.flash('success', 'Conta criada! Confirme seu email clicando no link enviado para o seu inbox!')
+                return res.redirect('/criar-conta')
+            }
+
+            req.flash('warning', 'Algum erro aconteceu')
             return res.redirect('/criar-conta')
+
 
         } catch (error) {
             throw new Error(error)

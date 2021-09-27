@@ -11,7 +11,7 @@ async function recommendOtherGame(){
 
     Object.entries(object).forEach(([key, value]) => {
 
-        object.game.price = object.game.price.toFixed(2)
+        // object.game.price = object.game.price.toFixed(2)
 
         document.querySelector(`#game_price`).innerHTML = `${object.game.price}`
 

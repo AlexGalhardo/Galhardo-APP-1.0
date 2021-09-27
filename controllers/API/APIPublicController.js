@@ -11,10 +11,10 @@
 import bodyParser from 'body-parser'
 
 // MODELS
-import Users from '../../models/JSON/Users.js'
-import Blog from '../../models/JSON/Blog.js'
-import Games from '../../models/JSON/Games.js'
-import Books from '../../models/JSON/Books.js'
+import Users from '../../models/MYSQL/Users.js'
+import Blog from '../../models/MYSQL/Blog.js'
+import Games from '../../models/MYSQL/Games.js'
+import Books from '../../models/MYSQL/Books.js'
 
 
 
@@ -23,7 +23,7 @@ class APIPublicController {
 
     static async getPublicEmailRegistred(req, res, next){
         try {
-            let emailRegistred = await Users.emailRegistred(req.params.email)
+            let emailRegistred = await Users.emailAlreadyRegistred(req.params.email)
             return res.json({
                 emailRegistred
             });
@@ -78,7 +78,7 @@ class APIPublicController {
 
 	static async getPublicGames(req, res, next) {
 		try {
-	        let games = await Games.getAll()
+	        let games = await Games.selectAll()
             return res.json({
                 games
             });	        
@@ -106,6 +106,8 @@ class APIPublicController {
 	static async getPublicRandomGame(req, res, next){
 		try {
 			const game = await Games.getRandom()
+            game.igdb_rating = game.igdb_rating / 10
+
             return res.json({
                 game
             });	        

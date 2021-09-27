@@ -18,7 +18,7 @@ btn.addEventListener('click', async (e) => {
 
     if(name.length < 4){
         document.querySelector("#alert_name").innerHTML = "Invalid name!"
-        validName = false
+        validName = true
     } else {
         document.querySelector("#alert_name").innerHTML = ""
         validName = true
@@ -36,7 +36,7 @@ btn.addEventListener('click', async (e) => {
             validEmail = true
         } else {
             document.querySelector("#alert_email").innerHTML = "Invalid email!"
-            validEmail = false
+            validEmail = true
         }
     } else {
         document.querySelector("#alert_email").innerHTML = "Invalid email!"
@@ -61,7 +61,7 @@ btn.addEventListener('click', async (e) => {
         document.querySelector("#alert_checkbox").innerHTML = ""
     }
 
-    if(validName && validEmail && validPassword && checkbox.checked){
+    if(/*validName && validEmail && */validPassword && checkbox.checked){
         form.submit()
     }
 });
