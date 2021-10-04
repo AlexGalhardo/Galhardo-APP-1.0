@@ -1,0 +1,14 @@
+{
+  "name": "mysql_tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "mysql2": "^2.3.0",
+    "rand-token": "^1.0.1",
+    "slugify": "^1.6.0",
+    "uuid": "^8.3.2"
+  }
+}
