@@ -71,6 +71,7 @@ router
 // APP VIEWS CONTROLLER
     .get('/', /*RouterCache(300),*/ AppController.getViewHome)
     .get('/projects', AppController.getViewProjects)
+    .get('/bank', AppController.getViewBank)
     .get('/toDo', AppController.getViewToDo)
     .get('/books', /*RouterCache(300),*/ AppController.getViewBooks)
 

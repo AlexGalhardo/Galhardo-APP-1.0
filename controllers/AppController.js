@@ -72,6 +72,15 @@ class AppController {
         });
     }
 
+    static getViewBank(req, res){
+        res.render('pages/bank', {
+            flash_success: req.flash('success'),
+            flash_warning: req.flash('warning'),
+            user: SESSION_USER,
+            header: Header.bank()
+        });
+    }
+
 
     static getViewToDo(req, res){
         res.render('pages/toDo', {

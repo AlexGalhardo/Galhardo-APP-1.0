@@ -44,6 +44,15 @@ class Header {
             title: "Projects - Galhardo APP",
             navbar_projects_active: true,
             weather_css: `<link rel="stylesheet" href="/css/weather.css">`,
+            scroll_bar_div,
+            scroll_bar_script
+        }
+    }
+
+    static bank(){
+        return {
+            title: "Bank - Galhardo APP",
+            navbar_bank_active: true,
             app_money_css: `<link rel="stylesheet" href="/css/app_money.css">`,
             scroll_bar_div,
             scroll_bar_script

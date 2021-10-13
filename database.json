@@ -298,7 +298,7 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedRecommend": "btn-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
@@ -568,10 +568,10 @@
       "genres": "Single Player, Adventure, Action, Shooter, Third Person",
       "amazon_link": "#",
       "recommend": 1,
-      "not_recommend": 1,
+      "not_recommend": 2,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
+      "userLoggedRecommend": "btn-outline-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
@@ -592,7 +592,7 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
+      "userLoggedRecommend": "btn-outline-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     }
   ],
@@ -734,6 +734,12 @@
       "game_id": 16,
       "user_recommend": false,
       "user_not_recommend": false
+    },
+    {
+      "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
+      "game_id": 18,
+      "user_recommend": false,
+      "user_not_recommend": true
     }
   ],
   "books": [

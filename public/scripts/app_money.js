@@ -39,7 +39,7 @@ const addTransactionIntoDOM = transaction => {
     li.classList.add(CSSClas)
     li.innerHTML = `
         ${transaction.name}
-        <span>${operator} R$${amountWithoutOperator}</span>
+        <span>${operator} $${amountWithoutOperator}</span>
         <button class="delete-btn" onClick="removeTransaction(${transaction.id})">
             x
         </button>
@@ -114,7 +114,7 @@ const handleFormSubmit = event => {
     const isSomeInputEmpty = transactionName === '' || transactionAmount === '';
 
     if(isSomeInputEmpty){
-        alert('Por favor, preencha o nome e o valor da transação')
+        alert('You need to enter transaction name and amount!')
         return
     }
 

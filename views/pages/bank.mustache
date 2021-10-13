@@ -1,0 +1,66 @@
+{{>partials/header}}
+
+    <div class="container col-lg-12">
+
+        <div class="row">
+
+
+
+
+            <div class="col-lg-4"><img src="/images/image_bank.png" class="img-fluid w-100"></div>
+
+            <div class="col-lg-4 text-center mt-3">
+
+
+                    <div class="card mb-3">
+                        <h3 id="balance" class="balance fw-bold mt-3 text-primary">R$ 0.00</h3>
+                    </div>
+
+
+
+                        <div class="card mb-3 pt-3">
+                            <h4 class="fw-bold text-success">Deposits</h4>
+                            <p id="money-plus" class="fw-bold money plus">+ R$0.00</p>
+                        </div>
+
+
+                        <div class="card mb-3 pt-3">
+                            <h4 class="fw-bold text-danger">Withdraws</h4>
+                            <p id="money-minus" class="fw-bold money minus">- R$0.00</p>
+                        </div>
+
+
+
+
+                    <form id="form">
+                        <div class="mt-3">
+                            <input class="form-control" autofocus type="text" id="text" placeholder="Transaction Name" />
+                        </div>
+
+                        <div class="mt-3">
+                            <input class="form-control" type="number" id="amount" placeholder="Transaction Amount" />
+                            <small>(positive = deposit, negative = withdraw)</small>
+                        </div>
+
+                        <button class="mt-3 btn btn-outline-dark w-100 shadow">Add Transaction</button>
+                    </form>
+
+
+            </div>
+
+            <div class="col-lg-4 text-center mt-3">
+                <div class="card p-2">
+                    <h3 style="color: #9309AF;" class="fw-bold">Transactions</h3>
+                    <ul id="transactions" class="transactions"></ul>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="../scripts/app_money.js"></script>
+
+{{>partials/footer}}
