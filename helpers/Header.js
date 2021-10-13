@@ -83,7 +83,7 @@ class Header {
             title: blogPostTitle,
             navbar_blog_active: true,
             scroll_bar_div,
-            scroll_bar_script,
+            scroll_bar_script: `<script src="../scripts/scroll_bar.js"></script>`,
             use_disqus: true,
             disqus_comments: `<div id="disqus_thread"></div>
                 <script>
@@ -110,7 +110,9 @@ class Header {
     static plans(head_title){
         return {
             title: head_title,
-            navbar_plans_active: true
+            navbar_plans_active: true,
+            scroll_bar_div,
+            scroll_bar_script
         }
     }
 

@@ -1,6 +1,6 @@
 {{>partials/header}}
 
-	<div class="container col-lg-12">
+	<div class="container col-lg-12 mt-3">
 
       	<div class="row">
 
@@ -56,7 +56,7 @@
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="card-title">
                                 <a target="_blank" id="amazon_link" style="text-decoration:none;" href="{{amazon_link}}" class="card-link">
-                                    <span id="book_title" class="fw-bold text-primary">{{title}}</span>
+                                    <span id="book_title" class="fw-bold" style="color: #9309AF;">{{title}}</span>
                                     (<span id="book_year_release" class="text-muted">{{year_release}}</span>)
                                 </a>
                             </h3>
@@ -124,7 +124,7 @@
                             <span>{{totalGames}}</span>
                         </a>
 
-                        <a href="/books" class="d-flex justify-content-between list-group-item list-group-item-action bg-dark text-white">
+                        <a href="/books" class="d-flex justify-content-between list-group-item list-group-item-action text-white" style="border-color: #9309AF; background-color: #9309AF;">
                             <i class="bi bi-book"></i>
                             <span>Books</span>
                             <span>{{totalBooks}}</span>

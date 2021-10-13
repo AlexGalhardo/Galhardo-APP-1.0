@@ -8,8 +8,8 @@
         		{{{boostrapPaginator}}}
 
         		<form action="/blog/search" method="GET" class="d-flex">
-			        <input class="form-control me-2" type="search" placeholder="Search blog title" name="blogTitle" value="{{searchBlogTitle}}" required>
-			        <button class="btn btn-outline-success" type="submit">Search</button>
+			        <input class="form-control me-2" type="search" placeholder="Search blog title..." name="blogTitle" value="{{searchBlogTitle}}" required>
+			        <button class="btn btn-outline-dark" type="submit">Search</button>
 			    </form>
 
 			    {{#totalBlogPostsFoundFromSearch}}
@@ -25,8 +25,7 @@
 			          		<img src="{{image}}">
 			        	</div>
 			        	<div class="col p-4 d-flex flex-column position-static">
-			          		<strong class="d-inline-block mb-2 text-primary">{{category}}</strong>
-			          		<h5 class="mb-0">{{title}}</h5>
+			          		<h3 class="fw-bold" style="color: #9309AF;">{{title}}</h3>
 			          		<div class="mb-1 text-muted"><small>{{created_at}}</small></div>
 			          		<br>
 			          		<p class="card-text mb-auto">{{resume}}</p>

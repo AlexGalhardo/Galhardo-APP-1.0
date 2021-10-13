@@ -2,12 +2,12 @@
 	
 	<main class="container col-lg-6">
 
-        <div class="row mb-5">
+        <div class="row mb-3 mt-3">
 
         	{{#blogPost}}
         		
-                <div class="text-center mb-5">
-            		<h3 class="fw-bold text-primary">{{title}}</h3>
+                <div class="text-center mb-3">
+            		<h3 class="fw-bold" style="color: #9309AF;">{{title}}</h3>
             		<small class="mb-5">{{updated_at}}</small>
                     <br><br>
                     {{#user.admin}}
@@ -17,7 +17,7 @@
                     {{/user.admin}}
                 </div>
 
-                <div id="blog_body" class="mb-5">
+                <div id="blog_body" class="mb-3">
         		  {{{body}}}
                 </div>
 

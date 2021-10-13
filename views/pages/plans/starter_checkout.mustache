@@ -2,7 +2,7 @@
 
     {{#user}}
 
-    <div class="container col-lg-7 mt-2">
+    <div class="container col-lg-12 mt-5">
 
         <div class="row">
 
@@ -18,11 +18,18 @@
 
                 <div class="row">
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
+                        <img src="/images/image_plan_1.png" class="w-100 img-fluid">
+                    </div>
+
+                    <div class="col-lg-4">
 
                         <div class="card mb-4 rounded-3 shadow-sm text-center">
                             <div class="card-header py-3 bg-warning">
-                                <h4 class="my-0 fw-normal">STARTER</h4>
+                                <h4 class="my-0 fw-bold text-white">
+                                    <i class="bi bi-award"></i>
+                                    STARTER
+                                </h4>
                             </div>
                             <div class="card-body">
                                 <h1 class="card-title pricing-card-title">$1.99<small class="text-muted fw-light">/month</small></h1>
@@ -49,11 +56,9 @@
                         <br>
 
                     </div>
-                    <!-- END COL LG 5 -->
 
 
-
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
 
                         {{#user.stripe.card_id}}
                             <div class="form-floating mb-3">
@@ -151,11 +156,6 @@
     <script src="/scripts/jquery.card.js"></script>
     <script src="/scripts/render_credit_card.js"></script>
 
-    <script src="../../scripts/navbar_apis.js"></script>
-    <script src="../../scripts/privacy.js"></script>
-
     {{/user}}
-    
-
 
 {{>partials/footer}}

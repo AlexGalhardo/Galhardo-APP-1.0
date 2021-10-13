@@ -33,7 +33,7 @@
         "card_exp_month": null,
         "card_exp_year": null,
         "currently_subscription_id": "sub_KASPZ9F5iNXsBG",
-        "currently_subscription_name": "STARTER",
+        "currently_subscription_name": "FREE",
         "subscription_start": "04/09/2021 19:37:40",
         "subscription_end": "04/10/2021 19:37:40",
         "cancel_at_period_end": true
@@ -403,7 +403,7 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-outline-success",
+      "userLoggedRecommend": "btn-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
@@ -508,7 +508,7 @@
       "not_recommend": 1,
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
-      "userLoggedRecommend": "btn-success",
+      "userLoggedRecommend": "btn-outline-success",
       "userLoggedNotRecommend": "btn-outline-danger"
     },
     {
@@ -572,7 +572,7 @@
       "created_at": "04/08/2021 18:35:09",
       "updated_at": "04/08/2021 18:55:16",
       "userLoggedRecommend": "btn-outline-success",
-      "userLoggedNotRecommend": "btn-outline-danger"
+      "userLoggedNotRecommend": "btn-danger"
     },
     {
       "id": 19,
@@ -1025,7 +1025,7 @@
       "pages": "92",
       "genres": "Science Fiction",
       "author": "Douglas Adams",
-      "recommend": 1,
+      "recommend": 2,
       "not_recommend": 2,
       "updated_at": "17/08/2021 05:49:19",
       "created_at": "17/08/2021 05:49:19",
@@ -1163,6 +1163,12 @@
       "user_id": "13667f62-03d6-4b46-bd22-0bbf2a3b89d2",
       "book_id": 18,
       "user_recommend": false,
+      "user_not_recommend": false
+    },
+    {
+      "user_id": "7f9c1c22-98f6-4472-a031-d027b7196ba9",
+      "book_id": 17,
+      "user_recommend": true,
       "user_not_recommend": false
     }
   ],
