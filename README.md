@@ -354,11 +354,11 @@ Games.getRandom() // return a random game object
 
 
 ### Games
-![ga_home](https://user-images.githubusercontent.com/19540357/132409025-ddf7aff6-9bb6-45c6-842a-060092c9c833.png)
+![ga_home](https://user-images.githubusercontent.com/19540357/137158866-daaef218-64a4-4e46-8bee-edeea3524f26.png)
 
 
 ### Books
-![ga_books](https://user-images.githubusercontent.com/19540357/132408602-0f7c547a-25ea-45cc-8239-fb3d24dc54fc.png)
+![ga_books](https://user-images.githubusercontent.com/19540357/137158882-3c8200ae-7e07-495e-a43a-accc39e5cb67.png)
 
 
 ### SHOP
@@ -370,8 +370,10 @@ Games.getRandom() // return a random game object
 
 
 ### Subscription
-![ga_plans](https://user-images.githubusercontent.com/19540357/133533001-b016b8ba-baa6-41f6-8b1a-86d22a046770.png)
-![ga_plan_checkout](https://user-images.githubusercontent.com/19540357/131592850-3f8ee4b4-7887-4c69-bd62-6736c7ad162b.png)
+![ga_plans_1](https://user-images.githubusercontent.com/19540357/137158854-b3099715-90b8-4de6-b8a2-0103bc0c4ad1.png)
+![ga_plans_2](https://user-images.githubusercontent.com/19540357/137158859-da0fb9e9-83d5-4023-831c-76778f073fb2.png)
+![ga_plans_3](https://user-images.githubusercontent.com/19540357/137158848-9fa2f4ab-042a-495c-800b-ce2f2368a234.png)
+![ga_plans_checkout](https://user-images.githubusercontent.com/19540357/137158870-e38bbae1-cb97-4759-8225-73c0c7fd9b47.png)
 ![ga_subs_checkout_card_registred](https://user-images.githubusercontent.com/19540357/131592478-55d78666-00c2-4763-b697-dd204f3d183a.png)
 ![ga_subscription_log](https://user-images.githubusercontent.com/19540357/133533167-12f42c63-8acd-4dee-a8c9-64448fc41729.png)
 ![ga_subs_email](https://user-images.githubusercontent.com/19540357/131592487-849e67cf-780b-4905-9275-e8fa3cf60e0b.png)
@@ -382,11 +384,12 @@ Games.getRandom() // return a random game object
 
 
 ## Contact
-![ga_contact_1](https://user-images.githubusercontent.com/19540357/133533006-013e0853-4062-4379-af88-b005556b99ae.png)
+![ga_contact_1](https://user-images.githubusercontent.com/19540357/137158872-9679db65-6fa4-4a90-89c7-6875eb0150cf.png)
+![ga_contact_2](https://user-images.githubusercontent.com/19540357/137158876-6b679e89-79c1-4362-a1da-0a78da7f78ce.png)
 ![ga_message_log](https://user-images.githubusercontent.com/19540357/131276348-baf084e6-23d7-48d5-9fa6-0ff2bdd30236.png)
 
 ### AuthController
-![ga_login](https://user-images.githubusercontent.com/19540357/132408604-2e1d9c75-aa97-453f-a855-22d1444dbf52.png)
+![ga_login](https://user-images.githubusercontent.com/19540357/137158864-306f4b81-b723-48eb-8e53-4b35be966899.png)
 ![ga_google](https://user-images.githubusercontent.com/19540357/130067660-c50adabf-7b75-4f4f-a871-4532294ace4b.png)
 ![ga_register_github](https://user-images.githubusercontent.com/19540357/130067666-04018b3f-e900-4b69-be2c-bb6bc7768416.png)
 ![ga_register](https://user-images.githubusercontent.com/19540357/132408607-4e868c73-622f-4812-a62a-89fb7a78f4ea.png)
@@ -395,15 +398,18 @@ Games.getRandom() // return a random game object
 ![ga_recover_password](https://user-images.githubusercontent.com/19540357/131276363-a56ab9fd-7ac1-491a-985f-9684c5fdc5bf.png)
 
 ## Projects
-![ga_projects](https://user-images.githubusercontent.com/19540357/133856092-720dfbf9-56fb-4812-b9af-48ed80ef725e.png)
-![ga_projects_2](https://user-images.githubusercontent.com/19540357/133855582-30363d20-0f11-489c-a640-1f1f4728955a.png)
+![ga_projects](https://user-images.githubusercontent.com/19540357/137158850-6dc2674a-a017-4b66-99de-6155f33662c6.png)
+
+## Bank
+![ga_bank](https://user-images.githubusercontent.com/19540357/137158843-ddeb295d-e3a3-4078-b535-032779e3d9cc.png)
 
 ## ToDo
-![ga_todo](https://user-images.githubusercontent.com/19540357/133855592-64439960-83bb-4627-9cd9-99ca72580cd5.png)
+![ga_todo](https://user-images.githubusercontent.com/19540357/137159748-c56bab79-a467-4007-bf0c-06499b0974f3.png)
 
 ### Blog
-![ga_blog](https://user-images.githubusercontent.com/19540357/129276413-93b7a40c-f8f5-4bb9-b1cc-df5df78b73da.png)
-![ga_blog_post](https://user-images.githubusercontent.com/19540357/129276447-239ae567-4c74-46c1-8c0d-fda16449456a.png)
+![ga_blog](https://user-images.githubusercontent.com/19540357/137159589-a93c3874-577e-4c97-98ed-ae681942d6a2.png)
+![ga_blog_post_1](https://user-images.githubusercontent.com/19540357/137158860-25d19f0f-21eb-4d22-afcf-26757ca9927d.png)
+![ga_blog_post_2](https://user-images.githubusercontent.com/19540357/137158865-848229c4-d188-429e-8320-e500baf53a0e.png)
 ![ga_blog_comment_1](https://user-images.githubusercontent.com/19540357/130067633-96702bac-a9b9-40a4-9af1-30d44da1c827.png)
 ![ga_blog_comment_2](https://user-images.githubusercontent.com/19540357/130067642-fb771181-f73e-47f8-93f4-7a64d51af7e4.png)
 ![ga_blog_disqus](https://user-images.githubusercontent.com/19540357/131751707-33180158-b8e5-4ed6-a728-48ed7cefbeb8.png)
