@@ -65,7 +65,7 @@ document.querySelector('#zipcode').addEventListener('change', async function(e) 
     const zipcode = e.target.value
     
     // CEP DATA
-    const responseCEP = await fetch(`https://correios.galhardoapp.com/cep/${zipcode}`)
+    const responseCEP = await fetch(`https://galhardo-correios.herokuapp.com/cep/${zipcode}`)
     const cepJson = await responseCEP.json()
 
     const { logradouro, bairro, localidade, uf } = cepJson
@@ -77,7 +77,7 @@ document.querySelector('#zipcode').addEventListener('change', async function(e) 
     document.querySelector('#customer_country').value = 'Brazil'
 
     // SHIPPING DATA
-    const responseShipping = await fetch(`https://correios.galhardoapp.com/shipping/${zipcode}`)
+    const responseShipping = await fetch(`https://galhardo-correios.herokuapp.com/shipping/${zipcode}`)
     const shippingJson = await responseShipping.json()
     
     const shipping_fee = parseFloat(shippingJson[0].Valor);

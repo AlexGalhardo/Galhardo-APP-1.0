@@ -2,12 +2,12 @@ window.onload = function(){
     let subscribedNewsletter = localStorage.getItem('subscribed_newsletter');
 
     // show newsletter card
-    if(!subscribedNewsletter){
+    if(subscribedNewsletter){
         document.querySelector("#newsletter_card").innerHTML = `
                         <div class="card mt-3">
                             <div class="card-body">
                                 <form id="form_newsletter" method="POST" action="https://app.convertkit.com/forms/2606331/subscriptions">
-                                    <h5 class="card-title fw-bold text-success text-center">Newsletter</h5>
+                                    <h5 class="card-title fw-bold text-center">Newsletter</h5>
                                     <small class="text-center">Get the best news about games and books once a week!</small>
 
                                     <br>
@@ -32,7 +32,7 @@ window.onload = function(){
 
                                     </div>
 
-                                    <button id="button_subscribe_newsletter" type="submit" class="mt-3 w-100 btn btn-sm btn-outline-success">Subscribe to newsletter</button>
+                                    <button id="button_subscribe_newsletter" type="submit" class="mt-3 w-100 btn btn-sm btn-outline-dark">Subscribe to newsletter</button>
 
                                 </form>
 

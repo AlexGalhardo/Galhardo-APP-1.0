@@ -4,12 +4,11 @@
 .progress-container {
   width: 100%;
   height: 5px;
-  background: #F8F9FA;
 }
 
 .progress-bar {
   height: 5px;
-  background: red;
+  background-color: #9309AF !important;
   width: 0%;
   position: fixed;
   top: 0;

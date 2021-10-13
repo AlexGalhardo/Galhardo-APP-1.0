@@ -36,7 +36,7 @@
 
         <h2 class="text-center text-muted mb-4">
             <a class="text-decoration-none" href="/">
-                <b>
+                <b style="color: #9309AF;">
                     <i class="bi bi-cup-straw"></i>
                     Galhardo APP
                 </b>
@@ -95,32 +95,33 @@
                         placeholder="Enter your email" 
                         autofocus 
                         required>
-                <label for="email">Email address</label>
+                <label for="email">Your Email Address</label>
             </div>
 
             <div class="form-floating mb-3">
                 <input type="password" class="mb-3 form-control" id="password" name="password" placeholder="Enter your password" required value="test123">
-                <label for="password">Password</label>
+                <label for="password">Your Password</label>
             </div>
 
             <div class="form-group">
                 <button type="submit" class="shadow mb-3 w-100 btn btn-success btn-block login-btn">Login</button>
             </div>
 
-            <p class="text-center mb-3">
-                <a href="/forgetPassword" class="text-decoration-none"><b>Forget My Password</b></a>
-            </p>
+
 
         </form>
 
         <div class="text-center">
-            <small><a href="/register" class="text-success"><b>Register Account</b></a>
-            </a>
-        </div>
+            <p class="text-center mb-3">
+                <a href="/forgetPassword" class="text-decoration-none">
+                    <b>Forget My Password</b>
+                </a>
+            </p>
 
-        <div class="text-center mt-3">
-            <small><a href="/confirmEmail" class="text-info"><b>Resend Confirm Email Link</b></a>
-            </a>
+            <p><a href="/register" class="text-success text-decoration-none"><b>Register Account</b></a>
+            </a></p>
+
+            <p><a href="/confirmEmail" class="text-info text-decoration-none"><b>Resend Confirm Email Link</b></a></p>
         </div>
 
     </div>

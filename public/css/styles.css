@@ -2,3 +2,15 @@
     margin-top: 50px;
     background-color: #F8F9FA;
 }
+
+.btn-dark, .btn-outline-dark:hover, .btn-dark:active, .btn-dark:visited {
+    background-color:  #9309AF !important;
+    border-color: #9309AF !important;
+    color:  white !important;
+}
+
+.btn-outline-dark {
+    background-color:  white !important;
+    border-color:  #9309AF !important;
+    color:  #9309AF !important;
+}

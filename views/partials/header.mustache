@@ -85,15 +85,17 @@
 
 <body id="tag_body">
 
-    <div class="fixed-top bg-dark">
+    <div class="fixed-top shadow bg-white">
 
-        <nav class="container col-lg-12 navbar navbar-expand-lg fixed navbar-dark bg-dark">
+        <nav class="container pt-2 pb-2 col-lg-12 navbar navbar-expand-lg fixed navbar-light bg-white">
 
             <div class="container-fluid">
 
                 <a class="navbar-brand fw-bold" href="/">
-                    <i class="bi bi-cup-straw"></i>
-                    Galhardo APP
+
+                        <i class="bi bi-cup-straw"></i>
+                        <span style="color: #9309AF;" class="fs-4 fw-bold">Galhardo APP</span>
+
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,37 +107,36 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link {{#header.navbar_blog_active}}fw-bold text-white{{/header.navbar_blog_active}}" aria-current="page" href="/blog">
-
+                            <a class="fs-5 nav-link {{#header.navbar_blog_active}}fw-bold" style="color: #9309AF; {{/header.navbar_blog_active}}" aria-current="page" href="/blog">
                                 Blog
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{#header.navbar_contact_active}}fw-bold text-white{{/header.navbar_contact_active}}" aria-current="page" href="/contact">
+                            <a class="fs-5 nav-link {{#header.navbar_contact_active}}fw-bold" style="color: #9309AF; {{/header.navbar_contact_active}}" aria-current="page" href="/contact">
 
                                 Contact
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{#header.navbar_shop_active}}fw-bold text-white{{/header.navbar_shop_active}}" aria-current="page" href="/shop"> Shop</a>
+                            <a class="fs-5 nav-link {{#header.navbar_shop_active}}fw-bold text-dark{{/header.navbar_shop_active}}" aria-current="page" href="/shop"> Shop</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{#header.navbar_plans_active}}fw-bold text-white{{/header.navbar_plans_active}}" aria-current="page" href="/plans"> Plans</a>
+                            <a class="fs-5 nav-link {{#header.navbar_plans_active}}fw-bold text-dark{{/header.navbar_plans_active}}" aria-current="page" href="/plans"> Plans</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{#header.navbar_criptobot_active}}fw-bold text-white{{/header.navbar_criptobot_active}}" aria-current="page" href="/criptoBOT"> CriptoBOT</a>
+                            <a class="fs-5 nav-link {{#header.navbar_criptobot_active}}fw-bold text-dark{{/header.navbar_criptobot_active}}" aria-current="page" href="/criptoBOT"> CriptoBOT</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{#header.navbar_projects_active}}fw-bold text-white{{/header.navbar_projects_active}}" aria-current="page" href="/projects"> Projects</a>
+                            <a class="fs-5 nav-link {{#header.navbar_projects_active}}fw-bold text-dark{{/header.navbar_projects_active}}" aria-current="page" href="/projects"> Bank</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link {{#header.navbar_toDo_active}}fw-bold text-white{{/header.navbar_toDo_active}}" aria-current="page" href="/toDo"> ToDo</a>
+                            <a class="fs-5 nav-link {{#header.navbar_toDo_active}}fw-bold text-dark{{/header.navbar_toDo_active}}" aria-current="page" href="/toDo"> ToDo</a>
                         </li>
 
                         {{#user.admin}}
@@ -202,7 +203,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person-circle"></i>
-                                    {{user.name}}
+                                    <span class="fs-5 fw-bold" style="color: #9309AF;">{{user.name}}</span>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
@@ -260,13 +261,12 @@
                         {{^user}}
                             <div class="pull-right">
 
-                                <a href="/login" class="btn shadow btn-success" type="submit">Login</a>
+                                <a href="/login" class="shadow-sm fw-bold fs-5 btn btn-outline-success" type="submit">Login</a>
 
-                                <a href="/register" class="ms-2 btn shadow btn-primary" type="submit">Register</a>
+                                <a href="/register" class="shadow-sm fw-bold fs-5 ms-2 btn btn-outline-primary" type="submit">Sign Up</a>
                             </div>
                         {{/user}}
 
-                        <iframe class="ms-3" src="https://ghbtns.com/github-btn.html?user=alexgalhardo&repo=galhardo-app&type=star&count=true&size=large" frameborder="0" scrolling="0" width="150" height="30" title="GitHub"></iframe>
 
                 </div>
 
