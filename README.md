@@ -367,6 +367,7 @@ Games.getRandom() // return a random game object
 ![ga_shop_2](https://user-images.githubusercontent.com/19540357/131276356-c5d3733e-8d62-46d7-a6d7-9fc14e368350.png)
 ![ga_shop_3](https://user-images.githubusercontent.com/19540357/131276360-477d23c2-4f3f-4c9c-abab-a8e58ed0d9b8.png)
 ![ga_shop_4](https://user-images.githubusercontent.com/19540357/131276370-52cb4ef6-3f8c-402d-a6e8-ebe16850ad0a.png)
+![ga_stripe_checkout](https://user-images.githubusercontent.com/19540357/137163262-034c54a6-ab89-416d-a525-86579ccefae2.png)
 
 
 ### Subscription
