@@ -11,7 +11,7 @@ import { v4 as uuid } from 'uuid';
 let connection = null
 try {
     connection = mysql2.createPool({
-        host: '172.20.0.3', // DOCKER IPv4 Address Here (use $ sudo docker inspect galhardoapp_mysql)
+        host: '172.18.0.3', // DOCKER IPv4 Address Here (use $ sudo docker inspect galhardoapp_mysql)
         user: 'root',
         password: 'root',
         database: 'galhardoapp',
