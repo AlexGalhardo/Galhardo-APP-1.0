@@ -8,7 +8,7 @@
   "homepage": "https://github.com/AlexGalhardo/Galhardo-APP",
   "engines": {
     "node": "14.17.5",
-    "npm": "7.21.1"
+    "npm": "8.1.2"
   },
   "repository": {
     "type": "git",

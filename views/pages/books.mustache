@@ -56,7 +56,7 @@
                         <div class="d-flex justify-content-between mb-3">
                             <h3 class="card-title">
                                 <a target="_blank" id="amazon_link" style="text-decoration:none;" href="{{amazon_link}}" class="card-link">
-                                    <span id="book_title" class="fw-bold" style="color: #9309AF;">{{title}}</span>
+                                    <span id="book_title" class="fw-bold">{{title}}</span>
                                     (<span id="book_year_release" class="text-muted">{{year_release}}</span>)
                                 </a>
                             </h3>
@@ -108,11 +108,6 @@
 
                 <div class="col-lg-3 mb-3">
 
-                    <button class="w-100 btn btn-outline-dark shadow mb-3" onclick="recommendOtherBook()">
-                            <i class="bi bi-play-fill"></i>
-                            Recommend Other
-                    </button>
-
                     <form class="mb-3" action="/searchBook" method="GET">
                         <input class="form-control" type="search" placeholder="Search Book Title..." aria-label="Search" name="title">
                     </form>
@@ -124,12 +119,17 @@
                             <span>{{totalGames}}</span>
                         </a>
 
-                        <a href="/books" class="d-flex justify-content-between list-group-item list-group-item-action text-white" style="border-color: #9309AF; background-color: #9309AF;">
+                        <a href="/books" class="d-flex justify-content-between list-group-item list-group-item-action text-white bg-dark">
                             <i class="bi bi-book"></i>
                             <span>Books</span>
                             <span>{{totalBooks}}</span>
                         </a>
                     </div>
+
+                    <button class="mt-3 w-100 btn btn-outline-primary shadow mb-3" onclick="recommendOtherBook()">
+                            <i class="bi bi-play-fill"></i>
+                            Recommend Other
+                    </button>
 
                     {{^user}}
                         <div id="newsletter_card">
